@@ -1,0 +1,18 @@
+Pixel Car Racer PC
+
+Les APK Pixel Car Racer et Unbound proviennent des fichiers fournis par
+l'utilisateur. Pixel Car Racer est le jeu de Studio Furukawa. Unbound est le
+mod fourni par l'utilisateur ; aucun auteur supplémentaire n'est attribué ici.
+Le paquet conserve les APK à l'identique.
+
+Le lanceur contient le runtime et la bibliothèque standard Go, sous licence
+BSD : voir licenses/GO-LICENSE.txt.
+
+Les outils et l'image Android ne sont pas redistribués dans ce paquet. Le
+lanceur les télécharge directement depuis dl.google.com. Leur installation
+nécessite l'acceptation des conditions Google Android SDK incluses dans
+licenses/ANDROID-SDK-LICENSE.txt. Les fichiers NOTICE des composants téléchargés
+restent dans leur arborescence d'installation.
+
+REA 6.5.0 a servi à l'inspection des APK pendant la préparation. Il n'est pas
+nécessaire sur le PC Windows et n'est pas incorporé au lanceur.

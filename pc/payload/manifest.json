@@ -1,0 +1,10 @@
+{
+  "unbound": {
+    "sha256": "2cc9c22512815321dd26e6ed5d61a11336f1b5cd88c75ae1874ed921c26e9802",
+    "version": "1.1.80"
+  },
+  "original": {
+    "sha256": "21bf7f260676a14536cbeac595f2648d57954fe85363e31a40831418aebb1bf7",
+    "version": "1.2.5"
+  }
+}

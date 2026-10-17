@@ -1,0 +1,3 @@
+pc/payload/*.apk
+pc/build/
+pc/*.exe
