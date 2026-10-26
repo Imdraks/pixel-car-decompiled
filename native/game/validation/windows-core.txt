@@ -1,0 +1,1 @@
+PASS: 22 checks; quarter mile 12.4257 s; endless distance 4427.29 m

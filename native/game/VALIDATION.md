@@ -26,6 +26,12 @@ la progression du jeu GameMaker.
 
 ## Windows
 
+Exécution réussie : [40305565837](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40305565837),
+sur Windows Server 2025, avec 22 contrôles du cœur et 15 contrôles graphiques.
+L'archive testée porte le SHA-256
+`dfe16f0c55049cd32c26ff1489709ed6147e647a691d03ec4423f9807b42c425`.
+Les rapports texte correspondants sont aussi conservés dans `validation/`.
+
 Le pipeline de publication `publish-native-release.yml` vérifie le même paquet
 sur un runner Windows avant sa publication. Le rapport de cette exécution et
 ses captures sont joints séparément à la release dans `Validation-Windows.zip`.

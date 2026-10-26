@@ -32,11 +32,11 @@
   },
   "session": {
     "screen": "2",
-    "distance_m": "35.6858",
-    "speed_mps": "20.4021",
+    "distance_m": "35.9178",
+    "speed_mps": "20.5291",
     "target_lane": "2",
     "gear": "2",
-    "frames": "521",
+    "frames": "578",
     "mode": "borderless",
     "width": "1920",
     "height": "1080"

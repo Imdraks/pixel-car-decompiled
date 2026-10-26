@@ -1,5 +1,7 @@
 # Pixel Car Racer — reconstruction native Windows
 
+[Télécharger la version native Windows 0.2 — mode libre](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.2.0-native-preview/PixelCarRacerNative-Windows-x64.zip).
+
 **Objectif actuel : portage natif Windows, sans émulateur Android.**
 Une [première reconstruction native du mode libre](native/game/README.md) est
 maintenant implémentée en C++ avec Raylib : conduite continue, circulation,
