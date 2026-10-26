@@ -28,6 +28,11 @@ double easeLinear(double t, double b, double c, double d);
 struct Vehicle {
     double mass=1240, torque=345, wheelRadius=.32, finalDrive=3.9;
     double ratios[6]={3.15,2.10,1.55,1.22,1.0,.82};
+    // SI units; provisional calibration, not recovered GameMaker constants.
+    double idleRpm=1000, launchRpm=2800, upshiftRpm=7100, redlineRpm=8100;
+    double shiftSeconds=.15, efficiency=.87, grip=1.08;
+    double dragArea=.67, rollingResistance=.014, brakeDeceleration=8.5;
+    double engineBrakeTorque=18;
 };
 struct DriverInput { bool throttle=false, brake=false, automatic=true; };
 struct CarState {
@@ -36,7 +41,7 @@ struct CarState {
     bool finished=false;
 };
 constexpr double Step=1.0/120.0, QuarterMile=402.336;
-void shift(CarState&, int direction);
+bool shift(CarState&, int direction, const Vehicle& vehicle=Vehicle{});
 void stepCar(CarState&, const Vehicle&, const DriverInput&, double dt, double finishDistance=QuarterMile);
 struct TrafficCar { double position, speed; int lane, appearance; };
 struct FreeDrive {

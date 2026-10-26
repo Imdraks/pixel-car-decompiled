@@ -8,6 +8,13 @@ Ce n'est pas encore le portage complet et fidèle du jeu original : la conduite
 et la circulation sont réimplémentées. La base originale 1.2.5 n'est pas fusionnée
 avec le mod. Le moteur GameMaker YYC d'origine n'a pas été recompilé.
 
+## Priorité actuelle : physique
+
+La conduite est prioritaire sur l’ajout de contenu. Voir [PHYSICS.md](PHYSICS.md)
+pour le modèle provisoire, les corrections de boîte et le protocole de comparaison
+avec le jeu d’origine. Ces corrections de source sont postérieures à la release
+0.2 ; son téléchargement conserve le modèle précédemment publié.
+
 ## Jouer
 
 Extraire **toute** l'archive, puis ouvrir `PixelCarRacerNative.exe` et choisir

@@ -1,0 +1,4 @@
+0-100 km/h 4.1 s; telemetry physics-baseline.csv
+Physics baseline (provisional, not original): 100-0 km/h 41.3935 m / 3.00833 s; restart in sixth after 10 s 159.238 km/h
+PASS: 36 checks; quarter mile 12.4178 s; endless distance 4427.92 m
+Linux and Windows native builds completed.

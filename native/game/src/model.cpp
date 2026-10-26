@@ -67,24 +67,47 @@ bool saveProfile(const std::filesystem::path& file,const Profile& p,std::string&
 }
 // Numeric path derived from Unbound ease_linear disassembly, not generic YYRValue semantics.
 double easeLinear(double t,double b,double c,double d){return (c*t)/d+b;}
-void shift(CarState& car,int direction){if(car.shiftLock>0||car.finished)return;int next=std::clamp(car.gear+direction,1,6);if(next!=car.gear){car.gear=next;car.shiftLock=.15;}}
+static double wheelRpm(const CarState& car,const Vehicle& vehicle,int gear){
+    return car.speed*60/(2*3.141592653589793*vehicle.wheelRadius)*vehicle.ratios[gear-1]*vehicle.finalDrive;
+}
+bool shift(CarState& car,int direction,const Vehicle& vehicle){
+    if(car.shiftLock>0||car.finished||direction==0)return false;
+    int next=std::clamp(car.gear+(direction>0?1:-1),1,6);
+    // Reject an unsafe downshift instead of allowing mechanically impossible RPM.
+    if(next==car.gear||(next<car.gear&&wheelRpm(car,vehicle,next)>vehicle.redlineRpm))return false;
+    car.gear=next;car.shiftLock=vehicle.shiftSeconds;
+    return true;
+}
 void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,double finishDistance){
-    if(s.finished||dt<=0)return;
+    if(s.finished||dt<=0||!std::isfinite(dt))return;
     s.shiftLock=std::max(0.0,s.shiftLock-dt);
+    double coupled=wheelRpm(s,v,s.gear);
+    if(input.automatic&&s.shiftLock==0){
+        if(input.throttle&&!input.brake&&coupled>v.upshiftRpm&&s.gear<6)shift(s,1,v);
+        else if(s.gear>1&&coupled<(input.throttle&&!input.brake?2600.0:1500.0)
+                &&wheelRpm(s,v,s.gear-1)<v.upshiftRpm*.9)shift(s,-1,v);
+        coupled=wheelRpm(s,v,s.gear);
+    }
+    // Simplified slipping clutch below launch RPM. Above it, RPM follows wheel speed.
+    double target=std::max(input.throttle&&!input.brake?v.launchRpm:v.idleRpm,coupled);
+    if(s.shiftLock>0)s.rpm+=std::clamp(target-s.rpm,-13000*dt,15000*dt);
+    else s.rpm=target;
     double ratio=v.ratios[s.gear-1]*v.finalDrive;
-    double coupled=s.speed/(2*3.141592653589793*v.wheelRadius)*60*ratio;
-    double target=std::max(input.throttle?2800.0:1000.0,coupled);
-    s.rpm+=std::clamp(target-s.rpm,-13000*dt,15000*dt);
-    if(input.automatic&&s.rpm>7100&&s.gear<6){shift(s,1);ratio=v.ratios[s.gear-1]*v.finalDrive;}
     double torque=v.torque*(.62+.38*std::exp(-std::pow((s.rpm-5200)/2700,2)));
-    double force=input.throttle&&s.shiftLock==0&&s.rpm<8100?torque*ratio*.87/v.wheelRadius:0;
-    force=std::min(force,v.mass*9.81*1.08);
-    double resistance=.5*1.225*.67*s.speed*s.speed+v.mass*9.81*.014;
-    if(!input.throttle)resistance+=240;
-    if(input.brake)resistance+=v.mass*8.5;
-    double previous=s.position;
+    double force=input.throttle&&!input.brake&&s.shiftLock==0&&coupled<v.redlineRpm
+        ?torque*ratio*v.efficiency/v.wheelRadius:0;
+    force=std::min(force,v.mass*9.81*v.grip);
+    double resistance=.5*1.225*v.dragArea*s.speed*s.speed+v.mass*9.81*v.rollingResistance;
+    if(!input.throttle||input.brake){
+        // Engine braking acts through the engaged ratio, fades out as the clutch slips.
+        if(s.shiftLock==0)resistance+=v.engineBrakeTorque*ratio/v.wheelRadius*std::clamp(coupled/v.idleRpm,0.0,1.0);
+    }
+    if(input.brake)resistance+=v.mass*std::min(v.brakeDeceleration,9.81*v.grip);
+    double previous=s.position,oldSpeed=s.speed;
     s.speed=std::max(0.0,s.speed+(force-resistance)/v.mass*dt);
-    s.position+=s.speed*dt;s.elapsed+=dt;
+    // Integrate the stopping fraction so hard braking never moves backwards.
+    double movementTime=oldSpeed>0&&s.speed==0?std::min(dt,oldSpeed*v.mass/std::max(1.0,resistance-force)):dt;
+    s.position+=(oldSpeed+s.speed)*.5*movementTime;s.elapsed+=dt;
     if(finishDistance>0&&s.position>=finishDistance){double fraction=(finishDistance-previous)/(s.position-previous);s.finishTime=s.elapsed-dt+fraction*dt;s.position=finishDistance;s.finished=true;}
 }
 FreeDrive::FreeDrive(){for(size_t i=0;i<traffic.size();i++){respawn(traffic[i]);traffic[i].position=70+i*55;}}

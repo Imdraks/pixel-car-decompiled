@@ -1,5 +1,20 @@
 # Validation de la reconstruction native 0.2
 
+## Corrections de physique après la release 0.2
+
+Ces résultats concernent les sources après la release ; ils ne remplacent pas
+la preuve Windows du paquet 0.2 publié ci-dessous.
+
+- 36 contrôles du cœur réussis sur Linux, dont 14 nouveaux contrôles de conduite.
+- 15 contrôles du rendu Linux réussis après les corrections.
+- Exécutables Linux et Windows x64 reconstruits sans erreur. Le nouveau binaire
+  Windows n'a pas encore été exécuté sur Windows ; les résultats Windows plus
+  bas concernent exclusivement l'ancienne release.
+- Modèle provisoire : 0–100 km/h en 4,1 s ; 100–0 en 41,39 m et 3,01 s ;
+  402 m en 12,418 s. Ces nombres ne sont pas des références Android.
+- Rapports `validation/physics-core-linux.txt` et `physics-graphics-linux.txt`,
+  série temporelle `validation/physics-baseline.csv`. Protocole : `PHYSICS.md`.
+
 ## Contrôles terminés dans le cloud Linux
 
 - 22 vérifications du cœur : course de référence terminée, même résultat à

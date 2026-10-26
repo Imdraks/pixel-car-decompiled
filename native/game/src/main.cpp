@@ -303,8 +303,8 @@ struct App {
         if(screen==Screen::Free&&!paused&&!options&&!confirming){
             if(IsKeyPressed(KEY_LEFT)||IsKeyPressed(KEY_A)||IsKeyPressed(KEY_Q))drive.changeLane(-1);
             if(IsKeyPressed(KEY_RIGHT)||IsKeyPressed(KEY_D))drive.changeLane(1);
-            if(IsKeyPressed(KEY_E)||IsKeyPressed(KEY_LEFT_SHIFT))shift(drive.player,1);
-            if(IsKeyPressed(KEY_C))shift(drive.player,-1);
+            if(IsKeyPressed(KEY_E)||IsKeyPressed(KEY_LEFT_SHIFT))shift(drive.player,1,drive.vehicle);
+            if(IsKeyPressed(KEY_C))shift(drive.player,-1,drive.vehicle);
             if(IsKeyPressed(KEY_T)){profile.automatic=!profile.automatic;input.automatic=profile.automatic;saveCar();}
             if(args.smoke)input={true,false,true};
             accumulator+=dt;while(accumulator>=Step){drive.update(input,Step);accumulator-=Step;}
