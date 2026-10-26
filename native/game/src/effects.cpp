@@ -25,10 +25,10 @@ void DrivingEffects::update(const CarState& car,const Vehicle& vehicle,const Dri
     particles.erase(std::remove_if(particles.begin(),particles.end(),[](const Particle& p){return p.age>=p.life||p.x< -120||p.y< -120||p.y>820;}),particles.end());
     smokeTimer-=dt;nitroTimer-=dt;flameTimer-=dt;
     bool slip=input.throttle&&car.wheelSlip>.05;
-    bool braking=input.brake&&car.speed>18;
+    bool braking=(input.brake||input.handbrake)&&car.speed>18;
     if((slip||braking)&&smokeTimer<=0){
-        if(vehicle.drive!=DriveLayout::Front||braking)add(braking?EffectKind::BrakeSmoke:EffectKind::Smoke,source.rearWheel,source.wheelY);
-        if(vehicle.drive!=DriveLayout::Rear||braking)add(braking?EffectKind::BrakeSmoke:EffectKind::Smoke,source.frontWheel,source.wheelY);
+        if((slip&&vehicle.drive!=DriveLayout::Front)||braking)add(braking?EffectKind::BrakeSmoke:EffectKind::Smoke,source.rearWheel,source.wheelY);
+        if((slip&&vehicle.drive!=DriveLayout::Rear)||(braking&&input.brake))add(braking?EffectKind::BrakeSmoke:EffectKind::Smoke,source.frontWheel,source.wheelY);
         smokeTimer=.045;
     }
     auto jets=[&](EffectKind kind){for(int i=0;i<source.outletCount;i++){

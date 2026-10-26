@@ -3,6 +3,7 @@
 #include "art.hpp"
 #include "effects.hpp"
 #include "road_scene.hpp"
+#include "original_ui.hpp"
 #include <cmath>
 #include <algorithm>
 #include <filesystem>
@@ -364,6 +365,21 @@ int main(int argc,char**argv){
     expect(safeBox.gearCount==10&&safeBox.gearRatios==Profile{}.gearRatios&&safeBox.finalDrive==3.9&&safeBox.shiftSeconds==.15,"malformed gearbox settings cannot create unsafe ratios or more than ten gears");
     expect(loadProfile(root/"old-settings.ini",191,54).gearCount==6,"legacy profiles retain the original six-speed behaviour");
     {std::ofstream out(root/"exhaust-gearbox.json");out<<"{\n  \"body_pipe_configurations\": "<<placements<<",\n  \"gearbox_presets\": 8,\n  \"maximum_gears\": 10,\n  \"native_calibration\": true\n}\n";}
+    expect(std::size(original_ui::garageIcons)==68&&std::size(original_ui::glyphs)==192&&std::size(original_ui::lifts)==3,"original category icons, pixel glyphs and lift frames are complete");
+    bool uiBounds=true;for(const auto& frame:original_ui::glyphs)uiBounds&=frame.atlas>=1000&&frame.atlas<1000+original_ui::AtlasCount&&frame.x+frame.w<=2048&&frame.y+frame.h<=2048;
+    expect(uiBounds,"original pixel glyphs fit the verified native UI atlases");
+    CarState coastHand,parkHand,footHand;coastHand.speed=parkHand.speed=footHand.speed=100/3.6;coastHand.gear=parkHand.gear=footHand.gear=4;
+    for(int i=0;i<120*2;i++){stepCar(coastHand,v,{false,false,false},Step,0);stepCar(parkHand,v,{false,false,false,false,false,true},Step,0);stepCar(footHand,v,{false,true,false},Step,0);}
+    expect(coastHand.speed>parkHand.speed&&parkHand.speed>footHand.speed,"rear handbrake slows the car independently of the stronger service brake");
+    expect(parkHand.handbraking&&parkHand.rearRollDistance==0&&parkHand.position>0,"handbrake locks rear-wheel rotation while the car keeps moving");
+    stepCar(parkHand,v,{true,false,false},Step,0);expect(!parkHand.handbraking&&parkHand.rearRollDistance>0,"rear wheels roll again when the handbrake is released");
+    CarState blockedNos;blockedNos.speed=30;blockedNos.gear=4;stepCar(blockedNos,nitroBuild.vehicle,{true,false,false,true,false,true},Step,0);
+    expect(!blockedNos.nitroActive&&blockedNos.nitroRemaining==10&&blockedNos.powerHp==0,"handbrake overrides throttle and NOS without consuming its charge");
+    for(int i=0;i<120*30;i++)stepCar(parkHand,v,{false,false,false,false,false,true},Step,0);
+    expect(parkHand.speed==0&&std::isfinite(parkHand.position),"held handbrake stops the car without reverse motion");
+    DrivingEffects lockedSmoke;CarState sliding;sliding.speed=30;Vehicle frontDrive;frontDrive.drive=DriveLayout::Front;
+    lockedSmoke.update(sliding,frontDrive,{false,false,true,false,false,true},points,0,Step,false);
+    expect(lockedSmoke.particles.size()==1&&lockedSmoke.particles[0].kind==EffectKind::BrakeSmoke&&lockedSmoke.particles[0].x==points.rearWheel,"handbrake smoke comes only from the rear axle, including front-wheel drive");
     auto file=root/std::filesystem::u8path("écran_車.ini");Settings s;s.mode=WindowMode::Borderless;s.width=1920;s.height=1080;s.fps=144;s.vsync=false;s.quality=Quality::Low;s.showFps=true;s.sound=false;s.traffic=false;
     std::string error;expect(saveSettings(file,s,error),"save Unicode settings path");expect(loadSettings(file)==s,"all graphics settings round trip");
     s.fps=60;s.mode=WindowMode::Fullscreen;expect(saveSettings(file,s,error),"atomic replacement of existing settings");expect(loadSettings(file)==s,"replaced graphics settings persist");

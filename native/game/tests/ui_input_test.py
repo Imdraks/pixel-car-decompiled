@@ -35,12 +35,19 @@ try:
         xdo('mousemove','--window',window,round(px),round(py));xdo('mousedown',1);time.sleep(.08);xdo('mouseup',1);pause()
     def key(name):
         xdo('keydown',name);time.sleep(.08);xdo('keyup',name);pause()
+    def wait_ready_frame():
+        ready_after=time.time_ns()
+        for _ in range(40):
+            key('F12')
+            if any(path.stat().st_mtime_ns>=ready_after for path in (args.output/'captures').glob('capture-*.png')):break
+            if process.poll() is not None:raise RuntimeError('Application exited before its first frame')
+        else:raise RuntimeError('No first rendered frame')
+    wait_ready_frame()
     click(280,435)  # Menu -> garage.
-    click(400,609)  # Select next real Unbound body.
-    click(750,609)  # Select next rim.
-    click(1100,189) # Propulsion reference -> all wheel drive reference.
-    key('F12')
-    click(1015,605) # Garage -> free drive.
+    click(264,590) # Select next body in the original-art garage.
+    key('F2');key('Home');key('Right');key('Return');key('Escape')
+    click(111,518);click(820,125);click(850,674);click(1140,45)
+    key('F12');click(1215,105)
     xdo('keydown','w');time.sleep(2);key('Right');key('t');key('e');xdo('keyup','w')
     key('F12')
     click(920,42) # Free drive -> settings.
@@ -68,7 +75,7 @@ try:
       'actual_fps_choice':settings['fps']=='120','actual_vsync_choice':settings['vsync']=='1',
       'actual_quality_choice':settings['quality']=='0','actual_fps_overlay_choice':settings['show_fps']=='1',
       'traffic_preference_saved':settings['traffic']=='0','traffic_removed_from_active_session':session['traffic_enabled']=='0' and session['traffic_count']=='0'}
-    process=subprocess.Popen([str(args.game),'--assets-dir',str(args.assets),'--data-dir',str(args.output/'data'),'--free-drive','--no-audio'],stdout=log,stderr=log)
+    process=subprocess.Popen([str(args.game),'--assets-dir',str(args.assets),'--data-dir',str(args.output/'data'),'--capture-dir',str(args.output/'captures'),'--free-drive','--no-audio'],stdout=log,stderr=log)
     for _ in range(100):
         if process.poll() is not None:raise RuntimeError('Restart failed')
         try:window=xdo('search','--onlyvisible','--pid',process.pid,'--name','Pixel Car Racer').splitlines()[0];break
@@ -79,7 +86,7 @@ try:
         if process.poll() is not None:raise RuntimeError('Application exited while mapping its saved window mode')
         time.sleep(.05)
     else:raise RuntimeError('Saved window mode never became focusable')
-    time.sleep(.3)
+    time.sleep(.3);wait_ready_frame()
     xdo('keydown','ctrl');key('q');xdo('keyup','ctrl');process.wait(timeout=10)
     resumed=ini(args.output/'data/last-session.txt')
     checks['traffic_remains_disabled_after_restart']=resumed['traffic_enabled']=='0' and resumed['traffic_count']=='0'

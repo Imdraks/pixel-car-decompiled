@@ -1,4 +1,4 @@
-# Pixel Car Racer — Unbound Native 0.6.0
+# Pixel Car Racer — Unbound Native 0.7.0
 
 Cette première reconstruction **native Windows x64** propose un mode libre
 jouable avec les ressources d'Unbound. Le programme ne lance ni APK, ni Android,
@@ -7,6 +7,18 @@ ni émulateur. Il fonctionne hors ligne après extraction de l'archive.
 Ce n'est pas encore le portage complet et fidèle du jeu original : la conduite
 et la circulation sont réimplémentées. La base originale 1.2.5 n'est pas fusionnée
 avec le mod. Le moteur GameMaker YYC d'origine n'a pas été recompilé.
+
+La version **0.7.0** reprend le garage et le menu de customisation du jeu de
+base : atelier, pont élévateur, icônes de catégories, jauges et police pixel
+originales, avec inventaire adapté à la souris/clavier. Les statistiques et
+la voiture montrent l'aperçu de la pièce avant équipement. Ctrl+F, molette,
+F1–F6, Entrée et double-clic accélèrent la navigation ; les choix sont sauvegardés.
+Les 194 pièces, 191 carrosseries, 54 jantes et réglages précédents sont conservés.
+Voir [GARAGE-PC.md](GARAGE-PC.md) pour les catégories et commandes.
+
+**Espace est le frein à main en conduite**, avec roues arrière bloquées,
+ralentissement, fumée arrière et coupure du NOS. Il ne sert plus à accélérer.
+Extraire tout le ZIP pour installer les nouveaux atlas de l'interface.
 
 La version **0.6.0** ajoute **TRANSMISSION** depuis le garage et la customisation :
 huit préréglages, dont sept inspirés de boîtes réelles TREMEC et GM, et jusqu'à
@@ -69,7 +81,8 @@ environ 100 Mo libres. Aucun composant Android n'est téléchargé ou installé.
 
 | Commande | Action |
 | --- | --- |
-| Z, W, flèche haut ou Espace | Accélérer |
+| Z, W ou flèche haut | Accélérer |
+| Espace maintenu | Frein à main arrière |
 | S ou flèche bas | Freiner |
 | Flèches gauche/droite, Q/A et D | Changer de voie |
 | E ou Maj gauche / C | Monter / descendre un rapport |
@@ -92,7 +105,8 @@ de jantes** extraits d'Unbound. Ces nombres ne désignent pas 191 véhicules don
 les statistiques d'origine auraient été reconstruites. Les performances moteur de base
 sont communes à cette version. Les points de roue utilisent l’origine des sprites
 et leurs passages transparents, vérifiés sur l’ensemble des carrosseries.
-Le bouton **TRACTION / PROPULSION / 4 ROUES MOTRICES** du garage choisit une
+L’écran **Transmission**, accessible par l’engrenage sous les statistiques ou
+Châssis, choisit entre **TRACTION / PROPULSION / 4 ROUES MOTRICES** pour une
 configuration d’essai : elle change réellement l’adhérence au départ et l’effet
 du transfert de poids. Le choix est sauvegardé et indiqué en mode libre. Il ne
 prétend pas représenter la transmission d’origine de chaque carrosserie.
@@ -165,6 +179,7 @@ PCR_AUDIO_SOURCE=/workspace/windows-port/recovered/assets \
   /workspace/windows-port/recovered/assets/game.droid \
   --scripts native/game/tools/export_audio.csx
 python3 native/game/tools/prepare_audio.py --source /workspace/native-runtime/game-audio
+python3 native/game/tools/prepare_original_ui.py
 bash native/game/build.sh
 ```
 

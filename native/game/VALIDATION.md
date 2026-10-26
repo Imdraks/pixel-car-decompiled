@@ -1,3 +1,22 @@
+# Validation native 0.7.0
+
+- 127 contrôles du cœur : ressources UI originales, frein à main distinct du
+  frein de service, arrêt sans marche arrière, rotation arrière bloquée/libérée,
+  priorité sur accélération/NOS et fumée sur le bon essieu.
+- 38 contrôles graphiques : atelier et inventaire originaux, catégories et jantes,
+  transmission, VFX et frein à main. Les comparaisons du défilement et des pixels
+  NOS/flammes sont conservées.
+- 55 contrôles de vraies entrées Linux : 39 pour garage/boîte/frein à main et
+  16 pour affichage/trafic. Équipement, aperçu, remplacement de recherche,
+  Ctrl+A, molette, double-clic, sauvegarde, redémarrage, fenêtre 4:3 et Full HD.
+- Les rapports locaux sont dans `validation/garage-pc-0.7/`. La publication
+  exige les contrôles Windows du cœur, du rendu, de la physique, des 188384
+  combinaisons, des 9359 ancrages et du décodage des 94 sons.
+- Les jauges montrent le modèle natif ; économie et progression d'origine restent
+  à reconstruire. La calibration physique reste décrite dans PHYSICS.md.
+
+## Historique : validation native 0.6.0
+
 # Validation native 0.6.0
 
 - 119 contrôles du cœur : 9359 placements carrosserie/pot, sorties multiples,

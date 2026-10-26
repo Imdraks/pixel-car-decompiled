@@ -1,0 +1,35 @@
+{
+  "source": "Original Pixel Car Racer 1.2.5 UI; supplied Unbound item images retained",
+  "sprites": {
+    "sp_garage": "garages",
+    "sp_garage_icons": "garageIcons",
+    "sp_garage_lift": "lifts",
+    "sp_buttons": "buttons",
+    "sp_buttons_tools": "tools",
+    "sp_font_pixel": "glyphs",
+    "sp_bars": "bars",
+    "sp_engine": "engines",
+    "sp_coilovers": "suspensions",
+    "sp_turbo": "turbos",
+    "sp_ecu": "ecus",
+    "sp_nos": "nos",
+    "sp_airfilter": "intakes",
+    "sp_intercooler": "intercoolers",
+    "sp_piston": "pistons",
+    "sp_muffler": "exhausts"
+  },
+  "source_atlas_sha256": {
+    "original-textures/texture-010.png": "cddca5e7effcaec0ac58cb7686db9416d10a1723a394742f69cfad54610b7cf1",
+    "original-textures/texture-011.png": "483ca8a5dafaffaade7ac6b7e2098c47c97dce808f21ff27cb05d9c5e536b355",
+    "original-textures/texture-029.png": "63e63ef1669856b25f06bf203a744f771f7fe5600975cc1c1601cd9fa5fb49a3",
+    "original-textures/texture-028.png": "632bb9d9b09cc6a141cd5624f4a5af599853ff037424e285697e4b823fb2d28f",
+    "original-textures/texture-025.png": "a506885812b6b6c9edb67b9dc89c5a3dc6ede4ddc95eb127a454d75559f7c782",
+    "original-textures/texture-007.png": "38065f91eef36d7013874dbec09cbee2ffc40657f4b02ce1df6de2ca8a7e9785",
+    "original-textures/texture-008.png": "f075cc147271d4636b75edca162b977f193dff339ed480d1a40e3f902825be4d",
+    "mod-textures/texture-019.png": "c02b2391f01986de94d1a8c402749450df124e1031fd288dbd0b87a0b4696de3",
+    "mod-textures/texture-018.png": "5e0f1540a85ddf5e13a71a0999d7be113c62e817a7c0bc36a7339204a81e5147",
+    "mod-textures/texture-020.png": "15e4e26010d0fa1d63572382659cda52aa04b66c91b0b27968e4cb0f96112839",
+    "mod-textures/texture-021.png": "ccca71021a85c35d47e38b20b5413c7ed9449311586385a2fabbed7864cb3fd2"
+  },
+  "packing": "Unscaled source RGBA crop pixels, transparent padding; no original code executed"
+}

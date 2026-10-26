@@ -1,6 +1,6 @@
 # Transmission native : jusqu'à 10 rapports
 
-Ouvrir **CUSTOMISATION → TRANSMISSION** ou **GARAGE → BOÎTE DE VITESSES**.
+Ouvrir **CHÂSSIS → TRANSMISSION** ou l’engrenage sous les statistiques du garage.
 La présentation reprend deux colonnes de cinq rapports. Chaque rapport possède
 un curseur et des boutons −/+, son ratio et sa vitesse théorique au limiteur.
 Le pont final, le nombre de rapports (4 à 10), le temps de passage et le mode

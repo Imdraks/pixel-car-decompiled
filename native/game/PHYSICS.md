@@ -1,4 +1,4 @@
-# Physique native et pièces 0.6
+# Physique native et pièces 0.7
 
 Le mode libre dispose désormais du catalogue demandé. La fidélité physique au
 jeu Android reste à valider ; les mesures natives servent à éviter les régressions.
@@ -131,3 +131,16 @@ profil. Le modèle de base à six rapports est conservé. Les préréglages rée
 et les éléments calibrés nativement sont décrits dans TRANSMISSION.md.
 Les flammes/NOS suivent les bouches des pots ; ils ne sont plus advectés comme
 des particules au sol. Le traitement des fumées et étincelles est conservé.
+
+## Frein à main arrière 0.7
+
+Espace actionne un frein distinct du frein de service. La force est limitée à
+l'adhérence arrière, avec une réduction quasi statique du poids arrière au
+freinage : `masse × g × grip × fraction_arrière / (1 + grip × hauteur_CG / empattement)`.
+Le frein de service reste prioritaire si les deux sont pressés. Le frein à main
+coupe la traction et le NOS sans consommer sa réserve ; il ne fait pas reculer.
+Une distance de roulement arrière séparée bloque sa rotation visuelle pendant
+le verrouillage, puis la reprend au relâchement. La fumée est localisée à l'essieu
+arrière, y compris en traction. Les voies restent un déplacement latéral simplifié,
+sans nouvelle simulation de dérive. Sans frein à main, les mesures de référence
+restent inchangées.
