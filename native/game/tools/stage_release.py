@@ -36,7 +36,10 @@ def main():
         if 'v'+info['version']!=args.tag:raise SystemExit('Tag and packaged version differ')
         if hashlib.sha256(archive.read('PixelCarRacerNative.exe')).hexdigest()!=info['exe_sha256']:
             raise SystemExit('Packaged EXE identity mismatch')
-    release=gh_json('api',f'repos/{args.repo}/releases/tags/{args.tag}')
+    # The tags endpoint can return 404 for an untagged draft; list authenticated releases.
+    releases=gh_json('api',f'repos/{args.repo}/releases?per_page=100')
+    release=next((r for r in releases if r['tag_name']==args.tag),None)
+    if release is None:raise SystemExit('Create the native draft release before staging')
     if not release['draft']:raise SystemExit('Refusing to modify a published release')
     if release['target_commitish']!=info['source_commit']:raise SystemExit('Draft target and packaged source commit differ')
     existing={a['name']:a for a in release['assets']}
