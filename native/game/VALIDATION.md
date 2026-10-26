@@ -11,6 +11,21 @@
 - La publication exige les contrôles Windows du cœur, de la puissance, de la
   physique, du rendu/défilement et du décodage des 94 sons.
 
+Exécution Windows réussie :
+[40370059371](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40370059371).
+105 contrôles du cœur, 30 graphiques, 188 384 combinaisons de groupes de pièces,
+94 sons décodés et comparaisons du banc physique et du défilement réussis.
+La capture Windows sans trafic et la préférence `traffic=0` ont été vérifiées.
+Rapports : `validation/windows-0.5.1/` et le ZIP de validation joint à la release.
+
+Archive publique retéléchargée, CRC et identités source/EXE vérifiés :
+28 732 455 octets, SHA-256
+`d75abc7fcc2298944df824449b3cb200e5e27ae88f909a3d78e4b5f2fadd9fea`.
+EXE : `5250adac5c6b28fbdb46748cda20e6ec8b563aa41d2d77d068556d70bb5241be`.
+Source compilée : `c34605f076f42a3e87ca3d8da4b207af3960873f`.
+Les 140 ressources sont restaurées en dossier neuf et réutilisées dans le
+répertoire de travail sans modification.
+
 ## Historique : validation native 0.5.0
 
 # Validation native 0.5.0
