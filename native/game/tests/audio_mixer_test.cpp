@@ -24,7 +24,7 @@ int main(int argc,char** argv){
             Profile profile;equipPart(profile,PartSlot::Engine,1002);equipPart(profile,PartSlot::Turbo,3026);equipPart(profile,PartSlot::Nos,5007);equipPart(profile,PartSlot::Exhaust,9048);
             auto setup=buildVehicle(profile);CarState state;state.rpm=5000;state.speed=30;state.gear=3;state.boostPsi=25;
             for(int source=0;source<2;source++){
-            profile.contentSource=source;auto previousEnergy=energy.load();
+            profile.audioSource=source;auto previousEnergy=energy.load();
             for(int bank=0;bank<16;bank++){
                 std::cerr<<"Mixing original profile "<<bank<<'\n';profile.soundOn=profile.soundOff=bank;
                 for(int tick=0;tick<12;tick++){audio.update(profile,setup.vehicle,state,{true,false,true},0,true,true);std::this_thread::sleep_for(std::chrono::milliseconds(10));}

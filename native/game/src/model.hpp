@@ -6,6 +6,7 @@
 #include "catalog.hpp"
 #include "rims.hpp"
 #include "content_catalog.hpp"
+#include "body_choices.hpp"
 
 namespace pcr {
 enum class WindowMode { Windowed, Borderless, Fullscreen };
@@ -18,10 +19,12 @@ struct Settings {
     bool vsync=true, showFps=false, sound=true, traffic=true;
     Quality quality=Quality::High;
 };
-struct Profile { int car=0, rim=8,contentSource=0;std::array<int,CosmeticSlotCount> cosmetics{}; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1;
+struct Profile { int car=0, rim=8,contentSource=0,audioSource=0;std::array<int,CosmeticSlotCount> cosmetics{};bool rollCage=false,headlights=false; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1;
     int gearboxPreset=0,gearCount=6;std::array<double,10> gearRatios{3.15,2.10,1.55,1.22,1.0,.82,.68,.56,.46,.38};
     double finalDrive=3.9,shiftSeconds=.15;
 };
+int bodyChoiceIndex(const Profile&);
+void cycleBody(Profile&,int);
 void sanitizeTransmission(Profile&);
 void applyGearboxPreset(Profile&,int preset);
 const char* gearboxPresetName(int preset);

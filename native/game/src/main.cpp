@@ -118,10 +118,10 @@ struct App {
             centered(content_art::Tires(original)[tireFrame],wheelScale,31,31,float(angle));
             if(outfit){int brake=cosmeticSubimage(*outfit,8);if(brake)centered(content_art::Brakes(original)[brake],wheelScale,31,31,0);}
             centered(equippedRim(rim,original),wheelScale,31,31,float(angle));
-            if(outfit){int lugs=cosmeticSubimage(*outfit,11);if(lugs)centered(content_art::Lugs(original)[lugs],wheelScale,1,1,float(angle));}
+            if(outfit){int lugs=cosmeticSubimage(*outfit,11);if(lugs)for(int bolt=0;bolt<5;bolt++)centered(content_art::Lugs(original)[lugs],wheelScale,1,5,float(angle+bolt*72));}
         }
-        auto pipe=placeExhaust(index,exhaustFrame,rideOffset);
-        auto drawPipe=[&](){if(exhaustFrame>=0)frame(content_art::Exhausts(original)[pipe.frame],x+float(pipe.x)*scale,y+float(pipe.y)*scale,scale);};
+        auto pipe=outfit?installedExhaust(*outfit,exhaustFrame,rideOffset):placeExhaust(index,exhaustFrame,rideOffset,original);
+        auto drawPipe=[&](){frame(content_art::Exhausts(original)[pipe.frame],x+float(pipe.x)*scale,y+float(pipe.y)*scale,scale);};
         if(!pipe.front)drawPipe();
         if(outfit){auto texture=content.compose(*outfit);DrawTexturePro(texture,{0,0,220,134},{x,y+(float(rideOffset)-64)*scale,220*scale,134*scale},{0,0},0,WHITE);}
         else frame(content_art::Cars(original)[index],x,y+float(rideOffset)*scale,scale);
@@ -215,7 +215,7 @@ struct App {
         for(int i=0;i<original_ui::AtlasCount;i++){auto t=LoadTexture(asset(TextFormat("original-ui-%02i.png",i)).c_str());if(!t.id)throw std::runtime_error("Interface d’origine manquante : extraire tout le ZIP.");SetTextureFilter(t,TEXTURE_FILTER_POINT);atlases[1000+i]=t;}
         if(!apply(settings)){Settings safe;safe.width=960;safe.height=540;if(!apply(safe))throw std::runtime_error("Impossible de créer la surface de rendu.");}
         edited=settings;
-        if(!args.noAudio&&!args.smoke){audio.init(args.assets);audio.selectBank(profile.contentSource);}
+        if(!args.noAudio&&!args.smoke){audio.init(args.assets);audio.selectBank(profile.audioSource);}
         if(args.free)beginFree();
     }
     void background(bool driving){
@@ -248,7 +248,7 @@ struct App {
         DrawRectangle(608,459,610,8,Accent);
         car(profile.car,profile.rim,594,247,2.6,0,true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,-1,&profile);
         text("MODE LIBRE",656,511,29);text("Route ouverte • circulation • conduite continue",656,555,18,Muted);
-        text("191 carrosseries + variantes • 521 jantes nommées",656,588,17,Muted);
+        text("239 apparences réunies • 521 jantes nommées",656,588,17,Muted);
     }
     void openCustomization(){screen=Screen::Customization;inventoryOpen=false;searchFocused=false;rimPicker=false;cosmeticPicker=false;customGroup=0;customSlot=PartSlot::Engine;customPreview=profile.parts[0];customPage=0;customSearch.clear();notice.clear();}
     static std::string lower(std::string value){for(char& c:value)c=char(std::tolower(static_cast<unsigned char>(c)));return value;}
@@ -301,6 +301,12 @@ struct App {
         inventoryOpen=true;searchFocused=false;searchSelectedAll=false;customSearch.clear();customPage=0;customPreview=profile.cosmetics[cosmeticSlot];
         auto choices=garageChoices();auto found=std::find(choices.begin(),choices.end(),customPreview);if(found!=choices.end())customPage=int(found-choices.begin())/GaragePageSize;
     }
+    static const char* sourceLabel(int mask){return mask==1?"ORIGINAL":mask==2?"UNBOUND":"ORIGINAL + UNBOUND";}
+    int choiceSource(int id)const{
+        if(rimPicker||!id)return 3;
+        if(cosmeticPicker){auto c=findCosmetic(id);return c?c->sourceMask:3;}
+        auto p=findPart(id);return p?p->sourceMask:3;
+    }
     int equippedChoice()const{return rimPicker?profile.rim:cosmeticPicker?profile.cosmetics[cosmeticSlot]:profile.parts[int(customSlot)];}
     std::string choiceName(int id)const{
         if(rimPicker){auto rim=findRim(id);return rim?rim->name:TextFormat("JANTE %02i",id+1);}
@@ -337,6 +343,7 @@ struct App {
         if((IsKeyDown(KEY_LEFT_CONTROL)||IsKeyDown(KEY_RIGHT_CONTROL))&&IsKeyPressed(KEY_F)){if(!inventoryOpen){if(cosmeticPicker)chooseCosmetic(cosmeticSlot);else chooseGroup(customGroup);}searchFocused=true;searchSelectedAll=true;}
         for(int i=0;i<6;i++)if(IsKeyPressed(KEY_F1+i))chooseGroup(i);
         if(IsKeyPressed(KEY_F7))chooseCosmetic(cosmeticSlot);
+        if(IsKeyPressed(KEY_F8)){profile.rollCage=!profile.rollCage;saveCar();}
         if(searchFocused){
             bool changed=false;bool ctrl=IsKeyDown(KEY_LEFT_CONTROL)||IsKeyDown(KEY_RIGHT_CONTROL);
             if(ctrl&&IsKeyPressed(KEY_A))searchSelectedAll=true;
@@ -352,7 +359,7 @@ struct App {
             return;
         }
         if(IsKeyPressed(KEY_TAB)){if(cosmeticPicker)chooseCosmetic(cosmeticSlot+(IsKeyDown(KEY_LEFT_SHIFT)?-1:1));else chooseGroup((customGroup+(IsKeyDown(KEY_LEFT_SHIFT)?5:1))%6);}
-        if(!inventoryOpen){int d=IsKeyPressed(KEY_RIGHT)?1:IsKeyPressed(KEY_LEFT)?-1:0;if(d){profile.car=(profile.car+d+191)%191;saveCar();}return;}
+        if(!inventoryOpen){int d=IsKeyPressed(KEY_RIGHT)?1:IsKeyPressed(KEY_LEFT)?-1:0;if(d){cycleBody(profile,d);saveCar();}return;}
         auto choices=garageChoices();if(choices.empty())return;
         int pages=(int(choices.size())+GaragePageSize-1)/GaragePageSize;
         int pageDirection=IsKeyPressed(KEY_PAGE_DOWN)?1:IsKeyPressed(KEY_PAGE_UP)?-1:0;
@@ -405,14 +412,16 @@ struct App {
         if(iconButton({150,502,58,32},original_ui::tools[10],"Banc de puissance"))powerPopup=true;
         if(iconButton({216,502,58,32},original_ui::buttons[40],"Sons du moteur et valve"))audioPopup=true;
         pxText("CARROSSERIE",28,551,14,Muted);
-        if(button({18,574,36,32},"<")){profile.car=(profile.car+190)%191;saveCar();}
-        pxText(TextFormat("%03i / 191",profile.car+1),78,582,17);
-        if(button({246,574,36,32},">")){profile.car=(profile.car+1)%191;saveCar();}
+        if(button({18,574,36,32},"<")){cycleBody(profile,-1);saveCar();}
+        pxText(TextFormat("%03i / %i",bodyChoiceIndex(profile)+1,int(std::size(BodyChoices))),78,582,17);
+        if(button({246,574,36,32},">")){cycleBody(profile,1);saveCar();}
+        pxText(sourceLabel(BodyChoices[bodyChoiceIndex(profile)].sourceMask),78,606,9,Muted);
         if(button({18,617,120,29},"DÉCOR"))garageStyle=(garageStyle+1)%5;
         if(button({148,617,134,29},"JANTES"))chooseGroup(1);
         if(button({18,655,120,30},"PRÉPA MAX",true)){equipBestParts(profile);saveCar();chooseGroup(0);rarityDescending=true;customPage=0;notice="PRÉPA MAX ENREGISTRÉE";}
         if(button({148,655,134,30},"REMETTRE BASE")){profile.parts.fill(0);profile.soundOn=profile.soundOff=profile.bov=-1;saveCar();if(inventoryOpen)chooseGroup(customGroup);notice="PIÈCES D'ORIGINE";}
-        if(button({18,690,264,25},"STYLE / ACCESSOIRES (F7)"))chooseCosmetic(cosmeticSlot);
+        if(button({18,690,190,25},"STYLE (F7)"))chooseCosmetic(cosmeticSlot);
+        if(button({215,690,67,25},profile.rollCage?"F8 ON":"F8 OFF",profile.rollCage)){profile.rollCage=!profile.rollCage;saveCar();}
     }
     void garageVehicle(const Profile& preview,const Build& build){
         float scale=inventoryOpen?2.45f:3.8f,x=inventoryOpen?270.f:350.f,y=inventoryOpen?335.f:265.f;
@@ -443,10 +452,10 @@ struct App {
         default:return original_ui::garageIcons[35];}
     }
     const art::Frame& cosmeticIcon(int id)const{
-        bool original=profile.contentSource==1;const auto* c=findCosmetic(id);int n=c?c->subimage:0;
+        const auto* c=findCosmetic(id);bool original=c&&c->imageSource>=0?c->imageSource==1:profile.contentSource==1;int n=c?c->subimage:0;
         switch(cosmeticSlot){
         case 0:return content_art::sp_paint(original)[n];case 1:return content_art::sp_decals(original)[n];case 2:return content_art::sp_spoiler(original)[n];case 3:return content_art::Racks(original)[n];
-        case 4:case 5:case 6:case 7:return content_art::sp_bodykit_box(original)[n];case 8:return content_art::sp_rotor(original)[n];case 9:return content_art::sp_seat(original)[n];case 10:return content_art::sp_towhook(original)[n];case 11:return content_art::sp_lugnuts(original)[n];case 15:return content_art::sp_bulbs(original)[n];default:return content_art::sp_lighttint(original)[n];}
+        case 4:case 5:case 6:case 7:return content_art::sp_bodykit_box(original)[n];case 8:return content_art::sp_rotor(original)[n];case 9:return content_art::Seats(original)[n];case 10:return content_art::sp_towhook(original)[n];case 11:return content_art::sp_lugnuts(original)[n];case 15:return content_art::sp_bulbs(original)[n];default:return content_art::sp_lighttint(original)[n];}
     }
     void garageInventory(){
         card({742,153,520,443},Color{18,18,22,245});
@@ -475,9 +484,10 @@ struct App {
             if(rimPicker)rimIcon(id,configuration.tireFrame,{r.x+7,r.y+6,48,52});else if(cosmeticPicker)uiImage(cosmeticIcon(id),{r.x+6,r.y+5,50,54});else uiImage(partImage(customSlot,p?p->subimage:0),{r.x+6,r.y+5,50,54},p?WHITE:Fade(WHITE,.5f));
             auto name=choiceName(id);size_t split=name.size()>20?name.rfind(' ',20):std::string::npos;
             if(split!=std::string::npos){text(name.substr(0,split),r.x+62,r.y+7,14);text(name.substr(split+1,23),r.x+62,r.y+25,14);}else text(name.substr(0,23),r.x+62,r.y+13,14);
-            pxText(rimPicker||cosmeticPicker?"STYLE":p?rarityLabel(partRarity(*p)):"ORIGINE",r.x+62,r.y+50,10,p?rarityColor(partRarity(*p)):Muted);
+            pxText(rimPicker||cosmeticPicker?"STYLE":p?rarityLabel(partRarity(*p)):"ORIGINE",r.x+62,r.y+44,9,p?rarityColor(partRarity(*p)):Muted);
+            int origin=choiceSource(id);pxText(sourceLabel(origin),r.x+62,r.y+56,9,origin==1?Color{136,206,255,255}:origin==2?Color{229,156,240,255}:Muted);
             if(equippedChoice()==id)DrawCircle(int(r.x+r.width-8),int(r.y+8),3,Gold);
-            if(hit(r)){tooltipText=name;if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){customPreview=id;searchFocused=false;audio.click(settings.sound);}if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)&&GetTime()-lastCardClick<.3&&lastCardId==id)equipGarageChoice();if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){lastCardClick=GetTime();lastCardId=id;}}
+            if(hit(r)){tooltipText=name+" | "+sourceLabel(choiceSource(id));if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){customPreview=id;searchFocused=false;audio.click(settings.sound);}if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)&&GetTime()-lastCardClick<.3&&lastCardId==id)equipGarageChoice();if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){lastCardClick=GetTime();lastCardId=id;}}
         }
         if(choices.empty())text("Aucune pièce trouvée",785,320,20,Muted);
         const Part* selected=rimPicker||cosmeticPicker||!customPreview?nullptr:findPart(customPreview);
@@ -498,9 +508,8 @@ struct App {
         DrawRectangle(0,0,1280,51,Color{28,28,31,255});DrawRectangle(0,47,1280,4,BLACK);
         if(button({17,8,111,32},"< MENU")){screen=Screen::Menu;inventoryOpen=false;}
         pxText("GARAGE",150,14,26);
-        if(button({570,8,212,32},"ORIGINAL 1.2.5",profile.contentSource==1)){profile.contentSource=1;audio.selectBank(1);saveCar();}
-        if(button({792,8,190,32},"UNBOUND",profile.contentSource==0)){profile.contentSource=0;audio.selectBank(0);saveCar();}
-        pxText("1196 ÉQUIPEMENTS",1000,18,13);
+        card({570,8,412,32},Color{19,22,27,255});pxText("ORIGINAL + UNBOUND",610,18,18,Accent);
+        pxText("1220 ÉQUIPEMENTS",1000,18,13);
         if(iconButton({1222,8,36,33},original_ui::buttons[37],"Paramètres PC"))openOptions();
         if(iconButton({1171,65,88,80},original_ui::garageIcons[10],"Prendre la route"))queued=[this]{saveCar();beginFree();};
         pxText("ROUTE",1190,142,13);
@@ -512,6 +521,7 @@ struct App {
             DrawRectangle(0,0,1280,720,Fade(BLACK,.75f));card({263,141,754,457});
             text("SONS DU MOTEUR",305,172,29,Accent);
             text("Profils sonores d'origine • choix indépendant du moteur",305,219,17,Muted);
+            if(button({748,164,224,32},profile.audioSource==1?"SONS : ORIGINAL":"SONS : UNBOUND")){profile.audioSource=1-profile.audioSource;audio.selectBank(profile.audioSource);saveCar();}
             auto soundRow=[&](float y,const char* label,int& value,int maximum){
                 text(label,306,y+12,19);std::string name=value<0?"AUTO":"PROFIL "+std::to_string(value+1);
                 if(button({607,y,43,41},"<")){value=value<0?maximum:value-1;saveCar();}
@@ -665,15 +675,16 @@ struct App {
         text("Échap : rétablir     F10 : affichage de secours",369,451,16,Muted);
     }
     EffectSources effectSources(){
-        auto wheels=art::wheelPositions[profile.car];double baseY=269+drive.lane*96;
+        auto wheels=bodyWheels(profile.car,profile.contentSource==1);double baseY=269+drive.lane*96;
         EffectSources sources;sources.rearWheel=360+wheels.rear*1.25;sources.frontWheel=360+wheels.front*1.25;sources.wheelY=baseY+(wheels.y+wheels.radius)*1.25;
-        auto pipe=placeExhaust(profile.car,configuration.exhaustFrame,configuration.rideOffset);
+        auto pipe=installedExhaust(profile,configuration.exhaustFrame,configuration.rideOffset);
         sources.outletCount=pipe.count;
         for(int i=0;i<pipe.count;i++){sources.outlets[i]=pipe.outlets[i];sources.outlets[i].x=360+pipe.outlets[i].x*1.25;sources.outlets[i].y=baseY+pipe.outlets[i].y*1.25;}
         return sources;
     }
     void controls(double dt){
         if((IsKeyDown(KEY_LEFT_CONTROL)||IsKeyDown(KEY_RIGHT_CONTROL))&&IsKeyPressed(KEY_Q)){quit=true;return;}
+        if(IsKeyPressed(KEY_K)&&(screen==Screen::Free||screen==Screen::Garage||screen==Screen::Customization)&&!searchFocused){profile.headlights=!profile.headlights;saveCar();}
         if(IsKeyPressed(KEY_F10)){if(confirming)revert();Settings safe;safe.width=960;safe.height=540;safe.vsync=false;safe.fps=60;apply(safe);edited=settings;options=true;notice="Affichage de secours. Appliquez vos réglages pour les enregistrer.";}
         if(IsKeyPressed(KEY_ESCAPE)){if(confirming)revert();else if(options)options=false;else if(powerPopup)powerPopup=false;else if(audioPopup){audioPopup=false;audioPreviewUntil=0;}else if(screen==Screen::Free)paused=!paused;else if(screen==Screen::Garage||screen==Screen::Customization){if(searchFocused)searchFocused=false;else if(inventoryOpen)inventoryOpen=false;else{saveCar();screen=Screen::Menu;}}else if(screen==Screen::Transmission){screen=Screen::Customization;}}
         if(!confirming&&IsKeyPressed(KEY_ENTER)&&(IsKeyDown(KEY_LEFT_ALT)||IsKeyDown(KEY_RIGHT_ALT))){openOptions();edited.mode=settings.mode==WindowMode::Windowed?WindowMode::Borderless:WindowMode::Windowed;queued=[this]{preview();};}
@@ -820,7 +831,18 @@ struct App {
         if(frames==391)beginFree();
         if(frames==394)capture("route-personnalisee.png");
         if(frames==395){auto image=LoadImageFromTexture(content.body);auto bounds=GetImageAlphaBorder(image,.01f);check(content.pixels.size()==size_t(content_art::AtlasCount)&&bounds.width>100&&bounds.height>20,"composed body stays visible across graphics-mode changes");UnloadImage(image);saveCar();auto loaded=loadProfile(profileFile(),191,54);check(loaded.rim==10100&&loaded.contentSource==1&&loaded.cosmetics==profile.cosmetics,"named rims and all appearance slots persist together");}
-        if(frames==398)quit=true;
+        if(frames==399){openCustomization();profile.car=20;profile.contentSource=0;profile.cosmetics.fill(0);profile.cosmetics[3]=103005;profile.cosmetics[9]=109001;profile.cosmetics[10]=110001;equipPart(profile,PartSlot::Exhaust,9007);saveCar();}
+        if(frames==402)capture("accessoires-ancres.png");
+        if(frames==403){profile.rollCage=true;profile.headlights=true;profile.cosmetics[4]=104007;profile.cosmetics[9]=309001;saveCar();}
+        if(frames==406)capture("ancrages-source.png");
+        if(frames==407){profile.car=22;profile.contentSource=1;beginFree();drive.player.speed=100/3.6;drive.player.gear=3;drive.player.nitroActive=true;auto sources=effectSources();effects.update(drive.player,drive.vehicle,{true,false,true,true},sources,0,Step,true);bool attached=true;for(const auto& particle:effects.particles)if(particle.kind==EffectKind::Flame||particle.kind==EffectKind::Nitro){auto outlet=sources.outlets[particle.outlet];attached&=particle.x==outlet.x&&particle.y==outlet.y;}check(attached,"source-bank kit fitting keeps VFX roots attached to the same exhaust transform");}
+        if(frames==410)capture("accessoires-route.png");
+        if(frames==411){openCustomization();chooseCosmetic(9);customSearch="Pride Comfort";customPreview=109001;customPage=0;}
+        if(frames==414)capture("origines-pieces.png");
+        if(frames==415){chooseGroup(3);customSearch="Reddy T60AD";customPage=0;customPreview=3028;check(choiceSource(3028)==1,"original-only equipment is identified in the unified catalog");}
+        if(frames==418)capture("original-exclusif.png");
+        if(frames==419){saveCar();auto loaded=loadProfile(profileFile(),191,54);check(loaded.rollCage&&loaded.headlights,"transferred cage and lighting preferences persist");}
+        if(frames==422)quit=true;
 
     }
     int run(){

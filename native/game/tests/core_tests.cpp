@@ -6,6 +6,7 @@
 #include "original_ui.hpp"
 #include "content_art.hpp"
 #include "base_audio.hpp"
+#include "attachment_placement.hpp"
 #include <cmath>
 #include <algorithm>
 #include <filesystem>
@@ -402,7 +403,7 @@ int main(int argc,char**argv){
     }
     expect(validRimsPreserved,"all 23 real source rims preserve their IDs across profile loading");
     expect(invalidRimsRepaired,"all 31 tyre/effect legacy rim selections migrate without losing equipment");
-    expect(std::size(RimCatalog)==521&&std::size(CosmeticCatalog)==479&&std::size(PartCatalog)==196,"merged shop includes 1196 named equippable items without duplicating shared entries");
+    expect(std::size(RimCatalog)==521&&std::size(CosmeticCatalog)==503&&std::size(PartCatalog)==196,"merged shop includes 1220 equipment choices including distinct source seat variants");
     bool namedRimsPersist=true,rimImagesValid=true;
     for(const auto& rim:RimCatalog){
         Profile p;p.rim=rim.id;saveProfile(root/"named-rim.ini",p,error);auto loaded=loadProfile(root/"named-rim.ini",191,54);namedRimsPersist&=loaded.rim==rim.id;
@@ -417,6 +418,23 @@ int main(int argc,char**argv){
     expect(findPart(3027)&&findPart(3028)&&findPart(3027)->stat==35&&findPart(3028)->stat==35,"original-only Diamond and Ruby turbos join the Unbound equipment catalog");
     bool audioBanksValid=std::size(BaseGameSounds)==94;for(int id=0;id<94;id++)audioBanksValid&=std::string(BaseGameSounds[id].name)==OriginalSounds[id].name&&std::string(BaseGameSounds[id].file).find("audio-original/")==0;
     expect(audioBanksValid,"both 94-sample banks preserve stable names, IDs and separate resource paths");
+    const auto& sourceAnchors=attachments::anchors(20,false);
+    expect(sourceAnchors.roofX==34&&sourceAnchors.roofY==-50&&sourceAnchors.hookX==130&&sourceAnchors.seatX==30,"known body uses recovered roof, hook and seat coordinates instead of generic positions");
+    auto fittedRear=placeExhaust(20,7);expect(fittedRear.x==-15&&fittedRear.y==-2&&fittedRear.front,"rear pipe uses recovered source position, source sprite origin and visible foreground order");
+    bool allSourceFits=true;int fittedVariants=0;
+    for(int bank=0;bank<2;bank++)for(int car=0;car<191;car++)for(int pipe=0;pipe<51;pipe++){
+        if(pipe!=0&&!std::any_of(std::begin(PartCatalog),std::end(PartCatalog),[&](const Part& p){return p.slot==PartSlot::Exhaust&&p.subimage==pipe;}))continue;
+        for(int kit=0;kit<13;kit++){auto fit=placeExhaust(car,pipe,6,bank,kit,kit);allSourceFits&=std::isfinite(fit.x)&&std::isfinite(fit.y)&&fit.count>=1&&fit.count<=3;for(int j=0;j<fit.count;j++)allSourceFits&=std::isfinite(fit.outlets[j].x)&&std::isfinite(fit.outlets[j].y);++fittedVariants;}
+    }
+    expect(allSourceFits&&fittedVariants==243334,"both source banks and all rear/side kit choices retain finite attached pipe mouths");
+    {std::ofstream out(root/"attachment-fit.json");out<<"{\n  \"source_body_pipe_configurations\": 18718,\n  \"fitted_variants_checked\": "<<fittedVariants<<",\n  \"recovered_coordinates\": 4584\n}\n";}
+    bool choicesValid=true;for(size_t i=0;i<std::size(BodyChoices);i++){Profile p;p.car=BodyChoices[i].body;p.contentSource=BodyChoices[i].source;choicesValid&=bodyChoiceIndex(p)==int(i);cycleBody(p,1);cycleBody(p,-1);choicesValid&=bodyChoiceIndex(p)==int(i);}
+    expect(choicesValid&&std::size(BodyChoices)==239,"one body selector preserves every distinct source body and accessory bundle without duplicates");
+    expect(findPart(3027)->sourceMask==1&&findPart(1002)->sourceMask==3&&findCosmetic(109001)->sourceMask==2&&findCosmetic(309001)->sourceMask==1,"source badges distinguish original exclusives, common parts and both seat variants");
+    Profile flags;flags.rollCage=true;flags.headlights=true;flags.audioSource=1;flags.contentSource=0;saveProfile(root/"flags.ini",flags,error);auto loadedFlags=loadProfile(root/"flags.ini",191,54);
+    expect(loadedFlags.rollCage&&loadedFlags.headlights&&loadedFlags.audioSource==1&&loadedFlags.contentSource==0,"cage, headlights and independent audio source survive reload");
+    {std::ofstream out(root/"legacy-seat.ini");out<<"version=1\ncontent_source=1\ncosmetic_9=109001\npart_engine=1002\n";}
+    auto legacySeat=loadProfile(root/"legacy-seat.ini",191,54);expect(legacySeat.cosmetics[9]==309001&&legacySeat.audioSource==1&&legacySeat.parts[0]==1002,"legacy original bank seats and sound migrate without changing the installed engine");
     expect(easeLinear(0,5,10,2)==5&&easeLinear(2,5,10,2)==15,"reconstructed numeric easing endpoints");
     std::cout<<"PASS: "<<checks<<" checks; quarter mile "<<reference.finishTime<<" s; endless distance "<<simulated(60,true).position<<" m\n";
     return 0;

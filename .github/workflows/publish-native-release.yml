@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.8.0-native-preview
+        default: v0.9.0-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -89,6 +89,9 @@ jobs:
           & $core "$env:RUNNER_TEMP\pcr-native-core" *> validation/core-tests.txt
           if ($LASTEXITCODE -ne 0) { Get-Content validation/core-tests.txt; throw 'Windows core tests failed' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\exhaust-gearbox.json" validation/exhaust-gearbox.json
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\attachment-fit.json" validation/attachment-fit.json
+          $fitting = Get-Content validation/attachment-fit.json -Raw | ConvertFrom-Json
+          if ($fitting.source_body_pipe_configurations -ne 18718 -or $fitting.fitted_variants_checked -ne 243334 -or $fitting.recovered_coordinates -ne 4584) { throw 'Source attachment coverage differs' }
           $geometry = Get-Content validation/exhaust-gearbox.json -Raw | ConvertFrom-Json
           if ($geometry.body_pipe_configurations -ne 9359 -or $geometry.gearbox_presets -ne 8 -or $geometry.maximum_gears -ne 10) { throw 'Exhaust or gearbox coverage differs' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\power-combinations.json" validation/power-combinations.json
@@ -244,12 +247,12 @@ jobs:
           import zipfile
           from pathlib import Path
           with zipfile.ZipFile('../validation/Validation-Windows.zip') as archive:
-              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png')]:
+              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png'),('screens/ancrages-source.png','Apercu-Ancrages.png'),('screens/origines-pieces.png','Apercu-Provenance.png')]:
                   data=archive.read(source)
                   if not data.startswith(bytes.fromhex('89504e470d0a1a0a')): raise SystemExit('Invalid native UI preview')
                   Path(target).write_bytes(data)
           PY_PREVIEW
-          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png
+          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png Apercu-Ancrages.png Apercu-Provenance.png
           for part in $(seq 0 $((PART_COUNT-1))); do
             name="$(printf 'PixelCarRacerNative-Windows-x64.zip.part-%03d' "$part")"
             gh release delete-asset "$RELEASE_TAG" "$name" --yes

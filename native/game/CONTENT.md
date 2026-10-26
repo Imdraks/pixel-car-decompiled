@@ -1,84 +1,62 @@
-# Contenu fusionné Original 1.2.5 + Unbound — 0.8.0
+# Catalogue fusionné Original + Unbound — 0.9.0
 
-Le garage utilise maintenant le catalogue des deux APK fournis, lu statiquement
-sans exécuter Android ni le moteur YYC. L’équipement reste libre.
+Un seul garage et une seule liste par catégorie remplacent les boutons globaux
+Original/Unbound. Sous chaque pièce, une mention indique **ORIGINAL**, **UNBOUND**
+ou **ORIGINAL + UNBOUND**. Les pièces communes ne sont pas dupliquées ; les
+variantes d’apparence réellement différentes restent sélectionnables ensemble.
 
-## Disponible et accès PC
+## Contenu et accès PC
 
-- **196 pièces de performance**, dans les onze catégories précédentes. Les deux
-  turbos de l’original absents de la boutique Unbound sont ajoutés :
-  Reddy T60D (Diamond) et Reddy T60AD (Ruby). Leurs statistiques littérales sont
-  conservées ; turbo et compresseur restent exclusifs.
-- **521 jantes avec leurs vrais noms**, dans F2 → Jantes : Four Racing, Sleepers,
-  Welds, TE38, etc. Elles assemblent les couronnes/moyeux de `sp_adv_lip` et les
-  rayons de `sp_adv_rims`, suivant les 521 recettes récupérées dans
-  `scr_rim_setup`. Le nombre de rayons et leurs images ne sont pas inventés.
-  Les ombres/reflets ne sont jamais des pièces indépendantes.
-- **479 éléments esthétiques**, accessibles par **F7** ou **STYLE / ACCESSOIRES**.
-  Les flèches de l’en-tête parcourent seize catégories : peinture, livrées,
-  ailerons, galeries/cargaisons, kits complets, pare-chocs avant, pare-chocs
-  arrière, bas de caisse, freins, sièges, crochets, écrous, vitres, teinte des
-  phares, teinte des feux et ampoules. Tab / Maj+Tab changent de catégorie.
-- Les boutons **ORIGINAL 1.2.5 / UNBOUND** choisissent les images de carrosserie
-  et d’accessoires de chaque version. Les deux banques ont 191 carrosseries,
-  dont 10 images de carrosserie différentes : ce sont 201 images distinctes,
-  et non 382 voitures uniques. Les ressources identiques sont dédoublonnées.
-- **Deux banques de 94 sons**, sélectionnées par les mêmes boutons : les
-  échantillons de l’original et ceux du mod sont conservés sans réencodage.
-  Les 188 fichiers ont des identifiants/noms compatibles, mais des octets
-  différents. Les profils moteur manuels restent disponibles ; AUTO conserve
-  son association native approximative.
+- **196 pièces de performance** : les onze catégories F1–F6, dont les turbos
+  Diamond et Ruby présents seulement dans le catalogue original.
+- **521 jantes nommées**, dans F2 : assemblage des couronnes/moyeux et rayons
+  selon les 521 recettes récupérées. Pneus et effets ne sont pas proposés comme
+  jantes. Les anciens identifiants valides restent lisibles dans les sauvegardes.
+- **503 choix esthétiques**, dans F7 / STYLE : les 479 entrées du catalogue et
+  les 24 images de sièges Original différentes de celles d’Unbound.
+  Les seize catégories regroupent peintures, livrées, ailerons, galeries,
+  kits complets, pare-chocs avant/arrière, bas de caisse, freins, sièges,
+  crochets, écrous, vitres, teintes de phares/feux et ampoules.
+- **239 ensembles de carrosserie** dans un sélecteur unique : 191 bases, plus
+  les 48 variantes Original qui diffèrent par la carrosserie, les feux, un kit
+  ou un aileron. Il s’agit de variantes visuelles, pas de 239 modèles mécaniques
+  distincts. Les seules images de carrosserie principales représentent 201
+  images distinctes ; les autres différences concernent les calques associés.
+- **F8** : arceau. **K** : phares. Voir [ATTACHMENTS.md](ATTACHMENTS.md) pour les
+  nouveaux ancrages et les limites des adaptations de rendu.
+- Deux banques de **94 sons** sont conservées sans réencodage. Le bouton
+  **SONS : ORIGINAL / UNBOUND**, dans le panneau SON DU MOTEUR, choisit la banque
+  indépendamment de la voiture et de l’équipement. AUTO moteur/son reste une
+  association native approximative ; les profils manuels sont conservés.
 
-Recherche Ctrl+F, aperçu sans équipement, Entrée/double-clic, retrait par
-CONFIGURATION DE BASE, molette et pagination restent disponibles. Le choix de
-banque, les jantes nommées et les seize catégories sont sauvegardés. Choisir une
-banque ne supprime pas les pièces de l’autre : la boutique est commune.
-Les pneus de performance sont conservés séparément des jantes et composés avec
-elles dans les vignettes et sur la voiture. Frein à main Espace inchangé.
+Les 1196 équipements abstraits des boutiques sont transférés. Le sélecteur compte
+1220 choix après conservation des 24 variantes de sièges supplémentaires.
+Les noms, attributs et adresses source figurent dans `native/evidence/merged/` ;
+les atlas sont vérifiés par SHA-256 avant réassemblage. Les variantes de siège
+sont des choix d’image supplémentaires, pas de nouvelles performances inventées.
 
-Les 23 anciens identifiants de jantes valides restent lisibles dans les
-sauvegardes ; la nouvelle boutique propose uniquement les 521 styles nommés du
-catalogue. Les anciens calques invalides sont réparés sans supprimer l’équipement.
+Recherche Ctrl+F, aperçu, Entrée/double-clic, molette et sauvegarde restent actifs.
+Tab / Maj+Tab parcourent les catégories esthétiques. Les sauvegardes précédentes
+conservent leur apparence et leur banque audio lors de la migration. L’équipement
+reste libre ; la progression, les achats, courses/tournois et éditeur de livrées
+ne sont pas encore reconstruits.
 
-## Ce qui est reconstruit nativement
+## Ressources et reproduction
 
-Les pièces sont visibles au garage et en conduite. Les kits/ailerons utilisent
-les images propres à chaque carrosserie ; galeries, sièges et crochets utilisent
-les ressources d’accessoires. Les freins et écrous se dessinent dans les roues.
-Le composite dispose d’une marge au-dessus du toit pour conserver les cargaisons.
+- `catalog.json` : littéraux des deux boutiques ; 1195 lignes communes et deux
+  turbos supplémentaires dans l’original.
+- `rims.json` : identifiants, cinq champs et adresses des recettes de jantes.
+- `attachment-positions.json` : positions des pièces pour les deux banques.
+- `validation/merged-content.json` et `merged-audio.json` : comptages/empreintes.
+- `tools/prepare_content.py`, `generate_catalog.py`, `prepare_base_audio.py` et
+  `native/tools/recover_attachment_positions.py` : préparation et récupération.
 
-Le masque de peinture/livrée, la teinte des vitres/feux et certains placements
-sont des adaptations natives. Leur équivalence pixel par pixel avec les shaders
-et coordonnées du jeu Android n’est pas établie. Certains accessoires peuvent
-nécessiter un ajustement selon la carrosserie ; la transformation d’un kit ne
-récupère pas les statistiques d’origine de la voiture. Ces éléments esthétiques
-n’ajoutent pas de puissance et ne modifient pas la calibration physique actuelle.
+Après les préparations initiales, générer les coordonnées puis le contenu et le
+catalogue. Les exports `original-items.json`, `unbound-items.json` et
+`original-parts-rescan.json` doivent être dans le dossier `--exports`. Python,
+Pillow, UndertaleModTool et Ghidra servent uniquement à la préparation ; le jeu
+Windows est natif C++ et fonctionne hors ligne.
 
-Cette fusion couvre les **1196 équipements des boutiques** (1197 lignes source,
-moins l’option None). Elle ne reconstitue pas la progression, les achats, les
-courses, les tournois, le dessin libre de livrées ni tous les services du jeu.
-Les valeurs de performance suivent toujours le modèle décrit dans PHYSICS.md
-et PERFORMANCE.md ; la fidélité physique Android reste à établir.
-
-## Provenance et reproduction
-
-- `native/evidence/merged/catalog.json` : noms, valeurs et adresses d’insertion
-  des deux catalogues. 1195 lignes communes, deux turbos supplémentaires dans
-  l’original ; aucune duplication artificielle des entrées communes.
-- `native/evidence/merged/rims.json` : chaque identifiant source, ses cinq champs
-  et les adresses des comparaisons/écritures YYC. Images des deux banques
-  vérifiées par SHA-256 avant réassemblage.
-- `validation/merged-content.json` : comptages et empreintes des atlas sources.
-- `tools/prepare_content.py` : assemblage radial au plus proche pixel, dédoublonnage,
-  atlas et métadonnées. `native/tools/recover_part_catalog.py` accepte les deux
-  binaires vérifiés ; `native/tools/recover_rim_recipes.py` récupère les recettes.
-
-Après les préparations des ressources, sons et interface, lancer
-`python3 native/game/tools/prepare_content.py`, puis
-`python3 native/game/tools/generate_catalog.py`. Les exports statiques
-`original-items.json`, `unbound-items.json` et `original-parts-rescan.json`
-doivent se trouver dans le dossier indiqué par `--exports`.
-
-Extraire **tout le ZIP** : les six atlas `content-00.png` à `content-05.png` sont
-nécessaires. Le jeu distribué reste un exécutable C++ Windows natif ; Python,
-Pillow, UndertaleModTool et Ghidra ne sont utilisés que pour la préparation.
+Extraire **tout le ZIP**, y compris les atlas `content-*.png` et `audio-original`.
+Les matériaux/placements restent partiellement adaptés nativement ; la physique
+et son absence d’équivalence Android démontrée sont détaillées dans PHYSICS.md.

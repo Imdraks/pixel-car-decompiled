@@ -77,12 +77,17 @@ try:
  check('gearbox_cancel_discards_draft',profile()['gear_count']=='10');click(111,518);click(615,674);click(850,674);check('gearbox_reset_restores_six',profile()['gear_count']=='6')
  click(150,489);click(850,674);key('F12');click(1140,45)
  # Every newly merged appearance slot accepts real keyboard/mouse input.
- click(675,23);check('original_resource_bank_selects',profile()['content_source']=='1')
+ click(47,518);[key('Left') for _ in range(21)];check('unified_body_selector_reaches_original_variants',profile()['content_source']=='1')
  for slot,name,id in [(0,'Matte White',100085),(1,'Gold Fade',101005),(2,'6666 Spoiler',102001),(3,'Rakima Carrier',103005),(4,'Rocketbunny Kit',104001),(5,'Rocketbunny (Front)',105001),(6,'Rocketbunny (Rear)',106001),(7,'Rocketbunny (Side)',107001),(8,'Trembo Slotted',108001),(9,'Pride Comfort',109001),(10,'Hooker 1',110001),(11,'Lug Nuts (Blue)',111002),(12,'Midnight blue',112002),(13,'sky headlight tint',113005),(14,'70% taillight tint',114003),(15,'HID 8000k',115002)]:
   if slot==0:key('F7')
   else:click(1227,250)
   search(name);key('Return');check('appearance_slot_'+str(slot),profile()['cosmetic_'+str(slot)]==str(id))
- key('F12');key('Escape');click(880,23);check('unbound_resource_bank_preserves_outfit',profile()['content_source']=='0' and profile()['cosmetic_1']=='101005')
+ key('F7');click(1227,250);click(1227,250);click(1227,250);click(1227,250);click(1227,250);click(1227,250);click(1227,250);click(1227,250);click(1227,250);click(1227,250)
+ # F7 reopens the current (bulbs) slot; ten forward tabs reach seats.
+ search('Pride Comfort');click(1125,314);key('Return');check('original_and_unbound_seats_share_one_list',profile()['cosmetic_9']=='309001')
+ key('F8');key('k');check('cage_and_headlights_toggle',profile()['roll_cage']=='1' and profile()['headlights']=='1')
+ key('F12');key('Escape');[key('Right') for _ in range(21)];check('unified_selector_preserves_outfit',profile()['content_source']=='0' and profile()['cosmetic_1']=='101005')
+ click(245,518);click(860,180);check('audio_source_is_independent_of_body',profile()['audio_source']=='1' and profile()['content_source']=='0');click(860,180);click(830,557)
  key('F2');search('Four Racing');key('Return');check('named_four_racing_rim_equips',profile()['rim']=='10100')
  search('Sleepers');key('Return');check('named_sleepers_rim_equips',profile()['rim']=='10101');key('F12');key('Escape')
  # Use a 4:3 window and then Full HD. Hit testing must follow letterboxing/scaling.
@@ -97,7 +102,7 @@ try:
  check('handbrake_overrides_throttle_and_nos',braked['handbraking']=='1' and braked['nitro_active']=='0' and float(braked['nitro_remaining'])==10 and float(braked['current_hp'])==0)
  check('rear_wheels_lock_while_vehicle_moves',float(braked['rear_roll_m'])<float(braked['distance_m']))
  if a.with_audio:check('both_audio_banks_switch_without_decode_failures',braked['audio_ready']=='1' and braked['audio_failures']=='0')
- check('appearance_survives_restart',profile()['cosmetic_15']=='115002' and profile()['rim']=='10101')
+ check('appearance_survives_restart',profile()['cosmetic_15']=='115002' and profile()['rim']=='10101' and profile()['cosmetic_9']=='309001' and profile()['roll_cage']=='1')
  check('equipment_and_gearbox_survive_restart',braked['engine_part']=='1014' and braked['tire_part']=='10017' and braked['gear_count']=='10')
  (a.output/'report.json').write_text(json.dumps({'checks':checks,'maximum':maximum,'gearbox':profile(),'stationary':stationary,'baseline':baseline,'handbrake':braked},indent=2)+'\n');print(json.dumps(checks,indent=2))
 finally:

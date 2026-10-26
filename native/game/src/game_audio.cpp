@@ -49,7 +49,7 @@ void GameAudio::shot(int id,float volume){
 }
 void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarState& car,const DriverInput& input,double collision,bool active,bool enabled){
     if(!ready)return;
-    selectBank(profile.contentSource);
+    selectBank(profile.audioSource);
     if(!enabled)for(auto& sound:shots)StopSound(sound.second);
     auto samples=engineSamples(profile);bool gas=active&&input.throttle&&!input.brake&&!input.handbrake;
     float audible=enabled&&active?1.f:0.f;

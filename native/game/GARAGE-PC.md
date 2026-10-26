@@ -1,4 +1,4 @@
-# Garage original adapté au PC — 0.8
+# Garage original adapté au PC — 0.9
 
 Garage et Customisation ouvrent désormais le même atelier : voiture sur le pont,
 statistiques à gauche et six catégories en bas. Le décor, le pont, les icônes,
@@ -7,7 +7,8 @@ Les carrosseries, jantes, pièces et performances Unbound déjà intégrées son
 conservées. Les images de pièces du mod sont conservées lorsqu'elles diffèrent.
 
 Les panneaux, l'inventaire et les interactions sont réécrits nativement pour le
-PC. Le bandeau propose **ORIGINAL 1.2.5 / UNBOUND** ; l’équipement reste libre.
+PC. Le bandeau annonce le catalogue **ORIGINAL + UNBOUND** ; l’équipement reste libre.
+La provenance figure sous chaque pièce, et les deux versions sont dans la même liste.
 Économie et progression originales
 restent à reconstruire. Les valeurs affichées correspondent au modèle natif :
 identifiant de carrosserie, moteur choisi, puissance sans NOS (extension bleue

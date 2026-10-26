@@ -1,3 +1,20 @@
+# Validation native 0.9.0
+
+- 143 contrôles du cœur : récupération de 4584 coordonnées, fitting de
+  18718 configurations et 243334 variantes avec kits, source des pièces,
+  239 ensembles visuels, migration des sièges/audio et arceau/phares.
+- 45 contrôles graphiques : positions partagées pot/VFX, ancrages source,
+  sièges des deux versions dans la même liste et mentions de provenance.
+- 82 contrôles clavier/souris Linux (66 garage/audio, 16 affichage/trafic),
+  dont sélection des variantes dans le même menu, arceau, phares et audio
+  indépendant de la voiture.
+- Physique, 192416 combinaisons et 188 sons conservés. La publication exige
+  les contrôles Windows du cœur, fitting, rendu, physique et deux banques audio.
+- Rapports locaux : `validation/attachments-0.9/`. Les adaptations de surface,
+  de matériaux et les limites d’équivalence Android restent documentées.
+
+## Historique : version 0.8.0
+
 # Validation native 0.8.0
 
 - 136 contrôles du cœur : 196 pièces, 521 recettes et images de jantes dans

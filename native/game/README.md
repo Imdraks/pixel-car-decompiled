@@ -1,10 +1,10 @@
-# Pixel Car Racer — Unbound Native 0.8.0
+# Pixel Car Racer — Unbound Native 0.9.0
 
-La version **0.8.0** fusionne les boutiques : **196 pièces de performance**,
-**521 jantes nommées et composées**, **479 éléments esthétiques**. F7 ouvre
-STYLE / ACCESSOIRES ; les boutons ORIGINAL 1.2.5 / UNBOUND conservent les deux
-banques de carrosseries et d’accessoires. Voir [CONTENT.md](CONTENT.md) pour
-les catégories, la provenance et les limites du rendu reconstruit.
+La version **0.9.0** réunit Original et Unbound dans les mêmes catégories,
+avec la provenance affichée sous chaque pièce. Elle corrige les ancrages des
+pots, sièges, galeries et crochets à partir des coordonnées du jeu.
+F7 : style, F8 : arceau, K : phares. Voir [CONTENT.md](CONTENT.md) et
+[ATTACHMENTS.md](ATTACHMENTS.md).
 
 Cette première reconstruction **native Windows x64** propose un mode libre
 jouable avec les ressources d'Unbound. Le programme ne lance ni APK, ni Android,

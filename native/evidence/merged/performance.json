@@ -15,7 +15,9 @@
       "weight": 250.0,
       "value": 50000.0,
       "subimage": 1,
-      "source_call_address": "0xeb3e00"
+      "source_call_address": "0xeb3e00",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1002,
@@ -26,7 +28,9 @@
       "weight": 250.0,
       "value": 2000000.0,
       "subimage": 2,
-      "source_call_address": "0xeb401a"
+      "source_call_address": "0xeb401a",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1003,
@@ -37,7 +41,9 @@
       "weight": 210.0,
       "value": 300000.0,
       "subimage": 3,
-      "source_call_address": "0xeb4227"
+      "source_call_address": "0xeb4227",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1004,
@@ -48,7 +54,9 @@
       "weight": 240.0,
       "value": 320000.0,
       "subimage": 4,
-      "source_call_address": "0xeb4434"
+      "source_call_address": "0xeb4434",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1005,
@@ -59,7 +67,9 @@
       "weight": 240.0,
       "value": 400000.0,
       "subimage": 5,
-      "source_call_address": "0xeb4641"
+      "source_call_address": "0xeb4641",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1006,
@@ -70,7 +80,9 @@
       "weight": 250.0,
       "value": 190000.0,
       "subimage": 6,
-      "source_call_address": "0xeb484e"
+      "source_call_address": "0xeb484e",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1007,
@@ -81,7 +93,9 @@
       "weight": 250.0,
       "value": 4250000.0,
       "subimage": 7,
-      "source_call_address": "0xeb4a5b"
+      "source_call_address": "0xeb4a5b",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1008,
@@ -92,7 +106,9 @@
       "weight": 270.0,
       "value": 1000000.0,
       "subimage": 8,
-      "source_call_address": "0xeb4c68"
+      "source_call_address": "0xeb4c68",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1009,
@@ -103,7 +119,9 @@
       "weight": 270.0,
       "value": 3500000.0,
       "subimage": 9,
-      "source_call_address": "0xeb4e75"
+      "source_call_address": "0xeb4e75",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1010,
@@ -114,7 +132,9 @@
       "weight": 255.0,
       "value": 12000000.0,
       "subimage": 10,
-      "source_call_address": "0xeb5082"
+      "source_call_address": "0xeb5082",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1011,
@@ -125,7 +145,9 @@
       "weight": 320.0,
       "value": 5000000.0,
       "subimage": 11,
-      "source_call_address": "0xeb528f"
+      "source_call_address": "0xeb528f",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1012,
@@ -136,7 +158,9 @@
       "weight": 300.0,
       "value": 7000000.0,
       "subimage": 12,
-      "source_call_address": "0xeb549c"
+      "source_call_address": "0xeb549c",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1013,
@@ -147,7 +171,9 @@
       "weight": 280.0,
       "value": 4500000.0,
       "subimage": 13,
-      "source_call_address": "0xeb56a9"
+      "source_call_address": "0xeb56a9",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1014,
@@ -158,7 +184,9 @@
       "weight": 300.0,
       "value": 6000000.0,
       "subimage": 14,
-      "source_call_address": "0xeb58b6"
+      "source_call_address": "0xeb58b6",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1015,
@@ -169,7 +197,9 @@
       "weight": 210.0,
       "value": 600000.0,
       "subimage": 15,
-      "source_call_address": "0xeb5ac3"
+      "source_call_address": "0xeb5ac3",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 1016,
@@ -180,7 +210,9 @@
       "weight": 200.0,
       "value": 350000.0,
       "subimage": 16,
-      "source_call_address": "0xeb5cd0"
+      "source_call_address": "0xeb5cd0",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2001,
@@ -191,7 +223,9 @@
       "weight": 130.0,
       "value": 500.0,
       "subimage": 1,
-      "source_call_address": "0xe616ea"
+      "source_call_address": "0xe616ea",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2002,
@@ -202,7 +236,9 @@
       "weight": 130.0,
       "value": 500.0,
       "subimage": 2,
-      "source_call_address": "0xe61904"
+      "source_call_address": "0xe61904",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2003,
@@ -213,7 +249,9 @@
       "weight": 130.0,
       "value": 500.0,
       "subimage": 3,
-      "source_call_address": "0xe61b11"
+      "source_call_address": "0xe61b11",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2004,
@@ -224,7 +262,9 @@
       "weight": 130.0,
       "value": 500.0,
       "subimage": 4,
-      "source_call_address": "0xe61d1e"
+      "source_call_address": "0xe61d1e",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2005,
@@ -235,7 +275,9 @@
       "weight": 120.0,
       "value": 1500.0,
       "subimage": 5,
-      "source_call_address": "0xe61f2b"
+      "source_call_address": "0xe61f2b",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2006,
@@ -246,7 +288,9 @@
       "weight": 120.0,
       "value": 1500.0,
       "subimage": 6,
-      "source_call_address": "0xe62138"
+      "source_call_address": "0xe62138",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2007,
@@ -257,7 +301,9 @@
       "weight": 120.0,
       "value": 1500.0,
       "subimage": 7,
-      "source_call_address": "0xe62345"
+      "source_call_address": "0xe62345",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2008,
@@ -268,7 +314,9 @@
       "weight": 120.0,
       "value": 1500.0,
       "subimage": 8,
-      "source_call_address": "0xe62552"
+      "source_call_address": "0xe62552",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2009,
@@ -279,7 +327,9 @@
       "weight": 110.0,
       "value": 9000.0,
       "subimage": 9,
-      "source_call_address": "0xe6275f"
+      "source_call_address": "0xe6275f",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2010,
@@ -290,7 +340,9 @@
       "weight": 110.0,
       "value": 9000.0,
       "subimage": 10,
-      "source_call_address": "0xe6296c"
+      "source_call_address": "0xe6296c",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2011,
@@ -301,7 +353,9 @@
       "weight": 105.0,
       "value": 27000.0,
       "subimage": 11,
-      "source_call_address": "0xe62b79"
+      "source_call_address": "0xe62b79",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2012,
@@ -312,7 +366,9 @@
       "weight": 100.0,
       "value": 29000.0,
       "subimage": 12,
-      "source_call_address": "0xe62d86"
+      "source_call_address": "0xe62d86",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2013,
@@ -323,7 +379,9 @@
       "weight": 90.0,
       "value": 120000.0,
       "subimage": 13,
-      "source_call_address": "0xe62f93"
+      "source_call_address": "0xe62f93",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2014,
@@ -334,7 +392,9 @@
       "weight": 90.0,
       "value": 120000.0,
       "subimage": 14,
-      "source_call_address": "0xe631a0"
+      "source_call_address": "0xe631a0",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2015,
@@ -345,7 +405,9 @@
       "weight": 90.0,
       "value": 120000.0,
       "subimage": 15,
-      "source_call_address": "0xe633ad"
+      "source_call_address": "0xe633ad",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 2016,
@@ -356,7 +418,9 @@
       "weight": 90.0,
       "value": 160000.0,
       "subimage": 16,
-      "source_call_address": "0xe635ba"
+      "source_call_address": "0xe635ba",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3001,
@@ -367,7 +431,9 @@
       "weight": 98.0,
       "value": 1400000.0,
       "subimage": 1,
-      "source_call_address": "0xe041c8"
+      "source_call_address": "0xe041c8",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3002,
@@ -378,7 +444,9 @@
       "weight": 110.0,
       "value": 600000.0,
       "subimage": 2,
-      "source_call_address": "0xe043d5"
+      "source_call_address": "0xe043d5",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3003,
@@ -389,7 +457,9 @@
       "weight": 120.0,
       "value": 250000.0,
       "subimage": 3,
-      "source_call_address": "0xe045e2"
+      "source_call_address": "0xe045e2",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3004,
@@ -400,7 +470,9 @@
       "weight": 120.0,
       "value": 150000.0,
       "subimage": 4,
-      "source_call_address": "0xe047ef"
+      "source_call_address": "0xe047ef",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3005,
@@ -411,7 +483,9 @@
       "weight": 120.0,
       "value": 80000.0,
       "subimage": 5,
-      "source_call_address": "0xe049fc"
+      "source_call_address": "0xe049fc",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3006,
@@ -422,7 +496,9 @@
       "weight": 110.0,
       "value": 40000.0,
       "subimage": 6,
-      "source_call_address": "0xe04c09"
+      "source_call_address": "0xe04c09",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3007,
@@ -433,7 +509,9 @@
       "weight": 110.0,
       "value": 10000.0,
       "subimage": 7,
-      "source_call_address": "0xe04e16"
+      "source_call_address": "0xe04e16",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3008,
@@ -444,7 +522,9 @@
       "weight": 110.0,
       "value": 3000.0,
       "subimage": 8,
-      "source_call_address": "0xe05023"
+      "source_call_address": "0xe05023",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3009,
@@ -455,7 +535,9 @@
       "weight": 110.0,
       "value": 1000.0,
       "subimage": 9,
-      "source_call_address": "0xe05230"
+      "source_call_address": "0xe05230",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3010,
@@ -466,7 +548,9 @@
       "weight": 99.0,
       "value": 300000.0,
       "subimage": 10,
-      "source_call_address": "0xe0543d"
+      "source_call_address": "0xe0543d",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3011,
@@ -477,7 +561,9 @@
       "weight": 90.0,
       "value": 25000.0,
       "subimage": 11,
-      "source_call_address": "0xe0564a"
+      "source_call_address": "0xe0564a",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3012,
@@ -488,7 +574,9 @@
       "weight": 71.0,
       "value": 500.0,
       "subimage": 12,
-      "source_call_address": "0xe05857"
+      "source_call_address": "0xe05857",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3015,
@@ -499,7 +587,9 @@
       "weight": 55.0,
       "value": 35000.0,
       "subimage": 15,
-      "source_call_address": "0xe05a64"
+      "source_call_address": "0xe05a64",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3016,
@@ -510,7 +600,9 @@
       "weight": 55.0,
       "value": 90000.0,
       "subimage": 16,
-      "source_call_address": "0xe05c71"
+      "source_call_address": "0xe05c71",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3017,
@@ -521,7 +613,9 @@
       "weight": 55.0,
       "value": 220000.0,
       "subimage": 17,
-      "source_call_address": "0xe05e7e"
+      "source_call_address": "0xe05e7e",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3018,
@@ -532,7 +626,9 @@
       "weight": 55.0,
       "value": 1300000.0,
       "subimage": 18,
-      "source_call_address": "0xe0608b"
+      "source_call_address": "0xe0608b",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3019,
@@ -543,7 +639,9 @@
       "weight": 98.0,
       "value": 5250000.0,
       "subimage": 19,
-      "source_call_address": "0xe06298"
+      "source_call_address": "0xe06298",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3020,
@@ -554,7 +652,9 @@
       "weight": 55.0,
       "value": 450000.0,
       "subimage": 20,
-      "source_call_address": "0xe064a5"
+      "source_call_address": "0xe064a5",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3021,
@@ -565,7 +665,9 @@
       "weight": 55.0,
       "value": 450000.0,
       "subimage": 21,
-      "source_call_address": "0xe066b2"
+      "source_call_address": "0xe066b2",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3022,
@@ -576,7 +678,9 @@
       "weight": 55.0,
       "value": 500000.0,
       "subimage": 22,
-      "source_call_address": "0xe068bf"
+      "source_call_address": "0xe068bf",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3023,
@@ -587,7 +691,9 @@
       "weight": 55.0,
       "value": 3000000.0,
       "subimage": 23,
-      "source_call_address": "0xe06acc"
+      "source_call_address": "0xe06acc",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3024,
@@ -598,7 +704,9 @@
       "weight": 54.0,
       "value": 3000000.0,
       "subimage": 24,
-      "source_call_address": "0xe06cd9"
+      "source_call_address": "0xe06cd9",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3025,
@@ -609,7 +717,9 @@
       "weight": 53.0,
       "value": 3500000.0,
       "subimage": 25,
-      "source_call_address": "0xe06ee6"
+      "source_call_address": "0xe06ee6",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3026,
@@ -620,7 +730,9 @@
       "weight": 20.0,
       "value": 9000000.0,
       "subimage": 26,
-      "source_call_address": "0xe070f3"
+      "source_call_address": "0xe070f3",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 3027,
@@ -631,7 +743,9 @@
       "weight": 20.0,
       "value": 10000000.0,
       "subimage": 27,
-      "source_call_address": "0xe07300"
+      "source_call_address": "0xe07300",
+      "source_mask": 1,
+      "image_source": -1
     },
     {
       "id": 3028,
@@ -642,7 +756,9 @@
       "weight": 20.0,
       "value": 0.0,
       "subimage": 28,
-      "source_call_address": "0xe0750d"
+      "source_call_address": "0xe0750d",
+      "source_mask": 1,
+      "image_source": -1
     },
     {
       "id": 4001,
@@ -653,7 +769,9 @@
       "weight": 5.0,
       "value": 2000.0,
       "subimage": 1,
-      "source_call_address": "0xe7717f"
+      "source_call_address": "0xe7717f",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 4002,
@@ -664,7 +782,9 @@
       "weight": 5.0,
       "value": 5000.0,
       "subimage": 2,
-      "source_call_address": "0xe77399"
+      "source_call_address": "0xe77399",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 4003,
@@ -675,7 +795,9 @@
       "weight": 5.0,
       "value": 24000.0,
       "subimage": 3,
-      "source_call_address": "0xe775a6"
+      "source_call_address": "0xe775a6",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 4004,
@@ -686,7 +808,9 @@
       "weight": 5.0,
       "value": 38000.0,
       "subimage": 4,
-      "source_call_address": "0xe777b3"
+      "source_call_address": "0xe777b3",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 4005,
@@ -697,7 +821,9 @@
       "weight": 5.0,
       "value": 125000.0,
       "subimage": 5,
-      "source_call_address": "0xe779c0"
+      "source_call_address": "0xe779c0",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 4006,
@@ -708,7 +834,9 @@
       "weight": 5.0,
       "value": 180000.0,
       "subimage": 6,
-      "source_call_address": "0xe77bcd"
+      "source_call_address": "0xe77bcd",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 4007,
@@ -719,7 +847,9 @@
       "weight": 5.0,
       "value": 800000.0,
       "subimage": 7,
-      "source_call_address": "0xe77dda"
+      "source_call_address": "0xe77dda",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 4008,
@@ -730,7 +860,9 @@
       "weight": 5.0,
       "value": 1100000.0,
       "subimage": 8,
-      "source_call_address": "0xe77fe7"
+      "source_call_address": "0xe77fe7",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 5001,
@@ -741,7 +873,9 @@
       "weight": 0.0,
       "value": 2000.0,
       "subimage": 1,
-      "source_call_address": "0xe7b369"
+      "source_call_address": "0xe7b369",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 5002,
@@ -752,7 +886,9 @@
       "weight": 0.0,
       "value": 70000.0,
       "subimage": 2,
-      "source_call_address": "0xe7b583"
+      "source_call_address": "0xe7b583",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 5003,
@@ -763,7 +899,9 @@
       "weight": 0.0,
       "value": 400000.0,
       "subimage": 3,
-      "source_call_address": "0xe7b790"
+      "source_call_address": "0xe7b790",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 5005,
@@ -774,7 +912,9 @@
       "weight": 0.0,
       "value": 19000.0,
       "subimage": 5,
-      "source_call_address": "0xe7b99d"
+      "source_call_address": "0xe7b99d",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 5007,
@@ -785,7 +925,9 @@
       "weight": 0.0,
       "value": 2000666.0,
       "subimage": 7,
-      "source_call_address": "0xe7bbaa"
+      "source_call_address": "0xe7bbaa",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6001,
@@ -796,7 +938,9 @@
       "weight": 10.0,
       "value": 1500.0,
       "subimage": 1,
-      "source_call_address": "0xe645ce"
+      "source_call_address": "0xe645ce",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6002,
@@ -807,7 +951,9 @@
       "weight": 10.0,
       "value": 4000.0,
       "subimage": 2,
-      "source_call_address": "0xe643c1"
+      "source_call_address": "0xe643c1",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6003,
@@ -818,7 +964,9 @@
       "weight": 10.0,
       "value": 16500.0,
       "subimage": 3,
-      "source_call_address": "0xe641b4"
+      "source_call_address": "0xe641b4",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6004,
@@ -829,7 +977,9 @@
       "weight": 10.0,
       "value": 41000.0,
       "subimage": 4,
-      "source_call_address": "0xe63fa7"
+      "source_call_address": "0xe63fa7",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6005,
@@ -840,7 +990,9 @@
       "weight": 10.0,
       "value": 90000.0,
       "subimage": 5,
-      "source_call_address": "0xe63d8d"
+      "source_call_address": "0xe63d8d",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6006,
@@ -851,7 +1003,9 @@
       "weight": 10.0,
       "value": 200.0,
       "subimage": 6,
-      "source_call_address": "0xe647db"
+      "source_call_address": "0xe647db",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6007,
@@ -862,7 +1016,9 @@
       "weight": 8.0,
       "value": 139000.0,
       "subimage": 7,
-      "source_call_address": "0xe649e8"
+      "source_call_address": "0xe649e8",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6008,
@@ -873,7 +1029,9 @@
       "weight": 15.0,
       "value": 12000.0,
       "subimage": 8,
-      "source_call_address": "0xe65429"
+      "source_call_address": "0xe65429",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6009,
@@ -884,7 +1042,9 @@
       "weight": 17.0,
       "value": 120000.0,
       "subimage": 9,
-      "source_call_address": "0xe65636"
+      "source_call_address": "0xe65636",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6010,
@@ -895,7 +1055,9 @@
       "weight": 16.0,
       "value": 140000.0,
       "subimage": 10,
-      "source_call_address": "0xe65843"
+      "source_call_address": "0xe65843",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6011,
@@ -906,7 +1068,9 @@
       "weight": 21.0,
       "value": 190000.0,
       "subimage": 11,
-      "source_call_address": "0xe65a50"
+      "source_call_address": "0xe65a50",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6012,
@@ -917,7 +1081,9 @@
       "weight": 18.0,
       "value": 250000.0,
       "subimage": 12,
-      "source_call_address": "0xe65c5d"
+      "source_call_address": "0xe65c5d",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6013,
@@ -928,7 +1094,9 @@
       "weight": 19.0,
       "value": 275000.0,
       "subimage": 13,
-      "source_call_address": "0xe65e6a"
+      "source_call_address": "0xe65e6a",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6014,
@@ -939,7 +1107,9 @@
       "weight": 25.0,
       "value": 400000.0,
       "subimage": 14,
-      "source_call_address": "0xe66077"
+      "source_call_address": "0xe66077",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6015,
@@ -950,7 +1120,9 @@
       "weight": 12.0,
       "value": 210000.0,
       "subimage": 15,
-      "source_call_address": "0xe64bf5"
+      "source_call_address": "0xe64bf5",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6016,
@@ -961,7 +1133,9 @@
       "weight": 14.0,
       "value": 210000.0,
       "subimage": 16,
-      "source_call_address": "0xe64e02"
+      "source_call_address": "0xe64e02",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6017,
@@ -972,7 +1146,9 @@
       "weight": 22.0,
       "value": 160000.0,
       "subimage": 17,
-      "source_call_address": "0xe66284"
+      "source_call_address": "0xe66284",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6018,
@@ -983,7 +1159,9 @@
       "weight": 13.0,
       "value": 300000.0,
       "subimage": 18,
-      "source_call_address": "0xe6500f"
+      "source_call_address": "0xe6500f",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6019,
@@ -994,7 +1172,9 @@
       "weight": 9.0,
       "value": 240000.0,
       "subimage": 19,
-      "source_call_address": "0xe6521c"
+      "source_call_address": "0xe6521c",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6020,
@@ -1005,7 +1185,9 @@
       "weight": 26.0,
       "value": 150000.0,
       "subimage": 20,
-      "source_call_address": "0xe66491"
+      "source_call_address": "0xe66491",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 6021,
@@ -1016,7 +1198,9 @@
       "weight": 27.0,
       "value": 300000.0,
       "subimage": 21,
-      "source_call_address": "0xe6669e"
+      "source_call_address": "0xe6669e",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 7001,
@@ -1027,7 +1211,9 @@
       "weight": 50.0,
       "value": 640000.0,
       "subimage": 1,
-      "source_call_address": "0xe589f5"
+      "source_call_address": "0xe589f5",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 7002,
@@ -1038,7 +1224,9 @@
       "weight": 40.0,
       "value": 25000.0,
       "subimage": 2,
-      "source_call_address": "0xe58c0f"
+      "source_call_address": "0xe58c0f",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 7003,
@@ -1049,7 +1237,9 @@
       "weight": 40.0,
       "value": 75000.0,
       "subimage": 3,
-      "source_call_address": "0xe59029"
+      "source_call_address": "0xe59029",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 7004,
@@ -1060,7 +1250,9 @@
       "weight": 40.0,
       "value": 75000.0,
       "subimage": 4,
-      "source_call_address": "0xe58e1c"
+      "source_call_address": "0xe58e1c",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 7005,
@@ -1071,7 +1263,9 @@
       "weight": 40.0,
       "value": 180000.0,
       "subimage": 5,
-      "source_call_address": "0xe59236"
+      "source_call_address": "0xe59236",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 7006,
@@ -1082,7 +1276,9 @@
       "weight": 40.0,
       "value": 365000.0,
       "subimage": 6,
-      "source_call_address": "0xe59443"
+      "source_call_address": "0xe59443",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 7007,
@@ -1093,7 +1289,9 @@
       "weight": 30.0,
       "value": 4000.0,
       "subimage": 7,
-      "source_call_address": "0xe59650"
+      "source_call_address": "0xe59650",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 7008,
@@ -1104,7 +1302,9 @@
       "weight": 30.0,
       "value": 9000.0,
       "subimage": 8,
-      "source_call_address": "0xe5985d"
+      "source_call_address": "0xe5985d",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 7009,
@@ -1115,7 +1315,9 @@
       "weight": 25.0,
       "value": 500.0,
       "subimage": 9,
-      "source_call_address": "0xe59a6a"
+      "source_call_address": "0xe59a6a",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 7010,
@@ -1126,7 +1328,9 @@
       "weight": 25.0,
       "value": 1300.0,
       "subimage": 10,
-      "source_call_address": "0xe59c77"
+      "source_call_address": "0xe59c77",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 7011,
@@ -1137,7 +1341,9 @@
       "weight": 55.0,
       "value": 950000.0,
       "subimage": 11,
-      "source_call_address": "0xe59e84"
+      "source_call_address": "0xe59e84",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 7012,
@@ -1148,7 +1354,9 @@
       "weight": 55.0,
       "value": 1500000.0,
       "subimage": 12,
-      "source_call_address": "0xe5a091"
+      "source_call_address": "0xe5a091",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 7013,
@@ -1159,7 +1367,9 @@
       "weight": 45.0,
       "value": 2500000.0,
       "subimage": 13,
-      "source_call_address": "0xe5a29e"
+      "source_call_address": "0xe5a29e",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 8001,
@@ -1170,7 +1380,9 @@
       "weight": 30.0,
       "value": 1500.0,
       "subimage": 1,
-      "source_call_address": "0xe75fce"
+      "source_call_address": "0xe75fce",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 8002,
@@ -1181,7 +1393,9 @@
       "weight": 30.0,
       "value": 5000.0,
       "subimage": 2,
-      "source_call_address": "0xe761e8"
+      "source_call_address": "0xe761e8",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 8003,
@@ -1192,7 +1406,9 @@
       "weight": 30.0,
       "value": 27000.0,
       "subimage": 3,
-      "source_call_address": "0xe763f5"
+      "source_call_address": "0xe763f5",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 8004,
@@ -1203,7 +1419,9 @@
       "weight": 20.0,
       "value": 800000.0,
       "subimage": 4,
-      "source_call_address": "0xe76602"
+      "source_call_address": "0xe76602",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 8005,
@@ -1214,7 +1432,9 @@
       "weight": 30.0,
       "value": 70000.0,
       "subimage": 5,
-      "source_call_address": "0xe7680f"
+      "source_call_address": "0xe7680f",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 8006,
@@ -1225,7 +1445,9 @@
       "weight": 30.0,
       "value": 240000.0,
       "subimage": 6,
-      "source_call_address": "0xe76a1c"
+      "source_call_address": "0xe76a1c",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 8008,
@@ -1236,7 +1458,9 @@
       "weight": 20.0,
       "value": 1060000.0,
       "subimage": 8,
-      "source_call_address": "0xe76c29"
+      "source_call_address": "0xe76c29",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9001,
@@ -1247,7 +1471,9 @@
       "weight": 72.0,
       "value": 16000.0,
       "subimage": 1,
-      "source_call_address": "0xe5af9c"
+      "source_call_address": "0xe5af9c",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9002,
@@ -1258,7 +1484,9 @@
       "weight": 80.0,
       "value": 400.0,
       "subimage": 2,
-      "source_call_address": "0xe5b1b6"
+      "source_call_address": "0xe5b1b6",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9003,
@@ -1269,7 +1497,9 @@
       "weight": 75.0,
       "value": 3200.0,
       "subimage": 3,
-      "source_call_address": "0xe5b3c3"
+      "source_call_address": "0xe5b3c3",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9004,
@@ -1280,7 +1510,9 @@
       "weight": 68.0,
       "value": 31000.0,
       "subimage": 4,
-      "source_call_address": "0xe5b5d0"
+      "source_call_address": "0xe5b5d0",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9005,
@@ -1291,7 +1523,9 @@
       "weight": 80.0,
       "value": 1000.0,
       "subimage": 5,
-      "source_call_address": "0xe5b7dd"
+      "source_call_address": "0xe5b7dd",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9006,
@@ -1302,7 +1536,9 @@
       "weight": 70.0,
       "value": 12000.0,
       "subimage": 6,
-      "source_call_address": "0xe5b9ea"
+      "source_call_address": "0xe5b9ea",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9007,
@@ -1313,7 +1549,9 @@
       "weight": 50.0,
       "value": 510000.0,
       "subimage": 7,
-      "source_call_address": "0xe5bbf7"
+      "source_call_address": "0xe5bbf7",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9008,
@@ -1324,7 +1562,9 @@
       "weight": 50.0,
       "value": 510000.0,
       "subimage": 8,
-      "source_call_address": "0xe5be04"
+      "source_call_address": "0xe5be04",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9009,
@@ -1335,7 +1575,9 @@
       "weight": 75.0,
       "value": 3200.0,
       "subimage": 9,
-      "source_call_address": "0xe5c011"
+      "source_call_address": "0xe5c011",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9010,
@@ -1346,7 +1588,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 10,
-      "source_call_address": "0xe5c21e"
+      "source_call_address": "0xe5c21e",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9011,
@@ -1357,7 +1601,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 11,
-      "source_call_address": "0xe5c42b"
+      "source_call_address": "0xe5c42b",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9012,
@@ -1368,7 +1614,9 @@
       "weight": 50.0,
       "value": 1150000.0,
       "subimage": 12,
-      "source_call_address": "0xe5c638"
+      "source_call_address": "0xe5c638",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9013,
@@ -1379,7 +1627,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 13,
-      "source_call_address": "0xe5c845"
+      "source_call_address": "0xe5c845",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9014,
@@ -1390,7 +1640,9 @@
       "weight": 65.0,
       "value": 55000.0,
       "subimage": 14,
-      "source_call_address": "0xe5ca52"
+      "source_call_address": "0xe5ca52",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9015,
@@ -1401,7 +1653,9 @@
       "weight": 65.0,
       "value": 55000.0,
       "subimage": 15,
-      "source_call_address": "0xe5cc5f"
+      "source_call_address": "0xe5cc5f",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9016,
@@ -1412,7 +1666,9 @@
       "weight": 58.0,
       "value": 210000.0,
       "subimage": 16,
-      "source_call_address": "0xe5ce6c"
+      "source_call_address": "0xe5ce6c",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9017,
@@ -1423,7 +1679,9 @@
       "weight": 58.0,
       "value": 210000.0,
       "subimage": 17,
-      "source_call_address": "0xe5d079"
+      "source_call_address": "0xe5d079",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9018,
@@ -1434,7 +1692,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 18,
-      "source_call_address": "0xe5d286"
+      "source_call_address": "0xe5d286",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9019,
@@ -1445,7 +1705,9 @@
       "weight": 50.0,
       "value": 510000.0,
       "subimage": 19,
-      "source_call_address": "0xe5d493"
+      "source_call_address": "0xe5d493",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9020,
@@ -1456,7 +1718,9 @@
       "weight": 50.0,
       "value": 520000.0,
       "subimage": 20,
-      "source_call_address": "0xe5d6a0"
+      "source_call_address": "0xe5d6a0",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9021,
@@ -1467,7 +1731,9 @@
       "weight": 50.0,
       "value": 520000.0,
       "subimage": 21,
-      "source_call_address": "0xe5d8ad"
+      "source_call_address": "0xe5d8ad",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9022,
@@ -1478,7 +1744,9 @@
       "weight": 70.0,
       "value": 22000.0,
       "subimage": 22,
-      "source_call_address": "0xe5daba"
+      "source_call_address": "0xe5daba",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9023,
@@ -1489,7 +1757,9 @@
       "weight": 70.0,
       "value": 22000.0,
       "subimage": 23,
-      "source_call_address": "0xe5dcc7"
+      "source_call_address": "0xe5dcc7",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9024,
@@ -1500,7 +1770,9 @@
       "weight": 75.0,
       "value": 2000.0,
       "subimage": 24,
-      "source_call_address": "0xe5ded4"
+      "source_call_address": "0xe5ded4",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9025,
@@ -1511,7 +1783,9 @@
       "weight": 75.0,
       "value": 2500.0,
       "subimage": 25,
-      "source_call_address": "0xe5e0e1"
+      "source_call_address": "0xe5e0e1",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9026,
@@ -1522,7 +1796,9 @@
       "weight": 50.0,
       "value": 700000.0,
       "subimage": 26,
-      "source_call_address": "0xe5e2ee"
+      "source_call_address": "0xe5e2ee",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9027,
@@ -1533,7 +1809,9 @@
       "weight": 50.0,
       "value": 800000.0,
       "subimage": 27,
-      "source_call_address": "0xe5e4fb"
+      "source_call_address": "0xe5e4fb",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9028,
@@ -1544,7 +1822,9 @@
       "weight": 50.0,
       "value": 950000.0,
       "subimage": 28,
-      "source_call_address": "0xe5e708"
+      "source_call_address": "0xe5e708",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9029,
@@ -1555,7 +1835,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 29,
-      "source_call_address": "0xe5e915"
+      "source_call_address": "0xe5e915",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9032,
@@ -1566,7 +1848,9 @@
       "weight": 55.0,
       "value": 500000.0,
       "subimage": 32,
-      "source_call_address": "0xe5eb22"
+      "source_call_address": "0xe5eb22",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9033,
@@ -1577,7 +1861,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 33,
-      "source_call_address": "0xe5ed2f"
+      "source_call_address": "0xe5ed2f",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9034,
@@ -1588,7 +1874,9 @@
       "weight": 60.0,
       "value": 500000.0,
       "subimage": 34,
-      "source_call_address": "0xe5ef3c"
+      "source_call_address": "0xe5ef3c",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9035,
@@ -1599,7 +1887,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 35,
-      "source_call_address": "0xe5f149"
+      "source_call_address": "0xe5f149",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9036,
@@ -1610,7 +1900,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 36,
-      "source_call_address": "0xe5f356"
+      "source_call_address": "0xe5f356",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9037,
@@ -1621,7 +1913,9 @@
       "weight": 60.0,
       "value": 500000.0,
       "subimage": 37,
-      "source_call_address": "0xe5f563"
+      "source_call_address": "0xe5f563",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9038,
@@ -1632,7 +1926,9 @@
       "weight": 55.0,
       "value": 500000.0,
       "subimage": 38,
-      "source_call_address": "0xe5f770"
+      "source_call_address": "0xe5f770",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9039,
@@ -1643,7 +1939,9 @@
       "weight": 50.0,
       "value": 1000000.0,
       "subimage": 39,
-      "source_call_address": "0xe5f97d"
+      "source_call_address": "0xe5f97d",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9040,
@@ -1654,7 +1952,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 40,
-      "source_call_address": "0xe5fb8a"
+      "source_call_address": "0xe5fb8a",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9041,
@@ -1665,7 +1965,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 41,
-      "source_call_address": "0xe5fd97"
+      "source_call_address": "0xe5fd97",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9042,
@@ -1676,7 +1978,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 42,
-      "source_call_address": "0xe5ffa4"
+      "source_call_address": "0xe5ffa4",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9043,
@@ -1687,7 +1991,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 43,
-      "source_call_address": "0xe601b1"
+      "source_call_address": "0xe601b1",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9044,
@@ -1698,7 +2004,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 44,
-      "source_call_address": "0xe603be"
+      "source_call_address": "0xe603be",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9045,
@@ -1709,7 +2017,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 45,
-      "source_call_address": "0xe605cb"
+      "source_call_address": "0xe605cb",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9046,
@@ -1720,7 +2030,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 46,
-      "source_call_address": "0xe607d8"
+      "source_call_address": "0xe607d8",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9047,
@@ -1731,7 +2043,9 @@
       "weight": 50.0,
       "value": 500000.0,
       "subimage": 47,
-      "source_call_address": "0xe609e5"
+      "source_call_address": "0xe609e5",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9048,
@@ -1742,7 +2056,9 @@
       "weight": 40.0,
       "value": 450000.0,
       "subimage": 48,
-      "source_call_address": "0xe60bf2"
+      "source_call_address": "0xe60bf2",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9049,
@@ -1753,7 +2069,9 @@
       "weight": 40.0,
       "value": 1100000.0,
       "subimage": 49,
-      "source_call_address": "0xe60dff"
+      "source_call_address": "0xe60dff",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 9050,
@@ -1764,7 +2082,9 @@
       "weight": 45.0,
       "value": 550000.0,
       "subimage": 50,
-      "source_call_address": "0xe6100c"
+      "source_call_address": "0xe6100c",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10001,
@@ -1775,7 +2095,9 @@
       "weight": 0.0,
       "value": 2000.0,
       "subimage": 1,
-      "source_call_address": "0xe7c65c"
+      "source_call_address": "0xe7c65c",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10002,
@@ -1786,7 +2108,9 @@
       "weight": 0.0,
       "value": 3000.0,
       "subimage": 2,
-      "source_call_address": "0xe7c876"
+      "source_call_address": "0xe7c876",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10003,
@@ -1797,7 +2121,9 @@
       "weight": 0.0,
       "value": 4000.0,
       "subimage": 3,
-      "source_call_address": "0xe7ca83"
+      "source_call_address": "0xe7ca83",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10004,
@@ -1808,7 +2134,9 @@
       "weight": 0.0,
       "value": 9000.0,
       "subimage": 4,
-      "source_call_address": "0xe7cc90"
+      "source_call_address": "0xe7cc90",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10005,
@@ -1819,7 +2147,9 @@
       "weight": 0.0,
       "value": 9000.0,
       "subimage": 5,
-      "source_call_address": "0xe7ce9d"
+      "source_call_address": "0xe7ce9d",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10006,
@@ -1830,7 +2160,9 @@
       "weight": 0.0,
       "value": 9100.0,
       "subimage": 6,
-      "source_call_address": "0xe7d0aa"
+      "source_call_address": "0xe7d0aa",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10009,
@@ -1841,7 +2173,9 @@
       "weight": 0.0,
       "value": 50000.0,
       "subimage": 9,
-      "source_call_address": "0xe7d2b7"
+      "source_call_address": "0xe7d2b7",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10010,
@@ -1852,7 +2186,9 @@
       "weight": 0.0,
       "value": 50000.0,
       "subimage": 10,
-      "source_call_address": "0xe7d4c4"
+      "source_call_address": "0xe7d4c4",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10011,
@@ -1863,7 +2199,9 @@
       "weight": 0.0,
       "value": 50000.0,
       "subimage": 11,
-      "source_call_address": "0xe7d6d1"
+      "source_call_address": "0xe7d6d1",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10012,
@@ -1874,7 +2212,9 @@
       "weight": 0.0,
       "value": 50000.0,
       "subimage": 12,
-      "source_call_address": "0xe7d8de"
+      "source_call_address": "0xe7d8de",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10013,
@@ -1885,7 +2225,9 @@
       "weight": 0.0,
       "value": 50000.0,
       "subimage": 13,
-      "source_call_address": "0xe7daeb"
+      "source_call_address": "0xe7daeb",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10014,
@@ -1896,7 +2238,9 @@
       "weight": 0.0,
       "value": 50000.0,
       "subimage": 14,
-      "source_call_address": "0xe7dcf8"
+      "source_call_address": "0xe7dcf8",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10015,
@@ -1907,7 +2251,9 @@
       "weight": 0.0,
       "value": 50000.0,
       "subimage": 15,
-      "source_call_address": "0xe7df05"
+      "source_call_address": "0xe7df05",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10016,
@@ -1918,7 +2264,9 @@
       "weight": 0.0,
       "value": 50000.0,
       "subimage": 16,
-      "source_call_address": "0xe7e112"
+      "source_call_address": "0xe7e112",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10017,
@@ -1929,7 +2277,9 @@
       "weight": 0.0,
       "value": 14000.0,
       "subimage": 17,
-      "source_call_address": "0xe7e31f"
+      "source_call_address": "0xe7e31f",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10018,
@@ -1940,7 +2290,9 @@
       "weight": 0.0,
       "value": 20000.0,
       "subimage": 18,
-      "source_call_address": "0xe7e52c"
+      "source_call_address": "0xe7e52c",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10019,
@@ -1951,7 +2303,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 19,
-      "source_call_address": "0xe7e739"
+      "source_call_address": "0xe7e739",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10020,
@@ -1962,7 +2316,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 20,
-      "source_call_address": "0xe7e946"
+      "source_call_address": "0xe7e946",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10021,
@@ -1973,7 +2329,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 21,
-      "source_call_address": "0xe7eb53"
+      "source_call_address": "0xe7eb53",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10022,
@@ -1984,7 +2342,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 22,
-      "source_call_address": "0xe7ed60"
+      "source_call_address": "0xe7ed60",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10023,
@@ -1995,7 +2355,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 23,
-      "source_call_address": "0xe7ef6d"
+      "source_call_address": "0xe7ef6d",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10024,
@@ -2006,7 +2368,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 24,
-      "source_call_address": "0xe7f17a"
+      "source_call_address": "0xe7f17a",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10025,
@@ -2017,7 +2381,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 25,
-      "source_call_address": "0xe7f387"
+      "source_call_address": "0xe7f387",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10026,
@@ -2028,7 +2394,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 26,
-      "source_call_address": "0xe7f594"
+      "source_call_address": "0xe7f594",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10027,
@@ -2039,7 +2407,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 27,
-      "source_call_address": "0xe7f7a1"
+      "source_call_address": "0xe7f7a1",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10028,
@@ -2050,7 +2420,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 28,
-      "source_call_address": "0xe7f9ae"
+      "source_call_address": "0xe7f9ae",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10029,
@@ -2061,7 +2433,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 29,
-      "source_call_address": "0xe7fbbb"
+      "source_call_address": "0xe7fbbb",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10030,
@@ -2072,7 +2446,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 30,
-      "source_call_address": "0xe7fdc8"
+      "source_call_address": "0xe7fdc8",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10031,
@@ -2083,7 +2459,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 31,
-      "source_call_address": "0xe7ffd5"
+      "source_call_address": "0xe7ffd5",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10032,
@@ -2094,7 +2472,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 32,
-      "source_call_address": "0xe801e2"
+      "source_call_address": "0xe801e2",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10033,
@@ -2105,7 +2485,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 33,
-      "source_call_address": "0xe803ef"
+      "source_call_address": "0xe803ef",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10035,
@@ -2116,7 +2498,9 @@
       "weight": 0.0,
       "value": 10000.0,
       "subimage": 35,
-      "source_call_address": "0xe805fc"
+      "source_call_address": "0xe805fc",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10036,
@@ -2127,7 +2511,9 @@
       "weight": 0.0,
       "value": 10000.0,
       "subimage": 36,
-      "source_call_address": "0xe80809"
+      "source_call_address": "0xe80809",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10037,
@@ -2138,7 +2524,9 @@
       "weight": 0.0,
       "value": 9000.0,
       "subimage": 37,
-      "source_call_address": "0xe80a16"
+      "source_call_address": "0xe80a16",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10038,
@@ -2149,7 +2537,9 @@
       "weight": 0.0,
       "value": 9000.0,
       "subimage": 38,
-      "source_call_address": "0xe80c23"
+      "source_call_address": "0xe80c23",
+      "source_mask": 3,
+      "image_source": -1
     },
     {
       "id": 10039,
@@ -2160,7 +2550,9 @@
       "weight": 0.0,
       "value": 12000.0,
       "subimage": 39,
-      "source_call_address": "0xe80e30"
+      "source_call_address": "0xe80e30",
+      "source_mask": 3,
+      "image_source": -1
     }
   ],
   "limitations": [
