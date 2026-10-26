@@ -98,7 +98,7 @@ struct App {
         for(float x=start-w;x<1280;x+=w)crop(f,{x,y,w,height},tint);
     }
     void car(int index,int rim,float x,float y,float scale,double wheelAngle,bool shadow=true,int tireFrame=0,double rideOffset=0,int exhaustFrame=-1,double rearAngle=-1){
-        index=(index+191)%191;rim=(rim+54)%54;auto w=art::wheelPositions[index];tireFrame=std::clamp(tireFrame,0,int(std::size(art::tires))-1);
+        index=(index+191)%191;rim=validRimFrame(rim);auto w=art::wheelPositions[index];tireFrame=std::clamp(tireFrame,0,int(std::size(art::tires))-1);
         if(shadow&&settings.quality!=Quality::Low)DrawEllipse(int(x+110*scale),int(y+(w.y+w.radius)*scale),int(87*scale),int(6*scale),Fade(BLACK,.35f));
         // Draw the body last: opaque fenders and skirts must cover the tyres.
         // All cropped wheel sprites use their original 62x62 canvas and origin.
@@ -242,7 +242,7 @@ struct App {
         DrawRectangle(608,459,610,8,Accent);
         car(profile.car,profile.rim,594,247,2.6,0,true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame);
         text("MODE LIBRE",656,511,29);text("Route ouverte • circulation • conduite continue",656,555,18,Muted);
-        text("191 carrosseries et 54 styles de jantes Unbound",656,588,17,Muted);
+        text("191 carrosseries et 23 styles de jantes Unbound",656,588,17,Muted);
     }
     void openCustomization(){screen=Screen::Customization;inventoryOpen=false;searchFocused=false;rimPicker=false;customGroup=0;customSlot=PartSlot::Engine;customPreview=profile.parts[0];customPage=0;customSearch.clear();notice.clear();}
     static std::string lower(std::string value){for(char& c:value)c=char(std::tolower(static_cast<unsigned char>(c)));return value;}
@@ -293,7 +293,7 @@ struct App {
     std::string choiceName(int id)const{return rimPicker?TextFormat("JANTE %02i",id+1):id?findPart(id)->name:"CONFIGURATION DE BASE";}
     std::vector<int> garageChoices()const{
         std::vector<int> choices;
-        if(rimPicker){for(int i=0;i<54;i++)if(lower(choiceName(i)).find(lower(customSearch))!=std::string::npos)choices.push_back(i);if(rarityDescending)std::reverse(choices.begin(),choices.end());}
+        if(rimPicker){for(int i:RimFrames)if(lower(choiceName(i)).find(lower(customSearch))!=std::string::npos)choices.push_back(i);if(rarityDescending)std::reverse(choices.begin(),choices.end());}
         else{
             if(customSearch.empty()||lower("configuration de base").find(lower(customSearch))!=std::string::npos)choices.push_back(0);
             for(const auto& part:PartCatalog)if(part.slot==customSlot&&lower(part.name).find(lower(customSearch))!=std::string::npos)choices.push_back(part.id);
@@ -345,6 +345,13 @@ struct App {
     void uiImage(const art::Frame& f,Rectangle box,Color tint=WHITE){
         if(f.atlas<0||f.w<=0||f.h<=0)return;
         float scale=std::min(box.width/f.w,box.height/f.h);crop(f,{box.x+(box.width-f.w*scale)/2,box.y+(box.height-f.h*scale)/2,f.w*scale,f.h*scale},tint);
+    }
+    void rimIcon(int rim,int tire,Rectangle box){
+        float scale=std::min(box.width/62,box.height/62);
+        float x=box.x+(box.width-62*scale)/2,y=box.y+(box.height-62*scale)/2;
+        // Source frames are cropped differently; preserve their common canvas.
+        for(const auto* f:{&art::tires[tire],&art::rims[validRimFrame(rim)]})
+            crop(*f,{x+f->dx*scale,y+f->dy*scale,f->w*scale,f->h*scale});
     }
     bool iconButton(Rectangle r,const art::Frame& image,const std::string& tip,bool selected=false){
         uiImage(image,r);if(selected)DrawRectangleLinesEx(r,2,Accent);
@@ -436,7 +443,7 @@ struct App {
             Rectangle r{float(759+(row%2)*246),float(280+(row/2)*74),240,68};bool selected=id==customPreview;
             DrawRectangleRec(r,selected?Color{53,68,68,255}:Color{43,43,49,255});DrawRectangleLinesEx(r,selected?2:1,selected?Accent:Color{102,102,111,255});
             if(p)DrawRectangle(int(r.x),int(r.y),4,int(r.height),rarityColor(partRarity(*p)));
-            if(rimPicker)uiImage(art::rims[id],{r.x+7,r.y+6,48,52});else uiImage(partImage(customSlot,p?p->subimage:0),{r.x+6,r.y+5,50,54},p?WHITE:Fade(WHITE,.5f));
+            if(rimPicker)rimIcon(id,configuration.tireFrame,{r.x+7,r.y+6,48,52});else uiImage(partImage(customSlot,p?p->subimage:0),{r.x+6,r.y+5,50,54},p?WHITE:Fade(WHITE,.5f));
             auto name=choiceName(id);size_t split=name.size()>20?name.rfind(' ',20):std::string::npos;
             if(split!=std::string::npos){text(name.substr(0,split),r.x+62,r.y+7,14);text(name.substr(split+1,23),r.x+62,r.y+25,14);}else text(name.substr(0,23),r.x+62,r.y+13,14);
             pxText(rimPicker?"STYLE":p?rarityLabel(partRarity(*p)):"ORIGINE",r.x+62,r.y+50,10,p?rarityColor(partRarity(*p)):Muted);
@@ -564,7 +571,7 @@ struct App {
     void freeScene(){
         renderEffects(false);
         for(int lane=0;lane<3;lane++){
-            for(const auto& t:drive.traffic)if(drive.trafficEnabled&&t.lane==lane){float x=float(scene::trafficX(t.position,drive.player.position));if(x>-400&&x<1600)car(t.appearance,t.appearance%54,x,269+lane*96,1.25,scene::wheelAngle(t.position,.32));}
+            for(const auto& t:drive.traffic)if(drive.trafficEnabled&&t.lane==lane){float x=float(scene::trafficX(t.position,drive.player.position));if(x>-400&&x<1600)car(t.appearance,RimFrames[t.appearance%RimFrames.size()],x,269+lane*96,1.25,scene::wheelAngle(t.position,.32));}
             if(std::clamp(int(std::round(drive.lane)),0,2)==lane)car(profile.car,profile.rim,360,269+float(drive.lane)*96,1.25,scene::wheelAngle(drive.player.position,drive.vehicle.wheelRadius),true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,scene::wheelAngle(drive.player.rearRollDistance,drive.vehicle.wheelRadius));
         }
         renderEffects(true);
@@ -765,7 +772,12 @@ struct App {
             check(drive.player.handbraking&&drive.player.powerHp==0&&!drive.player.nitroActive,"handbrake blocks engine drive and NOS");
             check(drive.player.speed<30&&drive.player.rearRollDistance==0,"handbrake slows the vehicle and locks rear-wheel rotation");}
         if(frames==356)capture("frein-a-main.png");
-        if(frames==359)quit=true;
+        if(frames==357){openCustomization();rarityDescending=false;chooseGroup(1);auto choices=garageChoices();check(choices.size()==RimFrames.size()&&std::all_of(choices.begin(),choices.end(),isRimFrame),"rim inventory excludes tyre and effect frames");customPage=0;customPreview=RimFrames[0];}
+        for(int page=0;page<4;page++){
+            if(frames==358+page*3){customPage=page;customPreview=RimFrames[page*GaragePageSize];}
+            if(frames==360+page*3)capture(TextFormat("jantes-corrigees-%i.png",page+1));
+        }
+        if(frames==371)quit=true;
 
     }
     int run(){

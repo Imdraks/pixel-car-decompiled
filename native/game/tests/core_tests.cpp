@@ -386,11 +386,20 @@ int main(int argc,char**argv){
     expect(!std::filesystem::exists(file.u8string()+".tmp"),"successful save leaves no temporary file");
     {std::ofstream out(file);out<<"width=-1\nheight=99999999\nfps=not-a-number\nmode=execute-this\nquality=99\n";}
     auto invalid=loadSettings(file);expect(invalid.width==1280&&invalid.height==720&&invalid.fps==120&&invalid.mode==WindowMode::Windowed&&invalid.quality==Quality::High,"invalid settings safely fall back");
-    Profile p;p.car=190;p.rim=53;p.automatic=false;p.drive=DriveLayout::All;p.bestTime=12.345678;
+    Profile p;p.car=190;p.rim=42;p.automatic=false;p.drive=DriveLayout::All;p.bestTime=12.345678;
     expect(saveProfile(root/"profile.ini",p,error),"profile saved");auto loaded=loadProfile(root/"profile.ini",191,54);
-    expect(loaded.car==190&&loaded.rim==53&&!loaded.automatic&&loaded.drive==DriveLayout::All&&std::abs(loaded.bestTime-p.bestTime)<1e-9,"garage and driving preferences persist");
+    expect(loaded.car==190&&loaded.rim==42&&!loaded.automatic&&loaded.drive==DriveLayout::All&&std::abs(loaded.bestTime-p.bestTime)<1e-9,"garage and driving preferences persist");
     {std::ofstream out(root/"profile.ini");out<<"car=9999\nrim=-2\nbest_time=nan\ndrive=99\n";}
-    auto bad=loadProfile(root/"profile.ini",191,54);expect(bad.car==190&&bad.rim==0&&bad.bestTime==0&&bad.drive==DriveLayout::Rear,"malformed profile is bounded");
+    auto bad=loadProfile(root/"profile.ini",191,54);expect(bad.car==190&&bad.rim==8&&bad.bestTime==0&&bad.drive==DriveLayout::Rear,"malformed profile is bounded");
+    bool validRimsPreserved=true,invalidRimsRepaired=true;
+    for(int rim=0;rim<54;rim++){
+        {std::ofstream out(root/"rim-migration.ini");out<<"rim="<<rim<<"\npart_engine=1002\n";}
+        auto migrated=loadProfile(root/"rim-migration.ini",191,54);
+        if(isRimFrame(rim))validRimsPreserved&=migrated.rim==rim;
+        else invalidRimsRepaired&=migrated.rim==8&&migrated.parts[0]==1002;
+    }
+    expect(validRimsPreserved,"all 23 real source rims preserve their IDs across profile loading");
+    expect(invalidRimsRepaired,"all 31 tyre/effect legacy rim selections migrate without losing equipment");
     expect(easeLinear(0,5,10,2)==5&&easeLinear(2,5,10,2)==15,"reconstructed numeric easing endpoints");
     std::cout<<"PASS: "<<checks<<" checks; quarter mile "<<reference.finishTime<<" s; endless distance "<<simulated(60,true).position<<" m\n";
     return 0;

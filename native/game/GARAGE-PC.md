@@ -18,7 +18,7 @@ dans le dernier rapport ; l'infobulle rappelle les limites de puissance/traîné
 | Touche | Catégorie | Contenu |
 | --- | --- | --- |
 | F1 | Moteur | Moteurs, ECU |
-| F2 | Roues | 54 jantes, pneus |
+| F2 | Roues | 23 jantes, pneus |
 | F3 | NOS | Bouteilles NOS |
 | F4 | Suralimentation | Turbos, compresseurs, intercoolers |
 | F5 | Châssis | Suspensions, accès à la transmission |
@@ -76,3 +76,15 @@ vérifie l'équipement des onze catégories, jantes, aperçu sans achat, tri,
 pagination, molette, double-clic, saisie/recherche, boîte, formats de fenêtre,
 redémarrage et Espace en conduite. Elle attend une première image rendue pour
 éviter d'envoyer des clics pendant le chargement des atlas.
+
+## Correctif 0.7.1 : jantes et calques
+
+Le sprite `sp_rims` contient 54 images mais seulement 23 sont des styles de
+jantes : indices source 8–28, 36 et 42. Les 31 autres sont des pneus et des
+calques d’ombre, de reflet ou de couleur ; ils ne sont plus proposés comme
+équipement. Les numéros de jantes gardent les identifiants source (09–29,
+37 et 43), afin que les choix valides existants gardent leur apparence.
+Les vignettes composent pneu et jante sur leur canevas commun, sans agrandir
+indépendamment les images rognées. Le rendu de la voiture et du trafic emploie
+le même catalogue. Une sauvegarde utilisant un ancien calque invalide retrouve
+la jante 09 sans perdre ses autres réglages.

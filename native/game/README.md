@@ -1,4 +1,8 @@
-# Pixel Car Racer — Unbound Native 0.7.0
+# Pixel Car Racer — Unbound Native 0.7.1
+
+Le correctif **0.7.1** retire les pneus/effets présentés par erreur comme des
+jantes et répare les anciennes sélections invalides. Les 23 vraies jantes sont
+conservées, avec vignettes pneu+jante correctement alignées.
 
 Cette première reconstruction **native Windows x64** propose un mode libre
 jouable avec les ressources d'Unbound. Le programme ne lance ni APK, ni Android,
@@ -13,7 +17,7 @@ base : atelier, pont élévateur, icônes de catégories, jauges et police pixel
 originales, avec inventaire adapté à la souris/clavier. Les statistiques et
 la voiture montrent l'aperçu de la pièce avant équipement. Ctrl+F, molette,
 F1–F6, Entrée et double-clic accélèrent la navigation ; les choix sont sauvegardés.
-Les 194 pièces, 191 carrosseries, 54 jantes et réglages précédents sont conservés.
+Les 194 pièces, 191 carrosseries, 23 jantes et réglages précédents sont conservés.
 Voir [GARAGE-PC.md](GARAGE-PC.md) pour les catégories et commandes.
 
 **Espace est le frein à main en conduite**, avec roues arrière bloquées,
@@ -100,7 +104,7 @@ Le mode libre continue au-delà de 400 mètres. La circulation utilise trois
 voies ; les contacts ralentissent le véhicule. Les paramètres et la pause
 arrêtent la simulation, puis reprennent la session en cours.
 
-Le garage permet de choisir parmi **191 images de carrosserie** et **54 styles
+Le garage permet de choisir parmi **191 images de carrosserie** et **23 styles
 de jantes** extraits d'Unbound. Ces nombres ne désignent pas 191 véhicules dont
 les statistiques d'origine auraient été reconstruites. Les performances moteur de base
 sont communes à cette version. Les points de roue utilisent l’origine des sprites

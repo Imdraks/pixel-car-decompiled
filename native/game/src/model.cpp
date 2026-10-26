@@ -58,7 +58,7 @@ Settings loadSettings(const std::filesystem::path& file){
 Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
     auto v=readIni(file);Profile p;
     p.car=std::clamp(integer(v,"car",0),0,std::max(0,cars-1));
-    p.rim=std::clamp(integer(v,"rim",0),0,std::max(0,rims-1));p.automatic=integer(v,"automatic",1)!=0;
+    p.rim=validRimFrame(std::clamp(integer(v,"rim",RimFrames.front()),0,std::max(0,rims-1)));p.automatic=integer(v,"automatic",1)!=0;
     int layout=integer(v,"drive",1);p.drive=layout>=0&&layout<=2?DriveLayout(layout):DriveLayout::Rear;
     p.soundOn=integer(v,"sound_on",-1);if(p.soundOn< -1||p.soundOn>15)p.soundOn=-1;
     p.soundOff=integer(v,"sound_off",-1);if(p.soundOff< -1||p.soundOff>15)p.soundOff=-1;

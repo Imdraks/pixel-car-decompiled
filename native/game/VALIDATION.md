@@ -1,3 +1,17 @@
+# Validation native 0.7.1
+
+- 129 contrôles du cœur : conservation des 23 identifiants de vraies jantes et
+  migration des 31 anciens choix de pneus/effets, sans perte de pièces.
+- 39 contrôles graphiques, dont exclusion des calques du catalogue ; captures
+  des quatre pages pour revoir les 23 vignettes et leur rendu sur la voiture.
+- 57 contrôles clavier/souris Linux : 41 garage/boîte/frein à main, 16 affichage
+  et trafic. La dernière vraie jante s’équipe ; une recherche d’un effet ne
+  permet plus de l’équiper.
+- Rapports locaux : `validation/rims-0.7.1/`. Publication conditionnée aux contrôles
+  Windows du cœur, physique, rendu, 188384 combinaisons, 9359 ancrages et 94 sons.
+
+## Historique : version 0.7.0
+
 # Validation native 0.7.0
 
 - 127 contrôles du cœur : ressources UI originales, frein à main distinct du

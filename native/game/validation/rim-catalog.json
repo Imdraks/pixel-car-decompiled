@@ -1,0 +1,71 @@
+{
+  "source": "Supplied Unbound sp_rims, 62x62 canvas, origin 31,31",
+  "source_frame_count": 54,
+  "equipment_frame_ids": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    36,
+    42
+  ],
+  "equipment_count": 23,
+  "excluded_frames": {
+    "tyre_layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      43,
+      44,
+      45,
+      46,
+      49
+    ],
+    "shadow_highlight_layers": [
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      47,
+      48,
+      50,
+      51,
+      52,
+      53
+    ],
+    "colour_effect_layers": [
+      37,
+      38,
+      39,
+      40,
+      41
+    ]
+  },
+  "verification": "Visual inspection of every source frame and native four-page captures; keep raw sprite frame IDs stable for saved profiles",
+  "migration": "Invalid old selections fall back to source rim frame 8; valid IDs remain unchanged"
+}

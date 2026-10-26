@@ -61,7 +61,7 @@ try:
  key('F6');click(1167,250);key('Home');key('Next');key('Return');check('page_down_selects_next_page',profile()['part_exhaust']=='9003')
  move(1000,400);xdo('click',5);time.sleep(.2);key('Return');check('mouse_wheel_pages_inventory',profile()['part_exhaust']!='9003')
  equip('exhaust','Short Pipe (Hood)',9048)
- key('F2');search('09');key('Return');check('rims_equip_through_original_category',profile()['rim']=='8')
+ key('F2');key('End');key('Return');check('last_real_rim_equips',profile()['rim']=='42');key('F2');search('38');key('Return');check('effect_frame_cannot_equip',profile()['rim']=='42');search('09');key('Return');check('rims_equip_through_original_category',profile()['rim']=='8')
  key('F3');search('VX 50 Shot');move(879,314)
  for _ in range(2):xdo('mousedown',1);time.sleep(.06);xdo('mouseup',1);time.sleep(.08)
  check('double_click_equips',profile()['part_nos']=='5001');equip('nos','Demon 250',5007)
