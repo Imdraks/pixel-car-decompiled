@@ -1,0 +1,7 @@
+No whole-program analysis; symbol names checked against mapped file offsets.
+car_create file_offset=5a0ff0 mapped=005b0ff0 symbol=_Z26gml_Object_ob_car_Create_0P9CInstanceS0_ completed=false error=Exception while decompiling 005b0ff0: process: timeout
+
+car_begin_step file_offset=5b0070 mapped=005c0070 symbol=_Z24gml_Object_ob_car_Step_1P9CInstanceS0_ completed=true error=
+car_physics_step file_offset=5b1590 mapped=005c1590 symbol=_Z24gml_Object_ob_car_Step_0P9CInstanceS0_ completed=false error=
+Low-level Error: Flow exceeded maximum allowable instructions
+car_debug_dump file_offset=549620 mapped=00559620 symbol=_Z24gml_Script_kdbg_car_dumpP9CInstanceS0_R8YYRValueiPPS1_ completed=true error=

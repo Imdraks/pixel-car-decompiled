@@ -94,15 +94,16 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     else s.rpm=target;
     double ratio=v.ratios[s.gear-1]*v.finalDrive;
     double torque=v.torque*(.62+.38*std::exp(-std::pow((s.rpm-5200)/2700,2)));
-    double force=input.throttle&&!input.brake&&s.shiftLock==0&&coupled<v.redlineRpm
+    double tractionLimit=v.mass*9.81*v.grip;
+    double wheelForce=input.throttle&&!input.brake&&s.shiftLock==0&&coupled<v.redlineRpm
         ?torque*ratio*v.efficiency/v.wheelRadius:0;
-    force=std::min(force,v.mass*9.81*v.grip);
-    double resistance=.5*1.225*v.dragArea*s.speed*s.speed+v.mass*9.81*v.rollingResistance;
-    if(!input.throttle||input.brake){
-        // Engine braking acts through the engaged ratio, fades out as the clutch slips.
-        if(s.shiftLock==0)resistance+=v.engineBrakeTorque*ratio/v.wheelRadius*std::clamp(coupled/v.idleRpm,0.0,1.0);
+    if((!input.throttle||input.brake)&&s.shiftLock==0){
+        // Engine and service braking share the same tyre contact patch.
+        wheelForce-=v.engineBrakeTorque*ratio/v.wheelRadius*std::clamp(coupled/v.idleRpm,0.0,1.0);
     }
-    if(input.brake)resistance+=v.mass*std::min(v.brakeDeceleration,9.81*v.grip);
+    if(input.brake)wheelForce-=v.mass*v.brakeDeceleration;
+    double force=std::clamp(wheelForce,-tractionLimit,tractionLimit);
+    double resistance=.5*1.225*v.dragArea*s.speed*s.speed+v.mass*9.81*v.rollingResistance;
     double previous=s.position,oldSpeed=s.speed;
     s.speed=std::max(0.0,s.speed+(force-resistance)/v.mass*dt);
     // Integrate the stopping fraction so hard braking never moves backwards.

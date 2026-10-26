@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.2.0-native-preview
+        default: v0.3.0-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -90,6 +90,24 @@ jobs:
           if ($LASTEXITCODE -ne 0) { Get-Content validation/core-tests.txt; throw 'Windows core tests failed' }
           Expand-Archive $zip -DestinationPath "$env:RUNNER_TEMP\pcr-native-app"
           Get-CimInstance Win32_OperatingSystem | Select-Object Caption,Version | Format-List | Out-File validation/windows.txt
+      - name: Run and compare native physics measurements on Windows
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $exe = "$env:RUNNER_TEMP\pcr-native-app\PixelCarRacerNative.exe"
+          $out = Join-Path $PWD 'validation/physics'
+          $p = Start-Process $exe -ArgumentList "--physics-benchmark-dir `"$out`"" -Wait -PassThru -RedirectStandardOutput validation/physics-stdout.txt -RedirectStandardError validation/physics-stderr.txt
+          if ($p.ExitCode -ne 0) { throw 'Native Windows physics benchmark failed' }
+          $report = Get-Content "$out/physics-report.json" -Raw | ConvertFrom-Json
+          $baseline = Get-Content "$env:RUNNER_TEMP\pcr-native-app\native-physics-baseline.json" -Raw | ConvertFrom-Json
+          if (!$report.sanity_checks_passed -or $report.original_game_equivalence_validated) { throw 'Invalid physics status' }
+          if ($report.schema -ne 1 -or $report.model -ne $baseline.model) { throw 'Unexpected physics model' }
+          foreach ($metric in $baseline.measurements.PSObject.Properties) {
+            $actual = [double]$report.measurements.($metric.Name)
+            $expected = [double]$metric.Value
+            if (![double]::IsFinite($actual) -or [math]::Abs($actual - $expected) -gt 0.01) { throw "Physics metric differs between Linux and Windows: $($metric.Name)" }
+          }
+          'PASS: all native-model metrics agree within 0.01 in their SI/time or km/h units. This does not validate Android equivalence.' | Out-File validation/physics-comparison.txt
       - name: Prepare verified software OpenGL for the CI runner only
         shell: pwsh
         run: |

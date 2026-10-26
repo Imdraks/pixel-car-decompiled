@@ -1,4 +1,5 @@
 #include "model.hpp"
+#include "benchmark.hpp"
 #include <cmath>
 #include <filesystem>
 #include <fstream>
@@ -55,6 +56,10 @@ int main(int argc,char**argv){
     CarState grip;Vehicle slippery=v;slippery.grip=.4;
     for(int i=0;i<120;i++)stepCar(grip,slippery,{true,false,false},Step,0);
     expect(grip.speed<9.81*slippery.grip,"traction bounds launch acceleration");
+    CarState ice;ice.speed=20;ice.gear=1;
+    Vehicle iceCar=v;iceCar.grip=.15;iceCar.dragArea=0;iceCar.rollingResistance=0;
+    double iceBefore=ice.speed;stepCar(ice,iceCar,{false,true,false},Step,0);
+    expect((iceBefore-ice.speed)/Step<=9.81*iceCar.grip+1e-9,"engine and service brakes share tyre adhesion limit");
     CarState limiter;
     for(int i=0;i<120*30;i++)stepCar(limiter,v,{true,false,false},Step,0);
     expect(limiter.gear==1&&limiter.rpm<v.redlineRpm+50,"manual first gear cannot accelerate indefinitely past redline");
@@ -82,6 +87,15 @@ int main(int argc,char**argv){
     expect(free.lane<=2&&free.lane>=0&&free.player.position>0,"free drive moves and interpolates lanes");
     FreeDrive collision;collision.player.speed=30;collision.traffic[0]={0,10,1,0};collision.update({true,false,true},Step);
     expect(collision.collisionCooldown>0&&collision.player.speed<10,"traffic collision changes vehicle motion");
+    auto benchmark=root/std::filesystem::u8path("mesures_é_車");
+    std::filesystem::remove_all(benchmark); // Only inside the explicitly supplied test directory.
+    writePhysicsBenchmark(benchmark);
+    expect(std::filesystem::file_size(benchmark/"telemetry.csv")>1000,"physics benchmark produces a time series on a Unicode path");
+    std::ifstream benchmarkIn(benchmark/"physics-report.json");
+    std::string benchmarkText((std::istreambuf_iterator<char>(benchmarkIn)),std::istreambuf_iterator<char>());
+    expect(benchmarkText.find("\"sanity_checks_passed\": true")!=std::string::npos,"benchmark scenarios pass their sanity checks");
+    bool refused=false;try{writePhysicsBenchmark(benchmark);}catch(const std::exception&){refused=true;}
+    expect(refused,"benchmark refuses to replace an existing directory");
     auto file=root/std::filesystem::u8path("écran_車.ini");Settings s;s.mode=WindowMode::Borderless;s.width=1920;s.height=1080;s.fps=144;s.vsync=false;s.quality=Quality::Low;s.showFps=true;s.sound=false;
     std::string error;expect(saveSettings(file,s,error),"save Unicode settings path");expect(loadSettings(file)==s,"all graphics settings round trip");
     s.fps=60;s.mode=WindowMode::Fullscreen;expect(saveSettings(file,s,error),"atomic replacement of existing settings");expect(loadSettings(file)==s,"replaced graphics settings persist");

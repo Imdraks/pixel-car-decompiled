@@ -23,12 +23,13 @@ shutil.copytree(game/'assets',stage/'assets',dirs_exist_ok=True)
 shutil.copytree(game/'licenses',stage/'licenses',dirs_exist_ok=True)
 for name in ['README.md','VALIDATION.md','PHYSICS.md','THIRD-PARTY.txt']:
     shutil.copy2(game/name,stage/('LISEZ-MOI.md' if name=='README.md' else name))
+shutil.copy2(game/'validation/native-physics-baseline.json',stage/'native-physics-baseline.json')
 (stage/'Mode-secours.cmd').write_bytes(b'@echo off\r\nstart "" "%~dp0PixelCarRacerNative.exe" --safe-mode\r\n')
 (stage/'Mode-libre.cmd').write_bytes(b'@echo off\r\nstart "" "%~dp0PixelCarRacerNative.exe" --free-drive\r\n')
 digest=hashlib.file_digest(exe.open('rb'),'sha256').hexdigest()
 (stage/'SHA256SUMS.txt').write_text(digest+'  PixelCarRacerNative.exe\n')
 commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=game,text=True).strip()
-(stage/'BUILD-INFO.json').write_text(json.dumps({'version':'0.2.0-native-preview','source_commit':commit,
+(stage/'BUILD-INFO.json').write_text(json.dumps({'version':(game/'VERSION').read_text().strip(),'source_commit':commit,
  'target':'windows-x86_64','engine':'Native C++17 and Raylib 6.2; no Android runtime',
  'scope':'Reconstructed free-drive mode with Unbound resources, not a complete original-game port',
  'exe_sha256':digest,'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),

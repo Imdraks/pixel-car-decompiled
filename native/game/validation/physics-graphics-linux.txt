@@ -14,4 +14,4 @@ PASS 30 FPS cap limits wall-clock frame rate
 PASS confirmed settings round trip
 PASS garage profile round trip
 PASS free drive resumes after settings
-cap_30_fps_elapsed_for_30_frames=1.01899
+cap_30_fps_elapsed_for_30_frames=1.01566

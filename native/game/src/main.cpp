@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include "model.hpp"
+#include "benchmark.hpp"
 #include "platform.hpp"
 #include "art.hpp"
 #include <algorithm>
@@ -34,7 +35,7 @@ static void engineAudio(void* buffer,unsigned int frames){
     }
 }
 struct Args {
-    fs::path data=fs::u8path(defaultDataDirectory()),assets,capture;
+    fs::path data=fs::u8path(defaultDataDirectory()),assets,capture,benchmark;
     bool smoke=false,safe=false,free=false,noAudio=false,dataSpecified=false;
 };
 struct App {
@@ -204,7 +205,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.2",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.3",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},"GARAGE"))screen=Screen::Garage;
@@ -380,15 +381,22 @@ struct App {
     }
 };
 int main(int argc,char** argv){
+    bool diagnostic=false;
+    for(int i=1;i<argc;i++)if(std::string(argv[i])=="--smoke-test"||std::string(argv[i])=="--physics-benchmark-dir")diagnostic=true;
     try{
         Args args;
         for(int i=1;i<argc;i++){std::string a=argv[i];auto value=[&](){if(i+1>=argc)throw std::runtime_error("Argument manquant : "+a);return fs::absolute(fs::u8path(argv[++i]));};
             if(a=="--data-dir"){args.data=value();args.dataSpecified=true;}else if(a=="--assets-dir")args.assets=value();else if(a=="--capture-dir")args.capture=value();
+            else if(a=="--physics-benchmark-dir")args.benchmark=value();
             else if(a=="--safe-mode")args.safe=true;else if(a=="--free-drive")args.free=true;else if(a=="--smoke-test")args.smoke=true;else if(a=="--no-audio")args.noAudio=true;
-            else if(a=="--help"){std::cout<<"PixelCarRacerNative [--safe-mode] [--free-drive] [--data-dir PATH] [--no-audio]\n";return 0;}else throw std::runtime_error("Argument inconnu : "+a);
+            else if(a=="--help"){std::cout<<"PixelCarRacerNative [--safe-mode] [--free-drive] [--data-dir PATH] [--no-audio] [--physics-benchmark-dir NEW_PATH]\n";return 0;}else throw std::runtime_error("Argument inconnu : "+a);
+        }
+        if(!args.benchmark.empty()){
+            if(args.smoke||args.free)throw std::runtime_error("Le banc de physique ne se combine pas à un mode de jeu.");
+            writePhysicsBenchmark(args.benchmark);return 0;
         }
         if(args.smoke&&(!args.dataSpecified||fs::exists(args.data/"settings.ini")||fs::exists(args.data/"profile.ini")))throw std::runtime_error("Le test graphique exige --data-dir vers un dossier de test neuf.");
         setExecutableDirectory();if(args.assets.empty())args.assets=fs::current_path()/"assets";
         App app(args);return app.run();
-    }catch(const std::exception& e){showFatalError(e.what());return 1;}
+    }catch(const std::exception& e){if(diagnostic)std::cerr<<"FAIL: "<<e.what()<<'\n';else showFatalError(e.what());return 1;}
 }

@@ -1,0 +1,44 @@
+{
+  "checks": {
+    "normal_exit": true,
+    "garage_car_click": true,
+    "garage_rim_click": true,
+    "actual_keyboard_acceleration": true,
+    "actual_lane_input": true,
+    "actual_gearbox_toggle": true,
+    "actual_settings_apply": true,
+    "actual_fps_choice": true,
+    "actual_vsync_choice": true,
+    "actual_quality_choice": true,
+    "actual_fps_overlay_choice": true
+  },
+  "settings": {
+    "version": "1",
+    "mode": "borderless",
+    "width": "960",
+    "height": "540",
+    "fps": "120",
+    "vsync": "1",
+    "quality": "0",
+    "show_fps": "1",
+    "sound": "1"
+  },
+  "profile": {
+    "version": "1",
+    "car": "1",
+    "rim": "1",
+    "automatic": "0",
+    "best_time": "0"
+  },
+  "session": {
+    "screen": "2",
+    "distance_m": "66.5146",
+    "speed_mps": "26.1995",
+    "target_lane": "2",
+    "gear": "2",
+    "frames": "660",
+    "mode": "borderless",
+    "width": "1280",
+    "height": "720"
+  }
+}

@@ -11,7 +11,7 @@ Le calcul avance à 120 pas fixes par seconde, indépendamment des FPS de rendu.
 Le modèle longitudinal utilise une courbe de couple provisoire, six rapports,
 un pont final, une masse et un rayon de roue. Les efforts prennent en compte
 une limite d'adhérence, la traînée aérodynamique, le roulement et le frein moteur.
-Le freinage est borné par l'adhérence et ne fait pas reculer la voiture.
+Le frein moteur et le frein de service partagent la limite d'adhérence ; le freinage est borné par l'adhérence et ne fait pas reculer la voiture.
 
 La boîte automatique monte les rapports en charge et rétrograde à faible régime,
 avec des seuils différents pour éviter les oscillations. Les changements coupent
@@ -55,8 +55,22 @@ limiteur manuel et l'absence d'oscillation des rapports en décélération.
    Pour chaque référence, conserver provenance, réglages et précision de mesure.
 4. Ajuster le modèle à ces références et fixer des tolérances explicites selon
    leur précision. Vérifier ensuite le même comportement dans l'EXE Windows,
-   sans dépendance aux FPS. La release 0.2 publiée conserve l'ancien modèle ;
-   les corrections postérieures exigent une nouvelle compilation et validation.
+   sans dépendance aux FPS. La version 0.3 doit également passer la validation Windows
+   du cœur, du rendu et du banc de mesure avant sa publication.
 5. Ajouter les statistiques de plusieurs voitures, puis leurs pièces et autres
    contenus une fois cette comparaison acceptée. Le nombre de sprites disponibles
    ne prouve pas que leurs comportements ont été récupérés.
+
+## Avancée de recherche de la version 0.3
+
+Les identifiants de 2 128 variables YYC sont vérifiés, dont ceux de régime,
+couple, rapports, poids et adhérence. Les résultats et les limites des deux
+passes Ghidra sont dans `../evidence/unbound/physics/README.md` (depuis le dépôt,
+`native/evidence/unbound/physics/README.md`). L’équation principale n’a pas été
+récupérée : le modèle natif n’est donc pas déclaré équivalent au jeu original.
+
+Le nouveau banc intégré `--physics-benchmark-dir DOSSIER_NEUF` écrit cinq
+séquences et un rapport JSON sans lancer le rendu ou l’audio. La CI Windows
+compare chaque mesure à `native-physics-baseline.json`, avec une tolérance de
+0,01 dans l’unité de chaque mesure. C’est une comparaison entre compilations
+natives, indépendante de la future comparaison au jeu d’origine.

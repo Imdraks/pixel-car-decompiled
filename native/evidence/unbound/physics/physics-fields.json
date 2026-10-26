@@ -1,0 +1,141 @@
+{
+  "binary_sha256": "fb3726e175e7d1c643e0ddac1ec1a365901c4d52a16ded97e89fd672f6a9e9cc",
+  "fields": [
+    {
+      "name": "brake",
+      "id": 16,
+      "instance_offset": 256,
+      "symbol_address": "0x13ced1c",
+      "string_address": "0xf8f115"
+    },
+    {
+      "name": "grip",
+      "id": 98,
+      "instance_offset": 1568,
+      "symbol_address": "0x13cefac",
+      "string_address": "0xf8b592"
+    },
+    {
+      "name": "press_gas",
+      "id": 162,
+      "instance_offset": 2592,
+      "symbol_address": "0x13cf1ac",
+      "string_address": "0xf8b9e3"
+    },
+    {
+      "name": "car_power",
+      "id": 558,
+      "instance_offset": 8928,
+      "symbol_address": "0x13cfddc",
+      "string_address": "0xf8c8c1"
+    },
+    {
+      "name": "car_speed",
+      "id": 573,
+      "instance_offset": 9168,
+      "symbol_address": "0x13cfe44",
+      "string_address": "0xf8c962"
+    },
+    {
+      "name": "currentgear",
+      "id": 753,
+      "instance_offset": 12048,
+      "symbol_address": "0x13d03d4",
+      "string_address": "0xf8d278"
+    },
+    {
+      "name": "gas",
+      "id": 933,
+      "instance_offset": 14928,
+      "symbol_address": "0x13d096c",
+      "string_address": "0xf8fe1d"
+    },
+    {
+      "name": "gear",
+      "id": 938,
+      "instance_offset": 15008,
+      "symbol_address": "0x13d0994",
+      "string_address": "0xf8ee0d"
+    },
+    {
+      "name": "gear_bog",
+      "id": 939,
+      "instance_offset": 15024,
+      "symbol_address": "0x13d099c",
+      "string_address": "0xf8d093"
+    },
+    {
+      "name": "gear_final",
+      "id": 942,
+      "instance_offset": 15072,
+      "symbol_address": "0x13d09b4",
+      "string_address": "0xf8da0f"
+    },
+    {
+      "name": "HP",
+      "id": 993,
+      "instance_offset": 15888,
+      "symbol_address": "0x13d0b2c",
+      "string_address": "0xf8db99"
+    },
+    {
+      "name": "peak_hp_RPM",
+      "id": 1346,
+      "instance_offset": 21536,
+      "symbol_address": "0x13d1624",
+      "string_address": "0xf8eaec"
+    },
+    {
+      "name": "peak_tq_RPM",
+      "id": 1348,
+      "instance_offset": 21568,
+      "symbol_address": "0x13d1634",
+      "string_address": "0xf8eb00"
+    },
+    {
+      "name": "RPM",
+      "id": 1497,
+      "instance_offset": 23952,
+      "symbol_address": "0x13d1ab4",
+      "string_address": "0xf8eaf4"
+    },
+    {
+      "name": "torque",
+      "id": 1788,
+      "instance_offset": 28608,
+      "symbol_address": "0x13d23ac",
+      "string_address": "0xf9d5a9"
+    },
+    {
+      "name": "TQ",
+      "id": 1795,
+      "instance_offset": 28720,
+      "symbol_address": "0x13d23e4",
+      "string_address": "0xf8fd45"
+    },
+    {
+      "name": "weight",
+      "id": 2033,
+      "instance_offset": 32528,
+      "symbol_address": "0x13d2b54",
+      "string_address": "0xf8bcb8"
+    },
+    {
+      "name": "weight_to_power",
+      "id": 2034,
+      "instance_offset": 32544,
+      "symbol_address": "0x13d2b5c",
+      "string_address": "0xf90a34"
+    },
+    {
+      "name": "wind_friction",
+      "id": 2051,
+      "instance_offset": 32816,
+      "symbol_address": "0x13d2bd4",
+      "string_address": "0xf90af6"
+    }
+  ],
+  "limitations": [
+    "Field names and IDs only; values and vehicle equations are not recovered by this export."
+  ]
+}

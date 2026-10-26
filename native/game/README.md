@@ -1,4 +1,4 @@
-# Pixel Car Racer — Unbound Native 0.2
+# Pixel Car Racer — Unbound Native 0.3
 
 Cette première reconstruction **native Windows x64** propose un mode libre
 jouable avec les ressources d'Unbound. Le programme ne lance ni APK, ni Android,
@@ -12,8 +12,8 @@ avec le mod. Le moteur GameMaker YYC d'origine n'a pas été recompilé.
 
 La conduite est prioritaire sur l’ajout de contenu. Voir [PHYSICS.md](PHYSICS.md)
 pour le modèle provisoire, les corrections de boîte et le protocole de comparaison
-avec le jeu d’origine. Ces corrections de source sont postérieures à la release
-0.2 ; son téléchargement conserve le modèle précédemment publié.
+avec le jeu d’origine. La version 0.3 inclut les corrections de boîte, de freinage et le banc de mesure.
+La fidélité au jeu Android reste à valider avant l’ajout de contenu.
 
 ## Jouer
 
@@ -116,3 +116,18 @@ Les options `--data-dir`, `--assets-dir`, `--no-audio`, `--free-drive` et
 `--safe-mode` servent aux essais et au lancement direct. `--smoke-test` exige un
 dossier de données explicitement choisi et neuf ; il ne doit pas utiliser les
 réglages d'un joueur. Les captures F12 ne sont activées qu'avec `--capture-dir`.
+
+## Banc de mesure de la conduite
+
+L’exécutable peut calculer des essais reproductibles sans ouvrir de fenêtre,
+sans ressources graphiques et sans périphérique audio :
+
+```powershell
+.\PixelCarRacerNative.exe --physics-benchmark-dir "$env:TEMP\PCR-mesures-03"
+```
+
+Choisir un **dossier neuf** à chaque essai. Les sorties `physics-report.json` et
+`telemetry.csv` contiennent départ arrêté, freinage, lever de pied, reprise et
+premier rapport au limiteur. Elles n’affectent pas les sauvegardes du joueur.
+La référence `native-physics-baseline.json` du paquet décrit le modèle natif
+provisoire ; ce n’est pas une référence physique issue du jeu original.
