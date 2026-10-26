@@ -1,6 +1,6 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.8.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.8.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.8.0-native-preview)
+**[Télécharger Windows x64 — version 0.9.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.9.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.9.0-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
@@ -8,7 +8,7 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
 
-La version 0.8.0 fusionne les boutiques Original 1.2.5 + Unbound : **1196 équipements**,
+La version 0.9.0 fusionne les boutiques Original 1.2.5 + Unbound : **1220 choix d’équipement**,
 avec jantes nommées, esthétique et sélection des deux banques d’images/sons.
 [Contenu et commandes](native/game/CONTENT.md).
 
@@ -31,18 +31,23 @@ avec jantes nommées, esthétique et sélection des deux banques d’images/sons
 - Boîte automatique/manuelle, rétrogradages, limiteur et frein moteur.
 - Traction, propulsion ou quatre roues motrices sélectionnables au garage,
   avec effet du transfert de poids et choix sauvegardé.
-- 191 carrosseries par banque, 10 images différentes (201 distinctes), et
+- 239 ensembles visuels dans le même sélecteur (carrosserie, feux et kits), et
   **521 jantes nommées**, composées depuis les recettes du jeu.
-  La version 0.8.0 aligne les roues avec chaque carrosserie et conserve les ailes
+  La version 0.9.0 aligne les roues avec chaque carrosserie et conserve les ailes
   devant les pneus ; les 191 rendus ont été parcourus et revus.
 - 196 pièces de performance dans 11 catégories : moteurs, suspension, turbos, compresseurs, ECU,
   NOS, admissions, intercoolers, pistons, échappements et pneus. Recherche,
   équipement libre et sauvegarde dans **CUSTOMISATION**.
-- **F7 : STYLE / ACCESSOIRES**, 479 éléments dans seize catégories : peintures,
+- **F7 : STYLE / ACCESSOIRES**, 503 éléments dans seize catégories : peintures,
   livrées, ailerons, galeries/cargaisons, kits complets ou séparés, freins, sièges,
   crochets, écrous, vitres, teintes de feux et ampoules. Aperçu et sauvegarde.
-- **ORIGINAL 1.2.5 / UNBOUND** choisit les images et les sons : deux banques de
-  94 échantillons préservés, catalogue d’équipement commun.
+- Une seule liste par catégorie : **ORIGINAL**, **UNBOUND** ou **ORIGINAL + UNBOUND**
+  sous les pièces. Les variantes de sièges sont conservées séparément.
+- Positions des pots arrière, sièges, galeries et crochets récupérées dans les
+  deux jeux ; VFX et pots partagent leur placement, ajusté aux kits.
+  [Ancrages et limites](native/game/ATTACHMENTS.md). **F8** : arceau ; **K** : phares.
+- Deux banques de 94 sons, choisies dans **SON DU MOTEUR** indépendamment de la
+  voiture et des pièces.
 - Puissance combinée des pièces, courbes du **BANC PUISSANCE**, tri de commun à
   contrebande et **PRÉPA MAX** : environ 4289 HP sans NOS / 4539 HP avec NOS.
   Turbo et compresseur sont exclusifs. Règles natives détaillées dans
@@ -68,9 +73,9 @@ d’essai. L’équivalence avec la conduite Android n’est pas validée.
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-136 contrôles du cœur et 42 contrôles graphiques passent sur Windows ; les mesures
+143 contrôles du cœur et 45 contrôles graphiques passent sur Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
-Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 79 contrôles
+Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 82 contrôles
 clavier/souris et 192 416 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.
 
 La [recherche ciblée YYC](native/evidence/unbound/physics/README.md) a vérifié

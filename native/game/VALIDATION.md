@@ -13,6 +13,17 @@
 - Rapports locaux : `validation/attachments-0.9/`. Les adaptations de surface,
   de matériaux et les limites d’équivalence Android restent documentées.
 
+## Publication et téléchargement vérifiés
+
+- [Exécution Windows réussie](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40402394244) : 143 contrôles du cœur, 45 graphiques, 188 sons décodés, 18718 configurations de pot et 243334 fittings, 192416 combinaisons et physique Linux/Windows à 0,01 près.
+- Captures Windows revues : provenance sous les sièges Original/Unbound dans la même liste, coordonnées récupérées et accessoires corrigés. Défilement et pixels NOS/flammes contrôlés sur les captures Windows.
+- ZIP public redéchargé et vérifié : CRC, SHA-256, source compilée et exécutable. Les six aperçus publics sont identiques aux captures Windows validées.
+- Restauration à froid et réutilisation : 247 ressources chacune. Rapports : `validation/windows-0.9/`.
+- Rendu CI Mesa logiciel et mixage logiciel Linux ; GPU et haut-parleurs physiques restent à essayer.
+- Source compilée : `eb5dde0a57318ac391ec530bf64c5288a069aa9f`.
+- ZIP : 59231297 octets, SHA-256 `2c1a37ec106eef61fdde5fde2f9e87000bd6a879d4ae4548d2fbef6e70a555f4`.
+- Exécutable : SHA-256 `ed44fce8b99043c1dc381cf496ad02a787d37846386820d0715224922e6dc460`.
+
 ## Historique : version 0.8.0
 
 # Validation native 0.8.0
