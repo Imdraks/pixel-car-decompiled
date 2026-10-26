@@ -1,3 +1,21 @@
+# Validation native 0.6.0
+
+- 119 contrôles du cœur : 9359 placements carrosserie/pot, sorties multiples,
+  direction et suspension, jets attachés à haute vitesse/changement de voie ;
+  huit préréglages de boîte, quatre à dix rapports, passage 9→10 automatique,
+  effet du pont sans gain artificiel de HP et sauvegarde/rechargement sécurisé.
+- 36 contrôles graphiques ; 45 clavier/souris Linux (29 pièces/boîte, 16 paramètres),
+  dont curseurs, boutons de rapport, choix du nombre de vitesses, sauvegarde,
+  annulation, réinitialisation et reprise réelle de la boîte dix rapports.
+- Cinq comparaisons du défilement et contrôle des pixels bleus NOS/chauds de
+  flamme dans les captures. Les paramètres d'origine à six rapports conservent
+  leur référence physique. Les 188384 combinaisons de pièces sont conservées.
+- Les rapports locaux sont dans `validation/exhaust-gearbox-0.6/`. La publication
+  exige les contrôles Windows du cœur, des images, du défilement, de la physique
+  et des 94 sons. Les ancrages et adaptations de transmission sont natifs.
+
+## Historique : validation native 0.5.1
+
 # Validation native 0.5.1
 
 - 105 contrôles du cœur, dont circulation désactivée sans déplacement des NPC,

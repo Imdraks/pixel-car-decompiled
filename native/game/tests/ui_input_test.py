@@ -23,7 +23,7 @@ try:
     window=None
     for _ in range(80):
         if process.poll() is not None:raise RuntimeError('Game exited during initialization')
-        try:window=xdo('search','--pid',process.pid,'--name','Pixel Car Racer').splitlines()[0];break
+        try:window=xdo('search','--onlyvisible','--pid',process.pid,'--name','Pixel Car Racer').splitlines()[0];break
         except subprocess.CalledProcessError:time.sleep(.1)
     if not window:raise RuntimeError('Native window not found')
     xdo('windowfocus','--sync',window);pause()
@@ -71,9 +71,15 @@ try:
     process=subprocess.Popen([str(args.game),'--assets-dir',str(args.assets),'--data-dir',str(args.output/'data'),'--free-drive','--no-audio'],stdout=log,stderr=log)
     for _ in range(100):
         if process.poll() is not None:raise RuntimeError('Restart failed')
-        try:window=xdo('search','--pid',process.pid,'--name','Pixel Car Racer').splitlines()[0];break
+        try:window=xdo('search','--onlyvisible','--pid',process.pid,'--name','Pixel Car Racer').splitlines()[0];break
         except subprocess.CalledProcessError:time.sleep(.05)
-    xdo('windowfocus','--sync',window);time.sleep(.3)
+    for _ in range(30):
+        focus=subprocess.run([str(args.xdotool),'windowfocus','--sync',window],capture_output=True,text=True)
+        if focus.returncode==0:break
+        if process.poll() is not None:raise RuntimeError('Application exited while mapping its saved window mode')
+        time.sleep(.05)
+    else:raise RuntimeError('Saved window mode never became focusable')
+    time.sleep(.3)
     xdo('keydown','ctrl');key('q');xdo('keyup','ctrl');process.wait(timeout=10)
     resumed=ini(args.output/'data/last-session.txt')
     checks['traffic_remains_disabled_after_restart']=resumed['traffic_enabled']=='0' and resumed['traffic_count']=='0'

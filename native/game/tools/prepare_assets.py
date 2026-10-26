@@ -19,7 +19,7 @@ args=parser.parse_args()
 assets=GAME/'assets';assets.mkdir(parents=True,exist_ok=True)
 sprites=json.loads((args.textures/'sprites.json').read_text())['sprites']
 textures=json.loads((args.textures/'textures.json').read_text())
-selected={'sp_car':'cars','sp_rims':'rims','sp_tire_0':'tires','sp_wheelwell':'wheelWells','sp_flame':'flames','sp_smoke':'smoke','sp_smoke2':'smoke2','sp_sparks':'sparks','sp_nos':'nosIcons','sp_garage':'garages','sp_title_background':'titleBackground','sp_title_logo2':'logos'}
+selected={'sp_car_exhaust':'exhausts','sp_car':'cars','sp_rims':'rims','sp_tire_0':'tires','sp_wheelwell':'wheelWells','sp_flame':'flames','sp_smoke':'smoke','sp_smoke2':'smoke2','sp_sparks':'sparks','sp_nos':'nosIcons','sp_garage':'garages','sp_title_background':'titleBackground','sp_title_logo2':'logos'}
 needed=set();groups={}
 for name,group in selected.items():
     sprite=next(s for s in sprites if s['name']==name)

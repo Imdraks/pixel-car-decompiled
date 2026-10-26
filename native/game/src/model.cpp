@@ -32,6 +32,19 @@ static int integer(const std::map<std::string,std::string>& v,const std::string&
     auto i=v.find(k);if(i==v.end())return fallback;
     try{size_t used=0;int n=std::stoi(i->second,&used);return used==i->second.size()?n:fallback;}catch(...){return fallback;}
 }
+static double real(const std::map<std::string,std::string>& v,const std::string& key,double fallback){
+    auto it=v.find(key);if(it==v.end())return fallback;
+    try{size_t used=0;double value=std::stod(it->second,&used);return used==it->second.size()&&std::isfinite(value)?value:fallback;}catch(...){return fallback;}
+}
+void sanitizeTransmission(Profile& p){
+    p.gearCount=std::clamp(p.gearCount,4,10);
+    if(p.gearboxPreset< -1||p.gearboxPreset>7)p.gearboxPreset=0;
+    if(!std::isfinite(p.finalDrive)||p.finalDrive<2||p.finalDrive>6)p.finalDrive=3.9;
+    if(!std::isfinite(p.shiftSeconds)||p.shiftSeconds<.04||p.shiftSeconds>.5)p.shiftSeconds=.15;
+    bool valid=true;double previous=7;
+    for(double ratio:p.gearRatios){valid&=std::isfinite(ratio)&&ratio>=.3&&ratio<=6&&previous-ratio>=.05-1e-9;previous=ratio;}
+    if(!valid)p.gearRatios={3.15,2.10,1.55,1.22,1.0,.82,.68,.56,.46,.38};
+}
 Settings loadSettings(const std::filesystem::path& file){
     auto v=readIni(file);Settings s;
     if(v["mode"]=="fullscreen")s.mode=WindowMode::Fullscreen;
@@ -52,6 +65,10 @@ Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
     p.bov=integer(v,"bov",-1);if(p.bov< -1||p.bov>3)p.bov=-1;
     for(int slot=0;slot<PartSlotCount;slot++)equipPart(p,PartSlot(slot),integer(v,std::string("part_")+slotKey(PartSlot(slot)),0));
     try {size_t used=0;p.bestTime=std::stod(v["best_time"],&used);if(used!=v["best_time"].size()||!std::isfinite(p.bestTime)||p.bestTime<0||p.bestTime>120)p.bestTime=0;}catch(...){p.bestTime=0;}
+    p.gearboxPreset=integer(v,"gearbox_preset",0);
+    p.gearCount=integer(v,"gear_count",6);p.finalDrive=real(v,"final_drive",3.9);p.shiftSeconds=real(v,"shift_seconds",.15);
+    for(int i=0;i<10;i++)p.gearRatios[i]=real(v,"gear_"+std::to_string(i+1),p.gearRatios[i]);
+    sanitizeTransmission(p);
     return p;
 }
 static bool writeAtomic(const std::filesystem::path& file,const std::string& text,std::string& error){
@@ -66,10 +83,14 @@ bool saveSettings(const std::filesystem::path& file,const Settings& settings,std
     out<<"version=1\nmode="<<modeKey(s.mode)<<"\nwidth="<<s.width<<"\nheight="<<s.height<<"\nfps="<<s.fps<<"\nvsync="<<s.vsync<<"\nquality="<<int(s.quality)<<"\nshow_fps="<<s.showFps<<"\nsound="<<s.sound<<"\ntraffic="<<s.traffic<<"\n";
     return writeAtomic(file,out.str(),error);
 }
-bool saveProfile(const std::filesystem::path& file,const Profile& p,std::string& error){
+bool saveProfile(const std::filesystem::path& file,const Profile& raw,std::string& error){
+    Profile p=raw;sanitizeTransmission(p);
     std::ostringstream out;out.imbue(std::locale::classic());
     out<<"version=1\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
     out<<"sound_on="<<p.soundOn<<"\nsound_off="<<p.soundOff<<"\nbov="<<p.bov<<'\n';
+    out<<"gearbox_preset="<<p.gearboxPreset<<'\n';
+    out<<"gear_count="<<p.gearCount<<"\nfinal_drive="<<p.finalDrive<<"\nshift_seconds="<<p.shiftSeconds<<'\n';
+    for(int i=0;i<10;i++)out<<"gear_"<<i+1<<'='<<p.gearRatios[i]<<'\n';
     for(int slot=0;slot<PartSlotCount;slot++)out<<"part_"<<slotKey(PartSlot(slot))<<'='<<p.parts[slot]<<'\n';
     return writeAtomic(file,out.str(),error);
 }
@@ -98,7 +119,7 @@ PowerPeak peakPower(const Vehicle& v,bool boost,bool nitro){
     return result;
 }
 static double wheelRpm(const CarState& car,const Vehicle& vehicle,int gear){
-    return car.speed*60/(2*3.141592653589793*vehicle.wheelRadius)*vehicle.ratios[gear-1]*vehicle.finalDrive;
+    return car.speed*60/(2*3.141592653589793*vehicle.wheelRadius)*vehicle.ratios[std::clamp(gear,1,vehicle.gearCount)-1]*vehicle.finalDrive;
 }
 static double drivenGrip(const Vehicle& vehicle,bool accelerating){
     if(vehicle.drive==DriveLayout::All)return vehicle.mass*9.81*vehicle.grip;
@@ -113,7 +134,7 @@ static double drivenGrip(const Vehicle& vehicle,bool accelerating){
 }
 bool shift(CarState& car,int direction,const Vehicle& vehicle){
     if(car.shiftLock>0||car.finished||direction==0)return false;
-    int next=std::clamp(car.gear+(direction>0?1:-1),1,6);
+    int next=std::clamp(car.gear+(direction>0?1:-1),1,vehicle.gearCount);
     // Reject an unsafe downshift instead of allowing mechanically impossible RPM.
     if(next==car.gear||(next<car.gear&&wheelRpm(car,vehicle,next)>vehicle.redlineRpm))return false;
     car.gear=next;car.shiftLock=vehicle.shiftSeconds;
@@ -121,11 +142,12 @@ bool shift(CarState& car,int direction,const Vehicle& vehicle){
 }
 void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,double finishDistance){
     if(s.finished||dt<=0||!std::isfinite(dt))return;
+    s.gear=std::clamp(s.gear,1,v.gearCount);
     s.shiftLock=std::max(0.0,s.shiftLock-dt);
     s.launching=v.twoStep&&input.launch&&input.throttle&&s.speed<3;
     double coupled=wheelRpm(s,v,s.gear);
     if(input.automatic&&s.shiftLock==0){
-        if(input.throttle&&!input.brake&&coupled>v.upshiftRpm&&s.gear<6)shift(s,1,v);
+        if(input.throttle&&!input.brake&&coupled>v.upshiftRpm&&s.gear<v.gearCount)shift(s,1,v);
         else if(s.gear>1&&coupled<(input.throttle&&!input.brake?2600.0:1500.0)
                 &&wheelRpm(s,v,s.gear-1)<v.upshiftRpm*.9)shift(s,-1,v);
         coupled=wheelRpm(s,v,s.gear);

@@ -1,0 +1,33 @@
+{
+  "review_date": "2026-10-26",
+  "sources": [
+    {
+      "title": "Chevrolet Performance 2026",
+      "url": "https://www.chevrolet.com/performance-parts/transmissions",
+      "sha256": "5d14577aef11e4ed4a72bf962e4b0849c7b9da846ff6b0b213747d6a28ea1fde"
+    },
+    {
+      "title": "TREMEC TKX card",
+      "url": "https://tremec.com/wp-content/uploads/2023/05/TKX-Card_F_09.2020-1.pdf",
+      "sha256": "a31545c0c104d39e019180fb1a927cc03d5c3aa272af79525224b0fa8c9d3382"
+    },
+    {
+      "title": "TREMEC TR-9070 Ratio A",
+      "url": "https://tremec.com/wp-content/uploads/2023/05/Product.Sheet_TR-9070.DCT_.pdf",
+      "sha256": "5707757c72ab0b5997082a10e2c3ee31d34076c481625b71047530fafed9fd33"
+    },
+    {
+      "title": "TREMEC Magnum",
+      "url": "https://tremec.com/product/magnum/",
+      "sha256": "a4ba1fda06b40c7e46420a5846ddcbb69730ea3503942261cccb866238672d63"
+    }
+  ],
+  "method": "Manufacturer technical tables; TKX image table reviewed on page 2; TR-9070 Ratio A",
+  "native_calibrations": [
+    "Final-drive presets",
+    "Shift interruption times",
+    "Unused extra ratios when expanding an OEM gearbox",
+    "Universal compatibility with cosmetic bodies"
+  ],
+  "original_unbound_gearbox_items_found": false
+}

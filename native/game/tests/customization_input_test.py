@@ -69,11 +69,25 @@ try:
  checks['descending_sort_exposes_strongest_engine']=ini(data/'profile.ini')['part_engine']=='1014'
  click(140,600);maximum=ini(data/'profile.ini')
  checks['maximum_preparation_equips_all_slots']=maximum['part_engine']=='1014' and maximum['part_turbo']=='3026' and maximum['part_supercharger']=='0' and maximum['part_nos']=='5007' and all(maximum['part_'+k]!='0' for k in ['suspension','ecu','intake','intercooler','pistons','exhaust','tires'])
- key('F12');click(735,659);key('F12');key('Escape')
+ key('F12');click(630,659);key('F12');key('Escape')
  click(1050,617);xdo('keydown','w');xdo('keydown','n');time.sleep(2);xdo('keyup','n');xdo('keyup','w');quit_game()
  max_session=ini(data/'last-session.txt')
  checks['maximum_power_is_used_in_free_drive']=float(max_session['native_hp'])>4200 and float(max_session['native_nos_hp'])>4500 and max_session['engine_part']=='1014'
- (a.output/'report.json').write_text(json.dumps({'audio_requested':a.with_audio,'checks':checks,'profile':profile,'session':session,'resumed':resumed,'maximum':maximum,'maximum_session':max_session},indent=2)+'\n')
+ proc,window=start();click(280,503);click(780,659);click(150,489)
+ checks['gearbox_draft_does_not_save_early']=ini(data/'profile.ini')['gear_count']=='6'
+ click(250,577);click(717,203);click(850,674)
+ gearbox=ini(data/'profile.ini');checks['ten_gears_and_ratio_buttons_save']=gearbox['gear_count']=='10' and float(gearbox['gear_1'])>4.70
+ old_ratio=float(gearbox['gear_1']);click(500,203);click(760,582);click(850,674)
+ gearbox=ini(data/'profile.ini');checks['gear_and_final_drive_sliders_save']=float(gearbox['gear_1'])!=old_ratio and abs(float(gearbox['final_drive'])-3.15)>.1
+ click(53,577);click(850,674);checks['gear_count_selector_changes_box']=ini(data/'profile.ini')['gear_count']=='9'
+ click(150,489);click(850,674);click(150,269);click(400,674)
+ checks['cancel_discards_unsaved_gearbox']=ini(data/'profile.ini')['gear_count']=='10'
+ click(780,659);click(615,674);click(850,674);checks['gearbox_reset_restores_six_gears']=ini(data/'profile.ini')['gear_count']=='6'
+ click(150,489);click(850,674);key('F12');click(1100,674);xdo('keydown','w');time.sleep(.5);xdo('keyup','w');quit_game()
+ transmission_session=ini(data/'last-session.txt');checks['ten_speed_reaches_actual_driving']=transmission_session['gear_count']=='10' and abs(float(transmission_session['final_drive'])-3.15)<.001
+ proc,window=start(True);time.sleep(.3);quit_game();transmission_resumed=ini(data/'last-session.txt')
+ checks['ten_speed_survives_restart']=transmission_resumed['gear_count']=='10' and transmission_resumed['final_drive']==transmission_session['final_drive']
+ (a.output/'report.json').write_text(json.dumps({'audio_requested':a.with_audio,'checks':checks,'profile':profile,'session':session,'resumed':resumed,'maximum':maximum,'maximum_session':max_session,'gearbox':gearbox,'transmission_session':transmission_session,'transmission_resumed':transmission_resumed},indent=2)+'\n')
  print(json.dumps(checks,indent=2))
  if not all(checks.values()):raise SystemExit(1)
 finally:

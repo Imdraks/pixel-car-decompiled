@@ -204,7 +204,7 @@ int main(int argc,char**argv){
     auto savedSound=loadProfile(root/"sound.ini",191,54);
     expect(savedSound.soundOn==5&&savedSound.soundOff==4&&savedSound.bov==3,"engine and valve audio preferences persist independently");
     DrivingEffects visuals;CarState visibleCar;visibleCar.wheelSlip=.4;
-    EffectSources points{400,520,450,350,440,false};
+    EffectSources points;points.rearWheel=400;points.frontWheel=520;points.wheelY=450;points.outlets[0]={350,440,-1,0};
     visuals.update(visibleCar,v,{true,false,true},points,0,Step,false);
     expect(!visuals.particles.empty()&&visuals.particles.front().kind==EffectKind::Smoke,"wheel slip emits original smoke particles");
     visibleCar.wheelSlip=0;visibleCar.nitroActive=true;
@@ -305,6 +305,65 @@ int main(int argc,char**argv){
     expect(!dyno.nitroActive&&dyno.powerHp==0,"NOS cannot bypass the engine rev limiter");
     {std::ofstream out(root/"power-combinations.json");out<<"{\n  \"induction_combinations\": "<<combinations<<",\n  \"atmospheric_combinations\": "<<supports<<",\n  \"max_without_nos_hp\": "<<full.boostedHp<<",\n  \"max_with_nos_hp\": "<<full.nitroHp<<",\n  \"original_game_equivalence_validated\": false\n}\n";}
     std::cout<<"Native maximum: "<<full.boostedHp<<" HP, "<<full.nitroHp<<" HP with NOS; "<<combinations+supports<<" combinations checked.\n";
+    auto rearPipe=placeExhaust(20,7),hoodPipe=placeExhaust(20,48),sidePipe=placeExhaust(20,44),triplePipe=placeExhaust(20,50);
+    expect(rearPipe.outlets[0].dx==-1&&hoodPipe.outlets[0].dy==-1,"rear and hood effects follow their real pipe directions");
+    expect(sidePipe.front&&sidePipe.count==2&&triplePipe.count==3,"twin side and triple hood pipes expose all mouths");
+    auto lowHood=placeExhaust(20,48,6);
+    expect(lowHood.outlets[0].y-hoodPipe.outlets[0].y==6&&lowHood.y-hoodPipe.y==6,"suspension moves the pipe sprite and its emitter by the same amount");
+    int placements=0;bool mountsValid=true;
+    for(int body=0;body<191;body++)for(int pipe=0;pipe<51;pipe++){
+        if(pipe!=0&&!std::any_of(std::begin(PartCatalog),std::end(PartCatalog),[&](const Part& part){return part.slot==PartSlot::Exhaust&&part.subimage==pipe;}))continue;
+        auto placed=placeExhaust(body,pipe);const auto& sprite=art::exhausts[pipe];
+        mountsValid&=placed.count>=1&&placed.count<=3;
+        for(int k=0;k<placed.count;k++){const auto& o=placed.outlets[k];double localX=o.x-placed.x,localY=o.y-placed.y;
+            mountsValid&=std::isfinite(o.x)&&std::isfinite(o.y)&&std::abs(o.dx*o.dx+o.dy*o.dy-1)<1e-7;
+            mountsValid&=localX>=sprite.dx-1&&localX<=sprite.dx+sprite.w+1&&localY>=sprite.dy-1&&localY<=sprite.dy+sprite.h+1;
+        }
+        ++placements;
+    }
+    expect(mountsValid&&placements==9359,"all 191 bodies and 49 available pipe variants keep finite mouths on their sprites");
+    DrivingEffects attachedJets;EffectSources nozzles;nozzles.outletCount=2;nozzles.outlets[0]={350,440,-1,0};nozzles.outlets[1]={355,440,0,-1};
+    CarState jetCar;jetCar.speed=100;jetCar.gear=2;jetCar.nitroActive=true;
+    attachedJets.update(jetCar,v,{true,false,true,true},nozzles,0,Step,true);
+    expect(attachedJets.particles.size()==4,"flames and NOS emit from both visible outlets");
+    jetCar.position=100;jetCar.nitroActive=false;
+    for(auto& o:nozzles.outlets){o.x+=20;o.y+=96;}
+    attachedJets.update(jetCar,v,{true,false,true},nozzles,0,Step,true);
+    bool rootsAttached=true;
+    for(const auto& particle:attachedJets.particles){auto o=nozzles.outlets[particle.outlet];rootsAttached&=particle.x==o.x&&particle.y==o.y&&particle.dx==o.dx&&particle.dy==o.dy;}
+    expect(rootsAttached,"flames and NOS remain attached at high speed and during lane changes");
+    bool allBoxesValid=true;
+    for(int preset=0;preset<8;preset++){
+        Profile box;applyGearboxPreset(box,preset);auto before=box;sanitizeTransmission(box);
+        allBoxesValid&=box.gearRatios==before.gearRatios&&box.gearCount>=4&&box.gearCount<=10;
+        auto vehicle=buildVehicle(box).vehicle;CarState run;
+        for(int tick=0;tick<120*20;tick++)stepCar(run,vehicle,{true,false,true},Step,0);
+        allBoxesValid&=run.speed>0&&std::isfinite(run.rpm)&&run.gear<=vehicle.gearCount;
+    }
+    expect(allBoxesValid,"all eight real-market-inspired and original presets retain their ratios and drive safely");
+    bool allCounts=true;
+    for(int count=4;count<=10;count++){
+        Profile box;box.gearCount=count;auto vehicle=buildVehicle(box).vehicle;CarState run;
+        for(int j=0;j<12;j++){run.shiftLock=0;shift(run,1,vehicle);}
+        allCounts&=run.gear==count;run.shiftLock=0;allCounts&=!shift(run,1,vehicle);
+    }
+    expect(allCounts,"manual shifting respects every selectable gearbox size through ten gears");
+    Profile ten;applyGearboxPreset(ten,7);auto tenVehicle=buildVehicle(ten).vehicle;CarState ninth;ninth.gear=9;
+    ninth.speed=(tenVehicle.upshiftRpm+100)*6.283185307179586*tenVehicle.wheelRadius/(60*tenVehicle.ratios[8]*tenVehicle.finalDrive);
+    stepCar(ninth,tenVehicle,{true,false,true},Step,0);
+    expect(ninth.gear==10,"automatic transmission can shift from ninth into tenth");
+    Profile shortBox,longBox;shortBox.finalDrive=6;longBox.finalDrive=2;
+    auto shortVehicle=buildVehicle(shortBox),longVehicle=buildVehicle(longBox);CarState shortRun,longRun;
+    shortRun.gear=longRun.gear=2;shortRun.speed=longRun.speed=20;
+    stepCar(shortRun,shortVehicle.vehicle,{true,false,false},Step,0);stepCar(longRun,longVehicle.vehicle,{true,false,false},Step,0);
+    expect(shortRun.speed>longRun.speed&&shortVehicle.boostedHp==longVehicle.boostedHp,"final drive changes wheel acceleration without inventing engine horsepower");
+    expect(saveProfile(root/"gearbox.ini",ten,customError),"ten-speed gearbox preferences save");auto restoredBox=loadProfile(root/"gearbox.ini",191,54);
+    expect(restoredBox.gearCount==10&&restoredBox.gearRatios==ten.gearRatios&&restoredBox.finalDrive==ten.finalDrive&&restoredBox.shiftSeconds==ten.shiftSeconds&&restoredBox.gearboxPreset==7,"all ten ratios, final drive, preset and shift timing survive restart");
+    {std::ofstream out(root/"bad-box.ini");out<<"gear_count=99\ngear_2=-1\nfinal_drive=nan\nshift_seconds=-1\n";}
+    auto safeBox=loadProfile(root/"bad-box.ini",191,54);
+    expect(safeBox.gearCount==10&&safeBox.gearRatios==Profile{}.gearRatios&&safeBox.finalDrive==3.9&&safeBox.shiftSeconds==.15,"malformed gearbox settings cannot create unsafe ratios or more than ten gears");
+    expect(loadProfile(root/"old-settings.ini",191,54).gearCount==6,"legacy profiles retain the original six-speed behaviour");
+    {std::ofstream out(root/"exhaust-gearbox.json");out<<"{\n  \"body_pipe_configurations\": "<<placements<<",\n  \"gearbox_presets\": 8,\n  \"maximum_gears\": 10,\n  \"native_calibration\": true\n}\n";}
     auto file=root/std::filesystem::u8path("écran_車.ini");Settings s;s.mode=WindowMode::Borderless;s.width=1920;s.height=1080;s.fps=144;s.vsync=false;s.quality=Quality::Low;s.showFps=true;s.sound=false;s.traffic=false;
     std::string error;expect(saveSettings(file,s,error),"save Unicode settings path");expect(loadSettings(file)==s,"all graphics settings round trip");
     s.fps=60;s.mode=WindowMode::Fullscreen;expect(saveSettings(file,s,error),"atomic replacement of existing settings");expect(loadSettings(file)==s,"replaced graphics settings persist");

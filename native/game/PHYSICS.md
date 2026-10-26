@@ -1,4 +1,4 @@
-# Physique native et pièces 0.5
+# Physique native et pièces 0.6
 
 Le mode libre dispose désormais du catalogue demandé. La fidélité physique au
 jeu Android reste à valider ; les mesures natives servent à éviter les régressions.
@@ -6,7 +6,7 @@ jeu Android reste à valider ; les mesures natives servent à éviter les régre
 ## État de la base
 
 Le calcul avance à 120 pas fixes par seconde, indépendamment des FPS de rendu.
-Le modèle longitudinal utilise une courbe de couple provisoire, six rapports,
+Le modèle longitudinal utilise une courbe de couple provisoire, quatre à dix rapports configurables (six par défaut),
 un pont final, une masse et un rayon de roue. La traction, la propulsion et les
 quatre roues motrices utilisent des limites de traction différentes. Le transfert
 de poids dépend de la hauteur du centre de gravité et de l’empattement.
@@ -123,3 +123,11 @@ Les captures contrôlées du smoke test montrent le déplacement sur 0,1 seconde
 nulle. `tests/check_motion_captures.py` mesure le déplacement des pixels du
 marquage, avec une tolérance d'un pixel de rastérisation par mesure. Les tests
 du cœur vérifient aussi l'indépendance des FPS et l'alignement route/circulation.
+
+## Transmission et points d'émission 0.6
+
+Les rapports de boîte, pont final et temps de passage viennent désormais du
+profil. Le modèle de base à six rapports est conservé. Les préréglages réels
+et les éléments calibrés nativement sont décrits dans TRANSMISSION.md.
+Les flammes/NOS suivent les bouches des pots ; ils ne sont plus advectés comme
+des particules au sol. Le traitement des fumées et étincelles est conservé.

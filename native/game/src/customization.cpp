@@ -76,8 +76,26 @@ void equipBestParts(Profile& profile){
     }
 }
 static double powerPerTorque(const Vehicle& vehicle){return peakPower(vehicle,false).hp*745.699872/vehicle.torque;}
+const char* gearboxPresetName(int preset){
+    static const char* names[]={"ORIGINE • 6","AUTO 4 • 4L75-E","MANUELLE 5 • TKX","MANUELLE 6 • MAGNUM","DCT 7 • TR-9070","AUTO 8 • 8L90-E","AUTO 6 • 6L80-E","AUTO 10 • 10L90-E"};
+    return preset>=0&&preset<8?names[preset]:"PERSONNALISÉE";
+}
+void applyGearboxPreset(Profile& p,int preset){
+    p.gearboxPreset=std::clamp(preset,0,7);p.automatic=true;
+    switch(p.gearboxPreset){
+    case 1:p.gearCount=4;p.gearRatios={3.06,1.62,1,.70,.63,.56,.49,.42,.35,.30};p.finalDrive=3.73;p.shiftSeconds=.20;break;
+    case 2:p.gearCount=5;p.gearRatios={2.87,1.89,1.28,1,.68,.60,.52,.44,.37,.30};p.finalDrive=3.9;p.shiftSeconds=.22;p.automatic=false;break;
+    case 3:p.gearCount=6;p.gearRatios={2.66,1.78,1.30,1,.80,.63,.54,.46,.38,.30};p.finalDrive=3.9;p.shiftSeconds=.20;p.automatic=false;break;
+    case 4:p.gearCount=7;p.gearRatios={3.14,2.05,1.43,1.10,.86,.68,.56,.46,.38,.30};p.finalDrive=3.73;p.shiftSeconds=.08;break;
+    case 5:p.gearCount=8;p.gearRatios={4.56,2.97,2.08,1.69,1.27,1,.85,.65,.54,.43};p.finalDrive=3.15;p.shiftSeconds=.12;break;
+    case 6:p.gearCount=6;p.gearRatios={4.02,2.36,1.53,1.15,.85,.67,.56,.47,.38,.30};p.finalDrive=3.73;p.shiftSeconds=.14;break;
+    case 7:p.gearCount=10;p.gearRatios={4.70,2.99,2.15,1.80,1.52,1.28,1,.85,.69,.64};p.finalDrive=3.15;p.shiftSeconds=.12;break;
+    default:p.gearCount=6;p.gearRatios={3.15,2.10,1.55,1.22,1,.82,.68,.56,.46,.38};p.finalDrive=3.9;p.shiftSeconds=.15;
+    }
+}
 Build buildVehicle(const Profile& profile){
     Build build;auto& v=build.vehicle;v.drive=profile.drive;
+    Profile gearbox=profile;sanitizeTransmission(gearbox);v.gearCount=gearbox.gearCount;v.ratios=gearbox.gearRatios;v.finalDrive=gearbox.finalDrive;v.shiftSeconds=gearbox.shiftSeconds;
     v.drivenWeightFraction=profile.drive==DriveLayout::Front?.60:.52;
     auto chosen=[&](PartSlot slot){const auto* p=findPart(profile.parts[int(slot)]);return p&&p->slot==slot?p:nullptr;};
     double stockPowerPerTorque=powerPerTorque(v);
@@ -86,6 +104,7 @@ Build buildVehicle(const Profile& profile){
     if(auto* p=chosen(PartSlot::Engine)){targetHp=p->stat;massDelta+=p->weight-250;powerChanged=true;}
     for(PartSlot slot:{PartSlot::Intake,PartSlot::Pistons,PartSlot::Exhaust}){
         if(auto* p=chosen(slot)){
+            if(slot==PartSlot::Exhaust)build.exhaustFrame=p->subimage;
             addedHp+=p->stat;powerChanged=true;
             double baseline=slot==PartSlot::Intake?10:slot==PartSlot::Pistons?30:slot==PartSlot::Exhaust?80:0;
             massDelta+=p->weight-baseline;

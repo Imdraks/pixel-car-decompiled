@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.5.1-native-preview
+        default: v0.6.0-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -88,6 +88,9 @@ jobs:
           New-Item -ItemType Directory validation -Force | Out-Null
           & $core "$env:RUNNER_TEMP\pcr-native-core" *> validation/core-tests.txt
           if ($LASTEXITCODE -ne 0) { Get-Content validation/core-tests.txt; throw 'Windows core tests failed' }
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\exhaust-gearbox.json" validation/exhaust-gearbox.json
+          $geometry = Get-Content validation/exhaust-gearbox.json -Raw | ConvertFrom-Json
+          if ($geometry.body_pipe_configurations -ne 9359 -or $geometry.gearbox_presets -ne 8 -or $geometry.maximum_gears -ne 10) { throw 'Exhaust or gearbox coverage differs' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\power-combinations.json" validation/power-combinations.json
           $power = Get-Content validation/power-combinations.json -Raw | ConvertFrom-Json
           if ($power.induction_combinations -ne 50400 -or $power.atmospheric_combinations -ne 137984 -or $power.max_without_nos_hp -lt 4200 -or $power.max_with_nos_hp -lt 4500 -or $power.original_game_equivalence_validated) { throw 'Compound power or combination coverage failed' }
@@ -188,6 +191,24 @@ jobs:
               "PASS road at $speed km/h moves $shift image pixels in 0.1 seconds" | Out-File validation/motion-report.txt -Append
             } finally { $first.Dispose(); $second.Dispose() }
           }
+      - name: Verify visible NOS and backfire rendering
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Add-Type -AssemblyName System.Drawing
+          $image = [System.Drawing.Bitmap]::new((Join-Path $PWD 'validation/screens/echappement-arriere.png'))
+          try {
+            $blue = 0; $warm = 0
+            for ($y=[int][math]::Round(300*$image.Height/720); $y -lt [int][math]::Round(500*$image.Height/720); $y++) {
+              for ($x=[int][math]::Round(300*$image.Width/1280); $x -lt [int][math]::Round(410*$image.Width/1280); $x++) {
+                $p = $image.GetPixel($x,$y)
+                if ($p.R -gt 50 -and $p.G -gt ($p.R+30) -and $p.B -gt ($p.R+50)) { $blue++ }
+                if ($p.R -gt 150 -and $p.G -gt 60 -and $p.B -lt ($p.R-70)) { $warm++ }
+              }
+            }
+            if ($blue -lt 5 -or $warm -lt 5) { throw "Exhaust effects not visibly rendered: blue=$blue warm=$warm" }
+            "PASS visible NOS and backfire pixels: blue=$blue warm=$warm" | Out-File validation/exhaust-pixels.txt
+          } finally { $image.Dispose() }
       - name: Collect Windows validation
         if: always()
         shell: pwsh
