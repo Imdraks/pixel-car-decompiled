@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <array>
+#include "catalog.hpp"
 
 namespace pcr {
 enum class WindowMode { Windowed, Borderless, Fullscreen };
@@ -15,7 +16,7 @@ struct Settings {
     bool vsync=true, showFps=false, sound=true;
     Quality quality=Quality::High;
 };
-struct Profile { int car=0, rim=0; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; };
+struct Profile { int car=0, rim=0; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1; };
 bool operator==(const Settings&, const Settings&);
 Settings validate(Settings);
 Settings loadSettings(const std::filesystem::path&);
@@ -36,11 +37,21 @@ struct Vehicle {
     double engineBrakeTorque=18;
     DriveLayout drive=DriveLayout::Rear;
     double drivenWeightFraction=.52, wheelbase=2.6, centreOfGravityHeight=.50;
+    double boostPsi=0,nitroHp=0; bool supercharged=false,twoStep=false;
 };
-struct DriverInput { bool throttle=false, brake=false, automatic=true; };
+const Part* findPart(int id);
+const char* slotKey(PartSlot);
+const char* slotLabel(PartSlot);
+bool equipPart(Profile&,PartSlot,int id);
+struct EngineSamples { int on=21,off=22; };
+EngineSamples engineSamples(const Profile&);
+struct Build { Vehicle vehicle; double baseHp=0,rideOffset=0; int tireFrame=0; };
+Build buildVehicle(const Profile&);
+struct DriverInput { bool throttle=false, brake=false, automatic=true,nitro=false,launch=false; };
 struct CarState {
     double position=0, speed=0, rpm=1000, elapsed=0, finishTime=0, shiftLock=0;
     int gear=1;
+    double boostPsi=0,nitroRemaining=10,wheelSlip=0; bool nitroActive=false,launching=false;
     bool finished=false;
 };
 constexpr double Step=1.0/120.0, QuarterMile=402.336;

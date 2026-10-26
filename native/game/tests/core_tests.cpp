@@ -1,7 +1,9 @@
 #include "model.hpp"
 #include "benchmark.hpp"
 #include "art.hpp"
+#include "effects.hpp"
 #include <cmath>
+#include <algorithm>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -122,6 +124,81 @@ int main(int argc,char**argv){
     expect(benchmarkText.find("\"sanity_checks_passed\": true")!=std::string::npos,"benchmark scenarios pass their sanity checks");
     bool refused=false;try{writePhysicsBenchmark(benchmark);}catch(const std::exception&){refused=true;}
     expect(refused,"benchmark refuses to replace an existing directory");
+    expect(std::size(PartCatalog)==194,"all requested Unbound catalog entries are included");
+    std::array<int,PartSlotCount> counts{};
+    for(const auto& part:PartCatalog)++counts[int(part.slot)];
+    expect(counts==std::array<int,PartSlotCount>{16,16,14,10,8,5,21,13,7,48,36},"catalog includes every requested category and supercharger split");
+    Profile custom;
+    expect(equipPart(custom,PartSlot::Engine,1002),"2JZ can be equipped by stable catalog ID");
+    auto jz=buildVehicle(custom);
+    expect(std::abs(jz.baseHp-410)<.001,"recovered 2JZ catalog power drives the native torque curve");
+    Profile lowPower,highPower;equipPart(lowPower,PartSlot::Engine,1001);equipPart(highPower,PartSlot::Engine,1014);
+    auto lowBuild=buildVehicle(lowPower),highBuild=buildVehicle(highPower);CarState lowRun,highRun;
+    lowRun.speed=highRun.speed=40;lowRun.gear=highRun.gear=4;
+    for(int i=0;i<120*3;i++){stepCar(lowRun,lowBuild.vehicle,{true,false,false},Step,0);stepCar(highRun,highBuild.vehicle,{true,false,false},Step,0);}
+    expect(highRun.speed>lowRun.speed+2,"selecting a stronger engine actually improves a rolling acceleration");
+    equipPart(custom,PartSlot::Turbo,3002);equipPart(custom,PartSlot::Supercharger,3020);
+    expect(custom.parts[int(PartSlot::Turbo)]==0&&custom.parts[int(PartSlot::Supercharger)]==3020,"turbo and supercharger are mutually exclusive");
+    expect(!equipPart(custom,PartSlot::Engine,3002)&&!equipPart(custom,PartSlot::Engine,999999),"wrong-category and unknown IDs are rejected");
+    equipPart(custom,PartSlot::Turbo,3026);
+    auto turboBuild=buildVehicle(custom);CarState spool;spool.speed=30;spool.gear=3;
+    for(int i=0;i<240;i++)stepCar(spool,turboBuild.vehicle,{true,false,false},Step,0);
+    expect(spool.boostPsi>10&&spool.boostPsi<=35,"equipped turbo develops bounded boost under load");
+    for(int i=0;i<120;i++)stepCar(spool,turboBuild.vehicle,{false,false,false},Step,0);
+    expect(spool.boostPsi==0,"turbo boost releases when the throttle is lifted");
+    equipPart(custom,PartSlot::Ecu,4008);auto ecuBuild=buildVehicle(custom);
+    expect(ecuBuild.vehicle.redlineRpm==10400&&ecuBuild.vehicle.upshiftRpm==9400,"ECU raises the native rev limit and automatic shift threshold");
+    equipPart(custom,PartSlot::Tires,10017);auto tireBuild=buildVehicle(custom);
+    expect(tireBuild.vehicle.grip>1.5&&tireBuild.tireFrame==17,"tires change adhesion and select the matching original tire image");
+    equipPart(custom,PartSlot::Suspension,2015);auto lowered=buildVehicle(custom);
+    expect(lowered.rideOffset==6&&lowered.vehicle.centreOfGravityHeight<.5,"suspension changes visible ride height and native weight transfer");
+    Profile nitroProfile;equipPart(nitroProfile,PartSlot::Nos,5007);auto nitroBuild=buildVehicle(nitroProfile);
+    CarState nitroRun,plainRun;nitroRun.speed=plainRun.speed=40;nitroRun.gear=plainRun.gear=4;
+    for(int i=0;i<120*2;i++){stepCar(nitroRun,nitroBuild.vehicle,{true,false,false,true},Step,0);stepCar(plainRun,nitroBuild.vehicle,{true,false,false,false},Step,0);}
+    expect(nitroRun.speed>plainRun.speed&&std::abs(nitroRun.nitroRemaining-8)<1e-6,"NOS adds power only when activated and consumes its charge");
+    double charge=nitroRun.nitroRemaining;stepCar(nitroRun,nitroBuild.vehicle,{true,true,false,true},Step,0);
+    expect(!nitroRun.nitroActive&&nitroRun.nitroRemaining==charge,"braking blocks NOS and preserves its charge");
+    for(int i=0;i<120*12;i++)stepCar(nitroRun,nitroBuild.vehicle,{true,false,true,true},Step,0);
+    expect(nitroRun.nitroRemaining==0&&!nitroRun.nitroActive,"NOS runs out without becoming negative");
+    bool allPartsStable=true;
+    for(const auto& part:PartCatalog){
+        Profile single;allPartsStable&=equipPart(single,part.slot,part.id);auto setup=buildVehicle(single);CarState run;
+        for(int i=0;i<120*3;i++)stepCar(run,setup.vehicle,{true,false,true,true},Step,0);
+        allPartsStable&=std::isfinite(run.speed)&&std::isfinite(run.rpm)&&run.speed>0&&run.rpm>0&&setup.vehicle.mass>=600;
+    }
+    expect(allPartsStable,"all 194 parts build a finite driveable configuration");
+    std::string customError;
+    expect(saveProfile(root/"custom.ini",custom,customError),"custom equipment profile saves");
+    auto customLoaded=loadProfile(root/"custom.ini",191,54);
+    expect(customLoaded.parts==custom.parts,"all equipment slots persist through a profile round trip");
+    {std::ofstream out(root/"custom.ini");out<<"part_engine=3002\npart_tires=999999\npart_turbo=3002\npart_supercharger=3020\n";}
+    auto corruptCustom=loadProfile(root/"custom.ini",191,54);
+    expect(corruptCustom.parts[0]==0&&corruptCustom.parts[10]==0&&corruptCustom.parts[2]==0&&corruptCustom.parts[3]==3020,"malformed equipment falls back safely and cannot stack forced induction");
+    Profile soundProfile;soundProfile.soundOn=5;soundProfile.soundOff=4;soundProfile.bov=3;
+    auto sounds=engineSamples(soundProfile);
+    expect(sounds.on==71&&sounds.off==47,"manual sound profiles match the original native dispatch tables");
+    expect(saveProfile(root/"sound.ini",soundProfile,customError),"original audio preferences save");
+    auto savedSound=loadProfile(root/"sound.ini",191,54);
+    expect(savedSound.soundOn==5&&savedSound.soundOff==4&&savedSound.bov==3,"engine and valve audio preferences persist independently");
+    DrivingEffects visuals;CarState visibleCar;visibleCar.wheelSlip=.4;
+    EffectSources points{400,520,450,350,440,false};
+    visuals.update(visibleCar,v,{true,false,true},points,0,Step,false);
+    expect(!visuals.particles.empty()&&visuals.particles.front().kind==EffectKind::Smoke,"wheel slip emits original smoke particles");
+    visibleCar.wheelSlip=0;visibleCar.nitroActive=true;
+    visuals.update(visibleCar,v,{true,false,true,true},points,0,Step,false);
+    expect(std::any_of(visuals.particles.begin(),visuals.particles.end(),[](const Particle& p){return p.kind==EffectKind::Nitro;}),"active NOS emits a distinct effect");
+    visibleCar.nitroActive=false;visibleCar.gear=2;
+    visuals.update(visibleCar,v,{true,false,true},points,1.2,Step,true);
+    expect(std::any_of(visuals.particles.begin(),visuals.particles.end(),[](const Particle& p){return p.kind==EffectKind::Flame;}),"equipped exhaust emits a gear-change flame");
+    expect(std::count_if(visuals.particles.begin(),visuals.particles.end(),[](const Particle& p){return p.kind==EffectKind::Spark;})==14,"collision emits a bounded spark burst");
+    for(int i=0;i<240;i++)visuals.update(visibleCar,v,{false,false,true},points,0,Step,false);
+    expect(visuals.particles.empty(),"expired visual effects are removed");
+    Profile launchProfile;equipPart(launchProfile,PartSlot::Ecu,4002);equipPart(launchProfile,PartSlot::Turbo,3026);
+    auto launchBuild=buildVehicle(launchProfile);CarState staged;
+    for(int i=0;i<240;i++)stepCar(staged,launchBuild.vehicle,{true,false,true,false,true},Step,0);
+    expect(staged.position==0&&staged.rpm==4200&&staged.boostPsi>10&&staged.launching,"2STEP holds the clutch and builds boost at a fixed staging RPM");
+    for(int i=0;i<120;i++)stepCar(staged,launchBuild.vehicle,{true,false,true,false,false},Step,0);
+    expect(staged.speed>0&&!staged.launching,"releasing launch control delivers drive torque");
     auto file=root/std::filesystem::u8path("écran_車.ini");Settings s;s.mode=WindowMode::Borderless;s.width=1920;s.height=1080;s.fps=144;s.vsync=false;s.quality=Quality::Low;s.showFps=true;s.sound=false;
     std::string error;expect(saveSettings(file,s,error),"save Unicode settings path");expect(loadSettings(file)==s,"all graphics settings round trip");
     s.fps=60;s.mode=WindowMode::Fullscreen;expect(saveSettings(file,s,error),"atomic replacement of existing settings");expect(loadSettings(file)==s,"replaced graphics settings persist");

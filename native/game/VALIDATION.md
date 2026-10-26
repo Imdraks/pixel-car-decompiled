@@ -1,3 +1,18 @@
+# Validation native 0.4.0
+
+- Linux : 75 contrôles du cœur, 21 graphiques, 19 de vraies entrées clavier/souris,
+  dont équipement des 11 catégories, pagination, exclusivité et redémarrage.
+- 94 sons originaux décodés ; échantillons moteur non silencieux.
+- Mixage réel Raylib sur périphérique logiciel : 16 paires moteur, turbo,
+  compresseur, NOS et événements ; PCM non nul, aucun échec de chargement.
+- Le programme graphique initialise aussi son backend audio sans échec.
+- Rapports : `validation/customization-0.4/`. Ces essais ne valident ni un
+  haut-parleur Windows physique ni la correspondance originale moteur–son.
+- La publication exige les contrôles Windows du cœur, du banc, du rendu et
+  du décodage des 94 sons. Le rapport effectif accompagne la release.
+
+## Historique 0.3.1
+
 # Validation de la reconstruction native 0.3.1
 
 ## Correction des roues 0.3.1

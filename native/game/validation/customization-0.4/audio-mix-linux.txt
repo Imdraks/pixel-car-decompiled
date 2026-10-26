@@ -1,0 +1,5 @@
+PASS: 16 engine profile pairs, turbo, supercharger, NOS and event sounds mixed through the real Raylib audio backend.
+stream_decode_failures=0
+frames=79200
+absolute_pcm_energy_scaled=17059246804
+Software/null audio device only; physical speaker playback and exact original engine assignment are not established.

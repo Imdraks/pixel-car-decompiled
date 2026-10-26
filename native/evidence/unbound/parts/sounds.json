@@ -1,0 +1,942 @@
+[
+  {
+    "id": 0,
+    "name": "sfx_bov2",
+    "file": "sfx_bov2.ogg",
+    "embedded": true,
+    "sha256": "c4327e49d909cf1cae2a1e5f9ea83968ee3c06df417a30fff8d944f6c1ce60f8",
+    "size": 2758447,
+    "volume": 0.94,
+    "pitch": 0
+  },
+  {
+    "id": 1,
+    "name": "snd_crash1",
+    "file": "snd_crash1.wav",
+    "embedded": true,
+    "sha256": "3b15f695677dc39e41840bc42a8f249559749e41bc88e2b06421a32a663686e1",
+    "size": 38880,
+    "volume": 0.66,
+    "pitch": 0
+  },
+  {
+    "id": 2,
+    "name": "snd_crash2",
+    "file": "snd_crash2.wav",
+    "embedded": true,
+    "sha256": "1e1bc76b138f5e7f6defa3a64f920a50e40f83c0b258f899c9650933a467d5f8",
+    "size": 44410,
+    "volume": 0.66,
+    "pitch": 0
+  },
+  {
+    "id": 3,
+    "name": "snd_crash3",
+    "file": "snd_crash3.wav",
+    "embedded": true,
+    "sha256": "4d862f9f9feed9f5ab08bfeb311ed6db368e85072b147fe08b658c1db1748a24",
+    "size": 56024,
+    "volume": 0.66,
+    "pitch": 0
+  },
+  {
+    "id": 4,
+    "name": "snd_shop",
+    "file": "snd_shop.ogg",
+    "embedded": false,
+    "sha256": "ed59c86b44e14ae3c7ac5abf8b916c834feea87fc3ee2ce3b5411dd51e88c260",
+    "size": 397041,
+    "volume": 0.8,
+    "pitch": 0
+  },
+  {
+    "id": 5,
+    "name": "bgm_map",
+    "file": "bgm_map.ogg",
+    "embedded": false,
+    "sha256": "d8b3ce75bc264c8c3b69add5d212e2ab3e5552a13bb71230f04a16f26429a4d4",
+    "size": 485641,
+    "volume": 0.92,
+    "pitch": 0
+  },
+  {
+    "id": 6,
+    "name": "snd_tournament_ava",
+    "file": "snd_tournament_ava.wav",
+    "embedded": true,
+    "sha256": "023a7af3c63c5ff142d31b671be5598564c4a8febd26ae5ad785af5fcc0f3a23",
+    "size": 71606,
+    "volume": 0.61,
+    "pitch": 0
+  },
+  {
+    "id": 7,
+    "name": "snd_tournament_vs",
+    "file": "snd_tournament_vs.wav",
+    "embedded": true,
+    "sha256": "eaebd13df3e2ab71a6b4fa103b3ff3b9622e4e603a98a9a06c29453e6afdd492",
+    "size": 42554,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 8,
+    "name": "snd_swoosh2",
+    "file": "snd_swoosh2.wav",
+    "embedded": true,
+    "sha256": "820f22826e58224682e94def766541481f0852cbfbe99fbf90c137f16b444336",
+    "size": 36340,
+    "volume": 0.81,
+    "pitch": 0
+  },
+  {
+    "id": 9,
+    "name": "snd_crowd_soft",
+    "file": "snd_crowd_soft.ogg",
+    "embedded": false,
+    "sha256": "ca3b6a22e5f171f79b5b9defd79c3a2bc8c66b1c30087956786612d8432d3f3a",
+    "size": 129098,
+    "volume": 0.42,
+    "pitch": 0
+  },
+  {
+    "id": 10,
+    "name": "snd_crowd_loud",
+    "file": "snd_crowd_loud.ogg",
+    "embedded": false,
+    "sha256": "bc96cc1ea29fbffd2fdc817de7fab6f1f7588ac69129f854d4bee58199fcd2b2",
+    "size": 90707,
+    "volume": 0.42,
+    "pitch": 0
+  },
+  {
+    "id": 11,
+    "name": "snd_crowd_roar1",
+    "file": "snd_crowd_roar1.ogg",
+    "embedded": false,
+    "sha256": "a9def0c43b0986d75faa03402f6281347ac9d91e919e8252bdb181a7067143b1",
+    "size": 52188,
+    "volume": 0.42,
+    "pitch": 0
+  },
+  {
+    "id": 12,
+    "name": "snd_crowd_roar2",
+    "file": "snd_crowd_roar2.ogg",
+    "embedded": false,
+    "sha256": "643b4e23adaf7421473c1ffe480992ec4782e7151297e2c0ccfcf7787038e746",
+    "size": 61635,
+    "volume": 0.42,
+    "pitch": 0
+  },
+  {
+    "id": 13,
+    "name": "snd_airhorn",
+    "file": "snd_airhorn.ogg",
+    "embedded": false,
+    "sha256": "fb523022072c309a3791b20d67de60d058d9150f8f2c8d45428b234a49a72637",
+    "size": 10173,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 14,
+    "name": "snd_airhorn_long",
+    "file": "snd_airhorn_long.ogg",
+    "embedded": false,
+    "sha256": "472f82914648116ed178bfdaf04bba150cf83a206e8f9f3cf215e33f873f0afc",
+    "size": 26670,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 15,
+    "name": "snd_swoosh_loud",
+    "file": "snd_swoosh_loud.wav",
+    "embedded": true,
+    "sha256": "6586a0f9d306ed568a86086d93afd97f32ccb8f650c325cbb19a486d46ad0e23",
+    "size": 88164,
+    "volume": 0.7,
+    "pitch": 0
+  },
+  {
+    "id": 16,
+    "name": "snd_tournament_win",
+    "file": "snd_tournament_win.ogg",
+    "embedded": false,
+    "sha256": "330d03fb144fae7a6ac053f77fce6a2668d7be87805e1003aaac24125af63988",
+    "size": 10329,
+    "volume": 0.4,
+    "pitch": 0
+  },
+  {
+    "id": 17,
+    "name": "sfx_bov4",
+    "file": "sfx_bov4.ogg",
+    "embedded": true,
+    "sha256": "5b0e36ce5bb2b275cb7b86391d9c7e49979f72adc0d7939fa2dfa6eabe47ff94",
+    "size": 12310,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 18,
+    "name": "snd_badge",
+    "file": "snd_badge.ogg",
+    "embedded": false,
+    "sha256": "29d779dd421a759358265167ee851890058e73584143623c05881007a58cb57f",
+    "size": 12668,
+    "volume": 0.47,
+    "pitch": 0
+  },
+  {
+    "id": 19,
+    "name": "sfx_box3",
+    "file": "sfx_box3.ogg",
+    "embedded": true,
+    "sha256": "2e03746060ba26cf2e4f2c09485ce0baf503e05e6b6475b6c1e0c41e5778be80",
+    "size": 11421,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 20,
+    "name": "sfx_engine",
+    "file": "sfx_engine.wav",
+    "embedded": true,
+    "sha256": "d0d1fc11fd5cb1b9a0c58fc088dd4adedf9642bc2601bf64fbda02b21e5429b5",
+    "size": 68086,
+    "volume": 0.33,
+    "pitch": 0
+  },
+  {
+    "id": 21,
+    "name": "sfx_engine2",
+    "file": "sfx_engine2.wav",
+    "embedded": true,
+    "sha256": "6f07e9d3087f732cf725f80eaf8db90a45e12b8120088ca70271a371b95b117b",
+    "size": 81078,
+    "volume": 0.81,
+    "pitch": 0
+  },
+  {
+    "id": 22,
+    "name": "sfx_engine2e",
+    "file": "sfx_engine2e.wav",
+    "embedded": true,
+    "sha256": "6f07e9d3087f732cf725f80eaf8db90a45e12b8120088ca70271a371b95b117b",
+    "size": 81078,
+    "volume": 0.81,
+    "pitch": 0
+  },
+  {
+    "id": 23,
+    "name": "sfx_engine3",
+    "file": "sfx_engine3.wav",
+    "embedded": true,
+    "sha256": "7f4cfb16c2eae5a39e24dee9ab54b92a4f070c6efe9956c57c7ce7b4ebe236c5",
+    "size": 71012,
+    "volume": 0.81,
+    "pitch": 0
+  },
+  {
+    "id": 24,
+    "name": "sfx_engine4",
+    "file": "sfx_engine4.wav",
+    "embedded": true,
+    "sha256": "db85075c66a358b714d9f1833d8a4bf2483bf91dcdadfdc9bc18eaf20985cf71",
+    "size": 76204,
+    "volume": 0.93,
+    "pitch": 0
+  },
+  {
+    "id": 25,
+    "name": "sfx_horn",
+    "file": "sfx_horn.wav",
+    "embedded": true,
+    "sha256": "e2fc73c5b9ba07d88b4b363c0dede3c72dcf1e19fdc998cbe29d6d9b0d0ce153",
+    "size": 41200,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 26,
+    "name": "sfx_lose",
+    "file": "sfx_lose.wav",
+    "embedded": true,
+    "sha256": "0aa7c541549199edd90703531e68b489955f28e0a2a8c4c1399fa114dde7ddb5",
+    "size": 58544,
+    "volume": 0.35,
+    "pitch": 0
+  },
+  {
+    "id": 27,
+    "name": "sfx_starter",
+    "file": "sfx_starter.wav",
+    "embedded": true,
+    "sha256": "63a628a992b5956b948744d96ea7b70f1dcd9f52167827e2b1157e196dbf43c6",
+    "size": 52782,
+    "volume": 0.14,
+    "pitch": 0
+  },
+  {
+    "id": 28,
+    "name": "sfx_supercharger",
+    "file": "sfx_supercharger.wav",
+    "embedded": true,
+    "sha256": "a06cb773907ecfcef9e6f0d61689f2e13ee98b8f12ccda81d2f94fbdbe5a5b7f",
+    "size": 13744,
+    "volume": 0.43,
+    "pitch": 0
+  },
+  {
+    "id": 29,
+    "name": "sfx_turbo",
+    "file": "sfx_turbo.ogg",
+    "embedded": false,
+    "sha256": "1232f6015451bb152a64eedebf59cb5dc7df7e7f48e06b5e77a13bcc55b72adf",
+    "size": 5591,
+    "volume": 0.68,
+    "pitch": 0
+  },
+  {
+    "id": 30,
+    "name": "sfx_win",
+    "file": "sfx_win.wav",
+    "embedded": true,
+    "sha256": "2b15f6e141d086a2066f0e6ffb0324d36439aea6cb1fe5e11506f38e008d3b5e",
+    "size": 408042,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 31,
+    "name": "snd_sell",
+    "file": "snd_sell.wav",
+    "embedded": true,
+    "sha256": "3bb9ab3df5d05251fc0761860231e1aedf371703a90df3acb7057c5588438d90",
+    "size": 132122,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 32,
+    "name": "snd_alert",
+    "file": "snd_alert.wav",
+    "embedded": true,
+    "sha256": "bf63829edab38aba687efd1a3293420bffb50d33e4a64d7288e626942185cd61",
+    "size": 86488,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 33,
+    "name": "snd_back",
+    "file": "snd_back.ogg",
+    "embedded": false,
+    "sha256": "9d80c61279723c04ca6b61892f72983088a41a2d3986c98c5939e6a33642721d",
+    "size": 4905,
+    "volume": 0.29,
+    "pitch": 0
+  },
+  {
+    "id": 34,
+    "name": "snd_buy",
+    "file": "snd_buy.wav",
+    "embedded": true,
+    "sha256": "dc49d696cc2f797589a2d7d74789a33717506f7f6aacb6d5555b76edfd15d3ac",
+    "size": 210894,
+    "volume": 0.87,
+    "pitch": 0
+  },
+  {
+    "id": 35,
+    "name": "snd_banner",
+    "file": "snd_banner.ogg",
+    "embedded": false,
+    "sha256": "b3af85e4b81b0aaf631dec90c877252dc6311870e69825300d98532fbf718c57",
+    "size": 10033,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 36,
+    "name": "snd_begin",
+    "file": "snd_begin.wav",
+    "embedded": true,
+    "sha256": "577273d7c13ce5cb536463b347b25b6e654bb439be8f278ae1ea03ed4e96594e",
+    "size": 352912,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 37,
+    "name": "snd_button",
+    "file": "snd_button.ogg",
+    "embedded": false,
+    "sha256": "ccaa1760680d3595dcf1258d90deee7a526d7c609205ad67d35da7fa22e33a8f",
+    "size": 4664,
+    "volume": 0.34,
+    "pitch": 0
+  },
+  {
+    "id": 38,
+    "name": "snd_count",
+    "file": "snd_count.wav",
+    "embedded": true,
+    "sha256": "cc9d58f60bdd11f0b0bf7b7d71a6ef7d345043e87690425c39304666ba21b7ca",
+    "size": 45006,
+    "volume": 0.29,
+    "pitch": 0
+  },
+  {
+    "id": 39,
+    "name": "snd_go",
+    "file": "snd_go.wav",
+    "embedded": true,
+    "sha256": "3fdcb4f3bdfffed7ee680c92a6ae25ef76dcfbd3e3a3397eaf9a6d8bd2eb7df9",
+    "size": 34510,
+    "volume": 0.5,
+    "pitch": 0
+  },
+  {
+    "id": 40,
+    "name": "snd_install",
+    "file": "snd_install.wav",
+    "embedded": true,
+    "sha256": "1c9036b01e79ab50117442012e6a6f25aeb00117caf96abb1fc557db602188d7",
+    "size": 132480,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 41,
+    "name": "snd_install2",
+    "file": "snd_install2.wav",
+    "embedded": true,
+    "sha256": "64bc8de8455c8708011c197be2e1d3c13bce2bc6a3b04ffb81a092e0a83a6b43",
+    "size": 71464,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 42,
+    "name": "snd_lift",
+    "file": "snd_lift.wav",
+    "embedded": true,
+    "sha256": "2821e6e581f62423427ccdc667dff5485eb28c273c833acd3d091671e83138c9",
+    "size": 108540,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 43,
+    "name": "snd_pop",
+    "file": "snd_pop.wav",
+    "embedded": true,
+    "sha256": "06ac428ddec2d91e3d976c85618f1be870250789a28c8fbf8d68eff052aba187",
+    "size": 31414,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 44,
+    "name": "snd_shift",
+    "file": "snd_shift.wav",
+    "embedded": true,
+    "sha256": "ada85296521cac1e3c989f5abfd599938e5df4965110e03770f08815ffec73c7",
+    "size": 9874,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 45,
+    "name": "snd_start",
+    "file": "snd_start.ogg",
+    "embedded": false,
+    "sha256": "4bc327bfda75cf8cfc3eb69513131ba6ec419b4a89a0b8b0db2627b095661638",
+    "size": 13250,
+    "volume": 0.53,
+    "pitch": 0
+  },
+  {
+    "id": 46,
+    "name": "bgm_title",
+    "file": "bgm_title.ogg",
+    "embedded": false,
+    "sha256": "3d237d5ded393f0d9deeff81354a1aebfde44a8d49f71a6fcbca6b751993b676",
+    "size": 4637198,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 47,
+    "name": "sfx_engine5",
+    "file": "sfx_engine5.wav",
+    "embedded": true,
+    "sha256": "e279fcdae281201e76e171aead039389b29a2c12a8ce371981ea317745325276",
+    "size": 44558,
+    "volume": 0.81,
+    "pitch": 0
+  },
+  {
+    "id": 48,
+    "name": "snd_logo",
+    "file": "snd_logo.ogg",
+    "embedded": false,
+    "sha256": "85459fa178b2b21d082e15996c2ebc8c53f0ac9f3dd18a60243291d31828ac34",
+    "size": 11420,
+    "volume": 0.18,
+    "pitch": 0
+  },
+  {
+    "id": 49,
+    "name": "snd_tick",
+    "file": "snd_tick.ogg",
+    "embedded": false,
+    "sha256": "0c7de7601fb70f17d579b2e48c468f12277ac86b0c44f6ff879cc12074cc828c",
+    "size": 4445,
+    "volume": 0.23,
+    "pitch": 0
+  },
+  {
+    "id": 50,
+    "name": "snd_beep",
+    "file": "snd_beep.ogg",
+    "embedded": false,
+    "sha256": "6dbc8b07e75f4b47e22962bdfdb6dc51dcfe1e077ae1b7f74bb09447fed74bef",
+    "size": 5258,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 51,
+    "name": "snd_swoosh",
+    "file": "snd_swoosh.wav",
+    "embedded": true,
+    "sha256": "34105449ba6f4860169ec9a233f3be5f3791319fc23f63c3e047e888b60d303a",
+    "size": 32334,
+    "volume": 0.85,
+    "pitch": 0
+  },
+  {
+    "id": 52,
+    "name": "snd_ambient",
+    "file": "snd_ambient.ogg",
+    "embedded": false,
+    "sha256": "1c320145e1fb7537155717624f84af9c656f8c5c685fd64f66d9a8744b01f1b4",
+    "size": 1987093,
+    "volume": 0.69,
+    "pitch": 0
+  },
+  {
+    "id": 53,
+    "name": "sfx_bov5",
+    "file": "sfx_bov5.ogg",
+    "embedded": false,
+    "sha256": "554e1a47afa6a2129a79e36b343eb4fb0618458734082a7023838832b29f63c6",
+    "size": 10415,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 54,
+    "name": "snd_button_light",
+    "file": "snd_button_light.wav",
+    "embedded": true,
+    "sha256": "141230e89974c01c28be46665b98357bb46f765600eed3d87d8c7f9f90b1b24c",
+    "size": 13954,
+    "volume": 0.28,
+    "pitch": 0
+  },
+  {
+    "id": 55,
+    "name": "snd_toggle",
+    "file": "snd_toggle.wav",
+    "embedded": true,
+    "sha256": "2081e8eee0243555f3c0b9b0e226269c087bb3eb2bd72a81aa175b1def837452",
+    "size": 14132,
+    "volume": 0.17,
+    "pitch": 0
+  },
+  {
+    "id": 56,
+    "name": "snd_swipe",
+    "file": "snd_swipe.wav",
+    "embedded": true,
+    "sha256": "8da171c0419328c4b0a9810468b7a72efc4ed197e705a604b048636b26f98476",
+    "size": 53070,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 57,
+    "name": "snd_key",
+    "file": "snd_key.wav",
+    "embedded": true,
+    "sha256": "2119217682ea3b90aca461d12e8189fd58a8333cd81d8e0e9f691bf07d3892ce",
+    "size": 11644,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 58,
+    "name": "snd_town",
+    "file": "snd_town.ogg",
+    "embedded": false,
+    "sha256": "2f89314556b766a7d76e82d5b48203722e150f2d2b9d53ee0a643e99d5caa92a",
+    "size": 1423283,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 59,
+    "name": "snd_counter",
+    "file": "snd_counter.wav",
+    "embedded": true,
+    "sha256": "8b221d917c3a2f83106fb405f0e5d18dfbfe4ea577ef8b87517e88d55de0def0",
+    "size": 83406,
+    "volume": 0.39,
+    "pitch": 0
+  },
+  {
+    "id": 60,
+    "name": "snd_crate",
+    "file": "snd_crate.wav",
+    "embedded": true,
+    "sha256": "0e2a6c794283452557692248dbd83c215ef5765e0b7e8f547b05e7448565ce76",
+    "size": 370126,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 61,
+    "name": "snd_levelup",
+    "file": "snd_levelup.wav",
+    "embedded": true,
+    "sha256": "e64dd45af6e2c6fa4cfd0b422e9928d57c30ff0c333ff433da2f70f6e817180b",
+    "size": 204494,
+    "volume": 0.9,
+    "pitch": 0
+  },
+  {
+    "id": 62,
+    "name": "snd_stat",
+    "file": "snd_stat.wav",
+    "embedded": true,
+    "sha256": "fed5297128dfe314625902d786aa44fe756bec7bb954c765e4b2e381aee74635",
+    "size": 25038,
+    "volume": 0.29,
+    "pitch": 0
+  },
+  {
+    "id": 63,
+    "name": "snd_money",
+    "file": "snd_money.wav",
+    "embedded": true,
+    "sha256": "a25c094fb9b20f2a5984d66cf96b00eb641ab723b3cdd730cbd30931a5eb76ee",
+    "size": 133582,
+    "volume": 0.44,
+    "pitch": 0
+  },
+  {
+    "id": 64,
+    "name": "snd_moneybig",
+    "file": "snd_moneybig.wav",
+    "embedded": true,
+    "sha256": "0260ab4c450f07cb2f224080471c2b8715bda6c772cd13babc832b259a4dfe53",
+    "size": 268238,
+    "volume": 0.56,
+    "pitch": 0
+  },
+  {
+    "id": 65,
+    "name": "snd_buycar",
+    "file": "snd_buycar.wav",
+    "embedded": true,
+    "sha256": "0f70ed04c27685b2fe52ac1cf1845a08cb29eecd6d576c1188f2af616b9a09d4",
+    "size": 129230,
+    "volume": 0.66,
+    "pitch": 0
+  },
+  {
+    "id": 66,
+    "name": "snd_predrag",
+    "file": "snd_predrag.wav",
+    "embedded": true,
+    "sha256": "0d2891b591f2a4ce588e233861e2652e9f094ec03247b851f2fd014ef82be8f2",
+    "size": 25550,
+    "volume": 0.46,
+    "pitch": 0
+  },
+  {
+    "id": 67,
+    "name": "snd_moneylose",
+    "file": "snd_moneylose.wav",
+    "embedded": true,
+    "sha256": "80658067df0a213a3aea6202f47794f36ef4d92e5de10496c86b3b15467022ec",
+    "size": 141262,
+    "volume": 0.49,
+    "pitch": 0
+  },
+  {
+    "id": 68,
+    "name": "snd_racemenu_go",
+    "file": "snd_racemenu_go.wav",
+    "embedded": true,
+    "sha256": "942f779707b1c18b000eb18e6bbd68080a0987fe204c31ada8e509d315926593",
+    "size": 164046,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 69,
+    "name": "snd_racemenu_back",
+    "file": "snd_racemenu_back.ogg",
+    "embedded": false,
+    "sha256": "8c07a51d89892b05e46cd524ddd2936a54ce880728a608487fc650d711fe2358",
+    "size": 14108,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 70,
+    "name": "snd_ok",
+    "file": "snd_ok.wav",
+    "embedded": true,
+    "sha256": "40a63df0e58e97472124a1b7a1bff8f647525864b3406f2417db7c47974b5a5b",
+    "size": 42190,
+    "volume": 0.6,
+    "pitch": 0
+  },
+  {
+    "id": 71,
+    "name": "sfx_engine_6",
+    "file": "sfx_engine_6.ogg",
+    "embedded": false,
+    "sha256": "9e299558ce2854353950a2b10531e0a81024d3ec2aa2d9e932b2fae1f24ae52d",
+    "size": 17410,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 72,
+    "name": "snd_crate_open",
+    "file": "snd_crate_open.ogg",
+    "embedded": false,
+    "sha256": "afc3471b2a4438171914ca94caecad089d32ff8ac0fb4a3e33e61c621f72145a",
+    "size": 7699,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 73,
+    "name": "sfx_engine_7",
+    "file": "sfx_engine_7.wav",
+    "embedded": true,
+    "sha256": "d2f4c45c59f8b9e94298dded9b2d709b264403dc2b8c34afe1e3e7f4453ed2ef",
+    "size": 86748,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 74,
+    "name": "snd_tech",
+    "file": "snd_tech.wav",
+    "embedded": true,
+    "sha256": "8b9b726f81b78ac52892de6b9d3385ca09c253bdfa449581be884fd4b2c1d3a1",
+    "size": 142926,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 75,
+    "name": "snd_spray",
+    "file": "snd_spray.wav",
+    "embedded": true,
+    "sha256": "256f99aef317674702e04f9218dafc040837821d1ae0a6a862c3aa82e88b9b08",
+    "size": 83022,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 76,
+    "name": "snd_nos",
+    "file": "snd_nos.wav",
+    "embedded": true,
+    "sha256": "50d786f280cfd398e8aa52ba7f17bdad2897963e5af9d4c1aa43034b6c8316c2",
+    "size": 1088290,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 77,
+    "name": "sfx_bov1",
+    "file": "sfx_bov1.ogg",
+    "embedded": true,
+    "sha256": "23898e680cb53ba8d8822ac6ce20936dbc0bf0904c8aef36dbdd22c6dff35dd7",
+    "size": 11198,
+    "volume": 0.8,
+    "pitch": 0
+  },
+  {
+    "id": 78,
+    "name": "sfx_engine8",
+    "file": "sfx_engine8.wav",
+    "embedded": true,
+    "sha256": "a55da90ce5807724cfa0c804bf5e4f957f72a16ef400e054210177686c54a49e",
+    "size": 310700,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 79,
+    "name": "engine_test1",
+    "file": "engine_test1.wav",
+    "embedded": true,
+    "sha256": "b8f6cb0eede2bb5d727d7e01122c4a3c89ecf55c5c5ec55f633db13449e3eb90",
+    "size": 216194,
+    "volume": 0.53,
+    "pitch": 0
+  },
+  {
+    "id": 80,
+    "name": "engine_test2",
+    "file": "engine_test2.wav",
+    "embedded": true,
+    "sha256": "37aeaea9a2d843bb08f7a79f97ebb63dadb4c907bd9ea21847635687bb14d86d",
+    "size": 173872,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 81,
+    "name": "engine_test3",
+    "file": "engine_test3.wav",
+    "embedded": true,
+    "sha256": "caecb9839bea011cd9b1cb0085257412a73e508bca11e388eba81d94692fdfbb",
+    "size": 14388,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 82,
+    "name": "snd_police_siren",
+    "file": "snd_police_siren.wav",
+    "embedded": true,
+    "sha256": "49bdfedcedf041326aa7776f4ce7e768377e861d237582b064f965debebfde72",
+    "size": 828884,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 83,
+    "name": "snd_police_warn",
+    "file": "snd_police_warn.wav",
+    "embedded": true,
+    "sha256": "ee7f50a7ce3cc5cef2be49e911bd98b8a66ab83db2f05fa4adcf5c802c028d83",
+    "size": 51390,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 84,
+    "name": "snd_scrape",
+    "file": "snd_scrape.ogg",
+    "embedded": false,
+    "sha256": "b5f92a1f6624ce56cdf4518126f44cb5d7cc15b06fee90dc7db8bbaded9ab259",
+    "size": 15401,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 85,
+    "name": "snd_bags",
+    "file": "snd_bags.ogg",
+    "embedded": false,
+    "sha256": "dd656def94762e01d2b80fb3ae719d5b04849478be0bfbe539230138f4843cc0",
+    "size": 41262,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 86,
+    "name": "snd_roll",
+    "file": "snd_roll.wav",
+    "embedded": true,
+    "sha256": "c78f061f8371dae4be5dc8f55a859bfa358dd65bee5c105c9160d63457cdefcc",
+    "size": 142008,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 87,
+    "name": "snd_stop",
+    "file": "snd_stop.wav",
+    "embedded": true,
+    "sha256": "9c2fcf6ce773d031923037559b7eeb0822f17b3f94befa8f707faa553f774aef",
+    "size": 55738,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 88,
+    "name": "snd_lever",
+    "file": "snd_lever.wav",
+    "embedded": true,
+    "sha256": "997674147f6abe2d11306844e0da56676a48165ac7e56679768c5f935ef5b24a",
+    "size": 67666,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 89,
+    "name": "snd_money_win",
+    "file": "snd_money_win.wav",
+    "embedded": true,
+    "sha256": "2719b3dc3d4ff0bf6b9369d2182597f6825f35fcb80faed9d88544ae88e4000e",
+    "size": 151130,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 90,
+    "name": "snd_dailyReceive",
+    "file": "snd_dailyReceive.ogg",
+    "embedded": false,
+    "sha256": "f5c81f6739487e1d4d874d27cb660e5b01d5bfbd81bceeb781e1ca33a795af87",
+    "size": 9783,
+    "volume": 1,
+    "pitch": 0
+  },
+  {
+    "id": 91,
+    "name": "snd_dailyWin",
+    "file": "snd_dailyWin.ogg",
+    "embedded": false,
+    "sha256": "7f4c913010fcb7121eb791a4092b80997fd94c264ef5d71a93b1bff588c6663f",
+    "size": 10282,
+    "volume": 0.84,
+    "pitch": 0
+  },
+  {
+    "id": 92,
+    "name": "snd_rewardStop",
+    "file": "snd_rewardStop.wav",
+    "embedded": true,
+    "sha256": "73518451e3bf47e5d3b53682fa97d67df8a821d09028a5b118077d41479290b8",
+    "size": 72766,
+    "volume": 0.47,
+    "pitch": 0
+  },
+  {
+    "id": 93,
+    "name": "snd_rewardWin",
+    "file": "snd_rewardWin.wav",
+    "embedded": true,
+    "sha256": "2e30b1b7e800b4574db9ea2fe11a8b91eac6e283382a0520c5090056f659a6b0",
+    "size": 171656,
+    "volume": 1,
+    "pitch": 0
+  }
+]

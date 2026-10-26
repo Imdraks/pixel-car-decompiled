@@ -1,9 +1,7 @@
-# Priorité : valider la conduite avant d'ajouter du contenu
+# Physique native et pièces 0.4
 
-Le mode libre sert de banc de conduite natif. Les boutiques, nouvelles pièces,
-nouveaux véhicules, progression et autres modes attendent la validation de cette
-base. Les images déjà présentes au garage restent des choix visuels avec des
-performances communes.
+Le mode libre dispose désormais du catalogue demandé. La fidélité physique au
+jeu Android reste à valider ; les mesures natives servent à éviter les régressions.
 
 ## État de la base
 
@@ -28,8 +26,8 @@ Les constantes de `src/model.hpp` sont regroupées dans `Vehicle`, en unités SI
 sauf les régimes en tr/min. Elles sont provisoires : aucune équivalence avec la
 physique d'origine n'est annoncée. L'adhérence reste un plafond d'effort ;
 le transfert de masse est calculé de façon quasi statique selon l’essieu moteur.
-Les paramètres réels par voiture, la suralimentation et les pneus détaillés
-restent à reconstruire. Les changements de voie et contacts restent des approximations.
+Les paramètres réels par voiture et les équations originales des pièces restent
+à reconstruire. Les changements de voie et contacts restent des approximations.
 
 ## Vérification reproductible
 
@@ -62,9 +60,8 @@ limiteur manuel et l'absence d'oscillation des rapports en décélération.
    leur précision. Vérifier ensuite le même comportement dans l'EXE Windows,
    sans dépendance aux FPS. La version 0.3 doit également passer la validation Windows
    du cœur, du rendu et du banc de mesure avant sa publication.
-5. Ajouter les statistiques de plusieurs voitures, puis leurs pièces et autres
-   contenus une fois cette comparaison acceptée. Le nombre de sprites disponibles
-   ne prouve pas que leurs comportements ont été récupérés.
+5. Comparer les configurations équipées aux mêmes pièces dans Unbound avant de
+   déclarer leur comportement fidèle.
 
 ## Avancée de recherche de la version 0.3
 
@@ -84,3 +81,24 @@ La validation de publication Windows 0.3 est réussie :
 [exécution 40315185715](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40315185715).
 Les huit mesures concordent avec Linux ; 43 contrôles du cœur et 15 contrôles
 graphiques passent. Cette preuve n’établit pas la fidélité au jeu Android.
+
+## Adaptation provisoire des pièces 0.4
+
+Les données source comprennent puissance, poids relatif, prix et variante.
+Le champ générique `hp` est interprété selon la catégorie : puissance moteur et
+pièces atmosphériques, régime ECU, pression de suralimentation et indice de pneu.
+Ces interprétations et les formules ne prouvent pas l'équivalence à Android.
+La puissance moteur normalise une courbe de couple native ; la masse part de
+1240 kg et applique les écarts de poids source avec un facteur 0,45359237.
+L'unité d'origine du poids n'est pas prouvée. L'adhérence des pneus vaut
+0,8 + 0,002 × indice ; le rayon suit leur image. Suspension : hauteur et centre
+de gravité sont calibrés nativement. Le turbo possède un temps de montée ; le
+compresseur suit davantage le régime et applique une perte de 6 %. Le facteur
+de couple de suralimentation utilise 1 + pression/14,7 × 0,7.
+
+NOS ajoute sa puissance source avec une réserve native de 10 secondes par
+nouvelle session ; il nécessite accélération et vitesse > 2 m/s. Le frein prime.
+Les ECU explicitement +2STEP permettent L + accélérateur à l'arrêt : embrayage
+ouvert, régime 4200 tr/min et montée en pression ; relâcher L transmet le couple.
+Il s'agit de comportements reconstruits, sans calibration Android démontrée.
+Les huit mesures du véhicule de base restent identiques à la référence 0.3.

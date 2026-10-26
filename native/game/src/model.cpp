@@ -46,6 +46,10 @@ Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
     p.car=std::clamp(integer(v,"car",0),0,std::max(0,cars-1));
     p.rim=std::clamp(integer(v,"rim",0),0,std::max(0,rims-1));p.automatic=integer(v,"automatic",1)!=0;
     int layout=integer(v,"drive",1);p.drive=layout>=0&&layout<=2?DriveLayout(layout):DriveLayout::Rear;
+    p.soundOn=integer(v,"sound_on",-1);if(p.soundOn< -1||p.soundOn>15)p.soundOn=-1;
+    p.soundOff=integer(v,"sound_off",-1);if(p.soundOff< -1||p.soundOff>15)p.soundOff=-1;
+    p.bov=integer(v,"bov",-1);if(p.bov< -1||p.bov>3)p.bov=-1;
+    for(int slot=0;slot<PartSlotCount;slot++)equipPart(p,PartSlot(slot),integer(v,std::string("part_")+slotKey(PartSlot(slot)),0));
     try {size_t used=0;p.bestTime=std::stod(v["best_time"],&used);if(used!=v["best_time"].size()||!std::isfinite(p.bestTime)||p.bestTime<0||p.bestTime>120)p.bestTime=0;}catch(...){p.bestTime=0;}
     return p;
 }
@@ -64,6 +68,8 @@ bool saveSettings(const std::filesystem::path& file,const Settings& settings,std
 bool saveProfile(const std::filesystem::path& file,const Profile& p,std::string& error){
     std::ostringstream out;out.imbue(std::locale::classic());
     out<<"version=1\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
+    out<<"sound_on="<<p.soundOn<<"\nsound_off="<<p.soundOff<<"\nbov="<<p.bov<<'\n';
+    for(int slot=0;slot<PartSlotCount;slot++)out<<"part_"<<slotKey(PartSlot(slot))<<'='<<p.parts[slot]<<'\n';
     return writeAtomic(file,out.str(),error);
 }
 // Numeric path derived from Unbound ease_linear disassembly, not generic YYRValue semantics.
@@ -93,6 +99,7 @@ bool shift(CarState& car,int direction,const Vehicle& vehicle){
 void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,double finishDistance){
     if(s.finished||dt<=0||!std::isfinite(dt))return;
     s.shiftLock=std::max(0.0,s.shiftLock-dt);
+    s.launching=v.twoStep&&input.launch&&input.throttle&&s.speed<3;
     double coupled=wheelRpm(s,v,s.gear);
     if(input.automatic&&s.shiftLock==0){
         if(input.throttle&&!input.brake&&coupled>v.upshiftRpm&&s.gear<6)shift(s,1,v);
@@ -101,20 +108,31 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
         coupled=wheelRpm(s,v,s.gear);
     }
     // Simplified slipping clutch below launch RPM. Above it, RPM follows wheel speed.
-    double target=std::max(input.throttle&&!input.brake?v.launchRpm:v.idleRpm,coupled);
+    double target=s.launching?4200:std::max(input.throttle&&!input.brake?v.launchRpm:v.idleRpm,coupled);
     if(s.shiftLock>0)s.rpm+=std::clamp(target-s.rpm,-13000*dt,15000*dt);
     else s.rpm=target;
     double ratio=v.ratios[s.gear-1]*v.finalDrive;
     double torque=v.torque*(.62+.38*std::exp(-std::pow((s.rpm-5200)/2700,2)));
+    double boostTarget=input.throttle&&(!input.brake||s.launching)&&s.shiftLock==0
+        ?v.boostPsi*std::clamp((s.rpm-(v.supercharged?0:2200))/(v.supercharged?v.redlineRpm:2500),0.0,1.0):0;
+    double boostRate=v.boostPsi*(boostTarget>s.boostPsi?(v.supercharged?10:2):8);
+    s.boostPsi+=std::clamp(boostTarget-s.boostPsi,-boostRate*dt,boostRate*dt);
+    torque*=1+s.boostPsi/14.7*.7;
+    if(v.supercharged&&s.boostPsi>0)torque*=.94;
+    s.nitroActive=input.nitro&&input.throttle&&!input.brake&&s.shiftLock==0&&!s.launching&&s.speed>2&&v.nitroHp>0&&s.nitroRemaining>0;
+    double nitroFraction=s.nitroActive?std::min(1.0,s.nitroRemaining/dt):0;
+    if(s.nitroActive)s.nitroRemaining=std::max(0.0,s.nitroRemaining-dt);
     double tractionLimit=drivenGrip(v,true);
-    double wheelForce=input.throttle&&!input.brake&&s.shiftLock==0&&coupled<v.redlineRpm
+    double wheelForce=input.throttle&&!input.brake&&!s.launching&&s.shiftLock==0&&coupled<v.redlineRpm
         ?torque*ratio*v.efficiency/v.wheelRadius:0;
+    wheelForce+=nitroFraction*v.nitroHp*745.699872*v.efficiency/std::max(10.0,s.speed);
     if((!input.throttle||input.brake)&&s.shiftLock==0){
         // Engine and service braking share the same tyre contact patch.
         wheelForce-=v.engineBrakeTorque*ratio/v.wheelRadius*std::clamp(coupled/v.idleRpm,0.0,1.0);
     }
     if(input.brake)wheelForce-=v.mass*v.brakeDeceleration;
     double brakingLimit=input.brake?v.mass*9.81*v.grip:drivenGrip(v,false);
+    s.wheelSlip=std::clamp((wheelForce-tractionLimit)/std::max(1.0,tractionLimit),0.0,2.0);
     double force=std::clamp(wheelForce,-brakingLimit,tractionLimit);
     double resistance=.5*1.225*v.dragArea*s.speed*s.speed+v.mass*9.81*v.rollingResistance;
     double previous=s.position,oldSpeed=s.speed;

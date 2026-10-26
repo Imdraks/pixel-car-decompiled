@@ -1,4 +1,4 @@
-# Pixel Car Racer — Unbound Native 0.3.1
+# Pixel Car Racer — Unbound Native 0.4.0
 
 Cette première reconstruction **native Windows x64** propose un mode libre
 jouable avec les ressources d'Unbound. Le programme ne lance ni APK, ni Android,
@@ -8,16 +8,21 @@ Ce n'est pas encore le portage complet et fidèle du jeu original : la conduite
 et la circulation sont réimplémentées. La base originale 1.2.5 n'est pas fusionnée
 avec le mod. Le moteur GameMaker YYC d'origine n'a pas été recompilé.
 
-La version **0.3.1** corrige le placement des roues sur l’ensemble des
-carrosseries : empattement propre à chaque image, pneus et jantes à leur échelle,
-passages de roue et ailes dessinés dans le bon ordre.
+La version **0.4.0** ajoute **194 pièces** dans 11 catégories, avec recherche,
+pagination, équipement et sauvegarde : 16 moteurs, 16 suspensions, 14 turbos,
+10 compresseurs, 8 ECU, 5 NOS, 21 admissions, 13 intercoolers, 7 pistons,
+48 échappements et 36 pneus. Ouvrir **CUSTOMISATION** depuis le menu ou le garage.
+Les pièces sont librement équipables, sans économie simulée.
 
-## Priorité actuelle : physique
-
-La conduite est prioritaire sur l’ajout de contenu. Voir [PHYSICS.md](PHYSICS.md)
-pour le modèle provisoire, les corrections de boîte et le protocole de comparaison
-avec le jeu d’origine. La version 0.3 inclut les corrections de boîte, de freinage et le banc de mesure.
-La fidélité au jeu Android reste à valider avant l’ajout de contenu.
+Les 94 fichiers audio d'origine sont inclus. Le mixage de conduite utilise les
+boucles moteur en charge/décélération, turbo, compresseur et NOS, ainsi que les
+valves, passages de rapports, détonations, collisions et klaxon. **La liaison
+exacte entre chaque moteur et son profil audio n'est pas prouvée** : AUTO est
+une attribution native approximative par famille. **SON DU MOTEUR** permet de
+choisir séparément charge, décélération et valve, avec préécoute.
+Fumée, flammes et étincelles utilisent les images originales ; le jet bleu NOS
+est procédural. Tous les événements et animations du jeu Android ne sont pas
+reconstruits. Voir [CUSTOMIZATION.md](CUSTOMIZATION.md) et [PHYSICS.md](PHYSICS.md).
 
 ## Jouer
 
@@ -33,6 +38,9 @@ environ 100 Mo libres. Aucun composant Android n'est téléchargé ou installé.
 | S ou flèche bas | Freiner |
 | Flèches gauche/droite, Q/A et D | Changer de voie |
 | E ou Maj gauche / C | Monter / descendre un rapport |
+| N maintenu | NOS, si équipé, réserve de 10 secondes par session |
+| L + accélérateur | 2STEP avec ECU compatible ; relâcher L pour partir |
+| H | Klaxon |
 | T | Basculer entre boîte automatique et manuelle |
 | Échap | Pause, retour des paramètres, ou rétablissement d'un affichage en essai |
 | Alt + Entrée | Essayer le mode avec/sans bordure, puis confirmer |
@@ -77,7 +85,7 @@ immédiatement. Seuls les changements confirmés sont enregistrés.
 
 Sauvegardes : `%LOCALAPPDATA%\PixelCarRacerNative\settings.ini` et `profile.ini`.
 Elles sont distinctes de celles d'Android et du prototype `pc/`. Le profil retient
-la carrosserie, les jantes et le choix de boîte. La distance d'une session est
+la carrosserie, les jantes, la transmission, les pièces et les choix audio. La distance d'une session est
 consignée dans `last-session.txt` ; les positions de circulation ne sont pas
 restaurées au lancement suivant.
 
@@ -90,10 +98,10 @@ La validation Windows automatisée, lorsqu'elle accompagne la release, utilise
 un rendu logiciel Mesa de test. Un PC Windows physique avec son pilote GPU et
 son périphérique audio reste à vérifier.
 
-Les boutiques, améliorations, réglages détaillés des moteurs, livrées, progression,
+L’économie des boutiques, les réglages détaillés des moteurs, les livrées, la progression,
 services en ligne, sauvegardes Android et autres modes du jeu original ne sont
 pas reconstruits. Certains éléments graphiques, palettes et animations peuvent
-différer de l'original. Le son du moteur est synthétisé dans cette version.
+différer de l'original. Les formules physiques des améliorations restent provisoires.
 
 ## Construire
 
@@ -107,7 +115,7 @@ python3 native/game/tools/restore_assets.py --destination native/game/assets
 ```
 
 L’archive est contrôlée par SHA-256 ; un fichier existant différent est refusé.
-Le paquet 0.3.1 inclut le nouvel atlas du passage de roue. Pour régénérer les
+Le paquet 0.4.0 inclut les pneus, effets et 94 sons. Pour régénérer les
 métadonnées depuis les exports d’origine, dans l’environnement préparé :
 
 ```bash
@@ -116,6 +124,12 @@ PCR_BACKGROUND_OUTPUT=/workspace/native-runtime/backgrounds.json \
   /workspace/windows-port/recovered/assets/game.droid \
   --scripts native/game/tools/export_backgrounds.csx
 python3 native/game/tools/prepare_assets.py
+PCR_AUDIO_OUTPUT=/workspace/native-runtime/game-audio \
+PCR_AUDIO_SOURCE=/workspace/windows-port/recovered/assets \
+  /workspace/tools/utmt-cli-0.9.2.0/UndertaleModCli load \
+  /workspace/windows-port/recovered/assets/game.droid \
+  --scripts native/game/tools/export_audio.csx
+python3 native/game/tools/prepare_audio.py --source /workspace/native-runtime/game-audio
 bash native/game/build.sh
 ```
 

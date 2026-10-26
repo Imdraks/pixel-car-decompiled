@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.3.0-native-preview
+        default: v0.4.0-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -108,6 +108,17 @@ jobs:
             if (![double]::IsFinite($actual) -or [math]::Abs($actual - $expected) -gt 0.01) { throw "Physics metric differs between Linux and Windows: $($metric.Name)" }
           }
           'PASS: all native-model metrics agree within 0.01 in their SI/time or km/h units. This does not validate Android equivalence.' | Out-File validation/physics-comparison.txt
+      - name: Decode all original audio samples on Windows
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $exe = "$env:RUNNER_TEMP\pcr-native-app\PixelCarRacerNative.exe"
+          $out = Join-Path $PWD 'validation/audio'
+          $p = Start-Process $exe -ArgumentList "--check-audio-dir `"$out`"" -Wait -PassThru -RedirectStandardOutput validation/audio-stdout.txt -RedirectStandardError validation/audio-stderr.txt
+          if ($p.ExitCode -ne 0) { throw 'Original audio decoder validation failed' }
+          $report = Get-Content "$out/audio-report.txt"
+          if (($report | Select-String '^PASS [^:]').Count -ne 94 -or ($report | Select-String '^FAIL ')) { throw 'Expected 94 valid original sound samples' }
+          Get-Content "$out/audio-report.txt"
       - name: Prepare verified software OpenGL for the CI runner only
         shell: pwsh
         run: |
