@@ -222,6 +222,80 @@ int main(int argc,char**argv){
     expect(staged.position==0&&staged.rpm==4200&&staged.boostPsi>10&&staged.launching,"2STEP holds the clutch and builds boost at a fixed staging RPM");
     for(int i=0;i<120;i++)stepCar(staged,launchBuild.vehicle,{true,false,true,false,false},Step,0);
     expect(staged.speed>0&&!staged.launching,"releasing launch control delivers drive torque");
+    Profile ultimate;ultimate.car=20;ultimate.rim=8;ultimate.drive=DriveLayout::All;ultimate.soundOn=4;
+    equipBestParts(ultimate);auto full=buildVehicle(ultimate);
+    expect(ultimate.parts[0]==1014&&ultimate.parts[2]==3026&&ultimate.parts[3]==0,"maximum preparation selects LT5 and the best exclusive induction");
+    expect(ultimate.car==20&&ultimate.rim==8&&ultimate.drive==DriveLayout::All&&ultimate.soundOn==4,"maximum preparation preserves appearance, drive and audio preferences");
+    expect(full.boostedHp>4200&&full.nitroHp>4500&&full.nitroHp-full.boostedHp==250,"maximum parts combine into over 4500 rated HP with NOS");
+    double expectedHp=(755+38+100+95)*(10400.0/8100)*(1+35/14.7);
+    expect(std::abs(full.boostedHp-expectedHp)/expectedHp<.0001,"full preparation matches an independently calculated compound power budget");
+    Profile coolerOnly;equipPart(coolerOnly,PartSlot::Intercooler,7013);
+    expect(std::abs(buildVehicle(coolerOnly).boostedHp-buildVehicle(Profile{}).boostedHp)<1e-9,"an intercooler cannot add power to an atmospheric engine");
+    Profile ecuOnly;equipPart(ecuOnly,PartSlot::Engine,1014);double beforeEcu=buildVehicle(ecuOnly).boostedHp;
+    equipPart(ecuOnly,PartSlot::Ecu,4008);
+    expect(buildVehicle(ecuOnly).boostedHp>beforeEcu*1.28,"ECU curve extension delivers usable peak power instead of cancelling its own gain");
+    Profile turboOnly;equipPart(turboOnly,PartSlot::Engine,1014);equipPart(turboOnly,PartSlot::Turbo,3026);
+    double withoutCooler=buildVehicle(turboOnly).boostedHp;equipPart(turboOnly,PartSlot::Intercooler,7013);
+    expect(buildVehicle(turboOnly).boostedHp>withoutCooler,"intercooling increases forced-induction power");
+    double beforeIntake=buildVehicle(turboOnly).boostedHp;equipPart(turboOnly,PartSlot::Intake,6021);
+    expect(buildVehicle(turboOnly).boostedHp-beforeIntake>38,"boost multiplies the intake gain instead of adding it after compression");
+    bool ranking=true;int contra=0;
+    for(const auto& part:PartCatalog){
+        auto tier=partRarity(part);ranking&=int(tier)>=0&&int(tier)<=5;
+        for(const auto& other:PartCatalog)if(part.slot==other.slot){
+            if(partPerformance(part)<partPerformance(other))ranking&=int(tier)<=int(partRarity(other));
+            if(tier==Rarity::Contraband)ranking&=partPerformance(part)>=partPerformance(other);
+            if(partPerformance(part)==partPerformance(other))ranking&=tier==partRarity(other);
+        }
+        if(tier==Rarity::Contraband)++contra;
+    }
+    expect(ranking&&contra>=PartSlotCount,"all rarity tiers follow category performance and only the strongest are contraband");
+    expect(partRarity(*findPart(3026))==partRarity(*findPart(3019)),"cosmetic prices do not create a false power rarity difference");
+    expect(partRarity(*findPart(1014))==Rarity::Contraband&&partRarity(*findPart(1016))==Rarity::Common,"engine classification spans common through contraband");
+    bool noDowngrade=true;int replacements=0;
+    for(const auto& part:PartCatalog){Profile alternate=ultimate;equipPart(alternate,part.slot,part.id);auto result=buildVehicle(alternate);
+        noDowngrade&=result.nitroHp<=full.nitroHp+.01&&result.boostedHp<=full.boostedHp+.01;++replacements;}
+    expect(noDowngrade&&replacements==194,"no catalog replacement beats the maximum preparation peak power");
+    // Cross every engine, ECU, induction choice and intercooler (including base).
+    std::vector<int> engines,ecus{0},induction{0},coolers{0};
+    for(const auto& part:PartCatalog){
+        if(part.slot==PartSlot::Engine)engines.push_back(part.id);
+        if(part.slot==PartSlot::Ecu)ecus.push_back(part.id);
+        if(part.slot==PartSlot::Turbo||part.slot==PartSlot::Supercharger)induction.push_back(part.id);
+        if(part.slot==PartSlot::Intercooler)coolers.push_back(part.id);
+    }
+    int combinations=0;bool combinationsValid=true;
+    for(int engine:engines)for(int ecu:ecus)for(int boost:induction)for(int cooler:coolers){
+        Profile trial;equipPart(trial,PartSlot::Engine,engine);equipPart(trial,PartSlot::Ecu,ecu);
+        if(boost)equipPart(trial,findPart(boost)->slot,boost);
+        equipPart(trial,PartSlot::Intercooler,cooler);auto result=buildVehicle(trial);const auto& engineData=*findPart(engine);
+        double target=engineData.stat*result.vehicle.curveRpmScale;
+        combinationsValid&=std::isfinite(result.boostedHp)&&result.boostedHp>=engineData.stat*.9999&&result.boostedHp<=full.boostedHp+.01;
+        combinationsValid&=std::abs(result.baseHp-target)/target<.0001;
+        combinationsValid&=std::abs(enginePowerHp(result.vehicle,result.peakRpm,targetBoost(result.vehicle,result.peakRpm))-result.boostedHp)<1e-8;
+        if(!boost)combinationsValid&=std::abs(result.baseHp-result.boostedHp)<1e-8;
+        ++combinations;
+    }
+    expect(combinationsValid&&combinations==50400,"50400 engine/ECU/induction/intercooler combinations have consistent finite power");
+    // Also cross all independent atmospheric-part choices on each engine.
+    std::vector<int> intakes{0},pistons{0},exhausts{0};
+    for(const auto& part:PartCatalog){if(part.slot==PartSlot::Intake)intakes.push_back(part.id);if(part.slot==PartSlot::Pistons)pistons.push_back(part.id);if(part.slot==PartSlot::Exhaust)exhausts.push_back(part.id);}
+    bool supportsValid=true;int supports=0;
+    for(int engine:engines)for(int intake:intakes)for(int piston:pistons)for(int exhaust:exhausts){
+        Profile trial;equipPart(trial,PartSlot::Engine,engine);equipPart(trial,PartSlot::Intake,intake);equipPart(trial,PartSlot::Pistons,piston);equipPart(trial,PartSlot::Exhaust,exhaust);auto result=buildVehicle(trial);
+        double target=findPart(engine)->stat+(intake?findPart(intake)->stat:0)+(piston?findPart(piston)->stat:0)+(exhaust?findPart(exhaust)->stat:0);
+        supportsValid&=std::abs(result.baseHp-target)<.001;++supports;
+    }
+    expect(supportsValid&&supports==137984,"137984 engine/intake/piston/exhaust combinations retain their full additive power budget");
+    Vehicle dynoVehicle=full.vehicle;dynoVehicle.grip=10;CarState dyno;dyno.gear=6;dyno.boostPsi=dynoVehicle.boostPsi;
+    dyno.speed=full.peakRpm*2*3.141592653589793*dynoVehicle.wheelRadius/(60*dynoVehicle.ratios[5]*dynoVehicle.finalDrive);
+    stepCar(dyno,dynoVehicle,{true,false,false,true},Step,0);
+    expect(std::abs(dyno.powerHp-full.nitroHp)<.01,"actual driving output matches the displayed full-boost and NOS power at peak RPM");
+    dyno.speed=dynoVehicle.redlineRpm*2*3.141592653589793*dynoVehicle.wheelRadius/(60*dynoVehicle.ratios[5]*dynoVehicle.finalDrive)+1;
+    stepCar(dyno,dynoVehicle,{true,false,false,true},Step,0);
+    expect(!dyno.nitroActive&&dyno.powerHp==0,"NOS cannot bypass the engine rev limiter");
+    {std::ofstream out(root/"power-combinations.json");out<<"{\n  \"induction_combinations\": "<<combinations<<",\n  \"atmospheric_combinations\": "<<supports<<",\n  \"max_without_nos_hp\": "<<full.boostedHp<<",\n  \"max_with_nos_hp\": "<<full.nitroHp<<",\n  \"original_game_equivalence_validated\": false\n}\n";}
+    std::cout<<"Native maximum: "<<full.boostedHp<<" HP, "<<full.nitroHp<<" HP with NOS; "<<combinations+supports<<" combinations checked.\n";
     auto file=root/std::filesystem::u8path("écran_車.ini");Settings s;s.mode=WindowMode::Borderless;s.width=1920;s.height=1080;s.fps=144;s.vsync=false;s.quality=Quality::Low;s.showFps=true;s.sound=false;
     std::string error;expect(saveSettings(file,s,error),"save Unicode settings path");expect(loadSettings(file)==s,"all graphics settings round trip");
     s.fps=60;s.mode=WindowMode::Fullscreen;expect(saveSettings(file,s,error),"atomic replacement of existing settings");expect(loadSettings(file)==s,"replaced graphics settings persist");

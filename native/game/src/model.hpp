@@ -37,6 +37,7 @@ struct Vehicle {
     double engineBrakeTorque=18;
     DriveLayout drive=DriveLayout::Rear;
     double drivenWeightFraction=.52, wheelbase=2.6, centreOfGravityHeight=.50;
+    double curveRpmScale=1,boostEfficiency=.7;
     double boostPsi=0,nitroHp=0; bool supercharged=false,twoStep=false;
 };
 const Part* findPart(int id);
@@ -45,13 +46,28 @@ const char* slotLabel(PartSlot);
 bool equipPart(Profile&,PartSlot,int id);
 struct EngineSamples { int on=21,off=22; };
 EngineSamples engineSamples(const Profile&);
-struct Build { Vehicle vehicle; double baseHp=0,rideOffset=0; int tireFrame=0; };
+enum class Rarity { Common, Uncommon, Rare, Epic, Legendary, Contraband };
+Rarity partRarity(const Part&);
+const char* rarityLabel(Rarity);
+double partPerformance(const Part&);
+bool weakerPart(const Part&,const Part&);
+void equipBestParts(Profile&);
+double torqueCurve(const Vehicle&,double rpm);
+double targetBoost(const Vehicle&,double rpm);
+double engineTorque(const Vehicle&,double rpm,double boostPsi);
+double enginePowerHp(const Vehicle&,double rpm,double boostPsi,bool nitro=false);
+struct PowerPeak { double hp=0,rpm=0; };
+PowerPeak peakPower(const Vehicle&,bool boost=true,bool nitro=false);
+struct Build {
+    Vehicle vehicle; double baseHp=0,engineHp=0,boltOnHp=0,boostedHp=0,nitroHp=0,peakRpm=0,rideOffset=0;
+    int tireFrame=0;
+};
 Build buildVehicle(const Profile&);
 struct DriverInput { bool throttle=false, brake=false, automatic=true,nitro=false,launch=false; };
 struct CarState {
     double position=0, speed=0, rpm=1000, elapsed=0, finishTime=0, shiftLock=0;
     int gear=1;
-    double boostPsi=0,nitroRemaining=10,wheelSlip=0; bool nitroActive=false,launching=false;
+    double powerHp=0,boostPsi=0,nitroRemaining=10,wheelSlip=0; bool nitroActive=false,launching=false;
     bool finished=false;
 };
 constexpr double Step=1.0/120.0, QuarterMile=402.336;

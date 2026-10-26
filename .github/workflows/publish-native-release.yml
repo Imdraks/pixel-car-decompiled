@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.4.1-native-preview
+        default: v0.5.0-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -88,6 +88,9 @@ jobs:
           New-Item -ItemType Directory validation -Force | Out-Null
           & $core "$env:RUNNER_TEMP\pcr-native-core" *> validation/core-tests.txt
           if ($LASTEXITCODE -ne 0) { Get-Content validation/core-tests.txt; throw 'Windows core tests failed' }
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\power-combinations.json" validation/power-combinations.json
+          $power = Get-Content validation/power-combinations.json -Raw | ConvertFrom-Json
+          if ($power.induction_combinations -ne 50400 -or $power.atmospheric_combinations -ne 137984 -or $power.max_without_nos_hp -lt 4200 -or $power.max_with_nos_hp -lt 4500 -or $power.original_game_equivalence_validated) { throw 'Compound power or combination coverage failed' }
           Expand-Archive $zip -DestinationPath "$env:RUNNER_TEMP\pcr-native-app"
           Get-CimInstance Win32_OperatingSystem | Select-Object Caption,Version | Format-List | Out-File validation/windows.txt
       - name: Run and compare native physics measurements on Windows

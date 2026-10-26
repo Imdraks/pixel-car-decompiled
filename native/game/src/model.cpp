@@ -74,6 +74,28 @@ bool saveProfile(const std::filesystem::path& file,const Profile& p,std::string&
 }
 // Numeric path derived from Unbound ease_linear disassembly, not generic YYRValue semantics.
 double easeLinear(double t,double b,double c,double d){return (c*t)/d+b;}
+double torqueCurve(const Vehicle& v,double rpm){
+    return .62+.38*std::exp(-std::pow((rpm/v.curveRpmScale-5200)/2700,2));
+}
+double targetBoost(const Vehicle& v,double rpm){
+    return v.boostPsi*std::clamp((rpm-(v.supercharged?0:2200))/(v.supercharged?v.redlineRpm:2500),0.0,1.0);
+}
+double engineTorque(const Vehicle& v,double rpm,double boost){
+    boost=std::clamp(boost,0.0,v.boostPsi);
+    double torque=v.torque*torqueCurve(v,rpm)*(1+boost/14.7*v.boostEfficiency);
+    return v.supercharged&&boost>0?torque*.94:torque;
+}
+double enginePowerHp(const Vehicle& v,double rpm,double boost,bool nitro){
+    return engineTorque(v,rpm,boost)*rpm*6.283185307179586/60/745.699872+(nitro?v.nitroHp:0);
+}
+PowerPeak peakPower(const Vehicle& v,bool boost,bool nitro){
+    PowerPeak result;
+    for(double rpm=v.idleRpm;rpm<v.redlineRpm;rpm+=10){
+        double hp=enginePowerHp(v,rpm,boost?targetBoost(v,rpm):0,nitro);
+        if(hp>result.hp)result={hp,rpm};
+    }
+    return result;
+}
 static double wheelRpm(const CarState& car,const Vehicle& vehicle,int gear){
     return car.speed*60/(2*3.141592653589793*vehicle.wheelRadius)*vehicle.ratios[gear-1]*vehicle.finalDrive;
 }
@@ -112,16 +134,16 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     if(s.shiftLock>0)s.rpm+=std::clamp(target-s.rpm,-13000*dt,15000*dt);
     else s.rpm=target;
     double ratio=v.ratios[s.gear-1]*v.finalDrive;
-    double torque=v.torque*(.62+.38*std::exp(-std::pow((s.rpm-5200)/2700,2)));
     double boostTarget=input.throttle&&(!input.brake||s.launching)&&s.shiftLock==0
-        ?v.boostPsi*std::clamp((s.rpm-(v.supercharged?0:2200))/(v.supercharged?v.redlineRpm:2500),0.0,1.0):0;
+        ?targetBoost(v,s.rpm):0;
     double boostRate=v.boostPsi*(boostTarget>s.boostPsi?(v.supercharged?10:2):8);
     s.boostPsi+=std::clamp(boostTarget-s.boostPsi,-boostRate*dt,boostRate*dt);
-    torque*=1+s.boostPsi/14.7*.7;
-    if(v.supercharged&&s.boostPsi>0)torque*=.94;
-    s.nitroActive=input.nitro&&input.throttle&&!input.brake&&s.shiftLock==0&&!s.launching&&s.speed>2&&v.nitroHp>0&&s.nitroRemaining>0;
+    double torque=engineTorque(v,s.rpm,s.boostPsi);
+    s.nitroActive=input.nitro&&input.throttle&&!input.brake&&s.shiftLock==0&&!s.launching&&s.speed>2&&coupled<v.redlineRpm&&v.nitroHp>0&&s.nitroRemaining>0;
     double nitroFraction=s.nitroActive?std::min(1.0,s.nitroRemaining/dt):0;
     if(s.nitroActive)s.nitroRemaining=std::max(0.0,s.nitroRemaining-dt);
+    bool delivering=input.throttle&&!input.brake&&!s.launching&&s.shiftLock==0&&coupled<v.redlineRpm;
+    s.powerHp=delivering?enginePowerHp(v,s.rpm,s.boostPsi,false)+nitroFraction*v.nitroHp:0;
     double tractionLimit=drivenGrip(v,true);
     double wheelForce=input.throttle&&!input.brake&&!s.launching&&s.shiftLock==0&&coupled<v.redlineRpm
         ?torque*ratio*v.efficiency/v.wheelRadius:0;

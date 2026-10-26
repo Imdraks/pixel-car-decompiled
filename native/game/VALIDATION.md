@@ -1,3 +1,20 @@
+# Validation native 0.5.0
+
+- 101 contrôles du cœur, dont 188 384 combinaisons de groupes de pièces et
+  chacune des 194 substitutions de la préparation maximale.
+- Vérification du calcul composé de puissance, rôle de l'intercooler, gain ECU,
+  classement monotone, variantes cosmétiques, exclusivité turbo/compresseur,
+  puissance réelle au pic et coupure du NOS au limiteur.
+- 24 contrôles graphiques et 21 clavier/souris : rareté/tri, PRÉPA MAX, banc,
+  puissance active en mode libre et conservation des choix au redémarrage.
+- Les cinq comparaisons du défilement 0.4.1 sont conservées.
+- La référence physique du véhicule sans pièces est inchangée. Les équations
+  des pièces et raretés sont natives ; l'équivalence Android n'est pas établie.
+- Rapports : `validation/power-0.5/`. La publication exige les contrôles Windows
+  du cœur, des combinaisons, du banc physique, des images et des 94 sons.
+
+## Historique : validation native 0.4.1
+
 # Validation native 0.4.1
 
 - 85 contrôles du cœur : échelle route/circulation, parallaxe, rotation des

@@ -1,4 +1,4 @@
-# Customisation native 0.4
+# Customisation native 0.5
 
 | Catégorie | Pièces |
 | --- | ---: |
@@ -42,3 +42,12 @@ original ne sont pas intégralement reproduits.
 Sources : `native/evidence/unbound/parts/` dans le dépôt. Scripts de récupération
 statiques : `native/tools/recover_part_catalog.py` et `recover_engine_audio.py`.
 Aucun code Android n'est exécuté par le jeu Windows.
+
+## Puissance et classement 0.5
+
+Le détail complet est dans [PERFORMANCE.md](PERFORMANCE.md). Le garage présente
+les HP avec suralimentation sans/avec NOS, un aperçu du gain avant équipement,
+un banc de puissance et PRÉPA MAX. Le classement de commun à contrebande reflète
+les performances par catégorie ; les prix/couleurs ne créent pas de gain caché.
+L'intercooler agit sur le rendement de suralimentation, l'ECU étend aussi la courbe
+de couple. L'exclusivité turbo/compresseur est conservée, même avec PRÉPA MAX.

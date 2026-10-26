@@ -44,7 +44,7 @@ try:
  equip(7,'PR X Black',7013)
  equip(8,'VX Concept X',8008)
  click(140,124+9*43);click(814,615);click(500,177);click(1050,460)
- checks['exhaust_pagination']=ini(data/'profile.ini')['part_exhaust']=='9008'
+ checks['exhaust_pagination']=ini(data/'profile.ini')['part_exhaust']=='9001'
  equip(9,'Short Pipe (Hood)',9048)
  equip(10,'NITTO SLICKS LARGE',10017);key('F12')
  equip(2,'Reddy T60E (Black Gem)',3026)
@@ -63,7 +63,17 @@ try:
  proc,window=start(True);xdo('keydown','w');time.sleep(.5);xdo('keyup','w');quit_game()
  resumed=ini(data/'last-session.txt')
  checks['equipment_survives_restart']=resumed['engine_part']=='1002' and resumed['tire_part']=='10017' and resumed['native_torque_nm']==session['native_torque_nm']
- (a.output/'report.json').write_text(json.dumps({'audio_requested':a.with_audio,'checks':checks,'profile':profile,'session':session,'resumed':resumed},indent=2)+'\n')
+ proc,window=start();click(280,503)
+ click(450,660) # strongest-first sorting; base entry remains first
+ click(500,230);click(1050,460)
+ checks['descending_sort_exposes_strongest_engine']=ini(data/'profile.ini')['part_engine']=='1014'
+ click(140,600);maximum=ini(data/'profile.ini')
+ checks['maximum_preparation_equips_all_slots']=maximum['part_engine']=='1014' and maximum['part_turbo']=='3026' and maximum['part_supercharger']=='0' and maximum['part_nos']=='5007' and all(maximum['part_'+k]!='0' for k in ['suspension','ecu','intake','intercooler','pistons','exhaust','tires'])
+ key('F12');click(735,659);key('F12');key('Escape')
+ click(1050,617);xdo('keydown','w');xdo('keydown','n');time.sleep(2);xdo('keyup','n');xdo('keyup','w');quit_game()
+ max_session=ini(data/'last-session.txt')
+ checks['maximum_power_is_used_in_free_drive']=float(max_session['native_hp'])>4200 and float(max_session['native_nos_hp'])>4500 and max_session['engine_part']=='1014'
+ (a.output/'report.json').write_text(json.dumps({'audio_requested':a.with_audio,'checks':checks,'profile':profile,'session':session,'resumed':resumed,'maximum':maximum,'maximum_session':max_session},indent=2)+'\n')
  print(json.dumps(checks,indent=2))
  if not all(checks.values()):raise SystemExit(1)
 finally:

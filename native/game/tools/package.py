@@ -21,7 +21,7 @@ if not exe.exists():raise SystemExit('Build the Windows executable first')
 shutil.copy2(exe,stage/exe.name)
 shutil.copytree(game/'assets',stage/'assets',dirs_exist_ok=True)
 shutil.copytree(game/'licenses',stage/'licenses',dirs_exist_ok=True)
-for name in ['README.md','VALIDATION.md','PHYSICS.md','CUSTOMIZATION.md','THIRD-PARTY.txt']:
+for name in ['README.md','VALIDATION.md','PHYSICS.md','CUSTOMIZATION.md','PERFORMANCE.md','THIRD-PARTY.txt']:
     shutil.copy2(game/name,stage/('LISEZ-MOI.md' if name=='README.md' else name))
 shutil.copy2(game.parent/'evidence/unbound/parts/catalog.json',stage/'catalogue-pieces.json')
 shutil.copy2(game/'validation/native-physics-baseline.json',stage/'native-physics-baseline.json')

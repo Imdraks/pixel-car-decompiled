@@ -38,37 +38,72 @@ bool equipPart(Profile& profile,PartSlot slot,int id){
     if(id&&slot==PartSlot::Supercharger)profile.parts[int(PartSlot::Turbo)]=0;
     return true;
 }
-static double powerPerTorque(const Vehicle& vehicle){
-    double result=0;
-    for(double rpm=vehicle.idleRpm;rpm<=vehicle.redlineRpm;rpm+=10){
-        double factor=.62+.38*std::exp(-std::pow((rpm-5200)/2700,2));
-        result=std::max(result,factor*rpm*6.283185307179586/60);
-    }
-    return result;
+static double rideHeight(const Part& part){
+    static constexpr double offsets[]={0,.5,1,1.5,2,2,2.5,3,3.5,2,2.5,3,3.5,4,5,6,3};
+    return part.subimage>=0&&part.subimage<17?offsets[part.subimage]:0;
 }
+double partPerformance(const Part& p){
+    return p.slot==PartSlot::Suspension?130-p.weight+rideHeight(p):p.stat;
+}
+Rarity partRarity(const Part& part){
+    double low=partPerformance(part),high=low;
+    for(const auto& p:PartCatalog)if(p.slot==part.slot){low=std::min(low,partPerformance(p));high=std::max(high,partPerformance(p));}
+    if(high<=low||partPerformance(part)>=high-1e-9)return Rarity::Contraband;
+    return Rarity(std::clamp(int((partPerformance(part)-low)/(high-low)*5),0,4));
+}
+const char* rarityLabel(Rarity rarity){
+    static const char* names[]={"COMMUN","PEU COMMUN","RARE","ÉPIQUE","LÉGENDAIRE","CONTREBANDE"};
+    return names[std::clamp(int(rarity),0,5)];
+}
+bool weakerPart(const Part& a,const Part& b){
+    double pa=partPerformance(a),pb=partPerformance(b);
+    if(pa!=pb)return pa<pb;
+    if(a.weight!=b.weight)return a.weight>b.weight;
+    return a.id>b.id;
+}
+void equipBestParts(Profile& profile){
+    for(int slot=0;slot<PartSlotCount;slot++){
+        if(PartSlot(slot)==PartSlot::Supercharger)continue;
+        const Part* best=nullptr;
+        for(const auto& p:PartCatalog)if(int(p.slot)==slot&&(!best||weakerPart(*best,p)))best=&p;
+        if(best)equipPart(profile,PartSlot(slot),best->id);
+    }
+    // Compare the best compressor to the turbo using the actual steady-state power.
+    const Part* compressor=nullptr;
+    for(const auto& p:PartCatalog)if(p.slot==PartSlot::Supercharger&&(!compressor||weakerPart(*compressor,p)))compressor=&p;
+    if(compressor){Profile alternate=profile;equipPart(alternate,PartSlot::Supercharger,compressor->id);
+        if(buildVehicle(alternate).boostedHp>buildVehicle(profile).boostedHp)profile=alternate;
+    }
+}
+static double powerPerTorque(const Vehicle& vehicle){return peakPower(vehicle,false).hp*745.699872/vehicle.torque;}
 Build buildVehicle(const Profile& profile){
     Build build;auto& v=build.vehicle;v.drive=profile.drive;
     v.drivenWeightFraction=profile.drive==DriveLayout::Front?.60:.52;
     auto chosen=[&](PartSlot slot){const auto* p=findPart(profile.parts[int(slot)]);return p&&p->slot==slot?p:nullptr;};
-    double targetHp=v.torque*powerPerTorque(v)/745.699872,addedHp=0,massDelta=0;
+    double stockPowerPerTorque=powerPerTorque(v);
+    double targetHp=v.torque*stockPowerPerTorque/745.699872,addedHp=0,massDelta=0;
     bool powerChanged=false;
     if(auto* p=chosen(PartSlot::Engine)){targetHp=p->stat;massDelta+=p->weight-250;powerChanged=true;}
-    for(PartSlot slot:{PartSlot::Intake,PartSlot::Intercooler,PartSlot::Pistons,PartSlot::Exhaust}){
+    for(PartSlot slot:{PartSlot::Intake,PartSlot::Pistons,PartSlot::Exhaust}){
         if(auto* p=chosen(slot)){
             addedHp+=p->stat;powerChanged=true;
             double baseline=slot==PartSlot::Intake?10:slot==PartSlot::Pistons?30:slot==PartSlot::Exhaust?80:0;
             massDelta+=p->weight-baseline;
         }
     }
+    if(auto* p=chosen(PartSlot::Intercooler))massDelta+=p->weight;
     if(auto* p=chosen(PartSlot::Ecu)){v.twoStep=std::string(p->name).find("2STEP")!=std::string::npos;v.redlineRpm+=p->stat;v.upshiftRpm+=p->stat;massDelta+=p->weight;}
     const Part* boost=chosen(PartSlot::Turbo);
     if(auto* p=chosen(PartSlot::Supercharger)){boost=p;v.supercharged=true;}
-    if(boost){v.boostPsi=boost->stat;massDelta+=boost->weight;}
+    if(boost){v.boostPsi=boost->stat;massDelta+=boost->weight;
+        // Native charge-temperature calibration: intercooling recovers boost efficiency.
+        auto* cooler=chosen(PartSlot::Intercooler);
+        v.boostEfficiency=.65+.35*(cooler?std::clamp(cooler->stat/107.0,0.0,1.0):0);
+    }
+    v.curveRpmScale=v.redlineRpm/8100.0;
     if(auto* p=chosen(PartSlot::Nos))v.nitroHp=p->stat;
     if(auto* p=chosen(PartSlot::Suspension)){
-        // Native ride-height calibration; the original suspension formulas remain unknown.
-        static constexpr double offsets[]={0,.5,1,1.5,2,2,2.5,3,3.5,2,2.5,3,3.5,4,5,6,3};
-        if(p->subimage>=0&&p->subimage<17)build.rideOffset=offsets[p->subimage];
+        build.rideOffset=rideHeight(*p);
         massDelta+=p->weight-130;
         v.centreOfGravityHeight=std::max(.30,v.centreOfGravityHeight-build.rideOffset*.025);
     }
@@ -79,8 +114,11 @@ Build buildVehicle(const Profile& profile){
     }
     // Provisional mass calibration. Raw source weights have no verified unit.
     v.mass=std::max(600.0,v.mass+massDelta*.45359237);
-    if(powerChanged)v.torque=(targetHp+addedHp)*745.699872/powerPerTorque(v);
-    build.baseHp=v.torque*powerPerTorque(v)/745.699872;
+    if(powerChanged)v.torque=(targetHp+addedHp)*745.699872/stockPowerPerTorque;
+    build.engineHp=targetHp;build.boltOnHp=addedHp;
+    build.baseHp=peakPower(v,false).hp;
+    auto peak=peakPower(v);build.boostedHp=peak.hp;build.peakRpm=peak.rpm;
+    build.nitroHp=build.boostedHp+v.nitroHp;
     return build;
 }
 }

@@ -1,4 +1,4 @@
-# Physique native et pièces 0.4
+# Physique native et pièces 0.5
 
 Le mode libre dispose désormais du catalogue demandé. La fidélité physique au
 jeu Android reste à valider ; les mesures natives servent à éviter les régressions.
@@ -82,7 +82,7 @@ La validation de publication Windows 0.3 est réussie :
 Les huit mesures concordent avec Linux ; 43 contrôles du cœur et 15 contrôles
 graphiques passent. Cette preuve n’établit pas la fidélité au jeu Android.
 
-## Adaptation provisoire des pièces 0.4
+## Adaptation provisoire des pièces
 
 Les données source comprennent puissance, poids relatif, prix et variante.
 Le champ générique `hp` est interprété selon la catégorie : puissance moteur et
@@ -94,7 +94,9 @@ L'unité d'origine du poids n'est pas prouvée. L'adhérence des pneus vaut
 0,8 + 0,002 × indice ; le rayon suit leur image. Suspension : hauteur et centre
 de gravité sont calibrés nativement. Le turbo possède un temps de montée ; le
 compresseur suit davantage le régime et applique une perte de 6 %. Le facteur
-de couple de suralimentation utilise 1 + pression/14,7 × 0,7.
+de couple de suralimentation utilise désormais 1 + pression/14,7 × rendement.
+En 0.5, le rendement dépend de l’intercooler et la courbe ECU est étendue ;
+voir [PERFORMANCE.md](PERFORMANCE.md) pour les équations et leur provenance native.
 
 NOS ajoute sa puissance source avec une réserve native de 10 secondes par
 nouvelle session ; il nécessite accélération et vitesse > 2 m/s. Le frein prime.
