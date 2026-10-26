@@ -11,6 +11,18 @@
 - La publication exige les contrôles Windows du cœur, du banc, du rendu et
   du décodage des 94 sons. Le rapport effectif accompagne la release.
 
+Exécution Windows 0.4 réussie :
+[40346990077](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40346990077).
+75 contrôles du cœur, 21 graphiques, 94 sons décodés et huit mesures du banc
+concordantes avec Linux. Rapports : `validation/windows-0.4/` et
+`Validation-Windows.zip` sur la release. Captures Windows du garage,
+customisation, profils audio, NOS et collisions vérifiées.
+
+Source compilée : `163765c9441c05b52137ec8d5a9ea899e91cadd5`.
+Archive publique : 28 716 585 octets ; SHA-256
+`e50087133a9f49c8152f3fbac8d7312e5bf2824765875c123edb39f8e21738c7`.
+EXE SHA-256 : `25dc5a12539b5f573529aea41338cfe879a97f044ca0765d686b0276078cd1ef`.
+
 ## Historique 0.3.1
 
 # Validation de la reconstruction native 0.3.1
