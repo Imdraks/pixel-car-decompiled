@@ -15,6 +15,15 @@
 - Les jauges montrent le modèle natif ; économie et progression d'origine restent
   à reconstruire. La calibration physique reste décrite dans PHYSICS.md.
 
+## Publication et téléchargement vérifiés
+
+- [Exécution Windows réussie](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40388248419) : 127 contrôles du cœur, 38 graphiques, physique Linux/Windows à 0,01 près, 188384 combinaisons, 9359 ancrages, 94 sons décodés, défilement et VFX visibles.
+- ZIP public redéchargé, CRC et empreintes vérifiés ; les deux aperçus publics sont identiques aux captures Windows validées. Restauration à froid et réutilisation : 146 ressources chacune.
+- Rapports : `validation/windows-0.7/`. Rendu CI Mesa logiciel ; essais sur GPU et haut-parleurs physiques restent à effectuer.
+- Source compilée : `44013341088a1c9ebabc085b7c9a3a69d1fec80b`.
+- ZIP : 31719254 octets, SHA-256 `64a55eee952872d669dcdfb2d9cdf9f925bb1ea55d6a42a4819651024abe5b91`.
+- Exécutable : SHA-256 `df18d90507638f3ca6a0691bc35d88eec6a5065583dbf7a299d4b8372e604588`.
+
 ## Historique : validation native 0.6.0
 
 # Validation native 0.6.0

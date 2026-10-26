@@ -1,12 +1,18 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.6.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.6.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.6.0-native-preview)
+**[Télécharger Windows x64 — version 0.7.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.7.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.7.0-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+- Garage avec atelier, pont, icônes, jauges et police du jeu original adaptés au PC.
+  Six catégories, aperçu, recherche, tri, double-clic et raccourcis F1–F6.
+  [Commandes du garage](native/game/GARAGE-PC.md).
+- **Espace : frein à main arrière**, coupure accélération/NOS et roues arrière
+  bloquées. Z/W/↑ restent les accélérateurs.
 
 - Mode libre continu avec circulation sur trois voies, désactivable dans
   **Paramètres → Trafic en mode libre**. Choix sauvegardé, sans collisions
@@ -22,7 +28,7 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 - Traction, propulsion ou quatre roues motrices sélectionnables au garage,
   avec effet du transfert de poids et choix sauvegardé.
 - 191 images de carrosserie et 54 styles de jantes issus d’Unbound.
-  La version 0.6.0 aligne les roues avec chaque carrosserie et conserve les ailes
+  La version 0.7.0 aligne les roues avec chaque carrosserie et conserve les ailes
   devant les pneus ; les 191 rendus ont été parcourus et revus.
 - 194 pièces dans 11 catégories : moteurs, suspension, turbos, compresseurs, ECU,
   NOS, admissions, intercoolers, pistons, échappements et pneus. Recherche,
@@ -37,7 +43,7 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 - Plein écran, fenêtre sans bordure ou avec bordure ; résolution, limite FPS,
   VSync, qualité graphique et son. Confirmation des changements d’affichage.
 
-Commandes : **Z/W/↑** accélérer, **S/↓** freiner, **←/→** changer de voie,
+Commandes : **Z/W/↑** accélérer, **S/↓** freiner, **Espace** frein à main, **←/→** changer de voie,
 **E/C** passer les rapports, **T** changer de boîte, **N** NOS,
 **L + accélérateur** 2STEP avec ECU compatible, **H** klaxon, **Échap** pause.
 Les [instructions complètes](native/game/README.md) expliquent aussi les
@@ -52,9 +58,9 @@ d’essai. L’équivalence avec la conduite Android n’est pas validée.
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-119 contrôles du cœur et 36 contrôles graphiques passent sur Windows ; les mesures
+127 contrôles du cœur et 38 contrôles graphiques passent sur Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
-Les 94 sons sont décodés sous Windows ; le mixage audio logiciel et 45 contrôles
+Les 94 sons sont décodés sous Windows ; le mixage audio logiciel et 55 contrôles
 clavier/souris et 188 384 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.
 
 La [recherche ciblée YYC](native/evidence/unbound/physics/README.md) a vérifié
