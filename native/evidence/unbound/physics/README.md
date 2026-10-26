@@ -27,7 +27,11 @@ le programme Windows natif.
 `ob_car_Step_0` (592 716 octets de symbole) dépasse d’abord la limite d’instructions.
 Une seconde passe limitée à cette fonction, avec un plafond porté à 500 000
 instructions et 100 Mo de réponse, atteint aussi la limite de 150 s.
-Les échecs sont conservés dans `coverage.txt` et `large-main-coverage.txt`.
+Une troisième passe utilise la simplification `normalize` et borne explicitement
+le corps à la taille du symbole ELF, après avoir constaté un corps analysé de
+517 140 octets. Elle atteint également les 150 s sans pseudo-C exploitable.
+Les échecs sont conservés dans `coverage.txt`, `large-main-coverage.txt` et
+`normalized-main-coverage.txt`.
 
 Les noms de champs ne fournissent ni les constantes par voiture, ni les unités,
 ni les équations de couple, de boîte et de résistance. Ils ne justifient pas de
@@ -45,7 +49,8 @@ python3 native/tools/recover_yyc_fields.py \
 Pour Ghidra, employer `native/tools/PhysicsYYC.java`, `-noanalysis`, `-readOnly`
 et un répertoire de projet temporaire. Le premier argument du script est le
 répertoire de sortie ; le second argument optionnel `main-large` active la passe
-principale avec un plafond d’instructions supérieur. Les offsets sont propres à
+principale avec un plafond d’instructions supérieur. `main-normalize` ajoute la
+simplification normalisée et le bornage du corps à la taille du symbole. Les offsets sont propres à
 l’empreinte ci-dessus. Ne pas appliquer ces offsets à la version originale 1.2.5.
 
 La suite demande une analyse par blocs du calcul principal avec résolution des

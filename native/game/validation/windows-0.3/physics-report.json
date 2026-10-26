@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "model": "native-provisional-v0.3",
+  "original_game_equivalence_validated": false,
+  "step_seconds": 0.008333333333,
+  "vehicle": {"mass_kg": 1240, "peak_torque_nm": 345, "wheel_radius_m": 0.32, "final_drive": 3.9, "tyre_friction": 1.08, "drive": "rear", "driven_weight_fraction": 0.52, "wheelbase_m": 2.6, "centre_of_gravity_height_m": 0.5},
+  "measurements": {
+    "zero_to_100_s": 4.506863529,
+    "quarter_mile_s": 12.72656722,
+    "speed_after_60_s_kmh": 269.5447661,
+    "braking_100_to_0_m": 42.99220013,
+    "braking_100_to_0_s": 3.108333333,
+    "coast_speed_after_10_s_kmh": 79.86386147,
+    "rolling_80_to_120_s": 4.166666667,
+    "manual_first_speed_after_15_s_kmh": 79.66723143
+  },
+  "sanity_checks_passed": true
+}

@@ -20,8 +20,15 @@
   à moins de 0,01 des mesures Linux, dans l’unité de chaque grandeur.
   Le rapport effectif accompagne la release dans `Validation-Windows.zip`.
 
+Exécution Windows réussie : [40315185715](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40315185715).
+Le paquet public a été retéléchargé et vérifié : SHA-256
+`fdf3a352d6a6dacc52cc9a1c7a442d83ce44ac78b475ccfa618d64500373a643`,
+7 582 601 octets. Source compilée :
+`c9fe0982b364959c9567fe087303afd316ea5e8d`.
+Les rapports Windows sont aussi dans `validation/windows-0.3/`.
+
 La fidélité au jeu original reste à valider. Le calcul principal YYC n’a pas
-été reconstitué par les deux passes ciblées Ghidra ; voir `PHYSICS.md` et les
+été reconstitué par les trois passes ciblées Ghidra ; voir `PHYSICS.md` et les
 preuves dans `native/evidence/unbound/physics/` du dépôt.
 
 ## Historique de validation : release 0.2

@@ -3,6 +3,9 @@
 Depuis cette étude, une [première reconstruction native du mode libre](game/README.md)
 a été implémentée. Les observations ci-dessous décrivent la phase d'analyse
 précédant ce prototype ; elles ne sont pas une validation de fidélité au jeu original.
+La [version native 0.3](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.3.0-native-preview)
+a passé les tests Windows. La nouvelle [analyse des variables et fonctions de conduite](evidence/unbound/physics/README.md)
+complète cette étude et consigne les limites de récupération de la physique.
 
 L'objectif est un jeu exécuté directement sous Windows, sans émulateur Android.
 La release `v0.1.0-windows-preview` et le dossier `pc/` correspondent au prototype

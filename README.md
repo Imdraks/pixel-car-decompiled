@@ -1,85 +1,46 @@
 # Pixel Car Racer — reconstruction native Windows
 
-[Télécharger la version native Windows 0.2 — mode libre](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.2.0-native-preview/PixelCarRacerNative-Windows-x64.zip).
+**[Télécharger Windows x64 — version 0.3](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.3.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.3.0-native-preview)
 
-**Objectif actuel : portage natif Windows, sans émulateur Android.**
-Une [première reconstruction native du mode libre](native/game/README.md) est
-maintenant implémentée en C++ avec Raylib : conduite continue, circulation,
-garage et paramètres d'affichage persistants. Les performances des véhicules
-et la progression complètes du jeu original restent à reconstruire.
+Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
+puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
+pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
-Voir [l'étude native et les essais avec UndertaleModTool](native/README.md).
-Le lanceur décrit ci-dessous et la release `v0.1.0-windows-preview` sont le
-prototype précédent par compatibilité ; ils ne remplissent pas cet objectif.
+## Disponible
 
-## Prototype historique par compatibilité Android
+- Mode libre continu avec circulation sur trois voies.
+- Boîte automatique/manuelle, rétrogradages, limiteur et frein moteur.
+- Traction, propulsion ou quatre roues motrices sélectionnables au garage,
+  avec effet du transfert de poids et choix sauvegardé.
+- 191 images de carrosserie et 54 styles de jantes issus d’Unbound.
+- Plein écran, fenêtre sans bordure ou avec bordure ; résolution, limite FPS,
+  VSync, qualité graphique et son. Confirmation des changements d’affichage.
 
-Lanceur Windows x64 pour les deux APK fournis. Unbound est le choix par défaut.
-Cette distribution exécute le jeu Android dans un moteur Android local ; elle
-ne constitue pas une recompilation Windows native du moteur GameMaker YYC.
-Unbound conserve son contenu tel que fourni. L'original 1.2.5 est un choix
-séparé, avec ses propres sauvegardes : son code n'est pas fusionné avec Unbound.
+Commandes : **Z/W/↑** accélérer, **S/↓** freiner, **←/→** changer de voie,
+**E/C** passer les rapports, **T** changer de boîte, **Échap** pause.
+Les [instructions complètes](native/game/README.md) expliquent aussi les
+sauvegardes, le mode de secours et la construction.
 
-## Utilisation Windows
+## Physique d’abord
 
-1. Extraire l'archive et lancer `PixelCarRacerPC.exe` pour Unbound.
-2. Au premier démarrage, lire et accepter la licence Google Android SDK.
-   Le lanceur télécharge les composants depuis Google et vérifie leurs
-   empreintes avant extraction. Le jeu lui-même est inclus dans le lanceur.
-3. Jouer à la souris. Pour attribuer des commandes clavier : placer le focus
-   dans la fenêtre du jeu, presser F8, survoler un bouton avec la souris et
-   presser la touche choisie, puis F8 pour terminer. Touches disponibles :
-   Z, W, S, Q, D, A, E, Espace, Haut et Bas. Plusieurs touches peuvent être
-   maintenues simultanément. Les réglages sont distincts pour chaque version.
-4. Fermer la fenêtre Android pour quitter. Le lanceur ne supprime pas les
-   sauvegardes et n'utilise pas l'option de remise à zéro des données.
+Cette version est une reconstruction native en C++17/Raylib, avec une physique
+provisoire. Les carrosseries ne disposent pas encore de leurs statistiques
+d’origine : le moteur de référence est commun, et la transmission est un choix
+d’essai. L’équivalence avec la conduite Android n’est pas validée.
 
-`Jouer-original.cmd` ouvre l'original 1.2.5. Le second fichier `.cmd` force
-l'émulation CPU si l'accélération matérielle ne fonctionne pas.
+Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
+permettent de comparer départ, régime, rapports, reprise et freinage. Les
+43 contrôles du cœur et 15 contrôles graphiques passent sur Windows ; les mesures
+natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
+Les essais sur GPU physique et l’audio réel restent à effectuer.
 
-Prérequis : Windows 10/11 x64, 8 Go de RAM conseillés, environ 12 Go d'espace
-libre pour les composants, caches et deux profils. Le premier téléchargement
-représente environ 780 Mo. L'image Android 7.1 x86 est choisie pour la
-compatibilité avec ces versions du jeu. L'accélération via Windows Hypervisor Platform est
-préférable ; si elle est indisponible, le lanceur utilise le mode logiciel,
-dont le premier démarrage peut prendre plusieurs minutes.
+La [recherche ciblée YYC](native/evidence/unbound/physics/README.md) a vérifié
+2 128 noms/identifiants de variables et récupéré deux fonctions annexes. Le calcul
+principal et les données complètes par voiture restent à reconstruire. Les
+boutiques, pièces, progression, autres modes et fusion complète original 1.2.5 /
+Unbound attendent la validation de cette base.
 
-Données et journaux : `%LOCALAPPDATA%\PixelCarRacerPC`. Les profils Android
-`PCRUnboundPC_API25` et `PCROriginalPC_API25` sont séparés. Les fichiers de configuration
-du clavier sont `keyboard-unbound.json` et `keyboard-original.json`.
-
-L'image Android est une image AOSP sans Google Play. Les achats Google Play
-ne sont pas pris en charge ; les autres fonctions en ligne ne sont pas validées.
-Voir `VALIDATION.md` pour les contrôles réalisés et leurs limites.
-
-## Sources et construction
-
-Le code du lanceur est dans `pc/`. Il utilise uniquement la bibliothèque
-standard Go, sans module externe. La construction effectuée dans cet
-environnement utilise Go 1.27.2, Linux x64 vers Windows x64.
-
-Placer les APK fournis dans `pc/payload/unbound.apk` et
-`pc/payload/original.apk`. Ils sont exclus de Git et incorporés au binaire
-par `go:embed`. Pour construire depuis l'environnement préparé :
-
-```bash
-bash /workspace/pixel-car-decompiled/pc/build.sh
-```
-
-Le lanceur Linux permet de vérifier le même cycle d'installation et de
-démarrage, sans fenêtre :
-
-```bash
-pc/build/pixel-car-linux --headless --software \
-  --sdk-root /workspace/pc-runtime/linux-sdk \
-  --data-dir /workspace/pc-runtime/test-unbound
-```
-
-Le lanceur n'installe pas d'outil global ni de service Windows. Il lance son
-émulateur sur deux ports locaux libres et le ferme en quittant. Le moteur et
-l'image Android sont téléchargés directement de Google sur le PC de
-l'utilisateur ; les archives Google ne sont pas redistribuées dans le paquet.
-
-La comparaison et l'extraction des ressources GameMaker sont conservées dans
-`/workspace/windows-port/`. Les documents fournis dans les archives ont été
-traités comme données à analyser.
+Sources : [native/game](native/game/README.md). Preuves :
+[validation](native/game/VALIDATION.md). Historique de l’analyse :
+[native/README.md](native/README.md). L’ancien lanceur Android est documenté
+séparément dans [pc/README.md](pc/README.md).

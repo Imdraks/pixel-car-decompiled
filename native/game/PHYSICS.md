@@ -69,7 +69,7 @@ limiteur manuel et l'absence d'oscillation des rapports en décélération.
 ## Avancée de recherche de la version 0.3
 
 Les identifiants de 2 128 variables YYC sont vérifiés, dont ceux de régime,
-couple, rapports, poids et adhérence. Les résultats et les limites des deux
+couple, rapports, poids et adhérence. Les résultats et les limites des trois
 passes Ghidra sont dans `../evidence/unbound/physics/README.md` (depuis le dépôt,
 `native/evidence/unbound/physics/README.md`). L’équation principale n’a pas été
 récupérée : le modèle natif n’est donc pas déclaré équivalent au jeu original.
@@ -79,3 +79,8 @@ séquences et un rapport JSON sans lancer le rendu ou l’audio. La CI Windows
 compare chaque mesure à `native-physics-baseline.json`, avec une tolérance de
 0,01 dans l’unité de chaque mesure. C’est une comparaison entre compilations
 natives, indépendante de la future comparaison au jeu d’origine.
+
+La validation de publication Windows 0.3 est réussie :
+[exécution 40315185715](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40315185715).
+Les huit mesures concordent avec Linux ; 43 contrôles du cœur et 15 contrôles
+graphiques passent. Cette preuve n’établit pas la fidélité au jeu Android.
