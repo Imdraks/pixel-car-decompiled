@@ -1,5 +1,6 @@
 #include "game_audio.hpp"
 #include "original_audio.hpp"
+#include "base_audio.hpp"
 #include <algorithm>
 #include <fstream>
 #include <cmath>
@@ -8,7 +9,8 @@ namespace pcr {
 void checkOriginalAudio(const std::filesystem::path& assets,const std::filesystem::path& output){
     if(!std::filesystem::create_directory(output))throw std::runtime_error("Le contrôle audio exige un dossier neuf.");
     std::ofstream report(output/"audio-report.txt");int count=0;
-    for(const auto& source:OriginalSounds){
+    for(int bank=0;bank<2;bank++)for(int id=0;id<94;id++){
+        const auto& source=sourceSound(id,bank);
         auto path=(assets/source.file).u8string();Wave wave=LoadWave(path.c_str());
         bool valid=IsWaveValid(wave)&&wave.frameCount>0&&wave.sampleRate>0;
         if(valid&&std::string(source.name).find("engine")!=std::string::npos){
@@ -16,7 +18,7 @@ void checkOriginalAudio(const std::filesystem::path& assets,const std::filesyste
             if(samples){for(unsigned int i=0;i<wave.frameCount*wave.channels;i++)if(std::abs(samples[i])>.000001f){nonSilent=true;break;}UnloadWaveSamples(samples);}
             valid=nonSilent;
         }
-        report<<(valid?"PASS ":"FAIL ")<<source.name<<" frames="<<wave.frameCount<<" sample_rate="<<wave.sampleRate<<'\n';
+        report<<(valid?"PASS ":"FAIL ")<<(bank==1?"original/":"unbound/")<<source.name<<" frames="<<wave.frameCount<<" sample_rate="<<wave.sampleRate<<'\n';
         if(IsWaveValid(wave))UnloadWave(wave);
         if(!valid)throw std::runtime_error(std::string("Son original illisible : ")+source.name);
         ++count;
@@ -24,10 +26,16 @@ void checkOriginalAudio(const std::filesystem::path& assets,const std::filesyste
     report<<"PASS: "<<count<<" original sounds decoded without opening an audio device. Physical playback is not established.\n";
 }
 void GameAudio::init(const std::filesystem::path& path){root=path;InitAudioDevice();ready=IsAudioDeviceReady();}
+void GameAudio::selectBank(int value){
+    value=value==1?1:0;if(value==bank)return;
+    for(auto* stream:{&on,&off,&turbo,&blower,&nos,&town})if(stream->id>=0){UnloadMusicStream(stream->music);*stream=Loop{};}
+    for(auto& s:shots)UnloadSound(s.second);
+    shots.clear();bank=value;reset();
+}
 void GameAudio::loop(Loop& stream,int id,float volume,float pitch){
     if(stream.id!=id){
         if(stream.id>=0)UnloadMusicStream(stream.music);
-        stream.music=LoadMusicStream((root/OriginalSounds[id].file).u8string().c_str());
+        stream.music=LoadMusicStream((root/sourceSound(id,bank).file).u8string().c_str());
         if(!IsMusicValid(stream.music)){stream.id=-1;++failures;return;}
         stream.id=id;stream.music.looping=true;SetMusicVolume(stream.music,std::clamp(volume,0.f,1.f));SetMusicPitch(stream.music,std::clamp(pitch,.25f,3.f));PlayMusicStream(stream.music);
     }
@@ -36,11 +44,12 @@ void GameAudio::loop(Loop& stream,int id,float volume,float pitch){
 }
 void GameAudio::shot(int id,float volume){
     auto i=shots.find(id);
-    if(i==shots.end()){Sound sound=LoadSound((root/OriginalSounds[id].file).u8string().c_str());if(!IsSoundValid(sound)){++failures;return;}i=shots.emplace(id,sound).first;}
+    if(i==shots.end()){Sound sound=LoadSound((root/sourceSound(id,bank).file).u8string().c_str());if(!IsSoundValid(sound)){++failures;return;}i=shots.emplace(id,sound).first;}
     SetSoundVolume(i->second,volume);PlaySound(i->second);
 }
 void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarState& car,const DriverInput& input,double collision,bool active,bool enabled){
     if(!ready)return;
+    selectBank(profile.contentSource);
     if(!enabled)for(auto& sound:shots)StopSound(sound.second);
     auto samples=engineSamples(profile);bool gas=active&&input.throttle&&!input.brake&&!input.handbrake;
     float audible=enabled&&active?1.f:0.f;

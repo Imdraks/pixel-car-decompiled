@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.7.1-native-preview
+        default: v0.8.0-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -93,7 +93,7 @@ jobs:
           if ($geometry.body_pipe_configurations -ne 9359 -or $geometry.gearbox_presets -ne 8 -or $geometry.maximum_gears -ne 10) { throw 'Exhaust or gearbox coverage differs' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\power-combinations.json" validation/power-combinations.json
           $power = Get-Content validation/power-combinations.json -Raw | ConvertFrom-Json
-          if ($power.induction_combinations -ne 50400 -or $power.atmospheric_combinations -ne 137984 -or $power.max_without_nos_hp -lt 4200 -or $power.max_with_nos_hp -lt 4500 -or $power.original_game_equivalence_validated) { throw 'Compound power or combination coverage failed' }
+          if ($power.induction_combinations -ne 54432 -or $power.atmospheric_combinations -ne 137984 -or $power.max_without_nos_hp -lt 4200 -or $power.max_with_nos_hp -lt 4500 -or $power.original_game_equivalence_validated) { throw 'Compound power or combination coverage failed' }
           Expand-Archive $zip -DestinationPath "$env:RUNNER_TEMP\pcr-native-app"
           Get-CimInstance Win32_OperatingSystem | Select-Object Caption,Version | Format-List | Out-File validation/windows.txt
       - name: Run and compare native physics measurements on Windows
@@ -123,7 +123,7 @@ jobs:
           $p = Start-Process $exe -ArgumentList "--check-audio-dir `"$out`"" -Wait -PassThru -RedirectStandardOutput validation/audio-stdout.txt -RedirectStandardError validation/audio-stderr.txt
           if ($p.ExitCode -ne 0) { throw 'Original audio decoder validation failed' }
           $report = Get-Content "$out/audio-report.txt"
-          if (($report | Select-String '^PASS [^:]').Count -ne 94 -or ($report | Select-String '^FAIL ')) { throw 'Expected 94 valid original sound samples' }
+          if (($report | Select-String '^PASS [^:]').Count -ne 188 -or ($report | Select-String '^FAIL ')) { throw 'Expected 188 valid original and Unbound sound samples' }
           Get-Content "$out/audio-report.txt"
       - name: Prepare verified software OpenGL for the CI runner only
         shell: pwsh
@@ -244,12 +244,12 @@ jobs:
           import zipfile
           from pathlib import Path
           with zipfile.ZipFile('../validation/Validation-Windows.zip') as archive:
-              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png')]:
+              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png')]:
                   data=archive.read(source)
                   if not data.startswith(bytes.fromhex('89504e470d0a1a0a')): raise SystemExit('Invalid native UI preview')
                   Path(target).write_bytes(data)
           PY_PREVIEW
-          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png
+          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png
           for part in $(seq 0 $((PART_COUNT-1))); do
             name="$(printf 'PixelCarRacerNative-Windows-x64.zip.part-%03d' "$part")"
             gh release delete-asset "$RELEASE_TAG" "$name" --yes

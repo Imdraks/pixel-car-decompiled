@@ -1,4 +1,4 @@
-// Generated from native/evidence/unbound/parts/catalog.json.
+// Generated from native/evidence/merged/performance.json.
 #pragma once
 namespace pcr {
 enum class PartSlot { Engine, Suspension, Turbo, Supercharger, Ecu, Nos, Intake, Intercooler, Pistons, Exhaust, Tires, Count };
@@ -61,6 +61,8 @@ inline constexpr Part PartCatalog[] = {
 {3024,PartSlot::Supercharger,"XR BLOWER (CHROME)",34.0,54.0,3000000.0,24},
 {3025,PartSlot::Supercharger,"XR BLOWER (24K Gold)",34.0,53.0,3500000.0,25},
 {3026,PartSlot::Turbo,"Reddy T60E (Black Gem)",35.0,20.0,9000000.0,26},
+{3027,PartSlot::Turbo,"Reddy T60D (Diamond)",35.0,20.0,10000000.0,27},
+{3028,PartSlot::Turbo,"Reddy T60AD (Ruby)",35.0,20.0,0.0,28},
 {4001,PartSlot::Ecu,"VX Speed",750.0,5.0,2000.0,1},
 {4002,PartSlot::Ecu,"VX Speed +2STEP",750.0,5.0,5000.0,2},
 {4003,PartSlot::Ecu,"VX Race",1300.0,5.0,24000.0,3},

@@ -7,6 +7,7 @@
 #include "platform.hpp"
 #include "art.hpp"
 #include "original_ui.hpp"
+#include "content_renderer.hpp"
 #include <algorithm>
 #include <atomic>
 #include <cmath>
@@ -40,10 +41,11 @@ struct App {
     Settings settings,edited,previous;
     Resolution windowLimit{1280,720};
     Profile profile,transmissionDraft; Build configuration;
-    bool inventoryOpen=false,searchFocused=false,searchSelectedAll=false,rimPicker=false;int customGroup=0,lastCardId=-1;double lastCardClick=-10;std::string tooltipText;
+    bool inventoryOpen=false,searchFocused=false,searchSelectedAll=false,rimPicker=false,cosmeticPicker=false;int cosmeticSlot=0;int customGroup=0,lastCardId=-1;double lastCardClick=-10;std::string tooltipText;
     PartSlot customSlot=PartSlot::Engine; int customPreview=0,customPage=0; std::string customSearch;
     FreeDrive drive;DrivingEffects effects;
     Font font{};std::map<int,Texture2D> atlases;RenderTexture2D render{};
+    ContentRenderer content;
     GameAudio audio; bool powerPopup=false,rarityDescending=false; bool audioPopup=false,previewGas=true;double audioPreviewUntil=0;
     Vector2 mouse{-100,-100};bool uiEnabled=true,options=false,paused=false,confirming=false,quit=false;
     double deadline=0,accumulator=0;int garageStyle=0;std::string notice;
@@ -97,8 +99,8 @@ struct App {
         float w=height*f.w/f.h;float start=-float(std::fmod(offset,w));
         for(float x=start-w;x<1280;x+=w)crop(f,{x,y,w,height},tint);
     }
-    void car(int index,int rim,float x,float y,float scale,double wheelAngle,bool shadow=true,int tireFrame=0,double rideOffset=0,int exhaustFrame=-1,double rearAngle=-1){
-        index=(index+191)%191;rim=validRimFrame(rim);auto w=art::wheelPositions[index];tireFrame=std::clamp(tireFrame,0,int(std::size(art::tires))-1);
+    void car(int index,int rim,float x,float y,float scale,double wheelAngle,bool shadow=true,int tireFrame=0,double rideOffset=0,int exhaustFrame=-1,double rearAngle=-1,const Profile* outfit=nullptr){
+        index=(index+191)%191;rim=validRimFrame(rim);bool original=(outfit?outfit->contentSource:profile.contentSource)==1;auto w=bodyWheels(index,original);tireFrame=std::clamp(tireFrame,0,int(std::size(art::tires))-1);
         if(shadow&&settings.quality!=Quality::Low)DrawEllipse(int(x+110*scale),int(y+(w.y+w.radius)*scale),int(87*scale),int(6*scale),Fade(BLACK,.35f));
         // Draw the body last: opaque fenders and skirts must cover the tyres.
         // All cropped wheel sprites use their original 62x62 canvas and origin.
@@ -113,13 +115,16 @@ struct App {
             DrawCircleV(center,w.radius*.78f*scale,Color{12,13,18,255});
             float wheelScale=scale*(w.radius/25.f);
             double angle=cx==w.rear&&rearAngle>=0?rearAngle:wheelAngle;
-            centered(art::tires[tireFrame],wheelScale,31,31,float(angle));
-            centered(art::rims[rim],wheelScale,31,31,float(angle));
+            centered(content_art::Tires(original)[tireFrame],wheelScale,31,31,float(angle));
+            if(outfit){int brake=cosmeticSubimage(*outfit,8);if(brake)centered(content_art::Brakes(original)[brake],wheelScale,31,31,0);}
+            centered(equippedRim(rim,original),wheelScale,31,31,float(angle));
+            if(outfit){int lugs=cosmeticSubimage(*outfit,11);if(lugs)centered(content_art::Lugs(original)[lugs],wheelScale,1,1,float(angle));}
         }
         auto pipe=placeExhaust(index,exhaustFrame,rideOffset);
-        auto drawPipe=[&](){if(exhaustFrame>=0)frame(art::exhausts[pipe.frame],x+float(pipe.x)*scale,y+float(pipe.y)*scale,scale);};
+        auto drawPipe=[&](){if(exhaustFrame>=0)frame(content_art::Exhausts(original)[pipe.frame],x+float(pipe.x)*scale,y+float(pipe.y)*scale,scale);};
         if(!pipe.front)drawPipe();
-        frame(art::cars[index],x,y+float(rideOffset)*scale,scale);
+        if(outfit){auto texture=content.compose(*outfit);DrawTexturePro(texture,{0,0,220,134},{x,y+(float(rideOffset)-64)*scale,220*scale,134*scale},{0,0},0,WHITE);}
+        else frame(content_art::Cars(original)[index],x,y+float(rideOffset)*scale,scale);
         if(pipe.front)drawPipe();
     }
     std::vector<Resolution> resolutions(WindowMode mode){
@@ -206,10 +211,11 @@ struct App {
         font=LoadFontEx(asset("ui.ttf").c_str(),64,glyphs.data(),int(glyphs.size()));if(!font.texture.id)throw std::runtime_error("Police d'interface introuvable.");
         SetTextureFilter(font.texture,TEXTURE_FILTER_BILINEAR);
         for(int id:art::atlasIds){auto texture=LoadTexture(asset(TextFormat("texture-%03i.png",id)).c_str());if(!texture.id)throw std::runtime_error("Atlas de jeu illisible : "+std::to_string(id));SetTextureFilter(texture,TEXTURE_FILTER_POINT);atlases[id]=texture;}
+        for(int i=0;i<content_art::AtlasCount;i++){auto im=LoadImage(asset(TextFormat("content-%02i.png",i)).c_str());if(!im.data)throw std::runtime_error("Contenu manquant : extraire tout le ZIP.");ImageFormat(&im,PIXELFORMAT_UNCOMPRESSED_R8G8B8A8);content.pixels[2000+i]=im;auto t=LoadTextureFromImage(im);SetTextureFilter(t,TEXTURE_FILTER_POINT);atlases[2000+i]=t;}
         for(int i=0;i<original_ui::AtlasCount;i++){auto t=LoadTexture(asset(TextFormat("original-ui-%02i.png",i)).c_str());if(!t.id)throw std::runtime_error("Interface d’origine manquante : extraire tout le ZIP.");SetTextureFilter(t,TEXTURE_FILTER_POINT);atlases[1000+i]=t;}
         if(!apply(settings)){Settings safe;safe.width=960;safe.height=540;if(!apply(safe))throw std::runtime_error("Impossible de créer la surface de rendu.");}
         edited=settings;
-        if(!args.noAudio&&!args.smoke)audio.init(args.assets);
+        if(!args.noAudio&&!args.smoke){audio.init(args.assets);audio.selectBank(profile.contentSource);}
         if(args.free)beginFree();
     }
     void background(bool driving){
@@ -240,11 +246,11 @@ struct App {
         if(button({89,600,407,38},"QUITTER"))quit=true;
 
         DrawRectangle(608,459,610,8,Accent);
-        car(profile.car,profile.rim,594,247,2.6,0,true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame);
+        car(profile.car,profile.rim,594,247,2.6,0,true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,-1,&profile);
         text("MODE LIBRE",656,511,29);text("Route ouverte • circulation • conduite continue",656,555,18,Muted);
-        text("191 carrosseries et 23 styles de jantes Unbound",656,588,17,Muted);
+        text("191 carrosseries + variantes • 521 jantes nommées",656,588,17,Muted);
     }
-    void openCustomization(){screen=Screen::Customization;inventoryOpen=false;searchFocused=false;rimPicker=false;customGroup=0;customSlot=PartSlot::Engine;customPreview=profile.parts[0];customPage=0;customSearch.clear();notice.clear();}
+    void openCustomization(){screen=Screen::Customization;inventoryOpen=false;searchFocused=false;rimPicker=false;cosmeticPicker=false;customGroup=0;customSlot=PartSlot::Engine;customPreview=profile.parts[0];customPage=0;customSearch.clear();notice.clear();}
     static std::string lower(std::string value){for(char& c:value)c=char(std::tolower(static_cast<unsigned char>(c)));return value;}
     static Color rarityColor(Rarity rarity){
         static const Color colors[]={{173,185,198,255},{101,216,139,255},{92,175,255,255},{196,129,255,255},{255,192,77,255},{255,104,117,255}};
@@ -284,16 +290,31 @@ struct App {
     static constexpr int GaragePageSize=6;
     void chooseGroup(int group,int slot=-1,bool rims=false){
         static const PartSlot defaults[]={PartSlot::Engine,PartSlot::Tires,PartSlot::Nos,PartSlot::Turbo,PartSlot::Suspension,PartSlot::Intake};
-        customGroup=std::clamp(group,0,5);inventoryOpen=true;rimPicker=rims||(slot<0&&group==1);
+        cosmeticPicker=false;customGroup=std::clamp(group,0,5);inventoryOpen=true;rimPicker=rims||(slot<0&&group==1);
         customSlot=slot>=0?PartSlot(slot):defaults[customGroup];customPreview=rimPicker?profile.rim:profile.parts[int(customSlot)];
         customSearch.clear();searchFocused=false;searchSelectedAll=false;customPage=0;
         auto choices=garageChoices();auto found=std::find(choices.begin(),choices.end(),customPreview);
-        if(found!=choices.end())customPage=int(found-choices.begin())/GaragePageSize;
+        if(found!=choices.end())customPage=int(found-choices.begin())/GaragePageSize;else if(!choices.empty())customPreview=choices[0];
     }
-    std::string choiceName(int id)const{return rimPicker?TextFormat("JANTE %02i",id+1):id?findPart(id)->name:"CONFIGURATION DE BASE";}
+    void chooseCosmetic(int slot){
+        cosmeticPicker=true;rimPicker=false;customGroup=6;cosmeticSlot=(slot+CosmeticSlotCount)%CosmeticSlotCount;
+        inventoryOpen=true;searchFocused=false;searchSelectedAll=false;customSearch.clear();customPage=0;customPreview=profile.cosmetics[cosmeticSlot];
+        auto choices=garageChoices();auto found=std::find(choices.begin(),choices.end(),customPreview);if(found!=choices.end())customPage=int(found-choices.begin())/GaragePageSize;
+    }
+    int equippedChoice()const{return rimPicker?profile.rim:cosmeticPicker?profile.cosmetics[cosmeticSlot]:profile.parts[int(customSlot)];}
+    std::string choiceName(int id)const{
+        if(rimPicker){auto rim=findRim(id);return rim?rim->name:TextFormat("JANTE %02i",id+1);}
+        if(cosmeticPicker){auto item=findCosmetic(id);return item?item->name:"CONFIGURATION DE BASE";}
+        return id?findPart(id)->name:"CONFIGURATION DE BASE";
+    }
     std::vector<int> garageChoices()const{
         std::vector<int> choices;
-        if(rimPicker){for(int i:RimFrames)if(lower(choiceName(i)).find(lower(customSearch))!=std::string::npos)choices.push_back(i);if(rarityDescending)std::reverse(choices.begin(),choices.end());}
+        if(cosmeticPicker){
+            if(customSearch.empty())choices.push_back(0);
+            for(const auto& c:CosmeticCatalog)if(c.slot==cosmeticSlot&&lower(c.name).find(lower(customSearch))!=std::string::npos)choices.push_back(c.id);
+            std::stable_sort(choices.begin(),choices.end(),[this](int a,int b){if(!a||!b)return !a&&b;auto x=findCosmetic(a),y=findCosmetic(b);return rarityDescending?std::string(x->name)>y->name:std::string(x->name)<y->name;});
+        }
+        else if(rimPicker){for(int i:RimFrames)if(lower(choiceName(i)).find(lower(customSearch))!=std::string::npos)choices.push_back(i);if(rarityDescending)std::reverse(choices.begin(),choices.end());}
         else{
             if(customSearch.empty()||lower("configuration de base").find(lower(customSearch))!=std::string::npos)choices.push_back(0);
             for(const auto& part:PartCatalog)if(part.slot==customSlot&&lower(part.name).find(lower(customSearch))!=std::string::npos)choices.push_back(part.id);
@@ -303,18 +324,19 @@ struct App {
     }
     void equipGarageChoice(){
         auto choices=garageChoices();if(std::find(choices.begin(),choices.end(),customPreview)==choices.end())return;
-        if(rimPicker)profile.rim=customPreview;else equipPart(profile,customSlot,customPreview);
+        if(rimPicker)profile.rim=customPreview;else if(cosmeticPicker)profile.cosmetics[cosmeticSlot]=customPreview;else equipPart(profile,customSlot,customPreview);
         saveCar();audio.install(settings.sound);notice="ÉQUIPEMENT ENREGISTRÉ";
     }
     Profile garagePreviewProfile()const{
         Profile preview=profile;if(!inventoryOpen)return preview;
         auto choices=garageChoices();if(std::find(choices.begin(),choices.end(),customPreview)==choices.end())return preview;
-        if(rimPicker)preview.rim=customPreview;else equipPart(preview,customSlot,customPreview);
+        if(rimPicker)preview.rim=customPreview;else if(cosmeticPicker)preview.cosmetics[cosmeticSlot]=customPreview;else equipPart(preview,customSlot,customPreview);
         return preview;
     }
     void garageKeyboard(){
-        if((IsKeyDown(KEY_LEFT_CONTROL)||IsKeyDown(KEY_RIGHT_CONTROL))&&IsKeyPressed(KEY_F)){if(!inventoryOpen)chooseGroup(customGroup);searchFocused=true;searchSelectedAll=true;}
+        if((IsKeyDown(KEY_LEFT_CONTROL)||IsKeyDown(KEY_RIGHT_CONTROL))&&IsKeyPressed(KEY_F)){if(!inventoryOpen){if(cosmeticPicker)chooseCosmetic(cosmeticSlot);else chooseGroup(customGroup);}searchFocused=true;searchSelectedAll=true;}
         for(int i=0;i<6;i++)if(IsKeyPressed(KEY_F1+i))chooseGroup(i);
+        if(IsKeyPressed(KEY_F7))chooseCosmetic(cosmeticSlot);
         if(searchFocused){
             bool changed=false;bool ctrl=IsKeyDown(KEY_LEFT_CONTROL)||IsKeyDown(KEY_RIGHT_CONTROL);
             if(ctrl&&IsKeyPressed(KEY_A))searchSelectedAll=true;
@@ -329,7 +351,7 @@ struct App {
             if(IsKeyPressed(KEY_ENTER)){searchFocused=false;searchSelectedAll=false;equipGarageChoice();}
             return;
         }
-        if(IsKeyPressed(KEY_TAB))chooseGroup((customGroup+(IsKeyDown(KEY_LEFT_SHIFT)?5:1))%6);
+        if(IsKeyPressed(KEY_TAB)){if(cosmeticPicker)chooseCosmetic(cosmeticSlot+(IsKeyDown(KEY_LEFT_SHIFT)?-1:1));else chooseGroup((customGroup+(IsKeyDown(KEY_LEFT_SHIFT)?5:1))%6);}
         if(!inventoryOpen){int d=IsKeyPressed(KEY_RIGHT)?1:IsKeyPressed(KEY_LEFT)?-1:0;if(d){profile.car=(profile.car+d+191)%191;saveCar();}return;}
         auto choices=garageChoices();if(choices.empty())return;
         int pages=(int(choices.size())+GaragePageSize-1)/GaragePageSize;
@@ -350,7 +372,7 @@ struct App {
         float scale=std::min(box.width/62,box.height/62);
         float x=box.x+(box.width-62*scale)/2,y=box.y+(box.height-62*scale)/2;
         // Source frames are cropped differently; preserve their common canvas.
-        for(const auto* f:{&art::tires[tire],&art::rims[validRimFrame(rim)]})
+        for(const auto* f:{&content_art::Tires(profile.contentSource==1)[tire],&equippedRim(rim,profile.contentSource==1)})
             crop(*f,{x+f->dx*scale,y+f->dy*scale,f->w*scale,f->h*scale});
     }
     bool iconButton(Rectangle r,const art::Frame& image,const std::string& tip,bool selected=false){
@@ -390,16 +412,16 @@ struct App {
         if(button({148,617,134,29},"JANTES"))chooseGroup(1);
         if(button({18,655,120,30},"PRÉPA MAX",true)){equipBestParts(profile);saveCar();chooseGroup(0);rarityDescending=true;customPage=0;notice="PRÉPA MAX ENREGISTRÉE";}
         if(button({148,655,134,30},"REMETTRE BASE")){profile.parts.fill(0);profile.soundOn=profile.soundOff=profile.bov=-1;saveCar();if(inventoryOpen)chooseGroup(customGroup);notice="PIÈCES D'ORIGINE";}
-        text("Flèches : voiture   Ctrl+F : recherche",21,700,12,Muted);
+        if(button({18,690,264,25},"STYLE / ACCESSOIRES (F7)"))chooseCosmetic(cosmeticSlot);
     }
     void garageVehicle(const Profile& preview,const Build& build){
         float scale=inventoryOpen?2.45f:3.8f,x=inventoryOpen?270.f:350.f,y=inventoryOpen?335.f:265.f;
-        auto wheels=art::wheelPositions[preview.car];float left=x+wheels.rear*scale,right=x+wheels.front*scale;
+        auto wheels=bodyWheels(preview.car,preview.contentSource==1);float left=x+wheels.rear*scale,right=x+wheels.front*scale;
         float sy=2.6f,sx=(right-left)/96,base=y+(wheels.y+wheels.radius)*scale;
         auto lift=[&](int index){const auto& f=original_ui::lifts[index];DrawTexturePro(atlases.at(f.atlas),{float(f.x),float(f.y),float(f.w),float(f.h)},
             {left-1.5f*sx+f.dx*sx,base-100*sy+f.dy*sy,f.w*sx,f.h*sy},{0,0},0,WHITE);};
         if(wheels.radius>0)lift(0);
-        car(preview.car,preview.rim,x,y,scale,0,true,build.tireFrame,build.rideOffset,build.exhaustFrame);
+        car(preview.car,preview.rim,x,y,scale,0,true,build.tireFrame,build.rideOffset,build.exhaustFrame,-1,&preview);
         if(wheels.radius>0){lift(1);lift(2);}
     }
     void garageDock(){
@@ -420,9 +442,15 @@ struct App {
         case PartSlot::Pistons:return pick(original_ui::pistons);case PartSlot::Exhaust:return pick(original_ui::exhausts);case PartSlot::Tires:return pick(art::tires);
         default:return original_ui::garageIcons[35];}
     }
+    const art::Frame& cosmeticIcon(int id)const{
+        bool original=profile.contentSource==1;const auto* c=findCosmetic(id);int n=c?c->subimage:0;
+        switch(cosmeticSlot){
+        case 0:return content_art::sp_paint(original)[n];case 1:return content_art::sp_decals(original)[n];case 2:return content_art::sp_spoiler(original)[n];case 3:return content_art::Racks(original)[n];
+        case 4:case 5:case 6:case 7:return content_art::sp_bodykit_box(original)[n];case 8:return content_art::sp_rotor(original)[n];case 9:return content_art::sp_seat(original)[n];case 10:return content_art::sp_towhook(original)[n];case 11:return content_art::sp_lugnuts(original)[n];case 15:return content_art::sp_bulbs(original)[n];default:return content_art::sp_lighttint(original)[n];}
+    }
     void garageInventory(){
         card({742,153,520,443},Color{18,18,22,245});
-        pxText(rimPicker?"JANTES":slotLabel(customSlot),760,167,18,Accent);
+        pxText(rimPicker?"JANTES":cosmeticPicker?CosmeticLabels[cosmeticSlot]:slotLabel(customSlot),760,167,18,Accent);
         if(button({1222,161,26,26},"X")){inventoryOpen=false;searchFocused=false;return;}
         Rectangle search{759,198,489,31};DrawRectangleRec(search,Color{43,43,49,255});DrawRectangleLinesEx(search,searchFocused?2:1,searchFocused?Accent:Color{93,93,101,255});
         bool selectedText=searchFocused&&searchSelectedAll&&!customSearch.empty();
@@ -430,8 +458,9 @@ struct App {
         text(customSearch.empty()?"Rechercher une pièce... (Ctrl+F)":customSearch,769,205,16,selectedText?Ink:customSearch.empty()?Muted:WHITE);
         if(hit(search)&&IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){searchFocused=true;searchSelectedAll=true;}
         std::vector<std::pair<std::string,int>> tabs;
-        switch(customGroup){case 0:tabs={{"MOTEURS",0},{"ECU",4}};break;case 1:tabs={{"JANTES",-1},{"PNEUS",10}};break;case 2:tabs={{"NOS",5}};break;case 3:tabs={{"TURBOS",2},{"COMPRESSEURS",3},{"INTERCOOLERS",7}};break;case 4:tabs={{"SUSPENSIONS",1},{"TRANSMISSION",-2}};break;default:tabs={{"ADMISSIONS",6},{"PISTONS",8},{"ÉCHAPPEMENTS",9}};}
-        float width=489.f/tabs.size();for(size_t i=0;i<tabs.size();i++){
+        if(cosmeticPicker){if(button({759,238,42,30},"<"))chooseCosmetic(cosmeticSlot-1);pxText(TextFormat("%02i / 16 : %s",cosmeticSlot+1,CosmeticLabels[cosmeticSlot]),815,248,13,Accent);if(button({1206,238,42,30},">"))chooseCosmetic(cosmeticSlot+1);}
+        switch(customGroup){case 0:tabs={{"MOTEURS",0},{"ECU",4}};break;case 1:tabs={{"JANTES",-1},{"PNEUS",10}};break;case 2:tabs={{"NOS",5}};break;case 3:tabs={{"TURBOS",2},{"COMPRESSEURS",3},{"INTERCOOLERS",7}};break;case 4:tabs={{"SUSPENSIONS",1},{"TRANSMISSION",-2}};break;case 6:break;default:tabs={{"ADMISSIONS",6},{"PISTONS",8},{"ÉCHAPPEMENTS",9}};}
+        float width=tabs.empty()?0:489.f/tabs.size();for(size_t i=0;i<tabs.size();i++){
             bool selected=tabs[i].second==-1?rimPicker:!rimPicker&&int(customSlot)==tabs[i].second;
             if(button({759+float(i)*width,238,width-5,30},tabs[i].first,selected)){
                 if(tabs[i].second==-2)openTransmission();else chooseGroup(customGroup,tabs[i].second,tabs[i].second==-1);
@@ -439,23 +468,23 @@ struct App {
         }
         auto choices=garageChoices();int pages=std::max(1,(int(choices.size())+GaragePageSize-1)/GaragePageSize);customPage=std::clamp(customPage,0,pages-1);
         for(int row=0;row<GaragePageSize;row++){
-            int index=customPage*GaragePageSize+row;if(index>=int(choices.size()))break;int id=choices[index];const Part* p=rimPicker||!id?nullptr:findPart(id);
+            int index=customPage*GaragePageSize+row;if(index>=int(choices.size()))break;int id=choices[index];const Part* p=rimPicker||cosmeticPicker||!id?nullptr:findPart(id);
             Rectangle r{float(759+(row%2)*246),float(280+(row/2)*74),240,68};bool selected=id==customPreview;
             DrawRectangleRec(r,selected?Color{53,68,68,255}:Color{43,43,49,255});DrawRectangleLinesEx(r,selected?2:1,selected?Accent:Color{102,102,111,255});
             if(p)DrawRectangle(int(r.x),int(r.y),4,int(r.height),rarityColor(partRarity(*p)));
-            if(rimPicker)rimIcon(id,configuration.tireFrame,{r.x+7,r.y+6,48,52});else uiImage(partImage(customSlot,p?p->subimage:0),{r.x+6,r.y+5,50,54},p?WHITE:Fade(WHITE,.5f));
+            if(rimPicker)rimIcon(id,configuration.tireFrame,{r.x+7,r.y+6,48,52});else if(cosmeticPicker)uiImage(cosmeticIcon(id),{r.x+6,r.y+5,50,54});else uiImage(partImage(customSlot,p?p->subimage:0),{r.x+6,r.y+5,50,54},p?WHITE:Fade(WHITE,.5f));
             auto name=choiceName(id);size_t split=name.size()>20?name.rfind(' ',20):std::string::npos;
             if(split!=std::string::npos){text(name.substr(0,split),r.x+62,r.y+7,14);text(name.substr(split+1,23),r.x+62,r.y+25,14);}else text(name.substr(0,23),r.x+62,r.y+13,14);
-            pxText(rimPicker?"STYLE":p?rarityLabel(partRarity(*p)):"ORIGINE",r.x+62,r.y+50,10,p?rarityColor(partRarity(*p)):Muted);
-            if((rimPicker?profile.rim:profile.parts[int(customSlot)])==id)DrawCircle(int(r.x+r.width-8),int(r.y+8),3,Gold);
+            pxText(rimPicker||cosmeticPicker?"STYLE":p?rarityLabel(partRarity(*p)):"ORIGINE",r.x+62,r.y+50,10,p?rarityColor(partRarity(*p)):Muted);
+            if(equippedChoice()==id)DrawCircle(int(r.x+r.width-8),int(r.y+8),3,Gold);
             if(hit(r)){tooltipText=name;if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){customPreview=id;searchFocused=false;audio.click(settings.sound);}if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)&&GetTime()-lastCardClick<.3&&lastCardId==id)equipGarageChoice();if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){lastCardClick=GetTime();lastCardId=id;}}
         }
         if(choices.empty())text("Aucune pièce trouvée",785,320,20,Muted);
-        const Part* selected=rimPicker||!customPreview?nullptr:findPart(customPreview);
+        const Part* selected=rimPicker||cosmeticPicker||!customPreview?nullptr:findPart(customPreview);
         text(choiceName(customPreview).substr(0,36),761,510,16);
-        auto preview=buildVehicle(garagePreviewProfile());text(rimPicker?"Style visuel • aucun gain de puissance":TextFormat("Gain : %+.0f HP  |  avec NOS : %+.0f HP",preview.boostedHp-configuration.boostedHp,preview.nitroHp-configuration.nitroHp),761,537,13,Muted);
+        auto preview=buildVehicle(garagePreviewProfile());text(rimPicker||cosmeticPicker?"Style visuel • aucun gain de puissance":TextFormat("Gain : %+.0f HP  |  avec NOS : %+.0f HP",preview.boostedHp-configuration.boostedHp,preview.nitroHp-configuration.nitroHp),761,537,13,Muted);
         if(selected&&hit({759,509,335,45}))tooltipText=TextFormat("%s | statistique %.0f | poids relatif %.0f | valeur catalogue $%.0f",selected->name,selected->stat,selected->weight,selected->value);
-        bool equipped=(rimPicker?profile.rim:profile.parts[int(customSlot)])==customPreview;
+        bool equipped=equippedChoice()==customPreview;
         if(button({1102,512,145,43},equipped?"ÉQUIPÉ":customPreview||rimPicker?"ÉQUIPER":"RETIRER",true,!equipped&&!choices.empty()))equipGarageChoice();
         if(button({759,565,37,26},"<",false,customPage>0)){--customPage;customPreview=choices[customPage*GaragePageSize];}
         text(TextFormat("%i / %i • %i choix",customPage+1,pages,int(choices.size())),813,571,13,Muted);
@@ -469,8 +498,9 @@ struct App {
         DrawRectangle(0,0,1280,51,Color{28,28,31,255});DrawRectangle(0,47,1280,4,BLACK);
         if(button({17,8,111,32},"< MENU")){screen=Screen::Menu;inventoryOpen=false;}
         pxText("GARAGE",150,14,26);
-        card({710,7,287,34},Color{19,22,27,255});pxText("ÉQUIPEMENT LIBRE",732,17,16,Accent);
-        pxText("194 PIÈCES",1022,18,15);
+        if(button({570,8,212,32},"ORIGINAL 1.2.5",profile.contentSource==1)){profile.contentSource=1;audio.selectBank(1);saveCar();}
+        if(button({792,8,190,32},"UNBOUND",profile.contentSource==0)){profile.contentSource=0;audio.selectBank(0);saveCar();}
+        pxText("1196 ÉQUIPEMENTS",1000,18,13);
         if(iconButton({1222,8,36,33},original_ui::buttons[37],"Paramètres PC"))openOptions();
         if(iconButton({1171,65,88,80},original_ui::garageIcons[10],"Prendre la route"))queued=[this]{saveCar();beginFree();};
         pxText("ROUTE",1190,142,13);
@@ -510,7 +540,7 @@ struct App {
         return changed;
     }
     void transmissionScene(){
-        crop(original_ui::garages[garageStyle%5],{0,0,1280,720});car(profile.car,profile.rim,365,310,2.3,0,true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame);
+        crop(original_ui::garages[garageStyle%5],{0,0,1280,720});car(profile.car,profile.rim,365,310,2.3,0,true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,-1,&profile);
         DrawRectangle(0,0,1280,720,Fade(Ink,.88f));text("TRANSMISSION / BOÎTE",34,25,29,Accent);
         text(notice.empty()?"Boîtes inspirées du réel • enregistrer pour appliquer":notice,34,69,16,Muted);
         if(button({1030,23,217,48},"RETOUR")){screen=Screen::Customization;}
@@ -572,7 +602,7 @@ struct App {
         renderEffects(false);
         for(int lane=0;lane<3;lane++){
             for(const auto& t:drive.traffic)if(drive.trafficEnabled&&t.lane==lane){float x=float(scene::trafficX(t.position,drive.player.position));if(x>-400&&x<1600)car(t.appearance,RimFrames[t.appearance%RimFrames.size()],x,269+lane*96,1.25,scene::wheelAngle(t.position,.32));}
-            if(std::clamp(int(std::round(drive.lane)),0,2)==lane)car(profile.car,profile.rim,360,269+float(drive.lane)*96,1.25,scene::wheelAngle(drive.player.position,drive.vehicle.wheelRadius),true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,scene::wheelAngle(drive.player.rearRollDistance,drive.vehicle.wheelRadius));
+            if(std::clamp(int(std::round(drive.lane)),0,2)==lane)car(profile.car,profile.rim,360,269+float(drive.lane)*96,1.25,scene::wheelAngle(drive.player.position,drive.vehicle.wheelRadius),true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,scene::wheelAngle(drive.player.rearRollDistance,drive.vehicle.wheelRadius),&profile);
         }
         renderEffects(true);
         if(drive.collisionCooldown>1.0)DrawRectangle(0,0,1280,720,Fade(RED,.10f));
@@ -777,7 +807,20 @@ struct App {
             if(frames==358+page*3){customPage=page;customPreview=RimFrames[page*GaragePageSize];}
             if(frames==360+page*3)capture(TextFormat("jantes-corrigees-%i.png",page+1));
         }
-        if(frames==371)quit=true;
+        if(frames==371){profile.rim=10100;profile.contentSource=1;saveCar();chooseGroup(1);customSearch="Four Racing";customPage=0;customPreview=10100;check(garageChoices()==std::vector<int>{10100},"source-named composite rim is searchable and previewable");}
+        if(frames==374)capture("jantes-originales-nommees.png");
+        if(frames==375){profile.contentSource=0;audio.selectBank(0);saveCar();}
+        if(frames==378)capture("contenu-unbound.png");
+        if(frames==379){for(const auto& c:CosmeticCatalog)if(!profile.cosmetics[c.slot])profile.cosmetics[c.slot]=c.id;profile.contentSource=1;saveCar();inventoryOpen=false;}
+        if(frames==382)capture("garage-complet.png");
+        if(frames==383)chooseCosmetic(1);
+        if(frames==386)capture("livrees-original-unbound.png");
+        if(frames==387)chooseCosmetic(4);
+        if(frames==390)capture("kits-carrosserie.png");
+        if(frames==391)beginFree();
+        if(frames==394)capture("route-personnalisee.png");
+        if(frames==395){auto image=LoadImageFromTexture(content.body);auto bounds=GetImageAlphaBorder(image,.01f);check(content.pixels.size()==size_t(content_art::AtlasCount)&&bounds.width>100&&bounds.height>20,"composed body stays visible across graphics-mode changes");UnloadImage(image);saveCar();auto loaded=loadProfile(profileFile(),191,54);check(loaded.rim==10100&&loaded.contentSource==1&&loaded.cosmetics==profile.cosmetics,"named rims and all appearance slots persist together");}
+        if(frames==398)quit=true;
 
     }
     int run(){
@@ -799,6 +842,7 @@ struct App {
         return args.smoke&&!smokePassed?2:0;
     }
     ~App(){
+        content.clear();
         if(render.id)UnloadRenderTexture(render);
         for(auto& pair:atlases)UnloadTexture(pair.second);
         if(font.texture.id)UnloadFont(font);

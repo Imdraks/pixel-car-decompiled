@@ -4,6 +4,8 @@
 #include "effects.hpp"
 #include "road_scene.hpp"
 #include "original_ui.hpp"
+#include "content_art.hpp"
+#include "base_audio.hpp"
 #include <cmath>
 #include <algorithm>
 #include <filesystem>
@@ -148,10 +150,10 @@ int main(int argc,char**argv){
     expect(benchmarkText.find("\"sanity_checks_passed\": true")!=std::string::npos,"benchmark scenarios pass their sanity checks");
     bool refused=false;try{writePhysicsBenchmark(benchmark);}catch(const std::exception&){refused=true;}
     expect(refused,"benchmark refuses to replace an existing directory");
-    expect(std::size(PartCatalog)==194,"all requested Unbound catalog entries are included");
+    expect(std::size(PartCatalog)==196,"merged original and Unbound performance entries are included");
     std::array<int,PartSlotCount> counts{};
     for(const auto& part:PartCatalog)++counts[int(part.slot)];
-    expect(counts==std::array<int,PartSlotCount>{16,16,14,10,8,5,21,13,7,48,36},"catalog includes every requested category and supercharger split");
+    expect(counts==std::array<int,PartSlotCount>{16,16,16,10,8,5,21,13,7,48,36},"catalog includes every requested category and supercharger split");
     Profile custom;
     expect(equipPart(custom,PartSlot::Engine,1002),"2JZ can be equipped by stable catalog ID");
     auto jz=buildVehicle(custom);
@@ -190,7 +192,7 @@ int main(int argc,char**argv){
         for(int i=0;i<120*3;i++)stepCar(run,setup.vehicle,{true,false,true,true},Step,0);
         allPartsStable&=std::isfinite(run.speed)&&std::isfinite(run.rpm)&&run.speed>0&&run.rpm>0&&setup.vehicle.mass>=600;
     }
-    expect(allPartsStable,"all 194 parts build a finite driveable configuration");
+    expect(allPartsStable,"all 196 parts build a finite driveable configuration");
     std::string customError;
     expect(saveProfile(root/"custom.ini",custom,customError),"custom equipment profile saves");
     auto customLoaded=loadProfile(root/"custom.ini",191,54);
@@ -265,7 +267,7 @@ int main(int argc,char**argv){
     bool noDowngrade=true;int replacements=0;
     for(const auto& part:PartCatalog){Profile alternate=ultimate;equipPart(alternate,part.slot,part.id);auto result=buildVehicle(alternate);
         noDowngrade&=result.nitroHp<=full.nitroHp+.01&&result.boostedHp<=full.boostedHp+.01;++replacements;}
-    expect(noDowngrade&&replacements==194,"no catalog replacement beats the maximum preparation peak power");
+    expect(noDowngrade&&replacements==196,"no catalog replacement beats the maximum preparation peak power");
     // Cross every engine, ECU, induction choice and intercooler (including base).
     std::vector<int> engines,ecus{0},induction{0},coolers{0};
     for(const auto& part:PartCatalog){
@@ -286,7 +288,7 @@ int main(int argc,char**argv){
         if(!boost)combinationsValid&=std::abs(result.baseHp-result.boostedHp)<1e-8;
         ++combinations;
     }
-    expect(combinationsValid&&combinations==50400,"50400 engine/ECU/induction/intercooler combinations have consistent finite power");
+    expect(combinationsValid&&combinations==54432,"54432 engine/ECU/induction/intercooler combinations have consistent finite power");
     // Also cross all independent atmospheric-part choices on each engine.
     std::vector<int> intakes{0},pistons{0},exhausts{0};
     for(const auto& part:PartCatalog){if(part.slot==PartSlot::Intake)intakes.push_back(part.id);if(part.slot==PartSlot::Pistons)pistons.push_back(part.id);if(part.slot==PartSlot::Exhaust)exhausts.push_back(part.id);}
@@ -400,6 +402,21 @@ int main(int argc,char**argv){
     }
     expect(validRimsPreserved,"all 23 real source rims preserve their IDs across profile loading");
     expect(invalidRimsRepaired,"all 31 tyre/effect legacy rim selections migrate without losing equipment");
+    expect(std::size(RimCatalog)==521&&std::size(CosmeticCatalog)==479&&std::size(PartCatalog)==196,"merged shop includes 1196 named equippable items without duplicating shared entries");
+    bool namedRimsPersist=true,rimImagesValid=true;
+    for(const auto& rim:RimCatalog){
+        Profile p;p.rim=rim.id;saveProfile(root/"named-rim.ini",p,error);auto loaded=loadProfile(root/"named-rim.ini",191,54);namedRimsPersist&=loaded.rim==rim.id;
+        for(auto frames:{content_art::unboundRims,content_art::originalRims}){auto f=frames[rim.image];rimImagesValid&=f.atlas>=2000&&f.atlas<2000+content_art::AtlasCount&&f.canvasW==62&&f.canvasH==62&&f.w>0&&f.h>0&&f.x+f.w<=2048&&f.y+f.h<=2048;}
+    }
+    expect(namedRimsPersist,"all 521 source-named composite rims survive profile reload without legacy clamping");
+    expect(rimImagesValid,"both source banks provide valid nonempty composed frames for all 521 rims");
+    Profile outfit;outfit.contentSource=1;for(const auto& c:CosmeticCatalog)outfit.cosmetics[c.slot]=c.id;saveProfile(root/"outfit.ini",outfit,error);auto outfitLoaded=loadProfile(root/"outfit.ini",191,54);
+    expect(outfitLoaded.cosmetics==outfit.cosmetics&&outfitLoaded.contentSource==1,"all sixteen appearance slots and original source selection persist");
+    {std::ofstream out(root/"bad-outfit.ini");out<<"content_source=7\ncosmetic_0=102001\ncosmetic_1=999999\n";}
+    auto badOutfit=loadProfile(root/"bad-outfit.ini",191,54);expect(badOutfit.contentSource==1&&badOutfit.cosmetics[0]==0&&badOutfit.cosmetics[1]==0,"malformed appearance and wrong-slot IDs cannot corrupt the outfit");
+    expect(findPart(3027)&&findPart(3028)&&findPart(3027)->stat==35&&findPart(3028)->stat==35,"original-only Diamond and Ruby turbos join the Unbound equipment catalog");
+    bool audioBanksValid=std::size(BaseGameSounds)==94;for(int id=0;id<94;id++)audioBanksValid&=std::string(BaseGameSounds[id].name)==OriginalSounds[id].name&&std::string(BaseGameSounds[id].file).find("audio-original/")==0;
+    expect(audioBanksValid,"both 94-sample banks preserve stable names, IDs and separate resource paths");
     expect(easeLinear(0,5,10,2)==5&&easeLinear(2,5,10,2)==15,"reconstructed numeric easing endpoints");
     std::cout<<"PASS: "<<checks<<" checks; quarter mile "<<reference.finishTime<<" s; endless distance "<<simulated(60,true).position<<" m\n";
     return 0;

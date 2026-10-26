@@ -68,7 +68,7 @@ try:
     def ini(path):return dict(line.split('=',1) for line in path.read_text().splitlines() if '=' in line)
     settings=ini(args.output/'data/settings.ini');profile=ini(args.output/'data/profile.ini');session=ini(args.output/'data/last-session.txt')
     checks={
-      'normal_exit':process.returncode==0,'garage_car_click':profile['car']=='1','garage_rim_click':profile['rim']=='9',
+      'normal_exit':process.returncode==0,'garage_car_click':profile['car']=='1','garage_rim_click':profile['rim']=='10101',
       'actual_keyboard_acceleration':float(session['distance_m'])>1,'actual_lane_input':session['target_lane']=='2',
       'actual_gearbox_toggle':profile['automatic']=='0',
       'actual_drive_selection_saved':profile['drive']=='2','actual_drive_selection_applied':session['drive_layout']=='2','actual_settings_apply':settings['mode']=='borderless',

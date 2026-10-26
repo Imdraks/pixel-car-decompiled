@@ -8,10 +8,15 @@ from pathlib import Path
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--binary',type=Path,required=True)
 parser.add_argument('--output',type=Path,required=True)
+parser.add_argument('--raw-output',type=Path)
+parser.add_argument('--source',choices=['unbound','original'],default='unbound')
 options=parser.parse_args()
 import struct,json,subprocess,re
 from pathlib import Path
-b=options.binary.read_bytes();h=struct.unpack_from('<16sHHIIIIIHHHHHH',b);ss=[struct.unpack_from('<10I',b,h[6]+i*h[11]) for i in range(h[12])]
+b=options.binary.read_bytes()
+expected={'unbound':'fb3726e175e7d1c643e0ddac1ec1a365901c4d52a16ded97e89fd672f6a9e9cc','original':'af1f9adc9a3a0a4ec1547d051fe41a89974045cb3d7666fbbb94715ce2872a18'}[options.source]
+if hashlib.sha256(b).hexdigest()!=expected:raise ValueError('Unreviewed source binary')
+h=struct.unpack_from('<16sHHIIIIIHHHHHH',b);ss=[struct.unpack_from('<10I',b,h[6]+i*h[11]) for i in range(h[12])]
 def data(s):return b[s[4]:s[4]+s[5]]
 def cs(buf,p):return buf[p:buf.index(b'\0',p)].decode('utf8','replace')
 def off(v):return next(s[4]+v-s[3] for s in ss if s[1]!=8 and s[3]<=v<s[3]+s[5])
@@ -31,7 +36,10 @@ f=next(s for s in symbols if 'gml_Script_db_shop_items' in s[0] and s[3]);start=
 text=subprocess.check_output(['objdump','-d','-C',f'--start-address={start}',f'--stop-address={end}',str(options.binary)],text=True)
 
 from collections import Counter
-registers={'%ebx':0x13b5000};memory={};values={};records=[]
+pic=re.search(r'([0-9a-f]+):\s+(?:[0-9a-f]{2} )+\s+pop\s+%ebx\n\s*[0-9a-f]+:\s+(?:[0-9a-f]{2} )+\s+add\s+\$0x([0-9a-f]+),%ebx',text)
+if not pic:raise ValueError('Unsupported PIC prologue')
+base=int(pic[1],16)+int(pic[2],16)
+registers={'%ebx':base};memory={};values={};records=[]
 byname={s[0]:s for s in symbols}
 def stackaddr(s):
  m=re.fullmatch(r'(0x[0-9a-f]+)?\(%esp\)',s)
@@ -44,7 +52,7 @@ def read(s):
  if p is not None:return memory.get(p)
  m=re.fullmatch(r'(-?0x[0-9a-f]+)\(%ebx\)',s)
  if m:
-  sym=got.get(0x13b5000+int(m[1],16))
+  sym=got.get(base+int(m[1],16))
   if sym:return ('symbol',sym[0])
  return None
 def write(dst,value):
@@ -60,6 +68,9 @@ def vector(s):
  r=read(s);return r if isinstance(r,list) else [r,None,None,None]
 def rval(p):
  if not isinstance(p,tuple):return None
+ if p[0]=='address':
+  try:return cs(b,off(p[1]))
+  except (StopIteration,ValueError):return None
  if p[0]=='symbol':
   sym=byname[p[1]];v=sym[1]
   if p[1].startswith('g_pString'):
@@ -85,6 +96,12 @@ for line in text.splitlines():
   if 'YYSetString' in rest:
    dest=memory.get(0);src=rval(memory.get(4))
    if isinstance(dest,tuple) and dest[0]=='stack':values[dest[1]]=src
+  elif 'YYRValue::operator=(int)' in rest:
+   dest=memory.get(0);value=memory.get(4)
+   if isinstance(dest,tuple) and dest[0]=='stack':values[dest[1]]=value
+  elif 'YYRValue::operator=(double)' in rest:
+   dest=memory.get(0);low,high=memory.get(4),memory.get(8)
+   if isinstance(dest,tuple) and dest[0]=='stack' and isinstance(low,int) and isinstance(high,int):values[dest[1]]=struct.unpack('<d',struct.pack('<II',low&0xffffffff,high&0xffffffff))[0]
   elif 'YYRValue::operator=' in rest:
    dest=memory.get(0);value=rval(memory.get(4))
    if isinstance(dest,tuple) and dest[0]=='stack':values[dest[1]]=value
@@ -92,14 +109,14 @@ for line in text.splitlines():
    ptr=memory.get(16);argc=memory.get(12)
    if argc==9 and isinstance(ptr,tuple) and ptr[0]=='stack':
     args=[rval(memory.get(ptr[1]+4*i)) for i in range(9)]
-    if address>=0x3abbd3:records.append({'address':hex(address),'args':args})
+    if (options.source=='original' or address>=0x3abbd3) and args[0]=='items':records.append({'address':hex(address),'args':args})
   continue
  if op=='pshufd' and len(parts)==3:
   imm=int(parts[0].strip()[1:],0);v=vector(parts[1].strip());write(parts[2].strip(),[v[(imm>>(2*i))&3] for i in range(4)]);continue
  if len(parts)!=2:continue
  src,dst=map(str.strip,parts)
  if op=='lea':
-  p=stackaddr(src);write(dst,('stack',p) if p is not None else None)
+  p=stackaddr(src);m=re.fullmatch(r'(-?0x[0-9a-f]+)\(%ebx\)',src);write(dst,('stack',p) if p is not None else ('address',base+int(m[1],16)) if m else None)
  elif op in ['mov','movl']:write(dst,read(src))
  elif op=='movd':write(dst,[read(src),0,0,0] if dst.startswith('%xmm') else vector(src)[0])
  elif op=='movq':
@@ -123,13 +140,14 @@ for line in text.splitlines():
  elif dst.startswith('%') and op not in ['cmp','test','ucomisd','ucomiss']:
   write(dst,None)
 
-expected='fb3726e175e7d1c643e0ddac1ec1a365901c4d52a16ded97e89fd672f6a9e9cc'
-if hashlib.sha256(b).hexdigest()!=expected:raise ValueError('Unsupported Unbound binary; offsets must be reviewed')
+if options.raw_output:
+ options.raw_output.parent.mkdir(parents=True,exist_ok=True);options.raw_output.write_text(json.dumps(records,indent=2)+'\n')
+
 schema='type|string,name|string,float|real,hp|real,weight|real,value|real,subimage|real,equiped|real'
 if schema.encode()+b'\0' not in b:raise ValueError('Item schema not found')
 kinds=['engine','suspension','turbo','ecu','nos','intake','intercooler','pistons','exhaust','tires']
 selected=[r for r in records if r['args'][1] in kinds]
-if len(records)!=1195 or len(selected)!=195:raise ValueError('Unexpected item insertion coverage')
+if len(records)!=(1197 if options.source=='original' else 1195) or len(selected)!=(197 if options.source=='original' else 195):raise ValueError('Unexpected item insertion coverage')
 result=[];keys=set()
 for row in selected:
  a=row['args']

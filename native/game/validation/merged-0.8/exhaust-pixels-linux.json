@@ -1,0 +1,8 @@
+{
+  "checks": {
+    "blue_nos_is_visible": true,
+    "warm_backfire_is_visible": true
+  },
+  "blue_pixels": 83,
+  "warm_pixels": 131
+}

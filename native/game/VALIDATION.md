@@ -1,3 +1,23 @@
+# Validation native 0.8.0
+
+- 136 contrôles du cœur : 196 pièces, 521 recettes et images de jantes dans
+  chaque banque, migration des sauvegardes et seize catégories esthétiques.
+- 42 contrôles graphiques : jantes nommées, banque Original/Unbound, kits/livrée,
+  cargaison au-dessus du toit, conduite personnalisée et corps visible après
+  les changements d’affichage.
+- 79 contrôles d’entrées Linux : 63 garage/équipement/audio, 16 affichage/trafic.
+  Les seize catégories s’équipent par de vraies entrées, les jantes se cherchent
+  par nom, les banques changent et l’ensemble survit au redémarrage.
+- 188 échantillons décodés ; mixage logiciel non silencieux des deux banques,
+  seize profils par banque, turbo/compresseur/NOS et événements, sans erreur.
+- 192416 combinaisons de performance, 9359 ancrages et physique de référence
+  conservés. Les adaptations de matériaux/accessoires restent décrites dans
+  CONTENT.md ; ni fidélité complète Android ni haut-parleurs physiques démontrés.
+- Rapports locaux : `validation/merged-0.8/`. La publication exige les contrôles
+  Windows du cœur, physique, rendu, combinaisons et décodage des deux banques.
+
+## Historique : version 0.7.1
+
 # Validation native 0.7.1
 
 - 129 contrôles du cœur : conservation des 23 identifiants de vraies jantes et

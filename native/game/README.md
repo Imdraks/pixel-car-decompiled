@@ -1,23 +1,25 @@
-# Pixel Car Racer — Unbound Native 0.7.1
+# Pixel Car Racer — Unbound Native 0.8.0
 
-Le correctif **0.7.1** retire les pneus/effets présentés par erreur comme des
-jantes et répare les anciennes sélections invalides. Les 23 vraies jantes sont
-conservées, avec vignettes pneu+jante correctement alignées.
+La version **0.8.0** fusionne les boutiques : **196 pièces de performance**,
+**521 jantes nommées et composées**, **479 éléments esthétiques**. F7 ouvre
+STYLE / ACCESSOIRES ; les boutons ORIGINAL 1.2.5 / UNBOUND conservent les deux
+banques de carrosseries et d’accessoires. Voir [CONTENT.md](CONTENT.md) pour
+les catégories, la provenance et les limites du rendu reconstruit.
 
 Cette première reconstruction **native Windows x64** propose un mode libre
 jouable avec les ressources d'Unbound. Le programme ne lance ni APK, ni Android,
 ni émulateur. Il fonctionne hors ligne après extraction de l'archive.
 
 Ce n'est pas encore le portage complet et fidèle du jeu original : la conduite
-et la circulation sont réimplémentées. La base originale 1.2.5 n'est pas fusionnée
-avec le mod. Le moteur GameMaker YYC d'origine n'a pas été recompilé.
+et la circulation sont réimplémentées. Les boutiques et les banques visuelles de l’original et du mod sont fusionnées ;
+les autres modes et la progression ne sont pas encore reconstruits. Le moteur GameMaker YYC d'origine n'a pas été recompilé.
 
 La version **0.7.0** reprend le garage et le menu de customisation du jeu de
 base : atelier, pont élévateur, icônes de catégories, jauges et police pixel
 originales, avec inventaire adapté à la souris/clavier. Les statistiques et
 la voiture montrent l'aperçu de la pièce avant équipement. Ctrl+F, molette,
 F1–F6, Entrée et double-clic accélèrent la navigation ; les choix sont sauvegardés.
-Les 194 pièces, 191 carrosseries, 23 jantes et réglages précédents sont conservés.
+Les 194 pièces, 191 carrosseries par banque, 521 jantes nommées et réglages précédents sont conservés.
 Voir [GARAGE-PC.md](GARAGE-PC.md) pour les catégories et commandes.
 
 **Espace est le frein à main en conduite**, avec roues arrière bloquées,
@@ -104,7 +106,7 @@ Le mode libre continue au-delà de 400 mètres. La circulation utilise trois
 voies ; les contacts ralentissent le véhicule. Les paramètres et la pause
 arrêtent la simulation, puis reprennent la session en cours.
 
-Le garage permet de choisir parmi **191 images de carrosserie** et **23 styles
+Le garage permet de choisir parmi **191 images de carrosserie** et **521 styles nommés
 de jantes** extraits d'Unbound. Ces nombres ne désignent pas 191 véhicules dont
 les statistiques d'origine auraient été reconstruites. Les performances moteur de base
 sont communes à cette version. Les points de roue utilisent l’origine des sprites

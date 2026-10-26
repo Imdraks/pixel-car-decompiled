@@ -23,6 +23,8 @@ int main(int argc,char** argv){
             std::cerr<<"Audio device initialized\n";AttachAudioMixedProcessor(mixed);
             Profile profile;equipPart(profile,PartSlot::Engine,1002);equipPart(profile,PartSlot::Turbo,3026);equipPart(profile,PartSlot::Nos,5007);equipPart(profile,PartSlot::Exhaust,9048);
             auto setup=buildVehicle(profile);CarState state;state.rpm=5000;state.speed=30;state.gear=3;state.boostPsi=25;
+            for(int source=0;source<2;source++){
+            profile.contentSource=source;auto previousEnergy=energy.load();
             for(int bank=0;bank<16;bank++){
                 std::cerr<<"Mixing original profile "<<bank<<'\n';profile.soundOn=profile.soundOff=bank;
                 for(int tick=0;tick<12;tick++){audio.update(profile,setup.vehicle,state,{true,false,true},0,true,true);std::this_thread::sleep_for(std::chrono::milliseconds(10));}
@@ -34,12 +36,14 @@ int main(int argc,char** argv){
             for(int tick=0;tick<30;tick++){audio.update(profile,setup.vehicle,state,{true,false,true},1.2,true,true);std::this_thread::sleep_for(std::chrono::milliseconds(10));}
             audio.click(true);audio.install(true);audio.horn(true);
             for(int tick=0;tick<4;tick++){audio.valve(tick,true);std::this_thread::sleep_for(std::chrono::milliseconds(30));}
+            if(energy.load()<=previousEnergy)throw std::runtime_error("Silent audio bank after source switch");
+            }
             DetachAudioMixedProcessor(mixed);
             if(audio.failures)throw std::runtime_error("An original music stream or sound event failed to load");
         }
         if(frames.load()==0||energy.load()==0)throw std::runtime_error("Original audio did not produce non-silent mixed PCM");
         std::ofstream out(std::filesystem::u8path(argv[2]));
-        out<<"PASS: 16 engine profile pairs, turbo, supercharger, NOS and event sounds mixed through the real Raylib audio backend.\n"
+        out<<"PASS: both banks, 16 engine profile pairs per bank, turbo, supercharger, NOS and event sounds mixed through the real Raylib audio backend.\n"
            <<"stream_decode_failures=0\n"<<"frames="<<frames.load()<<"\nabsolute_pcm_energy_scaled="<<energy.load()<<"\n"
            <<"Software/null audio device only; physical speaker playback and exact original engine assignment are not established.\n";
         std::cout<<"PASS: non-silent original audio mix, "<<frames.load()<<" frames\n";return 0;

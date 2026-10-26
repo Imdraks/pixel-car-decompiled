@@ -11,12 +11,14 @@ class GameAudio {
     std::filesystem::path root;
     std::map<int,Sound> shots;
     Loop on,off,turbo,blower,nos,town;
+    int bank=0;
     bool lastGas=false,lastNos=false;int lastGear=1,crashes=0;double lastBoost=0,lastCollision=0,nextLaunchPop=0;
     void loop(Loop&,int id,float volume,float pitch);
     void shot(int id,float volume=1);
 public:
     bool ready=false;int failures=0;
     void init(const std::filesystem::path&);
+    void selectBank(int);
     void update(const Profile&,const Vehicle&,const CarState&,const DriverInput&,double collision,bool active,bool enabled);
     void click(bool enabled){if(ready&&enabled)shot(37,.4f);}
     void install(bool enabled){if(ready&&enabled)shot(40,.5f);}

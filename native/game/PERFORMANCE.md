@@ -1,4 +1,4 @@
-# Puissance et rareté natives 0.5
+# Puissance et rareté natives 0.8
 
 Le garage affiche la puissance maximale **avec la suralimentation**, séparément
 sans et avec NOS. Le banc trace les courbes atmosphérique, boost et boost + NOS.
@@ -8,7 +8,7 @@ transmission, limite d'adhérence et traînée ; ce ne sont pas des HP aux roues
 
 ## Combinaison des pièces
 
-1. La puissance du moteur choisi conserve la valeur du catalogue Unbound.
+1. La puissance du moteur choisi conserve la valeur du catalogue fusionné Original/Unbound.
 2. Admission, pistons et échappement ajoutent leurs gains source au moteur.
 3. L'ECU étend le régime et la courbe de couple avec le facteur
    `(8100 + supplément ECU) / 8100`, sans renormaliser pour effacer le gain.
@@ -65,3 +65,8 @@ et 137 984 combinaisons moteur/admission/pistons/échappement, ainsi que chacune
 des 194 substitutions de la préparation maximale, les raretés, l'exclusivité,
 la conduite au pic et le limiteur avec NOS. Ce découpage teste les interactions ;
 il ne prétend pas énumérer le produit cartésien complet de toutes les pièces.
+
+La version 0.8 ajoute les turbos Diamond et Ruby du jeu original (35 psi) :
+196 pièces de performance, 54432 combinaisons moteur/ECU/induction/intercooler
+et 137984 combinaisons atmosphériques, soit 192416 contrôles. Les équipements
+esthétiques et les jantes ne créent aucun cheval supplémentaire.
