@@ -1,3 +1,5 @@
 pc/payload/*.apk
 pc/build/
 pc/*.exe
+native/game/assets/
+native/game/build/

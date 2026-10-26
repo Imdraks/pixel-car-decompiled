@@ -1,0 +1,15 @@
+Trying to load file: '/workspace/windows-port/original-recovered/assets/game.droid'
+Quick Information:
+Project Name - "Pixel_Car_Racer"
+Is GMS2 - True
+Is YYC - True
+Bytecode version - 17
+Configuration name - "PixelCarRacer"
+94 Sounds, 530 Sprites, 0 Backgrounds
+1 Paths, 1916 Scripts, 4 Shaders
+22 Fonts, 0 Timelines, 114 Game Objects
+13 Rooms, 2 Extensions, 17679 Texture Page Items
+Unknown amount of Code entries and Code locals
+2908 Strings
+42 Embedded Textures
+65 Embedded Audio

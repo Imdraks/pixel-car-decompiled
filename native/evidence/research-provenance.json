@@ -1,0 +1,46 @@
+[
+  {
+    "repository": "JohnnyonFlame/gmloader-next",
+    "commit": "522d964025e8ecb739c5aeb0f57afaf6f7927849",
+    "files": [
+      "README.md",
+      "loader/platform.h"
+    ]
+  },
+  {
+    "repository": "Valkyrians/yyc-toolbox",
+    "commit": "bbf474c599b4c4a57690f1a2f8cf60158d04a465",
+    "files": [
+      "README.md"
+    ]
+  },
+  {
+    "repository": "shayderrr/YYC-DEC",
+    "commit": "4df19afb143bfaec1ba3a09253477660256b3567",
+    "files": [
+      "README.md"
+    ]
+  },
+  {
+    "repository": "kwik-gms2/kwik-yyc",
+    "commit": "6404d60338423091152f14c4e8e62fd9cc64cf18",
+    "files": [
+      "README.md",
+      "source/main.cpp",
+      "source/elf.cpp",
+      "source/analysis.cpp",
+      "source/emitter.cpp",
+      "CMakeLists.txt",
+      "include/kwik_yyc/elf.hpp",
+      "include/kwik_yyc/yyc.hpp",
+      "source/yyc.cpp"
+    ]
+  },
+  {
+    "repository": "misternebula/OpenGM",
+    "commit": "3ea86798d49369b28402cfff44db2eb1152a7aea",
+    "files": [
+      "README.md"
+    ]
+  }
+]

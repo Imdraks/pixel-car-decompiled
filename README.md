@@ -1,4 +1,16 @@
-# Pixel Car Racer PC : original et Unbound
+# Pixel Car Racer — reconstruction native Windows
+
+**Objectif actuel : portage natif Windows, sans émulateur Android.**
+Une [première reconstruction native du mode libre](native/game/README.md) est
+maintenant implémentée en C++ avec Raylib : conduite continue, circulation,
+garage et paramètres d'affichage persistants. Les performances des véhicules
+et la progression complètes du jeu original restent à reconstruire.
+
+Voir [l'étude native et les essais avec UndertaleModTool](native/README.md).
+Le lanceur décrit ci-dessous et la release `v0.1.0-windows-preview` sont le
+prototype précédent par compatibilité ; ils ne remplissent pas cet objectif.
+
+## Prototype historique par compatibilité Android
 
 Lanceur Windows x64 pour les deux APK fournis. Unbound est le choix par défaut.
 Cette distribution exécute le jeu Android dans un moteur Android local ; elle

@@ -1,0 +1,23 @@
+{
+  "utmt_loads": {
+    "unbound": "passed",
+    "original": "passed"
+  },
+  "structure_exports": "passed for both APKs",
+  "input_integrity": "4 extracted files byte-identical to supplied APK members",
+  "inventory_repeat": "passed",
+  "exact_object_symbol_joins": "passed, no unmatched native object names",
+  "targeted_ghidra": {
+    "result": "passed",
+    "functions": 3,
+    "whole_program_autoanalysis": false,
+    "compilable_source_recovered": false
+  },
+  "rea_full_pipeline": "failed: client request timeout after 1200000 ms",
+  "kwik_registration_probe": {
+    "unbound": "unsupported ELF32",
+    "original_x86_64": "zero registrations"
+  },
+  "game_execution_this_investigation": "not performed",
+  "windows_native_game": "not produced"
+}

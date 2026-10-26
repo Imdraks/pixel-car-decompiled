@@ -1,0 +1,4 @@
+No whole-program auto-analysis. ELF symbol/function boundaries used.
+ease_linear address=004e3af0 name=_Z22gml_Script_ease_linearP9CInstanceS0_R8YYRValueiPPS1_ completed=true error=
+car_end_step address=005bfe90 name=_Z24gml_Object_ob_car_Step_2P9CInstanceS0_ completed=true error=
+car_variables address=004a6c50 name=_Z22gml_Script_scr_car_varP9CInstanceS0_R8YYRValueiPPS1_ completed=true error=

@@ -1,0 +1,14 @@
+[
+  {
+    "target": "unbound",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "only little-endian ELF64 is supported in this PoC\n"
+  },
+  {
+    "target": "original-x86_64",
+    "exit_code": 3,
+    "stdout": "Recovered registration entries: 0\n",
+    "stderr": ""
+  }
+]

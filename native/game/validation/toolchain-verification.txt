@@ -1,0 +1,3 @@
+Verified and available: raylib-linux
+Verified and available: raylib-windows
+Verified and available: zig-linux

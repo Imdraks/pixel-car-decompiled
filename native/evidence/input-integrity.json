@@ -1,0 +1,26 @@
+[
+  {
+    "game": "unbound",
+    "member": "assets/game.droid",
+    "sha256": "717f5190d06dcf26d0ab7f423e0bd9a8c719a1fd1569c7cb2813de8c9a8a6e1c",
+    "identical_to_apk": true
+  },
+  {
+    "game": "unbound",
+    "member": "lib/x86/libyoyo.so",
+    "sha256": "fb3726e175e7d1c643e0ddac1ec1a365901c4d52a16ded97e89fd672f6a9e9cc",
+    "identical_to_apk": true
+  },
+  {
+    "game": "original",
+    "member": "assets/game.droid",
+    "sha256": "31551a9dc011827d8c4a7e54faa4755410471e39569e00b0e8bf7f7cb23bac6e",
+    "identical_to_apk": true
+  },
+  {
+    "game": "original",
+    "member": "lib/x86/libyoyo.so",
+    "sha256": "af1f9adc9a3a0a4ec1547d051fe41a89974045cb3d7666fbbb94715ce2872a18",
+    "identical_to_apk": true
+  }
+]

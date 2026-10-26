@@ -1,0 +1,1886 @@
+{
+  "project": "PixelCarRacer",
+  "yyc": true,
+  "bytecode_version": 16,
+  "code_entry_count": null,
+  "scripts": [
+    "scr_rim_setup",
+    "scr_rim_setup2",
+    "scr_part_positions",
+    "draw_bodykit_setup",
+    "scr_draw_motionblur",
+    "draw_adv_rim",
+    "sprite_get_bbox",
+    "check_car_collision",
+    "check_car_lane",
+    "blower_setup",
+    "exhaust_get_type",
+    "db_op_between",
+    "db_op_neq",
+    "db_op_lt",
+    "db_op_eq",
+    "db_op_gt",
+    "db_cl_where",
+    "db_cl_only",
+    "db_cl_limit",
+    "db_cl_join",
+    "db_cl_sort",
+    "db_query_delete",
+    "db_query_exec",
+    "db_query_free",
+    "db_query_init",
+    "db_query_insert",
+    "db_query_select",
+    "db_query_calc",
+    "db_query_update",
+    "db_qf_sort",
+    "db_qf_select",
+    "db_qf_update",
+    "db_qf_calc",
+    "db_qf_fetch",
+    "db_qf_delete",
+    "db_table_clear",
+    "db_table_column_indexes",
+    "db_table_column_names",
+    "db_table_create",
+    "db_column_fix",
+    "db_table_delete",
+    "db_table_exists",
+    "db_table_merge",
+    "db_table_load",
+    "db_table_reindex",
+    "db_table_size",
+    "db_table_save_csv",
+    "db_table_load_csv",
+    "db_table_save",
+    "csv_compose_line",
+    "csv_parse_line",
+    "string_parse",
+    "db_record_get",
+    "db_record_delete",
+    "db_record_update",
+    "db_record_rnd",
+    "db_record_first",
+    "db_record_exists",
+    "db_free",
+    "db_load",
+    "db_init",
+    "db_save",
+    "scr_facebook_create_trade",
+    "scrfbgiftError",
+    "scrfbgiftComplete",
+    "scrgiftUpdate",
+    "scrgiftUpdateError",
+    "dialogue",
+    "draw_bar_options",
+    "draw_rectangle_thick",
+    "draw_rectangle_thick_ext",
+    "draw_SHADER_motionBlur",
+    "draw_trail",
+    "iapBuy",
+    "iapDetails",
+    "iapFail",
+    "iapSuccess",
+    "iapTrialCheck",
+    "scrOnLeaderboardComplete",
+    "scrOnLoginComplete",
+    "scrOnLoginError",
+    "scrOnLeaderboardError",
+    "mask_init",
+    "mask_render",
+    "mask_surface",
+    "offset_xview",
+    "offset_xhud",
+    "offset_yview",
+    "offset_yhud",
+    "pal_swap_draw_palette",
+    "pal_swap_enable_override",
+    "pal_swap_get_color_count",
+    "pal_swap_get_pal_color",
+    "pal_swap_get_pal_count",
+    "pal_swap_index_palette",
+    "pal_swap_init_system",
+    "pal_swap_reset",
+    "pal_swap_set_tiles",
+    "pal_swap_set",
+    "pal_swap_set_overlay",
+    "shop_items_make",
+    "draw_shop_item",
+    "draw_shop_item_tag",
+    "db_rim_list_insert",
+    "db_shop_items",
+    "crate_item_win",
+    "savegame_save",
+    "savegame_flox",
+    "savegame_save_car",
+    "savegame_load",
+    "savegame_flox_load",
+    "savegame_load_car",
+    "string_save_encrypted",
+    "string_save_text",
+    "string_load_encrypted",
+    "string_load_text",
+    "savegame_clear",
+    "scr_car_var",
+    "scr_convert_time",
+    "scr_draw_motionblur_rim",
+    "scr_race_background",
+    "scr_screen_resize",
+    "scr_slider",
+    "test_var",
+    "trail_calculate",
+    "trail_destroy",
+    "trail_init",
+    "wrap",
+    "ini_write_string_enc",
+    "ini_read_string_enc",
+    "newChat",
+    "string_thousands",
+    "draw_chrome_ext",
+    "encrypt",
+    "check_encrypt",
+    "protect_init",
+    "hashs",
+    "pull_vars",
+    "scr_tex_wrap",
+    "string_split",
+    "name_bank_random",
+    "debug_console",
+    "scr_resize_screen",
+    "is_mouse_here",
+    "color_select",
+    "tool_select",
+    "system_select",
+    "settings_select",
+    "sticker_select",
+    "create_new_decal",
+    "decal_check_name",
+    "decal_load",
+    "decal_free",
+    "ease_in_back",
+    "ease_in_bounce",
+    "ease_in_circ",
+    "ease_in_cubic",
+    "ease_in_elastic",
+    "ease_in_expo",
+    "ease_in_quad",
+    "ease_in_quart",
+    "ease_in_quint",
+    "ease_in_sine",
+    "ease_inout_back",
+    "ease_inout_bounce",
+    "ease_inout_circ",
+    "ease_inout_cubic",
+    "ease_inout_elastic",
+    "ease_inout_expo",
+    "ease_inout_quad",
+    "ease_inout_quart",
+    "ease_inout_quint",
+    "ease_inout_sine",
+    "ease_linear",
+    "ease_out_back",
+    "ease_out_bounce",
+    "ease_out_circ",
+    "ease_out_cubic",
+    "ease_out_elastic",
+    "ease_out_expo",
+    "ease_out_quad",
+    "ease_out_quart",
+    "ease_out_quint",
+    "ease_out_sine",
+    "draw_background_road",
+    "scr_level_snap",
+    "scr_level_viewsnap",
+    "scr_level_select",
+    "scr_level_delete",
+    "draw_level_street",
+    "draw_level_background",
+    "scr_level_load_bg",
+    "draw_map_water",
+    "split_string",
+    "totro",
+    "http_tmt_send_score",
+    "_http_tmt_send_encode",
+    "_http_tmt_send_md5",
+    "_http_tmt_send_score",
+    "tournament_opp_find",
+    "car_choose_random",
+    "scr_load_language",
+    "draw_sprite_motionblur_ext",
+    "slot_reward_grid_init",
+    "slot_reward_list_set",
+    "slot_reward_shuffle",
+    "slot_reward_read",
+    "slot_reward_draw",
+    "slot_reward_cleanup",
+    "slot_reward_position_update",
+    "slot_reward_reset",
+    "slot_reward_generate",
+    "daily_reward_show",
+    "slot_reward_get",
+    "string_time_convert",
+    "krws_init",
+    "krws_is_ready",
+    "krws_check_version",
+    "krws_check_extension",
+    "krws_debug_set",
+    "krws_player_login",
+    "krws_player_is_logining",
+    "krws_player_logout",
+    "krws_player_is_loginingout",
+    "krws_player_is_new",
+    "krws_player_check_id",
+    "krws_dailyreward_list_load",
+    "krws_dailyreward_list_is_loading",
+    "krws_dailyreward_list_size",
+    "krws_dailyreward_list_read",
+    "krws_dailyreward_claim",
+    "krws_dailyreward_is_claiming",
+    "krws_dailyreward_number",
+    "krws_dailyreward_read",
+    "krws_freespin_claim",
+    "krws_freespin_is_claiming",
+    "krws_freespin_number",
+    "krws_freespin_read",
+    "krws_item_amount_get",
+    "krws_item_amount_is_geting",
+    "krws_item_amount_number",
+    "krws_item_amount_read",
+    "_krws_http_post",
+    "_krws_http_hash",
+    "_krws_http_number",
+    "_krws_http_inject",
+    "_krws_http_shuffle",
+    "_krws_http_post_send",
+    "_krws_http_read",
+    "_krws_http_unshuffle",
+    "_krws_http_deinject",
+    "_krws_error",
+    "snowfield_add_sprite",
+    "post_debug_message",
+    "kdbg_car_dump",
+    "surface_save_dbg",
+    "surface_check_integrity",
+    "color_is_stock_paint",
+    "surface_clear_alpha",
+    "flox_init",
+    "flox_log_error",
+    "flox_player_login_key",
+    "flox_player_logout",
+    "flox_entity_save_queued",
+    "flox_leaderboard_post",
+    "flox_leaderboard_load",
+    "flox_player_get",
+    "flox_entity_set",
+    "flox_entity_has",
+    "flox_entity_get",
+    "flox_entity_set_list",
+    "_flox_http_post",
+    "_flox_http_hash",
+    "_flox_http_number",
+    "_flox_http_inject",
+    "_flox_http_shuffle",
+    "_flox_http_post_send",
+    "show_debug_message_json",
+    "k_shadertest"
+  ],
+  "objects": [
+    {
+      "name": "ob_settings",
+      "sprite": null,
+      "visible": true,
+      "persistent": true,
+      "depth": -99999999,
+      "parent": null
+    },
+    {
+      "name": "ob_car",
+      "sprite": "sp_car",
+      "visible": true,
+      "persistent": false,
+      "depth": -10,
+      "parent": null
+    },
+    {
+      "name": "ob_ai_car",
+      "sprite": "sp_car",
+      "visible": true,
+      "persistent": false,
+      "depth": 10,
+      "parent": null
+    },
+    {
+      "name": "ob_displaycar",
+      "sprite": "sp_car",
+      "visible": true,
+      "persistent": false,
+      "depth": 10,
+      "parent": null
+    },
+    {
+      "name": "ob_parts",
+      "sprite": "sp_rims",
+      "visible": true,
+      "persistent": false,
+      "depth": 10,
+      "parent": null
+    },
+    {
+      "name": "ob_flame",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_ctf",
+      "sprite": "sp_ctf",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_title",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": -9999999,
+      "parent": null
+    },
+    {
+      "name": "ob_start_menu",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_title_menu",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_lift",
+      "sprite": "sp_garage_lift",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_loading",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_fade",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": -1215752191,
+      "parent": null
+    },
+    {
+      "name": "ob_start",
+      "sprite": "sprite61",
+      "visible": true,
+      "persistent": false,
+      "depth": -9999,
+      "parent": null
+    },
+    {
+      "name": "ob_sidebuttons",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_racemenu_buttons",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_tune_buttons",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_options",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_profile",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_message",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_badge_award",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_tournament_fade",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "obj_lighting",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": -9999,
+      "parent": null
+    },
+    {
+      "name": "ob_shifter",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": -999999999,
+      "parent": null
+    },
+    {
+      "name": "ob_hud",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": -99999999,
+      "parent": null
+    },
+    {
+      "name": "ob_stage",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_background",
+      "sprite": "sp_car",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_banner",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_trackbanner",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_crate",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_camera",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_complete",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_ticker",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": -999999999,
+      "parent": null
+    },
+    {
+      "name": "oStatBar",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "oStatPanel",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "obj_controller",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_database",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "o_back",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "obj_palette_manager",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_person",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_ai_people",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_partshop_button",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_partshop",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_tournament",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_garage_area",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_town_area",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_NOTES",
+      "sprite": null,
+      "visible": false,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_keyboard",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_graph",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_rain",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_smoke",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_confetti",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": -9999999,
+      "parent": null
+    },
+    {
+      "name": "ob_blossom",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": -9999999,
+      "parent": null
+    },
+    {
+      "name": "oControl",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 10,
+      "parent": null
+    },
+    {
+      "name": "oDialogue",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": -10,
+      "parent": null
+    },
+    {
+      "name": "oBlue",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "oPink",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "oGreen",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_interstitial",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_reward_video",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "obj_Interstitial",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "obj_MoreApps",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "obj_RewardedVideo",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": -100000000,
+      "parent": null
+    },
+    {
+      "name": "obj_Interstitial_unity",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_leaderboards",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "objAllTime",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "objLeaderboard",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "objLeaderboardLoader",
+      "sprite": "sp_gloves",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "objPostScore",
+      "sprite": "sp_button",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "objToday",
+      "sprite": "sp_button",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "objWeek",
+      "sprite": "sp_button",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "objFlox",
+      "sprite": null,
+      "visible": true,
+      "persistent": true,
+      "depth": 999999,
+      "parent": null
+    },
+    {
+      "name": "ob_inappstore",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "objIAPController",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "objBuyNoAds",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "objBuy100Coins",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "objRestoreAll",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "objBuyExtraLife",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "obj_camera",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "obj_dialogue",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_tutorial_log",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 1,
+      "parent": null
+    },
+    {
+      "name": "ob_anticheat",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_color_slider",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "obj_surface_main",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 2,
+      "parent": null
+    },
+    {
+      "name": "ob_edit_wrap_area",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_pointer",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_scene_maker",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_level_maker",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_wheel_spacer",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_level_rightclick",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_story_controller",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "ob_story_map",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "o_json",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "o_dailyInit",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": -2,
+      "parent": null
+    },
+    {
+      "name": "o_dailyReward",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": -1,
+      "parent": null
+    },
+    {
+      "name": "o_dailyRewardItem",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": -3,
+      "parent": null
+    },
+    {
+      "name": "o_dalyButton",
+      "sprite": "s_test",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "o_loadingBar",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": -1,
+      "parent": null
+    },
+    {
+      "name": "orws_control",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "obj_demo",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null
+    },
+    {
+      "name": "obj_snowfield",
+      "sprite": "spr_snow_empty",
+      "visible": true,
+      "persistent": false,
+      "depth": 1,
+      "parent": null
+    }
+  ],
+  "rooms": [
+    {
+      "name": "rm_title",
+      "width": 720,
+      "height": 480,
+      "speed": 30,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100000,
+          "x": 0,
+          "y": 32,
+          "object_name": "ob_settings"
+        },
+        {
+          "id": 100001,
+          "x": 32,
+          "y": 0,
+          "object_name": "ob_database"
+        },
+        {
+          "id": 100002,
+          "x": 128,
+          "y": 0,
+          "object_name": "objIAPController"
+        },
+        {
+          "id": 100003,
+          "x": 64,
+          "y": 0,
+          "object_name": "obj_palette_manager"
+        },
+        {
+          "id": 100004,
+          "x": 0,
+          "y": 0,
+          "object_name": "ob_title_menu"
+        },
+        {
+          "id": 100005,
+          "x": 814,
+          "y": 1206,
+          "object_name": "ob_start"
+        },
+        {
+          "id": 100006,
+          "x": 386,
+          "y": 270,
+          "object_name": "ob_lift"
+        },
+        {
+          "id": 100007,
+          "x": 444,
+          "y": 310,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100008,
+          "x": 362,
+          "y": 148,
+          "object_name": "ob_title"
+        },
+        {
+          "id": 100009,
+          "x": -162,
+          "y": 442,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100010,
+          "x": 384,
+          "y": 348,
+          "object_name": "ob_person"
+        },
+        {
+          "id": 100011,
+          "x": 96,
+          "y": 0,
+          "object_name": "o_dailyInit"
+        }
+      ]
+    },
+    {
+      "name": "rm_main_menu",
+      "width": 720,
+      "height": 1400,
+      "speed": 30,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100012,
+          "x": 80,
+          "y": 64,
+          "object_name": "ob_fade"
+        },
+        {
+          "id": 100013,
+          "x": 124,
+          "y": 16,
+          "object_name": "ob_start_menu"
+        },
+        {
+          "id": 100014,
+          "x": 54,
+          "y": 30,
+          "object_name": "ob_blossom"
+        }
+      ]
+    },
+    {
+      "name": "rm_drag",
+      "width": 8000,
+      "height": 480,
+      "speed": 30,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100015,
+          "x": 444,
+          "y": 250,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100016,
+          "x": 444,
+          "y": 304,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100017,
+          "x": 778,
+          "y": 462,
+          "object_name": "ob_background"
+        },
+        {
+          "id": 100018,
+          "x": 588,
+          "y": 266,
+          "object_name": "ob_stage"
+        },
+        {
+          "id": 100019,
+          "x": 421,
+          "y": 300,
+          "object_name": "ob_smoke"
+        },
+        {
+          "id": 100020,
+          "x": 165,
+          "y": 50,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100021,
+          "x": 91,
+          "y": 250,
+          "object_name": "ob_shifter"
+        },
+        {
+          "id": 100022,
+          "x": 489,
+          "y": 298,
+          "object_name": "obj_lighting"
+        },
+        {
+          "id": 100023,
+          "x": 134,
+          "y": 175,
+          "object_name": "ob_flame"
+        },
+        {
+          "id": 100024,
+          "x": 50,
+          "y": 50,
+          "object_name": "ob_fade"
+        },
+        {
+          "id": 100025,
+          "x": 8,
+          "y": 0,
+          "object_name": "obj_controller"
+        },
+        {
+          "id": 100026,
+          "x": 716,
+          "y": 450,
+          "object_name": "ob_hud"
+        }
+      ]
+    },
+    {
+      "name": "rm_cruise",
+      "width": 5000,
+      "height": 1000,
+      "speed": 30,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100027,
+          "x": 803,
+          "y": 476,
+          "object_name": "ob_background"
+        },
+        {
+          "id": 100028,
+          "x": 209,
+          "y": 165,
+          "object_name": "ob_smoke"
+        },
+        {
+          "id": 100029,
+          "x": 407,
+          "y": 90,
+          "object_name": "ob_rain"
+        },
+        {
+          "id": 100030,
+          "x": 113,
+          "y": 90,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100031,
+          "x": 558,
+          "y": 350,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100032,
+          "x": 181,
+          "y": 40,
+          "object_name": "ob_flame"
+        },
+        {
+          "id": 100033,
+          "x": 489,
+          "y": 298,
+          "object_name": "obj_lighting"
+        },
+        {
+          "id": 100034,
+          "x": 64,
+          "y": 160,
+          "object_name": "obj_controller"
+        },
+        {
+          "id": 100035,
+          "x": 987,
+          "y": 730,
+          "object_name": "ob_hud"
+        },
+        {
+          "id": 100036,
+          "x": 185,
+          "y": 105,
+          "object_name": "ob_shifter"
+        }
+      ]
+    },
+    {
+      "name": "rm_test",
+      "width": 2400,
+      "height": 2000,
+      "speed": 30,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100037,
+          "x": 16,
+          "y": 0,
+          "object_name": "ob_camera"
+        },
+        {
+          "id": 100038,
+          "x": 704,
+          "y": 144,
+          "object_name": "obj_palette_manager"
+        },
+        {
+          "id": 100039,
+          "x": -544,
+          "y": 160,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100040,
+          "x": 0,
+          "y": 0,
+          "object_name": "obj_lighting"
+        },
+        {
+          "id": 100041,
+          "x": 64,
+          "y": 16,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100042,
+          "x": 320,
+          "y": 160,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100043,
+          "x": 80,
+          "y": 0,
+          "object_name": "ob_tune_buttons"
+        },
+        {
+          "id": 100044,
+          "x": 32,
+          "y": 16,
+          "object_name": "ob_sidebuttons"
+        }
+      ]
+    },
+    {
+      "name": "rm_partshop",
+      "width": 1000,
+      "height": 1400,
+      "speed": 30,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100045,
+          "x": 704,
+          "y": 144,
+          "object_name": "obj_palette_manager"
+        },
+        {
+          "id": 100046,
+          "x": 64,
+          "y": 16,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100047,
+          "x": -208,
+          "y": 192,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100048,
+          "x": 864,
+          "y": 192,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100049,
+          "x": 2144,
+          "y": 192,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100050,
+          "x": 64,
+          "y": 64,
+          "object_name": "ob_sidebuttons"
+        },
+        {
+          "id": 100051,
+          "x": 32,
+          "y": 16,
+          "object_name": "ob_partshop"
+        },
+        {
+          "id": 100052,
+          "x": 464,
+          "y": 256,
+          "object_name": "ob_partshop_button"
+        },
+        {
+          "id": 100053,
+          "x": 256,
+          "y": 352,
+          "object_name": "ob_person"
+        }
+      ]
+    },
+    {
+      "name": "rm_town",
+      "width": 2400,
+      "height": 2000,
+      "speed": 30,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100054,
+          "x": -448,
+          "y": 384,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100055,
+          "x": 224,
+          "y": 64,
+          "object_name": "oControl"
+        },
+        {
+          "id": 100056,
+          "x": 240,
+          "y": 64,
+          "object_name": "oDialogue"
+        },
+        {
+          "id": 100057,
+          "x": 16,
+          "y": 16,
+          "object_name": "ob_sidebuttons"
+        },
+        {
+          "id": 100058,
+          "x": 48,
+          "y": 16,
+          "object_name": "ob_town_area"
+        },
+        {
+          "id": 100059,
+          "x": 128,
+          "y": 64,
+          "object_name": "obj_lighting"
+        },
+        {
+          "id": 100060,
+          "x": 80,
+          "y": 48,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100061,
+          "x": 832,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100062,
+          "x": 912,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100063,
+          "x": 784,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100064,
+          "x": 1168,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100065,
+          "x": 1120,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100066,
+          "x": 464,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100067,
+          "x": 384,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100068,
+          "x": 432,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100069,
+          "x": 1248,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100070,
+          "x": 1056,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100071,
+          "x": 944,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100072,
+          "x": 336,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100073,
+          "x": 496,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100074,
+          "x": 720,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100075,
+          "x": 608,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100076,
+          "x": 656,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100077,
+          "x": 208,
+          "y": 144,
+          "object_name": "ob_shifter"
+        },
+        {
+          "id": 100078,
+          "x": 240,
+          "y": 104,
+          "object_name": "ob_flame"
+        },
+        {
+          "id": 100079,
+          "x": 176,
+          "y": 416,
+          "object_name": "ob_ai_car"
+        }
+      ]
+    },
+    {
+      "name": "rm_city",
+      "width": 10000,
+      "height": 480,
+      "speed": 30,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100080,
+          "x": 34,
+          "y": 25,
+          "object_name": "ob_settings"
+        },
+        {
+          "id": 100081,
+          "x": -45,
+          "y": 225,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100082,
+          "x": 1778,
+          "y": 225,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100083,
+          "x": 649,
+          "y": 225,
+          "object_name": "ob_background"
+        },
+        {
+          "id": 100084,
+          "x": 477,
+          "y": 200,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100085,
+          "x": 603,
+          "y": 200,
+          "object_name": "obj_lighting"
+        }
+      ]
+    },
+    {
+      "name": "rm_garage",
+      "width": 720,
+      "height": 480,
+      "speed": 30,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100086,
+          "x": 10,
+          "y": 10,
+          "object_name": "ob_garage_area"
+        },
+        {
+          "id": 100087,
+          "x": 40,
+          "y": 10,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100088,
+          "x": 30,
+          "y": 30,
+          "object_name": "ob_sidebuttons"
+        }
+      ]
+    },
+    {
+      "name": "rm_tourn",
+      "width": 720,
+      "height": 480,
+      "speed": 30,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100089,
+          "x": 0,
+          "y": 0,
+          "object_name": "ob_sidebuttons"
+        },
+        {
+          "id": 100090,
+          "x": 16,
+          "y": 0,
+          "object_name": "ob_tournament"
+        },
+        {
+          "id": 100091,
+          "x": 32,
+          "y": 0,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100092,
+          "x": 48,
+          "y": 0,
+          "object_name": "ob_tournament_fade"
+        }
+      ]
+    },
+    {
+      "name": "rm_story_map",
+      "width": 640,
+      "height": 640,
+      "speed": 30,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100093,
+          "x": 0,
+          "y": 0,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100094,
+          "x": 50,
+          "y": 0,
+          "object_name": "ob_story_map"
+        },
+        {
+          "id": 100095,
+          "x": 192,
+          "y": 192,
+          "object_name": "ob_person"
+        }
+      ]
+    },
+    {
+      "name": "rm_edit_wrap",
+      "width": 720,
+      "height": 480,
+      "speed": 30,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100096,
+          "x": 40,
+          "y": 10,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100097,
+          "x": 30,
+          "y": 30,
+          "object_name": "ob_sidebuttons"
+        },
+        {
+          "id": 100098,
+          "x": 0,
+          "y": 0,
+          "object_name": "obj_surface_main"
+        },
+        {
+          "id": 100099,
+          "x": 0,
+          "y": 30,
+          "object_name": "ob_edit_wrap_area"
+        },
+        {
+          "id": 100100,
+          "x": 260,
+          "y": 180,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100101,
+          "x": 110,
+          "y": 70,
+          "object_name": "ob_pointer"
+        }
+      ]
+    },
+    {
+      "name": "rm_level_maker",
+      "width": 5000,
+      "height": 1000,
+      "speed": 30,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100102,
+          "x": 160,
+          "y": 0,
+          "object_name": "ob_smoke"
+        },
+        {
+          "id": 100103,
+          "x": 224,
+          "y": 0,
+          "object_name": "ob_rain"
+        },
+        {
+          "id": 100104,
+          "x": 32,
+          "y": 0,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100105,
+          "x": 558,
+          "y": 350,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100106,
+          "x": 96,
+          "y": 0,
+          "object_name": "ob_flame"
+        },
+        {
+          "id": 100107,
+          "x": 192,
+          "y": 0,
+          "object_name": "obj_lighting"
+        },
+        {
+          "id": 100108,
+          "x": 987,
+          "y": 730,
+          "object_name": "ob_hud"
+        },
+        {
+          "id": 100109,
+          "x": 128,
+          "y": 0,
+          "object_name": "ob_shifter"
+        },
+        {
+          "id": 100110,
+          "x": 0,
+          "y": 0,
+          "object_name": "ob_level_maker"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Resource structure only; compiled YYC functions are not reconstructed.",
+    "Room instance positions do not establish runtime creation order or behavior."
+  ]
+}

@@ -1,0 +1,17 @@
+Pixel Car Racer — Unbound Native: reconstruction expérimentale.
+
+Les images et sons du jeu proviennent de l'APK Unbound fourni par l'utilisateur.
+Leurs droits restent à leurs titulaires. Les atlas copiés sont identiques aux
+fichiers extraits ; les coordonnées et le comportement du moteur natif sont
+reconstruits. Le programme n'est pas une version officielle de Studio Furukawa.
+
+Raylib 6.2: https://github.com/raysan5/raylib — licence zlib/libpng.
+Raylib embarque notamment GLFW (zlib), stb et miniaudio (domaine public ou
+licences alternatives proposées par leurs auteurs). Voir les textes dans licenses/.
+
+DejaVu Sans / Bitstream Vera: voir assets/FONT-LICENSE.txt.
+
+Le binaire Windows est construit avec Zig et peut inclure du code d'exécution
+LLVM libc++, libc++abi, libunwind et MinGW-w64. Leurs licences sont incluses.
+Le compilateur Zig, les SDK d'analyse, Mesa de test et les APK ne sont pas
+distribués dans le paquet natif.

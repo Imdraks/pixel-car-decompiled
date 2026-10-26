@@ -1,0 +1,1428 @@
+
+/workspace/windows-port/recovered/lib/x86/libyoyo.so:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+005b0070 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base>:
+  5b0070:	55                   	push   %ebp
+  5b0071:	53                   	push   %ebx
+  5b0072:	57                   	push   %edi
+  5b0073:	56                   	push   %esi
+  5b0074:	81 ec 3c 01 00 00    	sub    $0x13c,%esp
+  5b007a:	e8 00 00 00 00       	call   5b007f <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xf>
+  5b007f:	5b                   	pop    %ebx
+  5b0080:	81 c3 81 4f e0 00    	add    $0xe04f81,%ebx
+  5b0086:	8d 83 70 0c bc ff    	lea    -0x43f390(%ebx),%eax
+  5b008c:	89 44 24 24          	mov    %eax,0x24(%esp)
+  5b0090:	c7 44 24 28 00 00 00 	movl   $0x0,0x28(%esp)
+  5b0097:	00 
+  5b0098:	8b 8b 4c ee ff ff    	mov    -0x11b4(%ebx),%ecx  # ELF GOT -> _ZN13SYYStackTrace8s_pStartE @ 0x014612f0
+  5b009e:	8b 01                	mov    (%ecx),%eax
+  5b00a0:	89 44 24 20          	mov    %eax,0x20(%esp)
+  5b00a4:	8d 44 24 20          	lea    0x20(%esp),%eax
+  5b00a8:	89 4c 24 78          	mov    %ecx,0x78(%esp)
+  5b00ac:	89 01                	mov    %eax,(%ecx)
+  5b00ae:	8b 83 0c a3 ff ff    	mov    -0x5cf4(%ebx),%eax  # ELF GOT -> g_pGlobal @ 0x01499f10
+  5b00b4:	8b 00                	mov    (%eax),%eax
+  5b00b6:	8b 70 04             	mov    0x4(%eax),%esi
+  5b00b9:	85 f6                	test   %esi,%esi
+  5b00bb:	74 08                	je     5b00c5 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x55>
+  5b00bd:	81 c6 20 0a 00 00    	add    $0xa20,%esi
+  5b00c3:	eb 14                	jmp    5b00d9 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x69>
+  5b00c5:	8b 08                	mov    (%eax),%ecx
+  5b00c7:	8b 49 08             	mov    0x8(%ecx),%ecx
+  5b00ca:	89 04 24             	mov    %eax,(%esp)
+  5b00cd:	c7 44 24 04 a2 00 00 	movl   $0xa2,0x4(%esp)
+  5b00d4:	00 
+  5b00d5:	ff d1                	call   *%ecx
+  5b00d7:	89 c6                	mov    %eax,%esi
+  5b00d9:	8b ac 24 50 01 00 00 	mov    0x150(%esp),%ebp
+  5b00e0:	c7 44 24 3c 00 00 00 	movl   $0x0,0x3c(%esp)
+  5b00e7:	00 
+  5b00e8:	c7 44 24 34 00 00 00 	movl   $0x0,0x34(%esp)
+  5b00ef:	00 
+  5b00f0:	c7 44 24 30 00 00 00 	movl   $0x0,0x30(%esp)
+  5b00f7:	00 
+  5b00f8:	c7 44 24 74 00 00 00 	movl   $0x0,0x74(%esp)
+  5b00ff:	00 
+  5b0100:	c7 44 24 6c 00 00 00 	movl   $0x0,0x6c(%esp)
+  5b0107:	00 
+  5b0108:	c7 44 24 68 00 00 00 	movl   $0x0,0x68(%esp)
+  5b010f:	00 
+  5b0110:	c7 44 24 28 03 00 00 	movl   $0x3,0x28(%esp)
+  5b0117:	00 
+  5b0118:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b011b:	85 c0                	test   %eax,%eax
+  5b011d:	89 74 24 60          	mov    %esi,0x60(%esp)
+  5b0121:	74 0d                	je     5b0130 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xc0>
+  5b0123:	8d b8 10 2d 00 00    	lea    0x2d10(%eax),%edi
+  5b0129:	05 70 7f 00 00       	add    $0x7f70,%eax
+  5b012e:	eb 36                	jmp    5b0166 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xf6>
+  5b0130:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0133:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0136:	89 2c 24             	mov    %ebp,(%esp)
+  5b0139:	c7 44 24 04 d1 02 00 	movl   $0x2d1,0x4(%esp)
+  5b0140:	00 
+  5b0141:	ff d0                	call   *%eax
+  5b0143:	89 c7                	mov    %eax,%edi
+  5b0145:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0148:	85 c0                	test   %eax,%eax
+  5b014a:	74 07                	je     5b0153 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xe3>
+  5b014c:	05 70 7f 00 00       	add    $0x7f70,%eax
+  5b0151:	eb 13                	jmp    5b0166 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xf6>
+  5b0153:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0156:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0159:	89 2c 24             	mov    %ebp,(%esp)
+  5b015c:	c7 44 24 04 f7 07 00 	movl   $0x7f7,0x4(%esp)
+  5b0163:	00 
+  5b0164:	ff d0                	call   *%eax
+  5b0166:	8b 8b 08 e4 ff ff    	mov    -0x1bf8(%ebx),%ecx  # ELF GOT -> g_GMLMathEpsilon @ 0x0145d888
+  5b016c:	89 4c 24 40          	mov    %ecx,0x40(%esp)
+  5b0170:	f2 0f 10 01          	movsd  (%ecx),%xmm0
+  5b0174:	f2 0f 11 44 24 08    	movsd  %xmm0,0x8(%esp)
+  5b017a:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b017e:	89 3c 24             	mov    %edi,(%esp)
+  5b0181:	e8 ca 49 bb ff       	call   164b50 <YYCompareVal(RValue const&, RValue const&, double)@plt>
+  5b0186:	8b b4 24 54 01 00 00 	mov    0x154(%esp),%esi
+  5b018d:	85 c0                	test   %eax,%eax
+  5b018f:	0f 84 f6 02 00 00    	je     5b048b <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x41b>
+  5b0195:	c7 44 24 28 05 00 00 	movl   $0x5,0x28(%esp)
+  5b019c:	00 
+  5b019d:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b01a0:	85 c0                	test   %eax,%eax
+  5b01a2:	74 0d                	je     5b01b1 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x141>
+  5b01a4:	8d b8 10 2d 00 00    	lea    0x2d10(%eax),%edi
+  5b01aa:	05 70 7f 00 00       	add    $0x7f70,%eax
+  5b01af:	eb 36                	jmp    5b01e7 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x177>
+  5b01b1:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b01b4:	8b 40 08             	mov    0x8(%eax),%eax
+  5b01b7:	89 2c 24             	mov    %ebp,(%esp)
+  5b01ba:	c7 44 24 04 d1 02 00 	movl   $0x2d1,0x4(%esp)
+  5b01c1:	00 
+  5b01c2:	ff d0                	call   *%eax
+  5b01c4:	89 c7                	mov    %eax,%edi
+  5b01c6:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b01c9:	85 c0                	test   %eax,%eax
+  5b01cb:	74 07                	je     5b01d4 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x164>
+  5b01cd:	05 70 7f 00 00       	add    $0x7f70,%eax
+  5b01d2:	eb 13                	jmp    5b01e7 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x177>
+  5b01d4:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b01d7:	8b 40 08             	mov    0x8(%eax),%eax
+  5b01da:	89 2c 24             	mov    %ebp,(%esp)
+  5b01dd:	c7 44 24 04 f7 07 00 	movl   $0x7f7,0x4(%esp)
+  5b01e4:	00 
+  5b01e5:	ff d0                	call   *%eax
+  5b01e7:	89 44 24 08          	mov    %eax,0x8(%esp)
+  5b01eb:	89 7c 24 04          	mov    %edi,0x4(%esp)
+  5b01ef:	8d bc 24 d0 00 00 00 	lea    0xd0(%esp),%edi
+  5b01f6:	89 3c 24             	mov    %edi,(%esp)
+  5b01f9:	e8 62 d2 bb ff       	call   16d460 <operator-(YYRValue const&, YYRValue const&)@plt>
+  5b01fe:	83 ec 04             	sub    $0x4,%esp
+  5b0201:	f7 84 24 dc 00 00 00 	testl  $0xffffff,0xdc(%esp)
+  5b0208:	ff ff ff 00 
+  5b020c:	74 1a                	je     5b0228 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1b8>
+  5b020e:	89 3c 24             	mov    %edi,(%esp)
+  5b0211:	e8 ca 83 bb ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  5b0216:	dd 9c 24 30 01 00 00 	fstpl  0x130(%esp)
+  5b021d:	f2 0f 10 84 24 30 01 	movsd  0x130(%esp),%xmm0
+  5b0224:	00 00 
+  5b0226:	eb 09                	jmp    5b0231 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1c1>
+  5b0228:	f2 0f 10 84 24 d0 00 	movsd  0xd0(%esp),%xmm0
+  5b022f:	00 00 
+  5b0231:	f2 0f 11 04 24       	movsd  %xmm0,(%esp)
+  5b0236:	e8 d5 66 bc ff       	call   176910 <YYGML_abs(double)@plt>
+  5b023b:	dd 9c 24 28 01 00 00 	fstpl  0x128(%esp)
+  5b0242:	f2 0f 10 84 24 28 01 	movsd  0x128(%esp),%xmm0
+  5b0249:	00 00 
+  5b024b:	8b 44 24 40          	mov    0x40(%esp),%eax
+  5b024f:	f2 0f 10 08          	movsd  (%eax),%xmm1
+  5b0253:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b0258:	03 84 24 dc 00 00 00 	add    0xdc(%esp),%eax
+  5b025f:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b0264:	75 26                	jne    5b028c <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x21c>
+  5b0266:	89 3c 24             	mov    %edi,(%esp)
+  5b0269:	f2 0f 11 44 24 58    	movsd  %xmm0,0x58(%esp)
+  5b026f:	f2 0f 11 8c 24 88 00 	movsd  %xmm1,0x88(%esp)
+  5b0276:	00 00 
+  5b0278:	e8 03 e4 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b027d:	f2 0f 10 8c 24 88 00 	movsd  0x88(%esp),%xmm1
+  5b0284:	00 00 
+  5b0286:	f2 0f 10 44 24 58    	movsd  0x58(%esp),%xmm0
+  5b028c:	f2 0f 58 83 68 0c bc 	addsd  -0x43f398(%ebx),%xmm0
+  5b0293:	ff 
+  5b0294:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  5b0298:	76 17                	jbe    5b02b1 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x241>
+  5b029a:	c7 44 24 28 07 00 00 	movl   $0x7,0x28(%esp)
+  5b02a1:	00 
+  5b02a2:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b02a5:	85 c0                	test   %eax,%eax
+  5b02a7:	74 2b                	je     5b02d4 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x264>
+  5b02a9:	8d b8 10 2d 00 00    	lea    0x2d10(%eax),%edi
+  5b02af:	eb 43                	jmp    5b02f4 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x284>
+  5b02b1:	c7 44 24 28 0b 00 00 	movl   $0xb,0x28(%esp)
+  5b02b8:	00 
+  5b02b9:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b02bc:	85 c0                	test   %eax,%eax
+  5b02be:	0f 84 59 01 00 00    	je     5b041d <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x3ad>
+  5b02c4:	8d b8 70 7f 00 00    	lea    0x7f70(%eax),%edi
+  5b02ca:	05 10 2d 00 00       	add    $0x2d10,%eax
+  5b02cf:	e9 ab 01 00 00       	jmp    5b047f <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x40f>
+  5b02d4:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b02d7:	8b 40 08             	mov    0x8(%eax),%eax
+  5b02da:	89 2c 24             	mov    %ebp,(%esp)
+  5b02dd:	c7 44 24 04 d1 02 00 	movl   $0x2d1,0x4(%esp)
+  5b02e4:	00 
+  5b02e5:	ff d0                	call   *%eax
+  5b02e7:	89 c7                	mov    %eax,%edi
+  5b02e9:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b02ec:	85 c0                	test   %eax,%eax
+  5b02ee:	0f 84 4c 01 00 00    	je     5b0440 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x3d0>
+  5b02f4:	8d b0 70 7f 00 00    	lea    0x7f70(%eax),%esi
+  5b02fa:	05 60 70 00 00       	add    $0x7060,%eax
+  5b02ff:	89 44 24 48          	mov    %eax,0x48(%esp)
+  5b0303:	8b 83 f0 f9 ff ff    	mov    -0x610(%ebx),%eax  # ELF GOT -> gs_constArg0_336D7683 @ 0x0145f12c
+  5b0309:	89 44 24 4c          	mov    %eax,0x4c(%esp)
+  5b030d:	8b 83 10 79 ff ff    	mov    -0x86f0(%ebx),%eax  # ELF GOT -> gs_constArg1_336D7683 @ 0x013c5cf0
+  5b0313:	89 44 24 50          	mov    %eax,0x50(%esp)
+  5b0317:	89 fd                	mov    %edi,%ebp
+  5b0319:	89 7c 24 7c          	mov    %edi,0x7c(%esp)
+  5b031d:	89 b4 24 80 00 00 00 	mov    %esi,0x80(%esp)
+  5b0324:	8b 83 e4 7c ff ff    	mov    -0x831c(%ebx),%eax  # ELF GOT -> g_FUNC_clamp @ 0x013d50dc
+  5b032a:	8b 40 04             	mov    0x4(%eax),%eax
+  5b032d:	8d 4c 24 48          	lea    0x48(%esp),%ecx
+  5b0331:	89 4c 24 14          	mov    %ecx,0x14(%esp)
+  5b0335:	89 44 24 10          	mov    %eax,0x10(%esp)
+  5b0339:	8d 44 24 68          	lea    0x68(%esp),%eax
+  5b033d:	89 44 24 08          	mov    %eax,0x8(%esp)
+  5b0341:	8b bc 24 54 01 00 00 	mov    0x154(%esp),%edi
+  5b0348:	89 7c 24 04          	mov    %edi,0x4(%esp)
+  5b034c:	8b b4 24 50 01 00 00 	mov    0x150(%esp),%esi
+  5b0353:	89 34 24             	mov    %esi,(%esp)
+  5b0356:	c7 44 24 0c 03 00 00 	movl   $0x3,0xc(%esp)
+  5b035d:	00 
+  5b035e:	e8 5d 3f bc ff       	call   1742c0 <YYGML_CallLegacyFunction(CInstance*, CInstance*, YYRValue&, int, int, YYRValue**)@plt>
+  5b0363:	89 84 24 84 00 00 00 	mov    %eax,0x84(%esp)
+  5b036a:	8b 83 bc e5 ff ff    	mov    -0x1a44(%ebx),%eax  # ELF GOT -> g_FUNC_lerp @ 0x013d597c
+  5b0370:	8b 40 04             	mov    0x4(%eax),%eax
+  5b0373:	8d 4c 24 7c          	lea    0x7c(%esp),%ecx
+  5b0377:	89 4c 24 14          	mov    %ecx,0x14(%esp)
+  5b037b:	89 44 24 10          	mov    %eax,0x10(%esp)
+  5b037f:	8d 44 24 30          	lea    0x30(%esp),%eax
+  5b0383:	89 44 24 08          	mov    %eax,0x8(%esp)
+  5b0387:	89 7c 24 04          	mov    %edi,0x4(%esp)
+  5b038b:	89 34 24             	mov    %esi,(%esp)
+  5b038e:	c7 44 24 0c 03 00 00 	movl   $0x3,0xc(%esp)
+  5b0395:	00 
+  5b0396:	e8 25 3f bc ff       	call   1742c0 <YYGML_CallLegacyFunction(CInstance*, CInstance*, YYRValue&, int, int, YYRValue**)@plt>
+  5b039b:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b039f:	89 2c 24             	mov    %ebp,(%esp)
+  5b03a2:	e8 79 67 bb ff       	call   166b20 <YYRValue::operator=(YYRValue const&)@plt>
+  5b03a7:	bf ff ff ff 00       	mov    $0xffffff,%edi
+  5b03ac:	8b 44 24 3c          	mov    0x3c(%esp),%eax
+  5b03b0:	01 f8                	add    %edi,%eax
+  5b03b2:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b03b7:	75 0c                	jne    5b03c5 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x355>
+  5b03b9:	8d 44 24 30          	lea    0x30(%esp),%eax
+  5b03bd:	89 04 24             	mov    %eax,(%esp)
+  5b03c0:	e8 bb e2 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b03c5:	c7 44 24 38 00 00 00 	movl   $0x0,0x38(%esp)
+  5b03cc:	00 
+  5b03cd:	c7 44 24 3c 05 00 00 	movl   $0x5,0x3c(%esp)
+  5b03d4:	00 
+  5b03d5:	c7 44 24 30 00 00 00 	movl   $0x0,0x30(%esp)
+  5b03dc:	00 
+  5b03dd:	03 7c 24 74          	add    0x74(%esp),%edi
+  5b03e1:	f7 c7 fc ff ff 00    	test   $0xfffffc,%edi
+  5b03e7:	8b b4 24 54 01 00 00 	mov    0x154(%esp),%esi
+  5b03ee:	75 0c                	jne    5b03fc <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x38c>
+  5b03f0:	8d 44 24 68          	lea    0x68(%esp),%eax
+  5b03f4:	89 04 24             	mov    %eax,(%esp)
+  5b03f7:	e8 84 e2 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b03fc:	c7 44 24 70 00 00 00 	movl   $0x0,0x70(%esp)
+  5b0403:	00 
+  5b0404:	c7 44 24 74 05 00 00 	movl   $0x5,0x74(%esp)
+  5b040b:	00 
+  5b040c:	c7 44 24 68 00 00 00 	movl   $0x0,0x68(%esp)
+  5b0413:	00 
+  5b0414:	8b ac 24 50 01 00 00 	mov    0x150(%esp),%ebp
+  5b041b:	eb 6e                	jmp    5b048b <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x41b>
+  5b041d:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0420:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0423:	89 2c 24             	mov    %ebp,(%esp)
+  5b0426:	c7 44 24 04 f7 07 00 	movl   $0x7f7,0x4(%esp)
+  5b042d:	00 
+  5b042e:	ff d0                	call   *%eax
+  5b0430:	89 c7                	mov    %eax,%edi
+  5b0432:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0435:	85 c0                	test   %eax,%eax
+  5b0437:	74 33                	je     5b046c <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x3fc>
+  5b0439:	05 10 2d 00 00       	add    $0x2d10,%eax
+  5b043e:	eb 3f                	jmp    5b047f <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x40f>
+  5b0440:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0443:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0446:	89 2c 24             	mov    %ebp,(%esp)
+  5b0449:	c7 44 24 04 f7 07 00 	movl   $0x7f7,0x4(%esp)
+  5b0450:	00 
+  5b0451:	ff d0                	call   *%eax
+  5b0453:	89 e9                	mov    %ebp,%ecx
+  5b0455:	89 c6                	mov    %eax,%esi
+  5b0457:	8b 41 04             	mov    0x4(%ecx),%eax
+  5b045a:	85 c0                	test   %eax,%eax
+  5b045c:	0f 84 7a 0e 00 00    	je     5b12dc <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x126c>
+  5b0462:	05 60 70 00 00       	add    $0x7060,%eax
+  5b0467:	e9 93 fe ff ff       	jmp    5b02ff <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x28f>
+  5b046c:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b046f:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0472:	89 2c 24             	mov    %ebp,(%esp)
+  5b0475:	c7 44 24 04 d1 02 00 	movl   $0x2d1,0x4(%esp)
+  5b047c:	00 
+  5b047d:	ff d0                	call   *%eax
+  5b047f:	89 7c 24 04          	mov    %edi,0x4(%esp)
+  5b0483:	89 04 24             	mov    %eax,(%esp)
+  5b0486:	e8 95 66 bb ff       	call   166b20 <YYRValue::operator=(YYRValue const&)@plt>
+  5b048b:	c7 44 24 28 22 00 00 	movl   $0x22,0x28(%esp)
+  5b0492:	00 
+  5b0493:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0496:	85 c0                	test   %eax,%eax
+  5b0498:	74 0d                	je     5b04a7 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x437>
+  5b049a:	8d b8 b0 2e 00 00    	lea    0x2eb0(%eax),%edi
+  5b04a0:	05 00 58 00 00       	add    $0x5800,%eax
+  5b04a5:	eb 36                	jmp    5b04dd <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x46d>
+  5b04a7:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b04aa:	8b 40 08             	mov    0x8(%eax),%eax
+  5b04ad:	89 2c 24             	mov    %ebp,(%esp)
+  5b04b0:	c7 44 24 04 eb 02 00 	movl   $0x2eb,0x4(%esp)
+  5b04b7:	00 
+  5b04b8:	ff d0                	call   *%eax
+  5b04ba:	89 c7                	mov    %eax,%edi
+  5b04bc:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b04bf:	85 c0                	test   %eax,%eax
+  5b04c1:	74 07                	je     5b04ca <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x45a>
+  5b04c3:	05 00 58 00 00       	add    $0x5800,%eax
+  5b04c8:	eb 13                	jmp    5b04dd <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x46d>
+  5b04ca:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b04cd:	8b 40 08             	mov    0x8(%eax),%eax
+  5b04d0:	89 2c 24             	mov    %ebp,(%esp)
+  5b04d3:	c7 44 24 04 80 05 00 	movl   $0x580,0x4(%esp)
+  5b04da:	00 
+  5b04db:	ff d0                	call   *%eax
+  5b04dd:	8b 4c 24 40          	mov    0x40(%esp),%ecx
+  5b04e1:	f2 0f 10 01          	movsd  (%ecx),%xmm0
+  5b04e5:	f2 0f 11 44 24 08    	movsd  %xmm0,0x8(%esp)
+  5b04eb:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b04ef:	89 3c 24             	mov    %edi,(%esp)
+  5b04f2:	e8 59 46 bb ff       	call   164b50 <YYCompareVal(RValue const&, RValue const&, double)@plt>
+  5b04f7:	85 c0                	test   %eax,%eax
+  5b04f9:	0f 84 61 02 00 00    	je     5b0760 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x6f0>
+  5b04ff:	c7 44 24 28 24 00 00 	movl   $0x24,0x28(%esp)
+  5b0506:	00 
+  5b0507:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b050a:	85 c0                	test   %eax,%eax
+  5b050c:	74 0d                	je     5b051b <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x4ab>
+  5b050e:	8d b8 b0 2e 00 00    	lea    0x2eb0(%eax),%edi
+  5b0514:	05 00 58 00 00       	add    $0x5800,%eax
+  5b0519:	eb 36                	jmp    5b0551 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x4e1>
+  5b051b:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b051e:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0521:	89 2c 24             	mov    %ebp,(%esp)
+  5b0524:	c7 44 24 04 eb 02 00 	movl   $0x2eb,0x4(%esp)
+  5b052b:	00 
+  5b052c:	ff d0                	call   *%eax
+  5b052e:	89 c7                	mov    %eax,%edi
+  5b0530:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0533:	85 c0                	test   %eax,%eax
+  5b0535:	74 07                	je     5b053e <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x4ce>
+  5b0537:	05 00 58 00 00       	add    $0x5800,%eax
+  5b053c:	eb 13                	jmp    5b0551 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x4e1>
+  5b053e:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0541:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0544:	89 2c 24             	mov    %ebp,(%esp)
+  5b0547:	c7 44 24 04 80 05 00 	movl   $0x580,0x4(%esp)
+  5b054e:	00 
+  5b054f:	ff d0                	call   *%eax
+  5b0551:	89 44 24 08          	mov    %eax,0x8(%esp)
+  5b0555:	89 7c 24 04          	mov    %edi,0x4(%esp)
+  5b0559:	8d bc 24 c0 00 00 00 	lea    0xc0(%esp),%edi
+  5b0560:	89 3c 24             	mov    %edi,(%esp)
+  5b0563:	e8 f8 ce bb ff       	call   16d460 <operator-(YYRValue const&, YYRValue const&)@plt>
+  5b0568:	83 ec 04             	sub    $0x4,%esp
+  5b056b:	f7 84 24 cc 00 00 00 	testl  $0xffffff,0xcc(%esp)
+  5b0572:	ff ff ff 00 
+  5b0576:	74 1a                	je     5b0592 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x522>
+  5b0578:	89 3c 24             	mov    %edi,(%esp)
+  5b057b:	e8 60 80 bb ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  5b0580:	dd 9c 24 20 01 00 00 	fstpl  0x120(%esp)
+  5b0587:	f2 0f 10 84 24 20 01 	movsd  0x120(%esp),%xmm0
+  5b058e:	00 00 
+  5b0590:	eb 09                	jmp    5b059b <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x52b>
+  5b0592:	f2 0f 10 84 24 c0 00 	movsd  0xc0(%esp),%xmm0
+  5b0599:	00 00 
+  5b059b:	f2 0f 11 04 24       	movsd  %xmm0,(%esp)
+  5b05a0:	e8 6b 63 bc ff       	call   176910 <YYGML_abs(double)@plt>
+  5b05a5:	dd 9c 24 18 01 00 00 	fstpl  0x118(%esp)
+  5b05ac:	f2 0f 10 84 24 18 01 	movsd  0x118(%esp),%xmm0
+  5b05b3:	00 00 
+  5b05b5:	8b 44 24 40          	mov    0x40(%esp),%eax
+  5b05b9:	f2 0f 10 08          	movsd  (%eax),%xmm1
+  5b05bd:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b05c2:	03 84 24 cc 00 00 00 	add    0xcc(%esp),%eax
+  5b05c9:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b05ce:	75 26                	jne    5b05f6 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x586>
+  5b05d0:	89 3c 24             	mov    %edi,(%esp)
+  5b05d3:	f2 0f 11 44 24 58    	movsd  %xmm0,0x58(%esp)
+  5b05d9:	f2 0f 11 8c 24 88 00 	movsd  %xmm1,0x88(%esp)
+  5b05e0:	00 00 
+  5b05e2:	e8 99 e0 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b05e7:	f2 0f 10 8c 24 88 00 	movsd  0x88(%esp),%xmm1
+  5b05ee:	00 00 
+  5b05f0:	f2 0f 10 44 24 58    	movsd  0x58(%esp),%xmm0
+  5b05f6:	f2 0f 58 83 68 0c bc 	addsd  -0x43f398(%ebx),%xmm0
+  5b05fd:	ff 
+  5b05fe:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  5b0602:	76 17                	jbe    5b061b <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x5ab>
+  5b0604:	c7 44 24 28 26 00 00 	movl   $0x26,0x28(%esp)
+  5b060b:	00 
+  5b060c:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b060f:	85 c0                	test   %eax,%eax
+  5b0611:	74 2b                	je     5b063e <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x5ce>
+  5b0613:	8d b8 b0 2e 00 00    	lea    0x2eb0(%eax),%edi
+  5b0619:	eb 43                	jmp    5b065e <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x5ee>
+  5b061b:	c7 44 24 28 2a 00 00 	movl   $0x2a,0x28(%esp)
+  5b0622:	00 
+  5b0623:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0626:	85 c0                	test   %eax,%eax
+  5b0628:	0f 84 c4 00 00 00    	je     5b06f2 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x682>
+  5b062e:	8d b8 00 58 00 00    	lea    0x5800(%eax),%edi
+  5b0634:	05 b0 2e 00 00       	add    $0x2eb0,%eax
+  5b0639:	e9 16 01 00 00       	jmp    5b0754 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x6e4>
+  5b063e:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0641:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0644:	89 2c 24             	mov    %ebp,(%esp)
+  5b0647:	c7 44 24 04 eb 02 00 	movl   $0x2eb,0x4(%esp)
+  5b064e:	00 
+  5b064f:	ff d0                	call   *%eax
+  5b0651:	89 c7                	mov    %eax,%edi
+  5b0653:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0656:	85 c0                	test   %eax,%eax
+  5b0658:	0f 84 b7 00 00 00    	je     5b0715 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x6a5>
+  5b065e:	8d a8 00 58 00 00    	lea    0x5800(%eax),%ebp
+  5b0664:	05 90 71 00 00       	add    $0x7190,%eax
+  5b0669:	89 7c 24 48          	mov    %edi,0x48(%esp)
+  5b066d:	89 6c 24 4c          	mov    %ebp,0x4c(%esp)
+  5b0671:	89 44 24 50          	mov    %eax,0x50(%esp)
+  5b0675:	8b 83 bc e5 ff ff    	mov    -0x1a44(%ebx),%eax  # ELF GOT -> g_FUNC_lerp @ 0x013d597c
+  5b067b:	8b 40 04             	mov    0x4(%eax),%eax
+  5b067e:	8d 4c 24 48          	lea    0x48(%esp),%ecx
+  5b0682:	89 4c 24 14          	mov    %ecx,0x14(%esp)
+  5b0686:	89 44 24 10          	mov    %eax,0x10(%esp)
+  5b068a:	8d 6c 24 30          	lea    0x30(%esp),%ebp
+  5b068e:	89 6c 24 08          	mov    %ebp,0x8(%esp)
+  5b0692:	89 74 24 04          	mov    %esi,0x4(%esp)
+  5b0696:	8b 84 24 50 01 00 00 	mov    0x150(%esp),%eax
+  5b069d:	89 04 24             	mov    %eax,(%esp)
+  5b06a0:	c7 44 24 0c 03 00 00 	movl   $0x3,0xc(%esp)
+  5b06a7:	00 
+  5b06a8:	e8 13 3c bc ff       	call   1742c0 <YYGML_CallLegacyFunction(CInstance*, CInstance*, YYRValue&, int, int, YYRValue**)@plt>
+  5b06ad:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b06b1:	89 3c 24             	mov    %edi,(%esp)
+  5b06b4:	e8 67 64 bb ff       	call   166b20 <YYRValue::operator=(YYRValue const&)@plt>
+  5b06b9:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b06be:	03 44 24 3c          	add    0x3c(%esp),%eax
+  5b06c2:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b06c7:	75 08                	jne    5b06d1 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x661>
+  5b06c9:	89 2c 24             	mov    %ebp,(%esp)
+  5b06cc:	e8 af df bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b06d1:	c7 44 24 38 00 00 00 	movl   $0x0,0x38(%esp)
+  5b06d8:	00 
+  5b06d9:	c7 44 24 3c 05 00 00 	movl   $0x5,0x3c(%esp)
+  5b06e0:	00 
+  5b06e1:	c7 44 24 30 00 00 00 	movl   $0x0,0x30(%esp)
+  5b06e8:	00 
+  5b06e9:	8b ac 24 50 01 00 00 	mov    0x150(%esp),%ebp
+  5b06f0:	eb 6e                	jmp    5b0760 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x6f0>
+  5b06f2:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b06f5:	8b 40 08             	mov    0x8(%eax),%eax
+  5b06f8:	89 2c 24             	mov    %ebp,(%esp)
+  5b06fb:	c7 44 24 04 80 05 00 	movl   $0x580,0x4(%esp)
+  5b0702:	00 
+  5b0703:	ff d0                	call   *%eax
+  5b0705:	89 c7                	mov    %eax,%edi
+  5b0707:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b070a:	85 c0                	test   %eax,%eax
+  5b070c:	74 33                	je     5b0741 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x6d1>
+  5b070e:	05 b0 2e 00 00       	add    $0x2eb0,%eax
+  5b0713:	eb 3f                	jmp    5b0754 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x6e4>
+  5b0715:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0718:	8b 40 08             	mov    0x8(%eax),%eax
+  5b071b:	89 2c 24             	mov    %ebp,(%esp)
+  5b071e:	c7 44 24 04 80 05 00 	movl   $0x580,0x4(%esp)
+  5b0725:	00 
+  5b0726:	ff d0                	call   *%eax
+  5b0728:	89 e9                	mov    %ebp,%ecx
+  5b072a:	89 c5                	mov    %eax,%ebp
+  5b072c:	8b 41 04             	mov    0x4(%ecx),%eax
+  5b072f:	85 c0                	test   %eax,%eax
+  5b0731:	0f 84 bc 0b 00 00    	je     5b12f3 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1283>
+  5b0737:	05 90 71 00 00       	add    $0x7190,%eax
+  5b073c:	e9 28 ff ff ff       	jmp    5b0669 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x5f9>
+  5b0741:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0744:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0747:	89 2c 24             	mov    %ebp,(%esp)
+  5b074a:	c7 44 24 04 eb 02 00 	movl   $0x2eb,0x4(%esp)
+  5b0751:	00 
+  5b0752:	ff d0                	call   *%eax
+  5b0754:	89 7c 24 04          	mov    %edi,0x4(%esp)
+  5b0758:	89 04 24             	mov    %eax,(%esp)
+  5b075b:	e8 c0 63 bb ff       	call   166b20 <YYRValue::operator=(YYRValue const&)@plt>
+  5b0760:	c7 44 24 28 2e 00 00 	movl   $0x2e,0x28(%esp)
+  5b0767:	00 
+  5b0768:	c7 04 24 27 00 00 00 	movl   $0x27,(%esp)
+  5b076f:	e8 cc 4b bb ff       	call   165340 <YYGML_keyboard_check(int)@plt>
+  5b0774:	84 c0                	test   %al,%al
+  5b0776:	8b 54 24 60          	mov    0x60(%esp),%edx
+  5b077a:	0f 85 8d 00 00 00    	jne    5b080d <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x79d>
+  5b0780:	8b 42 0c             	mov    0xc(%edx),%eax
+  5b0783:	83 f8 0d             	cmp    $0xd,%eax
+  5b0786:	77 6e                	ja     5b07f6 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x786>
+  5b0788:	b9 81 24 00 00       	mov    $0x2481,%ecx
+  5b078d:	0f a3 c1             	bt     %eax,%ecx
+  5b0790:	73 64                	jae    5b07f6 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x786>
+  5b0792:	a9 ff ff ff 00       	test   $0xffffff,%eax
+  5b0797:	74 1a                	je     5b07b3 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x743>
+  5b0799:	89 14 24             	mov    %edx,(%esp)
+  5b079c:	e8 3f 7e bb ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  5b07a1:	dd 9c 24 10 01 00 00 	fstpl  0x110(%esp)
+  5b07a8:	f2 0f 10 84 24 10 01 	movsd  0x110(%esp),%xmm0
+  5b07af:	00 00 
+  5b07b1:	eb 04                	jmp    5b07b7 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x747>
+  5b07b3:	f2 0f 10 02          	movsd  (%edx),%xmm0
+  5b07b7:	f2 0f 58 83 90 0e bb 	addsd  -0x44f170(%ebx),%xmm0
+  5b07be:	ff 
+  5b07bf:	66 0f 28 8b 60 09 bb 	movapd -0x44f6a0(%ebx),%xmm1
+  5b07c6:	ff 
+  5b07c7:	66 0f 57 c8          	xorpd  %xmm0,%xmm1
+  5b07cb:	66 0f 57 d2          	xorpd  %xmm2,%xmm2
+  5b07cf:	66 0f 28 d8          	movapd %xmm0,%xmm3
+  5b07d3:	f2 0f c2 da 01       	cmpltsd %xmm2,%xmm3
+  5b07d8:	66 0f 28 d3          	movapd %xmm3,%xmm2
+  5b07dc:	66 0f 55 d0          	andnpd %xmm0,%xmm2
+  5b07e0:	66 0f 54 d9          	andpd  %xmm1,%xmm3
+  5b07e4:	66 0f 56 da          	orpd   %xmm2,%xmm3
+  5b07e8:	8b 44 24 40          	mov    0x40(%esp),%eax
+  5b07ec:	f2 0f 10 00          	movsd  (%eax),%xmm0
+  5b07f0:	66 0f 2e c3          	ucomisd %xmm3,%xmm0
+  5b07f4:	73 17                	jae    5b080d <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x79d>
+  5b07f6:	c7 44 24 28 35 00 00 	movl   $0x35,0x28(%esp)
+  5b07fd:	00 
+  5b07fe:	8b 75 04             	mov    0x4(%ebp),%esi
+  5b0801:	85 f6                	test   %esi,%esi
+  5b0803:	74 53                	je     5b0858 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x7e8>
+  5b0805:	81 c6 80 3a 00 00    	add    $0x3a80,%esi
+  5b080b:	eb 60                	jmp    5b086d <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x7fd>
+  5b080d:	c7 44 24 28 30 00 00 	movl   $0x30,0x28(%esp)
+  5b0814:	00 
+  5b0815:	8b 75 04             	mov    0x4(%ebp),%esi
+  5b0818:	85 f6                	test   %esi,%esi
+  5b081a:	74 11                	je     5b082d <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x7bd>
+  5b081c:	8d be e0 22 00 00    	lea    0x22e0(%esi),%edi
+  5b0822:	81 c6 a0 71 00 00    	add    $0x71a0,%esi
+  5b0828:	e9 dc 00 00 00       	jmp    5b0909 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x899>
+  5b082d:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0830:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0833:	89 2c 24             	mov    %ebp,(%esp)
+  5b0836:	c7 44 24 04 2e 02 00 	movl   $0x22e,0x4(%esp)
+  5b083d:	00 
+  5b083e:	ff d0                	call   *%eax
+  5b0840:	89 c7                	mov    %eax,%edi
+  5b0842:	8b 75 04             	mov    0x4(%ebp),%esi
+  5b0845:	85 f6                	test   %esi,%esi
+  5b0847:	0f 84 a7 00 00 00    	je     5b08f4 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x884>
+  5b084d:	81 c6 a0 71 00 00    	add    $0x71a0,%esi
+  5b0853:	e9 b1 00 00 00       	jmp    5b0909 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x899>
+  5b0858:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b085b:	8b 40 08             	mov    0x8(%eax),%eax
+  5b085e:	89 2c 24             	mov    %ebp,(%esp)
+  5b0861:	c7 44 24 04 a8 03 00 	movl   $0x3a8,0x4(%esp)
+  5b0868:	00 
+  5b0869:	ff d0                	call   *%eax
+  5b086b:	89 c6                	mov    %eax,%esi
+  5b086d:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b0872:	03 46 0c             	add    0xc(%esi),%eax
+  5b0875:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b087a:	75 08                	jne    5b0884 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x814>
+  5b087c:	89 34 24             	mov    %esi,(%esp)
+  5b087f:	e8 fc dd bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b0884:	c7 46 0c 00 00 00 00 	movl   $0x0,0xc(%esi)
+  5b088b:	c7 46 04 00 00 00 00 	movl   $0x0,0x4(%esi)
+  5b0892:	c7 06 00 00 00 00    	movl   $0x0,(%esi)
+  5b0898:	c7 44 24 28 36 00 00 	movl   $0x36,0x28(%esp)
+  5b089f:	00 
+  5b08a0:	8b 75 04             	mov    0x4(%ebp),%esi
+  5b08a3:	85 f6                	test   %esi,%esi
+  5b08a5:	74 08                	je     5b08af <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x83f>
+  5b08a7:	81 c6 a0 71 00 00    	add    $0x71a0,%esi
+  5b08ad:	eb 15                	jmp    5b08c4 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x854>
+  5b08af:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b08b2:	8b 40 08             	mov    0x8(%eax),%eax
+  5b08b5:	89 2c 24             	mov    %ebp,(%esp)
+  5b08b8:	c7 44 24 04 1a 07 00 	movl   $0x71a,0x4(%esp)
+  5b08bf:	00 
+  5b08c0:	ff d0                	call   *%eax
+  5b08c2:	89 c6                	mov    %eax,%esi
+  5b08c4:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b08c9:	03 46 0c             	add    0xc(%esi),%eax
+  5b08cc:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b08d1:	75 08                	jne    5b08db <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x86b>
+  5b08d3:	89 34 24             	mov    %esi,(%esp)
+  5b08d6:	e8 a5 dd bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b08db:	c7 46 0c 00 00 00 00 	movl   $0x0,0xc(%esi)
+  5b08e2:	c7 46 04 99 99 b9 3f 	movl   $0x3fb99999,0x4(%esi)
+  5b08e9:	c7 06 9a 99 99 99    	movl   $0x9999999a,(%esi)
+  5b08ef:	e9 4b 01 00 00       	jmp    5b0a3f <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x9cf>
+  5b08f4:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b08f7:	8b 40 08             	mov    0x8(%eax),%eax
+  5b08fa:	89 2c 24             	mov    %ebp,(%esp)
+  5b08fd:	c7 44 24 04 1a 07 00 	movl   $0x71a,0x4(%esp)
+  5b0904:	00 
+  5b0905:	ff d0                	call   *%eax
+  5b0907:	89 c6                	mov    %eax,%esi
+  5b0909:	89 7c 24 04          	mov    %edi,0x4(%esp)
+  5b090d:	8d 7c 24 48          	lea    0x48(%esp),%edi
+  5b0911:	89 3c 24             	mov    %edi,(%esp)
+  5b0914:	c7 44 24 0c 06 f0 46 	movl   $0x3f46f006,0xc(%esp)
+  5b091b:	3f 
+  5b091c:	c7 44 24 08 c7 ba b8 	movl   $0x8db8bac7,0x8(%esp)
+  5b0923:	8d 
+  5b0924:	e8 07 7d bc ff       	call   178630 <operator*(YYRValue const&, double)@plt>
+  5b0929:	83 ec 04             	sub    $0x4,%esp
+  5b092c:	89 7c 24 7c          	mov    %edi,0x7c(%esp)
+  5b0930:	8b 83 7c 59 ff ff    	mov    -0xa684(%ebx),%eax  # ELF GOT -> gs_constArg2_336D7683 @ 0x013c5d00
+  5b0936:	89 84 24 80 00 00 00 	mov    %eax,0x80(%esp)
+  5b093d:	8b 83 d8 9d ff ff    	mov    -0x6228(%ebx),%eax  # ELF GOT -> gs_constArg3_336D7683 @ 0x013c5d10
+  5b0943:	89 84 24 84 00 00 00 	mov    %eax,0x84(%esp)
+  5b094a:	8b 83 e4 7c ff ff    	mov    -0x831c(%ebx),%eax  # ELF GOT -> g_FUNC_clamp @ 0x013d50dc
+  5b0950:	8b 40 04             	mov    0x4(%eax),%eax
+  5b0953:	8d 4c 24 7c          	lea    0x7c(%esp),%ecx
+  5b0957:	89 4c 24 14          	mov    %ecx,0x14(%esp)
+  5b095b:	89 44 24 10          	mov    %eax,0x10(%esp)
+  5b095f:	8d 6c 24 30          	lea    0x30(%esp),%ebp
+  5b0963:	89 6c 24 08          	mov    %ebp,0x8(%esp)
+  5b0967:	8b 84 24 54 01 00 00 	mov    0x154(%esp),%eax
+  5b096e:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b0972:	8b 84 24 50 01 00 00 	mov    0x150(%esp),%eax
+  5b0979:	89 04 24             	mov    %eax,(%esp)
+  5b097c:	c7 44 24 0c 03 00 00 	movl   $0x3,0xc(%esp)
+  5b0983:	00 
+  5b0984:	e8 37 39 bc ff       	call   1742c0 <YYGML_CallLegacyFunction(CInstance*, CInstance*, YYRValue&, int, int, YYRValue**)@plt>
+  5b0989:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b098d:	89 34 24             	mov    %esi,(%esp)
+  5b0990:	e8 8b 61 bb ff       	call   166b20 <YYRValue::operator=(YYRValue const&)@plt>
+  5b0995:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b099a:	03 44 24 3c          	add    0x3c(%esp),%eax
+  5b099e:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b09a3:	75 08                	jne    5b09ad <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x93d>
+  5b09a5:	89 2c 24             	mov    %ebp,(%esp)
+  5b09a8:	e8 d3 dc bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b09ad:	c7 44 24 38 00 00 00 	movl   $0x0,0x38(%esp)
+  5b09b4:	00 
+  5b09b5:	c7 44 24 3c 05 00 00 	movl   $0x5,0x3c(%esp)
+  5b09bc:	00 
+  5b09bd:	c7 44 24 30 00 00 00 	movl   $0x0,0x30(%esp)
+  5b09c4:	00 
+  5b09c5:	c7 44 24 28 31 00 00 	movl   $0x31,0x28(%esp)
+  5b09cc:	00 
+  5b09cd:	8b 8c 24 50 01 00 00 	mov    0x150(%esp),%ecx
+  5b09d4:	8b 71 04             	mov    0x4(%ecx),%esi
+  5b09d7:	85 f6                	test   %esi,%esi
+  5b09d9:	74 08                	je     5b09e3 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x973>
+  5b09db:	81 c6 80 3a 00 00    	add    $0x3a80,%esi
+  5b09e1:	eb 14                	jmp    5b09f7 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x987>
+  5b09e3:	8b 01                	mov    (%ecx),%eax
+  5b09e5:	8b 40 08             	mov    0x8(%eax),%eax
+  5b09e8:	89 0c 24             	mov    %ecx,(%esp)
+  5b09eb:	c7 44 24 04 a8 03 00 	movl   $0x3a8,0x4(%esp)
+  5b09f2:	00 
+  5b09f3:	ff d0                	call   *%eax
+  5b09f5:	89 c6                	mov    %eax,%esi
+  5b09f7:	bd ff ff ff 00       	mov    $0xffffff,%ebp
+  5b09fc:	8b 46 0c             	mov    0xc(%esi),%eax
+  5b09ff:	01 e8                	add    %ebp,%eax
+  5b0a01:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b0a06:	75 08                	jne    5b0a10 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x9a0>
+  5b0a08:	89 34 24             	mov    %esi,(%esp)
+  5b0a0b:	e8 70 dc bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b0a10:	c7 46 0c 00 00 00 00 	movl   $0x0,0xc(%esi)
+  5b0a17:	c7 46 04 00 40 7f 40 	movl   $0x407f4000,0x4(%esi)
+  5b0a1e:	c7 06 00 00 00 00    	movl   $0x0,(%esi)
+  5b0a24:	03 6c 24 54          	add    0x54(%esp),%ebp
+  5b0a28:	f7 c5 fc ff ff 00    	test   $0xfffffc,%ebp
+  5b0a2e:	75 08                	jne    5b0a38 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x9c8>
+  5b0a30:	89 3c 24             	mov    %edi,(%esp)
+  5b0a33:	e8 48 dc bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b0a38:	8b ac 24 50 01 00 00 	mov    0x150(%esp),%ebp
+  5b0a3f:	c7 44 24 28 38 00 00 	movl   $0x38,0x28(%esp)
+  5b0a46:	00 
+  5b0a47:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0a4a:	85 c0                	test   %eax,%eax
+  5b0a4c:	74 0d                	je     5b0a5b <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x9eb>
+  5b0a4e:	8d b0 50 2d 00 00    	lea    0x2d50(%eax),%esi
+  5b0a54:	05 80 3a 00 00       	add    $0x3a80,%eax
+  5b0a59:	eb 36                	jmp    5b0a91 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xa21>
+  5b0a5b:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0a5e:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0a61:	89 2c 24             	mov    %ebp,(%esp)
+  5b0a64:	c7 44 24 04 d5 02 00 	movl   $0x2d5,0x4(%esp)
+  5b0a6b:	00 
+  5b0a6c:	ff d0                	call   *%eax
+  5b0a6e:	89 c6                	mov    %eax,%esi
+  5b0a70:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0a73:	85 c0                	test   %eax,%eax
+  5b0a75:	74 07                	je     5b0a7e <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xa0e>
+  5b0a77:	05 80 3a 00 00       	add    $0x3a80,%eax
+  5b0a7c:	eb 13                	jmp    5b0a91 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xa21>
+  5b0a7e:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0a81:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0a84:	89 2c 24             	mov    %ebp,(%esp)
+  5b0a87:	c7 44 24 04 a8 03 00 	movl   $0x3a8,0x4(%esp)
+  5b0a8e:	00 
+  5b0a8f:	ff d0                	call   *%eax
+  5b0a91:	8b 4c 24 40          	mov    0x40(%esp),%ecx
+  5b0a95:	f2 0f 10 01          	movsd  (%ecx),%xmm0
+  5b0a99:	f2 0f 11 44 24 08    	movsd  %xmm0,0x8(%esp)
+  5b0a9f:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b0aa3:	89 34 24             	mov    %esi,(%esp)
+  5b0aa6:	e8 a5 40 bb ff       	call   164b50 <YYCompareVal(RValue const&, RValue const&, double)@plt>
+  5b0aab:	85 c0                	test   %eax,%eax
+  5b0aad:	0f 84 52 02 00 00    	je     5b0d05 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xc95>
+  5b0ab3:	c7 44 24 28 3a 00 00 	movl   $0x3a,0x28(%esp)
+  5b0aba:	00 
+  5b0abb:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0abe:	85 c0                	test   %eax,%eax
+  5b0ac0:	74 0d                	je     5b0acf <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xa5f>
+  5b0ac2:	8d b0 50 2d 00 00    	lea    0x2d50(%eax),%esi
+  5b0ac8:	05 80 3a 00 00       	add    $0x3a80,%eax
+  5b0acd:	eb 36                	jmp    5b0b05 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xa95>
+  5b0acf:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0ad2:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0ad5:	89 2c 24             	mov    %ebp,(%esp)
+  5b0ad8:	c7 44 24 04 d5 02 00 	movl   $0x2d5,0x4(%esp)
+  5b0adf:	00 
+  5b0ae0:	ff d0                	call   *%eax
+  5b0ae2:	89 c6                	mov    %eax,%esi
+  5b0ae4:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0ae7:	85 c0                	test   %eax,%eax
+  5b0ae9:	74 07                	je     5b0af2 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xa82>
+  5b0aeb:	05 80 3a 00 00       	add    $0x3a80,%eax
+  5b0af0:	eb 13                	jmp    5b0b05 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xa95>
+  5b0af2:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0af5:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0af8:	89 2c 24             	mov    %ebp,(%esp)
+  5b0afb:	c7 44 24 04 a8 03 00 	movl   $0x3a8,0x4(%esp)
+  5b0b02:	00 
+  5b0b03:	ff d0                	call   *%eax
+  5b0b05:	89 44 24 08          	mov    %eax,0x8(%esp)
+  5b0b09:	89 74 24 04          	mov    %esi,0x4(%esp)
+  5b0b0d:	8d bc 24 b0 00 00 00 	lea    0xb0(%esp),%edi
+  5b0b14:	89 3c 24             	mov    %edi,(%esp)
+  5b0b17:	e8 44 c9 bb ff       	call   16d460 <operator-(YYRValue const&, YYRValue const&)@plt>
+  5b0b1c:	83 ec 04             	sub    $0x4,%esp
+  5b0b1f:	f7 84 24 bc 00 00 00 	testl  $0xffffff,0xbc(%esp)
+  5b0b26:	ff ff ff 00 
+  5b0b2a:	74 1a                	je     5b0b46 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xad6>
+  5b0b2c:	89 3c 24             	mov    %edi,(%esp)
+  5b0b2f:	e8 ac 7a bb ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  5b0b34:	dd 9c 24 08 01 00 00 	fstpl  0x108(%esp)
+  5b0b3b:	f2 0f 10 84 24 08 01 	movsd  0x108(%esp),%xmm0
+  5b0b42:	00 00 
+  5b0b44:	eb 09                	jmp    5b0b4f <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xadf>
+  5b0b46:	f2 0f 10 84 24 b0 00 	movsd  0xb0(%esp),%xmm0
+  5b0b4d:	00 00 
+  5b0b4f:	f2 0f 11 04 24       	movsd  %xmm0,(%esp)
+  5b0b54:	e8 b7 5d bc ff       	call   176910 <YYGML_abs(double)@plt>
+  5b0b59:	dd 9c 24 00 01 00 00 	fstpl  0x100(%esp)
+  5b0b60:	f2 0f 10 84 24 00 01 	movsd  0x100(%esp),%xmm0
+  5b0b67:	00 00 
+  5b0b69:	8b 44 24 40          	mov    0x40(%esp),%eax
+  5b0b6d:	f2 0f 10 08          	movsd  (%eax),%xmm1
+  5b0b71:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b0b76:	03 84 24 bc 00 00 00 	add    0xbc(%esp),%eax
+  5b0b7d:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b0b82:	75 20                	jne    5b0ba4 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xb34>
+  5b0b84:	89 3c 24             	mov    %edi,(%esp)
+  5b0b87:	f2 0f 11 44 24 60    	movsd  %xmm0,0x60(%esp)
+  5b0b8d:	f2 0f 11 4c 24 58    	movsd  %xmm1,0x58(%esp)
+  5b0b93:	e8 e8 da bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b0b98:	f2 0f 10 4c 24 58    	movsd  0x58(%esp),%xmm1
+  5b0b9e:	f2 0f 10 44 24 60    	movsd  0x60(%esp),%xmm0
+  5b0ba4:	f2 0f 58 83 68 0c bc 	addsd  -0x43f398(%ebx),%xmm0
+  5b0bab:	ff 
+  5b0bac:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  5b0bb0:	76 17                	jbe    5b0bc9 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xb59>
+  5b0bb2:	c7 44 24 28 3c 00 00 	movl   $0x3c,0x28(%esp)
+  5b0bb9:	00 
+  5b0bba:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0bbd:	85 c0                	test   %eax,%eax
+  5b0bbf:	74 2b                	je     5b0bec <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xb7c>
+  5b0bc1:	8d b0 50 2d 00 00    	lea    0x2d50(%eax),%esi
+  5b0bc7:	eb 43                	jmp    5b0c0c <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xb9c>
+  5b0bc9:	c7 44 24 28 40 00 00 	movl   $0x40,0x28(%esp)
+  5b0bd0:	00 
+  5b0bd1:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0bd4:	85 c0                	test   %eax,%eax
+  5b0bd6:	0f 84 bd 00 00 00    	je     5b0c99 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xc29>
+  5b0bdc:	8d b0 80 3a 00 00    	lea    0x3a80(%eax),%esi
+  5b0be2:	05 50 2d 00 00       	add    $0x2d50,%eax
+  5b0be7:	e9 0d 01 00 00       	jmp    5b0cf9 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xc89>
+  5b0bec:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0bef:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0bf2:	89 2c 24             	mov    %ebp,(%esp)
+  5b0bf5:	c7 44 24 04 d5 02 00 	movl   $0x2d5,0x4(%esp)
+  5b0bfc:	00 
+  5b0bfd:	ff d0                	call   *%eax
+  5b0bff:	89 c6                	mov    %eax,%esi
+  5b0c01:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0c04:	85 c0                	test   %eax,%eax
+  5b0c06:	0f 84 b0 00 00 00    	je     5b0cbc <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xc4c>
+  5b0c0c:	8d b8 80 3a 00 00    	lea    0x3a80(%eax),%edi
+  5b0c12:	05 a0 71 00 00       	add    $0x71a0,%eax
+  5b0c17:	89 74 24 48          	mov    %esi,0x48(%esp)
+  5b0c1b:	89 7c 24 4c          	mov    %edi,0x4c(%esp)
+  5b0c1f:	89 44 24 50          	mov    %eax,0x50(%esp)
+  5b0c23:	8b 83 bc e5 ff ff    	mov    -0x1a44(%ebx),%eax  # ELF GOT -> g_FUNC_lerp @ 0x013d597c
+  5b0c29:	8b 40 04             	mov    0x4(%eax),%eax
+  5b0c2c:	8d 4c 24 48          	lea    0x48(%esp),%ecx
+  5b0c30:	89 4c 24 14          	mov    %ecx,0x14(%esp)
+  5b0c34:	89 44 24 10          	mov    %eax,0x10(%esp)
+  5b0c38:	8d 7c 24 30          	lea    0x30(%esp),%edi
+  5b0c3c:	89 7c 24 08          	mov    %edi,0x8(%esp)
+  5b0c40:	8b 84 24 54 01 00 00 	mov    0x154(%esp),%eax
+  5b0c47:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b0c4b:	89 2c 24             	mov    %ebp,(%esp)
+  5b0c4e:	c7 44 24 0c 03 00 00 	movl   $0x3,0xc(%esp)
+  5b0c55:	00 
+  5b0c56:	e8 65 36 bc ff       	call   1742c0 <YYGML_CallLegacyFunction(CInstance*, CInstance*, YYRValue&, int, int, YYRValue**)@plt>
+  5b0c5b:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b0c5f:	89 34 24             	mov    %esi,(%esp)
+  5b0c62:	e8 b9 5e bb ff       	call   166b20 <YYRValue::operator=(YYRValue const&)@plt>
+  5b0c67:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b0c6c:	03 44 24 3c          	add    0x3c(%esp),%eax
+  5b0c70:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b0c75:	75 08                	jne    5b0c7f <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xc0f>
+  5b0c77:	89 3c 24             	mov    %edi,(%esp)
+  5b0c7a:	e8 01 da bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b0c7f:	c7 44 24 38 00 00 00 	movl   $0x0,0x38(%esp)
+  5b0c86:	00 
+  5b0c87:	c7 44 24 3c 05 00 00 	movl   $0x5,0x3c(%esp)
+  5b0c8e:	00 
+  5b0c8f:	c7 44 24 30 00 00 00 	movl   $0x0,0x30(%esp)
+  5b0c96:	00 
+  5b0c97:	eb 6c                	jmp    5b0d05 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xc95>
+  5b0c99:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0c9c:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0c9f:	89 2c 24             	mov    %ebp,(%esp)
+  5b0ca2:	c7 44 24 04 a8 03 00 	movl   $0x3a8,0x4(%esp)
+  5b0ca9:	00 
+  5b0caa:	ff d0                	call   *%eax
+  5b0cac:	89 c6                	mov    %eax,%esi
+  5b0cae:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0cb1:	85 c0                	test   %eax,%eax
+  5b0cb3:	74 31                	je     5b0ce6 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xc76>
+  5b0cb5:	05 50 2d 00 00       	add    $0x2d50,%eax
+  5b0cba:	eb 3d                	jmp    5b0cf9 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xc89>
+  5b0cbc:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0cbf:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0cc2:	89 2c 24             	mov    %ebp,(%esp)
+  5b0cc5:	c7 44 24 04 a8 03 00 	movl   $0x3a8,0x4(%esp)
+  5b0ccc:	00 
+  5b0ccd:	ff d0                	call   *%eax
+  5b0ccf:	89 c7                	mov    %eax,%edi
+  5b0cd1:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0cd4:	85 c0                	test   %eax,%eax
+  5b0cd6:	0f 84 2e 06 00 00    	je     5b130a <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x129a>
+  5b0cdc:	05 a0 71 00 00       	add    $0x71a0,%eax
+  5b0ce1:	e9 31 ff ff ff       	jmp    5b0c17 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xba7>
+  5b0ce6:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0ce9:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0cec:	89 2c 24             	mov    %ebp,(%esp)
+  5b0cef:	c7 44 24 04 d5 02 00 	movl   $0x2d5,0x4(%esp)
+  5b0cf6:	00 
+  5b0cf7:	ff d0                	call   *%eax
+  5b0cf9:	89 74 24 04          	mov    %esi,0x4(%esp)
+  5b0cfd:	89 04 24             	mov    %eax,(%esp)
+  5b0d00:	e8 1b 5e bb ff       	call   166b20 <YYRValue::operator=(YYRValue const&)@plt>
+  5b0d05:	c7 44 24 28 48 00 00 	movl   $0x48,0x28(%esp)
+  5b0d0c:	00 
+  5b0d0d:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0d10:	85 c0                	test   %eax,%eax
+  5b0d12:	74 0d                	je     5b0d21 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xcb1>
+  5b0d14:	8d b0 70 2c 00 00    	lea    0x2c70(%eax),%esi
+  5b0d1a:	05 b0 1b 00 00       	add    $0x1bb0,%eax
+  5b0d1f:	eb 36                	jmp    5b0d57 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xce7>
+  5b0d21:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0d24:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0d27:	89 2c 24             	mov    %ebp,(%esp)
+  5b0d2a:	c7 44 24 04 c7 02 00 	movl   $0x2c7,0x4(%esp)
+  5b0d31:	00 
+  5b0d32:	ff d0                	call   *%eax
+  5b0d34:	89 c6                	mov    %eax,%esi
+  5b0d36:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0d39:	85 c0                	test   %eax,%eax
+  5b0d3b:	74 07                	je     5b0d44 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xcd4>
+  5b0d3d:	05 b0 1b 00 00       	add    $0x1bb0,%eax
+  5b0d42:	eb 13                	jmp    5b0d57 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xce7>
+  5b0d44:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0d47:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0d4a:	89 2c 24             	mov    %ebp,(%esp)
+  5b0d4d:	c7 44 24 04 bb 01 00 	movl   $0x1bb,0x4(%esp)
+  5b0d54:	00 
+  5b0d55:	ff d0                	call   *%eax
+  5b0d57:	8b 4c 24 40          	mov    0x40(%esp),%ecx
+  5b0d5b:	f2 0f 10 01          	movsd  (%ecx),%xmm0
+  5b0d5f:	f2 0f 11 44 24 08    	movsd  %xmm0,0x8(%esp)
+  5b0d65:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b0d69:	89 34 24             	mov    %esi,(%esp)
+  5b0d6c:	e8 df 3d bb ff       	call   164b50 <YYCompareVal(RValue const&, RValue const&, double)@plt>
+  5b0d71:	85 c0                	test   %eax,%eax
+  5b0d73:	0f 84 52 02 00 00    	je     5b0fcb <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xf5b>
+  5b0d79:	c7 44 24 28 4a 00 00 	movl   $0x4a,0x28(%esp)
+  5b0d80:	00 
+  5b0d81:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0d84:	85 c0                	test   %eax,%eax
+  5b0d86:	74 0d                	je     5b0d95 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xd25>
+  5b0d88:	8d b0 70 2c 00 00    	lea    0x2c70(%eax),%esi
+  5b0d8e:	05 b0 1b 00 00       	add    $0x1bb0,%eax
+  5b0d93:	eb 36                	jmp    5b0dcb <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xd5b>
+  5b0d95:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0d98:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0d9b:	89 2c 24             	mov    %ebp,(%esp)
+  5b0d9e:	c7 44 24 04 c7 02 00 	movl   $0x2c7,0x4(%esp)
+  5b0da5:	00 
+  5b0da6:	ff d0                	call   *%eax
+  5b0da8:	89 c6                	mov    %eax,%esi
+  5b0daa:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0dad:	85 c0                	test   %eax,%eax
+  5b0daf:	74 07                	je     5b0db8 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xd48>
+  5b0db1:	05 b0 1b 00 00       	add    $0x1bb0,%eax
+  5b0db6:	eb 13                	jmp    5b0dcb <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xd5b>
+  5b0db8:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0dbb:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0dbe:	89 2c 24             	mov    %ebp,(%esp)
+  5b0dc1:	c7 44 24 04 bb 01 00 	movl   $0x1bb,0x4(%esp)
+  5b0dc8:	00 
+  5b0dc9:	ff d0                	call   *%eax
+  5b0dcb:	89 44 24 08          	mov    %eax,0x8(%esp)
+  5b0dcf:	89 74 24 04          	mov    %esi,0x4(%esp)
+  5b0dd3:	8d bc 24 a0 00 00 00 	lea    0xa0(%esp),%edi
+  5b0dda:	89 3c 24             	mov    %edi,(%esp)
+  5b0ddd:	e8 7e c6 bb ff       	call   16d460 <operator-(YYRValue const&, YYRValue const&)@plt>
+  5b0de2:	83 ec 04             	sub    $0x4,%esp
+  5b0de5:	f7 84 24 ac 00 00 00 	testl  $0xffffff,0xac(%esp)
+  5b0dec:	ff ff ff 00 
+  5b0df0:	74 1a                	je     5b0e0c <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xd9c>
+  5b0df2:	89 3c 24             	mov    %edi,(%esp)
+  5b0df5:	e8 e6 77 bb ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  5b0dfa:	dd 9c 24 f8 00 00 00 	fstpl  0xf8(%esp)
+  5b0e01:	f2 0f 10 84 24 f8 00 	movsd  0xf8(%esp),%xmm0
+  5b0e08:	00 00 
+  5b0e0a:	eb 09                	jmp    5b0e15 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xda5>
+  5b0e0c:	f2 0f 10 84 24 a0 00 	movsd  0xa0(%esp),%xmm0
+  5b0e13:	00 00 
+  5b0e15:	f2 0f 11 04 24       	movsd  %xmm0,(%esp)
+  5b0e1a:	e8 f1 5a bc ff       	call   176910 <YYGML_abs(double)@plt>
+  5b0e1f:	dd 9c 24 f0 00 00 00 	fstpl  0xf0(%esp)
+  5b0e26:	f2 0f 10 84 24 f0 00 	movsd  0xf0(%esp),%xmm0
+  5b0e2d:	00 00 
+  5b0e2f:	8b 44 24 40          	mov    0x40(%esp),%eax
+  5b0e33:	f2 0f 10 08          	movsd  (%eax),%xmm1
+  5b0e37:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b0e3c:	03 84 24 ac 00 00 00 	add    0xac(%esp),%eax
+  5b0e43:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b0e48:	75 20                	jne    5b0e6a <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xdfa>
+  5b0e4a:	89 3c 24             	mov    %edi,(%esp)
+  5b0e4d:	f2 0f 11 44 24 60    	movsd  %xmm0,0x60(%esp)
+  5b0e53:	f2 0f 11 4c 24 58    	movsd  %xmm1,0x58(%esp)
+  5b0e59:	e8 22 d8 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b0e5e:	f2 0f 10 4c 24 58    	movsd  0x58(%esp),%xmm1
+  5b0e64:	f2 0f 10 44 24 60    	movsd  0x60(%esp),%xmm0
+  5b0e6a:	f2 0f 58 83 68 0c bc 	addsd  -0x43f398(%ebx),%xmm0
+  5b0e71:	ff 
+  5b0e72:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  5b0e76:	76 17                	jbe    5b0e8f <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xe1f>
+  5b0e78:	c7 44 24 28 4c 00 00 	movl   $0x4c,0x28(%esp)
+  5b0e7f:	00 
+  5b0e80:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0e83:	85 c0                	test   %eax,%eax
+  5b0e85:	74 2b                	je     5b0eb2 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xe42>
+  5b0e87:	8d b0 70 2c 00 00    	lea    0x2c70(%eax),%esi
+  5b0e8d:	eb 43                	jmp    5b0ed2 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xe62>
+  5b0e8f:	c7 44 24 28 50 00 00 	movl   $0x50,0x28(%esp)
+  5b0e96:	00 
+  5b0e97:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0e9a:	85 c0                	test   %eax,%eax
+  5b0e9c:	0f 84 bd 00 00 00    	je     5b0f5f <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xeef>
+  5b0ea2:	8d b0 b0 1b 00 00    	lea    0x1bb0(%eax),%esi
+  5b0ea8:	05 70 2c 00 00       	add    $0x2c70,%eax
+  5b0ead:	e9 0d 01 00 00       	jmp    5b0fbf <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xf4f>
+  5b0eb2:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0eb5:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0eb8:	89 2c 24             	mov    %ebp,(%esp)
+  5b0ebb:	c7 44 24 04 c7 02 00 	movl   $0x2c7,0x4(%esp)
+  5b0ec2:	00 
+  5b0ec3:	ff d0                	call   *%eax
+  5b0ec5:	89 c6                	mov    %eax,%esi
+  5b0ec7:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0eca:	85 c0                	test   %eax,%eax
+  5b0ecc:	0f 84 b0 00 00 00    	je     5b0f82 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xf12>
+  5b0ed2:	8d b8 b0 1b 00 00    	lea    0x1bb0(%eax),%edi
+  5b0ed8:	05 e0 1b 00 00       	add    $0x1be0,%eax
+  5b0edd:	89 74 24 48          	mov    %esi,0x48(%esp)
+  5b0ee1:	89 7c 24 4c          	mov    %edi,0x4c(%esp)
+  5b0ee5:	89 44 24 50          	mov    %eax,0x50(%esp)
+  5b0ee9:	8b 83 bc e5 ff ff    	mov    -0x1a44(%ebx),%eax  # ELF GOT -> g_FUNC_lerp @ 0x013d597c
+  5b0eef:	8b 40 04             	mov    0x4(%eax),%eax
+  5b0ef2:	8d 4c 24 48          	lea    0x48(%esp),%ecx
+  5b0ef6:	89 4c 24 14          	mov    %ecx,0x14(%esp)
+  5b0efa:	89 44 24 10          	mov    %eax,0x10(%esp)
+  5b0efe:	8d 7c 24 30          	lea    0x30(%esp),%edi
+  5b0f02:	89 7c 24 08          	mov    %edi,0x8(%esp)
+  5b0f06:	8b 84 24 54 01 00 00 	mov    0x154(%esp),%eax
+  5b0f0d:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b0f11:	89 2c 24             	mov    %ebp,(%esp)
+  5b0f14:	c7 44 24 0c 03 00 00 	movl   $0x3,0xc(%esp)
+  5b0f1b:	00 
+  5b0f1c:	e8 9f 33 bc ff       	call   1742c0 <YYGML_CallLegacyFunction(CInstance*, CInstance*, YYRValue&, int, int, YYRValue**)@plt>
+  5b0f21:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b0f25:	89 34 24             	mov    %esi,(%esp)
+  5b0f28:	e8 f3 5b bb ff       	call   166b20 <YYRValue::operator=(YYRValue const&)@plt>
+  5b0f2d:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b0f32:	03 44 24 3c          	add    0x3c(%esp),%eax
+  5b0f36:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b0f3b:	75 08                	jne    5b0f45 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xed5>
+  5b0f3d:	89 3c 24             	mov    %edi,(%esp)
+  5b0f40:	e8 3b d7 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b0f45:	c7 44 24 38 00 00 00 	movl   $0x0,0x38(%esp)
+  5b0f4c:	00 
+  5b0f4d:	c7 44 24 3c 05 00 00 	movl   $0x5,0x3c(%esp)
+  5b0f54:	00 
+  5b0f55:	c7 44 24 30 00 00 00 	movl   $0x0,0x30(%esp)
+  5b0f5c:	00 
+  5b0f5d:	eb 6c                	jmp    5b0fcb <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xf5b>
+  5b0f5f:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0f62:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0f65:	89 2c 24             	mov    %ebp,(%esp)
+  5b0f68:	c7 44 24 04 bb 01 00 	movl   $0x1bb,0x4(%esp)
+  5b0f6f:	00 
+  5b0f70:	ff d0                	call   *%eax
+  5b0f72:	89 c6                	mov    %eax,%esi
+  5b0f74:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0f77:	85 c0                	test   %eax,%eax
+  5b0f79:	74 31                	je     5b0fac <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xf3c>
+  5b0f7b:	05 70 2c 00 00       	add    $0x2c70,%eax
+  5b0f80:	eb 3d                	jmp    5b0fbf <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xf4f>
+  5b0f82:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0f85:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0f88:	89 2c 24             	mov    %ebp,(%esp)
+  5b0f8b:	c7 44 24 04 bb 01 00 	movl   $0x1bb,0x4(%esp)
+  5b0f92:	00 
+  5b0f93:	ff d0                	call   *%eax
+  5b0f95:	89 c7                	mov    %eax,%edi
+  5b0f97:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0f9a:	85 c0                	test   %eax,%eax
+  5b0f9c:	0f 84 80 03 00 00    	je     5b1322 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x12b2>
+  5b0fa2:	05 e0 1b 00 00       	add    $0x1be0,%eax
+  5b0fa7:	e9 31 ff ff ff       	jmp    5b0edd <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xe6d>
+  5b0fac:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0faf:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0fb2:	89 2c 24             	mov    %ebp,(%esp)
+  5b0fb5:	c7 44 24 04 c7 02 00 	movl   $0x2c7,0x4(%esp)
+  5b0fbc:	00 
+  5b0fbd:	ff d0                	call   *%eax
+  5b0fbf:	89 74 24 04          	mov    %esi,0x4(%esp)
+  5b0fc3:	89 04 24             	mov    %eax,(%esp)
+  5b0fc6:	e8 55 5b bb ff       	call   166b20 <YYRValue::operator=(YYRValue const&)@plt>
+  5b0fcb:	c7 44 24 28 59 00 00 	movl   $0x59,0x28(%esp)
+  5b0fd2:	00 
+  5b0fd3:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0fd6:	85 c0                	test   %eax,%eax
+  5b0fd8:	74 0d                	je     5b0fe7 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xf77>
+  5b0fda:	8d b0 60 2d 00 00    	lea    0x2d60(%eax),%esi
+  5b0fe0:	05 c0 3a 00 00       	add    $0x3ac0,%eax
+  5b0fe5:	eb 36                	jmp    5b101d <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xfad>
+  5b0fe7:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b0fea:	8b 40 08             	mov    0x8(%eax),%eax
+  5b0fed:	89 2c 24             	mov    %ebp,(%esp)
+  5b0ff0:	c7 44 24 04 d6 02 00 	movl   $0x2d6,0x4(%esp)
+  5b0ff7:	00 
+  5b0ff8:	ff d0                	call   *%eax
+  5b0ffa:	89 c6                	mov    %eax,%esi
+  5b0ffc:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b0fff:	85 c0                	test   %eax,%eax
+  5b1001:	74 07                	je     5b100a <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xf9a>
+  5b1003:	05 c0 3a 00 00       	add    $0x3ac0,%eax
+  5b1008:	eb 13                	jmp    5b101d <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xfad>
+  5b100a:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b100d:	8b 40 08             	mov    0x8(%eax),%eax
+  5b1010:	89 2c 24             	mov    %ebp,(%esp)
+  5b1013:	c7 44 24 04 ac 03 00 	movl   $0x3ac,0x4(%esp)
+  5b101a:	00 
+  5b101b:	ff d0                	call   *%eax
+  5b101d:	8b 4c 24 40          	mov    0x40(%esp),%ecx
+  5b1021:	f2 0f 10 01          	movsd  (%ecx),%xmm0
+  5b1025:	f2 0f 11 44 24 08    	movsd  %xmm0,0x8(%esp)
+  5b102b:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b102f:	89 34 24             	mov    %esi,(%esp)
+  5b1032:	e8 19 3b bb ff       	call   164b50 <YYCompareVal(RValue const&, RValue const&, double)@plt>
+  5b1037:	85 c0                	test   %eax,%eax
+  5b1039:	0f 84 52 02 00 00    	je     5b1291 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1221>
+  5b103f:	c7 44 24 28 5b 00 00 	movl   $0x5b,0x28(%esp)
+  5b1046:	00 
+  5b1047:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b104a:	85 c0                	test   %eax,%eax
+  5b104c:	74 0d                	je     5b105b <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xfeb>
+  5b104e:	8d b0 60 2d 00 00    	lea    0x2d60(%eax),%esi
+  5b1054:	05 c0 3a 00 00       	add    $0x3ac0,%eax
+  5b1059:	eb 36                	jmp    5b1091 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1021>
+  5b105b:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b105e:	8b 40 08             	mov    0x8(%eax),%eax
+  5b1061:	89 2c 24             	mov    %ebp,(%esp)
+  5b1064:	c7 44 24 04 d6 02 00 	movl   $0x2d6,0x4(%esp)
+  5b106b:	00 
+  5b106c:	ff d0                	call   *%eax
+  5b106e:	89 c6                	mov    %eax,%esi
+  5b1070:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b1073:	85 c0                	test   %eax,%eax
+  5b1075:	74 07                	je     5b107e <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x100e>
+  5b1077:	05 c0 3a 00 00       	add    $0x3ac0,%eax
+  5b107c:	eb 13                	jmp    5b1091 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1021>
+  5b107e:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b1081:	8b 40 08             	mov    0x8(%eax),%eax
+  5b1084:	89 2c 24             	mov    %ebp,(%esp)
+  5b1087:	c7 44 24 04 ac 03 00 	movl   $0x3ac,0x4(%esp)
+  5b108e:	00 
+  5b108f:	ff d0                	call   *%eax
+  5b1091:	89 44 24 08          	mov    %eax,0x8(%esp)
+  5b1095:	89 74 24 04          	mov    %esi,0x4(%esp)
+  5b1099:	8d bc 24 90 00 00 00 	lea    0x90(%esp),%edi
+  5b10a0:	89 3c 24             	mov    %edi,(%esp)
+  5b10a3:	e8 b8 c3 bb ff       	call   16d460 <operator-(YYRValue const&, YYRValue const&)@plt>
+  5b10a8:	83 ec 04             	sub    $0x4,%esp
+  5b10ab:	f7 84 24 9c 00 00 00 	testl  $0xffffff,0x9c(%esp)
+  5b10b2:	ff ff ff 00 
+  5b10b6:	74 1a                	je     5b10d2 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1062>
+  5b10b8:	89 3c 24             	mov    %edi,(%esp)
+  5b10bb:	e8 20 75 bb ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  5b10c0:	dd 9c 24 e8 00 00 00 	fstpl  0xe8(%esp)
+  5b10c7:	f2 0f 10 84 24 e8 00 	movsd  0xe8(%esp),%xmm0
+  5b10ce:	00 00 
+  5b10d0:	eb 09                	jmp    5b10db <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x106b>
+  5b10d2:	f2 0f 10 84 24 90 00 	movsd  0x90(%esp),%xmm0
+  5b10d9:	00 00 
+  5b10db:	f2 0f 11 04 24       	movsd  %xmm0,(%esp)
+  5b10e0:	e8 2b 58 bc ff       	call   176910 <YYGML_abs(double)@plt>
+  5b10e5:	dd 9c 24 e0 00 00 00 	fstpl  0xe0(%esp)
+  5b10ec:	f2 0f 10 84 24 e0 00 	movsd  0xe0(%esp),%xmm0
+  5b10f3:	00 00 
+  5b10f5:	8b 44 24 40          	mov    0x40(%esp),%eax
+  5b10f9:	f2 0f 10 08          	movsd  (%eax),%xmm1
+  5b10fd:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b1102:	03 84 24 9c 00 00 00 	add    0x9c(%esp),%eax
+  5b1109:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b110e:	75 20                	jne    5b1130 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x10c0>
+  5b1110:	89 3c 24             	mov    %edi,(%esp)
+  5b1113:	f2 0f 11 44 24 40    	movsd  %xmm0,0x40(%esp)
+  5b1119:	f2 0f 11 4c 24 60    	movsd  %xmm1,0x60(%esp)
+  5b111f:	e8 5c d5 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b1124:	f2 0f 10 4c 24 60    	movsd  0x60(%esp),%xmm1
+  5b112a:	f2 0f 10 44 24 40    	movsd  0x40(%esp),%xmm0
+  5b1130:	f2 0f 58 83 68 0c bc 	addsd  -0x43f398(%ebx),%xmm0
+  5b1137:	ff 
+  5b1138:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  5b113c:	76 17                	jbe    5b1155 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x10e5>
+  5b113e:	c7 44 24 28 5d 00 00 	movl   $0x5d,0x28(%esp)
+  5b1145:	00 
+  5b1146:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b1149:	85 c0                	test   %eax,%eax
+  5b114b:	74 2b                	je     5b1178 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1108>
+  5b114d:	8d b0 60 2d 00 00    	lea    0x2d60(%eax),%esi
+  5b1153:	eb 43                	jmp    5b1198 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1128>
+  5b1155:	c7 44 24 28 61 00 00 	movl   $0x61,0x28(%esp)
+  5b115c:	00 
+  5b115d:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b1160:	85 c0                	test   %eax,%eax
+  5b1162:	0f 84 bd 00 00 00    	je     5b1225 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x11b5>
+  5b1168:	8d b0 c0 3a 00 00    	lea    0x3ac0(%eax),%esi
+  5b116e:	05 60 2d 00 00       	add    $0x2d60,%eax
+  5b1173:	e9 0d 01 00 00       	jmp    5b1285 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1215>
+  5b1178:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b117b:	8b 40 08             	mov    0x8(%eax),%eax
+  5b117e:	89 2c 24             	mov    %ebp,(%esp)
+  5b1181:	c7 44 24 04 d6 02 00 	movl   $0x2d6,0x4(%esp)
+  5b1188:	00 
+  5b1189:	ff d0                	call   *%eax
+  5b118b:	89 c6                	mov    %eax,%esi
+  5b118d:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b1190:	85 c0                	test   %eax,%eax
+  5b1192:	0f 84 b0 00 00 00    	je     5b1248 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x11d8>
+  5b1198:	8d b8 c0 3a 00 00    	lea    0x3ac0(%eax),%edi
+  5b119e:	05 d0 3a 00 00       	add    $0x3ad0,%eax
+  5b11a3:	89 74 24 48          	mov    %esi,0x48(%esp)
+  5b11a7:	89 7c 24 4c          	mov    %edi,0x4c(%esp)
+  5b11ab:	89 44 24 50          	mov    %eax,0x50(%esp)
+  5b11af:	8b 83 bc e5 ff ff    	mov    -0x1a44(%ebx),%eax  # ELF GOT -> g_FUNC_lerp @ 0x013d597c
+  5b11b5:	8b 40 04             	mov    0x4(%eax),%eax
+  5b11b8:	8d 4c 24 48          	lea    0x48(%esp),%ecx
+  5b11bc:	89 4c 24 14          	mov    %ecx,0x14(%esp)
+  5b11c0:	89 44 24 10          	mov    %eax,0x10(%esp)
+  5b11c4:	8d 7c 24 30          	lea    0x30(%esp),%edi
+  5b11c8:	89 7c 24 08          	mov    %edi,0x8(%esp)
+  5b11cc:	8b 84 24 54 01 00 00 	mov    0x154(%esp),%eax
+  5b11d3:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b11d7:	89 2c 24             	mov    %ebp,(%esp)
+  5b11da:	c7 44 24 0c 03 00 00 	movl   $0x3,0xc(%esp)
+  5b11e1:	00 
+  5b11e2:	e8 d9 30 bc ff       	call   1742c0 <YYGML_CallLegacyFunction(CInstance*, CInstance*, YYRValue&, int, int, YYRValue**)@plt>
+  5b11e7:	89 44 24 04          	mov    %eax,0x4(%esp)
+  5b11eb:	89 34 24             	mov    %esi,(%esp)
+  5b11ee:	e8 2d 59 bb ff       	call   166b20 <YYRValue::operator=(YYRValue const&)@plt>
+  5b11f3:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b11f8:	03 44 24 3c          	add    0x3c(%esp),%eax
+  5b11fc:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b1201:	75 08                	jne    5b120b <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x119b>
+  5b1203:	89 3c 24             	mov    %edi,(%esp)
+  5b1206:	e8 75 d4 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b120b:	c7 44 24 38 00 00 00 	movl   $0x0,0x38(%esp)
+  5b1212:	00 
+  5b1213:	c7 44 24 3c 05 00 00 	movl   $0x5,0x3c(%esp)
+  5b121a:	00 
+  5b121b:	c7 44 24 30 00 00 00 	movl   $0x0,0x30(%esp)
+  5b1222:	00 
+  5b1223:	eb 6c                	jmp    5b1291 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1221>
+  5b1225:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b1228:	8b 40 08             	mov    0x8(%eax),%eax
+  5b122b:	89 2c 24             	mov    %ebp,(%esp)
+  5b122e:	c7 44 24 04 ac 03 00 	movl   $0x3ac,0x4(%esp)
+  5b1235:	00 
+  5b1236:	ff d0                	call   *%eax
+  5b1238:	89 c6                	mov    %eax,%esi
+  5b123a:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b123d:	85 c0                	test   %eax,%eax
+  5b123f:	74 31                	je     5b1272 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1202>
+  5b1241:	05 60 2d 00 00       	add    $0x2d60,%eax
+  5b1246:	eb 3d                	jmp    5b1285 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1215>
+  5b1248:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b124b:	8b 40 08             	mov    0x8(%eax),%eax
+  5b124e:	89 2c 24             	mov    %ebp,(%esp)
+  5b1251:	c7 44 24 04 ac 03 00 	movl   $0x3ac,0x4(%esp)
+  5b1258:	00 
+  5b1259:	ff d0                	call   *%eax
+  5b125b:	89 c7                	mov    %eax,%edi
+  5b125d:	8b 45 04             	mov    0x4(%ebp),%eax
+  5b1260:	85 c0                	test   %eax,%eax
+  5b1262:	0f 84 d2 00 00 00    	je     5b133a <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x12ca>
+  5b1268:	05 d0 3a 00 00       	add    $0x3ad0,%eax
+  5b126d:	e9 31 ff ff ff       	jmp    5b11a3 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1133>
+  5b1272:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b1275:	8b 40 08             	mov    0x8(%eax),%eax
+  5b1278:	89 2c 24             	mov    %ebp,(%esp)
+  5b127b:	c7 44 24 04 d6 02 00 	movl   $0x2d6,0x4(%esp)
+  5b1282:	00 
+  5b1283:	ff d0                	call   *%eax
+  5b1285:	89 74 24 04          	mov    %esi,0x4(%esp)
+  5b1289:	89 04 24             	mov    %eax,(%esp)
+  5b128c:	e8 8f 58 bb ff       	call   166b20 <YYRValue::operator=(YYRValue const&)@plt>
+  5b1291:	be ff ff ff 00       	mov    $0xffffff,%esi
+  5b1296:	8b 44 24 74          	mov    0x74(%esp),%eax
+  5b129a:	01 f0                	add    %esi,%eax
+  5b129c:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b12a1:	75 0c                	jne    5b12af <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x123f>
+  5b12a3:	8d 44 24 68          	lea    0x68(%esp),%eax
+  5b12a7:	89 04 24             	mov    %eax,(%esp)
+  5b12aa:	e8 d1 d3 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b12af:	03 74 24 3c          	add    0x3c(%esp),%esi
+  5b12b3:	f7 c6 fc ff ff 00    	test   $0xfffffc,%esi
+  5b12b9:	75 0c                	jne    5b12c7 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1257>
+  5b12bb:	8d 44 24 30          	lea    0x30(%esp),%eax
+  5b12bf:	89 04 24             	mov    %eax,(%esp)
+  5b12c2:	e8 b9 d3 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b12c7:	8b 44 24 20          	mov    0x20(%esp),%eax
+  5b12cb:	8b 4c 24 78          	mov    0x78(%esp),%ecx
+  5b12cf:	89 01                	mov    %eax,(%ecx)
+  5b12d1:	81 c4 3c 01 00 00    	add    $0x13c,%esp
+  5b12d7:	5e                   	pop    %esi
+  5b12d8:	5f                   	pop    %edi
+  5b12d9:	5b                   	pop    %ebx
+  5b12da:	5d                   	pop    %ebp
+  5b12db:	c3                   	ret
+  5b12dc:	8b 01                	mov    (%ecx),%eax
+  5b12de:	8b 40 08             	mov    0x8(%eax),%eax
+  5b12e1:	89 0c 24             	mov    %ecx,(%esp)
+  5b12e4:	c7 44 24 04 06 07 00 	movl   $0x706,0x4(%esp)
+  5b12eb:	00 
+  5b12ec:	ff d0                	call   *%eax
+  5b12ee:	e9 0c f0 ff ff       	jmp    5b02ff <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x28f>
+  5b12f3:	8b 01                	mov    (%ecx),%eax
+  5b12f5:	8b 40 08             	mov    0x8(%eax),%eax
+  5b12f8:	89 0c 24             	mov    %ecx,(%esp)
+  5b12fb:	c7 44 24 04 19 07 00 	movl   $0x719,0x4(%esp)
+  5b1302:	00 
+  5b1303:	ff d0                	call   *%eax
+  5b1305:	e9 5f f3 ff ff       	jmp    5b0669 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x5f9>
+  5b130a:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b130d:	8b 40 08             	mov    0x8(%eax),%eax
+  5b1310:	89 2c 24             	mov    %ebp,(%esp)
+  5b1313:	c7 44 24 04 1a 07 00 	movl   $0x71a,0x4(%esp)
+  5b131a:	00 
+  5b131b:	ff d0                	call   *%eax
+  5b131d:	e9 f5 f8 ff ff       	jmp    5b0c17 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xba7>
+  5b1322:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b1325:	8b 40 08             	mov    0x8(%eax),%eax
+  5b1328:	89 2c 24             	mov    %ebp,(%esp)
+  5b132b:	c7 44 24 04 be 01 00 	movl   $0x1be,0x4(%esp)
+  5b1332:	00 
+  5b1333:	ff d0                	call   *%eax
+  5b1335:	e9 a3 fb ff ff       	jmp    5b0edd <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0xe6d>
+  5b133a:	8b 45 00             	mov    0x0(%ebp),%eax
+  5b133d:	8b 40 08             	mov    0x8(%eax),%eax
+  5b1340:	89 2c 24             	mov    %ebp,(%esp)
+  5b1343:	c7 44 24 04 ad 03 00 	movl   $0x3ad,0x4(%esp)
+  5b134a:	00 
+  5b134b:	ff d0                	call   *%eax
+  5b134d:	e9 51 fe ff ff       	jmp    5b11a3 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x1133>
+  5b1352:	e9 de 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1357:	e9 d9 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b135c:	e9 d4 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1361:	e9 cf 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1366:	e9 ca 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b136b:	e9 c5 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1370:	e9 c0 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1375:	e9 bb 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b137a:	e9 b6 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b137f:	e9 b1 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1384:	e9 ac 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1389:	e9 a7 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b138e:	e9 a2 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1393:	e9 9d 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1398:	e9 98 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b139d:	e9 93 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13a2:	e9 8e 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13a7:	e9 89 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13ac:	e9 84 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13b1:	e9 7f 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13b6:	e9 7a 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13bb:	e9 75 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13c0:	e9 70 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13c5:	e9 6b 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13ca:	e9 66 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13cf:	e9 61 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13d4:	e9 5c 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13d9:	e9 57 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13de:	e9 52 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13e3:	e9 4d 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13e8:	e9 48 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13ed:	e9 43 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13f2:	e9 3e 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13f7:	e9 39 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b13fc:	e9 34 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1401:	e9 13 01 00 00       	jmp    5b1519 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14a9>
+  5b1406:	e9 0e 01 00 00       	jmp    5b1519 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14a9>
+  5b140b:	e9 25 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1410:	e9 20 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1415:	e9 1b 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b141a:	e9 16 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b141f:	e9 11 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1424:	e9 0c 01 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1429:	eb 0c                	jmp    5b1437 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x13c7>
+  5b142b:	89 c6                	mov    %eax,%esi
+  5b142d:	e9 21 01 00 00       	jmp    5b1553 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14e3>
+  5b1432:	e9 fe 00 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1437:	89 c6                	mov    %eax,%esi
+  5b1439:	e9 31 01 00 00       	jmp    5b156f <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14ff>
+  5b143e:	e9 f2 00 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1443:	e9 ed 00 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1448:	e9 e8 00 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b144d:	e9 e3 00 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1452:	e9 de 00 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1457:	e9 d9 00 00 00       	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b145c:	89 c6                	mov    %eax,%esi
+  5b145e:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b1463:	03 84 24 9c 00 00 00 	add    0x9c(%esp),%eax
+  5b146a:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b146f:	0f 85 c2 00 00 00    	jne    5b1537 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c7>
+  5b1475:	89 3c 24             	mov    %edi,(%esp)
+  5b1478:	e8 03 d2 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b147d:	e9 b5 00 00 00       	jmp    5b1537 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c7>
+  5b1482:	89 c6                	mov    %eax,%esi
+  5b1484:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b1489:	03 84 24 ac 00 00 00 	add    0xac(%esp),%eax
+  5b1490:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b1495:	0f 85 9c 00 00 00    	jne    5b1537 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c7>
+  5b149b:	89 3c 24             	mov    %edi,(%esp)
+  5b149e:	e8 dd d1 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b14a3:	e9 8f 00 00 00       	jmp    5b1537 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c7>
+  5b14a8:	89 c6                	mov    %eax,%esi
+  5b14aa:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b14af:	03 84 24 bc 00 00 00 	add    0xbc(%esp),%eax
+  5b14b6:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b14bb:	75 7a                	jne    5b1537 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c7>
+  5b14bd:	89 3c 24             	mov    %edi,(%esp)
+  5b14c0:	e8 bb d1 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b14c5:	eb 70                	jmp    5b1537 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c7>
+  5b14c7:	89 c6                	mov    %eax,%esi
+  5b14c9:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b14ce:	03 84 24 cc 00 00 00 	add    0xcc(%esp),%eax
+  5b14d5:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b14da:	75 5b                	jne    5b1537 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c7>
+  5b14dc:	89 3c 24             	mov    %edi,(%esp)
+  5b14df:	e8 9c d1 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b14e4:	eb 51                	jmp    5b1537 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c7>
+  5b14e6:	89 c6                	mov    %eax,%esi
+  5b14e8:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b14ed:	03 84 24 dc 00 00 00 	add    0xdc(%esp),%eax
+  5b14f4:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b14f9:	75 3c                	jne    5b1537 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c7>
+  5b14fb:	89 3c 24             	mov    %edi,(%esp)
+  5b14fe:	e8 7d d1 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b1503:	eb 32                	jmp    5b1537 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c7>
+  5b1505:	eb 2e                	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1507:	eb 2c                	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1509:	eb 2a                	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b150b:	eb 28                	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b150d:	eb 26                	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b150f:	eb 24                	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1511:	eb 22                	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1513:	eb 20                	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1515:	eb 1e                	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1517:	eb 1c                	jmp    5b1535 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c5>
+  5b1519:	89 c6                	mov    %eax,%esi
+  5b151b:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b1520:	03 44 24 54          	add    0x54(%esp),%eax
+  5b1524:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b1529:	75 0c                	jne    5b1537 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c7>
+  5b152b:	89 3c 24             	mov    %edi,(%esp)
+  5b152e:	e8 4d d1 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b1533:	eb 02                	jmp    5b1537 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14c7>
+  5b1535:	89 c6                	mov    %eax,%esi
+  5b1537:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b153c:	03 44 24 74          	add    0x74(%esp),%eax
+  5b1540:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b1545:	75 0c                	jne    5b1553 <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14e3>
+  5b1547:	8d 44 24 68          	lea    0x68(%esp),%eax
+  5b154b:	89 04 24             	mov    %eax,(%esp)
+  5b154e:	e8 2d d1 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b1553:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  5b1558:	03 44 24 3c          	add    0x3c(%esp),%eax
+  5b155c:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  5b1561:	75 0c                	jne    5b156f <gml_Object_ob_car_Step_1(CInstance*, CInstance*)@@Base+0x14ff>
+  5b1563:	8d 44 24 30          	lea    0x30(%esp),%eax
+  5b1567:	89 04 24             	mov    %eax,(%esp)
+  5b156a:	e8 11 d1 bb ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  5b156f:	8b 44 24 20          	mov    0x20(%esp),%eax
+  5b1573:	8b 4c 24 78          	mov    0x78(%esp),%ecx
+  5b1577:	89 01                	mov    %eax,(%ecx)
+  5b1579:	89 34 24             	mov    %esi,(%esp)
+  5b157c:	e8 5f 4d bb ff       	call   1662e0 <_Unwind_Resume@plt>
+  5b1581:	83 ec 04             	sub    $0x4,%esp
+  5b1584:	89 04 24             	mov    %eax,(%esp)
+  5b1587:	e8 f4 d3 c2 ff       	call   1de980 <YYRValue::~YYRValue()@@Base+0x40>
+  5b158c:	83 ec 04             	sub    $0x4,%esp

@@ -1,0 +1,161 @@
+name: Validate and publish native Windows release
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Draft native release tag
+        required: true
+        default: v0.2.0-native-preview
+      archive_sha256:
+        description: SHA-256 of the exact Windows ZIP
+        required: true
+      core_sha256:
+        description: SHA-256 of the Windows core test executable
+        required: true
+      part_count:
+        description: Number of staged 4 MiB archive parts
+        required: true
+permissions:
+  contents: write
+env:
+  GH_TOKEN: ${{ github.token }}
+  GH_REPO: ${{ github.repository }}
+  RELEASE_TAG: ${{ inputs.release_tag }}
+  EXPECTED_SHA: ${{ inputs.archive_sha256 }}
+  CORE_SHA: ${{ inputs.core_sha256 }}
+  PART_COUNT: ${{ inputs.part_count }}
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Validate inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-native-preview$ ]]
+          [[ "$EXPECTED_SHA" =~ ^[a-f0-9]{64}$ ]]
+          [[ "$CORE_SHA" =~ ^[a-f0-9]{64}$ ]]
+          [[ "$PART_COUNT" =~ ^[0-9]+$ ]]
+          (( PART_COUNT >= 1 && PART_COUNT <= 64 ))
+      - name: Assemble and verify the candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir candidate
+          cd candidate
+          gh release download "$RELEASE_TAG" --pattern 'PixelCarRacerNative-Windows-x64.zip.part-*'
+          gh release download "$RELEASE_TAG" --pattern 'Core-Tests-Windows.exe'
+          python3 - <<'PY'
+          import os, hashlib
+          from pathlib import Path
+          names = [f'PixelCarRacerNative-Windows-x64.zip.part-{i:03d}' for i in range(int(os.environ['PART_COUNT']))]
+          observed = sorted(p.name for p in Path('.').glob('*.part-*'))
+          if names != observed: raise SystemExit('Unexpected or missing archive parts')
+          with Path('PixelCarRacerNative-Windows-x64.zip').open('wb') as out:
+              for name in names:
+                  p = Path(name)
+                  if p.stat().st_size > 4 * 1024 * 1024: raise SystemExit('Part size exceeds staging contract')
+                  out.write(p.read_bytes())
+          for name, variable in [('PixelCarRacerNative-Windows-x64.zip', 'EXPECTED_SHA'), ('Core-Tests-Windows.exe', 'CORE_SHA')]:
+              if hashlib.file_digest(Path(name).open('rb'),'sha256').hexdigest() != os.environ[variable]:
+                  raise SystemExit('Candidate digest mismatch: '+name)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-native-candidate
+          path: |
+            candidate/PixelCarRacerNative-Windows-x64.zip
+            candidate/Core-Tests-Windows.exe
+          retention-days: 7
+  windows:
+    needs: assemble
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: verified-native-candidate
+          path: candidate
+      - name: Validate the Windows executable and settings persistence
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $zip = Join-Path $PWD 'candidate/PixelCarRacerNative-Windows-x64.zip'
+          $core = Join-Path $PWD 'candidate/Core-Tests-Windows.exe'
+          if ((Get-FileHash $zip -Algorithm SHA256).Hash.ToLower() -ne $env:EXPECTED_SHA) { throw 'Archive digest mismatch' }
+          if ((Get-FileHash $core -Algorithm SHA256).Hash.ToLower() -ne $env:CORE_SHA) { throw 'Test executable digest mismatch' }
+          New-Item -ItemType Directory validation -Force | Out-Null
+          & $core "$env:RUNNER_TEMP\pcr-native-core" *> validation/core-tests.txt
+          if ($LASTEXITCODE -ne 0) { Get-Content validation/core-tests.txt; throw 'Windows core tests failed' }
+          Expand-Archive $zip -DestinationPath "$env:RUNNER_TEMP\pcr-native-app"
+          Get-CimInstance Win32_OperatingSystem | Select-Object Caption,Version | Format-List | Out-File validation/windows.txt
+      - name: Prepare verified software OpenGL for the CI runner only
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $mesa = "$env:RUNNER_TEMP\mesa.7z"
+          Invoke-WebRequest 'https://github.com/pal1000/mesa-dist-win/releases/download/26.2.4/mesa3d-26.2.4-release-msvc.7z' -OutFile $mesa
+          if ((Get-FileHash $mesa -Algorithm SHA256).Hash.ToLower() -ne '351fc8c8b695878ffb3eaa044b3ead08672a48b1a045e3c3e3975811df0f6695') { throw 'Mesa digest mismatch' }
+          & 'C:\Program Files\7-Zip\7z.exe' x $mesa "-o$env:RUNNER_TEMP\mesa" -y | Out-File validation/mesa-extraction.txt
+          if ($LASTEXITCODE -ne 0) { throw 'Mesa extraction failed' }
+          $opengl = Get-ChildItem "$env:RUNNER_TEMP\mesa" -Recurse -Filter opengl32.dll | Where-Object { $_.FullName -match '[\\/]x64[\\/]' } | Select-Object -First 1
+          if (!$opengl) { throw 'Mesa x64 OpenGL not found' }
+          Copy-Item "$($opengl.DirectoryName)\*.dll" "$env:RUNNER_TEMP\pcr-native-app\"
+          'Test-only Mesa 26.2.4, SHA256 351fc8c8b695878ffb3eaa044b3ead08672a48b1a045e3c3e3975811df0f6695. These DLLs are not distributed in the game.' | Out-File validation/renderer.txt
+      - name: Run the actual native Windows application
+        shell: pwsh
+        env:
+          GALLIUM_DRIVER: llvmpipe
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $exe = "$env:RUNNER_TEMP\pcr-native-app\PixelCarRacerNative.exe"
+          $data = "$env:RUNNER_TEMP\pcr-native-smoke"
+          $captures = Join-Path $PWD 'validation/screens'
+          $arguments = "--data-dir `"$data`" --capture-dir `"$captures`" --no-audio --smoke-test"
+          $p = Start-Process $exe -ArgumentList $arguments -Wait -PassThru -RedirectStandardOutput validation/application-stdout.txt -RedirectStandardError validation/application-stderr.txt
+          if (Test-Path "$data\smoke-report.txt") { Copy-Item "$data\smoke-report.txt" validation/; Get-Content validation/smoke-report.txt }
+          if ($p.ExitCode -ne 0) { throw "Native Windows application failed: $($p.ExitCode)" }
+          if (!(Test-Path validation/smoke-report.txt)) { throw 'Missing graphical validation report' }
+          if (Select-String -Path validation/smoke-report.txt -Pattern '^FAIL ') { throw 'Graphical check failed' }
+          Copy-Item "$data\settings.ini" validation/
+          Copy-Item "$data\profile.ini" validation/
+          "Archive SHA256: $env:EXPECTED_SHA`nCore test SHA256: $env:CORE_SHA`nRun: $env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID" | Out-File validation/provenance.txt
+      - name: Collect Windows validation
+        if: always()
+        shell: pwsh
+        run: |
+          if (Test-Path validation) { Compress-Archive -Path validation/* -DestinationPath Validation-Windows.zip }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-windows-validation
+          path: Validation-Windows.zip
+          retention-days: 14
+  publish:
+    needs: [assemble,windows]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: verified-native-candidate
+          path: candidate
+      - uses: actions/download-artifact@v4
+        with:
+          name: native-windows-validation
+          path: validation
+      - name: Publish only after Windows checks pass
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd candidate
+          printf '%s  PixelCarRacerNative-Windows-x64.zip\n' "$EXPECTED_SHA" > PixelCarRacerNative-Windows-x64.zip.sha256
+          sha256sum --check PixelCarRacerNative-Windows-x64.zip.sha256
+          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip
+          for part in $(seq 0 $((PART_COUNT-1))); do
+            name="$(printf 'PixelCarRacerNative-Windows-x64.zip.part-%03d' "$part")"
+            gh release delete-asset "$RELEASE_TAG" "$name" --yes
+          done
+          gh release delete-asset "$RELEASE_TAG" Core-Tests-Windows.exe --yes
+          gh release edit "$RELEASE_TAG" --draft=false

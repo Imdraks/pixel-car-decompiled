@@ -1,0 +1,1536 @@
+
+/workspace/windows-port/recovered/lib/x86/libyoyo.so:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00496c50 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base>:
+  496c50:	55                   	push   %ebp
+  496c51:	53                   	push   %ebx
+  496c52:	57                   	push   %edi
+  496c53:	56                   	push   %esi
+  496c54:	81 ec dc 00 00 00    	sub    $0xdc,%esp
+  496c5a:	e8 00 00 00 00       	call   496c5f <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xf>
+  496c5f:	5b                   	pop    %ebx
+  496c60:	81 c3 a1 e3 f1 00    	add    $0xf1e3a1,%ebx
+  496c66:	8b b4 24 f8 00 00 00 	mov    0xf8(%esp),%esi
+  496c6d:	8d 83 83 ac bb ff    	lea    -0x44537d(%ebx),%eax
+  496c73:	89 44 24 0c          	mov    %eax,0xc(%esp)
+  496c77:	c7 44 24 10 00 00 00 	movl   $0x0,0x10(%esp)
+  496c7e:	00 
+  496c7f:	8b 8b 4c ee ff ff    	mov    -0x11b4(%ebx),%ecx  # ELF GOT -> _ZN13SYYStackTrace8s_pStartE @ 0x014612f0
+  496c85:	8b 01                	mov    (%ecx),%eax
+  496c87:	89 44 24 08          	mov    %eax,0x8(%esp)
+  496c8b:	8d 44 24 08          	lea    0x8(%esp),%eax
+  496c8f:	89 4c 24 14          	mov    %ecx,0x14(%esp)
+  496c93:	89 01                	mov    %eax,(%ecx)
+  496c95:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  496c9a:	03 46 0c             	add    0xc(%esi),%eax
+  496c9d:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  496ca2:	75 08                	jne    496cac <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x5c>
+  496ca4:	89 34 24             	mov    %esi,(%esp)
+  496ca7:	e8 d4 79 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  496cac:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  496cb3:	c7 46 0c 00 00 00 00 	movl   $0x0,0xc(%esi)
+  496cba:	c7 46 04 00 00 00 00 	movl   $0x0,0x4(%esi)
+  496cc1:	c7 06 00 00 00 00    	movl   $0x0,(%esi)
+  496cc7:	c7 44 24 10 00 00 00 	movl   $0x0,0x10(%esp)
+  496cce:	00 
+  496ccf:	8b 7d 04             	mov    0x4(%ebp),%edi
+  496cd2:	85 ff                	test   %edi,%edi
+  496cd4:	74 11                	je     496ce7 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x97>
+  496cd6:	81 c7 80 21 00 00    	add    $0x2180,%edi
+  496cdc:	f7 47 0c ff ff ff 00 	testl  $0xffffff,0xc(%edi)
+  496ce3:	75 20                	jne    496d05 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xb5>
+  496ce5:	eb 3f                	jmp    496d26 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xd6>
+  496ce7:	8b 45 00             	mov    0x0(%ebp),%eax
+  496cea:	8b 40 08             	mov    0x8(%eax),%eax
+  496ced:	89 2c 24             	mov    %ebp,(%esp)
+  496cf0:	c7 44 24 04 18 02 00 	movl   $0x218,0x4(%esp)
+  496cf7:	00 
+  496cf8:	ff d0                	call   *%eax
+  496cfa:	89 c7                	mov    %eax,%edi
+  496cfc:	f7 47 0c ff ff ff 00 	testl  $0xffffff,0xc(%edi)
+  496d03:	74 21                	je     496d26 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xd6>
+  496d05:	89 3c 24             	mov    %edi,(%esp)
+  496d08:	e8 d3 18 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  496d0d:	dd 9c 24 d0 00 00 00 	fstpl  0xd0(%esp)
+  496d14:	f2 0f 10 84 24 d0 00 	movsd  0xd0(%esp),%xmm0
+  496d1b:	00 00 
+  496d1d:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  496d24:	eb 04                	jmp    496d2a <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xda>
+  496d26:	f2 0f 10 07          	movsd  (%edi),%xmm0
+  496d2a:	8b b3 08 e4 ff ff    	mov    -0x1bf8(%ebx),%esi  # ELF GOT -> g_GMLMathEpsilon @ 0x0145d888
+  496d30:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  496d34:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  496d3b:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  496d3f:	0f 82 8f 01 00 00    	jb     496ed4 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x284>
+  496d45:	8b 45 04             	mov    0x4(%ebp),%eax
+  496d48:	85 c0                	test   %eax,%eax
+  496d4a:	74 28                	je     496d74 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x124>
+  496d4c:	05 80 21 00 00       	add    $0x2180,%eax
+  496d51:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  496d58:	74 3d                	je     496d97 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x147>
+  496d5a:	89 04 24             	mov    %eax,(%esp)
+  496d5d:	e8 7e 18 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  496d62:	dd 9c 24 c8 00 00 00 	fstpl  0xc8(%esp)
+  496d69:	f2 0f 10 84 24 c8 00 	movsd  0xc8(%esp),%xmm0
+  496d70:	00 00 
+  496d72:	eb 27                	jmp    496d9b <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x14b>
+  496d74:	8b 45 00             	mov    0x0(%ebp),%eax
+  496d77:	8b 40 08             	mov    0x8(%eax),%eax
+  496d7a:	89 2c 24             	mov    %ebp,(%esp)
+  496d7d:	c7 44 24 04 18 02 00 	movl   $0x218,0x4(%esp)
+  496d84:	00 
+  496d85:	ff d0                	call   *%eax
+  496d87:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  496d8e:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  496d95:	75 c3                	jne    496d5a <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x10a>
+  496d97:	f2 0f 10 00          	movsd  (%eax),%xmm0
+  496d9b:	f2 0f 58 83 90 0e bb 	addsd  -0x44f170(%ebx),%xmm0
+  496da2:	ff 
+  496da3:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  496da7:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  496dae:	66 0f 2e c8          	ucomisd %xmm0,%xmm1
+  496db2:	0f 86 1c 01 00 00    	jbe    496ed4 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x284>
+  496db8:	c7 44 24 10 01 00 00 	movl   $0x1,0x10(%esp)
+  496dbf:	00 
+  496dc0:	89 e9                	mov    %ebp,%ecx
+  496dc2:	8b 69 04             	mov    0x4(%ecx),%ebp
+  496dc5:	85 ed                	test   %ebp,%ebp
+  496dc7:	74 08                	je     496dd1 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x181>
+  496dc9:	81 c5 70 4f 00 00    	add    $0x4f70,%ebp
+  496dcf:	eb 14                	jmp    496de5 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x195>
+  496dd1:	8b 01                	mov    (%ecx),%eax
+  496dd3:	8b 40 08             	mov    0x8(%eax),%eax
+  496dd6:	89 0c 24             	mov    %ecx,(%esp)
+  496dd9:	c7 44 24 04 f7 04 00 	movl   $0x4f7,0x4(%esp)
+  496de0:	00 
+  496de1:	ff d0                	call   *%eax
+  496de3:	89 c5                	mov    %eax,%ebp
+  496de5:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  496dea:	03 45 0c             	add    0xc(%ebp),%eax
+  496ded:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  496df2:	75 08                	jne    496dfc <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1ac>
+  496df4:	89 2c 24             	mov    %ebp,(%esp)
+  496df7:	e8 84 78 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  496dfc:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  496e03:	c7 45 04 00 00 f0 bf 	movl   $0xbff00000,0x4(%ebp)
+  496e0a:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  496e11:	c7 44 24 10 02 00 00 	movl   $0x2,0x10(%esp)
+  496e18:	00 
+  496e19:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  496e20:	8b 69 04             	mov    0x4(%ecx),%ebp
+  496e23:	85 ed                	test   %ebp,%ebp
+  496e25:	74 08                	je     496e2f <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1df>
+  496e27:	81 c5 60 4f 00 00    	add    $0x4f60,%ebp
+  496e2d:	eb 14                	jmp    496e43 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1f3>
+  496e2f:	8b 01                	mov    (%ecx),%eax
+  496e31:	8b 40 08             	mov    0x8(%eax),%eax
+  496e34:	89 0c 24             	mov    %ecx,(%esp)
+  496e37:	c7 44 24 04 f6 04 00 	movl   $0x4f6,0x4(%esp)
+  496e3e:	00 
+  496e3f:	ff d0                	call   *%eax
+  496e41:	89 c5                	mov    %eax,%ebp
+  496e43:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  496e48:	03 45 0c             	add    0xc(%ebp),%eax
+  496e4b:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  496e50:	75 08                	jne    496e5a <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x20a>
+  496e52:	89 2c 24             	mov    %ebp,(%esp)
+  496e55:	e8 26 78 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  496e5a:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  496e61:	c7 45 04 00 00 00 00 	movl   $0x0,0x4(%ebp)
+  496e68:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  496e6f:	c7 44 24 10 03 00 00 	movl   $0x3,0x10(%esp)
+  496e76:	00 
+  496e77:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  496e7e:	8b 69 04             	mov    0x4(%ecx),%ebp
+  496e81:	85 ed                	test   %ebp,%ebp
+  496e83:	74 08                	je     496e8d <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x23d>
+  496e85:	81 c5 70 23 00 00    	add    $0x2370,%ebp
+  496e8b:	eb 14                	jmp    496ea1 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x251>
+  496e8d:	8b 01                	mov    (%ecx),%eax
+  496e8f:	8b 40 08             	mov    0x8(%eax),%eax
+  496e92:	89 0c 24             	mov    %ecx,(%esp)
+  496e95:	c7 44 24 04 37 02 00 	movl   $0x237,0x4(%esp)
+  496e9c:	00 
+  496e9d:	ff d0                	call   *%eax
+  496e9f:	89 c5                	mov    %eax,%ebp
+  496ea1:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  496ea6:	03 45 0c             	add    0xc(%ebp),%eax
+  496ea9:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  496eae:	75 08                	jne    496eb8 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x268>
+  496eb0:	89 2c 24             	mov    %ebp,(%esp)
+  496eb3:	e8 c8 77 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  496eb8:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  496ebf:	c7 45 04 00 40 58 40 	movl   $0x40584000,0x4(%ebp)
+  496ec6:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  496ecd:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  496ed4:	c7 44 24 10 05 00 00 	movl   $0x5,0x10(%esp)
+  496edb:	00 
+  496edc:	f7 47 0c ff ff ff 00 	testl  $0xffffff,0xc(%edi)
+  496ee3:	74 21                	je     496f06 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x2b6>
+  496ee5:	89 3c 24             	mov    %edi,(%esp)
+  496ee8:	e8 f3 16 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  496eed:	dd 9c 24 c0 00 00 00 	fstpl  0xc0(%esp)
+  496ef4:	f2 0f 10 84 24 c0 00 	movsd  0xc0(%esp),%xmm0
+  496efb:	00 00 
+  496efd:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  496f04:	eb 04                	jmp    496f0a <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x2ba>
+  496f06:	f2 0f 10 07          	movsd  (%edi),%xmm0
+  496f0a:	f2 0f 58 83 90 0e bb 	addsd  -0x44f170(%ebx),%xmm0
+  496f11:	ff 
+  496f12:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  496f16:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  496f1d:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  496f21:	0f 82 8f 01 00 00    	jb     4970b6 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x466>
+  496f27:	8b 45 04             	mov    0x4(%ebp),%eax
+  496f2a:	85 c0                	test   %eax,%eax
+  496f2c:	74 28                	je     496f56 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x306>
+  496f2e:	05 80 21 00 00       	add    $0x2180,%eax
+  496f33:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  496f3a:	74 3d                	je     496f79 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x329>
+  496f3c:	89 04 24             	mov    %eax,(%esp)
+  496f3f:	e8 9c 16 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  496f44:	dd 9c 24 b8 00 00 00 	fstpl  0xb8(%esp)
+  496f4b:	f2 0f 10 84 24 b8 00 	movsd  0xb8(%esp),%xmm0
+  496f52:	00 00 
+  496f54:	eb 27                	jmp    496f7d <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x32d>
+  496f56:	8b 45 00             	mov    0x0(%ebp),%eax
+  496f59:	8b 40 08             	mov    0x8(%eax),%eax
+  496f5c:	89 2c 24             	mov    %ebp,(%esp)
+  496f5f:	c7 44 24 04 18 02 00 	movl   $0x218,0x4(%esp)
+  496f66:	00 
+  496f67:	ff d0                	call   *%eax
+  496f69:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  496f70:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  496f77:	75 c3                	jne    496f3c <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x2ec>
+  496f79:	f2 0f 10 00          	movsd  (%eax),%xmm0
+  496f7d:	f2 0f 58 83 88 0e bb 	addsd  -0x44f178(%ebx),%xmm0
+  496f84:	ff 
+  496f85:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  496f89:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  496f90:	66 0f 2e c8          	ucomisd %xmm0,%xmm1
+  496f94:	0f 86 1c 01 00 00    	jbe    4970b6 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x466>
+  496f9a:	c7 44 24 10 06 00 00 	movl   $0x6,0x10(%esp)
+  496fa1:	00 
+  496fa2:	89 e9                	mov    %ebp,%ecx
+  496fa4:	8b 69 04             	mov    0x4(%ecx),%ebp
+  496fa7:	85 ed                	test   %ebp,%ebp
+  496fa9:	74 08                	je     496fb3 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x363>
+  496fab:	81 c5 70 4f 00 00    	add    $0x4f70,%ebp
+  496fb1:	eb 14                	jmp    496fc7 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x377>
+  496fb3:	8b 01                	mov    (%ecx),%eax
+  496fb5:	8b 40 08             	mov    0x8(%eax),%eax
+  496fb8:	89 0c 24             	mov    %ecx,(%esp)
+  496fbb:	c7 44 24 04 f7 04 00 	movl   $0x4f7,0x4(%esp)
+  496fc2:	00 
+  496fc3:	ff d0                	call   *%eax
+  496fc5:	89 c5                	mov    %eax,%ebp
+  496fc7:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  496fcc:	03 45 0c             	add    0xc(%ebp),%eax
+  496fcf:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  496fd4:	75 08                	jne    496fde <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x38e>
+  496fd6:	89 2c 24             	mov    %ebp,(%esp)
+  496fd9:	e8 a2 76 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  496fde:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  496fe5:	c7 45 04 00 00 14 40 	movl   $0x40140000,0x4(%ebp)
+  496fec:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  496ff3:	c7 44 24 10 07 00 00 	movl   $0x7,0x10(%esp)
+  496ffa:	00 
+  496ffb:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  497002:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497005:	85 ed                	test   %ebp,%ebp
+  497007:	74 08                	je     497011 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x3c1>
+  497009:	81 c5 60 4f 00 00    	add    $0x4f60,%ebp
+  49700f:	eb 14                	jmp    497025 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x3d5>
+  497011:	8b 01                	mov    (%ecx),%eax
+  497013:	8b 40 08             	mov    0x8(%eax),%eax
+  497016:	89 0c 24             	mov    %ecx,(%esp)
+  497019:	c7 44 24 04 f6 04 00 	movl   $0x4f6,0x4(%esp)
+  497020:	00 
+  497021:	ff d0                	call   *%eax
+  497023:	89 c5                	mov    %eax,%ebp
+  497025:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  49702a:	03 45 0c             	add    0xc(%ebp),%eax
+  49702d:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497032:	75 08                	jne    49703c <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x3ec>
+  497034:	89 2c 24             	mov    %ebp,(%esp)
+  497037:	e8 44 76 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  49703c:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497043:	c7 45 04 00 00 24 c0 	movl   $0xc0240000,0x4(%ebp)
+  49704a:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497051:	c7 44 24 10 08 00 00 	movl   $0x8,0x10(%esp)
+  497058:	00 
+  497059:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  497060:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497063:	85 ed                	test   %ebp,%ebp
+  497065:	74 08                	je     49706f <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x41f>
+  497067:	81 c5 70 23 00 00    	add    $0x2370,%ebp
+  49706d:	eb 14                	jmp    497083 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x433>
+  49706f:	8b 01                	mov    (%ecx),%eax
+  497071:	8b 40 08             	mov    0x8(%eax),%eax
+  497074:	89 0c 24             	mov    %ecx,(%esp)
+  497077:	c7 44 24 04 37 02 00 	movl   $0x237,0x4(%esp)
+  49707e:	00 
+  49707f:	ff d0                	call   *%eax
+  497081:	89 c5                	mov    %eax,%ebp
+  497083:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497088:	03 45 0c             	add    0xc(%ebp),%eax
+  49708b:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497090:	75 08                	jne    49709a <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x44a>
+  497092:	89 2c 24             	mov    %ebp,(%esp)
+  497095:	e8 e6 75 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  49709a:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  4970a1:	c7 45 04 00 00 57 40 	movl   $0x40570000,0x4(%ebp)
+  4970a8:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  4970af:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  4970b6:	c7 44 24 10 0a 00 00 	movl   $0xa,0x10(%esp)
+  4970bd:	00 
+  4970be:	f7 47 0c ff ff ff 00 	testl  $0xffffff,0xc(%edi)
+  4970c5:	74 21                	je     4970e8 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x498>
+  4970c7:	89 3c 24             	mov    %edi,(%esp)
+  4970ca:	e8 11 15 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  4970cf:	dd 9c 24 b0 00 00 00 	fstpl  0xb0(%esp)
+  4970d6:	f2 0f 10 84 24 b0 00 	movsd  0xb0(%esp),%xmm0
+  4970dd:	00 00 
+  4970df:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  4970e6:	eb 04                	jmp    4970ec <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x49c>
+  4970e8:	f2 0f 10 07          	movsd  (%edi),%xmm0
+  4970ec:	f2 0f 58 83 88 0e bb 	addsd  -0x44f178(%ebx),%xmm0
+  4970f3:	ff 
+  4970f4:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  4970f8:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  4970ff:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  497103:	0f 82 8f 01 00 00    	jb     497298 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x648>
+  497109:	8b 45 04             	mov    0x4(%ebp),%eax
+  49710c:	85 c0                	test   %eax,%eax
+  49710e:	74 28                	je     497138 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x4e8>
+  497110:	05 80 21 00 00       	add    $0x2180,%eax
+  497115:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  49711c:	74 3d                	je     49715b <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x50b>
+  49711e:	89 04 24             	mov    %eax,(%esp)
+  497121:	e8 ba 14 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  497126:	dd 9c 24 a8 00 00 00 	fstpl  0xa8(%esp)
+  49712d:	f2 0f 10 84 24 a8 00 	movsd  0xa8(%esp),%xmm0
+  497134:	00 00 
+  497136:	eb 27                	jmp    49715f <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x50f>
+  497138:	8b 45 00             	mov    0x0(%ebp),%eax
+  49713b:	8b 40 08             	mov    0x8(%eax),%eax
+  49713e:	89 2c 24             	mov    %ebp,(%esp)
+  497141:	c7 44 24 04 18 02 00 	movl   $0x218,0x4(%esp)
+  497148:	00 
+  497149:	ff d0                	call   *%eax
+  49714b:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497152:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  497159:	75 c3                	jne    49711e <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x4ce>
+  49715b:	f2 0f 10 00          	movsd  (%eax),%xmm0
+  49715f:	f2 0f 58 83 40 09 bb 	addsd  -0x44f6c0(%ebx),%xmm0
+  497166:	ff 
+  497167:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  49716b:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  497172:	66 0f 2e c8          	ucomisd %xmm0,%xmm1
+  497176:	0f 86 1c 01 00 00    	jbe    497298 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x648>
+  49717c:	c7 44 24 10 0b 00 00 	movl   $0xb,0x10(%esp)
+  497183:	00 
+  497184:	89 e9                	mov    %ebp,%ecx
+  497186:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497189:	85 ed                	test   %ebp,%ebp
+  49718b:	74 08                	je     497195 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x545>
+  49718d:	81 c5 70 4f 00 00    	add    $0x4f70,%ebp
+  497193:	eb 14                	jmp    4971a9 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x559>
+  497195:	8b 01                	mov    (%ecx),%eax
+  497197:	8b 40 08             	mov    0x8(%eax),%eax
+  49719a:	89 0c 24             	mov    %ecx,(%esp)
+  49719d:	c7 44 24 04 f7 04 00 	movl   $0x4f7,0x4(%esp)
+  4971a4:	00 
+  4971a5:	ff d0                	call   *%eax
+  4971a7:	89 c5                	mov    %eax,%ebp
+  4971a9:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  4971ae:	03 45 0c             	add    0xc(%ebp),%eax
+  4971b1:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  4971b6:	75 08                	jne    4971c0 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x570>
+  4971b8:	89 2c 24             	mov    %ebp,(%esp)
+  4971bb:	e8 c0 74 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  4971c0:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  4971c7:	c7 45 04 00 00 10 c0 	movl   $0xc0100000,0x4(%ebp)
+  4971ce:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  4971d5:	c7 44 24 10 0c 00 00 	movl   $0xc,0x10(%esp)
+  4971dc:	00 
+  4971dd:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  4971e4:	8b 69 04             	mov    0x4(%ecx),%ebp
+  4971e7:	85 ed                	test   %ebp,%ebp
+  4971e9:	74 08                	je     4971f3 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x5a3>
+  4971eb:	81 c5 60 4f 00 00    	add    $0x4f60,%ebp
+  4971f1:	eb 14                	jmp    497207 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x5b7>
+  4971f3:	8b 01                	mov    (%ecx),%eax
+  4971f5:	8b 40 08             	mov    0x8(%eax),%eax
+  4971f8:	89 0c 24             	mov    %ecx,(%esp)
+  4971fb:	c7 44 24 04 f6 04 00 	movl   $0x4f6,0x4(%esp)
+  497202:	00 
+  497203:	ff d0                	call   *%eax
+  497205:	89 c5                	mov    %eax,%ebp
+  497207:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  49720c:	03 45 0c             	add    0xc(%ebp),%eax
+  49720f:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497214:	75 08                	jne    49721e <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x5ce>
+  497216:	89 2c 24             	mov    %ebp,(%esp)
+  497219:	e8 62 74 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  49721e:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497225:	c7 45 04 00 00 26 40 	movl   $0x40260000,0x4(%ebp)
+  49722c:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497233:	c7 44 24 10 0d 00 00 	movl   $0xd,0x10(%esp)
+  49723a:	00 
+  49723b:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  497242:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497245:	85 ed                	test   %ebp,%ebp
+  497247:	74 08                	je     497251 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x601>
+  497249:	81 c5 70 23 00 00    	add    $0x2370,%ebp
+  49724f:	eb 14                	jmp    497265 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x615>
+  497251:	8b 01                	mov    (%ecx),%eax
+  497253:	8b 40 08             	mov    0x8(%eax),%eax
+  497256:	89 0c 24             	mov    %ecx,(%esp)
+  497259:	c7 44 24 04 37 02 00 	movl   $0x237,0x4(%esp)
+  497260:	00 
+  497261:	ff d0                	call   *%eax
+  497263:	89 c5                	mov    %eax,%ebp
+  497265:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  49726a:	03 45 0c             	add    0xc(%ebp),%eax
+  49726d:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497272:	75 08                	jne    49727c <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x62c>
+  497274:	89 2c 24             	mov    %ebp,(%esp)
+  497277:	e8 04 74 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  49727c:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497283:	c7 45 04 00 80 59 40 	movl   $0x40598000,0x4(%ebp)
+  49728a:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497291:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497298:	c7 44 24 10 0f 00 00 	movl   $0xf,0x10(%esp)
+  49729f:	00 
+  4972a0:	f7 47 0c ff ff ff 00 	testl  $0xffffff,0xc(%edi)
+  4972a7:	74 21                	je     4972ca <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x67a>
+  4972a9:	89 3c 24             	mov    %edi,(%esp)
+  4972ac:	e8 2f 13 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  4972b1:	dd 9c 24 a0 00 00 00 	fstpl  0xa0(%esp)
+  4972b8:	f2 0f 10 84 24 a0 00 	movsd  0xa0(%esp),%xmm0
+  4972bf:	00 00 
+  4972c1:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  4972c8:	eb 04                	jmp    4972ce <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x67e>
+  4972ca:	f2 0f 10 07          	movsd  (%edi),%xmm0
+  4972ce:	f2 0f 58 83 40 09 bb 	addsd  -0x44f6c0(%ebx),%xmm0
+  4972d5:	ff 
+  4972d6:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  4972da:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  4972e1:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  4972e5:	0f 82 8f 01 00 00    	jb     49747a <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x82a>
+  4972eb:	8b 45 04             	mov    0x4(%ebp),%eax
+  4972ee:	85 c0                	test   %eax,%eax
+  4972f0:	74 28                	je     49731a <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x6ca>
+  4972f2:	05 80 21 00 00       	add    $0x2180,%eax
+  4972f7:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  4972fe:	74 3d                	je     49733d <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x6ed>
+  497300:	89 04 24             	mov    %eax,(%esp)
+  497303:	e8 d8 12 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  497308:	dd 9c 24 98 00 00 00 	fstpl  0x98(%esp)
+  49730f:	f2 0f 10 84 24 98 00 	movsd  0x98(%esp),%xmm0
+  497316:	00 00 
+  497318:	eb 27                	jmp    497341 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x6f1>
+  49731a:	8b 45 00             	mov    0x0(%ebp),%eax
+  49731d:	8b 40 08             	mov    0x8(%eax),%eax
+  497320:	89 2c 24             	mov    %ebp,(%esp)
+  497323:	c7 44 24 04 18 02 00 	movl   $0x218,0x4(%esp)
+  49732a:	00 
+  49732b:	ff d0                	call   *%eax
+  49732d:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497334:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  49733b:	75 c3                	jne    497300 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x6b0>
+  49733d:	f2 0f 10 00          	movsd  (%eax),%xmm0
+  497341:	f2 0f 58 83 80 0e bb 	addsd  -0x44f180(%ebx),%xmm0
+  497348:	ff 
+  497349:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  49734d:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  497354:	66 0f 2e c8          	ucomisd %xmm0,%xmm1
+  497358:	0f 86 1c 01 00 00    	jbe    49747a <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x82a>
+  49735e:	c7 44 24 10 10 00 00 	movl   $0x10,0x10(%esp)
+  497365:	00 
+  497366:	89 e9                	mov    %ebp,%ecx
+  497368:	8b 69 04             	mov    0x4(%ecx),%ebp
+  49736b:	85 ed                	test   %ebp,%ebp
+  49736d:	74 08                	je     497377 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x727>
+  49736f:	81 c5 70 4f 00 00    	add    $0x4f70,%ebp
+  497375:	eb 14                	jmp    49738b <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x73b>
+  497377:	8b 01                	mov    (%ecx),%eax
+  497379:	8b 40 08             	mov    0x8(%eax),%eax
+  49737c:	89 0c 24             	mov    %ecx,(%esp)
+  49737f:	c7 44 24 04 f7 04 00 	movl   $0x4f7,0x4(%esp)
+  497386:	00 
+  497387:	ff d0                	call   *%eax
+  497389:	89 c5                	mov    %eax,%ebp
+  49738b:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497390:	03 45 0c             	add    0xc(%ebp),%eax
+  497393:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497398:	75 08                	jne    4973a2 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x752>
+  49739a:	89 2c 24             	mov    %ebp,(%esp)
+  49739d:	e8 de 72 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  4973a2:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  4973a9:	c7 45 04 00 00 00 00 	movl   $0x0,0x4(%ebp)
+  4973b0:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  4973b7:	c7 44 24 10 11 00 00 	movl   $0x11,0x10(%esp)
+  4973be:	00 
+  4973bf:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  4973c6:	8b 69 04             	mov    0x4(%ecx),%ebp
+  4973c9:	85 ed                	test   %ebp,%ebp
+  4973cb:	74 08                	je     4973d5 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x785>
+  4973cd:	81 c5 60 4f 00 00    	add    $0x4f60,%ebp
+  4973d3:	eb 14                	jmp    4973e9 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x799>
+  4973d5:	8b 01                	mov    (%ecx),%eax
+  4973d7:	8b 40 08             	mov    0x8(%eax),%eax
+  4973da:	89 0c 24             	mov    %ecx,(%esp)
+  4973dd:	c7 44 24 04 f6 04 00 	movl   $0x4f6,0x4(%esp)
+  4973e4:	00 
+  4973e5:	ff d0                	call   *%eax
+  4973e7:	89 c5                	mov    %eax,%ebp
+  4973e9:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  4973ee:	03 45 0c             	add    0xc(%ebp),%eax
+  4973f1:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  4973f6:	75 08                	jne    497400 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x7b0>
+  4973f8:	89 2c 24             	mov    %ebp,(%esp)
+  4973fb:	e8 80 72 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497400:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497407:	c7 45 04 00 00 00 00 	movl   $0x0,0x4(%ebp)
+  49740e:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497415:	c7 44 24 10 12 00 00 	movl   $0x12,0x10(%esp)
+  49741c:	00 
+  49741d:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  497424:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497427:	85 ed                	test   %ebp,%ebp
+  497429:	74 08                	je     497433 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x7e3>
+  49742b:	81 c5 70 23 00 00    	add    $0x2370,%ebp
+  497431:	eb 14                	jmp    497447 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x7f7>
+  497433:	8b 01                	mov    (%ecx),%eax
+  497435:	8b 40 08             	mov    0x8(%eax),%eax
+  497438:	89 0c 24             	mov    %ecx,(%esp)
+  49743b:	c7 44 24 04 37 02 00 	movl   $0x237,0x4(%esp)
+  497442:	00 
+  497443:	ff d0                	call   *%eax
+  497445:	89 c5                	mov    %eax,%ebp
+  497447:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  49744c:	03 45 0c             	add    0xc(%ebp),%eax
+  49744f:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497454:	75 08                	jne    49745e <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x80e>
+  497456:	89 2c 24             	mov    %ebp,(%esp)
+  497459:	e8 22 72 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  49745e:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497465:	c7 45 04 00 40 59 40 	movl   $0x40594000,0x4(%ebp)
+  49746c:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497473:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  49747a:	c7 44 24 10 14 00 00 	movl   $0x14,0x10(%esp)
+  497481:	00 
+  497482:	f7 47 0c ff ff ff 00 	testl  $0xffffff,0xc(%edi)
+  497489:	74 21                	je     4974ac <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x85c>
+  49748b:	89 3c 24             	mov    %edi,(%esp)
+  49748e:	e8 4d 11 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  497493:	dd 9c 24 90 00 00 00 	fstpl  0x90(%esp)
+  49749a:	f2 0f 10 84 24 90 00 	movsd  0x90(%esp),%xmm0
+  4974a1:	00 00 
+  4974a3:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  4974aa:	eb 04                	jmp    4974b0 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x860>
+  4974ac:	f2 0f 10 07          	movsd  (%edi),%xmm0
+  4974b0:	f2 0f 58 83 80 0e bb 	addsd  -0x44f180(%ebx),%xmm0
+  4974b7:	ff 
+  4974b8:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  4974bc:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  4974c3:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  4974c7:	0f 82 8f 01 00 00    	jb     49765c <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xa0c>
+  4974cd:	8b 45 04             	mov    0x4(%ebp),%eax
+  4974d0:	85 c0                	test   %eax,%eax
+  4974d2:	74 28                	je     4974fc <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x8ac>
+  4974d4:	05 80 21 00 00       	add    $0x2180,%eax
+  4974d9:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  4974e0:	74 3d                	je     49751f <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x8cf>
+  4974e2:	89 04 24             	mov    %eax,(%esp)
+  4974e5:	e8 f6 10 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  4974ea:	dd 9c 24 88 00 00 00 	fstpl  0x88(%esp)
+  4974f1:	f2 0f 10 84 24 88 00 	movsd  0x88(%esp),%xmm0
+  4974f8:	00 00 
+  4974fa:	eb 27                	jmp    497523 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x8d3>
+  4974fc:	8b 45 00             	mov    0x0(%ebp),%eax
+  4974ff:	8b 40 08             	mov    0x8(%eax),%eax
+  497502:	89 2c 24             	mov    %ebp,(%esp)
+  497505:	c7 44 24 04 18 02 00 	movl   $0x218,0x4(%esp)
+  49750c:	00 
+  49750d:	ff d0                	call   *%eax
+  49750f:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497516:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  49751d:	75 c3                	jne    4974e2 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x892>
+  49751f:	f2 0f 10 00          	movsd  (%eax),%xmm0
+  497523:	f2 0f 58 83 78 0e bb 	addsd  -0x44f188(%ebx),%xmm0
+  49752a:	ff 
+  49752b:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  49752f:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  497536:	66 0f 2e c8          	ucomisd %xmm0,%xmm1
+  49753a:	0f 86 1c 01 00 00    	jbe    49765c <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xa0c>
+  497540:	c7 44 24 10 15 00 00 	movl   $0x15,0x10(%esp)
+  497547:	00 
+  497548:	89 e9                	mov    %ebp,%ecx
+  49754a:	8b 69 04             	mov    0x4(%ecx),%ebp
+  49754d:	85 ed                	test   %ebp,%ebp
+  49754f:	74 08                	je     497559 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x909>
+  497551:	81 c5 70 4f 00 00    	add    $0x4f70,%ebp
+  497557:	eb 14                	jmp    49756d <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x91d>
+  497559:	8b 01                	mov    (%ecx),%eax
+  49755b:	8b 40 08             	mov    0x8(%eax),%eax
+  49755e:	89 0c 24             	mov    %ecx,(%esp)
+  497561:	c7 44 24 04 f7 04 00 	movl   $0x4f7,0x4(%esp)
+  497568:	00 
+  497569:	ff d0                	call   *%eax
+  49756b:	89 c5                	mov    %eax,%ebp
+  49756d:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497572:	03 45 0c             	add    0xc(%ebp),%eax
+  497575:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  49757a:	75 08                	jne    497584 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x934>
+  49757c:	89 2c 24             	mov    %ebp,(%esp)
+  49757f:	e8 fc 70 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497584:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  49758b:	c7 45 04 00 00 18 40 	movl   $0x40180000,0x4(%ebp)
+  497592:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497599:	c7 44 24 10 16 00 00 	movl   $0x16,0x10(%esp)
+  4975a0:	00 
+  4975a1:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  4975a8:	8b 69 04             	mov    0x4(%ecx),%ebp
+  4975ab:	85 ed                	test   %ebp,%ebp
+  4975ad:	74 08                	je     4975b7 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x967>
+  4975af:	81 c5 60 4f 00 00    	add    $0x4f60,%ebp
+  4975b5:	eb 14                	jmp    4975cb <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x97b>
+  4975b7:	8b 01                	mov    (%ecx),%eax
+  4975b9:	8b 40 08             	mov    0x8(%eax),%eax
+  4975bc:	89 0c 24             	mov    %ecx,(%esp)
+  4975bf:	c7 44 24 04 f6 04 00 	movl   $0x4f6,0x4(%esp)
+  4975c6:	00 
+  4975c7:	ff d0                	call   *%eax
+  4975c9:	89 c5                	mov    %eax,%ebp
+  4975cb:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  4975d0:	03 45 0c             	add    0xc(%ebp),%eax
+  4975d3:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  4975d8:	75 08                	jne    4975e2 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x992>
+  4975da:	89 2c 24             	mov    %ebp,(%esp)
+  4975dd:	e8 9e 70 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  4975e2:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  4975e9:	c7 45 04 00 00 10 c0 	movl   $0xc0100000,0x4(%ebp)
+  4975f0:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  4975f7:	c7 44 24 10 17 00 00 	movl   $0x17,0x10(%esp)
+  4975fe:	00 
+  4975ff:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  497606:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497609:	85 ed                	test   %ebp,%ebp
+  49760b:	74 08                	je     497615 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x9c5>
+  49760d:	81 c5 70 23 00 00    	add    $0x2370,%ebp
+  497613:	eb 14                	jmp    497629 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x9d9>
+  497615:	8b 01                	mov    (%ecx),%eax
+  497617:	8b 40 08             	mov    0x8(%eax),%eax
+  49761a:	89 0c 24             	mov    %ecx,(%esp)
+  49761d:	c7 44 24 04 37 02 00 	movl   $0x237,0x4(%esp)
+  497624:	00 
+  497625:	ff d0                	call   *%eax
+  497627:	89 c5                	mov    %eax,%ebp
+  497629:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  49762e:	03 45 0c             	add    0xc(%ebp),%eax
+  497631:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497636:	75 08                	jne    497640 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x9f0>
+  497638:	89 2c 24             	mov    %ebp,(%esp)
+  49763b:	e8 40 70 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497640:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497647:	c7 45 04 00 40 59 40 	movl   $0x40594000,0x4(%ebp)
+  49764e:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497655:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  49765c:	c7 44 24 10 19 00 00 	movl   $0x19,0x10(%esp)
+  497663:	00 
+  497664:	f7 47 0c ff ff ff 00 	testl  $0xffffff,0xc(%edi)
+  49766b:	74 21                	je     49768e <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xa3e>
+  49766d:	89 3c 24             	mov    %edi,(%esp)
+  497670:	e8 6b 0f cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  497675:	dd 9c 24 80 00 00 00 	fstpl  0x80(%esp)
+  49767c:	f2 0f 10 84 24 80 00 	movsd  0x80(%esp),%xmm0
+  497683:	00 00 
+  497685:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  49768c:	eb 04                	jmp    497692 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xa42>
+  49768e:	f2 0f 10 07          	movsd  (%edi),%xmm0
+  497692:	f2 0f 58 83 78 0e bb 	addsd  -0x44f188(%ebx),%xmm0
+  497699:	ff 
+  49769a:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  49769e:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  4976a5:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  4976a9:	0f 82 89 01 00 00    	jb     497838 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xbe8>
+  4976af:	8b 45 04             	mov    0x4(%ebp),%eax
+  4976b2:	85 c0                	test   %eax,%eax
+  4976b4:	74 22                	je     4976d8 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xa88>
+  4976b6:	05 80 21 00 00       	add    $0x2180,%eax
+  4976bb:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  4976c2:	74 37                	je     4976fb <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xaab>
+  4976c4:	89 04 24             	mov    %eax,(%esp)
+  4976c7:	e8 14 0f cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  4976cc:	dd 5c 24 78          	fstpl  0x78(%esp)
+  4976d0:	f2 0f 10 44 24 78    	movsd  0x78(%esp),%xmm0
+  4976d6:	eb 27                	jmp    4976ff <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xaaf>
+  4976d8:	8b 45 00             	mov    0x0(%ebp),%eax
+  4976db:	8b 40 08             	mov    0x8(%eax),%eax
+  4976de:	89 2c 24             	mov    %ebp,(%esp)
+  4976e1:	c7 44 24 04 18 02 00 	movl   $0x218,0x4(%esp)
+  4976e8:	00 
+  4976e9:	ff d0                	call   *%eax
+  4976eb:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  4976f2:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  4976f9:	75 c9                	jne    4976c4 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xa74>
+  4976fb:	f2 0f 10 00          	movsd  (%eax),%xmm0
+  4976ff:	f2 0f 58 83 70 0e bb 	addsd  -0x44f190(%ebx),%xmm0
+  497706:	ff 
+  497707:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  49770b:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  497712:	66 0f 2e c8          	ucomisd %xmm0,%xmm1
+  497716:	0f 86 1c 01 00 00    	jbe    497838 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xbe8>
+  49771c:	c7 44 24 10 1a 00 00 	movl   $0x1a,0x10(%esp)
+  497723:	00 
+  497724:	89 e9                	mov    %ebp,%ecx
+  497726:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497729:	85 ed                	test   %ebp,%ebp
+  49772b:	74 08                	je     497735 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xae5>
+  49772d:	81 c5 70 4f 00 00    	add    $0x4f70,%ebp
+  497733:	eb 14                	jmp    497749 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xaf9>
+  497735:	8b 01                	mov    (%ecx),%eax
+  497737:	8b 40 08             	mov    0x8(%eax),%eax
+  49773a:	89 0c 24             	mov    %ecx,(%esp)
+  49773d:	c7 44 24 04 f7 04 00 	movl   $0x4f7,0x4(%esp)
+  497744:	00 
+  497745:	ff d0                	call   *%eax
+  497747:	89 c5                	mov    %eax,%ebp
+  497749:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  49774e:	03 45 0c             	add    0xc(%ebp),%eax
+  497751:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497756:	75 08                	jne    497760 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xb10>
+  497758:	89 2c 24             	mov    %ebp,(%esp)
+  49775b:	e8 20 6f cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497760:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497767:	c7 45 04 00 00 18 40 	movl   $0x40180000,0x4(%ebp)
+  49776e:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497775:	c7 44 24 10 1b 00 00 	movl   $0x1b,0x10(%esp)
+  49777c:	00 
+  49777d:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  497784:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497787:	85 ed                	test   %ebp,%ebp
+  497789:	74 08                	je     497793 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xb43>
+  49778b:	81 c5 60 4f 00 00    	add    $0x4f60,%ebp
+  497791:	eb 14                	jmp    4977a7 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xb57>
+  497793:	8b 01                	mov    (%ecx),%eax
+  497795:	8b 40 08             	mov    0x8(%eax),%eax
+  497798:	89 0c 24             	mov    %ecx,(%esp)
+  49779b:	c7 44 24 04 f6 04 00 	movl   $0x4f6,0x4(%esp)
+  4977a2:	00 
+  4977a3:	ff d0                	call   *%eax
+  4977a5:	89 c5                	mov    %eax,%ebp
+  4977a7:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  4977ac:	03 45 0c             	add    0xc(%ebp),%eax
+  4977af:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  4977b4:	75 08                	jne    4977be <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xb6e>
+  4977b6:	89 2c 24             	mov    %ebp,(%esp)
+  4977b9:	e8 c2 6e cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  4977be:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  4977c5:	c7 45 04 00 00 10 c0 	movl   $0xc0100000,0x4(%ebp)
+  4977cc:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  4977d3:	c7 44 24 10 1c 00 00 	movl   $0x1c,0x10(%esp)
+  4977da:	00 
+  4977db:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  4977e2:	8b 69 04             	mov    0x4(%ecx),%ebp
+  4977e5:	85 ed                	test   %ebp,%ebp
+  4977e7:	74 08                	je     4977f1 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xba1>
+  4977e9:	81 c5 70 23 00 00    	add    $0x2370,%ebp
+  4977ef:	eb 14                	jmp    497805 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xbb5>
+  4977f1:	8b 01                	mov    (%ecx),%eax
+  4977f3:	8b 40 08             	mov    0x8(%eax),%eax
+  4977f6:	89 0c 24             	mov    %ecx,(%esp)
+  4977f9:	c7 44 24 04 37 02 00 	movl   $0x237,0x4(%esp)
+  497800:	00 
+  497801:	ff d0                	call   *%eax
+  497803:	89 c5                	mov    %eax,%ebp
+  497805:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  49780a:	03 45 0c             	add    0xc(%ebp),%eax
+  49780d:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497812:	75 08                	jne    49781c <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xbcc>
+  497814:	89 2c 24             	mov    %ebp,(%esp)
+  497817:	e8 64 6e cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  49781c:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497823:	c7 45 04 00 40 56 40 	movl   $0x40564000,0x4(%ebp)
+  49782a:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497831:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497838:	c7 44 24 10 1e 00 00 	movl   $0x1e,0x10(%esp)
+  49783f:	00 
+  497840:	f7 47 0c ff ff ff 00 	testl  $0xffffff,0xc(%edi)
+  497847:	74 1b                	je     497864 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xc14>
+  497849:	89 3c 24             	mov    %edi,(%esp)
+  49784c:	e8 8f 0d cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  497851:	dd 5c 24 70          	fstpl  0x70(%esp)
+  497855:	f2 0f 10 44 24 70    	movsd  0x70(%esp),%xmm0
+  49785b:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497862:	eb 04                	jmp    497868 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xc18>
+  497864:	f2 0f 10 07          	movsd  (%edi),%xmm0
+  497868:	f2 0f 58 83 70 0e bb 	addsd  -0x44f190(%ebx),%xmm0
+  49786f:	ff 
+  497870:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  497874:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  49787b:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  49787f:	0f 82 89 01 00 00    	jb     497a0e <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xdbe>
+  497885:	8b 45 04             	mov    0x4(%ebp),%eax
+  497888:	85 c0                	test   %eax,%eax
+  49788a:	74 22                	je     4978ae <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xc5e>
+  49788c:	05 80 21 00 00       	add    $0x2180,%eax
+  497891:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  497898:	74 37                	je     4978d1 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xc81>
+  49789a:	89 04 24             	mov    %eax,(%esp)
+  49789d:	e8 3e 0d cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  4978a2:	dd 5c 24 68          	fstpl  0x68(%esp)
+  4978a6:	f2 0f 10 44 24 68    	movsd  0x68(%esp),%xmm0
+  4978ac:	eb 27                	jmp    4978d5 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xc85>
+  4978ae:	8b 45 00             	mov    0x0(%ebp),%eax
+  4978b1:	8b 40 08             	mov    0x8(%eax),%eax
+  4978b4:	89 2c 24             	mov    %ebp,(%esp)
+  4978b7:	c7 44 24 04 18 02 00 	movl   $0x218,0x4(%esp)
+  4978be:	00 
+  4978bf:	ff d0                	call   *%eax
+  4978c1:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  4978c8:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  4978cf:	75 c9                	jne    49789a <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xc4a>
+  4978d1:	f2 0f 10 00          	movsd  (%eax),%xmm0
+  4978d5:	f2 0f 58 83 68 0e bb 	addsd  -0x44f198(%ebx),%xmm0
+  4978dc:	ff 
+  4978dd:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  4978e1:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  4978e8:	66 0f 2e c8          	ucomisd %xmm0,%xmm1
+  4978ec:	0f 86 1c 01 00 00    	jbe    497a0e <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xdbe>
+  4978f2:	c7 44 24 10 1f 00 00 	movl   $0x1f,0x10(%esp)
+  4978f9:	00 
+  4978fa:	89 e9                	mov    %ebp,%ecx
+  4978fc:	8b 69 04             	mov    0x4(%ecx),%ebp
+  4978ff:	85 ed                	test   %ebp,%ebp
+  497901:	74 08                	je     49790b <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xcbb>
+  497903:	81 c5 70 4f 00 00    	add    $0x4f70,%ebp
+  497909:	eb 14                	jmp    49791f <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xccf>
+  49790b:	8b 01                	mov    (%ecx),%eax
+  49790d:	8b 40 08             	mov    0x8(%eax),%eax
+  497910:	89 0c 24             	mov    %ecx,(%esp)
+  497913:	c7 44 24 04 f7 04 00 	movl   $0x4f7,0x4(%esp)
+  49791a:	00 
+  49791b:	ff d0                	call   *%eax
+  49791d:	89 c5                	mov    %eax,%ebp
+  49791f:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497924:	03 45 0c             	add    0xc(%ebp),%eax
+  497927:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  49792c:	75 08                	jne    497936 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xce6>
+  49792e:	89 2c 24             	mov    %ebp,(%esp)
+  497931:	e8 4a 6d cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497936:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  49793d:	c7 45 04 00 00 18 40 	movl   $0x40180000,0x4(%ebp)
+  497944:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  49794b:	c7 44 24 10 20 00 00 	movl   $0x20,0x10(%esp)
+  497952:	00 
+  497953:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  49795a:	8b 69 04             	mov    0x4(%ecx),%ebp
+  49795d:	85 ed                	test   %ebp,%ebp
+  49795f:	74 08                	je     497969 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xd19>
+  497961:	81 c5 60 4f 00 00    	add    $0x4f60,%ebp
+  497967:	eb 14                	jmp    49797d <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xd2d>
+  497969:	8b 01                	mov    (%ecx),%eax
+  49796b:	8b 40 08             	mov    0x8(%eax),%eax
+  49796e:	89 0c 24             	mov    %ecx,(%esp)
+  497971:	c7 44 24 04 f6 04 00 	movl   $0x4f6,0x4(%esp)
+  497978:	00 
+  497979:	ff d0                	call   *%eax
+  49797b:	89 c5                	mov    %eax,%ebp
+  49797d:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497982:	03 45 0c             	add    0xc(%ebp),%eax
+  497985:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  49798a:	75 08                	jne    497994 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xd44>
+  49798c:	89 2c 24             	mov    %ebp,(%esp)
+  49798f:	e8 ec 6c cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497994:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  49799b:	c7 45 04 00 00 10 c0 	movl   $0xc0100000,0x4(%ebp)
+  4979a2:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  4979a9:	c7 44 24 10 21 00 00 	movl   $0x21,0x10(%esp)
+  4979b0:	00 
+  4979b1:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  4979b8:	8b 69 04             	mov    0x4(%ecx),%ebp
+  4979bb:	85 ed                	test   %ebp,%ebp
+  4979bd:	74 08                	je     4979c7 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xd77>
+  4979bf:	81 c5 70 23 00 00    	add    $0x2370,%ebp
+  4979c5:	eb 14                	jmp    4979db <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xd8b>
+  4979c7:	8b 01                	mov    (%ecx),%eax
+  4979c9:	8b 40 08             	mov    0x8(%eax),%eax
+  4979cc:	89 0c 24             	mov    %ecx,(%esp)
+  4979cf:	c7 44 24 04 37 02 00 	movl   $0x237,0x4(%esp)
+  4979d6:	00 
+  4979d7:	ff d0                	call   *%eax
+  4979d9:	89 c5                	mov    %eax,%ebp
+  4979db:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  4979e0:	03 45 0c             	add    0xc(%ebp),%eax
+  4979e3:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  4979e8:	75 08                	jne    4979f2 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xda2>
+  4979ea:	89 2c 24             	mov    %ebp,(%esp)
+  4979ed:	e8 8e 6c cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  4979f2:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  4979f9:	c7 45 04 00 80 59 40 	movl   $0x40598000,0x4(%ebp)
+  497a00:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497a07:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497a0e:	c7 44 24 10 23 00 00 	movl   $0x23,0x10(%esp)
+  497a15:	00 
+  497a16:	f7 47 0c ff ff ff 00 	testl  $0xffffff,0xc(%edi)
+  497a1d:	74 1b                	je     497a3a <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xdea>
+  497a1f:	89 3c 24             	mov    %edi,(%esp)
+  497a22:	e8 b9 0b cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  497a27:	dd 5c 24 60          	fstpl  0x60(%esp)
+  497a2b:	f2 0f 10 44 24 60    	movsd  0x60(%esp),%xmm0
+  497a31:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497a38:	eb 04                	jmp    497a3e <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xdee>
+  497a3a:	f2 0f 10 07          	movsd  (%edi),%xmm0
+  497a3e:	f2 0f 58 83 68 0e bb 	addsd  -0x44f198(%ebx),%xmm0
+  497a45:	ff 
+  497a46:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  497a4a:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  497a51:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  497a55:	0f 82 89 01 00 00    	jb     497be4 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xf94>
+  497a5b:	8b 45 04             	mov    0x4(%ebp),%eax
+  497a5e:	85 c0                	test   %eax,%eax
+  497a60:	74 22                	je     497a84 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xe34>
+  497a62:	05 80 21 00 00       	add    $0x2180,%eax
+  497a67:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  497a6e:	74 37                	je     497aa7 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xe57>
+  497a70:	89 04 24             	mov    %eax,(%esp)
+  497a73:	e8 68 0b cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  497a78:	dd 5c 24 58          	fstpl  0x58(%esp)
+  497a7c:	f2 0f 10 44 24 58    	movsd  0x58(%esp),%xmm0
+  497a82:	eb 27                	jmp    497aab <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xe5b>
+  497a84:	8b 45 00             	mov    0x0(%ebp),%eax
+  497a87:	8b 40 08             	mov    0x8(%eax),%eax
+  497a8a:	89 2c 24             	mov    %ebp,(%esp)
+  497a8d:	c7 44 24 04 18 02 00 	movl   $0x218,0x4(%esp)
+  497a94:	00 
+  497a95:	ff d0                	call   *%eax
+  497a97:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497a9e:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  497aa5:	75 c9                	jne    497a70 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xe20>
+  497aa7:	f2 0f 10 00          	movsd  (%eax),%xmm0
+  497aab:	f2 0f 58 83 60 0e bb 	addsd  -0x44f1a0(%ebx),%xmm0
+  497ab2:	ff 
+  497ab3:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  497ab7:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  497abe:	66 0f 2e c8          	ucomisd %xmm0,%xmm1
+  497ac2:	0f 86 1c 01 00 00    	jbe    497be4 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xf94>
+  497ac8:	c7 44 24 10 24 00 00 	movl   $0x24,0x10(%esp)
+  497acf:	00 
+  497ad0:	89 e9                	mov    %ebp,%ecx
+  497ad2:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497ad5:	85 ed                	test   %ebp,%ebp
+  497ad7:	74 08                	je     497ae1 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xe91>
+  497ad9:	81 c5 70 4f 00 00    	add    $0x4f70,%ebp
+  497adf:	eb 14                	jmp    497af5 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xea5>
+  497ae1:	8b 01                	mov    (%ecx),%eax
+  497ae3:	8b 40 08             	mov    0x8(%eax),%eax
+  497ae6:	89 0c 24             	mov    %ecx,(%esp)
+  497ae9:	c7 44 24 04 f7 04 00 	movl   $0x4f7,0x4(%esp)
+  497af0:	00 
+  497af1:	ff d0                	call   *%eax
+  497af3:	89 c5                	mov    %eax,%ebp
+  497af5:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497afa:	03 45 0c             	add    0xc(%ebp),%eax
+  497afd:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497b02:	75 08                	jne    497b0c <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xebc>
+  497b04:	89 2c 24             	mov    %ebp,(%esp)
+  497b07:	e8 74 6b cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497b0c:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497b13:	c7 45 04 00 00 f0 bf 	movl   $0xbff00000,0x4(%ebp)
+  497b1a:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497b21:	c7 44 24 10 25 00 00 	movl   $0x25,0x10(%esp)
+  497b28:	00 
+  497b29:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  497b30:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497b33:	85 ed                	test   %ebp,%ebp
+  497b35:	74 08                	je     497b3f <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xeef>
+  497b37:	81 c5 60 4f 00 00    	add    $0x4f60,%ebp
+  497b3d:	eb 14                	jmp    497b53 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xf03>
+  497b3f:	8b 01                	mov    (%ecx),%eax
+  497b41:	8b 40 08             	mov    0x8(%eax),%eax
+  497b44:	89 0c 24             	mov    %ecx,(%esp)
+  497b47:	c7 44 24 04 f6 04 00 	movl   $0x4f6,0x4(%esp)
+  497b4e:	00 
+  497b4f:	ff d0                	call   *%eax
+  497b51:	89 c5                	mov    %eax,%ebp
+  497b53:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497b58:	03 45 0c             	add    0xc(%ebp),%eax
+  497b5b:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497b60:	75 08                	jne    497b6a <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xf1a>
+  497b62:	89 2c 24             	mov    %ebp,(%esp)
+  497b65:	e8 16 6b cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497b6a:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497b71:	c7 45 04 00 00 f0 bf 	movl   $0xbff00000,0x4(%ebp)
+  497b78:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497b7f:	c7 44 24 10 26 00 00 	movl   $0x26,0x10(%esp)
+  497b86:	00 
+  497b87:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  497b8e:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497b91:	85 ed                	test   %ebp,%ebp
+  497b93:	74 08                	je     497b9d <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xf4d>
+  497b95:	81 c5 70 23 00 00    	add    $0x2370,%ebp
+  497b9b:	eb 14                	jmp    497bb1 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xf61>
+  497b9d:	8b 01                	mov    (%ecx),%eax
+  497b9f:	8b 40 08             	mov    0x8(%eax),%eax
+  497ba2:	89 0c 24             	mov    %ecx,(%esp)
+  497ba5:	c7 44 24 04 37 02 00 	movl   $0x237,0x4(%esp)
+  497bac:	00 
+  497bad:	ff d0                	call   *%eax
+  497baf:	89 c5                	mov    %eax,%ebp
+  497bb1:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497bb6:	03 45 0c             	add    0xc(%ebp),%eax
+  497bb9:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497bbe:	75 08                	jne    497bc8 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xf78>
+  497bc0:	89 2c 24             	mov    %ebp,(%esp)
+  497bc3:	e8 b8 6a cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497bc8:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497bcf:	c7 45 04 00 00 57 40 	movl   $0x40570000,0x4(%ebp)
+  497bd6:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497bdd:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497be4:	c7 44 24 10 28 00 00 	movl   $0x28,0x10(%esp)
+  497beb:	00 
+  497bec:	f7 47 0c ff ff ff 00 	testl  $0xffffff,0xc(%edi)
+  497bf3:	74 1b                	je     497c10 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xfc0>
+  497bf5:	89 3c 24             	mov    %edi,(%esp)
+  497bf8:	e8 e3 09 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  497bfd:	dd 5c 24 50          	fstpl  0x50(%esp)
+  497c01:	f2 0f 10 44 24 50    	movsd  0x50(%esp),%xmm0
+  497c07:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497c0e:	eb 04                	jmp    497c14 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xfc4>
+  497c10:	f2 0f 10 07          	movsd  (%edi),%xmm0
+  497c14:	f2 0f 58 83 60 0e bb 	addsd  -0x44f1a0(%ebx),%xmm0
+  497c1b:	ff 
+  497c1c:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  497c20:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  497c27:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  497c2b:	0f 82 89 01 00 00    	jb     497dba <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x116a>
+  497c31:	8b 45 04             	mov    0x4(%ebp),%eax
+  497c34:	85 c0                	test   %eax,%eax
+  497c36:	74 22                	je     497c5a <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x100a>
+  497c38:	05 80 21 00 00       	add    $0x2180,%eax
+  497c3d:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  497c44:	74 37                	je     497c7d <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x102d>
+  497c46:	89 04 24             	mov    %eax,(%esp)
+  497c49:	e8 92 09 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  497c4e:	dd 5c 24 48          	fstpl  0x48(%esp)
+  497c52:	f2 0f 10 44 24 48    	movsd  0x48(%esp),%xmm0
+  497c58:	eb 27                	jmp    497c81 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1031>
+  497c5a:	8b 45 00             	mov    0x0(%ebp),%eax
+  497c5d:	8b 40 08             	mov    0x8(%eax),%eax
+  497c60:	89 2c 24             	mov    %ebp,(%esp)
+  497c63:	c7 44 24 04 18 02 00 	movl   $0x218,0x4(%esp)
+  497c6a:	00 
+  497c6b:	ff d0                	call   *%eax
+  497c6d:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497c74:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  497c7b:	75 c9                	jne    497c46 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0xff6>
+  497c7d:	f2 0f 10 00          	movsd  (%eax),%xmm0
+  497c81:	f2 0f 58 83 58 0e bb 	addsd  -0x44f1a8(%ebx),%xmm0
+  497c88:	ff 
+  497c89:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  497c8d:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  497c94:	66 0f 2e c8          	ucomisd %xmm0,%xmm1
+  497c98:	0f 86 1c 01 00 00    	jbe    497dba <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x116a>
+  497c9e:	c7 44 24 10 29 00 00 	movl   $0x29,0x10(%esp)
+  497ca5:	00 
+  497ca6:	89 e9                	mov    %ebp,%ecx
+  497ca8:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497cab:	85 ed                	test   %ebp,%ebp
+  497cad:	74 08                	je     497cb7 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1067>
+  497caf:	81 c5 70 4f 00 00    	add    $0x4f70,%ebp
+  497cb5:	eb 14                	jmp    497ccb <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x107b>
+  497cb7:	8b 01                	mov    (%ecx),%eax
+  497cb9:	8b 40 08             	mov    0x8(%eax),%eax
+  497cbc:	89 0c 24             	mov    %ecx,(%esp)
+  497cbf:	c7 44 24 04 f7 04 00 	movl   $0x4f7,0x4(%esp)
+  497cc6:	00 
+  497cc7:	ff d0                	call   *%eax
+  497cc9:	89 c5                	mov    %eax,%ebp
+  497ccb:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497cd0:	03 45 0c             	add    0xc(%ebp),%eax
+  497cd3:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497cd8:	75 08                	jne    497ce2 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1092>
+  497cda:	89 2c 24             	mov    %ebp,(%esp)
+  497cdd:	e8 9e 69 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497ce2:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497ce9:	c7 45 04 00 00 f0 bf 	movl   $0xbff00000,0x4(%ebp)
+  497cf0:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497cf7:	c7 44 24 10 2a 00 00 	movl   $0x2a,0x10(%esp)
+  497cfe:	00 
+  497cff:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  497d06:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497d09:	85 ed                	test   %ebp,%ebp
+  497d0b:	74 08                	je     497d15 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x10c5>
+  497d0d:	81 c5 60 4f 00 00    	add    $0x4f60,%ebp
+  497d13:	eb 14                	jmp    497d29 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x10d9>
+  497d15:	8b 01                	mov    (%ecx),%eax
+  497d17:	8b 40 08             	mov    0x8(%eax),%eax
+  497d1a:	89 0c 24             	mov    %ecx,(%esp)
+  497d1d:	c7 44 24 04 f6 04 00 	movl   $0x4f6,0x4(%esp)
+  497d24:	00 
+  497d25:	ff d0                	call   *%eax
+  497d27:	89 c5                	mov    %eax,%ebp
+  497d29:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497d2e:	03 45 0c             	add    0xc(%ebp),%eax
+  497d31:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497d36:	75 08                	jne    497d40 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x10f0>
+  497d38:	89 2c 24             	mov    %ebp,(%esp)
+  497d3b:	e8 40 69 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497d40:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497d47:	c7 45 04 00 00 f0 bf 	movl   $0xbff00000,0x4(%ebp)
+  497d4e:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497d55:	c7 44 24 10 2b 00 00 	movl   $0x2b,0x10(%esp)
+  497d5c:	00 
+  497d5d:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  497d64:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497d67:	85 ed                	test   %ebp,%ebp
+  497d69:	74 08                	je     497d73 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1123>
+  497d6b:	81 c5 70 23 00 00    	add    $0x2370,%ebp
+  497d71:	eb 14                	jmp    497d87 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1137>
+  497d73:	8b 01                	mov    (%ecx),%eax
+  497d75:	8b 40 08             	mov    0x8(%eax),%eax
+  497d78:	89 0c 24             	mov    %ecx,(%esp)
+  497d7b:	c7 44 24 04 37 02 00 	movl   $0x237,0x4(%esp)
+  497d82:	00 
+  497d83:	ff d0                	call   *%eax
+  497d85:	89 c5                	mov    %eax,%ebp
+  497d87:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497d8c:	03 45 0c             	add    0xc(%ebp),%eax
+  497d8f:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497d94:	75 08                	jne    497d9e <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x114e>
+  497d96:	89 2c 24             	mov    %ebp,(%esp)
+  497d99:	e8 e2 68 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497d9e:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497da5:	c7 45 04 00 00 57 40 	movl   $0x40570000,0x4(%ebp)
+  497dac:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497db3:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497dba:	c7 44 24 10 2d 00 00 	movl   $0x2d,0x10(%esp)
+  497dc1:	00 
+  497dc2:	f7 47 0c ff ff ff 00 	testl  $0xffffff,0xc(%edi)
+  497dc9:	74 1b                	je     497de6 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1196>
+  497dcb:	89 3c 24             	mov    %edi,(%esp)
+  497dce:	e8 0d 08 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  497dd3:	dd 5c 24 40          	fstpl  0x40(%esp)
+  497dd7:	f2 0f 10 44 24 40    	movsd  0x40(%esp),%xmm0
+  497ddd:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497de4:	eb 04                	jmp    497dea <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x119a>
+  497de6:	f2 0f 10 07          	movsd  (%edi),%xmm0
+  497dea:	f2 0f 58 83 58 0e bb 	addsd  -0x44f1a8(%ebx),%xmm0
+  497df1:	ff 
+  497df2:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  497df6:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  497dfd:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  497e01:	0f 82 89 01 00 00    	jb     497f90 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1340>
+  497e07:	8b 45 04             	mov    0x4(%ebp),%eax
+  497e0a:	85 c0                	test   %eax,%eax
+  497e0c:	74 22                	je     497e30 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x11e0>
+  497e0e:	05 80 21 00 00       	add    $0x2180,%eax
+  497e13:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  497e1a:	74 37                	je     497e53 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1203>
+  497e1c:	89 04 24             	mov    %eax,(%esp)
+  497e1f:	e8 bc 07 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  497e24:	dd 5c 24 38          	fstpl  0x38(%esp)
+  497e28:	f2 0f 10 44 24 38    	movsd  0x38(%esp),%xmm0
+  497e2e:	eb 27                	jmp    497e57 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1207>
+  497e30:	8b 45 00             	mov    0x0(%ebp),%eax
+  497e33:	8b 40 08             	mov    0x8(%eax),%eax
+  497e36:	89 2c 24             	mov    %ebp,(%esp)
+  497e39:	c7 44 24 04 18 02 00 	movl   $0x218,0x4(%esp)
+  497e40:	00 
+  497e41:	ff d0                	call   *%eax
+  497e43:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497e4a:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  497e51:	75 c9                	jne    497e1c <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x11cc>
+  497e53:	f2 0f 10 00          	movsd  (%eax),%xmm0
+  497e57:	f2 0f 58 83 50 0e bb 	addsd  -0x44f1b0(%ebx),%xmm0
+  497e5e:	ff 
+  497e5f:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  497e63:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  497e6a:	66 0f 2e c8          	ucomisd %xmm0,%xmm1
+  497e6e:	0f 86 1c 01 00 00    	jbe    497f90 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1340>
+  497e74:	c7 44 24 10 2e 00 00 	movl   $0x2e,0x10(%esp)
+  497e7b:	00 
+  497e7c:	89 e9                	mov    %ebp,%ecx
+  497e7e:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497e81:	85 ed                	test   %ebp,%ebp
+  497e83:	74 08                	je     497e8d <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x123d>
+  497e85:	81 c5 70 4f 00 00    	add    $0x4f70,%ebp
+  497e8b:	eb 14                	jmp    497ea1 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1251>
+  497e8d:	8b 01                	mov    (%ecx),%eax
+  497e8f:	8b 40 08             	mov    0x8(%eax),%eax
+  497e92:	89 0c 24             	mov    %ecx,(%esp)
+  497e95:	c7 44 24 04 f7 04 00 	movl   $0x4f7,0x4(%esp)
+  497e9c:	00 
+  497e9d:	ff d0                	call   *%eax
+  497e9f:	89 c5                	mov    %eax,%ebp
+  497ea1:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497ea6:	03 45 0c             	add    0xc(%ebp),%eax
+  497ea9:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497eae:	75 08                	jne    497eb8 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1268>
+  497eb0:	89 2c 24             	mov    %ebp,(%esp)
+  497eb3:	e8 c8 67 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497eb8:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497ebf:	c7 45 04 00 00 f0 bf 	movl   $0xbff00000,0x4(%ebp)
+  497ec6:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497ecd:	c7 44 24 10 2f 00 00 	movl   $0x2f,0x10(%esp)
+  497ed4:	00 
+  497ed5:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  497edc:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497edf:	85 ed                	test   %ebp,%ebp
+  497ee1:	74 08                	je     497eeb <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x129b>
+  497ee3:	81 c5 60 4f 00 00    	add    $0x4f60,%ebp
+  497ee9:	eb 14                	jmp    497eff <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x12af>
+  497eeb:	8b 01                	mov    (%ecx),%eax
+  497eed:	8b 40 08             	mov    0x8(%eax),%eax
+  497ef0:	89 0c 24             	mov    %ecx,(%esp)
+  497ef3:	c7 44 24 04 f6 04 00 	movl   $0x4f6,0x4(%esp)
+  497efa:	00 
+  497efb:	ff d0                	call   *%eax
+  497efd:	89 c5                	mov    %eax,%ebp
+  497eff:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497f04:	03 45 0c             	add    0xc(%ebp),%eax
+  497f07:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497f0c:	75 08                	jne    497f16 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x12c6>
+  497f0e:	89 2c 24             	mov    %ebp,(%esp)
+  497f11:	e8 6a 67 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497f16:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497f1d:	c7 45 04 00 00 f0 bf 	movl   $0xbff00000,0x4(%ebp)
+  497f24:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497f2b:	c7 44 24 10 30 00 00 	movl   $0x30,0x10(%esp)
+  497f32:	00 
+  497f33:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  497f3a:	8b 69 04             	mov    0x4(%ecx),%ebp
+  497f3d:	85 ed                	test   %ebp,%ebp
+  497f3f:	74 08                	je     497f49 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x12f9>
+  497f41:	81 c5 70 23 00 00    	add    $0x2370,%ebp
+  497f47:	eb 14                	jmp    497f5d <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x130d>
+  497f49:	8b 01                	mov    (%ecx),%eax
+  497f4b:	8b 40 08             	mov    0x8(%eax),%eax
+  497f4e:	89 0c 24             	mov    %ecx,(%esp)
+  497f51:	c7 44 24 04 37 02 00 	movl   $0x237,0x4(%esp)
+  497f58:	00 
+  497f59:	ff d0                	call   *%eax
+  497f5b:	89 c5                	mov    %eax,%ebp
+  497f5d:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  497f62:	03 45 0c             	add    0xc(%ebp),%eax
+  497f65:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  497f6a:	75 08                	jne    497f74 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1324>
+  497f6c:	89 2c 24             	mov    %ebp,(%esp)
+  497f6f:	e8 0c 67 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  497f74:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  497f7b:	c7 45 04 00 c0 54 40 	movl   $0x4054c000,0x4(%ebp)
+  497f82:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  497f89:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497f90:	c7 44 24 10 32 00 00 	movl   $0x32,0x10(%esp)
+  497f97:	00 
+  497f98:	f7 47 0c ff ff ff 00 	testl  $0xffffff,0xc(%edi)
+  497f9f:	74 1b                	je     497fbc <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x136c>
+  497fa1:	89 3c 24             	mov    %edi,(%esp)
+  497fa4:	e8 37 06 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  497fa9:	dd 5c 24 30          	fstpl  0x30(%esp)
+  497fad:	f2 0f 10 44 24 30    	movsd  0x30(%esp),%xmm0
+  497fb3:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  497fba:	eb 04                	jmp    497fc0 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1370>
+  497fbc:	f2 0f 10 07          	movsd  (%edi),%xmm0
+  497fc0:	f2 0f 58 83 50 0e bb 	addsd  -0x44f1b0(%ebx),%xmm0
+  497fc7:	ff 
+  497fc8:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  497fcc:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  497fd3:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  497fd7:	0f 82 89 01 00 00    	jb     498166 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1516>
+  497fdd:	8b 45 04             	mov    0x4(%ebp),%eax
+  497fe0:	85 c0                	test   %eax,%eax
+  497fe2:	74 22                	je     498006 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x13b6>
+  497fe4:	05 80 21 00 00       	add    $0x2180,%eax
+  497fe9:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  497ff0:	74 37                	je     498029 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x13d9>
+  497ff2:	89 04 24             	mov    %eax,(%esp)
+  497ff5:	e8 e6 05 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  497ffa:	dd 5c 24 28          	fstpl  0x28(%esp)
+  497ffe:	f2 0f 10 44 24 28    	movsd  0x28(%esp),%xmm0
+  498004:	eb 27                	jmp    49802d <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x13dd>
+  498006:	8b 45 00             	mov    0x0(%ebp),%eax
+  498009:	8b 40 08             	mov    0x8(%eax),%eax
+  49800c:	89 2c 24             	mov    %ebp,(%esp)
+  49800f:	c7 44 24 04 18 02 00 	movl   $0x218,0x4(%esp)
+  498016:	00 
+  498017:	ff d0                	call   *%eax
+  498019:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  498020:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  498027:	75 c9                	jne    497ff2 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x13a2>
+  498029:	f2 0f 10 00          	movsd  (%eax),%xmm0
+  49802d:	f2 0f 58 83 48 0e bb 	addsd  -0x44f1b8(%ebx),%xmm0
+  498034:	ff 
+  498035:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  498039:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  498040:	66 0f 2e c8          	ucomisd %xmm0,%xmm1
+  498044:	0f 86 1c 01 00 00    	jbe    498166 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1516>
+  49804a:	c7 44 24 10 33 00 00 	movl   $0x33,0x10(%esp)
+  498051:	00 
+  498052:	89 e9                	mov    %ebp,%ecx
+  498054:	8b 69 04             	mov    0x4(%ecx),%ebp
+  498057:	85 ed                	test   %ebp,%ebp
+  498059:	74 08                	je     498063 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1413>
+  49805b:	81 c5 70 4f 00 00    	add    $0x4f70,%ebp
+  498061:	eb 14                	jmp    498077 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1427>
+  498063:	8b 01                	mov    (%ecx),%eax
+  498065:	8b 40 08             	mov    0x8(%eax),%eax
+  498068:	89 0c 24             	mov    %ecx,(%esp)
+  49806b:	c7 44 24 04 f7 04 00 	movl   $0x4f7,0x4(%esp)
+  498072:	00 
+  498073:	ff d0                	call   *%eax
+  498075:	89 c5                	mov    %eax,%ebp
+  498077:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  49807c:	03 45 0c             	add    0xc(%ebp),%eax
+  49807f:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  498084:	75 08                	jne    49808e <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x143e>
+  498086:	89 2c 24             	mov    %ebp,(%esp)
+  498089:	e8 f2 65 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  49808e:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  498095:	c7 45 04 00 00 f0 bf 	movl   $0xbff00000,0x4(%ebp)
+  49809c:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  4980a3:	c7 44 24 10 34 00 00 	movl   $0x34,0x10(%esp)
+  4980aa:	00 
+  4980ab:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  4980b2:	8b 69 04             	mov    0x4(%ecx),%ebp
+  4980b5:	85 ed                	test   %ebp,%ebp
+  4980b7:	74 08                	je     4980c1 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1471>
+  4980b9:	81 c5 60 4f 00 00    	add    $0x4f60,%ebp
+  4980bf:	eb 14                	jmp    4980d5 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1485>
+  4980c1:	8b 01                	mov    (%ecx),%eax
+  4980c3:	8b 40 08             	mov    0x8(%eax),%eax
+  4980c6:	89 0c 24             	mov    %ecx,(%esp)
+  4980c9:	c7 44 24 04 f6 04 00 	movl   $0x4f6,0x4(%esp)
+  4980d0:	00 
+  4980d1:	ff d0                	call   *%eax
+  4980d3:	89 c5                	mov    %eax,%ebp
+  4980d5:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  4980da:	03 45 0c             	add    0xc(%ebp),%eax
+  4980dd:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  4980e2:	75 08                	jne    4980ec <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x149c>
+  4980e4:	89 2c 24             	mov    %ebp,(%esp)
+  4980e7:	e8 94 65 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  4980ec:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  4980f3:	c7 45 04 00 00 f0 bf 	movl   $0xbff00000,0x4(%ebp)
+  4980fa:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  498101:	c7 44 24 10 35 00 00 	movl   $0x35,0x10(%esp)
+  498108:	00 
+  498109:	8b 8c 24 f0 00 00 00 	mov    0xf0(%esp),%ecx
+  498110:	8b 69 04             	mov    0x4(%ecx),%ebp
+  498113:	85 ed                	test   %ebp,%ebp
+  498115:	74 08                	je     49811f <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x14cf>
+  498117:	81 c5 70 23 00 00    	add    $0x2370,%ebp
+  49811d:	eb 14                	jmp    498133 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x14e3>
+  49811f:	8b 01                	mov    (%ecx),%eax
+  498121:	8b 40 08             	mov    0x8(%eax),%eax
+  498124:	89 0c 24             	mov    %ecx,(%esp)
+  498127:	c7 44 24 04 37 02 00 	movl   $0x237,0x4(%esp)
+  49812e:	00 
+  49812f:	ff d0                	call   *%eax
+  498131:	89 c5                	mov    %eax,%ebp
+  498133:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  498138:	03 45 0c             	add    0xc(%ebp),%eax
+  49813b:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  498140:	75 08                	jne    49814a <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x14fa>
+  498142:	89 2c 24             	mov    %ebp,(%esp)
+  498145:	e8 36 65 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  49814a:	c7 45 0c 00 00 00 00 	movl   $0x0,0xc(%ebp)
+  498151:	c7 45 04 00 00 55 40 	movl   $0x40550000,0x4(%ebp)
+  498158:	c7 45 00 00 00 00 00 	movl   $0x0,0x0(%ebp)
+  49815f:	8b ac 24 f0 00 00 00 	mov    0xf0(%esp),%ebp
+  498166:	c7 44 24 10 37 00 00 	movl   $0x37,0x10(%esp)
+  49816d:	00 
+  49816e:	f7 47 0c ff ff ff 00 	testl  $0xffffff,0xc(%edi)
+  498175:	74 14                	je     49818b <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x153b>
+  498177:	89 3c 24             	mov    %edi,(%esp)
+  49817a:	e8 61 04 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  49817f:	dd 5c 24 20          	fstpl  0x20(%esp)
+  498183:	f2 0f 10 44 24 20    	movsd  0x20(%esp),%xmm0
+  498189:	eb 04                	jmp    49818f <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x153f>
+  49818b:	f2 0f 10 07          	movsd  (%edi),%xmm0
+  49818f:	f2 0f 58 83 48 0e bb 	addsd  -0x44f1b8(%ebx),%xmm0
+  498196:	ff 
+  498197:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  49819b:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  4981a2:	66 0f 2e c1          	ucomisd %xmm1,%xmm0
+  4981a6:	0f 82 6d 01 00 00    	jb     498319 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x16c9>
+  4981ac:	8b 45 04             	mov    0x4(%ebp),%eax
+  4981af:	85 c0                	test   %eax,%eax
+  4981b1:	74 10                	je     4981c3 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1573>
+  4981b3:	05 80 21 00 00       	add    $0x2180,%eax
+  4981b8:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  4981bf:	75 1e                	jne    4981df <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x158f>
+  4981c1:	eb 30                	jmp    4981f3 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x15a3>
+  4981c3:	8b 45 00             	mov    0x0(%ebp),%eax
+  4981c6:	8b 40 08             	mov    0x8(%eax),%eax
+  4981c9:	89 2c 24             	mov    %ebp,(%esp)
+  4981cc:	c7 44 24 04 18 02 00 	movl   $0x218,0x4(%esp)
+  4981d3:	00 
+  4981d4:	ff d0                	call   *%eax
+  4981d6:	f7 40 0c ff ff ff 00 	testl  $0xffffff,0xc(%eax)
+  4981dd:	74 14                	je     4981f3 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x15a3>
+  4981df:	89 04 24             	mov    %eax,(%esp)
+  4981e2:	e8 f9 03 cd ff       	call   1685e0 <REAL_RValue_Ex(RValue const*)@plt>
+  4981e7:	dd 5c 24 18          	fstpl  0x18(%esp)
+  4981eb:	f2 0f 10 44 24 18    	movsd  0x18(%esp),%xmm0
+  4981f1:	eb 04                	jmp    4981f7 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x15a7>
+  4981f3:	f2 0f 10 00          	movsd  (%eax),%xmm0
+  4981f7:	f2 0f 58 83 40 0e bb 	addsd  -0x44f1c0(%ebx),%xmm0
+  4981fe:	ff 
+  4981ff:	f2 0f 10 0e          	movsd  (%esi),%xmm1
+  498203:	0f 57 8b 60 09 bb ff 	xorps  -0x44f6a0(%ebx),%xmm1
+  49820a:	66 0f 2e c8          	ucomisd %xmm0,%xmm1
+  49820e:	0f 86 05 01 00 00    	jbe    498319 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x16c9>
+  498214:	c7 44 24 10 38 00 00 	movl   $0x38,0x10(%esp)
+  49821b:	00 
+  49821c:	8b 7d 04             	mov    0x4(%ebp),%edi
+  49821f:	85 ff                	test   %edi,%edi
+  498221:	74 08                	je     49822b <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x15db>
+  498223:	81 c7 70 4f 00 00    	add    $0x4f70,%edi
+  498229:	eb 15                	jmp    498240 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x15f0>
+  49822b:	8b 45 00             	mov    0x0(%ebp),%eax
+  49822e:	8b 40 08             	mov    0x8(%eax),%eax
+  498231:	89 2c 24             	mov    %ebp,(%esp)
+  498234:	c7 44 24 04 f7 04 00 	movl   $0x4f7,0x4(%esp)
+  49823b:	00 
+  49823c:	ff d0                	call   *%eax
+  49823e:	89 c7                	mov    %eax,%edi
+  498240:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  498245:	03 47 0c             	add    0xc(%edi),%eax
+  498248:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  49824d:	75 08                	jne    498257 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1607>
+  49824f:	89 3c 24             	mov    %edi,(%esp)
+  498252:	e8 29 64 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  498257:	c7 47 0c 00 00 00 00 	movl   $0x0,0xc(%edi)
+  49825e:	c7 47 04 00 00 f0 bf 	movl   $0xbff00000,0x4(%edi)
+  498265:	c7 07 00 00 00 00    	movl   $0x0,(%edi)
+  49826b:	c7 44 24 10 39 00 00 	movl   $0x39,0x10(%esp)
+  498272:	00 
+  498273:	8b 7d 04             	mov    0x4(%ebp),%edi
+  498276:	85 ff                	test   %edi,%edi
+  498278:	74 08                	je     498282 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1632>
+  49827a:	81 c7 60 4f 00 00    	add    $0x4f60,%edi
+  498280:	eb 15                	jmp    498297 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1647>
+  498282:	8b 45 00             	mov    0x0(%ebp),%eax
+  498285:	8b 40 08             	mov    0x8(%eax),%eax
+  498288:	89 2c 24             	mov    %ebp,(%esp)
+  49828b:	c7 44 24 04 f6 04 00 	movl   $0x4f6,0x4(%esp)
+  498292:	00 
+  498293:	ff d0                	call   *%eax
+  498295:	89 c7                	mov    %eax,%edi
+  498297:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  49829c:	03 47 0c             	add    0xc(%edi),%eax
+  49829f:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  4982a4:	75 08                	jne    4982ae <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x165e>
+  4982a6:	89 3c 24             	mov    %edi,(%esp)
+  4982a9:	e8 d2 63 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  4982ae:	c7 47 0c 00 00 00 00 	movl   $0x0,0xc(%edi)
+  4982b5:	c7 47 04 00 00 f0 bf 	movl   $0xbff00000,0x4(%edi)
+  4982bc:	c7 07 00 00 00 00    	movl   $0x0,(%edi)
+  4982c2:	c7 44 24 10 3a 00 00 	movl   $0x3a,0x10(%esp)
+  4982c9:	00 
+  4982ca:	8b 7d 04             	mov    0x4(%ebp),%edi
+  4982cd:	85 ff                	test   %edi,%edi
+  4982cf:	74 08                	je     4982d9 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x1689>
+  4982d1:	81 c7 70 23 00 00    	add    $0x2370,%edi
+  4982d7:	eb 15                	jmp    4982ee <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x169e>
+  4982d9:	8b 45 00             	mov    0x0(%ebp),%eax
+  4982dc:	8b 40 08             	mov    0x8(%eax),%eax
+  4982df:	89 2c 24             	mov    %ebp,(%esp)
+  4982e2:	c7 44 24 04 37 02 00 	movl   $0x237,0x4(%esp)
+  4982e9:	00 
+  4982ea:	ff d0                	call   *%eax
+  4982ec:	89 c7                	mov    %eax,%edi
+  4982ee:	b8 ff ff ff 00       	mov    $0xffffff,%eax
+  4982f3:	03 47 0c             	add    0xc(%edi),%eax
+  4982f6:	a9 fc ff ff 00       	test   $0xfffffc,%eax
+  4982fb:	75 08                	jne    498305 <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x16b5>
+  4982fd:	89 3c 24             	mov    %edi,(%esp)
+  498300:	e8 7b 63 cd ff       	call   16e680 <FREE_RValue__Pre(RValue*)@plt>
+  498305:	c7 47 0c 00 00 00 00 	movl   $0x0,0xc(%edi)
+  49830c:	c7 47 04 00 c0 58 40 	movl   $0x4058c000,0x4(%edi)
+  498313:	c7 07 00 00 00 00    	movl   $0x0,(%edi)
+  498319:	8b 44 24 08          	mov    0x8(%esp),%eax
+  49831d:	8b 4c 24 14          	mov    0x14(%esp),%ecx
+  498321:	89 01                	mov    %eax,(%ecx)
+  498323:	8b 84 24 f8 00 00 00 	mov    0xf8(%esp),%eax
+  49832a:	81 c4 dc 00 00 00    	add    $0xdc,%esp
+  498330:	5e                   	pop    %esi
+  498331:	5f                   	pop    %edi
+  498332:	5b                   	pop    %ebx
+  498333:	5d                   	pop    %ebp
+  498334:	c3                   	ret
+  498335:	eb 78                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498337:	eb 76                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498339:	eb 74                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49833b:	eb 72                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49833d:	eb 70                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49833f:	eb 6e                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498341:	eb 6c                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498343:	eb 6a                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498345:	eb 68                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498347:	eb 66                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498349:	eb 64                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49834b:	eb 62                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49834d:	eb 60                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49834f:	eb 5e                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498351:	eb 5c                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498353:	eb 5a                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498355:	eb 58                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498357:	eb 56                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498359:	eb 54                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49835b:	eb 52                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49835d:	eb 50                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49835f:	eb 4e                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498361:	eb 4c                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498363:	eb 4a                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498365:	eb 48                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498367:	eb 46                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498369:	eb 44                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49836b:	eb 42                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49836d:	eb 40                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49836f:	eb 3e                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498371:	eb 3c                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498373:	eb 3a                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498375:	eb 38                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498377:	eb 36                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498379:	eb 34                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49837b:	eb 32                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49837d:	eb 30                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49837f:	eb 2e                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498381:	eb 2c                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498383:	eb 2a                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498385:	eb 28                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498387:	eb 26                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498389:	eb 24                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49838b:	eb 22                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49838d:	eb 20                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49838f:	eb 1e                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498391:	eb 1c                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498393:	eb 1a                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498395:	eb 18                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498397:	eb 16                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  498399:	eb 14                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49839b:	eb 12                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49839d:	eb 10                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  49839f:	eb 0e                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  4983a1:	eb 0c                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  4983a3:	eb 0a                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  4983a5:	eb 08                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  4983a7:	eb 06                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  4983a9:	eb 04                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  4983ab:	eb 02                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  4983ad:	eb 00                	jmp    4983af <gml_Script_scr_car_var(CInstance*, CInstance*, YYRValue&, int, YYRValue**)@@Base+0x175f>
+  4983af:	8b 4c 24 08          	mov    0x8(%esp),%ecx
+  4983b3:	8b 54 24 14          	mov    0x14(%esp),%edx
+  4983b7:	89 0a                	mov    %ecx,(%edx)
+  4983b9:	89 04 24             	mov    %eax,(%esp)
+  4983bc:	e8 1f df cc ff       	call   1662e0 <_Unwind_Resume@plt>
+  4983c1:	83 ec 04             	sub    $0x4,%esp

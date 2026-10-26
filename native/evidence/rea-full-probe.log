@@ -1,0 +1,16 @@
+2026-10-26T08:27:20.678Z open_binary started
+2026-10-26T08:27:20.766Z open_binary saved; isError=false
+2026-10-26T08:27:20.766Z batch_decompile started
+file:///workspace/tools/rea-rea-agents-6.5.0/node_modules/@modelcontextprotocol/client/dist/src-WCy6ifGf.mjs:6243
+			const timeoutHandler = () => cancel(new SdkError(SdkErrorCode.RequestTimeout, "Request timed out", { timeout }));
+			                                    ^
+
+SdkError: Request timed out
+    at Timeout.timeoutHandler (file:///workspace/tools/rea-rea-agents-6.5.0/node_modules/@modelcontextprotocol/client/dist/src-WCy6ifGf.mjs:6243:40)
+    at listOnTimeout (node:internal/timers:635:17)
+    at process.processTimers (node:internal/timers:571:7) {
+  code: 'REQUEST_TIMEOUT',
+  data: { timeout: 1200000 }
+}
+
+Node.js v24.19.0

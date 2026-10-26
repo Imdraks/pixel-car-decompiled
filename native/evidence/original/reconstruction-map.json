@@ -1,0 +1,6249 @@
+{
+  "project": "Pixel_Car_Racer",
+  "yyc": true,
+  "code_entry_count": null,
+  "native_sha256": "af1f9adc9a3a0a4ec1547d051fe41a89974045cb3d7666fbbb94715ce2872a18",
+  "objects": [
+    {
+      "name": "DEBUG",
+      "sprite": null,
+      "visible": true,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "CleanUp",
+          "subtype": 0,
+          "address": "0x010e6c60",
+          "size": 295,
+          "symbol": "_Z26gml_Object_DEBUG_CleanUp_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x010e6510",
+          "size": 446,
+          "symbol": "_Z23gml_Object_DEBUG_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x010e6d90",
+          "size": 233,
+          "symbol": "_Z28gml_Object_DEBUG_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x010e6400",
+          "size": 265,
+          "symbol": "_Z25gml_Object_DEBUG_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 73,
+          "address": "0x010e6800",
+          "size": 408,
+          "symbol": "_Z24gml_Object_DEBUG_Draw_73P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x010e66d0",
+          "size": 295,
+          "symbol": "_Z23gml_Object_DEBUG_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 75,
+          "address": "0x010e6a30",
+          "size": 408,
+          "symbol": "_Z24gml_Object_DEBUG_Draw_75P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "o_displayController",
+      "sprite": null,
+      "visible": true,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x010e7c90",
+          "size": 319,
+          "symbol": "_Z42gml_Object_o_displayController_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x010e6e80",
+          "size": 1489,
+          "symbol": "_Z39gml_Object_o_displayController_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 4,
+          "address": "0x010e74f0",
+          "size": 1348,
+          "symbol": "_Z38gml_Object_o_displayController_Other_4P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x010e7ad0",
+          "size": 444,
+          "symbol": "_Z38gml_Object_o_displayController_Other_5P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "odbg_control",
+      "sprite": null,
+      "visible": true,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Other",
+          "subtype": 62,
+          "address": "0x010e8f00",
+          "size": 19753,
+          "symbol": "_Z32gml_Object_odbg_control_Other_62P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x010efa70",
+          "size": 949,
+          "symbol": "_Z35gml_Object_odbg_control_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Alarm",
+          "subtype": 0,
+          "address": "0x010e8ea0",
+          "size": 39,
+          "symbol": "_Z31gml_Object_odbg_control_Alarm_0P9CInstanceS0_"
+        },
+        {
+          "event": "Alarm",
+          "subtype": 1,
+          "address": "0x010e8ed0",
+          "size": 39,
+          "symbol": "_Z31gml_Object_odbg_control_Alarm_1P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x010e7dd0",
+          "size": 4155,
+          "symbol": "_Z32gml_Object_odbg_control_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x010edcc0",
+          "size": 7456,
+          "symbol": "_Z31gml_Object_odbg_control_Draw_64P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "o_display",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x010f3bd0",
+          "size": 4609,
+          "symbol": "_Z29gml_Object_o_display_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x010f5d80",
+          "size": 949,
+          "symbol": "_Z32gml_Object_o_display_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 113,
+          "address": "0x010f5860",
+          "size": 1160,
+          "symbol": "_Z35gml_Object_o_display_KeyRelease_113P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x010f4e70",
+          "size": 1142,
+          "symbol": "_Z27gml_Object_o_display_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 112,
+          "address": "0x010f52f0",
+          "size": 1390,
+          "symbol": "_Z33gml_Object_o_display_KeyPress_112P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "osds_viewer",
+      "sprite": null,
+      "visible": true,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x010f6140",
+          "size": 280,
+          "symbol": "_Z31gml_Object_osds_viewer_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x011010d0",
+          "size": 949,
+          "symbol": "_Z34gml_Object_osds_viewer_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x010f6260",
+          "size": 44500,
+          "symbol": "_Z30gml_Object_osds_viewer_Draw_64P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "oset_control",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01105150",
+          "size": 949,
+          "symbol": "_Z35gml_Object_oset_control_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01101490",
+          "size": 14101,
+          "symbol": "_Z32gml_Object_oset_control_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "CleanUp",
+          "subtype": 0,
+          "address": "0x01104c40",
+          "size": 1145,
+          "symbol": "_Z33gml_Object_oset_control_CleanUp_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ogwc_gameWorldCamera",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x0110d040",
+          "size": 1115,
+          "symbol": "_Z38gml_Object_ogwc_gameWorldCamera_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 2,
+          "address": "0x011071e0",
+          "size": 24012,
+          "symbol": "_Z38gml_Object_ogwc_gameWorldCamera_Step_2P9CInstanceS0_"
+        },
+        {
+          "event": "Gesture",
+          "subtype": 67,
+          "address": "0x01110320",
+          "size": 39,
+          "symbol": "_Z42gml_Object_ogwc_gameWorldCamera_Gesture_67P9CInstanceS0_"
+        },
+        {
+          "event": "Gesture",
+          "subtype": 66,
+          "address": "0x01110260",
+          "size": 39,
+          "symbol": "_Z42gml_Object_ogwc_gameWorldCamera_Gesture_66P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 73,
+          "address": "0x0110d530",
+          "size": 11369,
+          "symbol": "_Z39gml_Object_ogwc_gameWorldCamera_Draw_73P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01105510",
+          "size": 7228,
+          "symbol": "_Z40gml_Object_ogwc_gameWorldCamera_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Gesture",
+          "subtype": 72,
+          "address": "0x011102c0",
+          "size": 39,
+          "symbol": "_Z42gml_Object_ogwc_gameWorldCamera_Gesture_72P9CInstanceS0_"
+        },
+        {
+          "event": "Gesture",
+          "subtype": 68,
+          "address": "0x01110350",
+          "size": 39,
+          "symbol": "_Z42gml_Object_ogwc_gameWorldCamera_Gesture_68P9CInstanceS0_"
+        },
+        {
+          "event": "Gesture",
+          "subtype": 71,
+          "address": "0x01110290",
+          "size": 39,
+          "symbol": "_Z42gml_Object_ogwc_gameWorldCamera_Gesture_71P9CInstanceS0_"
+        },
+        {
+          "event": "Gesture",
+          "subtype": 70,
+          "address": "0x01110230",
+          "size": 39,
+          "symbol": "_Z42gml_Object_ogwc_gameWorldCamera_Gesture_70P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01110380",
+          "size": 949,
+          "symbol": "_Z43gml_Object_ogwc_gameWorldCamera_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Gesture",
+          "subtype": 73,
+          "address": "0x011102f0",
+          "size": 39,
+          "symbol": "_Z42gml_Object_ogwc_gameWorldCamera_Gesture_73P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ojsn_control",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01113a20",
+          "size": 949,
+          "symbol": "_Z35gml_Object_ojsn_control_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 3,
+          "address": "0x01112790",
+          "size": 2331,
+          "symbol": "_Z31gml_Object_ojsn_control_Other_3P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x01112210",
+          "size": 1255,
+          "symbol": "_Z31gml_Object_ojsn_control_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 61,
+          "address": "0x01111820",
+          "size": 1325,
+          "symbol": "_Z32gml_Object_ojsn_control_Mouse_61P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x01113140",
+          "size": 2124,
+          "symbol": "_Z31gml_Object_ojsn_control_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 60,
+          "address": "0x01111d50",
+          "size": 1206,
+          "symbol": "_Z32gml_Object_ojsn_control_Mouse_60P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01110740",
+          "size": 4175,
+          "symbol": "_Z32gml_Object_ojsn_control_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ofbf_control",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "CleanUp",
+          "subtype": 0,
+          "address": "0x0111e650",
+          "size": 1556,
+          "symbol": "_Z33gml_Object_ofbf_control_CleanUp_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 70,
+          "address": "0x01117320",
+          "size": 8889,
+          "symbol": "_Z32gml_Object_ofbf_control_Other_70P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01113de0",
+          "size": 3310,
+          "symbol": "_Z32gml_Object_ofbf_control_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01114b60",
+          "size": 5785,
+          "symbol": "_Z30gml_Object_ofbf_control_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 62,
+          "address": "0x01119670",
+          "size": 20304,
+          "symbol": "_Z32gml_Object_ofbf_control_Other_62P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0111ed00",
+          "size": 949,
+          "symbol": "_Z35gml_Object_ofbf_control_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x01116290",
+          "size": 4094,
+          "symbol": "_Z30gml_Object_ofbf_control_Step_1P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "opns_panelCreate",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x01122da0",
+          "size": 965,
+          "symbol": "_Z35gml_Object_opns_panelCreate_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Gesture",
+          "subtype": 69,
+          "address": "0x01125b30",
+          "size": 39,
+          "symbol": "_Z38gml_Object_opns_panelCreate_Gesture_69P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01125b60",
+          "size": 949,
+          "symbol": "_Z39gml_Object_opns_panelCreate_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0111f0c0",
+          "size": 7264,
+          "symbol": "_Z36gml_Object_opns_panelCreate_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 75,
+          "address": "0x01123170",
+          "size": 10534,
+          "symbol": "_Z35gml_Object_opns_panelCreate_Draw_75P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x01120db0",
+          "size": 8020,
+          "symbol": "_Z34gml_Object_opns_panelCreate_Step_1P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "o_transitionCreate",
+      "sprite": null,
+      "visible": true,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "CleanUp",
+          "subtype": 0,
+          "address": "0x0112b650",
+          "size": 1731,
+          "symbol": "_Z39gml_Object_o_transitionCreate_CleanUp_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 75,
+          "address": "0x0112ab60",
+          "size": 2650,
+          "symbol": "_Z37gml_Object_o_transitionCreate_Draw_75P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0112bdb0",
+          "size": 1235,
+          "symbol": "_Z41gml_Object_o_transitionCreate_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01127450",
+          "size": 12288,
+          "symbol": "_Z36gml_Object_o_transitionCreate_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01125f20",
+          "size": 5270,
+          "symbol": "_Z38gml_Object_o_transitionCreate_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x0112a4e0",
+          "size": 1654,
+          "symbol": "_Z37gml_Object_o_transitionCreate_Other_5P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_settings",
+      "sprite": null,
+      "visible": true,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "KeyRelease",
+          "subtype": 104,
+          "address": "0x011656e0",
+          "size": 39,
+          "symbol": "_Z37gml_Object_ob_settings_KeyRelease_104P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x0115ac10",
+          "size": 1770,
+          "symbol": "_Z30gml_Object_ob_settings_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x01161170",
+          "size": 39,
+          "symbol": "_Z30gml_Object_ob_settings_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "Alarm",
+          "subtype": 2,
+          "address": "0x0113de60",
+          "size": 1471,
+          "symbol": "_Z30gml_Object_ob_settings_Alarm_2P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 102,
+          "address": "0x01165770",
+          "size": 39,
+          "symbol": "_Z37gml_Object_ob_settings_KeyRelease_102P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 13,
+          "address": "0x01164ba0",
+          "size": 39,
+          "symbol": "_Z34gml_Object_ob_settings_KeyPress_13P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 62,
+          "address": "0x01159ee0",
+          "size": 3221,
+          "symbol": "_Z31gml_Object_ob_settings_Other_62P9CInstanceS0_"
+        },
+        {
+          "event": "Alarm",
+          "subtype": 1,
+          "address": "0x0113e4b0",
+          "size": 2275,
+          "symbol": "_Z30gml_Object_ob_settings_Alarm_1P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0113f7b0",
+          "size": 66913,
+          "symbol": "_Z29gml_Object_ob_settings_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 72,
+          "address": "0x01164b70",
+          "size": 39,
+          "symbol": "_Z30gml_Object_ob_settings_Draw_72P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x011611a0",
+          "size": 14641,
+          "symbol": "_Z29gml_Object_ob_settings_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01166790",
+          "size": 1235,
+          "symbol": "_Z34gml_Object_ob_settings_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 98,
+          "address": "0x01165710",
+          "size": 39,
+          "symbol": "_Z36gml_Object_ob_settings_KeyRelease_98P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 114,
+          "address": "0x01164c00",
+          "size": 1458,
+          "symbol": "_Z37gml_Object_ob_settings_KeyRelease_114P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 70,
+          "address": "0x0114ffd0",
+          "size": 40565,
+          "symbol": "_Z31gml_Object_ob_settings_Other_70P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 61,
+          "address": "0x0114ff70",
+          "size": 39,
+          "symbol": "_Z31gml_Object_ob_settings_Mouse_61P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 60,
+          "address": "0x0114ffa0",
+          "size": 39,
+          "symbol": "_Z31gml_Object_ob_settings_Mouse_60P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 117,
+          "address": "0x011657d0",
+          "size": 2145,
+          "symbol": "_Z37gml_Object_ob_settings_KeyRelease_117P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 2,
+          "address": "0x01160370",
+          "size": 3432,
+          "symbol": "_Z30gml_Object_ob_settings_Other_2P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0112c480",
+          "size": 72013,
+          "symbol": "_Z31gml_Object_ob_settings_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 115,
+          "address": "0x011651c0",
+          "size": 1305,
+          "symbol": "_Z37gml_Object_ob_settings_KeyRelease_115P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 4,
+          "address": "0x0115b390",
+          "size": 20247,
+          "symbol": "_Z30gml_Object_ob_settings_Other_4P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 118,
+          "address": "0x011660d0",
+          "size": 1578,
+          "symbol": "_Z37gml_Object_ob_settings_KeyRelease_118P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 3,
+          "address": "0x01160340",
+          "size": 39,
+          "symbol": "_Z30gml_Object_ob_settings_Other_3P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 81,
+          "address": "0x01164bd0",
+          "size": 39,
+          "symbol": "_Z36gml_Object_ob_settings_KeyRelease_81P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 101,
+          "address": "0x011657a0",
+          "size": 39,
+          "symbol": "_Z37gml_Object_ob_settings_KeyRelease_101P9CInstanceS0_"
+        },
+        {
+          "event": "Alarm",
+          "subtype": 0,
+          "address": "0x0113ee30",
+          "size": 2275,
+          "symbol": "_Z30gml_Object_ob_settings_Alarm_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 100,
+          "address": "0x01165740",
+          "size": 39,
+          "symbol": "_Z37gml_Object_ob_settings_KeyRelease_100P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_car",
+      "sprite": "sp_car",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Other",
+          "subtype": 4,
+          "address": "0x01219500",
+          "size": 6535,
+          "symbol": "_Z25gml_Object_ob_car_Other_4P9CInstanceS0_"
+        },
+        {
+          "event": "Keyboard",
+          "subtype": 52,
+          "address": "0x0120e890",
+          "size": 1484,
+          "symbol": "_Z29gml_Object_ob_car_Keyboard_52P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 3,
+          "address": "0x0121af20",
+          "size": 1644,
+          "symbol": "_Z25gml_Object_ob_car_Other_3P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01280070",
+          "size": 1235,
+          "symbol": "_Z29gml_Object_ob_car_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 10,
+          "address": "0x0120ffd0",
+          "size": 30345,
+          "symbol": "_Z26gml_Object_ob_car_Other_10P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01166c70",
+          "size": 64901,
+          "symbol": "_Z26gml_Object_ob_car_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x01176ae0",
+          "size": 6262,
+          "symbol": "_Z27gml_Object_ob_car_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0117a650",
+          "size": 602649,
+          "symbol": "_Z24gml_Object_ob_car_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 89,
+          "address": "0x0127fb20",
+          "size": 1305,
+          "symbol": "_Z29gml_Object_ob_car_KeyPress_89P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0121c030",
+          "size": 407837,
+          "symbol": "_Z24gml_Object_ob_car_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Keyboard",
+          "subtype": 49,
+          "address": "0x0120fa00",
+          "size": 1484,
+          "symbol": "_Z29gml_Object_ob_car_Keyboard_49P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 2,
+          "address": "0x011783f0",
+          "size": 1605,
+          "symbol": "_Z24gml_Object_ob_car_Step_2P9CInstanceS0_"
+        },
+        {
+          "event": "Keyboard",
+          "subtype": 51,
+          "address": "0x0120ee60",
+          "size": 1484,
+          "symbol": "_Z29gml_Object_ob_car_Keyboard_51P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x01178ad0",
+          "size": 6892,
+          "symbol": "_Z24gml_Object_ob_car_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 89,
+          "address": "0x01280040",
+          "size": 39,
+          "symbol": "_Z31gml_Object_ob_car_KeyRelease_89P9CInstanceS0_"
+        },
+        {
+          "event": "Keyboard",
+          "subtype": 50,
+          "address": "0x0120f430",
+          "size": 1484,
+          "symbol": "_Z29gml_Object_ob_car_Keyboard_50P9CInstanceS0_"
+        },
+        {
+          "event": "Keyboard",
+          "subtype": 54,
+          "address": "0x0120e290",
+          "size": 39,
+          "symbol": "_Z29gml_Object_ob_car_Keyboard_54P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x012176f0",
+          "size": 7545,
+          "symbol": "_Z25gml_Object_ob_car_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Keyboard",
+          "subtype": 53,
+          "address": "0x0120e2c0",
+          "size": 1484,
+          "symbol": "_Z29gml_Object_ob_car_Keyboard_53P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_ai_car",
+      "sprite": "sp_car",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "KeyRelease",
+          "subtype": 65,
+          "address": "0x013227b0",
+          "size": 39,
+          "symbol": "_Z34gml_Object_ob_ai_car_KeyRelease_65P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x01309240",
+          "size": 2787,
+          "symbol": "_Z28gml_Object_ob_ai_car_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 4,
+          "address": "0x01309dc0",
+          "size": 2197,
+          "symbol": "_Z28gml_Object_ob_ai_car_Other_4P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 10,
+          "address": "0x01309210",
+          "size": 39,
+          "symbol": "_Z29gml_Object_ob_ai_car_Mouse_10P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01297900",
+          "size": 465011,
+          "symbol": "_Z27gml_Object_ob_ai_car_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0130a6f0",
+          "size": 98338,
+          "symbol": "_Z27gml_Object_ob_ai_car_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x013227e0",
+          "size": 1235,
+          "symbol": "_Z32gml_Object_ob_ai_car_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x01295d90",
+          "size": 6880,
+          "symbol": "_Z27gml_Object_ob_ai_car_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01280550",
+          "size": 85516,
+          "symbol": "_Z29gml_Object_ob_ai_car_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x01295450",
+          "size": 2216,
+          "symbol": "_Z30gml_Object_ob_ai_car_Destroy_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_displaycar",
+      "sprite": "sp_car",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x013266c0",
+          "size": 1731,
+          "symbol": "_Z34gml_Object_ob_displaycar_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 60,
+          "address": "0x013656f0",
+          "size": 39,
+          "symbol": "_Z33gml_Object_ob_displaycar_Mouse_60P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 61,
+          "address": "0x013656c0",
+          "size": 39,
+          "symbol": "_Z33gml_Object_ob_displaycar_Mouse_61P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 10,
+          "address": "0x01365720",
+          "size": 18097,
+          "symbol": "_Z33gml_Object_ob_displaycar_Other_10P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01322cc0",
+          "size": 14697,
+          "symbol": "_Z33gml_Object_ob_displaycar_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01383b40",
+          "size": 1235,
+          "symbol": "_Z36gml_Object_ob_displaycar_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x01326e20",
+          "size": 2313,
+          "symbol": "_Z31gml_Object_ob_displaycar_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 98,
+          "address": "0x01383ae0",
+          "size": 39,
+          "symbol": "_Z38gml_Object_ob_displaycar_KeyRelease_98P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x013277c0",
+          "size": 252747,
+          "symbol": "_Z31gml_Object_ob_displaycar_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 97,
+          "address": "0x01383b10",
+          "size": 39,
+          "symbol": "_Z38gml_Object_ob_displaycar_KeyRelease_97P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x01369e70",
+          "size": 105425,
+          "symbol": "_Z31gml_Object_ob_displaycar_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_parts",
+      "sprite": "sp_rims",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "KeyRelease",
+          "subtype": 102,
+          "address": "0x013ea770",
+          "size": 1778,
+          "symbol": "_Z34gml_Object_ob_parts_KeyRelease_102P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 104,
+          "address": "0x013e9f90",
+          "size": 1862,
+          "symbol": "_Z34gml_Object_ob_parts_KeyRelease_104P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x013a33c0",
+          "size": 141049,
+          "symbol": "_Z27gml_Object_ob_parts_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x013eb6e0",
+          "size": 1235,
+          "symbol": "_Z31gml_Object_ob_parts_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x01386b30",
+          "size": 2313,
+          "symbol": "_Z26gml_Object_ob_parts_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 98,
+          "address": "0x013e83a0",
+          "size": 1394,
+          "symbol": "_Z33gml_Object_ob_parts_KeyRelease_98P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x013895a0",
+          "size": 105870,
+          "symbol": "_Z26gml_Object_ob_parts_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x013c5b50",
+          "size": 141234,
+          "symbol": "_Z26gml_Object_ob_parts_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 97,
+          "address": "0x013e89b0",
+          "size": 1394,
+          "symbol": "_Z33gml_Object_ob_parts_KeyRelease_97P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 37,
+          "address": "0x013e9860",
+          "size": 1696,
+          "symbol": "_Z33gml_Object_ob_parts_KeyRelease_37P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 39,
+          "address": "0x013e8fc0",
+          "size": 2051,
+          "symbol": "_Z33gml_Object_ob_parts_KeyRelease_39P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01384020",
+          "size": 8084,
+          "symbol": "_Z28gml_Object_ob_parts_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x01386050",
+          "size": 2636,
+          "symbol": "_Z29gml_Object_ob_parts_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 100,
+          "address": "0x013eaf00",
+          "size": 1862,
+          "symbol": "_Z34gml_Object_ob_parts_KeyRelease_100P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_flame",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x013ef8a0",
+          "size": 1235,
+          "symbol": "_Z31gml_Object_ob_flame_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x013ebbc0",
+          "size": 2274,
+          "symbol": "_Z28gml_Object_ob_flame_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x013ec540",
+          "size": 6111,
+          "symbol": "_Z26gml_Object_ob_flame_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x013eddb0",
+          "size": 6503,
+          "symbol": "_Z26gml_Object_ob_flame_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_ctf",
+      "sprite": "sp_ctf",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x013efd80",
+          "size": 1774,
+          "symbol": "_Z24gml_Object_ob_ctf_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x013f0470",
+          "size": 1235,
+          "symbol": "_Z29gml_Object_ob_ctf_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_title",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x013f1630",
+          "size": 2881,
+          "symbol": "_Z26gml_Object_ob_title_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x013f2210",
+          "size": 4021,
+          "symbol": "_Z26gml_Object_ob_title_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x013f0950",
+          "size": 3140,
+          "symbol": "_Z28gml_Object_ob_title_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x013f3260",
+          "size": 1235,
+          "symbol": "_Z31gml_Object_ob_title_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_start_menu",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "KeyPress",
+          "subtype": 46,
+          "address": "0x0141e610",
+          "size": 39,
+          "symbol": "_Z36gml_Object_ob_start_menu_KeyPress_46P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 4,
+          "address": "0x0140bb50",
+          "size": 10954,
+          "symbol": "_Z32gml_Object_ob_start_menu_Other_4P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x0140bb20",
+          "size": 39,
+          "symbol": "_Z32gml_Object_ob_start_menu_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 32,
+          "address": "0x0141e640",
+          "size": 39,
+          "symbol": "_Z36gml_Object_ob_start_menu_KeyPress_32P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x013f3740",
+          "size": 31602,
+          "symbol": "_Z33gml_Object_ob_start_menu_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x013fb350",
+          "size": 7979,
+          "symbol": "_Z31gml_Object_ob_start_menu_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x013fd310",
+          "size": 59254,
+          "symbol": "_Z31gml_Object_ob_start_menu_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0140e6b0",
+          "size": 65232,
+          "symbol": "_Z31gml_Object_ob_start_menu_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0141e670",
+          "size": 1235,
+          "symbol": "_Z36gml_Object_ob_start_menu_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_title_menu",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Keyboard",
+          "subtype": 39,
+          "address": "0x0144b130",
+          "size": 1254,
+          "symbol": "_Z36gml_Object_ob_title_menu_Keyboard_39P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0148aea0",
+          "size": 1235,
+          "symbol": "_Z36gml_Object_ob_title_menu_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Keyboard",
+          "subtype": 38,
+          "address": "0x0144b620",
+          "size": 1368,
+          "symbol": "_Z36gml_Object_ob_title_menu_Keyboard_38P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x0142d3f0",
+          "size": 6308,
+          "symbol": "_Z31gml_Object_ob_title_menu_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Keyboard",
+          "subtype": 40,
+          "address": "0x0144ac40",
+          "size": 1254,
+          "symbol": "_Z36gml_Object_ob_title_menu_Keyboard_40P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0142f190",
+          "size": 113179,
+          "symbol": "_Z31gml_Object_ob_title_menu_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0145efc0",
+          "size": 177446,
+          "symbol": "_Z31gml_Object_ob_title_menu_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 8,
+          "address": "0x0148a720",
+          "size": 39,
+          "symbol": "_Z37gml_Object_ob_title_menu_KeyRelease_8P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x0144c0e0",
+          "size": 3514,
+          "symbol": "_Z32gml_Object_ob_title_menu_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0141eb50",
+          "size": 59399,
+          "symbol": "_Z33gml_Object_ob_title_menu_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 4,
+          "address": "0x0144cf30",
+          "size": 4415,
+          "symbol": "_Z32gml_Object_ob_title_menu_Other_4P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x0144f2b0",
+          "size": 62479,
+          "symbol": "_Z32gml_Object_ob_title_menu_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "CleanUp",
+          "subtype": 0,
+          "address": "0x0148a750",
+          "size": 1723,
+          "symbol": "_Z34gml_Object_ob_title_menu_CleanUp_0P9CInstanceS0_"
+        },
+        {
+          "event": "Keyboard",
+          "subtype": 37,
+          "address": "0x0144bb80",
+          "size": 1368,
+          "symbol": "_Z36gml_Object_ob_title_menu_Keyboard_37P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_lift",
+      "sprite": "sp_garage_lift",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0148b380",
+          "size": 1886,
+          "symbol": "_Z27gml_Object_ob_lift_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0148bb70",
+          "size": 7636,
+          "symbol": "_Z25gml_Object_ob_lift_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0148d9e0",
+          "size": 3326,
+          "symbol": "_Z25gml_Object_ob_lift_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0148e770",
+          "size": 1235,
+          "symbol": "_Z30gml_Object_ob_lift_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_loading",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 75,
+          "address": "0x01493b00",
+          "size": 10100,
+          "symbol": "_Z29gml_Object_ob_loading_Draw_75P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x014901e0",
+          "size": 1640,
+          "symbol": "_Z31gml_Object_ob_loading_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x01492f60",
+          "size": 1393,
+          "symbol": "_Z29gml_Object_ob_loading_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 4,
+          "address": "0x01493570",
+          "size": 1414,
+          "symbol": "_Z29gml_Object_ob_loading_Other_4P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0148ec50",
+          "size": 5363,
+          "symbol": "_Z30gml_Object_ob_loading_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01490850",
+          "size": 9855,
+          "symbol": "_Z28gml_Object_ob_loading_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01496310",
+          "size": 1235,
+          "symbol": "_Z33gml_Object_ob_loading_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_fade",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01496f00",
+          "size": 3278,
+          "symbol": "_Z25gml_Object_ob_fade_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x01498170",
+          "size": 7715,
+          "symbol": "_Z25gml_Object_ob_fade_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0149a030",
+          "size": 1235,
+          "symbol": "_Z30gml_Object_ob_fade_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x014967f0",
+          "size": 1793,
+          "symbol": "_Z27gml_Object_ob_fade_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 4,
+          "address": "0x01497c60",
+          "size": 1289,
+          "symbol": "_Z26gml_Object_ob_fade_Other_4P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_start",
+      "sprite": "sprite61",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0149a510",
+          "size": 4635,
+          "symbol": "_Z28gml_Object_ob_start_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 2,
+          "address": "0x0149cda0",
+          "size": 1586,
+          "symbol": "_Z27gml_Object_ob_start_Other_2P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x014a04a0",
+          "size": 1235,
+          "symbol": "_Z31gml_Object_ob_start_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0149b7c0",
+          "size": 5452,
+          "symbol": "_Z26gml_Object_ob_start_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0149d470",
+          "size": 12190,
+          "symbol": "_Z26gml_Object_ob_start_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_sidebuttons",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x014a23d0",
+          "size": 4695,
+          "symbol": "_Z32gml_Object_ob_sidebuttons_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x014a0980",
+          "size": 6578,
+          "symbol": "_Z34gml_Object_ob_sidebuttons_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x014a36c0",
+          "size": 3108,
+          "symbol": "_Z32gml_Object_ob_sidebuttons_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x014aadb0",
+          "size": 114130,
+          "symbol": "_Z32gml_Object_ob_sidebuttons_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x014a42f0",
+          "size": 27178,
+          "symbol": "_Z33gml_Object_ob_sidebuttons_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x014c6c20",
+          "size": 1235,
+          "symbol": "_Z37gml_Object_ob_sidebuttons_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_racemenu_buttons",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x014c8280",
+          "size": 2351,
+          "symbol": "_Z37gml_Object_ob_racemenu_buttons_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x014c7100",
+          "size": 4329,
+          "symbol": "_Z39gml_Object_ob_racemenu_buttons_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x014c8c40",
+          "size": 1235,
+          "symbol": "_Z42gml_Object_ob_racemenu_buttons_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_tune_buttons",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x014d13e0",
+          "size": 158227,
+          "symbol": "_Z33gml_Object_ob_tune_buttons_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0150acd0",
+          "size": 1235,
+          "symbol": "_Z38gml_Object_ob_tune_buttons_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x014cef70",
+          "size": 7032,
+          "symbol": "_Z33gml_Object_ob_tune_buttons_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x014d0b80",
+          "size": 1993,
+          "symbol": "_Z34gml_Object_ob_tune_buttons_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x014c9120",
+          "size": 23988,
+          "symbol": "_Z35gml_Object_ob_tune_buttons_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x014f91d0",
+          "size": 72295,
+          "symbol": "_Z34gml_Object_ob_tune_buttons_Draw_64P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_options",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0151f3d0",
+          "size": 1235,
+          "symbol": "_Z33gml_Object_ob_options_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 37,
+          "address": "0x0151ede0",
+          "size": 1368,
+          "symbol": "_Z33gml_Object_ob_options_KeyPress_37P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0150b1b0",
+          "size": 6443,
+          "symbol": "_Z30gml_Object_ob_options_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x0150cb70",
+          "size": 2313,
+          "symbol": "_Z28gml_Object_ob_options_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0150d510",
+          "size": 44346,
+          "symbol": "_Z28gml_Object_ob_options_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x015182e0",
+          "size": 27246,
+          "symbol": "_Z28gml_Object_ob_options_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_profile",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x015249c0",
+          "size": 39,
+          "symbol": "_Z31gml_Object_ob_profile_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x015249f0",
+          "size": 2313,
+          "symbol": "_Z28gml_Object_ob_profile_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01525390",
+          "size": 5988,
+          "symbol": "_Z28gml_Object_ob_profile_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0151f8b0",
+          "size": 20594,
+          "symbol": "_Z30gml_Object_ob_profile_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x01527b60",
+          "size": 88687,
+          "symbol": "_Z28gml_Object_ob_profile_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 60,
+          "address": "0x01526b90",
+          "size": 3902,
+          "symbol": "_Z30gml_Object_ob_profile_Other_60P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0153d660",
+          "size": 1235,
+          "symbol": "_Z33gml_Object_ob_profile_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_message",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 75,
+          "address": "0x01543400",
+          "size": 16149,
+          "symbol": "_Z29gml_Object_ob_message_Draw_75P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0155d350",
+          "size": 1235,
+          "symbol": "_Z33gml_Object_ob_message_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01541e80",
+          "size": 5351,
+          "symbol": "_Z28gml_Object_ob_message_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x015473b0",
+          "size": 89314,
+          "symbol": "_Z29gml_Object_ob_message_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0153db40",
+          "size": 17064,
+          "symbol": "_Z30gml_Object_ob_message_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_badge_award",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01561d70",
+          "size": 1235,
+          "symbol": "_Z37gml_Object_ob_badge_award_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0155d830",
+          "size": 2416,
+          "symbol": "_Z34gml_Object_ob_badge_award_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0155e230",
+          "size": 6695,
+          "symbol": "_Z32gml_Object_ob_badge_award_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0155fd50",
+          "size": 8074,
+          "symbol": "_Z32gml_Object_ob_badge_award_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_tournament_fade",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x015627b0",
+          "size": 5308,
+          "symbol": "_Z36gml_Object_ob_tournament_fade_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01563d00",
+          "size": 1235,
+          "symbol": "_Z41gml_Object_ob_tournament_fade_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01562250",
+          "size": 1373,
+          "symbol": "_Z38gml_Object_ob_tournament_fade_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "obj_lighting",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0157e150",
+          "size": 42270,
+          "symbol": "_Z30gml_Object_obj_lighting_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01589150",
+          "size": 1235,
+          "symbol": "_Z35gml_Object_obj_lighting_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 3,
+          "address": "0x0157db10",
+          "size": 1454,
+          "symbol": "_Z31gml_Object_obj_lighting_Other_3P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 13,
+          "address": "0x01588c60",
+          "size": 1254,
+          "symbol": "_Z37gml_Object_obj_lighting_KeyRelease_13P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x0157d4d0",
+          "size": 1454,
+          "symbol": "_Z31gml_Object_obj_lighting_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 60,
+          "address": "0x0157cea0",
+          "size": 1577,
+          "symbol": "_Z32gml_Object_obj_lighting_Mouse_60P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 18,
+          "address": "0x01588700",
+          "size": 1368,
+          "symbol": "_Z37gml_Object_obj_lighting_KeyRelease_18P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 61,
+          "address": "0x0157c790",
+          "size": 1801,
+          "symbol": "_Z32gml_Object_obj_lighting_Mouse_61P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x015641e0",
+          "size": 9504,
+          "symbol": "_Z32gml_Object_obj_lighting_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01566850",
+          "size": 89762,
+          "symbol": "_Z30gml_Object_obj_lighting_Step_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_shifter",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0158fb30",
+          "size": 1235,
+          "symbol": "_Z33gml_Object_ob_shifter_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0158a160",
+          "size": 18128,
+          "symbol": "_Z28gml_Object_ob_shifter_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0158e8c0",
+          "size": 4562,
+          "symbol": "_Z28gml_Object_ob_shifter_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01589630",
+          "size": 2705,
+          "symbol": "_Z30gml_Object_ob_shifter_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_hud",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Other",
+          "subtype": 4,
+          "address": "0x0159a600",
+          "size": 1497,
+          "symbol": "_Z25gml_Object_ob_hud_Other_4P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 65,
+          "address": "0x015bc7b0",
+          "size": 39,
+          "symbol": "_Z31gml_Object_ob_hud_KeyRelease_65P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01590010",
+          "size": 15964,
+          "symbol": "_Z26gml_Object_ob_hud_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x01599e40",
+          "size": 1836,
+          "symbol": "_Z25gml_Object_ob_hud_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x015bcfd0",
+          "size": 1235,
+          "symbol": "_Z29gml_Object_ob_hud_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x0159ac70",
+          "size": 133308,
+          "symbol": "_Z25gml_Object_ob_hud_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "CleanUp",
+          "subtype": 0,
+          "address": "0x015bc7e0",
+          "size": 1888,
+          "symbol": "_Z27gml_Object_ob_hud_CleanUp_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x01593f00",
+          "size": 9382,
+          "symbol": "_Z27gml_Object_ob_hud_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x01596440",
+          "size": 5695,
+          "symbol": "_Z24gml_Object_ob_hud_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01597b10",
+          "size": 8857,
+          "symbol": "_Z24gml_Object_ob_hud_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x015bb5c0",
+          "size": 4390,
+          "symbol": "_Z24gml_Object_ob_hud_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 65,
+          "address": "0x015bc780",
+          "size": 39,
+          "symbol": "_Z29gml_Object_ob_hud_KeyPress_65P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_stage",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x015c8c80",
+          "size": 1235,
+          "symbol": "_Z31gml_Object_ob_stage_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x015bd4b0",
+          "size": 7516,
+          "symbol": "_Z28gml_Object_ob_stage_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 2,
+          "address": "0x015bf2a0",
+          "size": 32150,
+          "symbol": "_Z26gml_Object_ob_stage_Step_2P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x015c70d0",
+          "size": 2062,
+          "symbol": "_Z27gml_Object_ob_stage_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x015c7970",
+          "size": 4724,
+          "symbol": "_Z26gml_Object_ob_stage_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_background",
+      "sprite": "sp_car",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x015c9160",
+          "size": 1607,
+          "symbol": "_Z33gml_Object_ob_background_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x015c9840",
+          "size": 39,
+          "symbol": "_Z31gml_Object_ob_background_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x015c9870",
+          "size": 2266,
+          "symbol": "_Z31gml_Object_ob_background_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x015ca1e0",
+          "size": 2055,
+          "symbol": "_Z31gml_Object_ob_background_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x015caa80",
+          "size": 1235,
+          "symbol": "_Z36gml_Object_ob_background_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_banner",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x015cf190",
+          "size": 1235,
+          "symbol": "_Z32gml_Object_ob_banner_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x015caf60",
+          "size": 4551,
+          "symbol": "_Z29gml_Object_ob_banner_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x015cc1c0",
+          "size": 12089,
+          "symbol": "_Z27gml_Object_ob_banner_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_trackbanner",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x015cf670",
+          "size": 1498,
+          "symbol": "_Z34gml_Object_ob_trackbanner_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x015cfc50",
+          "size": 11547,
+          "symbol": "_Z33gml_Object_ob_trackbanner_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x015d2a80",
+          "size": 1235,
+          "symbol": "_Z37gml_Object_ob_trackbanner_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_crate",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x015daac0",
+          "size": 20253,
+          "symbol": "_Z27gml_Object_ob_crate_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x015dfa70",
+          "size": 1235,
+          "symbol": "_Z31gml_Object_ob_crate_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x015d2f60",
+          "size": 19216,
+          "symbol": "_Z28gml_Object_ob_crate_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x015d7b00",
+          "size": 3067,
+          "symbol": "_Z29gml_Object_ob_crate_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x015d8790",
+          "size": 2313,
+          "symbol": "_Z26gml_Object_ob_crate_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x015d9130",
+          "size": 6387,
+          "symbol": "_Z26gml_Object_ob_crate_Step_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_camera",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x015e8100",
+          "size": 6351,
+          "symbol": "_Z28gml_Object_ob_camera_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 60,
+          "address": "0x015e7200",
+          "size": 39,
+          "symbol": "_Z29gml_Object_ob_camera_Mouse_60P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 61,
+          "address": "0x015e71d0",
+          "size": 39,
+          "symbol": "_Z29gml_Object_ob_camera_Mouse_61P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 73,
+          "address": "0x015e9a60",
+          "size": 39,
+          "symbol": "_Z28gml_Object_ob_camera_Draw_73P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x015e0b50",
+          "size": 2313,
+          "symbol": "_Z27gml_Object_ob_camera_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x015dff50",
+          "size": 2916,
+          "symbol": "_Z29gml_Object_ob_camera_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x015e14f0",
+          "size": 23627,
+          "symbol": "_Z27gml_Object_ob_camera_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x015e9a90",
+          "size": 1235,
+          "symbol": "_Z32gml_Object_ob_camera_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x015e7230",
+          "size": 2094,
+          "symbol": "_Z28gml_Object_ob_camera_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 4,
+          "address": "0x015e7af0",
+          "size": 1393,
+          "symbol": "_Z28gml_Object_ob_camera_Other_4P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_complete",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Mouse",
+          "subtype": 61,
+          "address": "0x015f4c30",
+          "size": 39,
+          "symbol": "_Z31gml_Object_ob_complete_Mouse_61P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x015e9f70",
+          "size": 43756,
+          "symbol": "_Z31gml_Object_ob_complete_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x015f4db0",
+          "size": 131550,
+          "symbol": "_Z29gml_Object_ob_complete_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 62,
+          "address": "0x015f4c90",
+          "size": 39,
+          "symbol": "_Z31gml_Object_ob_complete_Other_62P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x016150a0",
+          "size": 1235,
+          "symbol": "_Z34gml_Object_ob_complete_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 60,
+          "address": "0x015f4c60",
+          "size": 39,
+          "symbol": "_Z31gml_Object_ob_complete_Mouse_60P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x015f4cc0",
+          "size": 240,
+          "symbol": "_Z30gml_Object_ob_complete_Other_5P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_ticker",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Mouse",
+          "subtype": 60,
+          "address": "0x0161a010",
+          "size": 1254,
+          "symbol": "_Z29gml_Object_ob_ticker_Mouse_60P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01615580",
+          "size": 15230,
+          "symbol": "_Z29gml_Object_ob_ticker_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0161cd20",
+          "size": 1235,
+          "symbol": "_Z32gml_Object_ob_ticker_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01619190",
+          "size": 2080,
+          "symbol": "_Z27gml_Object_ob_ticker_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0161ab40",
+          "size": 8524,
+          "symbol": "_Z27gml_Object_ob_ticker_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x0161a500",
+          "size": 1454,
+          "symbol": "_Z28gml_Object_ob_ticker_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 61,
+          "address": "0x01619a40",
+          "size": 1488,
+          "symbol": "_Z29gml_Object_ob_ticker_Mouse_61P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "oStatBar",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x0161f4f0",
+          "size": 22364,
+          "symbol": "_Z27gml_Object_oStatBar_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0161d200",
+          "size": 3326,
+          "symbol": "_Z28gml_Object_oStatBar_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x0161df90",
+          "size": 5319,
+          "symbol": "_Z26gml_Object_oStatBar_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01624ce0",
+          "size": 1235,
+          "symbol": "_Z31gml_Object_oStatBar_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "oStatPanel",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x01628700",
+          "size": 7827,
+          "symbol": "_Z28gml_Object_oStatPanel_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0162a630",
+          "size": 1235,
+          "symbol": "_Z33gml_Object_oStatPanel_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x016251c0",
+          "size": 7256,
+          "symbol": "_Z30gml_Object_oStatPanel_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x01626eb0",
+          "size": 6067,
+          "symbol": "_Z28gml_Object_oStatPanel_Step_1P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "obj_controller",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0163ebb0",
+          "size": 1235,
+          "symbol": "_Z37gml_Object_obj_controller_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x0162ded0",
+          "size": 1530,
+          "symbol": "_Z33gml_Object_obj_controller_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0162d520",
+          "size": 2325,
+          "symbol": "_Z32gml_Object_obj_controller_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0162e560",
+          "size": 67008,
+          "symbol": "_Z32gml_Object_obj_controller_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 2,
+          "address": "0x0162c290",
+          "size": 4607,
+          "symbol": "_Z32gml_Object_obj_controller_Step_2P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0162ab10",
+          "size": 5866,
+          "symbol": "_Z34gml_Object_obj_controller_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_database",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01649100",
+          "size": 1235,
+          "symbol": "_Z34gml_Object_ob_database_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01647020",
+          "size": 2819,
+          "symbol": "_Z29gml_Object_ob_database_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x01646b20",
+          "size": 1273,
+          "symbol": "_Z32gml_Object_ob_database_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x016490d0",
+          "size": 39,
+          "symbol": "_Z29gml_Object_ob_database_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0163f090",
+          "size": 31224,
+          "symbol": "_Z31gml_Object_ob_database_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 4,
+          "address": "0x01647bc0",
+          "size": 5234,
+          "symbol": "_Z30gml_Object_ob_database_Other_4P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "o_back",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x016495e0",
+          "size": 1464,
+          "symbol": "_Z26gml_Object_o_back_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0164a7b0",
+          "size": 1235,
+          "symbol": "_Z29gml_Object_o_back_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01649ba0",
+          "size": 1694,
+          "symbol": "_Z24gml_Object_o_back_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0164a2d0",
+          "size": 1238,
+          "symbol": "_Z24gml_Object_o_back_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "obj_palette_manager",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0164b4b0",
+          "size": 1235,
+          "symbol": "_Z42gml_Object_obj_palette_manager_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 4,
+          "address": "0x0164b480",
+          "size": 39,
+          "symbol": "_Z38gml_Object_obj_palette_manager_Other_4P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0164ac90",
+          "size": 1833,
+          "symbol": "_Z39gml_Object_obj_palette_manager_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0164b450",
+          "size": 39,
+          "symbol": "_Z37gml_Object_obj_palette_manager_Step_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_person",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x0164e630",
+          "size": 1363,
+          "symbol": "_Z30gml_Object_ob_person_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x016555b0",
+          "size": 1235,
+          "symbol": "_Z32gml_Object_ob_person_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0164b990",
+          "size": 11087,
+          "symbol": "_Z29gml_Object_ob_person_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0164eb90",
+          "size": 16527,
+          "symbol": "_Z27gml_Object_ob_person_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x01652d70",
+          "size": 10149,
+          "symbol": "_Z27gml_Object_ob_person_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_ai_people",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0165c120",
+          "size": 4248,
+          "symbol": "_Z30gml_Object_ob_ai_people_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0165d250",
+          "size": 1235,
+          "symbol": "_Z35gml_Object_ob_ai_people_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01655a90",
+          "size": 10418,
+          "symbol": "_Z32gml_Object_ob_ai_people_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x016584a0",
+          "size": 1363,
+          "symbol": "_Z33gml_Object_ob_ai_people_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01658a00",
+          "size": 13769,
+          "symbol": "_Z30gml_Object_ob_ai_people_Step_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_partshop_button",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0165e220",
+          "size": 114790,
+          "symbol": "_Z36gml_Object_ob_partshop_button_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 80,
+          "address": "0x0167a320",
+          "size": 39,
+          "symbol": "_Z41gml_Object_ob_partshop_button_KeyPress_80P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0167a350",
+          "size": 1235,
+          "symbol": "_Z41gml_Object_ob_partshop_button_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0165d730",
+          "size": 2644,
+          "symbol": "_Z38gml_Object_ob_partshop_button_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_partshop",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0167a830",
+          "size": 10220,
+          "symbol": "_Z31gml_Object_ob_partshop_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x016a72d0",
+          "size": 1235,
+          "symbol": "_Z34gml_Object_ob_partshop_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 4,
+          "address": "0x016936b0",
+          "size": 1523,
+          "symbol": "_Z30gml_Object_ob_partshop_Other_4P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x0167d0b0",
+          "size": 2313,
+          "symbol": "_Z29gml_Object_ob_partshop_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x01693110",
+          "size": 1435,
+          "symbol": "_Z30gml_Object_ob_partshop_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0167dcd0",
+          "size": 86754,
+          "symbol": "_Z29gml_Object_ob_partshop_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x01693d40",
+          "size": 79103,
+          "symbol": "_Z29gml_Object_ob_partshop_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_tournament",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x016b13f0",
+          "size": 2407,
+          "symbol": "_Z34gml_Object_ob_tournament_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x016a77b0",
+          "size": 39856,
+          "symbol": "_Z33gml_Object_ob_tournament_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x016d82f0",
+          "size": 1235,
+          "symbol": "_Z36gml_Object_ob_tournament_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x016b1df0",
+          "size": 71318,
+          "symbol": "_Z31gml_Object_ob_tournament_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x016c3ed0",
+          "size": 82830,
+          "symbol": "_Z31gml_Object_ob_tournament_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 53,
+          "address": "0x016c35a0",
+          "size": 39,
+          "symbol": "_Z33gml_Object_ob_tournament_Mouse_53P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x016c35d0",
+          "size": 2160,
+          "symbol": "_Z32gml_Object_ob_tournament_Other_5P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_garage_area",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x016d87d0",
+          "size": 10233,
+          "symbol": "_Z34gml_Object_ob_garage_area_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x016db130",
+          "size": 2313,
+          "symbol": "_Z32gml_Object_ob_garage_area_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x016dbad0",
+          "size": 10235,
+          "symbol": "_Z32gml_Object_ob_garage_area_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x016de360",
+          "size": 31619,
+          "symbol": "_Z32gml_Object_ob_garage_area_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x016e5f80",
+          "size": 1235,
+          "symbol": "_Z37gml_Object_ob_garage_area_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_town_area",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x016ed4c0",
+          "size": 1235,
+          "symbol": "_Z35gml_Object_ob_town_area_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x016e92d0",
+          "size": 1707,
+          "symbol": "_Z31gml_Object_ob_town_area_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x016e7290",
+          "size": 8112,
+          "symbol": "_Z30gml_Object_ob_town_area_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x016e6460",
+          "size": 3480,
+          "symbol": "_Z32gml_Object_ob_town_area_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x016e9a10",
+          "size": 14878,
+          "symbol": "_Z30gml_Object_ob_town_area_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_NOTES",
+      "sprite": null,
+      "visible": false,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x016ed9a0",
+          "size": 39,
+          "symbol": "_Z28gml_Object_ob_NOTES_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x016ed9d0",
+          "size": 1235,
+          "symbol": "_Z31gml_Object_ob_NOTES_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_keyboard",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x016f4c30",
+          "size": 51639,
+          "symbol": "_Z29gml_Object_ob_keyboard_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 16,
+          "address": "0x0170a210",
+          "size": 1368,
+          "symbol": "_Z36gml_Object_ob_keyboard_KeyRelease_16P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x016edeb0",
+          "size": 26487,
+          "symbol": "_Z31gml_Object_ob_keyboard_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 16,
+          "address": "0x01709c20",
+          "size": 1368,
+          "symbol": "_Z34gml_Object_ob_keyboard_KeyPress_16P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x016f4720",
+          "size": 1289,
+          "symbol": "_Z32gml_Object_ob_keyboard_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 75,
+          "address": "0x01701890",
+          "size": 33528,
+          "symbol": "_Z30gml_Object_ob_keyboard_Draw_75P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0170a800",
+          "size": 1235,
+          "symbol": "_Z34gml_Object_ob_keyboard_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_graph",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0170ace0",
+          "size": 25577,
+          "symbol": "_Z28gml_Object_ob_graph_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01711a90",
+          "size": 39,
+          "symbol": "_Z26gml_Object_ob_graph_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x01712580",
+          "size": 65996,
+          "symbol": "_Z27gml_Object_ob_graph_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x01711160",
+          "size": 2202,
+          "symbol": "_Z29gml_Object_ob_graph_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017227e0",
+          "size": 1235,
+          "symbol": "_Z31gml_Object_ob_graph_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_rain",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01727b30",
+          "size": 8605,
+          "symbol": "_Z25gml_Object_ob_rain_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0172ae00",
+          "size": 1235,
+          "symbol": "_Z30gml_Object_ob_rain_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x01729d60",
+          "size": 4099,
+          "symbol": "_Z26gml_Object_ob_rain_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01722cc0",
+          "size": 15678,
+          "symbol": "_Z27gml_Object_ob_rain_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x01726a90",
+          "size": 4099,
+          "symbol": "_Z28gml_Object_ob_rain_Destroy_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_smoke",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x0173a400",
+          "size": 1251,
+          "symbol": "_Z27gml_Object_ob_smoke_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0172b2e0",
+          "size": 16929,
+          "symbol": "_Z28gml_Object_ob_smoke_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01730240",
+          "size": 40984,
+          "symbol": "_Z26gml_Object_ob_smoke_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x0172f670",
+          "size": 2870,
+          "symbol": "_Z29gml_Object_ob_smoke_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0173a8f0",
+          "size": 1235,
+          "symbol": "_Z31gml_Object_ob_smoke_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_confetti",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0173add0",
+          "size": 5015,
+          "symbol": "_Z31gml_Object_ob_confetti_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0173c920",
+          "size": 3644,
+          "symbol": "_Z29gml_Object_ob_confetti_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0173e470",
+          "size": 1235,
+          "symbol": "_Z34gml_Object_ob_confetti_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Keyboard",
+          "subtype": 40,
+          "address": "0x0173d7f0",
+          "size": 1368,
+          "symbol": "_Z34gml_Object_ob_confetti_Keyboard_40P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x0173c200",
+          "size": 1679,
+          "symbol": "_Z32gml_Object_ob_confetti_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x0173dd50",
+          "size": 1679,
+          "symbol": "_Z30gml_Object_ob_confetti_Other_5P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_blossom",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0173e950",
+          "size": 8260,
+          "symbol": "_Z30gml_Object_ob_blossom_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01740a60",
+          "size": 5382,
+          "symbol": "_Z28gml_Object_ob_blossom_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x01742000",
+          "size": 1679,
+          "symbol": "_Z29gml_Object_ob_blossom_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01742720",
+          "size": 1235,
+          "symbol": "_Z33gml_Object_ob_blossom_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x01740a30",
+          "size": 39,
+          "symbol": "_Z31gml_Object_ob_blossom_Destroy_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "oControl",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x017432a0",
+          "size": 39,
+          "symbol": "_Z26gml_Object_oControl_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01742c00",
+          "size": 1549,
+          "symbol": "_Z28gml_Object_oControl_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017432d0",
+          "size": 1235,
+          "symbol": "_Z31gml_Object_oControl_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "oDialogue",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x01744500",
+          "size": 29270,
+          "symbol": "_Z27gml_Object_oDialogue_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0174b7f0",
+          "size": 1235,
+          "symbol": "_Z32gml_Object_oDialogue_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x017437b0",
+          "size": 3264,
+          "symbol": "_Z29gml_Object_oDialogue_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "obtn_buttonCreate",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Other",
+          "subtype": 3,
+          "address": "0x01757a60",
+          "size": 1251,
+          "symbol": "_Z36gml_Object_obtn_buttonCreate_Other_3P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x01757570",
+          "size": 1251,
+          "symbol": "_Z36gml_Object_obtn_buttonCreate_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 2,
+          "address": "0x01754450",
+          "size": 3985,
+          "symbol": "_Z35gml_Object_obtn_buttonCreate_Step_2P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01759be0",
+          "size": 1235,
+          "symbol": "_Z40gml_Object_obtn_buttonCreate_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x0174f420",
+          "size": 20381,
+          "symbol": "_Z35gml_Object_obtn_buttonCreate_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01755990",
+          "size": 6987,
+          "symbol": "_Z35gml_Object_obtn_buttonCreate_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x01757f50",
+          "size": 7159,
+          "symbol": "_Z35gml_Object_obtn_buttonCreate_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0174bcd0",
+          "size": 13961,
+          "symbol": "_Z37gml_Object_obtn_buttonCreate_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x0174f3f0",
+          "size": 39,
+          "symbol": "_Z38gml_Object_obtn_buttonCreate_Destroy_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "oBlue",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0175a0c0",
+          "size": 1235,
+          "symbol": "_Z28gml_Object_oBlue_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "oPink",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0175a5a0",
+          "size": 1235,
+          "symbol": "_Z28gml_Object_oPink_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "oGreen",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0175aa80",
+          "size": 1235,
+          "symbol": "_Z29gml_Object_oGreen_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_interstitial",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0175b8d0",
+          "size": 1235,
+          "symbol": "_Z38gml_Object_ob_interstitial_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0175af60",
+          "size": 2261,
+          "symbol": "_Z35gml_Object_ob_interstitial_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x0175b840",
+          "size": 39,
+          "symbol": "_Z36gml_Object_ob_interstitial_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Alarm",
+          "subtype": 0,
+          "address": "0x0175b870",
+          "size": 39,
+          "symbol": "_Z34gml_Object_ob_interstitial_Alarm_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0175b8a0",
+          "size": 39,
+          "symbol": "_Z33gml_Object_ob_interstitial_Step_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_reward_video",
+      "sprite": null,
+      "visible": false,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0175c6c0",
+          "size": 1235,
+          "symbol": "_Z38gml_Object_ob_reward_video_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0175c690",
+          "size": 39,
+          "symbol": "_Z33gml_Object_ob_reward_video_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x0175c660",
+          "size": 39,
+          "symbol": "_Z36gml_Object_ob_reward_video_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0175bdb0",
+          "size": 2219,
+          "symbol": "_Z35gml_Object_ob_reward_video_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "obj_Interstitial",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Other",
+          "subtype": 70,
+          "address": "0x0175cbd0",
+          "size": 39,
+          "symbol": "_Z36gml_Object_obj_Interstitial_Other_70P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0175cba0",
+          "size": 39,
+          "symbol": "_Z36gml_Object_obj_Interstitial_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0175cc00",
+          "size": 1235,
+          "symbol": "_Z39gml_Object_obj_Interstitial_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "obj_MoreApps",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0175d170",
+          "size": 1235,
+          "symbol": "_Z35gml_Object_obj_MoreApps_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 70,
+          "address": "0x0175d140",
+          "size": 39,
+          "symbol": "_Z32gml_Object_obj_MoreApps_Other_70P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0175d0e0",
+          "size": 39,
+          "symbol": "_Z32gml_Object_obj_MoreApps_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 7,
+          "address": "0x0175d110",
+          "size": 39,
+          "symbol": "_Z31gml_Object_obj_MoreApps_Mouse_7P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "obj_RewardedVideo",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0175de00",
+          "size": 1235,
+          "symbol": "_Z40gml_Object_obj_RewardedVideo_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0175ddd0",
+          "size": 39,
+          "symbol": "_Z35gml_Object_obj_RewardedVideo_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 70,
+          "address": "0x0175dda0",
+          "size": 39,
+          "symbol": "_Z37gml_Object_obj_RewardedVideo_Other_70P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0175d650",
+          "size": 1865,
+          "symbol": "_Z37gml_Object_obj_RewardedVideo_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "obj_Interstitial_unity",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0175ea30",
+          "size": 1235,
+          "symbol": "_Z45gml_Object_obj_Interstitial_unity_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 70,
+          "address": "0x0175ea00",
+          "size": 39,
+          "symbol": "_Z42gml_Object_obj_Interstitial_unity_Other_70P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0175e2e0",
+          "size": 1820,
+          "symbol": "_Z42gml_Object_obj_Interstitial_unity_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_leaderboards",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0176a220",
+          "size": 18157,
+          "symbol": "_Z33gml_Object_ob_leaderboards_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0176ef90",
+          "size": 1235,
+          "symbol": "_Z38gml_Object_ob_leaderboards_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 37,
+          "address": "0x0176e9a0",
+          "size": 1368,
+          "symbol": "_Z38gml_Object_ob_leaderboards_KeyPress_37P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0175ef10",
+          "size": 4406,
+          "symbol": "_Z35gml_Object_ob_leaderboards_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01760a80",
+          "size": 38316,
+          "symbol": "_Z33gml_Object_ob_leaderboards_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x017600e0",
+          "size": 2313,
+          "symbol": "_Z33gml_Object_ob_leaderboards_Step_1P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "objAllTime",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017706f0",
+          "size": 1235,
+          "symbol": "_Z33gml_Object_objAllTime_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 4,
+          "address": "0x0176fdf0",
+          "size": 2159,
+          "symbol": "_Z29gml_Object_objAllTime_Mouse_4P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0176f470",
+          "size": 2273,
+          "symbol": "_Z28gml_Object_objAllTime_Step_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "objLeaderboard",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0177a920",
+          "size": 1235,
+          "symbol": "_Z37gml_Object_objLeaderboard_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Keyboard",
+          "subtype": 38,
+          "address": "0x017728a0",
+          "size": 1368,
+          "symbol": "_Z37gml_Object_objLeaderboard_Keyboard_38P9CInstanceS0_"
+        },
+        {
+          "event": "Keyboard",
+          "subtype": 40,
+          "address": "0x017723b0",
+          "size": 1254,
+          "symbol": "_Z37gml_Object_objLeaderboard_Keyboard_40P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x01771d70",
+          "size": 1454,
+          "symbol": "_Z35gml_Object_objLeaderboard_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01770bd0",
+          "size": 4363,
+          "symbol": "_Z34gml_Object_objLeaderboard_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x01772e00",
+          "size": 31374,
+          "symbol": "_Z32gml_Object_objLeaderboard_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "objLeaderboardLoader",
+      "sprite": "sp_gloves",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0177c6c0",
+          "size": 1714,
+          "symbol": "_Z38gml_Object_objLeaderboardLoader_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0177ce10",
+          "size": 1235,
+          "symbol": "_Z43gml_Object_objLeaderboardLoader_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0177ae00",
+          "size": 6191,
+          "symbol": "_Z40gml_Object_objLeaderboardLoader_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "objPostScore",
+      "sprite": "sp_button",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0177d2f0",
+          "size": 1450,
+          "symbol": "_Z32gml_Object_objPostScore_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0177efa0",
+          "size": 1235,
+          "symbol": "_Z35gml_Object_objPostScore_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 63,
+          "address": "0x0177de60",
+          "size": 4271,
+          "symbol": "_Z32gml_Object_objPostScore_Other_63P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 4,
+          "address": "0x0177d8a0",
+          "size": 1321,
+          "symbol": "_Z31gml_Object_objPostScore_Mouse_4P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "objToday",
+      "sprite": "sp_button",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01780800",
+          "size": 1235,
+          "symbol": "_Z31gml_Object_objToday_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 4,
+          "address": "0x0177ff00",
+          "size": 2159,
+          "symbol": "_Z27gml_Object_objToday_Mouse_4P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0177f480",
+          "size": 2542,
+          "symbol": "_Z26gml_Object_objToday_Step_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "objWeek",
+      "sprite": "sp_button",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x01780ce0",
+          "size": 2542,
+          "symbol": "_Z25gml_Object_objWeek_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01782060",
+          "size": 1235,
+          "symbol": "_Z30gml_Object_objWeek_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 4,
+          "address": "0x01781760",
+          "size": 2159,
+          "symbol": "_Z26gml_Object_objWeek_Mouse_4P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "objFlox",
+      "sprite": null,
+      "visible": true,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01789250",
+          "size": 1235,
+          "symbol": "_Z30gml_Object_objFlox_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 76,
+          "address": "0x01788b30",
+          "size": 1665,
+          "symbol": "_Z30gml_Object_objFlox_KeyPress_76P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01782540",
+          "size": 5799,
+          "symbol": "_Z27gml_Object_objFlox_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x01783c80",
+          "size": 1338,
+          "symbol": "_Z28gml_Object_objFlox_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 62,
+          "address": "0x017841c0",
+          "size": 18644,
+          "symbol": "_Z27gml_Object_objFlox_Other_62P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_inappstore",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x0178dea0",
+          "size": 2095,
+          "symbol": "_Z34gml_Object_ob_inappstore_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0178f7f0",
+          "size": 63753,
+          "symbol": "_Z31gml_Object_ob_inappstore_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0179f960",
+          "size": 61381,
+          "symbol": "_Z31gml_Object_ob_inappstore_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x01789730",
+          "size": 18136,
+          "symbol": "_Z33gml_Object_ob_inappstore_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017ae9c0",
+          "size": 1235,
+          "symbol": "_Z36gml_Object_ob_inappstore_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x0178e760",
+          "size": 39,
+          "symbol": "_Z31gml_Object_ob_inappstore_Step_1P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "objIAPController",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x017b3f80",
+          "size": 1504,
+          "symbol": "_Z34gml_Object_objIAPController_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x017b4590",
+          "size": 39,
+          "symbol": "_Z34gml_Object_objIAPController_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x017aeea0",
+          "size": 20449,
+          "symbol": "_Z36gml_Object_objIAPController_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 97,
+          "address": "0x017b4620",
+          "size": 39,
+          "symbol": "_Z41gml_Object_objIAPController_KeyRelease_97P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017b4650",
+          "size": 1235,
+          "symbol": "_Z39gml_Object_objIAPController_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 99,
+          "address": "0x017b45c0",
+          "size": 39,
+          "symbol": "_Z41gml_Object_objIAPController_KeyRelease_99P9CInstanceS0_"
+        },
+        {
+          "event": "KeyRelease",
+          "subtype": 98,
+          "address": "0x017b45f0",
+          "size": 39,
+          "symbol": "_Z41gml_Object_objIAPController_KeyRelease_98P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 66,
+          "address": "0x017b4560",
+          "size": 39,
+          "symbol": "_Z36gml_Object_objIAPController_Other_66P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "objBuyNoAds",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Mouse",
+          "subtype": 7,
+          "address": "0x017b4b30",
+          "size": 39,
+          "symbol": "_Z30gml_Object_objBuyNoAds_Mouse_7P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017b4b60",
+          "size": 1235,
+          "symbol": "_Z34gml_Object_objBuyNoAds_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "objBuy100Coins",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Mouse",
+          "subtype": 7,
+          "address": "0x017b5040",
+          "size": 39,
+          "symbol": "_Z33gml_Object_objBuy100Coins_Mouse_7P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017b5070",
+          "size": 1235,
+          "symbol": "_Z37gml_Object_objBuy100Coins_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "objRestoreAll",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017b5580",
+          "size": 1235,
+          "symbol": "_Z36gml_Object_objRestoreAll_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 7,
+          "address": "0x017b5550",
+          "size": 39,
+          "symbol": "_Z32gml_Object_objRestoreAll_Mouse_7P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "objBuyExtraLife",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017b5a90",
+          "size": 1235,
+          "symbol": "_Z38gml_Object_objBuyExtraLife_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 7,
+          "address": "0x017b5a60",
+          "size": 39,
+          "symbol": "_Z34gml_Object_objBuyExtraLife_Mouse_7P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "obj_camera",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x017b5fa0",
+          "size": 39,
+          "symbol": "_Z28gml_Object_obj_camera_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x017b5f70",
+          "size": 39,
+          "symbol": "_Z30gml_Object_obj_camera_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017b5fd0",
+          "size": 1235,
+          "symbol": "_Z33gml_Object_obj_camera_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "obj_dialogue",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017be480",
+          "size": 1235,
+          "symbol": "_Z35gml_Object_obj_dialogue_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x017b6d40",
+          "size": 1292,
+          "symbol": "_Z30gml_Object_obj_dialogue_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x017b64b0",
+          "size": 2044,
+          "symbol": "_Z32gml_Object_obj_dialogue_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x017b7250",
+          "size": 28743,
+          "symbol": "_Z31gml_Object_obj_dialogue_Draw_64P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_tutorial_log",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x017be960",
+          "size": 5447,
+          "symbol": "_Z35gml_Object_ob_tutorial_log_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x017bff40",
+          "size": 5734,
+          "symbol": "_Z33gml_Object_ob_tutorial_log_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x017c1640",
+          "size": 4920,
+          "symbol": "_Z34gml_Object_ob_tutorial_log_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017c2a10",
+          "size": 1235,
+          "symbol": "_Z38gml_Object_ob_tutorial_log_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_anticheat",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x017c2ef0",
+          "size": 1789,
+          "symbol": "_Z32gml_Object_ob_anticheat_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x017c3af0",
+          "size": 2268,
+          "symbol": "_Z30gml_Object_ob_anticheat_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x017c43d0",
+          "size": 5991,
+          "symbol": "_Z30gml_Object_ob_anticheat_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017c5bd0",
+          "size": 1235,
+          "symbol": "_Z35gml_Object_ob_anticheat_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 2,
+          "address": "0x017c35f0",
+          "size": 1273,
+          "symbol": "_Z30gml_Object_ob_anticheat_Step_2P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_color_slider",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x017c60b0",
+          "size": 6814,
+          "symbol": "_Z35gml_Object_ob_color_slider_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x017c7be0",
+          "size": 48227,
+          "symbol": "_Z33gml_Object_ob_color_slider_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x017d38e0",
+          "size": 1235,
+          "symbol": "_Z38gml_Object_ob_color_slider_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "obj_surface_main",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x017f8160",
+          "size": 5896,
+          "symbol": "_Z35gml_Object_obj_surface_main_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 64,
+          "address": "0x017f9900",
+          "size": 3466,
+          "symbol": "_Z35gml_Object_obj_surface_main_Draw_64P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x017dc330",
+          "size": 112547,
+          "symbol": "_Z34gml_Object_obj_surface_main_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x017da100",
+          "size": 8608,
+          "symbol": "_Z37gml_Object_obj_surface_main_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x017fa720",
+          "size": 157947,
+          "symbol": "_Z34gml_Object_obj_surface_main_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 61,
+          "address": "0x017f7b70",
+          "size": 1368,
+          "symbol": "_Z36gml_Object_obj_surface_main_Mouse_61P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01821210",
+          "size": 1235,
+          "symbol": "_Z39gml_Object_obj_surface_main_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x017d3dc0",
+          "size": 25256,
+          "symbol": "_Z36gml_Object_obj_surface_main_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_edit_wrap_area",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x018216f0",
+          "size": 1825,
+          "symbol": "_Z37gml_Object_ob_edit_wrap_area_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01822cd0",
+          "size": 1235,
+          "symbol": "_Z40gml_Object_ob_edit_wrap_area_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x01821eb0",
+          "size": 3457,
+          "symbol": "_Z35gml_Object_ob_edit_wrap_area_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_pointer",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x01823710",
+          "size": 3771,
+          "symbol": "_Z28gml_Object_ob_pointer_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x01824660",
+          "size": 1235,
+          "symbol": "_Z33gml_Object_ob_pointer_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x018231b0",
+          "size": 1373,
+          "symbol": "_Z30gml_Object_ob_pointer_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_scene_maker",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x00575a10",
+          "size": 1235,
+          "symbol": "_Z37gml_Object_ob_scene_maker_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_level_maker",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "KeyPress",
+          "subtype": 67,
+          "address": "0x005e9730",
+          "size": 3285,
+          "symbol": "_Z37gml_Object_ob_level_maker_KeyPress_67P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 86,
+          "address": "0x005e7e40",
+          "size": 3520,
+          "symbol": "_Z37gml_Object_ob_level_maker_KeyPress_86P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 5,
+          "address": "0x00588e70",
+          "size": 1251,
+          "symbol": "_Z33gml_Object_ob_level_maker_Other_5P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 32,
+          "address": "0x005eb110",
+          "size": 1851,
+          "symbol": "_Z37gml_Object_ob_level_maker_KeyPress_32P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x005840e0",
+          "size": 19711,
+          "symbol": "_Z32gml_Object_ob_level_maker_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x00576000",
+          "size": 28885,
+          "symbol": "_Z34gml_Object_ob_level_maker_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x00589360",
+          "size": 387239,
+          "symbol": "_Z32gml_Object_ob_level_maker_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 73,
+          "address": "0x005e8c90",
+          "size": 2572,
+          "symbol": "_Z37gml_Object_ob_level_maker_KeyPress_73P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 2,
+          "address": "0x0057f8c0",
+          "size": 16175,
+          "symbol": "_Z32gml_Object_ob_level_maker_Step_2P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x0057da70",
+          "size": 7615,
+          "symbol": "_Z35gml_Object_ob_level_maker_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x005eb8e0",
+          "size": 1235,
+          "symbol": "_Z37gml_Object_ob_level_maker_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 65,
+          "address": "0x005ea4a0",
+          "size": 3027,
+          "symbol": "_Z37gml_Object_ob_level_maker_KeyPress_65P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_wheel_spacer",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x005ebdc0",
+          "size": 1235,
+          "symbol": "_Z38gml_Object_ob_wheel_spacer_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_level_rightclick",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x005ec2a0",
+          "size": 6397,
+          "symbol": "_Z39gml_Object_ob_level_rightclick_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x005edc30",
+          "size": 9774,
+          "symbol": "_Z37gml_Object_ob_level_rightclick_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x005f02f0",
+          "size": 5919,
+          "symbol": "_Z37gml_Object_ob_level_rightclick_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x005f1aa0",
+          "size": 1235,
+          "symbol": "_Z42gml_Object_ob_level_rightclick_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_story_controller",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x005f1f80",
+          "size": 1235,
+          "symbol": "_Z42gml_Object_ob_story_controller_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "ob_story_map",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "KeyPress",
+          "subtype": 38,
+          "address": "0x00613440",
+          "size": 2857,
+          "symbol": "_Z35gml_Object_ob_story_map_KeyPress_38P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 60,
+          "address": "0x00601310",
+          "size": 2495,
+          "symbol": "_Z32gml_Object_ob_story_map_Mouse_60P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 18,
+          "address": "0x00614850",
+          "size": 8099,
+          "symbol": "_Z35gml_Object_ob_story_map_KeyPress_18P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x00616db0",
+          "size": 1235,
+          "symbol": "_Z35gml_Object_ob_story_map_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x005f2460",
+          "size": 22780,
+          "symbol": "_Z32gml_Object_ob_story_map_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 40,
+          "address": "0x00611e00",
+          "size": 5545,
+          "symbol": "_Z35gml_Object_ob_story_map_KeyPress_40P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 17,
+          "address": "0x00616890",
+          "size": 1304,
+          "symbol": "_Z35gml_Object_ob_story_map_KeyPress_17P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x005f8cc0",
+          "size": 4695,
+          "symbol": "_Z30gml_Object_ob_story_map_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x005f9fb0",
+          "size": 26651,
+          "symbol": "_Z30gml_Object_ob_story_map_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x00601d60",
+          "size": 65546,
+          "symbol": "_Z30gml_Object_ob_story_map_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x005f7f90",
+          "size": 3219,
+          "symbol": "_Z33gml_Object_ob_story_map_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "KeyPress",
+          "subtype": 32,
+          "address": "0x00614000",
+          "size": 1977,
+          "symbol": "_Z35gml_Object_ob_story_map_KeyPress_32P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 61,
+          "address": "0x00600860",
+          "size": 2587,
+          "symbol": "_Z32gml_Object_ob_story_map_Mouse_61P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "o_json",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x00617290",
+          "size": 39,
+          "symbol": "_Z26gml_Object_o_json_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x006172c0",
+          "size": 1235,
+          "symbol": "_Z29gml_Object_o_json_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "o_dailyInit",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Other",
+          "subtype": 3,
+          "address": "0x00618ea0",
+          "size": 1428,
+          "symbol": "_Z30gml_Object_o_dailyInit_Other_3P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x00619440",
+          "size": 17049,
+          "symbol": "_Z29gml_Object_o_dailyInit_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0061d770",
+          "size": 1235,
+          "symbol": "_Z34gml_Object_o_dailyInit_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x006177a0",
+          "size": 5736,
+          "symbol": "_Z31gml_Object_o_dailyInit_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "o_dailyReward",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x00621e70",
+          "size": 2260,
+          "symbol": "_Z34gml_Object_o_dailyReward_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x00633300",
+          "size": 1235,
+          "symbol": "_Z36gml_Object_o_dailyReward_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0061dc50",
+          "size": 16783,
+          "symbol": "_Z33gml_Object_o_dailyReward_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x006227e0",
+          "size": 32611,
+          "symbol": "_Z31gml_Object_o_dailyReward_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x0062a7e0",
+          "size": 35465,
+          "symbol": "_Z31gml_Object_o_dailyReward_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "o_dailyRewardItem",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x00634ec0",
+          "size": 4156,
+          "symbol": "_Z35gml_Object_o_dailyRewardItem_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x0063f090",
+          "size": 1235,
+          "symbol": "_Z40gml_Object_o_dailyRewardItem_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x00635f90",
+          "size": 36961,
+          "symbol": "_Z35gml_Object_o_dailyRewardItem_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x006337e0",
+          "size": 5699,
+          "symbol": "_Z37gml_Object_o_dailyRewardItem_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "o_dalyButton",
+      "sprite": "s_test",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x0063f570",
+          "size": 1581,
+          "symbol": "_Z32gml_Object_o_dalyButton_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Mouse",
+          "subtype": 0,
+          "address": "0x0063fba0",
+          "size": 1716,
+          "symbol": "_Z31gml_Object_o_dalyButton_Mouse_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x006402f0",
+          "size": 1235,
+          "symbol": "_Z35gml_Object_o_dalyButton_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "o_loadingBar",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x006407d0",
+          "size": 4701,
+          "symbol": "_Z32gml_Object_o_loadingBar_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x00644500",
+          "size": 1235,
+          "symbol": "_Z35gml_Object_o_loadingBar_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x00641ac0",
+          "size": 4336,
+          "symbol": "_Z30gml_Object_o_loadingBar_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x00642cd0",
+          "size": 6041,
+          "symbol": "_Z30gml_Object_o_loadingBar_Draw_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "orws_control",
+      "sprite": null,
+      "visible": false,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x006488f0",
+          "size": 6450,
+          "symbol": "_Z30gml_Object_orws_control_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 62,
+          "address": "0x0064a2c0",
+          "size": 48570,
+          "symbol": "_Z32gml_Object_orws_control_Other_62P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x00646900",
+          "size": 8021,
+          "symbol": "_Z33gml_Object_orws_control_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x006449e0",
+          "size": 7822,
+          "symbol": "_Z32gml_Object_orws_control_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x00656110",
+          "size": 1235,
+          "symbol": "_Z35gml_Object_orws_control_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "obj_demo",
+      "sprite": null,
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x00658ce0",
+          "size": 1235,
+          "symbol": "_Z31gml_Object_obj_demo_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Step",
+          "subtype": 1,
+          "address": "0x00656be0",
+          "size": 8299,
+          "symbol": "_Z26gml_Object_obj_demo_Step_1P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x006565f0",
+          "size": 1368,
+          "symbol": "_Z28gml_Object_obj_demo_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "obj_snowfield",
+      "sprite": "spr_snow_empty",
+      "visible": true,
+      "persistent": false,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Step",
+          "subtype": 0,
+          "address": "0x0065adb0",
+          "size": 22067,
+          "symbol": "_Z31gml_Object_obj_snowfield_Step_0P9CInstanceS0_"
+        },
+        {
+          "event": "Draw",
+          "subtype": 0,
+          "address": "0x006607e0",
+          "size": 8359,
+          "symbol": "_Z31gml_Object_obj_snowfield_Draw_0P9CInstanceS0_"
+        },
+        {
+          "event": "Destroy",
+          "subtype": 0,
+          "address": "0x0065a560",
+          "size": 1982,
+          "symbol": "_Z34gml_Object_obj_snowfield_Destroy_0P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x00662920",
+          "size": 1235,
+          "symbol": "_Z36gml_Object_obj_snowfield_PreCreate_0P9CInstanceS0_"
+        },
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x006591c0",
+          "size": 4877,
+          "symbol": "_Z33gml_Object_obj_snowfield_Create_0P9CInstanceS0_"
+        }
+      ]
+    },
+    {
+      "name": "GMIAP_MANAGER",
+      "sprite": null,
+      "visible": true,
+      "persistent": true,
+      "depth": 0,
+      "parent": null,
+      "native_events": [
+        {
+          "event": "Create",
+          "subtype": 0,
+          "address": "0x00662f60",
+          "size": 4693,
+          "symbol": "_Z33gml_Object_GMIAP_MANAGER_Create_0P9CInstanceS0_"
+        },
+        {
+          "event": "Other",
+          "subtype": 66,
+          "address": "0x00664250",
+          "size": 1273,
+          "symbol": "_Z33gml_Object_GMIAP_MANAGER_Other_66P9CInstanceS0_"
+        },
+        {
+          "event": "PreCreate",
+          "subtype": 0,
+          "address": "0x00664750",
+          "size": 1235,
+          "symbol": "_Z36gml_Object_GMIAP_MANAGER_PreCreate_0P9CInstanceS0_"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "name": "rm_title",
+      "width": 720,
+      "height": 480,
+      "speed": 0,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100000,
+          "x": 0,
+          "y": 32,
+          "object_name": "ob_settings"
+        },
+        {
+          "id": 100010,
+          "x": 32,
+          "y": 0,
+          "object_name": "ob_database"
+        },
+        {
+          "id": 100011,
+          "x": 128,
+          "y": 0,
+          "object_name": "objIAPController"
+        },
+        {
+          "id": 100004,
+          "x": 192,
+          "y": 32,
+          "object_name": "o_displayController"
+        },
+        {
+          "id": 100005,
+          "x": 224,
+          "y": 32,
+          "object_name": "o_display"
+        },
+        {
+          "id": 100012,
+          "x": 64,
+          "y": 0,
+          "object_name": "obj_palette_manager"
+        },
+        {
+          "id": 100013,
+          "x": 0,
+          "y": 0,
+          "object_name": "ob_title_menu"
+        },
+        {
+          "id": 100007,
+          "x": 814,
+          "y": 1206,
+          "object_name": "ob_start"
+        },
+        {
+          "id": 100014,
+          "x": 386,
+          "y": 270,
+          "object_name": "ob_lift"
+        },
+        {
+          "id": 100008,
+          "x": 444,
+          "y": 310,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100006,
+          "x": 362,
+          "y": 148,
+          "object_name": "ob_title"
+        },
+        {
+          "id": 100016,
+          "x": -162,
+          "y": 442,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100015,
+          "x": 384,
+          "y": 348,
+          "object_name": "ob_person"
+        },
+        {
+          "id": 100009,
+          "x": 96,
+          "y": 0,
+          "object_name": "o_dailyInit"
+        }
+      ]
+    },
+    {
+      "name": "rm_main_menu",
+      "width": 720,
+      "height": 1400,
+      "speed": 0,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100017,
+          "x": 80,
+          "y": 64,
+          "object_name": "ob_fade"
+        },
+        {
+          "id": 100019,
+          "x": 124,
+          "y": 16,
+          "object_name": "ob_start_menu"
+        },
+        {
+          "id": 100018,
+          "x": 54,
+          "y": 30,
+          "object_name": "ob_blossom"
+        }
+      ]
+    },
+    {
+      "name": "rm_drag",
+      "width": 8000,
+      "height": 480,
+      "speed": 0,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100031,
+          "x": 444,
+          "y": 250,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100024,
+          "x": 444,
+          "y": 304,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100025,
+          "x": 778,
+          "y": 462,
+          "object_name": "ob_background"
+        },
+        {
+          "id": 100026,
+          "x": 588,
+          "y": 266,
+          "object_name": "ob_stage"
+        },
+        {
+          "id": 100027,
+          "x": 421,
+          "y": 300,
+          "object_name": "ob_smoke"
+        },
+        {
+          "id": 100028,
+          "x": 165,
+          "y": 50,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100021,
+          "x": 91,
+          "y": 250,
+          "object_name": "ob_shifter"
+        },
+        {
+          "id": 100023,
+          "x": 489,
+          "y": 298,
+          "object_name": "obj_lighting"
+        },
+        {
+          "id": 100029,
+          "x": 134,
+          "y": 175,
+          "object_name": "ob_flame"
+        },
+        {
+          "id": 100020,
+          "x": 50,
+          "y": 50,
+          "object_name": "ob_fade"
+        },
+        {
+          "id": 100030,
+          "x": 8,
+          "y": 0,
+          "object_name": "obj_controller"
+        },
+        {
+          "id": 100022,
+          "x": 716,
+          "y": 450,
+          "object_name": "ob_hud"
+        }
+      ]
+    },
+    {
+      "name": "rm_cruise",
+      "width": 5000,
+      "height": 1000,
+      "speed": 0,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100036,
+          "x": 803,
+          "y": 476,
+          "object_name": "ob_background"
+        },
+        {
+          "id": 100037,
+          "x": 209,
+          "y": 165,
+          "object_name": "ob_smoke"
+        },
+        {
+          "id": 100038,
+          "x": 407,
+          "y": 90,
+          "object_name": "ob_rain"
+        },
+        {
+          "id": 100039,
+          "x": 113,
+          "y": 90,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100035,
+          "x": 558,
+          "y": 350,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100040,
+          "x": 181,
+          "y": 40,
+          "object_name": "ob_flame"
+        },
+        {
+          "id": 100034,
+          "x": 489,
+          "y": 298,
+          "object_name": "obj_lighting"
+        },
+        {
+          "id": 100041,
+          "x": 64,
+          "y": 160,
+          "object_name": "obj_controller"
+        },
+        {
+          "id": 100033,
+          "x": 987,
+          "y": 730,
+          "object_name": "ob_hud"
+        },
+        {
+          "id": 100032,
+          "x": 185,
+          "y": 105,
+          "object_name": "ob_shifter"
+        }
+      ]
+    },
+    {
+      "name": "rm_test",
+      "width": 2400,
+      "height": 2000,
+      "speed": 0,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100044,
+          "x": 16,
+          "y": 0,
+          "object_name": "ob_camera"
+        },
+        {
+          "id": 100045,
+          "x": 704,
+          "y": 144,
+          "object_name": "obj_palette_manager"
+        },
+        {
+          "id": 100043,
+          "x": -544,
+          "y": 160,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100042,
+          "x": 0,
+          "y": 0,
+          "object_name": "obj_lighting"
+        },
+        {
+          "id": 100046,
+          "x": 64,
+          "y": 16,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100049,
+          "x": 320,
+          "y": 160,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100047,
+          "x": 80,
+          "y": 0,
+          "object_name": "ob_tune_buttons"
+        },
+        {
+          "id": 100048,
+          "x": 32,
+          "y": 16,
+          "object_name": "ob_sidebuttons"
+        }
+      ]
+    },
+    {
+      "name": "rm_partshop",
+      "width": 1000,
+      "height": 1400,
+      "speed": 0,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100050,
+          "x": 704,
+          "y": 144,
+          "object_name": "obj_palette_manager"
+        },
+        {
+          "id": 100051,
+          "x": 64,
+          "y": 16,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100056,
+          "x": -208,
+          "y": 192,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100057,
+          "x": 864,
+          "y": 192,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100058,
+          "x": 2144,
+          "y": 192,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100052,
+          "x": 64,
+          "y": 64,
+          "object_name": "ob_sidebuttons"
+        },
+        {
+          "id": 100053,
+          "x": 32,
+          "y": 16,
+          "object_name": "ob_partshop"
+        },
+        {
+          "id": 100054,
+          "x": 464,
+          "y": 256,
+          "object_name": "ob_partshop_button"
+        },
+        {
+          "id": 100055,
+          "x": 256,
+          "y": 352,
+          "object_name": "ob_person"
+        }
+      ]
+    },
+    {
+      "name": "rm_town",
+      "width": 2400,
+      "height": 2000,
+      "speed": 0,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100061,
+          "x": -448,
+          "y": 384,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100083,
+          "x": 224,
+          "y": 64,
+          "object_name": "oControl"
+        },
+        {
+          "id": 100062,
+          "x": 240,
+          "y": 64,
+          "object_name": "oDialogue"
+        },
+        {
+          "id": 100063,
+          "x": 16,
+          "y": 16,
+          "object_name": "ob_sidebuttons"
+        },
+        {
+          "id": 100064,
+          "x": 48,
+          "y": 16,
+          "object_name": "ob_town_area"
+        },
+        {
+          "id": 100060,
+          "x": 128,
+          "y": 64,
+          "object_name": "obj_lighting"
+        },
+        {
+          "id": 100065,
+          "x": 80,
+          "y": 48,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100066,
+          "x": 832,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100067,
+          "x": 912,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100068,
+          "x": 784,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100069,
+          "x": 1168,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100070,
+          "x": 1120,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100071,
+          "x": 464,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100072,
+          "x": 384,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100073,
+          "x": 432,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100074,
+          "x": 1248,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100075,
+          "x": 1056,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100076,
+          "x": 944,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100077,
+          "x": 336,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100078,
+          "x": 496,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100079,
+          "x": 720,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100080,
+          "x": 608,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100081,
+          "x": 656,
+          "y": 360,
+          "object_name": "ob_ai_people"
+        },
+        {
+          "id": 100059,
+          "x": 208,
+          "y": 144,
+          "object_name": "ob_shifter"
+        },
+        {
+          "id": 100082,
+          "x": 240,
+          "y": 104,
+          "object_name": "ob_flame"
+        },
+        {
+          "id": 100084,
+          "x": 176,
+          "y": 416,
+          "object_name": "ob_ai_car"
+        }
+      ]
+    },
+    {
+      "name": "rm_city",
+      "width": 10000,
+      "height": 480,
+      "speed": 0,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100085,
+          "x": 34,
+          "y": 25,
+          "object_name": "ob_settings"
+        },
+        {
+          "id": 100089,
+          "x": -45,
+          "y": 225,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100090,
+          "x": 1778,
+          "y": 225,
+          "object_name": "ob_ai_car"
+        },
+        {
+          "id": 100088,
+          "x": 649,
+          "y": 225,
+          "object_name": "ob_background"
+        },
+        {
+          "id": 100087,
+          "x": 477,
+          "y": 200,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100086,
+          "x": 603,
+          "y": 200,
+          "object_name": "obj_lighting"
+        }
+      ]
+    },
+    {
+      "name": "rm_garage",
+      "width": 720,
+      "height": 480,
+      "speed": 0,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100091,
+          "x": 10,
+          "y": 10,
+          "object_name": "ob_garage_area"
+        },
+        {
+          "id": 100092,
+          "x": 40,
+          "y": 10,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100093,
+          "x": 30,
+          "y": 30,
+          "object_name": "ob_sidebuttons"
+        }
+      ]
+    },
+    {
+      "name": "rm_tourn",
+      "width": 720,
+      "height": 480,
+      "speed": 0,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100094,
+          "x": 0,
+          "y": 0,
+          "object_name": "ob_sidebuttons"
+        },
+        {
+          "id": 100095,
+          "x": 16,
+          "y": 0,
+          "object_name": "ob_tournament"
+        },
+        {
+          "id": 100096,
+          "x": 32,
+          "y": 0,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100097,
+          "x": 48,
+          "y": 0,
+          "object_name": "ob_tournament_fade"
+        }
+      ]
+    },
+    {
+      "name": "rm_story_map",
+      "width": 640,
+      "height": 640,
+      "speed": 0,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100098,
+          "x": 0,
+          "y": 0,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100099,
+          "x": 50,
+          "y": 0,
+          "object_name": "ob_story_map"
+        },
+        {
+          "id": 100100,
+          "x": 192,
+          "y": 192,
+          "object_name": "ob_person"
+        }
+      ]
+    },
+    {
+      "name": "rm_edit_wrap",
+      "width": 720,
+      "height": 480,
+      "speed": 0,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100102,
+          "x": 40,
+          "y": 10,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100103,
+          "x": 30,
+          "y": 30,
+          "object_name": "ob_sidebuttons"
+        },
+        {
+          "id": 100106,
+          "x": 0,
+          "y": 0,
+          "object_name": "obj_surface_main"
+        },
+        {
+          "id": 100104,
+          "x": 0,
+          "y": 30,
+          "object_name": "ob_edit_wrap_area"
+        },
+        {
+          "id": 100101,
+          "x": 260,
+          "y": 180,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100105,
+          "x": 110,
+          "y": 70,
+          "object_name": "ob_pointer"
+        }
+      ]
+    },
+    {
+      "name": "rm_level_maker",
+      "width": 5000,
+      "height": 1000,
+      "speed": 0,
+      "persistent": false,
+      "instances": [
+        {
+          "id": 100111,
+          "x": 160,
+          "y": 0,
+          "object_name": "ob_smoke"
+        },
+        {
+          "id": 100112,
+          "x": 224,
+          "y": 0,
+          "object_name": "ob_rain"
+        },
+        {
+          "id": 100113,
+          "x": 32,
+          "y": 0,
+          "object_name": "ob_loading"
+        },
+        {
+          "id": 100110,
+          "x": 558,
+          "y": 350,
+          "object_name": "ob_car"
+        },
+        {
+          "id": 100114,
+          "x": 96,
+          "y": 0,
+          "object_name": "ob_flame"
+        },
+        {
+          "id": 100109,
+          "x": 192,
+          "y": 0,
+          "object_name": "obj_lighting"
+        },
+        {
+          "id": 100108,
+          "x": 987,
+          "y": 730,
+          "object_name": "ob_hud"
+        },
+        {
+          "id": 100107,
+          "x": 128,
+          "y": 0,
+          "object_name": "ob_shifter"
+        },
+        {
+          "id": 100115,
+          "x": 0,
+          "y": 0,
+          "object_name": "ob_level_maker"
+        }
+      ]
+    }
+  ],
+  "unmatched_native_objects": [],
+  "unparsed_native_object_symbols": [],
+  "limitations": [
+    "Exact name joins only; event addresses are Android ELF addresses, not Windows code.",
+    "No event semantics, event ordering, physics or execution equivalence is reconstructed."
+  ]
+}
