@@ -100,7 +100,15 @@ différer de l'original. Le son du moteur est synthétisé dans cette version.
 Code : `src/`. Tests : `tests/`. Le programme utilise C++17 et Raylib 6.2.
 Il n'utilise pas les bibliothèques Android `libyoyo.so` à l'exécution.
 
-Dans l'environnement préparé :
+Les ressources peuvent être restaurées depuis le paquet Windows vérifié :
+
+```bash
+python3 native/game/tools/restore_assets.py --destination native/game/assets
+```
+
+L’archive est contrôlée par SHA-256 ; un fichier existant différent est refusé.
+Le paquet 0.3.1 inclut le nouvel atlas du passage de roue. Pour régénérer les
+métadonnées depuis les exports d’origine, dans l’environnement préparé :
 
 ```bash
 PCR_BACKGROUND_OUTPUT=/workspace/native-runtime/backgrounds.json \

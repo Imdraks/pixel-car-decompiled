@@ -1,6 +1,6 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.3](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.3.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.3.0-native-preview)
+**[Télécharger Windows x64 — version 0.3.1](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.3.1-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.3.1-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
@@ -13,6 +13,8 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 - Traction, propulsion ou quatre roues motrices sélectionnables au garage,
   avec effet du transfert de poids et choix sauvegardé.
 - 191 images de carrosserie et 54 styles de jantes issus d’Unbound.
+  La version 0.3.1 aligne les roues avec chaque carrosserie et conserve les ailes
+  devant les pneus ; les 191 rendus ont été parcourus et revus.
 - Plein écran, fenêtre sans bordure ou avec bordure ; résolution, limite FPS,
   VSync, qualité graphique et son. Confirmation des changements d’affichage.
 
@@ -30,7 +32,7 @@ d’essai. L’équivalence avec la conduite Android n’est pas validée.
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-43 contrôles du cœur et 15 contrôles graphiques passent sur Windows ; les mesures
+46 contrôles du cœur et 15 contrôles graphiques passent sur Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
 Les essais sur GPU physique et l’audio réel restent à effectuer.
 

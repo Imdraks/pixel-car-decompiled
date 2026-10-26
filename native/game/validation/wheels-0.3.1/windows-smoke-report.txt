@@ -1,0 +1,17 @@
+Native Windows rendering smoke test. Physical PC GPU and audio are not established.
+PASS free drive advances
+PASS lane input
+PASS borderless backend state
+PASS borderless desktop dimensions
+PASS timeout restores previous mode
+PASS unconfirmed settings are not persisted
+PASS exclusive fullscreen backend state
+PASS fullscreen resolution applied
+PASS bordered window backend state
+PASS window resolution applied
+PASS VSync request applied
+PASS 30 FPS cap limits wall-clock frame rate
+PASS confirmed settings round trip
+PASS garage profile round trip
+PASS free drive resumes after settings
+cap_30_fps_elapsed_for_30_frames=1.02871

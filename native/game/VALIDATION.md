@@ -24,6 +24,17 @@
   et la jante 09 pour produire les captures du cas signalé. La publication est
   conditionnée aux contrôles Windows du cœur, du banc et du rendu.
 
+Exécution Windows 0.3.1 réussie :
+[40319746159](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40319746159).
+Les 46 contrôles du cœur, les 15 contrôles graphiques et la comparaison du banc
+réussissent. La capture Windows du garage montre la carrosserie 021 avec la
+jante 09. Le paquet public a été retéléchargé et vérifié : 7 950 681 octets,
+SHA-256 `71d33b788a70a6b91889f7f7a7328b0ac072363f5c9c908d3f891ff63469a990`.
+Source compilée : `4974757f9f9535c107c546a07dbfed12b0c04198`.
+Les aperçus des 191 carrosseries sont joints à la release dans
+`Verification-roues-191-carrosseries.zip` ; les originaux de capture restent dans
+le répertoire d’audit du cloud.
+
 ## Historique : contrôles de la version 0.3
 
 - 43 contrôles du cœur réussis sur Linux : simulation indépendante des FPS,
