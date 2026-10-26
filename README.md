@@ -1,6 +1,6 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.7.1](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.7.1-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.7.1-native-preview)
+**[Télécharger Windows x64 — version 0.8.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.8.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.8.0-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
@@ -8,9 +8,9 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
 
-Le correctif 0.7.1 sépare les vraies jantes des pneus et calques d’effets :
-vignettes corrigées, 23 styles, anciennes sélections invalides réparées sans
-perdre les pièces.
+La version 0.8.0 fusionne les boutiques Original 1.2.5 + Unbound : **1196 équipements**,
+avec jantes nommées, esthétique et sélection des deux banques d’images/sons.
+[Contenu et commandes](native/game/CONTENT.md).
 
 - Garage avec atelier, pont, icônes, jauges et police du jeu original adaptés au PC.
   Six catégories, aperçu, recherche, tri, double-clic et raccourcis F1–F6.
@@ -31,12 +31,18 @@ perdre les pièces.
 - Boîte automatique/manuelle, rétrogradages, limiteur et frein moteur.
 - Traction, propulsion ou quatre roues motrices sélectionnables au garage,
   avec effet du transfert de poids et choix sauvegardé.
-- 191 images de carrosserie et 23 styles de jantes issus d’Unbound.
-  La version 0.7.1 aligne les roues avec chaque carrosserie et conserve les ailes
+- 191 carrosseries par banque, 10 images différentes (201 distinctes), et
+  **521 jantes nommées**, composées depuis les recettes du jeu.
+  La version 0.8.0 aligne les roues avec chaque carrosserie et conserve les ailes
   devant les pneus ; les 191 rendus ont été parcourus et revus.
-- 194 pièces dans 11 catégories : moteurs, suspension, turbos, compresseurs, ECU,
+- 196 pièces de performance dans 11 catégories : moteurs, suspension, turbos, compresseurs, ECU,
   NOS, admissions, intercoolers, pistons, échappements et pneus. Recherche,
   équipement libre et sauvegarde dans **CUSTOMISATION**.
+- **F7 : STYLE / ACCESSOIRES**, 479 éléments dans seize catégories : peintures,
+  livrées, ailerons, galeries/cargaisons, kits complets ou séparés, freins, sièges,
+  crochets, écrous, vitres, teintes de feux et ampoules. Aperçu et sauvegarde.
+- **ORIGINAL 1.2.5 / UNBOUND** choisit les images et les sons : deux banques de
+  94 échantillons préservés, catalogue d’équipement commun.
 - Puissance combinée des pièces, courbes du **BANC PUISSANCE**, tri de commun à
   contrebande et **PRÉPA MAX** : environ 4289 HP sans NOS / 4539 HP avec NOS.
   Turbo et compresseur sont exclusifs. Règles natives détaillées dans
@@ -62,16 +68,17 @@ d’essai. L’équivalence avec la conduite Android n’est pas validée.
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-129 contrôles du cœur et 39 contrôles graphiques passent sur Windows ; les mesures
+136 contrôles du cœur et 42 contrôles graphiques passent sur Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
-Les 94 sons sont décodés sous Windows ; le mixage audio logiciel et 57 contrôles
-clavier/souris et 188 384 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.
+Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 79 contrôles
+clavier/souris et 192 416 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.
 
 La [recherche ciblée YYC](native/evidence/unbound/physics/README.md) a vérifié
 2 128 noms/identifiants de variables et récupéré deux fonctions annexes. Le calcul
 principal et les données complètes par voiture restent à reconstruire. Les
-économie des boutiques, progression, autres modes et fusion complète original 1.2.5 /
-Unbound restent à reconstruire. Les formules des pièces et effets sont adaptées
+économie des boutiques, progression et autres modes restent à reconstruire.
+Les catalogues sont fusionnés ; certains matériaux et placements restent des
+adaptations natives. Les formules des pièces et effets sont adaptées
 nativement ; tous les VFX du jeu original ne sont pas encore reproduits.
 
 Sources : [native/game](native/game/README.md). Preuves :

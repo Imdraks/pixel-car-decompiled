@@ -16,6 +16,17 @@
 - Rapports locaux : `validation/merged-0.8/`. La publication exige les contrôles
   Windows du cœur, physique, rendu, combinaisons et décodage des deux banques.
 
+## Publication et téléchargement vérifiés
+
+- [Exécution Windows réussie](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40396656078) : 136 contrôles du cœur, 42 graphiques, 188 décodages, 192416 combinaisons, 9359 ancrages et mesures physiques Linux/Windows concordantes à 0,01 près.
+- Les captures Windows montrent les jantes nommées, livrées, kits et cargaison au-dessus du toit ; les comparaisons de défilement/NOS/flammes passent aussi sur ces images.
+- ZIP public redéchargé : CRC, SHA-256, source compilée et exécutable vérifiés. Les quatre aperçus publics correspondent exactement aux captures Windows validées.
+- Restauration à froid et réutilisation : 247 ressources chacune. Rapports : `validation/windows-0.8/`.
+- Rendu CI Mesa logiciel ; mixage sur périphérique audio logiciel Linux. GPU et haut-parleurs physiques restent à essayer.
+- Source compilée : `1a062312344c6644cc1aea0908bd22c9a0762b7f`.
+- ZIP : 59174529 octets, SHA-256 `30beaa74beaaf7294855ecc7c930db273788ed7b58e862ebd83fece72016d290`.
+- Exécutable : SHA-256 `ab08600e233c169bd30d380c84103da2cd21c5d9ce8fdea32b12a214fdccb262`.
+
 ## Historique : version 0.7.1
 
 # Validation native 0.7.1
