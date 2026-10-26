@@ -8,9 +8,9 @@
   remplacement d'un fichier existant, sauvegarde du garage et des préférences.
 - Simulation libre de 70 secondes : environ 4,4 km parcourus sans événement de
   fin de course. Cette mesure concerne le modèle natif réimplémenté.
-- 14 contrôles graphiques sous Xvfb/Mesa : avance du véhicule, entrée de voie,
+- 15 contrôles graphiques sous Xvfb/Mesa : avance du véhicule, entrée de voie,
   état sans bordure et taille du bureau, rétablissement après expiration,
-  absence de sauvegarde d'un choix non confirmé, plein écran, retour avec bordure,
+  absence de sauvegarde d'un choix non confirmé, plein écran et sa résolution, retour avec bordure,
   résolution appliquée, demande VSync, limite à 30 FPS, persistance et reprise.
 - Mesure de la limite à 30 FPS : au moins 0,9 seconde pour 30 images. La durée
   observée est conservée dans le rapport de chaque exécution. Le drapeau VSync
@@ -35,6 +35,12 @@ Cette bibliothèque de test n'est pas incluse dans la distribution du jeu.
 Un essai préalable avec une installation Wine portable incomplète n'a pas pu
 initialiser son propre environnement Windows. Il ne constitue pas une validation
 du programme et n'est pas présenté comme un test réussi de l'exécutable.
+
+Le premier essai sur Windows Server 2025 a détecté une fenêtre plus petite que
+les 1 280 pixels demandés sur le bureau virtuel. La correction limite les choix
+fenêtrés à l'espace utilisable, bordures et DPI compris. Le plein écran demande
+aussi explicitement le mode vidéo choisi au backend GLFW, et un contrôle séparé
+vérifie que sa résolution est bien appliquée.
 
 Les essais sur un PC Windows physique, plusieurs écrans, les pilotes GPU des
 fabricants, le HDR et l'audio réel restent à effectuer. Aucun achat ni compte

@@ -6,6 +6,7 @@ namespace pcr {
 std::string defaultDataDirectory();
 bool atomicReplace(const std::filesystem::path& from,const std::filesystem::path& to,std::string& error);
 std::vector<Resolution> platformDisplayModes(int monitorX,int monitorY);
+Resolution platformWindowedLimit(void* nativeWindow);
 void setExecutableDirectory();
 void showFatalError(const std::string&);
 }

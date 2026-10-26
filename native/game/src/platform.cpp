@@ -73,4 +73,22 @@ std::vector<Resolution> platformDisplayModes(int x,int y) {
     }
     return result;
 }
+Resolution platformWindowedLimit(void* nativeWindow){
+#ifdef _WIN32
+    HWND window=static_cast<HWND>(nativeWindow);
+    MONITORINFO info{};info.cbSize=sizeof(info);
+    if(!GetMonitorInfoW(MonitorFromWindow(window,MONITOR_DEFAULTTOPRIMARY),&info))return {0,0};
+    RECT frame{0,0,0,0};
+    using DpiFunction=UINT (WINAPI*)(HWND);
+    using AdjustFunction=BOOL (WINAPI*)(LPRECT,DWORD,BOOL,DWORD,UINT);
+    auto dpi=reinterpret_cast<DpiFunction>(GetProcAddress(GetModuleHandleW(L"user32.dll"),"GetDpiForWindow"));
+    auto adjust=reinterpret_cast<AdjustFunction>(GetProcAddress(GetModuleHandleW(L"user32.dll"),"AdjustWindowRectExForDpi"));
+    if(dpi&&adjust)adjust(&frame,WS_OVERLAPPEDWINDOW,FALSE,0,dpi(window));
+    else AdjustWindowRectEx(&frame,WS_OVERLAPPEDWINDOW,FALSE,0);
+    return {int(info.rcWork.right-info.rcWork.left-(frame.right-frame.left)),
+            int(info.rcWork.bottom-info.rcWork.top-(frame.bottom-frame.top))};
+#else
+    (void)nativeWindow;return {0,0};
+#endif
+}
 }

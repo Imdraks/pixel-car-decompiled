@@ -43,6 +43,8 @@ sont communes à cette version, et les coordonnées des roues sont estimées.
 - Fenêtre avec bordure, fenêtre sans bordure occupant le bureau, plein écran.
 - Résolution de la fenêtre ou du plein écran ; résolution de rendu en mode sans
   bordure. Les formats différents de 16:9 peuvent présenter des bandes noires.
+  Les tailles de fenêtre proposées tiennent compte des bordures et de l'espace
+  disponible sur le bureau ; le plein écran utilise les modes signalés par Windows.
 - Limite de 30, 60, 120, 144, 165 ou 240 FPS, ou limite désactivée.
 - VSync activée/désactivée ; le pilote et la fréquence du moniteur peuvent
   déterminer le rythme final de présentation.

@@ -16,6 +16,13 @@
 
 namespace fs=std::filesystem;
 using namespace pcr;
+// Raylib owns this GLFW window. Use its public backend entry points to request
+// an actual exclusive video mode; Raylib 6.2 ToggleFullscreen uses desktop size.
+struct GLFWwindow;
+struct GLFWmonitor;
+extern "C" GLFWwindow* glfwGetCurrentContext(void);
+extern "C" GLFWmonitor* glfwGetWindowMonitor(GLFWwindow*);
+extern "C" void glfwSetWindowMonitor(GLFWwindow*,GLFWmonitor*,int,int,int,int,int);
 constexpr Color Ink{10,15,23,255}, Panel{18,27,39,245}, Muted{153,173,190,255}, Accent{75,230,190,255}, Gold{255,191,88,255};
 static std::atomic<float> audioRpm{1000}, audioGas{0};
 static void engineAudio(void* buffer,unsigned int frames){
@@ -34,6 +41,7 @@ struct App {
     enum class Screen { Menu, Garage, Free } screen=Screen::Menu;
     Args args;
     Settings settings,edited,previous;
+    Resolution windowLimit{1280,720};
     Profile profile;
     FreeDrive drive;
     Font font{};std::map<int,Texture2D> atlases;RenderTexture2D render{};
@@ -91,7 +99,18 @@ struct App {
             int monitor=GetCurrentMonitor();auto pos=GetMonitorPosition(monitor);
             values=platformDisplayModes(int(pos.x)+GetMonitorWidth(monitor)/2,int(pos.y)+GetMonitorHeight(monitor)/2);
             if(values.empty())values.push_back({GetMonitorWidth(monitor),GetMonitorHeight(monitor)});
-        }else values={{800,450},{960,540},{1280,720},{1600,900},{1920,1080},{2560,1440},{3840,2160}};
+        }else {
+            values={{800,450},{960,540},{1280,720},{1600,900},{1920,1080},{2560,1440},{3840,2160}};
+            if(mode==WindowMode::Windowed){
+                if(!IsWindowFullscreen()){
+                    auto limit=platformWindowedLimit(GetWindowHandle());
+                    if(limit.width<=0||limit.height<=0)limit={GetMonitorWidth(GetCurrentMonitor())-32,GetMonitorHeight(GetCurrentMonitor())-80};
+                    windowLimit=limit;
+                }
+                values.erase(std::remove_if(values.begin(),values.end(),[this](Resolution r){return r.width>windowLimit.width||r.height>windowLimit.height;}),values.end());
+                if(values.empty())values.push_back({800,450});
+            }
+        }
         return values;
     }
     void normalizeResolution(Settings& s){
@@ -109,7 +128,11 @@ struct App {
         if(IsWindowState(FLAG_BORDERLESS_WINDOWED_MODE))ToggleBorderlessWindowed();
         ClearWindowState(FLAG_WINDOW_UNDECORATED);
         SetWindowSize(s.width,s.height);
-        if(s.mode==WindowMode::Fullscreen)ToggleFullscreen();
+        if(s.mode==WindowMode::Fullscreen){
+            ToggleFullscreen();
+            GLFWwindow* window=glfwGetCurrentContext();
+            if(auto monitor=glfwGetWindowMonitor(window))glfwSetWindowMonitor(window,monitor,0,0,s.width,s.height,-1);
+        }
         else if(s.mode==WindowMode::Borderless)ToggleBorderlessWindowed();
         else {auto pos=GetMonitorPosition(GetCurrentMonitor());SetWindowPosition(int(pos.x)+std::max(0,(GetMonitorWidth(GetCurrentMonitor())-s.width)/2),int(pos.y)+std::max(0,(GetMonitorHeight(GetCurrentMonitor())-s.height)/2));}
         if(s.vsync)SetWindowState(FLAG_VSYNC_HINT);else ClearWindowState(FLAG_VSYNC_HINT);
@@ -145,7 +168,7 @@ struct App {
         InitWindow(960,540,"Pixel Car Racer | Unbound Native");
         if(!IsWindowReady())throw std::runtime_error("Impossible d'ouvrir une fenêtre OpenGL 3.3.");
         SetExitKey(KEY_NULL);SetWindowMinSize(800,450);
-        if(settings.mode==WindowMode::Fullscreen)normalizeResolution(settings);
+        normalizeResolution(settings);
         std::vector<int> glyphs;
         for(int i=32;i<=126;i++)glyphs.push_back(i);
         for(int i=160;i<=255;i++)glyphs.push_back(i);
@@ -322,10 +345,10 @@ struct App {
         if(frames==90){edited=settings;edited.mode=WindowMode::Borderless;edited.width=1280;edited.height=720;preview();}
         if(frames==95){check(IsWindowState(FLAG_BORDERLESS_WINDOWED_MODE)&&!IsWindowFullscreen(),"borderless backend state");check(GetScreenWidth()==GetMonitorWidth(GetCurrentMonitor()),"borderless desktop dimensions");deadline=GetTime()-1;}
         if(frames==100){check(!confirming&&settings.mode==WindowMode::Windowed,"timeout restores previous mode");check(!fs::exists(settingFile()),"unconfirmed settings are not persisted");}
-        if(frames==105){edited=settings;edited.mode=WindowMode::Fullscreen;edited.width=GetMonitorWidth(GetCurrentMonitor());edited.height=GetMonitorHeight(GetCurrentMonitor());edited.quality=Quality::Low;preview();}
-        if(frames==110){check(IsWindowFullscreen(),"exclusive fullscreen backend state");keep();}
-        if(frames==120){edited=settings;edited.mode=WindowMode::Windowed;edited.width=1280;edited.height=720;edited.vsync=true;edited.fps=30;edited.quality=Quality::Medium;edited.showFps=true;preview();}
-        if(frames==125){check(!IsWindowFullscreen()&&!IsWindowState(FLAG_BORDERLESS_WINDOWED_MODE)&&!IsWindowState(FLAG_WINDOW_UNDECORATED),"bordered window backend state");check(GetScreenWidth()==1280&&GetScreenHeight()==720,"window resolution applied");check(IsWindowState(FLAG_VSYNC_HINT),"VSync request applied");keep();capStarted=GetTime();capMeasuring=true;}
+        if(frames==105){edited=settings;edited.mode=WindowMode::Fullscreen;auto modes=resolutions(edited.mode);edited.width=modes.front().width;edited.height=modes.front().height;edited.quality=Quality::Low;preview();}
+        if(frames==110){check(IsWindowFullscreen(),"exclusive fullscreen backend state");check(GetScreenWidth()==settings.width&&GetScreenHeight()==settings.height,"fullscreen resolution applied");keep();}
+        if(frames==120){edited=settings;edited.mode=WindowMode::Windowed;edited.width=960;edited.height=540;edited.vsync=true;edited.fps=30;edited.quality=Quality::Medium;edited.showFps=true;preview();}
+        if(frames==125){check(!IsWindowFullscreen()&&!IsWindowState(FLAG_BORDERLESS_WINDOWED_MODE)&&!IsWindowState(FLAG_WINDOW_UNDECORATED),"bordered window backend state");check(GetScreenWidth()==960&&GetScreenHeight()==540,"window resolution applied");check(IsWindowState(FLAG_VSYNC_HINT),"VSync request applied");keep();capStarted=GetTime();capMeasuring=true;}
         if(frames==128)capture("parametres-valides.png");
         if(frames==155){capElapsed=GetTime()-capStarted;check(capElapsed>=.9,"30 FPS cap limits wall-clock frame rate");capMeasuring=false;check(loadSettings(settingFile())==settings,"confirmed settings round trip");profile.car=37;profile.rim=8;saveCar();auto p=loadProfile(profileFile(),191,54);check(p.car==37&&p.rim==8,"garage profile round trip");options=false;}
         if(frames==200){check(drive.player.position>20,"free drive resumes after settings");capture("mode-libre-final.png");quit=true;}
