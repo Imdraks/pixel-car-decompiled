@@ -14,6 +14,23 @@
   exige les contrôles Windows du cœur, des images, du défilement, de la physique
   et des 94 sons. Les ancrages et adaptations de transmission sont natifs.
 
+Exécution Windows réussie :
+[40376544654](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40376544654).
+119 contrôles du cœur, 36 graphiques, 9359 placements géométriques, huit
+préréglages et dix rapports maximum ; les pixels NOS/flammes sont visibles
+(83 bleus, 131 chauds dans la zone contrôlée). Les captures Windows de la boîte
+à dix rapports et des échappements ont été vérifiées. Physique de base,
+défilement, 188384 combinaisons de pièces et décodage des 94 sons réussis.
+Rapports : `validation/windows-0.6/` et le ZIP de validation joint à la release.
+
+Archive publique retéléchargée et vérifiée : 29 754 752 octets, SHA-256
+`168fdffb7914ab1297701148827433ed13d2fe684f56bb2c022f35015989bfbe`.
+EXE : `ec8526fa2c5c580ce2a229329faad4064284a1c6207aacdb642dc85e796ed78f`.
+Source compilée : `e26b8a3db5982f9b54744c31f1b62090183354e2`.
+Les 144 ressources ont été restaurées en dossier neuf et réutilisées dans le
+répertoire de travail sans modification. Les images source ajoutent les
+atlas nécessaires aux échappements ; les données originales sont conservées.
+
 ## Historique : validation native 0.5.1
 
 # Validation native 0.5.1
