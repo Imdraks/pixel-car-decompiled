@@ -1,6 +1,6 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.4.1](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.4.1-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.4.1-native-preview)
+**[Télécharger Windows x64 — version 0.5.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.5.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.5.0-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
@@ -15,11 +15,15 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 - Traction, propulsion ou quatre roues motrices sélectionnables au garage,
   avec effet du transfert de poids et choix sauvegardé.
 - 191 images de carrosserie et 54 styles de jantes issus d’Unbound.
-  La version 0.4.1 aligne les roues avec chaque carrosserie et conserve les ailes
+  La version 0.5.0 aligne les roues avec chaque carrosserie et conserve les ailes
   devant les pneus ; les 191 rendus ont été parcourus et revus.
 - 194 pièces dans 11 catégories : moteurs, suspension, turbos, compresseurs, ECU,
   NOS, admissions, intercoolers, pistons, échappements et pneus. Recherche,
   équipement libre et sauvegarde dans **CUSTOMISATION**.
+- Puissance combinée des pièces, courbes du **BANC PUISSANCE**, tri de commun à
+  contrebande et **PRÉPA MAX** : environ 4289 HP sans NOS / 4539 HP avec NOS.
+  Turbo et compresseur sont exclusifs. Règles natives détaillées dans
+  [PERFORMANCE.md](native/game/PERFORMANCE.md), sans équivalence Android démontrée.
 - Sons originaux de conduite, profils moteur réglables et effets de fumée,
   flammes, étincelles et NOS. AUTO moteur–son reste approximatif ; sélection
   manuelle indépendante disponible dans **SON DU MOTEUR**.
@@ -41,10 +45,10 @@ d’essai. L’équivalence avec la conduite Android n’est pas validée.
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-85 contrôles du cœur et 21 contrôles graphiques passent sur Windows ; les mesures
+101 contrôles du cœur et 24 contrôles graphiques passent sur Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
-Les 94 sons sont décodés sous Windows ; le mixage audio logiciel et 19 contrôles
-clavier/souris passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.
+Les 94 sons sont décodés sous Windows ; le mixage audio logiciel et 21 contrôles
+clavier/souris et 188 384 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.
 
 La [recherche ciblée YYC](native/evidence/unbound/physics/README.md) a vérifié
 2 128 noms/identifiants de variables et récupéré deux fonctions annexes. Le calcul

@@ -13,6 +13,22 @@
 - Rapports : `validation/power-0.5/`. La publication exige les contrôles Windows
   du cœur, des combinaisons, du banc physique, des images et des 94 sons.
 
+Exécution Windows réussie :
+[40368604089](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40368604089).
+Les 101 contrôles du cœur, 24 graphiques, 188 384 combinaisons de groupes de
+pièces, 94 sons et comparaisons de physique et de défilement réussissent.
+Les rapports de puissance Linux et Windows sont identiques : 4288,88 HP sans
+NOS et 4538,88 HP avec NOS. Les captures Windows du classement et du banc
+ont été vérifiées. Rapports : `validation/windows-0.5/` et le ZIP de validation
+joint à la release.
+
+Le paquet public retéléchargé et vérifié mesure 28 731 040 octets ; SHA-256
+`5eb9e860af6621882ad6f0715aead72833f6651f95068972ec78acc3b993f030`.
+EXE : `c361ff39412246446f244eec2362c899554ce4e5416e61c03972bac8f1d81644`.
+Source compilée : `414c350f0f444c4f7b5bb80b26f7397c4428b5b0`.
+Les 140 ressources ont été restaurées en dossier neuf puis réutilisées dans le
+répertoire de travail sans modification.
+
 ## Historique : validation native 0.4.1
 
 # Validation native 0.4.1
