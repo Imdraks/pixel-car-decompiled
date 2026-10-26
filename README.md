@@ -1,6 +1,6 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.4.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.4.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.4.0-native-preview)
+**[Télécharger Windows x64 — version 0.4.1](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.4.1-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.4.1-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
@@ -9,11 +9,13 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 ## Disponible
 
 - Mode libre continu avec circulation sur trois voies.
+- Défilement de la route et du décor lié à la distance parcourue, circulation
+  à la même échelle et roues animées selon le trajet, figées en pause.
 - Boîte automatique/manuelle, rétrogradages, limiteur et frein moteur.
 - Traction, propulsion ou quatre roues motrices sélectionnables au garage,
   avec effet du transfert de poids et choix sauvegardé.
 - 191 images de carrosserie et 54 styles de jantes issus d’Unbound.
-  La version 0.4.0 aligne les roues avec chaque carrosserie et conserve les ailes
+  La version 0.4.1 aligne les roues avec chaque carrosserie et conserve les ailes
   devant les pneus ; les 191 rendus ont été parcourus et revus.
 - 194 pièces dans 11 catégories : moteurs, suspension, turbos, compresseurs, ECU,
   NOS, admissions, intercoolers, pistons, échappements et pneus. Recherche,
@@ -39,7 +41,7 @@ d’essai. L’équivalence avec la conduite Android n’est pas validée.
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-75 contrôles du cœur et 21 contrôles graphiques passent sur Windows ; les mesures
+85 contrôles du cœur et 21 contrôles graphiques passent sur Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
 Les 94 sons sont décodés sous Windows ; le mixage audio logiciel et 19 contrôles
 clavier/souris passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.

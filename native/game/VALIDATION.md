@@ -10,6 +10,21 @@
   contrôles Windows du rendu, du déplacement des images, de la physique et du
   décodage des 94 sons. La référence physique 0.3 reste inchangée.
 
+Exécution Windows réussie :
+[40350423994](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40350423994).
+85 contrôles du cœur, 21 graphiques, décodage des 94 sons, concordance du banc
+physique et comparaison des captures réussis. Les images Windows mesurent
+101 pixels à 100 km/h et 200 pixels à 200 km/h sur 0,1 seconde à 960 × 540 ;
+la différence d'un pixel est due à la rastérisation. À l'arrêt et en pause à
+vitesse non nulle, les images sont identiques. Rapports : `validation/windows-0.4.1/`.
+
+Paquet public retéléchargé et vérifié : 28 718 194 octets, SHA-256
+`6712b2680edd48f007f42cc9ee2960a78053adf9695843aa93bf24f8f66c095a`.
+EXE : `adf61e01130051afb6e5210d7b74fef70616b7f1ab64d0ce818190b41d5cb69a`.
+Source compilée : `5bf20af2cf08ea8669ff0a7d07dbe40db1e1d419`.
+Les 140 ressources du paquet ont été restaurées en dossier neuf et réutilisées
+sans modification dans le dossier de travail.
+
 ## Historique : validation native 0.4.0
 
 # Validation native 0.4.0
