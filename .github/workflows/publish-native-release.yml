@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.4.0-native-preview
+        default: v0.4.1-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -150,6 +150,41 @@ jobs:
           Copy-Item "$data\settings.ini" validation/
           Copy-Item "$data\profile.ini" validation/
           "Archive SHA256: $env:EXPECTED_SHA`nCore test SHA256: $env:CORE_SHA`nRun: $env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID" | Out-File validation/provenance.txt
+      - name: Verify rendered speed and stationary wheels
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Add-Type -AssemblyName System.Drawing
+          $screens = Join-Path $PWD 'validation/screens'
+          $a = (Get-FileHash "$screens/motion-stationary-a.png" -Algorithm SHA256).Hash
+          $b = (Get-FileHash "$screens/motion-stationary-b.png" -Algorithm SHA256).Hash
+          if ($a -ne $b) { throw 'Stationary scene or wheels moved' }
+          'PASS stationary scene and wheels remain frozen' | Out-File validation/motion-report.txt
+          $a = (Get-FileHash "$screens/motion-paused-a.png" -Algorithm SHA256).Hash
+          $b = (Get-FileHash "$screens/motion-paused-b.png" -Algorithm SHA256).Hash
+          if ($a -ne $b) { throw 'Paused scene or wheels moved at nonzero speed' }
+          'PASS paused scene and wheels remain frozen at nonzero speed' | Out-File validation/motion-report.txt -Append
+          foreach ($speed in @(100,200)) {
+            $first = [System.Drawing.Bitmap]::new("$screens/motion-$speed-a.png")
+            $second = [System.Drawing.Bitmap]::new("$screens/motion-$speed-b.png")
+            try {
+              $row = [int][math]::Round(517 * $first.Height / 720)
+              $shift = [int][math]::Round($speed / 3.6 * 0.1 * 48 * $first.Width / 1280)
+              $matches = 0; $lit = 0; $changed = 0
+              for ($x=0; $x -lt ($first.Width-$shift); $x++) {
+                $left = $first.GetPixel($x+$shift,$row)
+                $right = $second.GetPixel($x,$row)
+                $original = $first.GetPixel($x,$row)
+                $before = $left.R -eq 171 -and $left.G -eq 173 -and $left.B -eq 181
+                $after = $right.R -eq 171 -and $right.G -eq 173 -and $right.B -eq 181
+                if ($before -eq $after) { $matches++ }
+                if ($after) { $lit++ }
+                if ($original.ToArgb() -ne $right.ToArgb()) { $changed++ }
+              }
+              if ($lit -eq 0 -or $changed -eq 0 -or $matches / ($first.Width-$shift) -lt 0.98) { throw "Rendered road displacement differs at $speed km/h" }
+              "PASS road at $speed km/h moves $shift image pixels in 0.1 seconds" | Out-File validation/motion-report.txt -Append
+            } finally { $first.Dispose(); $second.Dispose() }
+          }
       - name: Collect Windows validation
         if: always()
         shell: pwsh

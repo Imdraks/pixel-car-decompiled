@@ -1,4 +1,4 @@
-# Pixel Car Racer — Unbound Native 0.4.0
+# Pixel Car Racer — Unbound Native 0.4.1
 
 Cette première reconstruction **native Windows x64** propose un mode libre
 jouable avec les ressources d'Unbound. Le programme ne lance ni APK, ni Android,
@@ -7,6 +7,12 @@ ni émulateur. Il fonctionne hors ligne après extraction de l'archive.
 Ce n'est pas encore le portage complet et fidèle du jeu original : la conduite
 et la circulation sont réimplémentées. La base originale 1.2.5 n'est pas fusionnée
 avec le mod. Le moteur GameMaker YYC d'origine n'a pas été recompilé.
+
+La version **0.4.1** synchronise le défilement avec la distance réelle du mode
+libre : route, circulation et fumées partagent la même échelle de 48 pixels par
+mètre dans le repère 1280 × 720. Montagnes, ville et arbres défilent plus lentement
+selon leur profondeur. Les roues tournent selon le trajet et le rayon du pneu,
+et restent immobiles en pause. Les performances physiques ne changent pas.
 
 La version **0.4.0** ajoute **194 pièces** dans 11 catégories, avec recherche,
 pagination, équipement et sauvegarde : 16 moteurs, 16 suspensions, 14 turbos,

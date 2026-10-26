@@ -3,6 +3,7 @@
 #include "benchmark.hpp"
 #include "game_audio.hpp"
 #include "effects.hpp"
+#include "road_scene.hpp"
 #include "platform.hpp"
 #include "art.hpp"
 #include <algorithm>
@@ -76,7 +77,7 @@ struct App {
         float w=height*f.w/f.h;float start=-float(std::fmod(offset,w));
         for(float x=start-w;x<1280;x+=w)crop(f,{x,y,w,height},tint);
     }
-    void car(int index,int rim,float x,float y,float scale,double speed,bool shadow=true,int tireFrame=0,double rideOffset=0){
+    void car(int index,int rim,float x,float y,float scale,double wheelAngle,bool shadow=true,int tireFrame=0,double rideOffset=0){
         index=(index+191)%191;rim=(rim+54)%54;auto w=art::wheelPositions[index];tireFrame=std::clamp(tireFrame,0,int(std::size(art::tires))-1);
         if(shadow&&settings.quality!=Quality::Low)DrawEllipse(int(x+110*scale),int(y+(w.y+w.radius)*scale),int(87*scale),int(6*scale),Fade(BLACK,.35f));
         // Draw the body last: opaque fenders and skirts must cover the tyres.
@@ -91,8 +92,8 @@ struct App {
             centered(art::wheelWells[0],scale,20,36-float(rideOffset),0);
             DrawCircleV(center,w.radius*.78f*scale,Color{12,13,18,255});
             float wheelScale=scale*(w.radius/25.f);
-            centered(art::tires[tireFrame],wheelScale,31,31,float(speed*GetTime()*8));
-            centered(art::rims[rim],wheelScale,31,31,float(speed*GetTime()*8));
+            centered(art::tires[tireFrame],wheelScale,31,31,float(wheelAngle));
+            centered(art::rims[rim],wheelScale,31,31,float(wheelAngle));
         }
         frame(art::cars[index],x,y+float(rideOffset)*scale,scale);
     }
@@ -189,22 +190,22 @@ struct App {
         ClearBackground(Ink);
         if(!driving){crop(art::garages[0],{0,0,1280,720},Color{145,154,172,255});DrawRectangle(0,0,1280,720,Fade(Ink,.74f));return;}
         double pos=drive.player.position;crop(art::sky[0],{0,0,1280,340});
-        tiled(art::mountains[0],130,160,pos*.16,Color{150,167,190,255});
-        if(settings.quality!=Quality::Low)tiled(art::cityFar[0],150,160,pos*.4,Color{152,171,193,220});
-        tiled(art::trees[0],252,75,pos*.9,Color{104,132,130,255});
+        tiled(art::mountains[0],130,160,scene::layerTravel(pos,scene::Mountains),Color{150,167,190,255});
+        if(settings.quality!=Quality::Low)tiled(art::cityFar[0],150,160,scene::layerTravel(pos,scene::City),Color{152,171,193,220});
+        tiled(art::trees[0],252,75,scene::layerTravel(pos,scene::Trees),Color{104,132,130,255});
         DrawRectangle(0,318,1280,312,Color{45,49,59,255});
         DrawRectangle(0,322,1280,5,Color{230,222,176,255});DrawRectangle(0,615,1280,4,Color{230,222,176,255});
-        float offset=float(std::fmod(pos*9,144));
-        for(int lane=1;lane<3;lane++)for(float x=-offset;x<1280;x+=144)DrawRectangle(int(x),324+lane*96,74,4,Color{171,173,181,255});
+        float offset=float(scene::roadPhase(pos));
+        for(int lane=1;lane<3;lane++)for(float x=-offset;x<1280;x+=float(scene::pixels(scene::MarkSpacingMetres)))DrawRectangle(int(x),324+lane*96,int(scene::pixels(scene::MarkLengthMetres)),4,Color{171,173,181,255});
         if(settings.quality==Quality::High){
-            for(int i=0;i<38;i++){float x=float(std::fmod(i*71.0-pos*12+100000,1320))-20;DrawRectangle(int(x),350+(i*47)%252,18,1,Color{65,70,83,255});}
+            for(int i=0;i<38;i++){float x=float(scene::wrap(i*71.0-scene::pixels(pos),1320))-20;DrawRectangle(int(x),350+(i*47)%252,18,1,Color{65,70,83,255});}
         }
         DrawRectangle(0,625,1280,95,Color{21,30,35,255});
     }
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.4",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.4.1",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},"GARAGE"))screen=Screen::Garage;
@@ -337,8 +338,8 @@ struct App {
     void freeScene(){
         renderEffects(false);
         for(int lane=0;lane<3;lane++){
-            for(const auto& t:drive.traffic)if(t.lane==lane){float x=360+float((t.position-drive.player.position)*8);if(x>-400&&x<1600)car(t.appearance,t.appearance%54,x,269+lane*96,1.25,t.speed);}
-            if(std::clamp(int(std::round(drive.lane)),0,2)==lane)car(profile.car,profile.rim,360,269+float(drive.lane)*96,1.25,drive.player.speed,true,configuration.tireFrame,configuration.rideOffset);
+            for(const auto& t:drive.traffic)if(t.lane==lane){float x=float(scene::trafficX(t.position,drive.player.position));if(x>-400&&x<1600)car(t.appearance,t.appearance%54,x,269+lane*96,1.25,scene::wheelAngle(t.position,.32));}
+            if(std::clamp(int(std::round(drive.lane)),0,2)==lane)car(profile.car,profile.rim,360,269+float(drive.lane)*96,1.25,scene::wheelAngle(drive.player.position,drive.vehicle.wheelRadius),true,configuration.tireFrame,configuration.rideOffset);
         }
         renderEffects(true);
         if(drive.collisionCooldown>1.0)DrawRectangle(0,0,1280,720,Fade(RED,.10f));
@@ -474,11 +475,22 @@ struct App {
         if(frames==255){capture("nos-vfx.png");check(drive.player.nitroRemaining<10,"NOS charge is consumed in free drive");check(drive.player.boostPsi>0,"turbo develops boost in free drive");check(std::any_of(effects.particles.begin(),effects.particles.end(),[](const Particle& p){return p.kind==EffectKind::Nitro;}),"NOS visual effect is active");}
         if(frames==270){drive.lane=drive.targetLane;drive.collisionCooldown=0;drive.traffic[0]={drive.player.position,0,drive.targetLane,0};}
         if(frames==272){capture("collision-vfx.png");check(std::any_of(effects.particles.begin(),effects.particles.end(),[](const Particle& p){return p.kind==EffectKind::Spark;}),"collision emits sparks");}
-        if(frames==280)quit=true;
+        // Controlled rendered pairs: 0.1 seconds of travel at the displayed speed.
+        // Pause the simulation so the image displacement can be measured exactly.
+        if(frames==280){beginFree();settings.showFps=false;profile.car=20;drive.player.speed=0;for(auto& t:drive.traffic)t.position=10000;}
+        if(frames==281)capture("motion-stationary-a.png");
+        if(frames==282){capture("motion-stationary-b.png");drive.player.speed=100/3.6;drive.player.position=100;}
+        if(frames==283){capture("motion-100-a.png");drive.player.position+=100/3.6*.1;}
+        if(frames==284){capture("motion-100-b.png");drive.player.speed=200/3.6;drive.player.position=100;}
+        if(frames==285){capture("motion-200-a.png");drive.player.position+=200/3.6*.1;}
+        if(frames==286){capture("motion-200-b.png");paused=true;}
+        if(frames==287)capture("motion-paused-a.png");
+        if(frames==289)capture("motion-paused-b.png");
+        if(frames==290)quit=true;
     }
     int run(){
         init();
-        while(!WindowShouldClose()&&!quit){double dt=args.smoke?1.0/30.0:std::clamp(double(GetFrameTime()),0.0,.1);controls(dt);renderFrame();if(IsKeyPressed(KEY_F12))capture(TextFormat("capture-%06i.png",frames));if(queued){auto action=std::move(queued);queued=nullptr;action();}if(args.smoke)smoke();frames++;}
+        while(!WindowShouldClose()&&!quit){double dt=args.smoke?(frames>=280?0:1.0/30.0):std::clamp(double(GetFrameTime()),0.0,.1);controls(dt);renderFrame();if(IsKeyPressed(KEY_F12))capture(TextFormat("capture-%06i.png",frames));if(queued){auto action=std::move(queued);queued=nullptr;action();}if(args.smoke)smoke();frames++;}
         if(confirming)revert();
         saveCar();
         {std::error_code ec;fs::create_directories(args.data,ec);if(!ec){std::ofstream out(args.data/"last-session.txt");out<<"screen="<<int(screen)<<"\ndistance_m="<<drive.player.position<<"\nspeed_mps="<<drive.player.speed<<"\ntarget_lane="<<drive.targetLane<<"\ngear="<<drive.player.gear<<"\nengine_part="<<profile.parts[int(PartSlot::Engine)]<<"\ntire_part="<<profile.parts[int(PartSlot::Tires)]<<"\nnative_mass_kg="<<drive.vehicle.mass<<"\nnative_torque_nm="<<drive.vehicle.torque<<"\ndrive_layout="<<int(drive.vehicle.drive)<<"\naudio_ready="<<audio.ready<<"\naudio_failures="<<audio.failures<<"\nframes="<<frames<<"\nmode="<<modeKey(settings.mode)<<"\nwidth="<<GetScreenWidth()<<"\nheight="<<GetScreenHeight()<<"\n";}}

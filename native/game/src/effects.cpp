@@ -1,4 +1,5 @@
 #include "effects.hpp"
+#include "road_scene.hpp"
 #include <algorithm>
 namespace pcr {
 double DrivingEffects::sample(){random=1664525u*random+1013904223u;return (random>>8)/16777216.0;}
@@ -12,7 +13,8 @@ void DrivingEffects::add(EffectKind kind,double x,double y,bool hood){
 }
 void DrivingEffects::update(const CarState& car,const Vehicle& vehicle,const DriverInput& input,const EffectSources& source,double collision,double dt,bool exhaustEquipped){
     if(dt<=0)return;
-    for(auto& p:particles){p.age+=dt;p.x+=(p.vx-car.speed*8)*dt;p.y+=p.vy*dt;if(p.kind==EffectKind::Spark)p.vy+=350*dt;}
+    double groundTravel=scene::pixels(car.position-lastPosition);lastPosition=car.position;
+    for(auto& p:particles){p.age+=dt;p.x+=p.vx*dt-groundTravel;p.y+=p.vy*dt;if(p.kind==EffectKind::Spark)p.vy+=350*dt;}
     particles.erase(std::remove_if(particles.begin(),particles.end(),[](const Particle& p){return p.age>=p.life||p.x< -120||p.y< -120||p.y>820;}),particles.end());
     smokeTimer-=dt;nitroTimer-=dt;flameTimer-=dt;
     bool slip=input.throttle&&car.wheelSlip>.05;

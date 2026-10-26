@@ -1,3 +1,17 @@
+# Validation native 0.4.1
+
+- 85 contrôles du cœur : échelle route/circulation, parallaxe, rotation des
+  roues, déplacements selon les FPS, fumée ancrée au sol et pause des effets.
+- Les 21 contrôles graphiques et 18 contrôles clavier/souris du garage sont
+  repris avec le nouveau rendu ; le code audio est conservé depuis 0.4.0.
+- Captures contrôlées : arrêt, pause à vitesse non nulle, 100 et 200 km/h.
+  La mesure des pixels vérifie le déplacement réel du marquage sur 0,1 seconde.
+- Rapports : `validation/motion-0.4.1/`. La publication exige en plus les
+  contrôles Windows du rendu, du déplacement des images, de la physique et du
+  décodage des 94 sons. La référence physique 0.3 reste inchangée.
+
+## Historique : validation native 0.4.0
+
 # Validation native 0.4.0
 
 - Linux : 75 contrôles du cœur, 21 graphiques, 19 de vraies entrées clavier/souris,

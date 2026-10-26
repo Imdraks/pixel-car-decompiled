@@ -2,6 +2,7 @@
 #include "benchmark.hpp"
 #include "art.hpp"
 #include "effects.hpp"
+#include "road_scene.hpp"
 #include <cmath>
 #include <algorithm>
 #include <filesystem>
@@ -22,6 +23,19 @@ int main(int argc,char**argv){
  try{
     if(argc!=2)throw std::runtime_error("Supply an isolated test directory");
     auto root=std::filesystem::u8path(argv[1]);std::filesystem::create_directories(root);
+    expect(std::abs(scene::pixels(2.6)-124.8)<1e-9,"scene scale matches a typical rendered wheelbase");
+    expect(std::abs(scene::layerTravel(100/3.6)-1333.333333333)<1e-6,"100 km/h moves the ground 1333 canvas pixels in one second");
+    expect(scene::layerTravel(200/3.6)==2*scene::layerTravel(100/3.6),"doubling speed doubles visible ground travel");
+    expect(scene::trafficX(110,100)-scene::trafficX(100,100)==scene::pixels(10),"traffic and road share a metre scale");
+    expect(scene::Mountains<scene::City&&scene::City<scene::Trees&&scene::Trees<1,"distant layers move slower in depth order");
+    expect(std::abs(scene::roadPhase(11.9)+scene::pixels(.2)-scene::roadPhase(12.1)-scene::pixels(12))<1e-9,"road markings wrap seamlessly across their period");
+    expect(std::abs(scene::wheelAngle(2*3.14159265358979323846*.32,.32))<1e-9,"a tyre circumference gives one wheel revolution");
+    bool motionStable=true;
+    for(int fps:{30,60,120,144,165,240}){
+        double position=0;for(int frame=0;frame<fps*3;frame++)position+=100/3.6/fps;
+        motionStable&=std::abs(scene::layerTravel(position)-4000)<1e-7;
+    }
+    expect(motionStable,"distance-driven scenery is independent of frame rate");
     // Manually checked against the supplied alpha cutouts for the reported body.
     const auto& reportedWheels=art::wheelPositions[20];
     expect(reportedWheels.rear==62&&reportedWheels.front==160&&reportedWheels.y==58&&reportedWheels.radius==12.5f,
@@ -193,6 +207,15 @@ int main(int argc,char**argv){
     expect(std::count_if(visuals.particles.begin(),visuals.particles.end(),[](const Particle& p){return p.kind==EffectKind::Spark;})==14,"collision emits a bounded spark burst");
     for(int i=0;i<240;i++)visuals.update(visibleCar,v,{false,false,true},points,0,Step,false);
     expect(visuals.particles.empty(),"expired visual effects are removed");
+    DrivingEffects roadSmoke;CarState moving;moving.speed=100/3.6;moving.wheelSlip=.4;
+    roadSmoke.update(moving,v,{true,false,true},points,0,Step,false);
+    double smokeX=roadSmoke.particles.front().x,smokeVx=roadSmoke.particles.front().vx;
+    moving.wheelSlip=0;moving.position=2;
+    roadSmoke.update(moving,v,{false,false,true},points,0,.1,false);
+    expect(std::abs(roadSmoke.particles.front().x-(smokeX+smokeVx*.1-96))<1e-9,"smoke moves with the actual road distance instead of a separate speed scale");
+    double stoppedX=roadSmoke.particles.front().x;
+    roadSmoke.update(moving,v,{false,false,true},points,0,0,false);
+    expect(roadSmoke.particles.front().x==stoppedX,"paused effects do not advance");
     Profile launchProfile;equipPart(launchProfile,PartSlot::Ecu,4002);equipPart(launchProfile,PartSlot::Turbo,3026);
     auto launchBuild=buildVehicle(launchProfile);CarState staged;
     for(int i=0;i<240;i++)stepCar(staged,launchBuild.vehicle,{true,false,true,false,true},Step,0);

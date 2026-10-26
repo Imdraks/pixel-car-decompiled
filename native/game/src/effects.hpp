@@ -7,6 +7,7 @@ struct Particle { EffectKind kind; double x,y,vx,vy,age,life,scale; bool hood=fa
 struct EffectSources { double rearWheel,frontWheel,wheelY,exhaustX,exhaustY; bool hood=false; };
 class DrivingEffects {
     unsigned random=0x564658;
+    double lastPosition=0;
     double smokeTimer=0,nitroTimer=0,flameTimer=0,lastCollision=0;int lastGear=1;
     double sample();
     void add(EffectKind,double x,double y,bool hood=false);

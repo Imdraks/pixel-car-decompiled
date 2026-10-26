@@ -102,3 +102,22 @@ Les ECU explicitement +2STEP permettent L + accélérateur à l'arrêt : embraya
 ouvert, régime 4200 tr/min et montée en pression ; relâcher L transmet le couple.
 Il s'agit de comportements reconstruits, sans calibration Android démontrée.
 Les huit mesures du véhicule de base restent identiques à la référence 0.3.
+
+## Affichage de la vitesse 0.4.1
+
+`src/road_scene.hpp` définit l'échelle commune de 48 pixels par mètre, adaptée
+à l'empattement visible d'environ 125 pixels pour 2,6 mètres. Ce choix règle
+l'affichage, sans changer les unités SI de la simulation ni ses performances.
+À 100 km/h, le sol parcourt 1333,33 pixels logiques par seconde ; à 200 km/h,
+2666,67 pixels. Les tirets mesurent 4 mètres et se répètent tous les 12 mètres.
+Les montagnes, la ville et les arbres suivent respectivement 3,5 %, 16 % et
+55 % du déplacement du sol. Toutes les qualités conservent la même échelle.
+La circulation est projetée à partir de sa distance relative réelle ; les
+particules déjà émises suivent la variation exacte de position de la caméra.
+La rotation des roues dépend de distance / rayon, sans horloge de rendu.
+
+Les captures contrôlées du smoke test montrent le déplacement sur 0,1 seconde
+à 100 et 200 km/h et l'immobilité du rendu à l'arrêt et en pause à vitesse non
+nulle. `tests/check_motion_captures.py` mesure le déplacement des pixels du
+marquage, avec une tolérance d'un pixel de rastérisation par mesure. Les tests
+du cœur vérifient aussi l'indépendance des FPS et l'alignement route/circulation.
