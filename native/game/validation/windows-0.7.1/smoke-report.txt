@@ -1,0 +1,41 @@
+Native Windows rendering smoke test. Physical PC GPU and audio are not established.
+PASS free drive advances
+PASS lane input
+PASS borderless backend state
+PASS borderless desktop dimensions
+PASS timeout restores previous mode
+PASS unconfirmed settings are not persisted
+PASS exclusive fullscreen backend state
+PASS fullscreen resolution applied
+PASS bordered window backend state
+PASS window resolution applied
+PASS VSync request applied
+PASS 30 FPS cap limits wall-clock frame rate
+PASS confirmed settings round trip
+PASS garage profile round trip
+PASS free drive resumes after settings
+PASS custom equipment persists
+PASS equipped turbo and NOS affect the active vehicle
+PASS NOS charge is consumed in free drive
+PASS turbo develops boost in free drive
+PASS NOS visual effect is active
+PASS collision emits sparks
+PASS maximum preparation displays compound boost and NOS power
+PASS maximum engine is classified contraband
+PASS power bench matches the driving torque model
+PASS disabling traffic applies to the active free drive
+PASS disabled traffic preference is saved
+PASS disabled traffic cannot trigger hidden collisions
+PASS traffic can be re-enabled
+PASS unconfirmed traffic change is reverted
+PASS new free drive keeps traffic disabled
+PASS exhaust sprite and flame/NOS roots share their visible outlets
+PASS exhaust sprite and flame/NOS roots share their visible outlets
+PASS exhaust sprite and flame/NOS roots share their visible outlets
+PASS exhaust sprite and flame/NOS roots share their visible outlets
+PASS exhaust sprite and flame/NOS roots share their visible outlets
+PASS ten-speed preset reaches the driving model
+PASS handbrake blocks engine drive and NOS
+PASS handbrake slows the vehicle and locks rear-wheel rotation
+PASS rim inventory excludes tyre and effect frames
+cap_30_fps_elapsed_for_30_frames=1.03033

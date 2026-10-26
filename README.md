@@ -1,12 +1,16 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.7.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.7.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.7.0-native-preview)
+**[Télécharger Windows x64 — version 0.7.1](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.7.1-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.7.1-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+Le correctif 0.7.1 sépare les vraies jantes des pneus et calques d’effets :
+vignettes corrigées, 23 styles, anciennes sélections invalides réparées sans
+perdre les pièces.
 
 - Garage avec atelier, pont, icônes, jauges et police du jeu original adaptés au PC.
   Six catégories, aperçu, recherche, tri, double-clic et raccourcis F1–F6.
@@ -27,8 +31,8 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 - Boîte automatique/manuelle, rétrogradages, limiteur et frein moteur.
 - Traction, propulsion ou quatre roues motrices sélectionnables au garage,
   avec effet du transfert de poids et choix sauvegardé.
-- 191 images de carrosserie et 54 styles de jantes issus d’Unbound.
-  La version 0.7.0 aligne les roues avec chaque carrosserie et conserve les ailes
+- 191 images de carrosserie et 23 styles de jantes issus d’Unbound.
+  La version 0.7.1 aligne les roues avec chaque carrosserie et conserve les ailes
   devant les pneus ; les 191 rendus ont été parcourus et revus.
 - 194 pièces dans 11 catégories : moteurs, suspension, turbos, compresseurs, ECU,
   NOS, admissions, intercoolers, pistons, échappements et pneus. Recherche,
@@ -58,9 +62,9 @@ d’essai. L’équivalence avec la conduite Android n’est pas validée.
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-127 contrôles du cœur et 38 contrôles graphiques passent sur Windows ; les mesures
+129 contrôles du cœur et 39 contrôles graphiques passent sur Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
-Les 94 sons sont décodés sous Windows ; le mixage audio logiciel et 55 contrôles
+Les 94 sons sont décodés sous Windows ; le mixage audio logiciel et 57 contrôles
 clavier/souris et 188 384 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.
 
 La [recherche ciblée YYC](native/evidence/unbound/physics/README.md) a vérifié

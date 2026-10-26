@@ -10,6 +10,16 @@
 - Rapports locaux : `validation/rims-0.7.1/`. Publication conditionnée aux contrôles
   Windows du cœur, physique, rendu, 188384 combinaisons, 9359 ancrages et 94 sons.
 
+## Publication vérifiée
+
+- [Exécution Windows réussie](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40390236234) : 129 contrôles du cœur, 39 graphiques, physique Linux/Windows à 0,01 près, 188384 combinaisons, 9359 ancrages, 94 sons et comparaisons défilement/VFX.
+- Les quatre pages de jantes ont été capturées sous Windows ; les 23 styles sont visibles et les calques ne sont plus proposés.
+- ZIP public redéchargé : CRC, SHA-256, source et exécutable vérifiés. Restauration à froid et réutilisation : 146 ressources chacune.
+- Rapports : `validation/windows-0.7.1/`. Rendu CI Mesa logiciel ; GPU et haut-parleurs physiques restent à essayer.
+- Source compilée : `bab2e5b427bcbdd677a5ae4903f2e535a8a7233f`.
+- ZIP : 31721429 octets, SHA-256 `8e0defc432e0c9d976a63b38463afe715fd7099c6d771c136a0b2997c44961ab`.
+- Exécutable : SHA-256 `1dd0e12df8db0bbb6a68e2d33abd6b69d2e2231cc20707e18fe32610b76be454`.
+
 ## Historique : version 0.7.0
 
 # Validation native 0.7.0
