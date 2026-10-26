@@ -2,14 +2,15 @@
 
 ## Contrôles de la version 0.3
 
-- 40 contrôles du cœur réussis sur Linux : simulation indépendante des FPS,
-  conduite, boîte, adhérence commune aux freins, persistance et banc de mesure.
-- 15 contrôles du rendu Linux et 11 contrôles de vraies entrées clavier/souris
+- 43 contrôles du cœur réussis sur Linux : simulation indépendante des FPS,
+  conduite, boîte, adhérence commune aux freins, transfert de poids selon
+  l’essieu moteur, persistance et banc de mesure.
+- 15 contrôles du rendu Linux et 13 contrôles de vraies entrées clavier/souris
   réussis après les corrections. Le mode libre reprend après les paramètres.
 - Construction Linux et Windows x64 sans avertissement du compilateur.
 - Le banc intégré fonctionne sans écran ni audio, produit JSON/CSV et refuse
   de remplacer un dossier existant. Aucun profil de joueur n’est modifié.
-- Référence native provisoire : 0–100 km/h en 4,099 s ; 402 m en 12,418 s ;
+- Référence native provisoire : 0–100 km/h en 4,507 s ; 402 m en 12,727 s ;
   freinage depuis 100 km/h en quatrième : 42,99 m et 3,108 s.
   Ces nombres ne sont pas des références Android.
 - Rapports : `validation/physics-core-linux.txt`, `physics-graphics-linux.txt`,

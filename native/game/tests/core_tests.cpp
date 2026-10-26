@@ -60,6 +60,19 @@ int main(int argc,char**argv){
     Vehicle iceCar=v;iceCar.grip=.15;iceCar.dragArea=0;iceCar.rollingResistance=0;
     double iceBefore=ice.speed;stepCar(ice,iceCar,{false,true,false},Step,0);
     expect((iceBefore-ice.speed)/Step<=9.81*iceCar.grip+1e-9,"engine and service brakes share tyre adhesion limit");
+    Vehicle front=v,rear=v,all=v;
+    front.drive=DriveLayout::Front;rear.drive=DriveLayout::Rear;all.drive=DriveLayout::All;
+    front.drivenWeightFraction=rear.drivenWeightFraction=.5;
+    CarState frontState,rearState,allState;
+    stepCar(frontState,front,{true,false,false},Step,0);
+    stepCar(rearState,rear,{true,false,false},Step,0);
+    stepCar(allState,all,{true,false,false},Step,0);
+    expect(rearState.speed>frontState.speed,"rear drive gains launch adhesion through load transfer");
+    expect(allState.speed>rearState.speed,"all wheel drive uses more available launch adhesion");
+    front.centreOfGravityHeight=rear.centreOfGravityHeight=0;
+    frontState=CarState{};rearState=CarState{};
+    stepCar(frontState,front,{true,false,false},Step,0);stepCar(rearState,rear,{true,false,false},Step,0);
+    expect(std::abs(frontState.speed-rearState.speed)<1e-12,"equal axle loads without transfer give equal launch adhesion");
     CarState limiter;
     for(int i=0;i<120*30;i++)stepCar(limiter,v,{true,false,false},Step,0);
     expect(limiter.gear==1&&limiter.rpm<v.redlineRpm+50,"manual first gear cannot accelerate indefinitely past redline");
@@ -102,11 +115,11 @@ int main(int argc,char**argv){
     expect(!std::filesystem::exists(file.u8string()+".tmp"),"successful save leaves no temporary file");
     {std::ofstream out(file);out<<"width=-1\nheight=99999999\nfps=not-a-number\nmode=execute-this\nquality=99\n";}
     auto invalid=loadSettings(file);expect(invalid.width==1280&&invalid.height==720&&invalid.fps==120&&invalid.mode==WindowMode::Windowed&&invalid.quality==Quality::High,"invalid settings safely fall back");
-    Profile p;p.car=190;p.rim=53;p.automatic=false;p.bestTime=12.345678;
+    Profile p;p.car=190;p.rim=53;p.automatic=false;p.drive=DriveLayout::All;p.bestTime=12.345678;
     expect(saveProfile(root/"profile.ini",p,error),"profile saved");auto loaded=loadProfile(root/"profile.ini",191,54);
-    expect(loaded.car==190&&loaded.rim==53&&!loaded.automatic&&std::abs(loaded.bestTime-p.bestTime)<1e-9,"garage and driving preferences persist");
-    {std::ofstream out(root/"profile.ini");out<<"car=9999\nrim=-2\nbest_time=nan\n";}
-    auto bad=loadProfile(root/"profile.ini",191,54);expect(bad.car==190&&bad.rim==0&&bad.bestTime==0,"malformed profile is bounded");
+    expect(loaded.car==190&&loaded.rim==53&&!loaded.automatic&&loaded.drive==DriveLayout::All&&std::abs(loaded.bestTime-p.bestTime)<1e-9,"garage and driving preferences persist");
+    {std::ofstream out(root/"profile.ini");out<<"car=9999\nrim=-2\nbest_time=nan\ndrive=99\n";}
+    auto bad=loadProfile(root/"profile.ini",191,54);expect(bad.car==190&&bad.rim==0&&bad.bestTime==0&&bad.drive==DriveLayout::Rear,"malformed profile is bounded");
     expect(easeLinear(0,5,10,2)==5&&easeLinear(2,5,10,2)==15,"reconstructed numeric easing endpoints");
     std::cout<<"PASS: "<<checks<<" checks; quarter mile "<<reference.finishTime<<" s; endless distance "<<simulated(60,true).position<<" m\n";
     return 0;

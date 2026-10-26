@@ -52,7 +52,8 @@ void writePhysicsBenchmark(const std::filesystem::path& output){
         <<"  \"original_game_equivalence_validated\": false,\n  \"step_seconds\": "<<Step<<",\n"
         <<"  \"vehicle\": {\"mass_kg\": "<<vehicle.mass<<", \"peak_torque_nm\": "<<vehicle.torque
         <<", \"wheel_radius_m\": "<<vehicle.wheelRadius<<", \"final_drive\": "<<vehicle.finalDrive
-        <<", \"tyre_friction\": "<<vehicle.grip<<"},\n"
+        <<", \"tyre_friction\": "<<vehicle.grip<<", \"drive\": \"rear\", \"driven_weight_fraction\": "<<vehicle.drivenWeightFraction
+        <<", \"wheelbase_m\": "<<vehicle.wheelbase<<", \"centre_of_gravity_height_m\": "<<vehicle.centreOfGravityHeight<<"},\n"
         <<"  \"measurements\": {\n    \"zero_to_100_s\": "<<zeroTo100<<",\n    \"quarter_mile_s\": "<<quarter
         <<",\n    \"speed_after_60_s_kmh\": "<<launch.speed*3.6
         <<",\n    \"braking_100_to_0_m\": "<<brake.position<<",\n    \"braking_100_to_0_s\": "<<brake.elapsed

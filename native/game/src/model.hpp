@@ -6,6 +6,7 @@
 
 namespace pcr {
 enum class WindowMode { Windowed, Borderless, Fullscreen };
+enum class DriveLayout { Front, Rear, All };
 enum class Quality { Low, Medium, High };
 struct Resolution { int width, height; bool operator==(const Resolution& r) const {return width==r.width && height==r.height;} };
 struct Settings {
@@ -14,7 +15,7 @@ struct Settings {
     bool vsync=true, showFps=false, sound=true;
     Quality quality=Quality::High;
 };
-struct Profile { int car=0, rim=0; double bestTime=0; bool automatic=true; };
+struct Profile { int car=0, rim=0; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; };
 bool operator==(const Settings&, const Settings&);
 Settings validate(Settings);
 Settings loadSettings(const std::filesystem::path&);
@@ -33,6 +34,8 @@ struct Vehicle {
     double shiftSeconds=.15, efficiency=.87, grip=1.08;
     double dragArea=.67, rollingResistance=.014, brakeDeceleration=8.5;
     double engineBrakeTorque=18;
+    DriveLayout drive=DriveLayout::Rear;
+    double drivenWeightFraction=.52, wheelbase=2.6, centreOfGravityHeight=.50;
 };
 struct DriverInput { bool throttle=false, brake=false, automatic=true; };
 struct CarState {

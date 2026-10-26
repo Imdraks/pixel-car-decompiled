@@ -45,6 +45,7 @@ Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
     auto v=readIni(file);Profile p;
     p.car=std::clamp(integer(v,"car",0),0,std::max(0,cars-1));
     p.rim=std::clamp(integer(v,"rim",0),0,std::max(0,rims-1));p.automatic=integer(v,"automatic",1)!=0;
+    int layout=integer(v,"drive",1);p.drive=layout>=0&&layout<=2?DriveLayout(layout):DriveLayout::Rear;
     try {size_t used=0;p.bestTime=std::stod(v["best_time"],&used);if(used!=v["best_time"].size()||!std::isfinite(p.bestTime)||p.bestTime<0||p.bestTime>120)p.bestTime=0;}catch(...){p.bestTime=0;}
     return p;
 }
@@ -62,13 +63,24 @@ bool saveSettings(const std::filesystem::path& file,const Settings& settings,std
 }
 bool saveProfile(const std::filesystem::path& file,const Profile& p,std::string& error){
     std::ostringstream out;out.imbue(std::locale::classic());
-    out<<"version=1\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
+    out<<"version=1\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
     return writeAtomic(file,out.str(),error);
 }
 // Numeric path derived from Unbound ease_linear disassembly, not generic YYRValue semantics.
 double easeLinear(double t,double b,double c,double d){return (c*t)/d+b;}
 static double wheelRpm(const CarState& car,const Vehicle& vehicle,int gear){
     return car.speed*60/(2*3.141592653589793*vehicle.wheelRadius)*vehicle.ratios[gear-1]*vehicle.finalDrive;
+}
+static double drivenGrip(const Vehicle& vehicle,bool accelerating){
+    if(vehicle.drive==DriveLayout::All)return vehicle.mass*9.81*vehicle.grip;
+    // Quasi-static load transfer, solved for the limiting tyre force.
+    // Rear axle gains normal load under acceleration; front axle gains it under braking.
+    double transfer=vehicle.grip*vehicle.centreOfGravityHeight/vehicle.wheelbase;
+    double sign=vehicle.drive==DriveLayout::Rear?1.0:-1.0;
+    if(!accelerating)sign=-sign;
+    double denominator=std::max(.1,1-sign*transfer);
+    return std::min(vehicle.mass*9.81*vehicle.grip,
+        vehicle.mass*9.81*vehicle.grip*vehicle.drivenWeightFraction/denominator);
 }
 bool shift(CarState& car,int direction,const Vehicle& vehicle){
     if(car.shiftLock>0||car.finished||direction==0)return false;
@@ -94,7 +106,7 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     else s.rpm=target;
     double ratio=v.ratios[s.gear-1]*v.finalDrive;
     double torque=v.torque*(.62+.38*std::exp(-std::pow((s.rpm-5200)/2700,2)));
-    double tractionLimit=v.mass*9.81*v.grip;
+    double tractionLimit=drivenGrip(v,true);
     double wheelForce=input.throttle&&!input.brake&&s.shiftLock==0&&coupled<v.redlineRpm
         ?torque*ratio*v.efficiency/v.wheelRadius:0;
     if((!input.throttle||input.brake)&&s.shiftLock==0){
@@ -102,7 +114,8 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
         wheelForce-=v.engineBrakeTorque*ratio/v.wheelRadius*std::clamp(coupled/v.idleRpm,0.0,1.0);
     }
     if(input.brake)wheelForce-=v.mass*v.brakeDeceleration;
-    double force=std::clamp(wheelForce,-tractionLimit,tractionLimit);
+    double brakingLimit=input.brake?v.mass*9.81*v.grip:drivenGrip(v,false);
+    double force=std::clamp(wheelForce,-brakingLimit,tractionLimit);
     double resistance=.5*1.225*v.dragArea*s.speed*s.speed+v.mass*9.81*v.rollingResistance;
     double previous=s.position,oldSpeed=s.speed;
     s.speed=std::max(0.0,s.speed+(force-resistance)/v.mass*dt);

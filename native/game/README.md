@@ -42,8 +42,12 @@ arrêtent la simulation, puis reprennent la session en cours.
 
 Le garage permet de choisir parmi **191 images de carrosserie** et **54 styles
 de jantes** extraits d'Unbound. Ces nombres ne désignent pas 191 véhicules dont
-les statistiques d'origine auraient été reconstruites. Les performances de base
+les statistiques d'origine auraient été reconstruites. Les performances moteur de base
 sont communes à cette version, et les coordonnées des roues sont estimées.
+Le bouton **TRACTION / PROPULSION / 4 ROUES MOTRICES** du garage choisit une
+configuration d’essai : elle change réellement l’adhérence au départ et l’effet
+du transfert de poids. Le choix est sauvegardé et indiqué en mode libre. Il ne
+prétend pas représenter la transmission d’origine de chaque carrosserie.
 
 ## Paramètres dans le jeu
 

@@ -38,6 +38,7 @@ try:
     click(280,435)  # Menu -> garage.
     click(400,609)  # Select next real Unbound body.
     click(750,609)  # Select next rim.
+    click(1100,189) # Propulsion reference -> all wheel drive reference.
     key('F12')
     click(1015,605) # Garage -> free drive.
     xdo('keydown','w');time.sleep(2);key('Right');key('t');key('e');xdo('keyup','w')
@@ -61,7 +62,8 @@ try:
     checks={
       'normal_exit':process.returncode==0,'garage_car_click':profile['car']=='1','garage_rim_click':profile['rim']=='1',
       'actual_keyboard_acceleration':float(session['distance_m'])>1,'actual_lane_input':session['target_lane']=='2',
-      'actual_gearbox_toggle':profile['automatic']=='0','actual_settings_apply':settings['mode']=='borderless',
+      'actual_gearbox_toggle':profile['automatic']=='0',
+      'actual_drive_selection_saved':profile['drive']=='2','actual_drive_selection_applied':session['drive_layout']=='2','actual_settings_apply':settings['mode']=='borderless',
       'actual_fps_choice':settings['fps']=='120','actual_vsync_choice':settings['vsync']=='1',
       'actual_quality_choice':settings['quality']=='0','actual_fps_overlay_choice':settings['show_fps']=='1'}
     (args.output/'report.json').write_text(json.dumps({'checks':checks,'settings':settings,'profile':profile,'session':session},indent=2))

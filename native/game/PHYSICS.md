@@ -9,9 +9,13 @@ performances communes.
 
 Le calcul avance à 120 pas fixes par seconde, indépendamment des FPS de rendu.
 Le modèle longitudinal utilise une courbe de couple provisoire, six rapports,
-un pont final, une masse et un rayon de roue. Les efforts prennent en compte
+un pont final, une masse et un rayon de roue. La traction, la propulsion et les
+quatre roues motrices utilisent des limites de traction différentes. Le transfert
+de poids dépend de la hauteur du centre de gravité et de l’empattement.
+Les efforts prennent en compte
 une limite d'adhérence, la traînée aérodynamique, le roulement et le frein moteur.
-Le frein moteur et le frein de service partagent la limite d'adhérence ; le freinage est borné par l'adhérence et ne fait pas reculer la voiture.
+Le frein moteur et le frein de service partagent la limite d’adhérence ;
+le freinage ne fait pas reculer la voiture.
 
 La boîte automatique monte les rapports en charge et rétrograde à faible régime,
 avec des seuils différents pour éviter les oscillations. Les changements coupent
@@ -22,9 +26,10 @@ encore de simulation séparée de l'inertie moteur ou du glissement des pneus.
 
 Les constantes de `src/model.hpp` sont regroupées dans `Vehicle`, en unités SI
 sauf les régimes en tr/min. Elles sont provisoires : aucune équivalence avec la
-physique d'origine n'est annoncée. L'adhérence reste un plafond d'effort ; transfert
-de masse, type de transmission, suralimentation et pneus détaillés restent à
-reconstruire. Les changements de voie et contacts restent des approximations.
+physique d'origine n'est annoncée. L'adhérence reste un plafond d'effort ;
+le transfert de masse est calculé de façon quasi statique selon l’essieu moteur.
+Les paramètres réels par voiture, la suralimentation et les pneus détaillés
+restent à reconstruire. Les changements de voie et contacts restent des approximations.
 
 ## Vérification reproductible
 

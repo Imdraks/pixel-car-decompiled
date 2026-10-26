@@ -159,7 +159,9 @@ struct App {
     }
     void revert(){apply(previous);confirming=false;edited=settings;notice="Réglages précédents restaurés.";}
     void saveCar(){std::string error;if(!saveProfile(profileFile(),profile,error))notice="Enregistrement du garage impossible : "+error;}
-    void beginFree(){drive=FreeDrive{};accumulator=0;screen=Screen::Free;options=false;paused=false;}
+    const char* driveLabel()const{return profile.drive==DriveLayout::Front?"TRACTION":profile.drive==DriveLayout::Rear?"PROPULSION":"4 ROUES MOTRICES";}
+    void beginFree(){drive=FreeDrive{};drive.vehicle.drive=profile.drive;
+        drive.vehicle.drivenWeightFraction=profile.drive==DriveLayout::Front?.60:.52;accumulator=0;screen=Screen::Free;options=false;paused=false;}
     void init(){
         if(!fs::exists(args.assets/"provenance.json"))throw std::runtime_error("Ressources manquantes. Extrayez entièrement le ZIP, puis lancez PixelCarRacerNative.exe.");
         settings=loadSettings(settingFile());profile=loadProfile(profileFile(),191,54);
@@ -232,8 +234,9 @@ struct App {
         if(button({724,586,52,44},">")){profile.rim=(profile.rim+1)%54;saveCar();}
         text("Changer le style",561,597,17,Muted);
         if(button({845,574,344,64},"PRENDRE LA ROUTE",true))queued=[this]{saveCar();beginFree();};
-        text("Performances de base communes aux véhicules dans cette version.",81,654,16,Muted);
+        text("Configuration d'essai : performances provisoires communes aux carrosseries.",81,654,16,Muted);
         if(button({1015,114,218,40},"DÉCOR SUIVANT"))garageStyle=(garageStyle+1)%23;
+        if(button({972,166,261,44},driveLabel())){profile.drive=DriveLayout((int(profile.drive)+1)%3);saveCar();}
     }
     void freeScene(){
         for(int lane=0;lane<3;lane++){
@@ -245,7 +248,7 @@ struct App {
         if(button({814,17,238,51},"PARAMÈTRES"))openOptions();
         if(button({1066,17,177,51},paused?"REPRENDRE":"PAUSE"))paused=!paused;
         card({29,578,275,111});text(TextFormat("%03i",int(drive.player.speed*3.6)),52,587,60);text("km/h",192,620,22,Muted);
-        card({320,578,563,111});text(profile.automatic?"BOÎTE AUTOMATIQUE":"BOÎTE MANUELLE",344,595,17,Accent);
+        card({320,578,563,111});text(std::string(profile.automatic?"AUTO  •  ":"MANUELLE  •  ")+driveLabel(),344,595,17,Accent);
         text("Z / ↑  Accélérer     S / ↓  Freiner",344,625,17);
         text("← / →  Voies     E / C  Rapports     T  Boîte",344,655,16,Muted);
         card({900,578,350,111});text(TextFormat("%i",drive.player.gear),927,596,57,Gold);
@@ -359,7 +362,7 @@ struct App {
         while(!WindowShouldClose()&&!quit){double dt=args.smoke?1.0/30.0:std::clamp(double(GetFrameTime()),0.0,.1);controls(dt);renderFrame();if(IsKeyPressed(KEY_F12))capture(TextFormat("capture-%06i.png",frames));if(queued){auto action=std::move(queued);queued=nullptr;action();}if(args.smoke)smoke();frames++;}
         if(confirming)revert();
         saveCar();
-        {std::error_code ec;fs::create_directories(args.data,ec);if(!ec){std::ofstream out(args.data/"last-session.txt");out<<"screen="<<int(screen)<<"\ndistance_m="<<drive.player.position<<"\nspeed_mps="<<drive.player.speed<<"\ntarget_lane="<<drive.targetLane<<"\ngear="<<drive.player.gear<<"\nframes="<<frames<<"\nmode="<<modeKey(settings.mode)<<"\nwidth="<<GetScreenWidth()<<"\nheight="<<GetScreenHeight()<<"\n";}}
+        {std::error_code ec;fs::create_directories(args.data,ec);if(!ec){std::ofstream out(args.data/"last-session.txt");out<<"screen="<<int(screen)<<"\ndistance_m="<<drive.player.position<<"\nspeed_mps="<<drive.player.speed<<"\ntarget_lane="<<drive.targetLane<<"\ngear="<<drive.player.gear<<"\ndrive_layout="<<int(drive.vehicle.drive)<<"\nframes="<<frames<<"\nmode="<<modeKey(settings.mode)<<"\nwidth="<<GetScreenWidth()<<"\nheight="<<GetScreenHeight()<<"\n";}}
         if(args.smoke){fs::create_directories(args.data);std::ofstream out(args.data/"smoke-report.txt");
 #ifdef _WIN32
             out<<"Native Windows rendering smoke test. Physical PC GPU and audio are not established.\n";
