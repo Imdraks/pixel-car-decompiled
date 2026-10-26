@@ -20,4 +20,4 @@ PASS NOS charge is consumed in free drive
 PASS turbo develops boost in free drive
 PASS NOS visual effect is active
 PASS collision emits sparks
-cap_30_fps_elapsed_for_30_frames=1.02257
+cap_30_fps_elapsed_for_30_frames=1.01929

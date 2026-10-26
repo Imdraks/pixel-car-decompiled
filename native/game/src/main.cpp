@@ -478,15 +478,17 @@ struct App {
         // Controlled rendered pairs: 0.1 seconds of travel at the displayed speed.
         // Pause the simulation so the image displacement can be measured exactly.
         if(frames==280){beginFree();settings.showFps=false;profile.car=20;drive.player.speed=0;for(auto& t:drive.traffic)t.position=10000;}
-        if(frames==281)capture("motion-stationary-a.png");
-        if(frames==282){capture("motion-stationary-b.png");drive.player.speed=100/3.6;drive.player.position=100;}
-        if(frames==283){capture("motion-100-a.png");drive.player.position+=100/3.6*.1;}
-        if(frames==284){capture("motion-100-b.png");drive.player.speed=200/3.6;drive.player.position=100;}
-        if(frames==285){capture("motion-200-a.png");drive.player.position+=200/3.6*.1;}
-        if(frames==286){capture("motion-200-b.png");paused=true;}
-        if(frames==287)capture("motion-paused-a.png");
-        if(frames==289)capture("motion-paused-b.png");
-        if(frames==290)quit=true;
+        // Windows' software double buffer can expose the preceding presented
+        // frame to TakeScreenshot. Hold each state before capturing it.
+        if(frames==283)capture("motion-stationary-a.png");
+        if(frames==284){capture("motion-stationary-b.png");drive.player.speed=100/3.6;drive.player.position=100;}
+        if(frames==287){capture("motion-100-a.png");drive.player.position+=100/3.6*.1;}
+        if(frames==290){capture("motion-100-b.png");drive.player.speed=200/3.6;drive.player.position=100;}
+        if(frames==293){capture("motion-200-a.png");drive.player.position+=200/3.6*.1;}
+        if(frames==296){capture("motion-200-b.png");paused=true;}
+        if(frames==299)capture("motion-paused-a.png");
+        if(frames==301)capture("motion-paused-b.png");
+        if(frames==302)quit=true;
     }
     int run(){
         init();
