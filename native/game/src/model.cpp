@@ -9,7 +9,7 @@
 #include <locale>
 
 namespace pcr {
-bool operator==(const Settings&a,const Settings&b){return a.mode==b.mode&&a.width==b.width&&a.height==b.height&&a.fps==b.fps&&a.vsync==b.vsync&&a.showFps==b.showFps&&a.sound==b.sound&&a.quality==b.quality;}
+bool operator==(const Settings&a,const Settings&b){return a.mode==b.mode&&a.width==b.width&&a.height==b.height&&a.fps==b.fps&&a.vsync==b.vsync&&a.showFps==b.showFps&&a.sound==b.sound&&a.traffic==b.traffic&&a.quality==b.quality;}
 const char* modeKey(WindowMode mode){switch(mode){case WindowMode::Fullscreen:return "fullscreen";case WindowMode::Borderless:return "borderless";default:return "windowed";}}
 Settings validate(Settings s){
     if(s.mode!=WindowMode::Windowed&&s.mode!=WindowMode::Borderless&&s.mode!=WindowMode::Fullscreen)s.mode=WindowMode::Windowed;
@@ -39,6 +39,7 @@ Settings loadSettings(const std::filesystem::path& file){
     s.width=integer(v,"width",s.width);s.height=integer(v,"height",s.height);s.fps=integer(v,"fps",s.fps);
     s.quality=Quality(integer(v,"quality",int(s.quality)));
     s.vsync=integer(v,"vsync",s.vsync)!=0;s.showFps=integer(v,"show_fps",s.showFps)!=0;s.sound=integer(v,"sound",s.sound)!=0;
+    s.traffic=integer(v,"traffic",1)!=0;
     return validate(s);
 }
 Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
@@ -62,7 +63,7 @@ static bool writeAtomic(const std::filesystem::path& file,const std::string& tex
 }
 bool saveSettings(const std::filesystem::path& file,const Settings& settings,std::string& error){
     auto s=validate(settings);std::ostringstream out;out.imbue(std::locale::classic());
-    out<<"version=1\nmode="<<modeKey(s.mode)<<"\nwidth="<<s.width<<"\nheight="<<s.height<<"\nfps="<<s.fps<<"\nvsync="<<s.vsync<<"\nquality="<<int(s.quality)<<"\nshow_fps="<<s.showFps<<"\nsound="<<s.sound<<"\n";
+    out<<"version=1\nmode="<<modeKey(s.mode)<<"\nwidth="<<s.width<<"\nheight="<<s.height<<"\nfps="<<s.fps<<"\nvsync="<<s.vsync<<"\nquality="<<int(s.quality)<<"\nshow_fps="<<s.showFps<<"\nsound="<<s.sound<<"\ntraffic="<<s.traffic<<"\n";
     return writeAtomic(file,out.str(),error);
 }
 bool saveProfile(const std::filesystem::path& file,const Profile& p,std::string& error){
@@ -169,11 +170,17 @@ void FreeDrive::respawn(TrafficCar& t){
     auto next=[this](){random=1664525u*random+1013904223u;return random;};
     t.position=player.position+120+(next()%260);t.speed=12+(next()%160)/10.0;t.lane=next()%3;t.appearance=next()%191;
 }
+void FreeDrive::setTraffic(bool enabled){
+    if(trafficEnabled==enabled)return;
+    trafficEnabled=enabled;collisionCooldown=0;
+    if(enabled)for(auto& t:traffic)respawn(t);
+}
 void FreeDrive::changeLane(int d){targetLane=std::clamp(targetLane+d,0,2);}
 void FreeDrive::update(const DriverInput& input,double dt){
     time+=dt;collisionCooldown=std::max(0.0,collisionCooldown-dt);
     lane+=std::clamp(targetLane-lane,-dt*3,dt*3);
     stepCar(player,vehicle,input,dt,0);
+    if(!trafficEnabled)return;
     for(auto& t:traffic){
         double before=t.position-player.position;
         t.position+=t.speed*dt;double gap=t.position-player.position;

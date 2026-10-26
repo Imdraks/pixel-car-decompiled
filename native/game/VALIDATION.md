@@ -1,3 +1,18 @@
+# Validation native 0.5.1
+
+- 105 contrôles du cœur, dont circulation désactivée sans déplacement des NPC,
+  collisions ou dépassements ; réactivation à distance et ancienne sauvegarde.
+- 30 contrôles graphiques : option appliquée/enregistrée, absence de collisions
+  cachées, réactivation, annulation d'un essai et nouvelle session sans trafic.
+- 37 contrôles clavier/souris Linux : 21 pour les pièces et 16 pour les paramètres,
+  dont désactivation du trafic sauvegardée, appliquée et reprise après redémarrage.
+- Les comparaisons de défilement, 188 384 combinaisons de pièces et le banc
+  physique de base restent inchangés. Rapports : `validation/traffic-0.5.1/`.
+- La publication exige les contrôles Windows du cœur, de la puissance, de la
+  physique, du rendu/défilement et du décodage des 94 sons.
+
+## Historique : validation native 0.5.0
+
 # Validation native 0.5.0
 
 - 101 contrôles du cœur, dont 188 384 combinaisons de groupes de pièces et

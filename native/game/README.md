@@ -1,4 +1,4 @@
-# Pixel Car Racer — Unbound Native 0.5.0
+# Pixel Car Racer — Unbound Native 0.5.1
 
 Cette première reconstruction **native Windows x64** propose un mode libre
 jouable avec les ressources d'Unbound. Le programme ne lance ni APK, ni Android,
@@ -7,6 +7,12 @@ ni émulateur. Il fonctionne hors ligne après extraction de l'archive.
 Ce n'est pas encore le portage complet et fidèle du jeu original : la conduite
 et la circulation sont réimplémentées. La base originale 1.2.5 n'est pas fusionnée
 avec le mod. Le moteur GameMaker YYC d'origine n'a pas été recompilé.
+
+La version **0.5.1** permet de retirer le trafic : **PARAMÈTRES → Trafic en
+mode libre → Désactivé → Appliquer → Conserver**. Le choix est sauvegardé et
+repris au prochain lancement. Les voitures et leurs collisions sont désactivées ;
+la conduite continue normalement. En réactivant le trafic, les véhicules sont
+replacés à distance devant vous. Les anciennes sauvegardes gardent le trafic actif.
 
 La version **0.5.0** combine moteur, pièces atmosphériques, ECU, suralimentation,
 intercooler et NOS avec le même calcul pour le banc et la conduite. Le garage
@@ -91,7 +97,7 @@ prétend pas représenter la transmission d’origine de chaque carrosserie.
   déterminer le rythme final de présentation.
 - Qualité faible, moyenne ou élevée. Elle modifie effectivement les ombres,
   les couches du décor et les détails de la route ; elle ne change pas la physique.
-- Compteur FPS et son.
+- Compteur FPS, son et trafic activé/désactivé en mode libre.
 
 Un changement passe par **Appliquer**, puis **Conserver**. Sans confirmation,
 les réglages précédents sont restaurés après 15 secondes. Échap les restaure

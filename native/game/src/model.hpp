@@ -13,7 +13,7 @@ struct Resolution { int width, height; bool operator==(const Resolution& r) cons
 struct Settings {
     WindowMode mode=WindowMode::Windowed;
     int width=1280, height=720, fps=120;
-    bool vsync=true, showFps=false, sound=true;
+    bool vsync=true, showFps=false, sound=true, traffic=true;
     Quality quality=Quality::High;
 };
 struct Profile { int car=0, rim=0; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1; };
@@ -78,10 +78,12 @@ struct FreeDrive {
     CarState player;
     Vehicle vehicle;
     std::array<TrafficCar,8> traffic;
+    bool trafficEnabled=true;
     int targetLane=1, overtakes=0;
     double lane=1, collisionCooldown=0, time=0;
     unsigned int random=0x504352;
     FreeDrive();
+    void setTraffic(bool enabled);
     void changeLane(int direction);
     void update(const DriverInput&,double dt);
     void respawn(TrafficCar&);

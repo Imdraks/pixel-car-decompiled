@@ -45,10 +45,11 @@ try:
     key('F12')
     click(920,42) # Free drive -> settings.
     click(1040,168) # Bordered -> borderless.
-    click(1040,286) # FPS 60 -> 120.
-    click(1040,345) # VSync off -> on.
-    click(1040,404) # Quality high -> low.
-    click(1040,463) # FPS display on.
+    click(1040,262) # FPS 60 -> 120.
+    click(1040,314) # VSync off -> on.
+    click(1040,366) # Quality high -> low.
+    click(1040,418) # FPS display on.
+    click(1040,522) # Disable traffic.
     key('F12')
     click(910,624) # Apply.
     time.sleep(.4)
@@ -65,7 +66,17 @@ try:
       'actual_gearbox_toggle':profile['automatic']=='0',
       'actual_drive_selection_saved':profile['drive']=='2','actual_drive_selection_applied':session['drive_layout']=='2','actual_settings_apply':settings['mode']=='borderless',
       'actual_fps_choice':settings['fps']=='120','actual_vsync_choice':settings['vsync']=='1',
-      'actual_quality_choice':settings['quality']=='0','actual_fps_overlay_choice':settings['show_fps']=='1'}
+      'actual_quality_choice':settings['quality']=='0','actual_fps_overlay_choice':settings['show_fps']=='1',
+      'traffic_preference_saved':settings['traffic']=='0','traffic_removed_from_active_session':session['traffic_enabled']=='0' and session['traffic_count']=='0'}
+    process=subprocess.Popen([str(args.game),'--assets-dir',str(args.assets),'--data-dir',str(args.output/'data'),'--free-drive','--no-audio'],stdout=log,stderr=log)
+    for _ in range(100):
+        if process.poll() is not None:raise RuntimeError('Restart failed')
+        try:window=xdo('search','--pid',process.pid,'--name','Pixel Car Racer').splitlines()[0];break
+        except subprocess.CalledProcessError:time.sleep(.05)
+    xdo('windowfocus','--sync',window);time.sleep(.3)
+    xdo('keydown','ctrl');key('q');xdo('keyup','ctrl');process.wait(timeout=10)
+    resumed=ini(args.output/'data/last-session.txt')
+    checks['traffic_remains_disabled_after_restart']=resumed['traffic_enabled']=='0' and resumed['traffic_count']=='0'
     (args.output/'report.json').write_text(json.dumps({'checks':checks,'settings':settings,'profile':profile,'session':session},indent=2))
     print(json.dumps(checks,indent=2))
     if not all(checks.values()):raise SystemExit(1)

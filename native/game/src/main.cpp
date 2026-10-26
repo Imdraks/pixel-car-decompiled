@@ -145,7 +145,7 @@ struct App {
         if(!modeValid){UnloadRenderTexture(next);notice="Ce mode d'affichage n'a pas pu être activé.";return false;}
         if(render.id)UnloadRenderTexture(render);
         render=next;SetTextureFilter(render.texture,TEXTURE_FILTER_POINT);
-        settings=s;accumulator=0;
+        settings=s;drive.setTraffic(s.traffic);accumulator=0;
         return true;
     }
     void openOptions(){edited=settings;options=true;notice.clear();}
@@ -163,7 +163,7 @@ struct App {
     void revert(){apply(previous);confirming=false;edited=settings;notice="Réglages précédents restaurés.";}
     void saveCar(){configuration=buildVehicle(profile);std::string error;if(!saveProfile(profileFile(),profile,error))notice="Enregistrement du garage impossible : "+error;}
     const char* driveLabel()const{return profile.drive==DriveLayout::Front?"TRACTION":profile.drive==DriveLayout::Rear?"PROPULSION":"4 ROUES MOTRICES";}
-    void beginFree(){powerPopup=false;audioPopup=false;audio.reset();effects=DrivingEffects{};drive=FreeDrive{};configuration=buildVehicle(profile);drive.vehicle=configuration.vehicle;accumulator=0;screen=Screen::Free;options=false;paused=false;}
+    void beginFree(){powerPopup=false;audioPopup=false;audio.reset();effects=DrivingEffects{};drive=FreeDrive{};drive.setTraffic(settings.traffic);configuration=buildVehicle(profile);drive.vehicle=configuration.vehicle;accumulator=0;screen=Screen::Free;options=false;paused=false;}
     void init(){
         if(!fs::exists(args.assets/"provenance.json"))throw std::runtime_error("Ressources manquantes. Extrayez entièrement le ZIP, puis lancez PixelCarRacerNative.exe.");
         settings=loadSettings(settingFile());profile=loadProfile(profileFile(),191,54);configuration=buildVehicle(profile);
@@ -205,7 +205,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.5",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.5.1",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},"GARAGE"))screen=Screen::Garage;
@@ -389,12 +389,13 @@ struct App {
     void freeScene(){
         renderEffects(false);
         for(int lane=0;lane<3;lane++){
-            for(const auto& t:drive.traffic)if(t.lane==lane){float x=float(scene::trafficX(t.position,drive.player.position));if(x>-400&&x<1600)car(t.appearance,t.appearance%54,x,269+lane*96,1.25,scene::wheelAngle(t.position,.32));}
+            for(const auto& t:drive.traffic)if(drive.trafficEnabled&&t.lane==lane){float x=float(scene::trafficX(t.position,drive.player.position));if(x>-400&&x<1600)car(t.appearance,t.appearance%54,x,269+lane*96,1.25,scene::wheelAngle(t.position,.32));}
             if(std::clamp(int(std::round(drive.lane)),0,2)==lane)car(profile.car,profile.rim,360,269+float(drive.lane)*96,1.25,scene::wheelAngle(drive.player.position,drive.vehicle.wheelRadius),true,configuration.tireFrame,configuration.rideOffset);
         }
         renderEffects(true);
         if(drive.collisionCooldown>1.0)DrawRectangle(0,0,1280,720,Fade(RED,.10f));
         DrawRectangle(0,0,1280,86,Fade(Ink,.93f));text("MODE LIBRE",35,23,30);text(TextFormat("%.2f km",drive.player.position/1000),280,31,20,Muted);
+        if(!drive.trafficEnabled)text("TRAFIC DÉSACTIVÉ",445,32,17,Muted);
         if(button({814,17,238,51},"PARAMÈTRES"))openOptions();
         if(button({1066,17,177,51},paused?"REPRENDRE":"PAUSE"))paused=!paused;
         card({29,578,275,111});text(TextFormat("%03i",int(drive.player.speed*3.6)),52,587,60);text("km/h",192,620,22,Muted);
@@ -423,18 +424,19 @@ struct App {
     }
     void settingsScene(){
         DrawRectangle(0,0,1280,720,Fade(Ink,.82f));card({174,40,932,639});
-        text("PARAMÈTRES",211,66,30);text("AFFICHAGE ET GRAPHISMES",211,110,15,Accent);
-        int d=choice(144,"Mode d'affichage",edited.mode==WindowMode::Windowed?"Fenêtre avec bordure":edited.mode==WindowMode::Borderless?"Fenêtre sans bordure":"Plein écran");
+        text("PARAMÈTRES",211,66,30);text("AFFICHAGE, SON ET TRAFIC",211,110,15,Accent);
+        int d=choice(134,"Mode d'affichage",edited.mode==WindowMode::Windowed?"Fenêtre avec bordure":edited.mode==WindowMode::Borderless?"Fenêtre sans bordure":"Plein écran");
         if(d){edited.mode=WindowMode((int(edited.mode)+d+3)%3);normalizeResolution(edited);}
-        d=choice(203,edited.mode==WindowMode::Borderless?"Résolution de rendu":"Résolution",TextFormat("%i × %i",edited.width,edited.height));
+        d=choice(186,edited.mode==WindowMode::Borderless?"Résolution de rendu":"Résolution",TextFormat("%i × %i",edited.width,edited.height));
         if(d){auto r=resolutions(edited.mode);auto i=std::find(r.begin(),r.end(),Resolution{edited.width,edited.height});int n=i==r.end()?0:int(i-r.begin());auto next=r[(n+d+int(r.size()))%int(r.size())];edited.width=next.width;edited.height=next.height;}
-        d=choice(262,"Limite d'images par seconde",edited.fps?std::to_string(edited.fps)+" FPS":"Illimitée");
+        d=choice(238,"Limite d'images par seconde",edited.fps?std::to_string(edited.fps)+" FPS":"Illimitée");
         if(d){const int choices[]={30,60,120,144,165,240,0};auto i=std::find(std::begin(choices),std::end(choices),edited.fps);int n=i==std::end(choices)?0:int(i-choices);edited.fps=choices[(n+d+7)%7];}
-        if(choice(321,"Synchronisation verticale",edited.vsync?"Activée":"Désactivée"))edited.vsync=!edited.vsync;
-        d=choice(380,"Qualité des graphismes",edited.quality==Quality::Low?"Faible":edited.quality==Quality::Medium?"Moyenne":"Élevée");
+        if(choice(290,"Synchronisation verticale",edited.vsync?"Activée":"Désactivée"))edited.vsync=!edited.vsync;
+        d=choice(342,"Qualité des graphismes",edited.quality==Quality::Low?"Faible":edited.quality==Quality::Medium?"Moyenne":"Élevée");
         if(d)edited.quality=Quality((int(edited.quality)+d+3)%3);
-        if(choice(439,"Compteur FPS",edited.showFps?"Afficher":"Masquer"))edited.showFps=!edited.showFps;
-        if(choice(498,"Son",edited.sound?"Activé":"Désactivé"))edited.sound=!edited.sound;
+        if(choice(394,"Compteur FPS",edited.showFps?"Afficher":"Masquer"))edited.showFps=!edited.showFps;
+        if(choice(446,"Son",edited.sound?"Activé":"Désactivé"))edited.sound=!edited.sound;
+        if(choice(498,"Trafic en mode libre",edited.traffic?"Activé":"Désactivé"))edited.traffic=!edited.traffic;
         text(edited.mode==WindowMode::Borderless?"Sans bordure : la fenêtre suit la taille du bureau.":"VSync : la fréquence de l'écran peut limiter les FPS.",212,559,16,Muted);
         if(button({212,598,238,49},"RETOUR")){options=false;notice.clear();}
         if(button({470,598,257,49},"PAR DÉFAUT"))edited=Settings{};
@@ -534,9 +536,15 @@ struct App {
         if(frames==284){check(configuration.boostedHp>4200&&configuration.nitroHp>4500,"maximum preparation displays compound boost and NOS power");
             check(partRarity(*findPart(profile.parts[0]))==Rarity::Contraband,"maximum engine is classified contraband");
             check(std::abs(enginePowerHp(configuration.vehicle,configuration.peakRpm,targetBoost(configuration.vehicle,configuration.peakRpm))-configuration.boostedHp)<.01,"power bench matches the driving torque model");powerPopup=false;}
+        if(frames==285){beginFree();openOptions();edited.traffic=false;preview();}
+        if(frames==286){keep();options=false;check(!drive.trafficEnabled,"disabling traffic applies to the active free drive");
+            check(!loadSettings(settingFile()).traffic,"disabled traffic preference is saved");drive.traffic[0]={drive.player.position+5,0,1,0};}
+        if(frames==287){check(drive.collisionCooldown==0,"disabled traffic cannot trigger hidden collisions");}
+        if(frames==288){capture("sans-trafic.png");openOptions();edited.traffic=true;preview();check(drive.trafficEnabled,"traffic can be re-enabled");deadline=GetTime()-1;}
+        if(frames==289){check(!drive.trafficEnabled&&!settings.traffic,"unconfirmed traffic change is reverted");options=false;}
         // Controlled rendered pairs: 0.1 seconds of travel at the displayed speed.
         // Pause the simulation so the image displacement can be measured exactly.
-        if(frames==290){beginFree();settings.showFps=false;profile.car=20;drive.player.speed=0;for(auto& t:drive.traffic)t.position=10000;}
+        if(frames==290){beginFree();check(!drive.trafficEnabled,"new free drive keeps traffic disabled");settings.showFps=false;profile.car=20;drive.player.speed=0;for(auto& t:drive.traffic)t.position=10000;}
         // Windows' software double buffer can expose the preceding presented
         // frame to TakeScreenshot. Hold each state before capturing it.
         if(frames==293)capture("motion-stationary-a.png");
@@ -554,7 +562,7 @@ struct App {
         while(!WindowShouldClose()&&!quit){double dt=args.smoke?(frames>=290?0:1.0/30.0):std::clamp(double(GetFrameTime()),0.0,.1);controls(dt);renderFrame();if(IsKeyPressed(KEY_F12))capture(TextFormat("capture-%06i.png",frames));if(queued){auto action=std::move(queued);queued=nullptr;action();}if(args.smoke)smoke();frames++;}
         if(confirming)revert();
         saveCar();
-        {std::error_code ec;fs::create_directories(args.data,ec);if(!ec){std::ofstream out(args.data/"last-session.txt");out<<"screen="<<int(screen)<<"\ndistance_m="<<drive.player.position<<"\nspeed_mps="<<drive.player.speed<<"\ntarget_lane="<<drive.targetLane<<"\ngear="<<drive.player.gear<<"\nengine_part="<<profile.parts[int(PartSlot::Engine)]<<"\ntire_part="<<profile.parts[int(PartSlot::Tires)]<<"\nnative_mass_kg="<<drive.vehicle.mass<<"\nnative_hp="<<configuration.boostedHp<<"\nnative_nos_hp="<<configuration.nitroHp<<"\ncurrent_hp="<<drive.player.powerHp<<"\nnative_torque_nm="<<drive.vehicle.torque<<"\ndrive_layout="<<int(drive.vehicle.drive)<<"\naudio_ready="<<audio.ready<<"\naudio_failures="<<audio.failures<<"\nframes="<<frames<<"\nmode="<<modeKey(settings.mode)<<"\nwidth="<<GetScreenWidth()<<"\nheight="<<GetScreenHeight()<<"\n";}}
+        {std::error_code ec;fs::create_directories(args.data,ec);if(!ec){std::ofstream out(args.data/"last-session.txt");out<<"screen="<<int(screen)<<"\ntraffic_enabled="<<drive.trafficEnabled<<"\ntraffic_count="<<(drive.trafficEnabled?drive.traffic.size():0)<<"\ndistance_m="<<drive.player.position<<"\nspeed_mps="<<drive.player.speed<<"\ntarget_lane="<<drive.targetLane<<"\ngear="<<drive.player.gear<<"\nengine_part="<<profile.parts[int(PartSlot::Engine)]<<"\ntire_part="<<profile.parts[int(PartSlot::Tires)]<<"\nnative_mass_kg="<<drive.vehicle.mass<<"\nnative_hp="<<configuration.boostedHp<<"\nnative_nos_hp="<<configuration.nitroHp<<"\ncurrent_hp="<<drive.player.powerHp<<"\nnative_torque_nm="<<drive.vehicle.torque<<"\ndrive_layout="<<int(drive.vehicle.drive)<<"\naudio_ready="<<audio.ready<<"\naudio_failures="<<audio.failures<<"\nframes="<<frames<<"\nmode="<<modeKey(settings.mode)<<"\nwidth="<<GetScreenWidth()<<"\nheight="<<GetScreenHeight()<<"\n";}}
         if(args.smoke){fs::create_directories(args.data);std::ofstream out(args.data/"smoke-report.txt");
 #ifdef _WIN32
             out<<"Native Windows rendering smoke test. Physical PC GPU and audio are not established.\n";

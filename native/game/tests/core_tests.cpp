@@ -129,6 +129,15 @@ int main(int argc,char**argv){
     expect(free.lane<=2&&free.lane>=0&&free.player.position>0,"free drive moves and interpolates lanes");
     FreeDrive collision;collision.player.speed=30;collision.traffic[0]={0,10,1,0};collision.update({true,false,true},Step);
     expect(collision.collisionCooldown>0&&collision.player.speed<10,"traffic collision changes vehicle motion");
+    FreeDrive emptyRoad;emptyRoad.setTraffic(false);emptyRoad.player.speed=30;emptyRoad.traffic[0]={0,0,1,0};
+    for(int i=0;i<120;i++)emptyRoad.update({true,false,true},Step);
+    expect(!emptyRoad.trafficEnabled&&emptyRoad.collisionCooldown==0&&emptyRoad.player.speed>30,"disabled traffic cannot slow or collide with the player");
+    expect(emptyRoad.traffic[0].position==0&&emptyRoad.overtakes==0,"disabled traffic does not move, respawn or count overtakes");
+    emptyRoad.setTraffic(true);bool safeRespawn=true;
+    for(const auto& t:emptyRoad.traffic)safeRespawn&=t.position-emptyRoad.player.position>=120;
+    expect(emptyRoad.trafficEnabled&&safeRespawn,"re-enabling traffic respawns all cars safely ahead");
+    {std::ofstream out(root/"old-settings.ini");out<<"sound=0\n";}
+    expect(loadSettings(root/"old-settings.ini").traffic,"existing settings keep traffic enabled by default");
     auto benchmark=root/std::filesystem::u8path("mesures_é_車");
     std::filesystem::remove_all(benchmark); // Only inside the explicitly supplied test directory.
     writePhysicsBenchmark(benchmark);
@@ -296,7 +305,7 @@ int main(int argc,char**argv){
     expect(!dyno.nitroActive&&dyno.powerHp==0,"NOS cannot bypass the engine rev limiter");
     {std::ofstream out(root/"power-combinations.json");out<<"{\n  \"induction_combinations\": "<<combinations<<",\n  \"atmospheric_combinations\": "<<supports<<",\n  \"max_without_nos_hp\": "<<full.boostedHp<<",\n  \"max_with_nos_hp\": "<<full.nitroHp<<",\n  \"original_game_equivalence_validated\": false\n}\n";}
     std::cout<<"Native maximum: "<<full.boostedHp<<" HP, "<<full.nitroHp<<" HP with NOS; "<<combinations+supports<<" combinations checked.\n";
-    auto file=root/std::filesystem::u8path("écran_車.ini");Settings s;s.mode=WindowMode::Borderless;s.width=1920;s.height=1080;s.fps=144;s.vsync=false;s.quality=Quality::Low;s.showFps=true;s.sound=false;
+    auto file=root/std::filesystem::u8path("écran_車.ini");Settings s;s.mode=WindowMode::Borderless;s.width=1920;s.height=1080;s.fps=144;s.vsync=false;s.quality=Quality::Low;s.showFps=true;s.sound=false;s.traffic=false;
     std::string error;expect(saveSettings(file,s,error),"save Unicode settings path");expect(loadSettings(file)==s,"all graphics settings round trip");
     s.fps=60;s.mode=WindowMode::Fullscreen;expect(saveSettings(file,s,error),"atomic replacement of existing settings");expect(loadSettings(file)==s,"replaced graphics settings persist");
     expect(!std::filesystem::exists(file.u8string()+".tmp"),"successful save leaves no temporary file");
