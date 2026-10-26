@@ -1,0 +1,3 @@
+# Preserve imported tool output and third-party notices verbatim.
+native/evidence/** -whitespace
+native/game/licenses/** -whitespace
