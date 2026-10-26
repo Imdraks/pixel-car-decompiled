@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import shutil
 import struct
+import statistics
 import zlib
 
 GAME=Path(__file__).resolve().parents[1]
@@ -18,10 +19,11 @@ args=parser.parse_args()
 assets=GAME/'assets';assets.mkdir(parents=True,exist_ok=True)
 sprites=json.loads((args.textures/'sprites.json').read_text())['sprites']
 textures=json.loads((args.textures/'textures.json').read_text())
-selected={'sp_car':'cars','sp_rims':'rims','sp_garage':'garages','sp_title_background':'titleBackground','sp_title_logo2':'logos'}
+selected={'sp_car':'cars','sp_rims':'rims','sp_tire_0':'tires','sp_wheelwell':'wheelWells','sp_garage':'garages','sp_title_background':'titleBackground','sp_title_logo2':'logos'}
 needed=set();groups={}
 for name,group in selected.items():
     sprite=next(s for s in sprites if s['name']==name)
+    if group in ['tires','wheelWells']:sprite={**sprite,'frames':sprite['frames'][:1]}
     groups[group]=sprite
     needed.update(f['texture_id'] for f in sprite['frames'] if f)
 backgrounds=json.loads(args.backgrounds.read_text())
@@ -56,32 +58,47 @@ def decode_rgba(file):
     return rows
 
 decoded={}
-def wheels(frame):
-    # Only infer visual wheel cutouts; this does not recover vehicle physics data.
-    tid=frame['texture_id']
+wheel_audit=[]
+def wheels(frame,index):
+    # The supplied car sprite origin is the rear axle anchor. Front axle spacing
+    # is derived from the transparent arch, never from overall body width/colour.
+    sprite=groups['cars'];rear,cy=sprite['origin'];tid=frame['texture_id']
     if tid not in decoded:decoded[tid]=decode_rgba(args.textures/frame['file'])
     rows=decoded[tid];sx,sy,w,h=frame['source_rect'];dx,dy=frame['target_offset']
-    white=set()
-    for y in range(h//2,h):
-        for x in range(w):
-            r,g,b,a=rows[sy+y][(sx+x)*4:(sx+x)*4+4]
-            if min(r,g,b)>=245 and a>=220:white.add((x,y))
-    components=[]
-    while white:
-        start=white.pop();todo=[start];points=[start]
-        while todo:
-            x,y=todo.pop()
-            for q in [(x-1,y),(x+1,y),(x,y-1),(x,y+1)]:
-                if q in white:white.remove(q);todo.append(q);points.append(q)
-        xs=[p[0] for p in points];ys=[p[1] for p in points]
-        bw,bh=max(xs)-min(xs)+1,max(ys)-min(ys)+1
-        if len(points)>=12 and bw>=6 and bh>=5 and max(ys)>=h-3:
-            components.append((dx+(min(xs)+max(xs))/2,dy+max(ys)-min(9,bh/2),min(bw,bh)))
-    components.sort()
-    if len(components)>=2:
-        left,right=components[0],components[-1]
-        return [left[0],right[0],(left[1]+right[1])/2,max(6,min(13,(left[2]+right[2])/4))]
-    return [dx+w*.18,dx+w*.82,dy+h-7,9]
+    if index==182:
+        # Special Unbound sled/box sprite has no wheel openings. Do not invent wheels.
+        wheel_audit.append({'car':index+1,'visible':False,'reason':'Special body without wheel arches'})
+        return [rear,rear,cy,0]
+    def alpha(x,y):
+        if not(dx<=x<dx+w and dy<=y<dy+h):return 0
+        return rows[sy+y-dy][(sx+x-dx)*4+3]
+    candidates=[]
+    for y in range(cy-14,cy+1):
+        start=None
+        for x in range(dx,dx+w):
+            if alpha(x,y)<128:
+                if start is None:start=x
+            elif start is not None:
+                center=(start+x)/2
+                if start>dx and 5<=x-start<=44 and rear+30<=center<=sprite['width']-10:
+                    candidates.append((center,y))
+                start=None
+    clusters=[]
+    for center,y in candidates:
+        group=next((g for g in clusters if abs(statistics.median(p[0] for p in g)-center)<=2.5),None)
+        if group is None:clusters.append([(center,y)])
+        else:group.append((center,y))
+    if not clusters:raise ValueError(f'No front wheel arch for body {index+1}; explicit review required')
+    best=max(clusters,key=lambda g:len({p[1] for p in g}))
+    support=len({p[1] for p in best})
+    if support<3:raise ValueError(f'Ambiguous wheel arch for body {index+1}; explicit review required')
+    front=statistics.median(p[0] for p in best)
+    # Original 62x62 wheel artwork is rendered at half the car sprite scale.
+    # Its visible tyre is 50px wide, so the actual outside radius is 12.5px.
+    radius=12.5
+    wheel_audit.append({'car':index+1,'visible':True,'rear':rear,'front':front,'y':cy,
+                        'radius':radius,'arch_support_rows':support})
+    return [rear,front,cy,radius]
 
 manifest=[]
 for tid in sorted(needed):
@@ -101,11 +118,12 @@ for group,sprite in groups.items():
         header.append('{'+','.join(map(str,values))+'},')
     header.append('};')
 header.append('inline const Wheels wheelPositions[] = {')
-for frame in groups['cars']['frames']:
-    values=wheels(frame)
+for index,frame in enumerate(groups['cars']['frames']):
+    values=wheels(frame,index)
     header.append('{'+','.join(f'{v:.3f}f' for v in values)+'},')
 header+=['};','inline const int atlasIds[] = {'+','.join(map(str,sorted(needed)))+'};','}']
 (GAME/'src/art.hpp').write_text('\n'.join(header)+'\n')
+(GAME/'validation/wheel-anchors.json').write_text(json.dumps({'method':'Sprite rear origin and transparent front wheel arches; no width fallback', 'bodies':wheel_audit},indent=2)+'\n')
 
 font=Path('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf')
 if not font.exists():raise SystemExit('DejaVuSans.ttf is required for French UI text')
@@ -117,6 +135,6 @@ manifest.append({'file':'ui.ttf','sha256':hashlib.file_digest(font.open('rb'),'s
 (assets/'provenance.json').write_text(json.dumps({'source':'Supplied Unbound APK; extracted atlas pixels preserved',
   'apk_sha256':'2cc9c22512815321dd26e6ed5d61a11336f1b5cd88c75ae1874ed921c26e9802',
   'car_frames':len(groups['cars']['frames']),'rim_frames':len(groups['rims']['frames']),
-  'wheel_positions':'Heuristic visual reconstruction, not recovered original coordinates',
+  'wheel_positions':'Rear axle from sprite origin; front axle from transparent arches; see validation/wheel-anchors.json; special archless body has no added wheels',
   'files':manifest},indent=2)+'\n')
 print(f"Prepared {len(needed)} atlases, {len(groups['cars']['frames'])} cars, {len(groups['rims']['frames'])} rims")

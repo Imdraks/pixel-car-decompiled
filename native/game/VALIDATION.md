@@ -1,6 +1,30 @@
-# Validation de la reconstruction native 0.3
+# Validation de la reconstruction native 0.3.1
 
-## Contrôles de la version 0.3
+## Correction des roues 0.3.1
+
+- Le placement proportionnel à la largeur de la carrosserie est supprimé. Le
+  point arrière utilise l’origine du sprite ; le point avant est mesuré dans
+  les ouvertures transparentes. La recherche échoue explicitement si un nouveau
+  sprite est ambigu, au lieu de choisir des coordonnées approximatives.
+- Pneus et jantes utilisent le même canevas de 62 × 62 et leur origine 31 × 31.
+  Le pneu original est rendu à demi-échelle de la carrosserie. Le fond du passage
+  de roue et les roues sont derrière les ailes, y compris les ailes couvrantes.
+- Cas signalé, carrosserie 021 : arrière (62, 58), avant (160, 58) ; rayon extérieur
+  du pneu 12,5 pixels dans le repère de la carrosserie.
+- Les 191 carrosseries ont été sélectionnées via les vrais boutons du garage,
+  capturées avec la jante 09 et revues sur 12 planches de rendu natif Linux.
+  Le sprite spécial 183 ne possède pas de passages de roue ; les roues ajoutées
+  artificiellement sont retirées sur ce modèle.
+- 46 contrôles du cœur et 15 contrôles graphiques Linux passent. La physique du
+  modèle de référence est conservée ; les mesures du banc ne changent pas.
+- Métadonnées : `validation/wheel-anchors.json`. Rapports :
+  `validation/wheels-0.3.1/`. Reproduction visuelle sous XTest :
+  `tests/wheel_visual_audit.py`, dans un écran X isolé et un dossier neuf.
+- Le test graphique Windows de la release utilise maintenant la carrosserie 021
+  et la jante 09 pour produire les captures du cas signalé. La publication est
+  conditionnée aux contrôles Windows du cœur, du banc et du rendu.
+
+## Historique : contrôles de la version 0.3
 
 - 43 contrôles du cœur réussis sur Linux : simulation indépendante des FPS,
   conduite, boîte, adhérence commune aux freins, transfert de poids selon

@@ -1,0 +1,1720 @@
+{
+  "method": "Sprite rear origin and transparent front wheel arches; no width fallback",
+  "bodies": [
+    {
+      "car": 1,
+      "visible": true,
+      "rear": 62,
+      "front": 161.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 2,
+      "visible": true,
+      "rear": 62,
+      "front": 162.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 3,
+      "visible": true,
+      "rear": 62,
+      "front": 162.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 4,
+      "visible": true,
+      "rear": 62,
+      "front": 161.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 5,
+      "visible": true,
+      "rear": 62,
+      "front": 156.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 6,
+      "visible": true,
+      "rear": 62,
+      "front": 151.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 7,
+      "visible": true,
+      "rear": 62,
+      "front": 158.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 8,
+      "visible": true,
+      "rear": 62,
+      "front": 155.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 9,
+      "visible": true,
+      "rear": 62,
+      "front": 156.75,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 10,
+      "visible": true,
+      "rear": 62,
+      "front": 153.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 11,
+      "visible": true,
+      "rear": 62,
+      "front": 151.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 12,
+      "visible": true,
+      "rear": 62,
+      "front": 156.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 13,
+      "visible": true,
+      "rear": 62,
+      "front": 152.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 14,
+      "visible": true,
+      "rear": 62,
+      "front": 154.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 15,
+      "visible": true,
+      "rear": 62,
+      "front": 162.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 16,
+      "visible": true,
+      "rear": 62,
+      "front": 155.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 17,
+      "visible": true,
+      "rear": 62,
+      "front": 159.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 18,
+      "visible": true,
+      "rear": 62,
+      "front": 165.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 19,
+      "visible": true,
+      "rear": 62,
+      "front": 165.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 20,
+      "visible": true,
+      "rear": 62,
+      "front": 158.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 21,
+      "visible": true,
+      "rear": 62,
+      "front": 160.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 22,
+      "visible": true,
+      "rear": 62,
+      "front": 162.75,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 23,
+      "visible": true,
+      "rear": 62,
+      "front": 125.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 3
+    },
+    {
+      "car": 24,
+      "visible": true,
+      "rear": 62,
+      "front": 163.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 25,
+      "visible": true,
+      "rear": 62,
+      "front": 158.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 26,
+      "visible": true,
+      "rear": 62,
+      "front": 161.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 27,
+      "visible": true,
+      "rear": 62,
+      "front": 161.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 28,
+      "visible": true,
+      "rear": 62,
+      "front": 156.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 29,
+      "visible": true,
+      "rear": 62,
+      "front": 162.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 30,
+      "visible": true,
+      "rear": 62,
+      "front": 162.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 31,
+      "visible": true,
+      "rear": 62,
+      "front": 161.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 32,
+      "visible": true,
+      "rear": 62,
+      "front": 159.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 33,
+      "visible": true,
+      "rear": 62,
+      "front": 151.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 34,
+      "visible": true,
+      "rear": 62,
+      "front": 158.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 35,
+      "visible": true,
+      "rear": 62,
+      "front": 161.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 36,
+      "visible": true,
+      "rear": 62,
+      "front": 153.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 37,
+      "visible": true,
+      "rear": 62,
+      "front": 157.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 38,
+      "visible": true,
+      "rear": 62,
+      "front": 159.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 39,
+      "visible": true,
+      "rear": 62,
+      "front": 162.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 40,
+      "visible": true,
+      "rear": 62,
+      "front": 158.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 41,
+      "visible": true,
+      "rear": 62,
+      "front": 158.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 42,
+      "visible": true,
+      "rear": 62,
+      "front": 154.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 43,
+      "visible": true,
+      "rear": 62,
+      "front": 159.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 44,
+      "visible": true,
+      "rear": 62,
+      "front": 165.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 45,
+      "visible": true,
+      "rear": 62,
+      "front": 164.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 46,
+      "visible": true,
+      "rear": 62,
+      "front": 161.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 47,
+      "visible": true,
+      "rear": 62,
+      "front": 153.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 48,
+      "visible": true,
+      "rear": 62,
+      "front": 158.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 49,
+      "visible": true,
+      "rear": 62,
+      "front": 143.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 50,
+      "visible": true,
+      "rear": 62,
+      "front": 147.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 51,
+      "visible": true,
+      "rear": 62,
+      "front": 164.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 52,
+      "visible": true,
+      "rear": 62,
+      "front": 164.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 53,
+      "visible": true,
+      "rear": 62,
+      "front": 163.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 12
+    },
+    {
+      "car": 54,
+      "visible": true,
+      "rear": 62,
+      "front": 161.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 55,
+      "visible": true,
+      "rear": 62,
+      "front": 162.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 56,
+      "visible": true,
+      "rear": 62,
+      "front": 158.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 57,
+      "visible": true,
+      "rear": 62,
+      "front": 150.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 58,
+      "visible": true,
+      "rear": 62,
+      "front": 158.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 59,
+      "visible": true,
+      "rear": 62,
+      "front": 163.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 60,
+      "visible": true,
+      "rear": 62,
+      "front": 155.25,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 61,
+      "visible": true,
+      "rear": 62,
+      "front": 165.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 62,
+      "visible": true,
+      "rear": 62,
+      "front": 162.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 63,
+      "visible": true,
+      "rear": 62,
+      "front": 157.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 64,
+      "visible": true,
+      "rear": 62,
+      "front": 148.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 65,
+      "visible": true,
+      "rear": 62,
+      "front": 163.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 66,
+      "visible": true,
+      "rear": 62,
+      "front": 135.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 67,
+      "visible": true,
+      "rear": 62,
+      "front": 155.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 68,
+      "visible": true,
+      "rear": 62,
+      "front": 167.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 69,
+      "visible": true,
+      "rear": 62,
+      "front": 161.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 11
+    },
+    {
+      "car": 70,
+      "visible": true,
+      "rear": 62,
+      "front": 164.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 71,
+      "visible": true,
+      "rear": 62,
+      "front": 162.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 72,
+      "visible": true,
+      "rear": 62,
+      "front": 167.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 73,
+      "visible": true,
+      "rear": 62,
+      "front": 161.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 74,
+      "visible": true,
+      "rear": 62,
+      "front": 152.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 75,
+      "visible": true,
+      "rear": 62,
+      "front": 151.75,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 12
+    },
+    {
+      "car": 76,
+      "visible": true,
+      "rear": 62,
+      "front": 159.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 7
+    },
+    {
+      "car": 77,
+      "visible": true,
+      "rear": 62,
+      "front": 155.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 78,
+      "visible": true,
+      "rear": 62,
+      "front": 158.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 79,
+      "visible": true,
+      "rear": 62,
+      "front": 163.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 80,
+      "visible": true,
+      "rear": 62,
+      "front": 165.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 81,
+      "visible": true,
+      "rear": 62,
+      "front": 166.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 82,
+      "visible": true,
+      "rear": 62,
+      "front": 168.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 83,
+      "visible": true,
+      "rear": 62,
+      "front": 150.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 84,
+      "visible": true,
+      "rear": 62,
+      "front": 159.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 85,
+      "visible": true,
+      "rear": 62,
+      "front": 159.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 86,
+      "visible": true,
+      "rear": 62,
+      "front": 165.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 87,
+      "visible": true,
+      "rear": 62,
+      "front": 157.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 88,
+      "visible": true,
+      "rear": 62,
+      "front": 157.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 89,
+      "visible": true,
+      "rear": 62,
+      "front": 156.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 90,
+      "visible": true,
+      "rear": 62,
+      "front": 161.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 91,
+      "visible": true,
+      "rear": 62,
+      "front": 153.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 92,
+      "visible": true,
+      "rear": 62,
+      "front": 155.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 93,
+      "visible": true,
+      "rear": 62,
+      "front": 164.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 94,
+      "visible": true,
+      "rear": 62,
+      "front": 158.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 95,
+      "visible": true,
+      "rear": 62,
+      "front": 162.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 96,
+      "visible": true,
+      "rear": 62,
+      "front": 161.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 97,
+      "visible": true,
+      "rear": 62,
+      "front": 160.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 98,
+      "visible": true,
+      "rear": 62,
+      "front": 162.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 99,
+      "visible": true,
+      "rear": 62,
+      "front": 159.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 100,
+      "visible": true,
+      "rear": 62,
+      "front": 164.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 101,
+      "visible": true,
+      "rear": 62,
+      "front": 150.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 102,
+      "visible": true,
+      "rear": 62,
+      "front": 161.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 103,
+      "visible": true,
+      "rear": 62,
+      "front": 160.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 104,
+      "visible": true,
+      "rear": 62,
+      "front": 158.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 105,
+      "visible": true,
+      "rear": 62,
+      "front": 165.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 106,
+      "visible": true,
+      "rear": 62,
+      "front": 159.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 107,
+      "visible": true,
+      "rear": 62,
+      "front": 161.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 108,
+      "visible": true,
+      "rear": 62,
+      "front": 160.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 109,
+      "visible": true,
+      "rear": 62,
+      "front": 154.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 110,
+      "visible": true,
+      "rear": 62,
+      "front": 155.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 111,
+      "visible": true,
+      "rear": 62,
+      "front": 161.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 112,
+      "visible": true,
+      "rear": 62,
+      "front": 156.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 113,
+      "visible": true,
+      "rear": 62,
+      "front": 158.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 114,
+      "visible": true,
+      "rear": 62,
+      "front": 159.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 115,
+      "visible": true,
+      "rear": 62,
+      "front": 163.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 116,
+      "visible": true,
+      "rear": 62,
+      "front": 161.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 117,
+      "visible": true,
+      "rear": 62,
+      "front": 156.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 118,
+      "visible": true,
+      "rear": 62,
+      "front": 158.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 119,
+      "visible": true,
+      "rear": 62,
+      "front": 163.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 120,
+      "visible": true,
+      "rear": 62,
+      "front": 162.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 121,
+      "visible": true,
+      "rear": 62,
+      "front": 161.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 122,
+      "visible": true,
+      "rear": 62,
+      "front": 167.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 123,
+      "visible": true,
+      "rear": 62,
+      "front": 160.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 124,
+      "visible": true,
+      "rear": 62,
+      "front": 167.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 125,
+      "visible": true,
+      "rear": 62,
+      "front": 157.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 11
+    },
+    {
+      "car": 126,
+      "visible": true,
+      "rear": 62,
+      "front": 160.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 127,
+      "visible": true,
+      "rear": 62,
+      "front": 157.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 11
+    },
+    {
+      "car": 128,
+      "visible": true,
+      "rear": 62,
+      "front": 154.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 129,
+      "visible": true,
+      "rear": 62,
+      "front": 155.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 130,
+      "visible": true,
+      "rear": 62,
+      "front": 160.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 131,
+      "visible": true,
+      "rear": 62,
+      "front": 154.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 132,
+      "visible": true,
+      "rear": 62,
+      "front": 153.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 133,
+      "visible": true,
+      "rear": 62,
+      "front": 159.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 134,
+      "visible": true,
+      "rear": 62,
+      "front": 157.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 135,
+      "visible": true,
+      "rear": 62,
+      "front": 133.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 136,
+      "visible": true,
+      "rear": 62,
+      "front": 153.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 137,
+      "visible": true,
+      "rear": 62,
+      "front": 156.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 138,
+      "visible": true,
+      "rear": 62,
+      "front": 151.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 11
+    },
+    {
+      "car": 139,
+      "visible": true,
+      "rear": 62,
+      "front": 145.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 140,
+      "visible": true,
+      "rear": 62,
+      "front": 149.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 141,
+      "visible": true,
+      "rear": 62,
+      "front": 150.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 142,
+      "visible": true,
+      "rear": 62,
+      "front": 150.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 143,
+      "visible": true,
+      "rear": 62,
+      "front": 149.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 144,
+      "visible": true,
+      "rear": 62,
+      "front": 145.75,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 145,
+      "visible": true,
+      "rear": 62,
+      "front": 152.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 146,
+      "visible": true,
+      "rear": 62,
+      "front": 166.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 12
+    },
+    {
+      "car": 147,
+      "visible": true,
+      "rear": 62,
+      "front": 155.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 148,
+      "visible": true,
+      "rear": 62,
+      "front": 157.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 149,
+      "visible": true,
+      "rear": 62,
+      "front": 158.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 150,
+      "visible": true,
+      "rear": 62,
+      "front": 160.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 151,
+      "visible": true,
+      "rear": 62,
+      "front": 164.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 152,
+      "visible": true,
+      "rear": 62,
+      "front": 151.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 153,
+      "visible": true,
+      "rear": 62,
+      "front": 160.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 154,
+      "visible": true,
+      "rear": 62,
+      "front": 162.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 155,
+      "visible": true,
+      "rear": 62,
+      "front": 150.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 156,
+      "visible": true,
+      "rear": 62,
+      "front": 157.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 157,
+      "visible": true,
+      "rear": 62,
+      "front": 167.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 158,
+      "visible": true,
+      "rear": 62,
+      "front": 161.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 159,
+      "visible": true,
+      "rear": 62,
+      "front": 152.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 160,
+      "visible": true,
+      "rear": 62,
+      "front": 153.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 161,
+      "visible": true,
+      "rear": 62,
+      "front": 156.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 162,
+      "visible": true,
+      "rear": 62,
+      "front": 150.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 163,
+      "visible": true,
+      "rear": 62,
+      "front": 160.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 164,
+      "visible": true,
+      "rear": 62,
+      "front": 153.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 165,
+      "visible": true,
+      "rear": 62,
+      "front": 158.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 166,
+      "visible": true,
+      "rear": 62,
+      "front": 153.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 167,
+      "visible": true,
+      "rear": 62,
+      "front": 157.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 168,
+      "visible": true,
+      "rear": 62,
+      "front": 159.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 169,
+      "visible": true,
+      "rear": 62,
+      "front": 147.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 170,
+      "visible": true,
+      "rear": 62,
+      "front": 143.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 171,
+      "visible": true,
+      "rear": 62,
+      "front": 173.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 8
+    },
+    {
+      "car": 172,
+      "visible": true,
+      "rear": 62,
+      "front": 172.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 173,
+      "visible": true,
+      "rear": 62,
+      "front": 171.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 174,
+      "visible": true,
+      "rear": 62,
+      "front": 173.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 11
+    },
+    {
+      "car": 175,
+      "visible": true,
+      "rear": 62,
+      "front": 158.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 11
+    },
+    {
+      "car": 176,
+      "visible": true,
+      "rear": 62,
+      "front": 161.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 177,
+      "visible": true,
+      "rear": 62,
+      "front": 161.25,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 178,
+      "visible": true,
+      "rear": 62,
+      "front": 165.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 179,
+      "visible": true,
+      "rear": 62,
+      "front": 164.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 180,
+      "visible": true,
+      "rear": 62,
+      "front": 149.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 181,
+      "visible": true,
+      "rear": 62,
+      "front": 170.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 182,
+      "visible": true,
+      "rear": 62,
+      "front": 165.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 183,
+      "visible": false,
+      "reason": "Special body without wheel arches"
+    },
+    {
+      "car": 184,
+      "visible": true,
+      "rear": 62,
+      "front": 150.5,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 14
+    },
+    {
+      "car": 185,
+      "visible": true,
+      "rear": 62,
+      "front": 168.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 186,
+      "visible": true,
+      "rear": 62,
+      "front": 156.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 187,
+      "visible": true,
+      "rear": 62,
+      "front": 162.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 188,
+      "visible": true,
+      "rear": 62,
+      "front": 160.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 13
+    },
+    {
+      "car": 189,
+      "visible": true,
+      "rear": 62,
+      "front": 162.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 190,
+      "visible": true,
+      "rear": 62,
+      "front": 161.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    },
+    {
+      "car": 191,
+      "visible": true,
+      "rear": 62,
+      "front": 153.0,
+      "y": 58,
+      "radius": 12.5,
+      "arch_support_rows": 15
+    }
+  ]
+}

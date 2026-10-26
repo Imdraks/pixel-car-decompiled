@@ -1,5 +1,6 @@
 #include "model.hpp"
 #include "benchmark.hpp"
+#include "art.hpp"
 #include <cmath>
 #include <filesystem>
 #include <fstream>
@@ -19,6 +20,18 @@ int main(int argc,char**argv){
  try{
     if(argc!=2)throw std::runtime_error("Supply an isolated test directory");
     auto root=std::filesystem::u8path(argv[1]);std::filesystem::create_directories(root);
+    // Manually checked against the supplied alpha cutouts for the reported body.
+    const auto& reportedWheels=art::wheelPositions[20];
+    expect(reportedWheels.rear==62&&reportedWheels.front==160&&reportedWheels.y==58&&reportedWheels.radius==12.5f,
+           "body 021 wheels align with the actual arches instead of body-width fractions");
+    expect(art::wheelPositions[22].front==125&&art::wheelPositions[190].front==153,
+           "short and long wheelbases have independent front axle anchors");
+    bool anchorsValid=std::size(art::wheelPositions)==std::size(art::cars);
+    for(size_t i=0;i<std::size(art::wheelPositions);++i){
+        const auto& w=art::wheelPositions[i];
+        anchorsValid&=i==182?w.radius==0:(w.rear==62&&w.front>w.rear+30&&w.front<art::cars[i].canvasW&&w.y==58&&w.radius==12.5f);
+    }
+    expect(anchorsValid,"all car bodies have reviewed wheel anchors or an explicit archless exception");
     auto reference=simulated(30,false);
     expect(reference.finished&&reference.finishTime>8&&reference.finishTime<40,"native car completes quarter mile");
     for(int fps:{60,120,144,165,240}){auto c=simulated(fps,false);expect(std::abs(c.finishTime-reference.finishTime)<1e-9,"simulation independent of rendering rate");}

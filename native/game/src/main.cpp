@@ -84,15 +84,22 @@ struct App {
     void car(int index,int rim,float x,float y,float scale,double speed,bool shadow=true){
         index=(index+191)%191;rim=(rim+54)%54;auto w=art::wheelPositions[index];
         if(shadow&&settings.quality!=Quality::Low)DrawEllipse(int(x+110*scale),int(y+(w.y+w.radius)*scale),int(87*scale),int(6*scale),Fade(BLACK,.35f));
-        frame(art::cars[index],x,y,scale);
-        for(float cx:{w.rear,w.front}){
-            Vector2 center{x+cx*scale,y+w.y*scale};float radius=w.radius*scale;
-            DrawCircleV(center,radius,Color{12,13,18,255});
-            const auto& f=art::rims[rim];float size=radius*1.48f;
-            float ratio=size/62.0f;
-            DrawTexturePro(atlases.at(f.atlas),{float(f.x),float(f.y),float(f.w),float(f.h)},
-                {center.x,center.y,f.w*ratio,f.h*ratio},{(31-f.dx)*ratio,(31-f.dy)*ratio},float(speed*GetTime()*8),WHITE);
+        // Draw the body last: opaque fenders and skirts must cover the tyres.
+        // All cropped wheel sprites use their original 62x62 canvas and origin.
+        if(w.radius>0)for(float cx:{w.rear,w.front}){
+            Vector2 center{x+cx*scale,y+w.y*scale};
+            auto centered=[&](const art::Frame& f,float factor,float ox,float oy,float angle){
+                DrawTexturePro(atlases.at(f.atlas),{float(f.x),float(f.y),float(f.w),float(f.h)},
+                    {center.x,center.y,f.w*factor,f.h*factor},
+                    {(ox-f.dx)*factor,(oy-f.dy)*factor},angle,WHITE);
+            };
+            centered(art::wheelWells[0],scale,20,36,0);
+            DrawCircleV(center,w.radius*.78f*scale,Color{12,13,18,255});
+            float wheelScale=scale*(w.radius/25.f);
+            centered(art::tires[0],wheelScale,31,31,float(speed*GetTime()*8));
+            centered(art::rims[rim],wheelScale,31,31,float(speed*GetTime()*8));
         }
+        frame(art::cars[index],x,y,scale);
     }
     std::vector<Resolution> resolutions(WindowMode mode){
         std::vector<Resolution> values;
@@ -166,7 +173,7 @@ struct App {
         if(!fs::exists(args.assets/"provenance.json"))throw std::runtime_error("Ressources manquantes. Extrayez entièrement le ZIP, puis lancez PixelCarRacerNative.exe.");
         settings=loadSettings(settingFile());profile=loadProfile(profileFile(),191,54);
         if(args.safe){settings=Settings{};settings.width=960;settings.height=540;settings.vsync=false;settings.fps=60;}
-        if(args.smoke){settings=Settings{};settings.width=960;settings.height=540;settings.vsync=false;settings.fps=0;settings.sound=false;}
+        if(args.smoke){profile.car=20;profile.rim=8;settings=Settings{};settings.width=960;settings.height=540;settings.vsync=false;settings.fps=0;settings.sound=false;}
         SetTraceLogLevel(LOG_WARNING);SetConfigFlags(FLAG_WINDOW_RESIZABLE);
         InitWindow(960,540,"Pixel Car Racer | Unbound Native");
         if(!IsWindowReady())throw std::runtime_error("Impossible d'ouvrir une fenêtre OpenGL 3.3.");
@@ -207,7 +214,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.3",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.3.1",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},"GARAGE"))screen=Screen::Garage;
@@ -340,7 +347,7 @@ struct App {
     void smoke(){
         if(frames==5)capture("menu.png");
         if(frames==6)screen=Screen::Garage;
-        if(frames==7)capture("garage.png");
+        if(frames==8)capture("garage.png");
         if(frames==8)beginFree();
         if(frames==75){check(drive.player.position>0,"free drive advances");capture("mode-libre.png");}
         if(frames==76){drive.changeLane(1);check(drive.targetLane==2,"lane input");}

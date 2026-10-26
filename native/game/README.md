@@ -1,4 +1,4 @@
-# Pixel Car Racer — Unbound Native 0.3
+# Pixel Car Racer — Unbound Native 0.3.1
 
 Cette première reconstruction **native Windows x64** propose un mode libre
 jouable avec les ressources d'Unbound. Le programme ne lance ni APK, ni Android,
@@ -7,6 +7,10 @@ ni émulateur. Il fonctionne hors ligne après extraction de l'archive.
 Ce n'est pas encore le portage complet et fidèle du jeu original : la conduite
 et la circulation sont réimplémentées. La base originale 1.2.5 n'est pas fusionnée
 avec le mod. Le moteur GameMaker YYC d'origine n'a pas été recompilé.
+
+La version **0.3.1** corrige le placement des roues sur l’ensemble des
+carrosseries : empattement propre à chaque image, pneus et jantes à leur échelle,
+passages de roue et ailes dessinés dans le bon ordre.
 
 ## Priorité actuelle : physique
 
@@ -43,7 +47,8 @@ arrêtent la simulation, puis reprennent la session en cours.
 Le garage permet de choisir parmi **191 images de carrosserie** et **54 styles
 de jantes** extraits d'Unbound. Ces nombres ne désignent pas 191 véhicules dont
 les statistiques d'origine auraient été reconstruites. Les performances moteur de base
-sont communes à cette version, et les coordonnées des roues sont estimées.
+sont communes à cette version. Les points de roue utilisent l’origine des sprites
+et leurs passages transparents, vérifiés sur l’ensemble des carrosseries.
 Le bouton **TRACTION / PROPULSION / 4 ROUES MOTRICES** du garage choisit une
 configuration d’essai : elle change réellement l’adhérence au départ et l’effet
 du transfert de poids. Le choix est sauvegardé et indiqué en mode libre. Il ne

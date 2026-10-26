@@ -1,0 +1,16 @@
+{
+  "platform": "Linux XTest, actual native renderer",
+  "body_count": 191,
+  "rim_style": 9,
+  "all_body_screenshots_present": true,
+  "free_drive_moves": true,
+  "normal_exit": true,
+  "reported_case": "captures/car-021.png",
+  "note": "Captured pixels require visual review; capture count alone does not establish alignment.",
+  "visual_review": {
+    "reviewed_body_count": 191,
+    "sheets": 12,
+    "reported_body_021": "Centres, tyre size and fender occlusion checked in native screenshot",
+    "special_body_183": "Opaque sled/box sprite has no wheel arches; no extra wheels are rendered"
+  }
+}
