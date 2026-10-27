@@ -9,6 +9,24 @@
   sur périphérique logiciel ; aucune revendication d’écoute physique.
 - Correspondances : `ENGINE-AUDIO.md` et `../evidence/merged/engine-audio-assignments.json`.
 
+## Publication Windows vérifiée — 0.13.4
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40559696895) : 321 contrôles du cœur, 83 graphiques et 188 sons décodés.
+- Les 32 cas moteur/banque sont vérifiés sous Windows. La table des profils,
+  les 16 associations AUTO et le profil par défaut de relâchement sont récupérés
+  indépendamment dans les deux codes source Android.
+- Mixage logiciel Linux des 16 profils manuels et des 16 moteurs AUTO dans chaque
+  banque, charge et relâchement : PCM non silencieux, aucune erreur de décodage.
+- 1528 compositions et mesures physiques concordent avec Linux ; les contrôles
+  pixels des matériaux, huit fumées, NOS/flammes et défilement réussissent.
+- Archive publique redéchargée : CRC, SHA-256, EXE, source compilée et treize
+  aperçus Windows vérifiés. Restauration vide puis réutilisation : 248 ressources.
+- Rapports : `validation/windows-0.13.4/` et `validation/engine-audio-0.13.4/`.
+  Périphérique audio logiciel et rendu Mesa ; haut-parleurs et GPU physiques non testés.
+- Source compilée : `28cd5877cbdc221c7d4533f6cd1e3e6cdec3e5e7`.
+- ZIP : 59478750 octets, SHA-256 `3c2888c196bc135b3e0cc461dfa9537d3201f009eb11919cd10e164bf40350ab`.
+- EXE : SHA-256 `c494663eb5c53eed81ee419bafc4a7d604da9110c9b2b87eebefce16d467637b`.
+
 # Validation 0.13.3 — régime libre au frein à main et puissance/cabrage
 
 - 319 contrôles du cœur Linux réussis. Trois transmissions vérifiées : régime
