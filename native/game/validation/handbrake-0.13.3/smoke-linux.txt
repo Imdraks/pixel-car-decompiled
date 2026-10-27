@@ -80,4 +80,6 @@ PASS balanced static weight setting preserves independent wheelie tuning
 PASS blue wheelie-to-balanced control persists independently of static axle balance
 PASS handbrake permits free engine revs while locking the rear wheels without NOS
 PASS releasing handbrake with throttle reconnects and launches the vehicle
-cap_30_fps_elapsed_for_30_frames=1.02085
+PASS rev limiter handbrake release with TC off transmits stored RPM into actual driven-wheel spin
+PASS traction control regulates the same rev-limiter launch
+cap_30_fps_elapsed_for_30_frames=1.0195

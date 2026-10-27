@@ -1,3 +1,12 @@
+## Départ à haut régime et patinage (0.13.3)
+
+Avec le **TC désactivé**, prendre des tours avec **Espace + accélérateur** ou
+**V + accélérateur**, puis relâcher Espace/V en gardant les gaz, provoque un
+patinage selon le couple moteur, le régime initial, les rapports et l’adhérence.
+Les roues motrices tournent indépendamment de la vitesse au sol ; la fumée suit
+le glissement et conserve la couleur des pneus. Le TC activé régule le départ.
+[Calcul natif et limites](DRAG.md#départ-au-rupteur--0133).
+
 ## Moteur libre au frein à main (0.13.3)
 
 Avec Espace maintenu, le moteur est débrayé : l’accélérateur fait monter les tours

@@ -98,3 +98,11 @@ Les vignettes composent pneu et jante sur leur canevas commun, sans agrandir
 indépendamment les images rognées. Le rendu de la voiture et du trafic emploie
 le même catalogue. Une sauvegarde utilisant un ancien calque invalide retrouve
 la jante 09 sans perdre ses autres réglages.
+
+
+Avec le **TC désactivé**, prendre des tours avec **Espace + accélérateur** ou
+**V + accélérateur**, puis relâcher Espace/V en gardant les gaz, provoque un
+patinage selon le couple moteur, le régime initial, les rapports et l’adhérence.
+Les roues motrices tournent indépendamment de la vitesse au sol ; la fumée suit
+le glissement et conserve la couleur des pneus. Le TC activé régule le départ.
+[Calcul natif et limites](DRAG.md#départ-au-rupteur--0133).

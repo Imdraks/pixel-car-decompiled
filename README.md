@@ -10,7 +10,10 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 La version **0.13.3** permet de prendre des tours avec **Espace + accélérateur**,
 comme au point mort, en gardant les roues arrière bloquées. Relâcher Espace
-réengage la transmission et permet le départ. Le son moteur suit le régime.
+réengage la transmission et permet le départ. Avec le TC désactivé, relâcher
+le frein à main ou le point mort à haut régime fait patiner les roues motrices :
+le couple et l’inertie déterminent la durée et l’intensité, ainsi que la fumée.
+Le son moteur suit le régime.
 
 La version **0.13.2** ajoute la barre bleue **Wheelie → Balanced** et corrige la
 liaison des roues à leurs points de suspension pendant le cabrage. Les courses
@@ -111,9 +114,9 @@ de transmission sont conservées. L’équivalence avec Android n’est pas vali
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-310 contrôles du cœur et 81 contrôles graphiques passent sous Linux et Windows ; les mesures
+319 contrôles du cœur et 83 contrôles graphiques passent sous Linux et Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
-Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 152 contrôles
+Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 160 contrôles
 clavier/souris et 192 416 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.
 
 La [recherche ciblée YYC](native/evidence/unbound/physics/README.md) a vérifié

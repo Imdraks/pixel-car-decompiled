@@ -150,3 +150,21 @@ thermiques/de motricité et la chaîne RPM–rapports–accélération, avec ré
 des appels indirects, unités et conditions de course. Elles doivent ensuite être
 comparées à des relevés du jeu original avant de remplacer les équations natives.
 La correction 0.13.1 stabilise le préréglage ; elle ne prétend pas achever ce portage.
+
+## Départ au rupteur — 0.13.3
+
+Maintenir Espace ou le point mort avec l’accélérateur laisse monter le moteur.
+Au relâchement, TC désactivé, l’inertie moteur et celle des roues motrices
+déterminent le régime après embrayage. Le couple excédant l’adhérence accélère
+les roues, au lieu de faire immédiatement retomber le moteur au régime de départ.
+La fumée augmente avec le patinage et garde la couleur du pneu équipé. Le TC
+activé utilise le lancement régulé ; le maintien du launch control reste prioritaire.
+
+Sur le même châssis natif, sans NOS, un lâcher à haut régime donne respectivement
+6,09 / 7,75 / 27,75 m de glissement cumulé pour 200 / 400 / 1200 ch ; les durées
+sont 0,47 / 0,61 / 1,90 s. Frein à main et point mort donnent les mêmes résultats.
+Ces valeurs dépendent des pneus, des rapports, de la masse et du régime initial.
+Les inerties (moteur 0,24 kg·m², roues motrices 2,4 kg·m²), l’embrayage instantané
+et la courbe de glissement sont des calibrations natives, sans mesure constructeur
+ou équivalence Android. Le couplage conserve le moment angulaire et dissipe
+de l’énergie ; les vérifications couvrent aussi traction, propulsion et intégrale.

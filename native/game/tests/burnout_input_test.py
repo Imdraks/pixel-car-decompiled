@@ -20,11 +20,11 @@ def check(name, value):
         raise RuntimeError('Failed: ' + name)
 
 
-def scenario(name, actions, automatic=True):
+def scenario(name, actions, automatic=True, tc=True, engine=0):
     root = a.output / name
     root.mkdir()
-    (root / 'profile.ini').write_text('car=20\ndrive=1\nautomatic=' + str(int(automatic)) + '\npart_tires=10009\npart_nos=5007\n')
-    (root / 'settings.ini').write_text('width=960\nheight=540\nfps=60\nvsync=0\nsound=0\ntraffic=0\n')
+    (root / 'profile.ini').write_text('car=20\ndrive=1\nautomatic=' + str(int(automatic)) + '\npart_engine='+str(engine)+'\npart_tires=10009\npart_nos=5007\n')
+    (root / 'settings.ini').write_text('width=960\nheight=540\nfps=60\nvsync=0\nsound=0\ntraffic=0\ntraction_control='+str(int(tc))+'\n')
     def xdo(*args):
         return subprocess.check_output([str(a.xdotool), *map(str, args)], text=True, stderr=subprocess.DEVNULL).strip()
     held = set()
@@ -89,5 +89,14 @@ check('handbrake_allows_free_engine_revs',hrev['handbraking']=='1' and float(hre
 check('revving_handbrake_keeps_car_stationary',float(hrev['distance_m'])==0 and float(hrev['rear_roll_m'])==0 and float(hrev['front_roll_m'])==0 and hrev['nitro_active']=='0')
 hlaunch = scenario('handbrake_release', [('space',True,.1),('w',True,.8),('space',False,1.2)])
 check('releasing_handbrake_launches_with_throttle',hlaunch['handbraking']=='0' and float(hlaunch['distance_m'])>1)
+release_keys=[('space',True,.1),('w',True,1.2),('space',False,1.6)]
+weak=scenario('rev_release_weak',release_keys,tc=False,engine=1001)
+strong=scenario('rev_release_strong',release_keys,tc=False,engine=1014)
+check('tc_off_rev_release_spins_driven_wheels',float(strong['launch_slip_distance'])>2 and float(strong['rear_roll_m'])>float(strong['front_roll_m'])+2)
+check('stronger_equipped_engine_sustains_more_launch_spin',float(strong['launch_slip_distance'])>float(weak['launch_slip_distance']))
+controlled=scenario('rev_release_controlled',release_keys,tc=True,engine=1014)
+check('traction_control_limits_rev_release_spin',float(controlled['launch_slip_distance'])==0)
+nspin=scenario('neutral_rev_release',[('v',True,.1),('w',True,1.2),('v',False,1.6)],tc=False,engine=1014)
+check('neutral_rupteur_release_also_produces_launch_spin',float(nspin['launch_slip_distance'])>2 and nspin['neutral']=='0')
 (a.output / 'report.json').write_text(json.dumps({'checks': checks, 'sessions': sessions}, indent=2) + '\n')
 print('PASS:', len(checks), 'actual keyboard burnout/neutral checks')

@@ -38,11 +38,12 @@ void DrivingEffects::update(const CarState& car,const Vehicle& vehicle,const Dri
     auto tyreSmoke=[&](double x,double y,bool skid){
         auto count=particles.size();add(skid?EffectKind::BrakeSmoke:EffectKind::Smoke,x,y,tireSmokeTint(source.tireFrame));
         if(car.burningOut&&particles.size()>count){particles.back().scale*=2;particles.back().vy*=1.3;particles.back().foreground=true;}
+        else if(slip&&!skid&&particles.size()>count)particles.back().scale*=.8+.7*std::clamp(car.wheelSlip/2,0.0,1.0);
     };
     if((slip||braking)&&smokeTimer<=0){
         if(car.rearLift<.005&&((slip&&vehicle.drive!=DriveLayout::Front)||rearBrake))tyreSmoke(source.rearWheel,source.rearWheelY>=0?source.rearWheelY:source.wheelY,rearBrake);
         if(car.frontLift<.005&&((slip&&vehicle.drive!=DriveLayout::Rear)||frontBrake))tyreSmoke(source.frontWheel,source.frontWheelY>=0?source.frontWheelY:source.wheelY,frontBrake);
-        smokeTimer=car.burningOut?.025:.045;
+        smokeTimer=car.burningOut?.025:slip?.06-.04*std::clamp(car.wheelSlip/2,0.0,1.0):.045;
     }
     auto jets=[&](EffectKind kind){for(int i=0;i<source.outletCount;i++){
         if(particles.size()>=256)break;

@@ -1,7 +1,7 @@
 # Pixel Car Racer — Unbound Native 0.13.3
 
 La version **0.13.3** permet d’accélérer moteur débrayé avec **Espace** maintenu :
-le moteur et son son prennent leurs tours, les roues arrière restent bloquées,
+le régime et le son moteur suivent l’accélérateur, les roues arrière restent bloquées,
 et le NOS reste coupé. Relâcher Espace réengage le rapport conservé avec une
 protection contre le surrégime. **Espace + Z/W/↑**, puis relâcher Espace pour partir.
 
@@ -275,3 +275,11 @@ Choisir un **dossier neuf** à chaque essai. Les sorties `physics-report.json` e
 premier rapport au limiteur. Elles n’affectent pas les sauvegardes du joueur.
 La référence `native-physics-baseline.json` du paquet décrit le modèle natif
 provisoire ; ce n’est pas une référence physique issue du jeu original.
+
+
+Avec le **TC désactivé**, prendre des tours avec **Espace + accélérateur** ou
+**V + accélérateur**, puis relâcher Espace/V en gardant les gaz, provoque un
+patinage selon le couple moteur, le régime initial, les rapports et l’adhérence.
+Les roues motrices tournent indépendamment de la vitesse au sol ; la fumée suit
+le glissement et conserve la couleur des pneus. Le TC activé régule le départ.
+[Calcul natif et limites](DRAG.md#départ-au-rupteur--0133).

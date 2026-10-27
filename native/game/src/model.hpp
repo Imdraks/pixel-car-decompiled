@@ -56,6 +56,7 @@ struct Vehicle {
     double shiftSeconds=.15, efficiency=.87, grip=1.08;
     double dragArea=.67, rollingResistance=.014, brakeDeceleration=8.5;
     double engineBrakeTorque=18;
+    double engineInertia=.24,drivenWheelInertia=2.4; // Native kg m² clutch-launch calibration.
     DriveLayout drive=DriveLayout::Rear;
     double drivenWeightFraction=.52, wheelbase=2.6, centreOfGravityHeight=.50;
     double curveRpmScale=1,boostEfficiency=.7;
@@ -96,6 +97,7 @@ struct CarState {
     int gear=1;
     double powerHp=0,boostPsi=0,nitroRemaining=10,wheelSlip=0; bool nitroActive=false,launching=false,handbraking=false; double rearRollDistance=0,frontRollDistance=0;
     bool neutral=false,burningOut=false,finished=false;
+    bool launchClutch=false;double launchWheelOmega=-1,launchSlipSeconds=0,launchSlipDistance=0;
     double pitch=0,pitchRate=0,heave=0,heaveRate=0,frontLoad=0,rearLoad=0,frontLift=0,rearLift=0,peakFrontLift=0;
     double tractionFactor=1,brakeSlip=0;
     bool wheelieBarContact=false,wheelieBarTouched=false;

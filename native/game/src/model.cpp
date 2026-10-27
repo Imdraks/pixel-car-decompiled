@@ -237,6 +237,7 @@ bool shift(CarState& car,int direction,const Vehicle& vehicle){
     int next=std::clamp(car.gear+(direction>0?1:-1),1,vehicle.gearCount);
     // Reject an unsafe downshift instead of allowing mechanically impossible RPM.
     if(next==car.gear||(next<car.gear&&wheelRpm(car,vehicle,next)>vehicle.redlineRpm))return false;
+    car.launchClutch=false;car.launchWheelOmega=-1;
     car.gear=next;car.shiftLock=vehicle.shiftSeconds;
     return true;
 }
@@ -253,7 +254,10 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
         // Reconnect safely even if the retained gear would over-rev the engine.
         while(s.gear<v.gearCount&&wheelRpm(s,v,s.gear)>v.redlineRpm)++s.gear;
         s.shiftLock=std::max(s.shiftLock,v.shiftSeconds);
+        s.launchClutch=v.tyreDynamics&&!v.tractionControl&&input.throttle&&!braking&&s.speed<8&&s.rpm>v.launchRpm*1.1;
+        s.launchWheelOmega=-1;
     }
+    if(freeRev||braking||!input.throttle||v.tractionControl){s.launchClutch=false;s.launchWheelOmega=-1;}
     s.burningOut=!s.neutral&&!input.handbrake&&input.brake&&input.throttle&&s.gear==1&&s.speed<3&&s.shiftLock==0;
     s.launching=!s.neutral&&v.twoStep&&input.launch&&input.throttle&&!braking&&s.speed<3;
     double coupled=wheelRpm(s,v,s.gear);
@@ -263,20 +267,29 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
                 &&wheelRpm(s,v,s.gear-1)<v.upshiftRpm*.9)shift(s,-1,v);
         coupled=wheelRpm(s,v,s.gear);
     }
+    double ratio=v.ratios[s.gear-1]*v.finalDrive;
+    bool launchStep=s.launchClutch&&s.shiftLock==0&&!s.launching;
+    if(launchStep&&s.launchWheelOmega<0){
+        // Couple a freely revving engine to the driven-wheel inertia. Angular
+        // momentum is conserved; clutch engagement dissipates, never adds, energy.
+        double engineOmega=s.rpm*2*3.141592653589793/60,roadOmega=s.speed/v.wheelRadius;
+        s.launchWheelOmega=(v.engineInertia*ratio*engineOmega+v.drivenWheelInertia*roadOmega)/(v.engineInertia*ratio*ratio+v.drivenWheelInertia);
+    }
     // Simplified slipping clutch below launch RPM. Above it, RPM follows wheel speed.
     double target=s.launching?4200:std::max(input.throttle&&!braking?v.launchRpm:v.idleRpm,coupled);
     if(freeRev||s.burningOut){
         target=input.throttle?v.redlineRpm*(s.burningOut?.90:.96):v.idleRpm;
         s.rpm+=std::clamp(target-s.rpm,-6500*dt,9000*dt);
-    }else if(s.shiftLock>0)s.rpm+=std::clamp(target-s.rpm,-13000*dt,15000*dt);
+    }else if(launchStep)s.rpm=std::clamp(s.launchWheelOmega*ratio*60/(2*3.141592653589793),v.idleRpm,v.redlineRpm);
+    else if(s.launchClutch&&s.shiftLock>0)s.rpm=std::min(s.rpm,v.redlineRpm*.96);
+    else if(s.shiftLock>0)s.rpm+=std::clamp(target-s.rpm,-13000*dt,15000*dt);
     else s.rpm=target;
-    double ratio=v.ratios[s.gear-1]*v.finalDrive;
     double boostTarget=!s.neutral&&input.throttle&&(!braking||s.launching||s.burningOut)&&s.shiftLock==0
         ?targetBoost(v,s.rpm):0;
     double boostRate=v.boostPsi*(boostTarget>s.boostPsi?(v.supercharged?10:2):8);
     s.boostPsi+=std::clamp(boostTarget-s.boostPsi,-boostRate*dt,boostRate*dt);
     double torque=engineTorque(v,s.rpm,s.boostPsi);
-    s.nitroActive=!s.neutral&&!s.burningOut&&input.nitro&&input.throttle&&!braking&&s.shiftLock==0&&!s.launching&&s.speed>2&&coupled<v.redlineRpm&&v.nitroHp>0&&s.nitroRemaining>0;
+    s.nitroActive=!s.neutral&&!s.burningOut&&input.nitro&&input.throttle&&!braking&&s.shiftLock==0&&!s.launching&&s.speed>2&&coupled<v.redlineRpm&&(!launchStep||s.rpm<v.redlineRpm*.995)&&v.nitroHp>0&&s.nitroRemaining>0;
     double nitroFraction=s.nitroActive?std::min(1.0,s.nitroRemaining/dt):0;
     if(s.nitroActive)s.nitroRemaining=std::max(0.0,s.nitroRemaining-dt);
     bool delivering=!s.neutral&&input.throttle&&!braking&&!s.launching&&s.shiftLock==0&&coupled<v.redlineRpm;
@@ -284,7 +297,8 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     double tractionLimit=v.suspensionDynamics?v.grip*(v.drive==DriveLayout::Front?s.frontLoad:v.drive==DriveLayout::Rear?s.rearLoad:s.frontLoad+s.rearLoad):drivenGrip(v,true);
     double wheelForce=!s.neutral&&input.throttle&&!braking&&!s.launching&&s.shiftLock==0&&coupled<v.redlineRpm
         ?torque*ratio*v.efficiency/v.wheelRadius:0;
-    wheelForce+=nitroFraction*v.nitroHp*745.699872*v.efficiency/std::max(10.0,s.speed);
+    wheelForce+=nitroFraction*v.nitroHp*745.699872*v.efficiency/std::max(10.0,launchStep?s.launchWheelOmega*v.wheelRadius:s.speed);
+    if(launchStep&&s.rpm>=v.redlineRpm*.995){wheelForce=0;s.powerHp=0;}
     if(v.tyreDynamics&&v.tractionControl&&delivering){
         double factor=std::min(1.0,.98*tractionLimit/std::max(1.0,wheelForce));
         s.tractionFactor+=std::clamp(factor-s.tractionFactor,-30*dt,2*dt);
@@ -303,6 +317,7 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     double totalGrip=v.suspensionDynamics?v.grip*(s.frontLoad+s.rearLoad):v.mass*9.81*v.grip;
     double brakingLimit=input.brake?totalGrip:input.handbrake?handbrakeLimit:drivenGrip(v,false);
     s.wheelSlip=std::clamp((driveDemand-tractionLimit)/std::max(1.0,tractionLimit),0.0,2.0);
+    if(launchStep)s.wheelSlip=std::clamp((s.launchWheelOmega*v.wheelRadius-s.speed)/std::max(2.0,s.speed),0.0,2.0);
     if(v.tyreDynamics){
         if(input.brake&&!s.burningOut&&s.speed>1&&-wheelForce>totalGrip){
             if(v.abs){s.absActive=true;s.brakeSlip=.12+.03*std::sin(s.elapsed*50);wheelForce=-totalGrip*.96;}
@@ -312,6 +327,18 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     }
     if(s.burningOut)s.wheelSlip=2*std::clamp((s.rpm-v.idleRpm)/(v.redlineRpm-v.idleRpm),0.0,1.0);
     double force=std::clamp(wheelForce,-brakingLimit,tractionLimit);
+    double launchTravel=-1;
+    if(launchStep){
+        double oldOmega=s.launchWheelOmega;
+        // Positive wheel slip supplies tyre force while excess axle torque
+        // accelerates the wheels/engine, instead of instantly dropping RPM.
+        force=tractionLimit*std::clamp(s.wheelSlip/.10,0.0,1.0);
+        double inertia=v.drivenWheelInertia+v.engineInertia*ratio*ratio;
+        s.launchWheelOmega=std::clamp(oldOmega+(wheelForce-force)*v.wheelRadius/inertia*dt,0.0,v.redlineRpm*2*3.141592653589793/(60*ratio));
+        launchTravel=(oldOmega+s.launchWheelOmega)*.5*v.wheelRadius*dt;
+        if(s.wheelSlip>.1)s.launchSlipSeconds+=dt;
+        if(s.launchWheelOmega*v.wheelRadius<=s.speed*1.03+.2){s.launchClutch=false;s.launchWheelOmega=-1;}
+    }
     double resistance=.5*1.225*v.dragArea*s.speed*s.speed+v.mass*9.81*v.rollingResistance;
     double previous=s.position,oldSpeed=s.speed;
     s.speed=std::max(0.0,s.speed+(force-resistance)/v.mass*dt);
@@ -321,6 +348,7 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     // Burnout wheel travel is independent of ground/camera travel, by driven axle.
     double spun=s.burningOut?std::max(traveled,s.rpm*2*3.141592653589793*v.wheelRadius/(60*ratio)*dt):traveled;
     if(v.tyreDynamics&&!s.burningOut&&delivering)spun=traveled*(1+s.wheelSlip);
+    if(launchTravel>=0){spun=std::max(traveled,launchTravel);s.launchSlipDistance+=std::max(0.0,spun-traveled);}
     double rolling=traveled*(1-s.brakeSlip);
     if(!s.burningOut&&!delivering)spun=rolling;
     if(!s.frontLocked)s.frontRollDistance+=v.drive!=DriveLayout::Rear&&!s.neutral?std::max(rolling,spun):rolling;

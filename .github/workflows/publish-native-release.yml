@@ -93,6 +93,10 @@ jobs:
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\customization-render.json" validation/customization-render.json
           $cosmetics = Get-Content validation/customization-render.json -Raw | ConvertFrom-Json
           if ($cosmetics.palette_shades_checked -ne 2376 -or $cosmetics.cosmetic_cases_checked -ne 192146 -or $cosmetics.hood_body_kit_pipe_cases -ne 14898 -or $cosmetics.rim_finish_recipes -ne 521 -or $cosmetics.hood_coordinates_recovered_from_android) { throw 'Customization source coverage differs' }
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\rev-launch.json" validation/rev-launch.json
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\rev-launch.csv" validation/rev-launch.csv
+          $revLaunch = Get-Content validation/rev-launch.json -Raw | ConvertFrom-Json
+          if ($revLaunch.power_levels_checked -ne 3 -or -not $revLaunch.handbrake_neutral_parity -or -not $revLaunch.stronger_power_more_spin -or $revLaunch.controlled_initial_slip_m -ne 0) { throw 'Rev-release launch spin failed' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\power-wheelie.json" validation/power-wheelie.json
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\power-wheelie.csv" validation/power-wheelie.csv
           $powerWheelie = Get-Content validation/power-wheelie.json -Raw | ConvertFrom-Json

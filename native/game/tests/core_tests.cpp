@@ -754,6 +754,58 @@ int main(int argc,char**argv){
     expect(strongerWheelie&&samePowerChassis,"higher engine power produces stronger wheelie on the same gripping chassis across five controlled power levels");
     expect(liftTimes[2]>liftTimes[3]&&liftTimes[3]>liftTimes[4],"stronger engines unload the front axle earlier under the same launch controls");
     {std::ofstream out(root/"power-wheelie.json");out<<"{\n  \"power_levels_checked\": 5,\n  \"same_chassis_and_grip\": "<<(samePowerChassis?"true":"false")<<",\n  \"stronger_wheelie_verified\": "<<(strongerWheelie?"true":"false")<<",\n  \"native_calibration\": true\n}\n";}
+    std::array<double,3> launchPowers{200,400,1200};std::array<double,3> launchExcess{};std::array<double,3> launchDuration{};
+    std::ofstream revLaunchTrace(root/"rev-launch.csv");revLaunchTrace<<"power_hp,tc,release,spin_seconds,launch_slip_m,total_slip_m,distance_4s_m\n";
+    bool releaseParity=true,launchFinite=true,heldSafe=true;double controlledSlip=0;
+    auto revLaunch=[&](double hp,bool tc,bool neutral,double initialRpm=-1){
+        auto v=powerBase;v.torque*=hp/peakPower(powerBase).hp;v.tractionControl=tc;CarState car;
+        if(initialRpm<0){for(int tick=0;tick<240;tick++)stepCar(car,v,{true,false,true,false,false,!neutral,neutral},Step,0);}
+        else {car.neutral=neutral;car.handbraking=!neutral;car.rpm=initialRpm;}
+        heldSafe&=car.speed==0&&car.rearRollDistance==0&&car.frontRollDistance==0;
+        for(int tick=0;tick<480;tick++){
+            stepCar(car,v,{true,false,true},Step,0);launchFinite&=std::isfinite(car.rpm)&&std::isfinite(car.speed)&&car.rpm<=v.redlineRpm+1&&car.speed>=0;
+        }
+        double slip=(car.rearRollDistance+car.frontRollDistance)*.5-car.position;
+        revLaunchTrace<<hp<<','<<tc<<','<<(neutral?"neutral":"handbrake")<<','<<car.launchSlipSeconds<<','<<car.launchSlipDistance<<','<<slip<<','<<car.position<<'\n';return car;
+    };
+    for(int i=0;i<3;i++){
+        auto h=revLaunch(launchPowers[i],false,false),n=revLaunch(launchPowers[i],false,true);
+        launchExcess[i]=h.launchSlipDistance;launchDuration[i]=h.launchSlipSeconds;
+        releaseParity&=std::abs(h.launchSlipDistance-n.launchSlipDistance)<1e-9;
+        auto controlled=revLaunch(launchPowers[i],true,false);controlledSlip=std::max(controlledSlip,controlled.launchSlipDistance);
+    }
+    expect(heldSafe&&launchFinite,"revved engines remain disconnected until release and launch states stay finite below the limiter");
+    expect(launchExcess[0]>0&&launchExcess[1]>launchExcess[0]&&launchExcess[2]>launchExcess[1],"without TC stronger engines produce more launch wheelspin after the same high-RPM clutch release");
+    expect(launchDuration[0]<launchDuration[1]&&launchDuration[1]<launchDuration[2],"more engine power sustains the launch spin longer on the controlled low-to-high power range");
+    expect(releaseParity&&controlledSlip==0,"handbrake and neutral releases share launch physics while TC controls the initial overspin");
+    auto lowRevLaunch=revLaunch(400,false,true,2800),highRevLaunch=revLaunch(400,false,true,7600);
+    expect(highRevLaunch.launchSlipDistance>lowRevLaunch.launchSlipDistance+1,"saved engine RPM influences launch spin rather than resetting immediately to launch RPM");
+    bool drivenLaunch=true;
+    for(auto layout:{DriveLayout::Front,DriveLayout::Rear,DriveLayout::All}){
+        auto v=powerBase;v.drive=layout;v.tractionControl=false;CarState car;
+        for(int tick=0;tick<240;tick++)stepCar(car,v,{true,false,true,false,false,true},Step,0);
+        for(int tick=0;tick<120;tick++)stepCar(car,v,{true,false,true},Step,0);
+        drivenLaunch&=layout==DriveLayout::Front?car.frontRollDistance>car.rearRollDistance:layout==DriveLayout::Rear?car.rearRollDistance>car.frontRollDistance:std::abs(car.frontRollDistance-car.rearRollDistance)<1e-8;
+    }
+    expect(drivenLaunch,"rev-release spin animates only the driven axles for FWD RWD and AWD");
+    Vehicle inertialLaunch=powerBase;inertialLaunch.torque=0;inertialLaunch.boostPsi=0;inertialLaunch.tractionControl=false;
+    CarState inertiaState;inertiaState.neutral=true;inertiaState.rpm=7600;double initialEnergy=.5*inertialLaunch.engineInertia*std::pow(7600*2*3.141592653589793/60,2);
+    for(int tick=0;tick<40&&inertiaState.launchWheelOmega<0;tick++)stepCar(inertiaState,inertialLaunch,{true,false,false},Step,0);
+    double launchRatio=inertialLaunch.ratios[0]*inertialLaunch.finalDrive;
+    double coupledEnergy=.5*(inertialLaunch.drivenWheelInertia+inertialLaunch.engineInertia*launchRatio*launchRatio)*std::pow(inertiaState.launchWheelOmega,2)+.5*inertialLaunch.mass*inertiaState.speed*inertiaState.speed;
+    expect(inertiaState.launchWheelOmega>0&&coupledEnergy<=initialEnergy,"clutch coupling transfers stored rotational energy without creating energy");
+    {std::ofstream out(root/"rev-launch.json");out<<"{\n  \"power_levels_checked\": 3,\n  \"handbrake_neutral_parity\": "<<(releaseParity?"true":"false")<<",\n  \"stronger_power_more_spin\": "<<((launchExcess[0]<launchExcess[1]&&launchExcess[1]<launchExcess[2])?"true":"false")<<",\n  \"controlled_initial_slip_m\": "<<controlledSlip<<",\n  \"native_calibration\": true\n}\n";}
+    auto stagedVehicle=powerBase;stagedVehicle.twoStep=true;stagedVehicle.tractionControl=false;CarState revStaged;
+    for(int tick=0;tick<240;tick++)stepCar(revStaged,stagedVehicle,{true,false,true,false,false,true},Step,0);
+    for(int tick=0;tick<120;tick++)stepCar(revStaged,stagedVehicle,{true,false,true,false,true},Step,0);
+    expect(revStaged.launching&&revStaged.speed==0&&revStaged.rearRollDistance==0,"two-step staging keeps the clutch open when handbrake is released with launch control held");
+    std::array<size_t,2> spinSmokeCounts{};std::array<double,2> spinSmokeScale{};
+    for(int intensity=0;intensity<2;intensity++){
+        DrivingEffects smoky;CarState car;car.speed=8;car.wheelSlip=intensity?2:.1;
+        for(int tick=0;tick<120;tick++){car.position+=car.speed*Step;smoky.update(car,powerBase,{true,false,true},points,0,Step,false);}
+        for(const auto& particle:smoky.particles)if(particle.kind==EffectKind::Smoke){spinSmokeCounts[intensity]++;spinSmokeScale[intensity]=std::max(spinSmokeScale[intensity],particle.scale);}
+    }
+    expect(spinSmokeCounts[1]>spinSmokeCounts[0]&&spinSmokeScale[1]>spinSmokeScale[0],"stronger measured wheel slip creates denser larger dynamic tyre smoke");
     bool paletteTransfer=true;int paletteCases=0;
     for(bool original:{false,true})for(int column=0;column<108;column++)for(int row=0;row<11;row++){
         const auto& pal=original?materials::originalPaint:materials::unboundPaint;
