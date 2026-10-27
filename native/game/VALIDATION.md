@@ -16,6 +16,24 @@
 - Preuves : `validation/handbrake-0.13.3/`. Modèle natif calibré, sans équivalence
   complète avec les équations Android ou les mesures constructeur.
 
+## Publication Windows vérifiée — 0.13.3
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40556300412) : 319 contrôles du cœur, 83 graphiques et 188 sons décodés.
+- Départs au rupteur, progression du cabrage avec la puissance, 191 voitures,
+  suspension, barres et réglages concordent avec Linux à 0,01 près sur les CSV.
+  Les 1528 empreintes de compositions de carrosserie sont identiques.
+- Capture Windows du départ fumant revue. Matériaux, huit fumées, NOS/flammes
+  et défilement passent les contrôles pixels. Les 160 essais clavier/souris
+  Linux restent réussis ; ils ne sont pas revendiqués comme essais Windows.
+- Archive publique redéchargée : CRC, SHA-256, EXE et source compilée vérifiés.
+  Les treize aperçus correspondent aux captures Windows validées.
+- Restauration sur dossier vide puis réutilisation : 248 ressources chacune.
+- Rapports : `validation/windows-0.13.3/`. Rendu Mesa logiciel ; GPU et
+  haut-parleurs physiques non testés. Modèle natif calibré, sans équivalence Android complète.
+- Source compilée : `fc7ec0a6c0df8aaf8df42f3b3251cc4415841626`.
+- ZIP : 59473879 octets, SHA-256 `a3641a8e8e4c3593e0c68a34cb5f4c2ae0afc21892d3f47b2f235d3ac88f4b27`.
+- EXE : SHA-256 `30ff5a5f0dde837cc4789ac359dadbc3c5fe93690bf9c03377cd3f709d92cc0e`.
+
 # Validation 0.13.2 — roues attachées et curseur Wheelie → Balanced
 
 - 304 contrôles du cœur Linux réussis, dont 9168 vérifications des axes de
