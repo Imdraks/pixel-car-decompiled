@@ -1,3 +1,17 @@
+# Validation 0.13.5 — moteur au garage
+
+- 327 contrôles du cœur Linux : G/Z au garage, ralenti, limiteur borné, retour
+  au ralenti, changement de régime maximal avec le moteur et extinction.
+- La voiture et les roues restent immobiles ; aucun NOS n’est consommé.
+- Le mixeur logiciel couvre démarreur, régime au garage, limiteur et arrêt
+  dans les deux banques, en plus des 16 associations moteur/son.
+- Les raccourcis sont bloqués pendant la recherche de pièces et les dialogues.
+  Le moteur s’arrête en quittant le garage ; cet état temporaire n’est pas sauvegardé.
+- 86 contrôles graphiques et 39 essais de touches réelles avec audio passent
+  sous Linux. Les captures et contrôles pixels des effets et matériaux passent.
+- Preuves : `validation/garage-engine-0.13.5/`.
+- Le comportement de régime/limiteur reste une adaptation native.
+
 # Validation 0.13.4 — associations source moteur/son
 
 - Les 15 gardes de puissance couvrant 16 moteurs interchangeables sont extraites

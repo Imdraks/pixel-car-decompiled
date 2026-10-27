@@ -106,3 +106,15 @@ patinage selon le couple moteur, le régime initial, les rapports et l’adhére
 Les roues motrices tournent indépendamment de la vitesse au sol ; la fumée suit
 le glissement et conserve la couleur des pneus. Le TC activé régule le départ.
 [Calcul natif et limites](DRAG.md#départ-au-rupteur--0133).
+
+## Démarrer et écouter le moteur — 0.13.5
+
+- **G** : démarrer au ralenti ou éteindre le moteur.
+- **Z maintenu** : accélérer jusqu’au rupteur ; relâcher pour revenir au ralenti.
+- Le garage joue le démarreur et les boucles du moteur équipé, avec sa limite
+  de régime et les préférences AUTO/manuelles. Ni roues ni voiture ne bougent.
+- Les touches n’agissent pas pendant la saisie dans la recherche ou un dialogue.
+  Quitter le garage coupe le moteur. Cet état temporaire n’est pas sauvegardé.
+
+Le régime, la modulation du limiteur et les volumes restent des adaptations
+natives ; il ne s’agit pas d’une récupération des équations audio Android.

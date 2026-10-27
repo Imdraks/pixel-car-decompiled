@@ -19,7 +19,9 @@ public:
     bool ready=false;int failures=0;
     void init(const std::filesystem::path&);
     void selectBank(int);
-    void update(const Profile&,const Vehicle&,const CarState&,const DriverInput&,double collision,bool active,bool enabled);
+    void update(const Profile&,const Vehicle&,const CarState&,const DriverInput&,double collision,bool active,bool enabled,bool limiter=false);
+    void startEngine(const Profile& profile,bool enabled){if(ready&&enabled){selectBank(profile.audioSource);reset();shot(45,.4f);}}
+    void stopEngine(){auto start=shots.find(45);if(start!=shots.end())StopSound(start->second);reset();}
     void click(bool enabled){if(ready&&enabled)shot(37,.4f);}
     void install(bool enabled){if(ready&&enabled)shot(40,.5f);}
     void horn(bool enabled){if(ready&&enabled)shot(25,.5f);}

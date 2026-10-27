@@ -1,4 +1,11 @@
-# Pixel Car Racer — Unbound Native 0.13.4
+# Pixel Car Racer — Unbound Native 0.13.5
+
+Dans le garage/customisation : **G** démarre ou éteint le moteur ; maintenir
+**Z** accélère jusqu’au rupteur du moteur équipé. Relâcher Z revient au ralenti.
+Le moteur reste stationnaire, s’arrête en quittant le garage et ne redémarre
+pas automatiquement à la prochaine visite. Pendant une recherche de pièce, G/Z
+servent uniquement à saisir du texte. Les préférences audio AUTO/manuelles
+sont respectées. Le limiteur du garage est une adaptation native.
 
 La version **0.13.3** permet d’accélérer moteur débrayé avec **Espace** maintenu :
 le régime et le son moteur suivent l’accélérateur, les roues arrière restent bloquées,

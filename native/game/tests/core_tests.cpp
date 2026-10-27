@@ -1,4 +1,5 @@
 #include "model.hpp"
+#include "garage_engine.hpp"
 #include "benchmark.hpp"
 #include "art.hpp"
 #include "effects.hpp"
@@ -209,6 +210,16 @@ int main(int argc,char**argv){
     {std::ofstream out(root/"custom.ini");out<<"part_engine=3002\npart_tires=999999\npart_turbo=3002\npart_supercharger=3020\n";}
     auto corruptCustom=loadProfile(root/"custom.ini",191,54);
     expect(corruptCustom.parts[0]==0&&corruptCustom.parts[10]==0&&corruptCustom.parts[2]==0&&corruptCustom.parts[3]==3020,"malformed equipment falls back safely and cannot stack forced induction");
+    GarageEngine garageMotor;garageMotor.stop();garageMotor.update(v,true,1);
+    expect(!garageMotor.running&&garageMotor.state.rpm==0,"garage throttle cannot start a stopped engine");
+    garageMotor.toggle(v);for(int i=0;i<240;i++)garageMotor.update(v,true,Step);
+    expect(garageMotor.running&&garageMotor.limiting&&garageMotor.state.rpm>=v.redlineRpm*.98&&garageMotor.state.rpm<=v.redlineRpm,"garage ignition and held accelerator reach a bounded audible limiter");
+    expect(garageMotor.state.position==0&&garageMotor.state.speed==0&&garageMotor.state.frontRollDistance==0&&garageMotor.state.rearRollDistance==0&&garageMotor.state.nitroRemaining==10,"garage revving never moves wheels or consumes NOS");
+    for(int i=0;i<240;i++)garageMotor.update(v,false,Step);
+    expect(!garageMotor.limiting&&garageMotor.state.rpm==v.idleRpm,"releasing garage throttle returns to idle");
+    auto lowRevGarage=v;lowRevGarage.redlineRpm=6500;for(int i=0;i<120;i++)garageMotor.update(lowRevGarage,true,Step);
+    expect(garageMotor.state.rpm<=6500&&garageMotor.limiting,"garage limiter follows a newly installed engine redline");
+    garageMotor.toggle(v);expect(!garageMotor.running&&garageMotor.state.rpm==0&&!garageMotor.limiting,"second garage ignition press stops all engine state");
     Profile soundProfile;soundProfile.soundOn=5;soundProfile.soundOff=4;soundProfile.bov=3;
     auto sounds=engineSamples(soundProfile);
     expect(sounds.on==71&&sounds.off==47,"manual sound profiles match the original native dispatch tables");
