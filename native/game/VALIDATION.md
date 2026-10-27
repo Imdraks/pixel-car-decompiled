@@ -15,6 +15,24 @@
   `validation/wheel-carriers-0.13.2/`. Modèle natif calibré ; équations complètes
   Android, trains réels et géométrie d’anti-squat non importés.
 
+## Publication Windows vérifiée — 0.13.2
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40549637636) : 304 contrôles du cœur, 79 graphiques, 188 sons décodés,
+  contrôle des 9168 points de liaison et des cinq réglages progressifs réussi.
+- Les mesures des 191 voitures, 382 montages de barres, départs Drag, trajectoires
+  de suspension et cinq réglages concordent avec Linux à la précision des CSV.
+  Les 1528 empreintes des compositions de carrosserie sont identiques.
+- Captures Windows du curseur bleu et du wheelie revues ; les contrôles pixels
+  des matériaux, huit fumées, NOS/flammes et défilement réussissent.
+- Archive publique redéchargée : CRC, SHA-256, EXE et source compilée vérifiés.
+  Les treize aperçus correspondent aux captures Windows, dont le nouveau curseur.
+- Restauration sur dossier vide puis réutilisation : 248 ressources chacune.
+- Rapports : `validation/windows-0.13.2/`. Rendu Mesa logiciel ; GPU et
+  haut-parleurs physiques non testés. Aucune équivalence complète Android.
+- Source compilée : `98dc4fa93297467b56d5682b454f4efd3a23c523`.
+- ZIP : 59469777 octets, SHA-256 `add57d7571a86f81ec3461cb9e54e3f76c4e70de7d9763bfaaed22ea6a36ba4c`.
+- EXE : SHA-256 `b9dce7e6d5156a89c9424e9b199a071a024a88a2b350d5196109c5cdb90bc525`.
+
 # Validation 0.13.1 — Drag, wheelie bars et balance
 
 - 297 contrôles du cœur Linux réussis. Les six lancements traction/propulsion/
