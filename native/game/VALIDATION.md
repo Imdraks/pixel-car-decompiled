@@ -1,3 +1,19 @@
+# Validation 0.12.0 — suspension, wheelie, ABS et antipatinage
+
+- 263 contrôles du cœur Linux réussis, dont 64 combinaisons extrêmes de hauteur,
+  ressorts, amortissement, équilibre, autorisation de levée et antipatinage.
+- Précharge statique, oscillations amorties, réglages conservés, perte de contact,
+  retour au sol, contraintes anti-levée, points d’émission et cadences de rendu testés.
+- Référence native : ABS 36,83 m contre 48,62 m avec blocage depuis 100 km/h ;
+  lancement TC 126,60 m contre 99,52 m en 5 s ; levée maximale testée 0,38 m.
+- 70 contrôles graphiques Linux réussis : menu suspension, wheelie, mode au sol,
+  indicateurs ABS/TC, sauvegarde des aides et retour après essai non confirmé.
+- 115 contrôles d’entrées réelles Linux réussis : 15 châssis/aides, 15 burnout/
+  point mort, 69 garage/audio et 16 affichage/trafic.
+- Preuves Linux : `validation/chassis-0.12/`. Windows est testé par CI avant publication.
+- Modèle longitudinal natif calibré ; aucune équivalence complète Android ou
+  constructeur n’est revendiquée. Le banc générique historique est inchangé.
+
 # Validation 0.11.0 — burnout et point mort
 
 - 233 contrôles du cœur : burnout FWD/RWD/AWD, immobilité du décor et rotation

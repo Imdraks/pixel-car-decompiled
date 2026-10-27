@@ -21,7 +21,7 @@ if not exe.exists():raise SystemExit('Build the Windows executable first')
 shutil.copy2(exe,stage/exe.name)
 shutil.copytree(game/'assets',stage/'assets',dirs_exist_ok=True)
 shutil.copytree(game/'licenses',stage/'licenses',dirs_exist_ok=True)
-for name in ['README.md','VALIDATION.md','PHYSICS.md','CUSTOMIZATION.md','PERFORMANCE.md','TRANSMISSION.md','EXHAUST.md','GARAGE-PC.md','CONTENT.md','ATTACHMENTS.md','VEHICLES.md','THIRD-PARTY.txt']:
+for name in ['README.md','VALIDATION.md','PHYSICS.md','CUSTOMIZATION.md','PERFORMANCE.md','TRANSMISSION.md','EXHAUST.md','GARAGE-PC.md','CONTENT.md','ATTACHMENTS.md','VEHICLES.md','SUSPENSION.md','THIRD-PARTY.txt']:
     shutil.copy2(game/name,stage/('LISEZ-MOI.md' if name=='README.md' else name))
 shutil.copy2(game.parent/'evidence/merged/catalog.json',stage/'catalogue-pieces.json')
 shutil.copy2(game.parent/'evidence/merged/stock-vehicles.json',stage/'fiches-vehicules-source.json')

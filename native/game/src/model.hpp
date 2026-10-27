@@ -18,17 +18,19 @@ struct Resolution { int width, height; bool operator==(const Resolution& r) cons
 struct Settings {
     WindowMode mode=WindowMode::Windowed;
     int width=1280, height=720, fps=120;
-    bool vsync=true, showFps=false, sound=true, traffic=true;
+    bool vsync=true, showFps=false, sound=true, traffic=true,abs=true,tractionControl=true;
     Quality quality=Quality::High;
 };
 struct Profile { int car=0, rim=8,contentSource=0,audioSource=0;std::array<int,CosmeticSlotCount> cosmetics{};bool rollCage=false,headlights=false,factoryDrive=true; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1;
     int gearboxPreset=0,gearCount=6;std::array<double,10> gearRatios{3.15,2.10,1.55,1.22,1.0,.82,.68,.56,.46,.38};
     double finalDrive=3.9,shiftSeconds=.15;
+    double rideHeightMm=0,springStiffness=1,dampingRatio=.65,frontBias=0;bool allowWheelie=false;
 };
 inline DriveLayout effectiveDrive(const Profile& p){return p.factoryDrive?DriveLayout(stockVehicle(p.car).drive):p.drive;}
 int bodyChoiceIndex(const Profile&);
 void cycleBody(Profile&,int);
 void sanitizeTransmission(Profile&);
+void sanitizeSuspension(Profile&);
 void applyGearboxPreset(Profile&,int preset);
 const char* gearboxPresetName(int preset);
 bool operator==(const Settings&, const Settings&);
@@ -54,6 +56,9 @@ struct Vehicle {
     double drivenWeightFraction=.52, wheelbase=2.6, centreOfGravityHeight=.50;
     double curveRpmScale=1,boostEfficiency=.7;
     double boostPsi=0,nitroHp=0; bool supercharged=false,twoStep=false;
+    bool suspensionDynamics=false,tyreDynamics=false,allowWheelie=false,abs=false,tractionControl=false;
+    double springStiffness=1,dampingRatio=.65,frontWeightFraction=.48;
+
 };
 const Part* findPart(int id);
 const char* slotKey(PartSlot);
@@ -85,6 +90,10 @@ struct CarState {
     int gear=1;
     double powerHp=0,boostPsi=0,nitroRemaining=10,wheelSlip=0; bool nitroActive=false,launching=false,handbraking=false; double rearRollDistance=0,frontRollDistance=0;
     bool neutral=false,burningOut=false,finished=false;
+    double pitch=0,pitchRate=0,heave=0,heaveRate=0,frontLoad=0,rearLoad=0,frontLift=0,rearLift=0,peakFrontLift=0;
+    double tractionFactor=1,brakeSlip=0;
+    bool suspensionReady=false,tcActive=false,absActive=false,frontLocked=false,rearLocked=false;
+
 };
 constexpr double Step=1.0/120.0, QuarterMile=402.336;
 bool shift(CarState&, int direction, const Vehicle& vehicle=Vehicle{});

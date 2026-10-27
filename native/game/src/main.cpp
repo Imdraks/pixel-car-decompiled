@@ -5,6 +5,7 @@
 #include "game_audio.hpp"
 #include "effects.hpp"
 #include "road_scene.hpp"
+#include "chassis_pose.hpp"
 #include "platform.hpp"
 #include "art.hpp"
 #include "original_ui.hpp"
@@ -37,11 +38,11 @@ struct Args {
     bool smoke=false,safe=false,free=false,noAudio=false,dataSpecified=false;
 };
 struct App {
-    enum class Screen { Menu, Garage, Free, Customization, Transmission } screen=Screen::Menu;
+    enum class Screen { Menu, Garage, Free, Customization, Transmission, Suspension } screen=Screen::Menu;
     Args args;
     Settings settings,edited,previous;
     Resolution windowLimit{1280,720};
-    Profile profile,transmissionDraft; Build configuration;
+    Profile profile,transmissionDraft,suspensionDraft; Build configuration;
     bool inventoryOpen=false,searchFocused=false,searchSelectedAll=false,rimPicker=false,cosmeticPicker=false;int cosmeticSlot=0;int customGroup=0,lastCardId=-1;double lastCardClick=-10;std::string tooltipText;
     PartSlot customSlot=PartSlot::Engine; int customPreview=0,customPage=0; std::string customSearch;
     FreeDrive drive;DrivingEffects effects;
@@ -100,13 +101,15 @@ struct App {
         float w=height*f.w/f.h;float start=-float(std::fmod(offset,w));
         for(float x=start-w;x<1280;x+=w)crop(f,{x,y,w,height},tint);
     }
-    void car(int index,int rim,float x,float y,float scale,double wheelAngle,bool shadow=true,int tireFrame=0,double rideOffset=0,int exhaustFrame=-1,double rearAngle=-1,const Profile* outfit=nullptr){
+    void car(int index,int rim,float x,float y,float scale,double wheelAngle,bool shadow=true,int tireFrame=0,double rideOffset=0,int exhaustFrame=-1,double rearAngle=-1,const Profile* outfit=nullptr,const CarState* motion=nullptr){
         index=(index+191)%191;rim=validRimFrame(rim);bool original=(outfit?outfit->contentSource:profile.contentSource)==1;auto w=bodyWheels(index,original);tireFrame=std::clamp(tireFrame,0,int(std::size(art::tires))-1);
+        ChassisPose pose=chassisPose(w.rear,w.front,w.y,drive.vehicle,motion?*motion:CarState{});
         if(shadow&&settings.quality!=Quality::Low)DrawEllipse(int(x+110*scale),int(y+(w.y+w.radius)*scale),int(87*scale),int(6*scale),Fade(BLACK,.35f));
         // Draw the body last: opaque fenders and skirts must cover the tyres.
         // All cropped wheel sprites use their original 62x62 canvas and origin.
         if(w.radius>0)for(float cx:{w.rear,w.front}){
-            Vector2 center{x+cx*scale,y+w.y*scale};
+            auto local=motion?pose.wheel(cx==w.front):ChassisPoint{cx,w.y};
+            Vector2 center{x+float(local.x)*scale,y+float(local.y)*scale};
             auto centered=[&](const art::Frame& f,float factor,float ox,float oy,float angle){
                 DrawTexturePro(atlases.at(f.atlas),{float(f.x),float(f.y),float(f.w),float(f.h)},
                     {center.x,center.y,f.w*factor,f.h*factor},
@@ -121,12 +124,14 @@ struct App {
             centered(equippedRim(rim,original),wheelScale,31,31,float(angle));
             if(outfit){int lugs=cosmeticSubimage(*outfit,11);if(lugs)for(int bolt=0;bolt<5;bolt++)centered(content_art::Lugs(original)[lugs],wheelScale,1,5,float(angle+bolt*72));}
         }
+        if(motion){rlPushMatrix();rlTranslatef(x+float(pose.pivotX)*scale,y+float(pose.pivotY-pose.heave*pose.pixelsPerMetre)*scale,0);rlRotatef(float(-pose.pitch*180/3.141592653589793),0,0,1);rlTranslatef(-x-float(pose.pivotX)*scale,-y-float(pose.pivotY)*scale,0);}
         auto pipe=outfit?installedExhaust(*outfit,exhaustFrame,rideOffset):placeExhaust(index,exhaustFrame,rideOffset,original);
         auto drawPipe=[&](){frame(content_art::Exhausts(original)[pipe.frame],x+float(pipe.x)*scale,y+float(pipe.y)*scale,scale);};
         if(!pipe.front)drawPipe();
         if(outfit){auto texture=content.compose(*outfit);DrawTexturePro(texture,{0,0,220,134},{x,y+(float(rideOffset)-64)*scale,220*scale,134*scale},{0,0},0,WHITE);}
         else frame(content_art::Cars(original)[index],x,y+float(rideOffset)*scale,scale);
         if(pipe.front)drawPipe();
+        if(motion)rlPopMatrix();
     }
     std::vector<Resolution> resolutions(WindowMode mode){
         std::vector<Resolution> values;
@@ -176,7 +181,7 @@ struct App {
         if(!modeValid){UnloadRenderTexture(next);notice="Ce mode d'affichage n'a pas pu être activé.";return false;}
         if(render.id)UnloadRenderTexture(render);
         render=next;SetTextureFilter(render.texture,TEXTURE_FILTER_POINT);
-        settings=s;drive.setTraffic(s.traffic);accumulator=0;
+        settings=s;drive.setTraffic(s.traffic);drive.vehicle.abs=s.abs;drive.vehicle.tractionControl=s.tractionControl;accumulator=0;
         return true;
     }
     void openOptions(){edited=settings;options=true;notice.clear();}
@@ -194,7 +199,7 @@ struct App {
     void revert(){apply(previous);confirming=false;edited=settings;notice="Réglages précédents restaurés.";}
     void saveCar(){configuration=buildVehicle(profile);std::string error;if(!saveProfile(profileFile(),profile,error))notice="Enregistrement du garage impossible : "+error;}
     const char* driveLabel()const{return effectiveDrive(profile)==DriveLayout::Front?"TRACTION":effectiveDrive(profile)==DriveLayout::Rear?"PROPULSION":"4 ROUES MOTRICES";}
-    void beginFree(){powerPopup=false;audioPopup=false;audio.reset();effects=DrivingEffects{};drive=FreeDrive{};drive.setTraffic(settings.traffic);configuration=buildVehicle(profile);drive.vehicle=configuration.vehicle;accumulator=0;screen=Screen::Free;options=false;paused=false;}
+    void beginFree(){powerPopup=false;audioPopup=false;audio.reset();effects=DrivingEffects{};drive=FreeDrive{};drive.setTraffic(settings.traffic);configuration=buildVehicle(profile);drive.vehicle=configuration.vehicle;drive.vehicle.abs=settings.abs;drive.vehicle.tractionControl=settings.tractionControl;accumulator=0;screen=Screen::Free;options=false;paused=false;}
     void init(){
         if(!fs::exists(args.assets/"provenance.json"))throw std::runtime_error("Ressources manquantes. Extrayez entièrement le ZIP, puis lancez PixelCarRacerNative.exe.");
         settings=loadSettings(settingFile());profile=loadProfile(profileFile(),191,54);configuration=buildVehicle(profile);
@@ -238,7 +243,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.11",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.12",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},"GARAGE")){openCustomization();screen=Screen::Garage;}
@@ -342,6 +347,7 @@ struct App {
     }
     void garageKeyboard(){
         if((IsKeyDown(KEY_LEFT_CONTROL)||IsKeyDown(KEY_RIGHT_CONTROL))&&IsKeyPressed(KEY_F)){if(!inventoryOpen){if(cosmeticPicker)chooseCosmetic(cosmeticSlot);else chooseGroup(customGroup);}searchFocused=true;searchSelectedAll=true;}
+        if(IsKeyPressed(KEY_F9)&&!searchFocused){openSuspension();return;}
         for(int i=0;i<6;i++)if(IsKeyPressed(KEY_F1+i))chooseGroup(i);
         if(IsKeyPressed(KEY_F7))chooseCosmetic(cosmeticSlot);
         if(IsKeyPressed(KEY_F8)){profile.rollCage=!profile.rollCage;saveCar();}
@@ -476,6 +482,7 @@ struct App {
                 if(tabs[i].second==-2)openTransmission();else chooseGroup(customGroup,tabs[i].second,tabs[i].second==-1);
             }
         }
+        if(customGroup==4&&button({759,600,489,28},"RÉGLAGES SUSPENSION [F9]",true))openSuspension();
         auto choices=garageChoices();int pages=std::max(1,(int(choices.size())+GaragePageSize-1)/GaragePageSize);customPage=std::clamp(customPage,0,pages-1);
         for(int row=0;row<GaragePageSize;row++){
             int index=customPage*GaragePageSize+row;if(index>=int(choices.size()))break;int id=choices[index];const Part* p=rimPicker||cosmeticPicker||!id?nullptr:findPart(id);
@@ -548,6 +555,8 @@ struct App {
         }
     }
 
+    void openSuspension(){suspensionDraft=profile;screen=Screen::Suspension;notice.clear();}
+    void commitSuspension(){sanitizeSuspension(suspensionDraft);profile=suspensionDraft;saveCar();notice="Suspension enregistrée.";}
     void openTransmission(){transmissionDraft=profile;screen=Screen::Transmission;notice.clear();}
     void commitTransmission(){profile=transmissionDraft;sanitizeTransmission(profile);saveCar();notice="Transmission enregistrée.";}
     bool ratioSlider(Rectangle track,double& value,double low,double high){
@@ -557,6 +566,37 @@ struct App {
         DrawRectangleRec(track,Color{44,55,67,255});float fill=(high-low>1e-8?float((value-low)/(high-low)):.5f)*track.width;
         DrawRectangle(int(track.x),int(track.y),int(fill),int(track.height),Accent);DrawRectangle(int(track.x+fill)-4,int(track.y)-4,8,int(track.height)+8,WHITE);
         return changed;
+    }
+    void suspensionScene(){
+        crop(original_ui::garages[garageStyle%5],{0,0,1280,720});
+        auto preview=buildVehicle(suspensionDraft);
+        car(suspensionDraft.car,suspensionDraft.rim,150,285,2.5,0,true,preview.tireFrame,preview.rideOffset,preview.exhaustFrame,-1,&suspensionDraft);
+        card({34,18,1212,81});text("RÉGLAGES SUSPENSION",57,34,28,Accent);
+        text("Hauteur, ressorts, amortissement et équilibre de la voiture",57,72,16,Muted);
+        if(button({1040,35,180,43},"RETOUR"))screen=Screen::Customization;
+        card({734,120,510,491});
+        auto slider=[&](int row,const char* name,double& value,double lo,double hi,double step,const std::string& label){
+            float y=143+row*86;text(name,754,y,18,Muted);text(label,1037,y,18,Accent);
+            if(button({754,y+30,33,30},"-"))value=std::max(lo,value-step);
+            ratioSlider({802,y+40,374,10},value,lo,hi);
+            if(button({1190,y+30,33,30},"+"))value=std::min(hi,value+step);
+        };
+        slider(0,"HAUTEUR (ajustement)",suspensionDraft.rideHeightMm,-60,120,5,TextFormat("%+.0f mm",suspensionDraft.rideHeightMm));
+        slider(1,"RIGIDITÉ DES RESSORTS",suspensionDraft.springStiffness,.4,3,.1,TextFormat("×%.2f",suspensionDraft.springStiffness));
+        slider(2,"AMORTISSEMENT",suspensionDraft.dampingRatio,.25,1.5,.05,TextFormat("%.2f",suspensionDraft.dampingRatio));
+        slider(3,"RÉPARTITION AVANT",suspensionDraft.frontBias,-.15,.15,.01,TextFormat("%.0f %%",preview.vehicle.frontWeightFraction*100));
+        if(button({754,493,469,43},suspensionDraft.allowWheelie?"WHEELIE : AUTORISÉ":"WHEELIE : LIMITÉ AU SOL",suspensionDraft.allowWheelie))suspensionDraft.allowWheelie=!suspensionDraft.allowWheelie;
+        text("Un wheelie exige assez de couple et d'adhérence.",754,553,14,Muted);
+        text("La répartition déplace la masse, sans en ajouter.",754,576,14,Muted);
+        card({34,519,674,92});text("PRÉRÉGLAGES",53,535,16,Muted);
+        auto preset=[&](int kind){suspensionDraft.rideHeightMm=kind==1?120:kind==2?-40:0;suspensionDraft.springStiffness=kind==1?.5:kind==2?2:1;suspensionDraft.dampingRatio=kind==1?.3:kind==2?.9:.65;suspensionDraft.frontBias=kind==1?-.15:0;suspensionDraft.allowWheelie=kind==1;};
+        if(button({53,562,201,33},"ROUTE"))preset(0);
+        if(button({266,562,201,33},"DRAG / WHEELIE"))preset(1);
+        if(button({479,562,208,33},"PISTE"))preset(2);
+        if(button({34,644,244,46},"ANNULER")){screen=Screen::Customization;}
+        if(button({489,644,288,46},"ENREGISTRER",true))commitSuspension();
+        if(button({797,644,447,46},"ENREGISTRER ET PRENDRE LA ROUTE",true))queued=[this]{commitSuspension();beginFree();};
+        if(!notice.empty())text(notice,57,464,18,Accent);
     }
     void transmissionScene(){
         crop(original_ui::garages[garageStyle%5],{0,0,1280,720});car(profile.car,profile.rim,365,310,2.3,0,true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,-1,&profile);
@@ -622,7 +662,7 @@ struct App {
         renderEffects(false);
         for(int lane=0;lane<3;lane++){
             for(const auto& t:drive.traffic)if(drive.trafficEnabled&&t.lane==lane){float x=float(scene::trafficX(t.position,drive.player.position));if(x>-400&&x<1600)car(t.appearance,RimFrames[t.appearance%RimFrames.size()],x,269+lane*96,1.25,scene::wheelAngle(t.position,.32));}
-            if(std::clamp(int(std::round(drive.lane)),0,2)==lane)car(profile.car,profile.rim,360,269+float(drive.lane)*96,1.25,scene::wheelAngle(drive.player.frontRollDistance,drive.vehicle.wheelRadius),true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,scene::wheelAngle(drive.player.rearRollDistance,drive.vehicle.wheelRadius),&profile);
+            if(std::clamp(int(std::round(drive.lane)),0,2)==lane)car(profile.car,profile.rim,360,269+float(drive.lane)*96,1.25,scene::wheelAngle(drive.player.frontRollDistance,drive.vehicle.wheelRadius),true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,scene::wheelAngle(drive.player.rearRollDistance,drive.vehicle.wheelRadius),&profile,&drive.player);
         }
         renderEffects(true);
         if(drive.collisionCooldown>1.0)DrawRectangle(0,0,1280,720,Fade(RED,.10f));
@@ -632,6 +672,8 @@ struct App {
         if(button({1066,17,177,51},paused?"REPRENDRE":"PAUSE"))paused=!paused;
         card({29,578,275,111});text(TextFormat("%03i",int(drive.player.speed*3.6)),52,587,60);text("km/h",192,620,22,Muted);
         text(TextFormat("%.0f HP moteur",drive.player.powerHp),344,560,16,Gold);
+        text(std::string("ABS ")+(drive.vehicle.abs?(drive.player.absActive?"ACTIF":"ON"):"OFF")+"   TC "+(drive.vehicle.tractionControl?(drive.player.tcActive?"ACTIF":"ON"):"OFF"),34,551,15,(drive.player.absActive||drive.player.tcActive)?Gold:Muted);
+        if(drive.player.frontLift>.02)text("WHEELIE",742,560,16,Accent);
         if(drive.player.burningOut)text("BURNOUT",580,560,17,Accent);
         else if(drive.player.neutral)text("POINT MORT",580,560,17,Accent);
         else if(drive.player.handbraking)text("FREIN À MAIN",580,560,17,Gold);
@@ -659,7 +701,7 @@ struct App {
     }
     void settingsScene(){
         DrawRectangle(0,0,1280,720,Fade(Ink,.82f));card({174,40,932,639});
-        text("PARAMÈTRES",211,66,30);text("AFFICHAGE, SON ET TRAFIC",211,110,15,Accent);
+        text("PARAMÈTRES",211,66,30);text("AFFICHAGE, SON ET CONDUITE",211,110,15,Accent);
         int d=choice(134,"Mode d'affichage",edited.mode==WindowMode::Windowed?"Fenêtre avec bordure":edited.mode==WindowMode::Borderless?"Fenêtre sans bordure":"Plein écran");
         if(d){edited.mode=WindowMode((int(edited.mode)+d+3)%3);normalizeResolution(edited);}
         d=choice(186,edited.mode==WindowMode::Borderless?"Résolution de rendu":"Résolution",TextFormat("%i × %i",edited.width,edited.height));
@@ -672,7 +714,9 @@ struct App {
         if(choice(394,"Compteur FPS",edited.showFps?"Afficher":"Masquer"))edited.showFps=!edited.showFps;
         if(choice(446,"Son",edited.sound?"Activé":"Désactivé"))edited.sound=!edited.sound;
         if(choice(498,"Trafic en mode libre",edited.traffic?"Activé":"Désactivé"))edited.traffic=!edited.traffic;
-        text(edited.mode==WindowMode::Borderless?"Sans bordure : la fenêtre suit la taille du bureau.":"VSync : la fréquence de l'écran peut limiter les FPS.",212,559,16,Muted);
+        if(button({212,551,410,30},edited.abs?"ABS : ACTIVÉ":"ABS : DÉSACTIVÉ",edited.abs))edited.abs=!edited.abs;
+        if(button({657,551,410,30},edited.tractionControl?"ANTIPATINAGE : ACTIVÉ":"ANTIPATINAGE : DÉSACTIVÉ",edited.tractionControl))edited.tractionControl=!edited.tractionControl;
+        text(edited.mode==WindowMode::Borderless?"Sans bordure : la fenêtre suit la taille du bureau.":"VSync : la fréquence de l'écran peut limiter les FPS.",212,584,11,Muted);
         if(button({212,598,238,49},"RETOUR")){options=false;notice.clear();}
         if(button({470,598,257,49},"PAR DÉFAUT"))edited=Settings{};
         if(button({747,598,320,49},"APPLIQUER",true))queued=[this]{preview();};
@@ -689,16 +733,25 @@ struct App {
     EffectSources effectSources(){
         auto wheels=bodyWheels(profile.car,profile.contentSource==1);double baseY=269+drive.lane*96;
         EffectSources sources;sources.tireFrame=configuration.tireFrame;sources.rearWheel=360+wheels.rear*1.25;sources.frontWheel=360+wheels.front*1.25;sources.wheelY=baseY+(wheels.y+wheels.radius)*1.25;
+        auto pose=chassisPose(wheels.rear,wheels.front,wheels.y,drive.vehicle,drive.player);
+        auto rear=pose.wheel(false),front=pose.wheel(true);
+        sources.rearWheel=360+rear.x*1.25;sources.frontWheel=360+front.x*1.25;
+        sources.rearWheelY=baseY+(rear.y+wheels.radius)*1.25;sources.frontWheelY=baseY+(front.y+wheels.radius)*1.25;
         auto pipe=installedExhaust(profile,configuration.exhaustFrame,configuration.rideOffset);
         sources.outletCount=pipe.count;
-        for(int i=0;i<pipe.count;i++){sources.outlets[i]=pipe.outlets[i];sources.outlets[i].x=360+pipe.outlets[i].x*1.25;sources.outlets[i].y=baseY+pipe.outlets[i].y*1.25;}
+        for(int i=0;i<pipe.count;i++){
+            auto point=pose.body(pipe.outlets[i].x,pipe.outlets[i].y);auto& o=sources.outlets[i];
+            o=pipe.outlets[i];o.x=360+point.x*1.25;o.y=baseY+point.y*1.25;
+            o.dx=std::cos(pose.pitch)*pipe.outlets[i].dx+std::sin(pose.pitch)*pipe.outlets[i].dy;
+            o.dy=-std::sin(pose.pitch)*pipe.outlets[i].dx+std::cos(pose.pitch)*pipe.outlets[i].dy;
+        }
         return sources;
     }
     void controls(double dt){
         if((IsKeyDown(KEY_LEFT_CONTROL)||IsKeyDown(KEY_RIGHT_CONTROL))&&IsKeyPressed(KEY_Q)){quit=true;return;}
         if(IsKeyPressed(KEY_K)&&(screen==Screen::Free||screen==Screen::Garage||screen==Screen::Customization)&&!searchFocused){profile.headlights=!profile.headlights;saveCar();}
         if(IsKeyPressed(KEY_F10)){if(confirming)revert();Settings safe;safe.width=960;safe.height=540;safe.vsync=false;safe.fps=60;apply(safe);edited=settings;options=true;notice="Affichage de secours. Appliquez vos réglages pour les enregistrer.";}
-        if(IsKeyPressed(KEY_ESCAPE)){if(confirming)revert();else if(options)options=false;else if(powerPopup)powerPopup=false;else if(audioPopup){audioPopup=false;audioPreviewUntil=0;}else if(screen==Screen::Free)paused=!paused;else if(screen==Screen::Garage||screen==Screen::Customization){if(searchFocused)searchFocused=false;else if(inventoryOpen)inventoryOpen=false;else{saveCar();screen=Screen::Menu;}}else if(screen==Screen::Transmission){screen=Screen::Customization;}}
+        if(IsKeyPressed(KEY_ESCAPE)){if(confirming)revert();else if(options)options=false;else if(powerPopup)powerPopup=false;else if(audioPopup){audioPopup=false;audioPreviewUntil=0;}else if(screen==Screen::Free)paused=!paused;else if(screen==Screen::Garage||screen==Screen::Customization){if(searchFocused)searchFocused=false;else if(inventoryOpen)inventoryOpen=false;else{saveCar();screen=Screen::Menu;}}else if(screen==Screen::Transmission||screen==Screen::Suspension){screen=Screen::Customization;}}
         if(!confirming&&IsKeyPressed(KEY_ENTER)&&(IsKeyDown(KEY_LEFT_ALT)||IsKeyDown(KEY_RIGHT_ALT))){openOptions();edited.mode=settings.mode==WindowMode::Windowed?WindowMode::Borderless:WindowMode::Windowed;queued=[this]{preview();};}
         if(confirming&&GetTime()>=deadline)revert();
         if(IsKeyPressed(KEY_F3)&&screen!=Screen::Garage&&screen!=Screen::Customization){settings.showFps=!settings.showFps;edited.showFps=settings.showFps;}
@@ -731,11 +784,11 @@ struct App {
         auto m=GetMousePosition();mouse={((m.x-output.x)/outer-pad.x)/uiScale,((m.y-output.y)/outer-pad.y)/uiScale};
         BeginTextureMode(render);ClearBackground(BLACK);BeginMode2D(Camera2D{pad,{0,0},0,uiScale});
         tooltipText.clear();uiEnabled=!options&&!confirming; background(screen==Screen::Free);
-        if(screen==Screen::Menu)menu();else if(screen==Screen::Garage)garage();else if(screen==Screen::Customization)customizationScene();else if(screen==Screen::Transmission)transmissionScene();else freeScene();
+        if(screen==Screen::Menu)menu();else if(screen==Screen::Garage)garage();else if(screen==Screen::Customization)customizationScene();else if(screen==Screen::Transmission)transmissionScene();else if(screen==Screen::Suspension)suspensionScene();else freeScene();
         if(options){uiEnabled=!confirming;settingsScene();}
         if(confirming){uiEnabled=true;confirmScene();}
         if(!tooltipText.empty()&&!options&&!confirming&&!audioPopup&&!powerPopup){float width=std::min(850.f,MeasureTextEx(font,tooltipText.c_str(),15,0).x+22);float x=std::clamp(mouse.x+12,8.f,1270-width),y=std::clamp(mouse.y-40,55.f,670.f);DrawRectangle(int(x),int(y),int(width),31,Color{15,15,18,248});DrawRectangleLines(int(x),int(y),int(width),31,Accent);text(tooltipText,x+10,y+8,15);}
-        if(settings.showFps){bool inGarage=(screen==Screen::Garage||screen==Screen::Customization)&&!options&&!confirming;bool inTuning=screen==Screen::Transmission&&!options&&!confirming;
+        if(settings.showFps){bool inGarage=(screen==Screen::Garage||screen==Screen::Customization)&&!options&&!confirming;bool inTuning=(screen==Screen::Transmission||screen==Screen::Suspension)&&!options&&!confirming;
             float x=inGarage?1040:inTuning?1050:1121,y=inGarage?55:inTuning?74:691;
             DrawRectangle(int(x),int(y),inGarage?110:151,24,Ink);text(TextFormat("%i FPS",GetFPS()),x+12,y+4,inGarage?14:16,Accent);
         }
@@ -906,7 +959,34 @@ struct App {
         if(frames==492)capture("neutre-maintenu.png");
         if(frames==494){for(int tick=0;tick<120;tick++)drive.update({true,false,true},Step);check(!drive.player.neutral&&drive.player.speed>0,"releasing neutral reconnects the transmission and moves the car");}
         if(frames==496)capture("neutre-relache.png");
-        if(frames==497)quit=true;
+        if(frames==499){profile=Profile{};profile.car=20;profile.factoryDrive=false;profile.drive=DriveLayout::Rear;equipBestParts(profile);openSuspension();
+            suspensionDraft.rideHeightMm=120;suspensionDraft.springStiffness=.5;suspensionDraft.dampingRatio=.3;suspensionDraft.frontBias=-.15;suspensionDraft.allowWheelie=true;commitSuspension();
+            auto loaded=loadProfile(profileFile(),191,54);check(loaded.rideHeightMm==120&&loaded.springStiffness==.5&&loaded.allowWheelie,"garage suspension tuning survives save and reload");}
+        if(frames==502)capture("suspension-reglages.png");
+        if(frames==503){settings.abs=true;settings.tractionControl=true;beginFree();CarState best;
+            for(int tick=0;tick<720;tick++){drive.update({true,false,true,true},Step);if(drive.player.frontLift>best.frontLift)best=drive.player;}
+            drive.player=best;auto sources=effectSources();effects.update(drive.player,drive.vehicle,{true,false,true,true},sources,0,Step,true);
+            check(drive.player.frontLift>.1&&drive.player.frontLoad==0&&sources.frontWheelY<sources.rearWheelY,"rendered drag launch uses actual front contact loss and lifted wheel anchors");}
+        if(frames==506)capture("wheelie-drag.png");
+        if(frames==507){profile.allowWheelie=false;beginFree();for(int tick=0;tick<720;tick++)drive.update({true,false,true,true},Step);check(drive.player.peakFrontLift==0,"grounded setup keeps both tyres on the contact plane under full preparation");}
+        if(frames==510)capture("chassis-au-sol.png");
+        if(frames==511){openOptions();edited.abs=false;edited.tractionControl=false;preview();keep();check(!drive.vehicle.abs&&!drive.vehicle.tractionControl&&!loadSettings(settingFile()).abs&&!loadSettings(settingFile()).tractionControl,"ABS and traction control toggles apply to live driving and persist");}
+        if(frames==514)capture("aides-conduite.png");
+        if(frames==515){edited.abs=true;edited.tractionControl=true;preview();check(drive.vehicle.abs&&drive.vehicle.tractionControl,"unconfirmed driving-aid preview changes the live model");deadline=GetTime()-1;}
+        if(frames==516){check(!drive.vehicle.abs&&!drive.vehicle.tractionControl,"timed-out aid settings restore the prior live state");options=false;}
+        if(frames==517){profile=Profile{};settings.abs=true;settings.tractionControl=true;beginFree();drive.player.speed=100/3.6;drive.player.gear=4;for(int tick=0;tick<30;tick++)drive.update({false,true,true},Step);
+            check(drive.player.absActive&&!drive.player.frontLocked&&!drive.player.rearLocked,"ABS regulates the rendered service-braking stop without locked wheels");}
+        if(frames==520)capture("abs-actif.png");
+        if(frames==521){settings.abs=false;beginFree();drive.player.speed=100/3.6;drive.player.gear=4;for(int tick=0;tick<30;tick++)drive.update({false,true,true},Step);
+            check(drive.player.frontLocked&&drive.player.rearLocked&&drive.player.frontRollDistance==0,"disabled ABS renders a stop with locked wheel rotation");}
+        if(frames==524)capture("freins-bloques.png");
+        if(frames==525){profile=Profile{};profile.car=20;profile.factoryDrive=false;profile.drive=DriveLayout::Rear;equipBestParts(profile);settings.tractionControl=true;beginFree();CarState bestCut;for(int tick=0;tick<120;tick++){drive.update({true,false,true},Step);if(drive.player.speed>2&&drive.player.tractionFactor<bestCut.tractionFactor)bestCut=drive.player;}drive.player=bestCut;
+            check(drive.player.tcActive&&drive.player.tractionFactor<1,"traction-control indicator follows a real wheel-torque reduction");}
+        if(frames==528)capture("antipatinage-actif.png");
+        if(frames==529){settings.tractionControl=false;beginFree();for(int tick=0;tick<60;tick++)drive.update({true,false,true},Step);auto sources=effectSources();effects.update(drive.player,drive.vehicle,{true,false,true},sources,0,Step,false);
+            check(!drive.player.tcActive&&drive.player.wheelSlip>.5,"disabled traction control permits excess-power tyre slip");}
+        if(frames==532)capture("antipatinage-desactive.png");
+        if(frames==533)quit=true;
 
     }
     int run(){
@@ -914,7 +994,7 @@ struct App {
         while(!WindowShouldClose()&&!quit){double dt=args.smoke?(frames>=290?0:1.0/30.0):std::clamp(double(GetFrameTime()),0.0,.1);controls(dt);renderFrame();if(IsKeyPressed(KEY_F12))capture(TextFormat("capture-%06i.png",frames));if(queued){auto action=std::move(queued);queued=nullptr;action();}if(args.smoke)smoke();frames++;}
         if(confirming)revert();
         saveCar();
-        {std::error_code ec;fs::create_directories(args.data,ec);if(!ec){std::ofstream out(args.data/"last-session.txt");out<<"screen="<<int(screen)<<"\ncustom_group="<<customGroup<<"\ncustom_page="<<customPage<<"\ninventory_open="<<inventoryOpen<<"\nnitro_remaining="<<drive.player.nitroRemaining<<"\nnitro_active="<<drive.player.nitroActive<<"\nhandbraking="<<drive.player.handbraking<<"\nneutral="<<drive.player.neutral<<"\nburnout="<<drive.player.burningOut<<"\nrpm="<<drive.player.rpm<<"\nfront_roll_m="<<drive.player.frontRollDistance<<"\nrear_roll_m="<<drive.player.rearRollDistance<<"\ntraffic_enabled="<<drive.trafficEnabled<<"\ntraffic_count="<<(drive.trafficEnabled?drive.traffic.size():0)<<"\ndistance_m="<<drive.player.position<<"\nspeed_mps="<<drive.player.speed<<"\ntarget_lane="<<drive.targetLane<<"\ngear="<<drive.player.gear<<"\nengine_part="<<profile.parts[int(PartSlot::Engine)]<<"\ntire_part="<<profile.parts[int(PartSlot::Tires)]<<"\ngear_count="<<drive.vehicle.gearCount<<"\nfinal_drive="<<drive.vehicle.finalDrive<<"\nshift_seconds="<<drive.vehicle.shiftSeconds<<"\nnative_mass_kg="<<drive.vehicle.mass<<"\nnative_hp="<<configuration.boostedHp<<"\nnative_nos_hp="<<configuration.nitroHp<<"\ncurrent_hp="<<drive.player.powerHp<<"\nnative_torque_nm="<<drive.vehicle.torque<<"\ndrive_layout="<<int(drive.vehicle.drive)<<"\naudio_ready="<<audio.ready<<"\naudio_failures="<<audio.failures<<"\nframes="<<frames<<"\nmode="<<modeKey(settings.mode)<<"\nwidth="<<GetScreenWidth()<<"\nheight="<<GetScreenHeight()<<"\n";}}
+        {std::error_code ec;fs::create_directories(args.data,ec);if(!ec){std::ofstream out(args.data/"last-session.txt");out<<"screen="<<int(screen)<<"\ncustom_group="<<customGroup<<"\ncustom_page="<<customPage<<"\ninventory_open="<<inventoryOpen<<"\nnitro_remaining="<<drive.player.nitroRemaining<<"\nnitro_active="<<drive.player.nitroActive<<"\nhandbraking="<<drive.player.handbraking<<"\nneutral="<<drive.player.neutral<<"\nburnout="<<drive.player.burningOut<<"\nrpm="<<drive.player.rpm<<"\nabs_enabled="<<drive.vehicle.abs<<"\ntc_enabled="<<drive.vehicle.tractionControl<<"\nabs_active="<<drive.player.absActive<<"\ntc_active="<<drive.player.tcActive<<"\npitch_rad="<<drive.player.pitch<<"\nheave_m="<<drive.player.heave<<"\nfront_lift_m="<<drive.player.frontLift<<"\npeak_front_lift_m="<<drive.player.peakFrontLift<<"\nrear_lift_m="<<drive.player.rearLift<<"\nfront_load_n="<<drive.player.frontLoad<<"\nrear_load_n="<<drive.player.rearLoad<<"\nfront_roll_m="<<drive.player.frontRollDistance<<"\nrear_roll_m="<<drive.player.rearRollDistance<<"\ntraffic_enabled="<<drive.trafficEnabled<<"\ntraffic_count="<<(drive.trafficEnabled?drive.traffic.size():0)<<"\ndistance_m="<<drive.player.position<<"\nspeed_mps="<<drive.player.speed<<"\ntarget_lane="<<drive.targetLane<<"\ngear="<<drive.player.gear<<"\nengine_part="<<profile.parts[int(PartSlot::Engine)]<<"\ntire_part="<<profile.parts[int(PartSlot::Tires)]<<"\ngear_count="<<drive.vehicle.gearCount<<"\nfinal_drive="<<drive.vehicle.finalDrive<<"\nshift_seconds="<<drive.vehicle.shiftSeconds<<"\nnative_mass_kg="<<drive.vehicle.mass<<"\nnative_hp="<<configuration.boostedHp<<"\nnative_nos_hp="<<configuration.nitroHp<<"\ncurrent_hp="<<drive.player.powerHp<<"\nnative_torque_nm="<<drive.vehicle.torque<<"\ndrive_layout="<<int(drive.vehicle.drive)<<"\naudio_ready="<<audio.ready<<"\naudio_failures="<<audio.failures<<"\nframes="<<frames<<"\nmode="<<modeKey(settings.mode)<<"\nwidth="<<GetScreenWidth()<<"\nheight="<<GetScreenHeight()<<"\n";}}
         if(args.smoke){fs::create_directories(args.data);std::ofstream out(args.data/"smoke-report.txt");
 #ifdef _WIN32
             out<<"Native Windows rendering smoke test. Physical PC GPU and audio are not established.\n";

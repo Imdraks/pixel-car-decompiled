@@ -32,14 +32,16 @@ void DrivingEffects::update(const CarState& car,const Vehicle& vehicle,const Dri
     particles.erase(std::remove_if(particles.begin(),particles.end(),[](const Particle& p){return p.age>=p.life||p.x< -120||p.y< -120||p.y>820;}),particles.end());
     smokeTimer-=dt;nitroTimer-=dt;flameTimer-=dt;
     bool slip=!car.neutral&&input.throttle&&car.wheelSlip>.05;
-    bool braking=(input.brake||input.handbrake)&&car.speed>18;
-    auto tyreSmoke=[&](double x){
-        auto count=particles.size();add(braking?EffectKind::BrakeSmoke:EffectKind::Smoke,x,source.wheelY,tireSmokeTint(source.tireFrame));
+    bool frontBrake=input.brake&&(car.frontLocked||!vehicle.tyreDynamics)&&car.speed>18;
+    bool rearBrake=(input.handbrake||(input.brake&&(car.rearLocked||!vehicle.tyreDynamics)))&&car.speed>18;
+    bool braking=frontBrake||rearBrake;
+    auto tyreSmoke=[&](double x,double y,bool skid){
+        auto count=particles.size();add(skid?EffectKind::BrakeSmoke:EffectKind::Smoke,x,y,tireSmokeTint(source.tireFrame));
         if(car.burningOut&&particles.size()>count){particles.back().scale*=2;particles.back().vy*=1.3;particles.back().foreground=true;}
     };
     if((slip||braking)&&smokeTimer<=0){
-        if((slip&&vehicle.drive!=DriveLayout::Front)||braking)tyreSmoke(source.rearWheel);
-        if((slip&&vehicle.drive!=DriveLayout::Rear)||(braking&&input.brake))tyreSmoke(source.frontWheel);
+        if(car.rearLift<.005&&((slip&&vehicle.drive!=DriveLayout::Front)||rearBrake))tyreSmoke(source.rearWheel,source.rearWheelY>=0?source.rearWheelY:source.wheelY,rearBrake);
+        if(car.frontLift<.005&&((slip&&vehicle.drive!=DriveLayout::Rear)||frontBrake))tyreSmoke(source.frontWheel,source.frontWheelY>=0?source.frontWheelY:source.wheelY,frontBrake);
         smokeTimer=car.burningOut?.025:.045;
     }
     auto jets=[&](EffectKind kind){for(int i=0;i<source.outletCount;i++){

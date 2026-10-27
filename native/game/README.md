@@ -1,4 +1,12 @@
-# Pixel Car Racer — Unbound Native 0.11.0
+# Pixel Car Racer — Unbound Native 0.12.0
+
+La version **0.12.0** ajoute une suspension avec ressorts et amortisseurs,
+transfert de charge, cabrage et plongeon. Au garage, **F9** ou **F5 → Réglages
+suspension** règle hauteur, rigidité, amortissement, répartition des masses et
+wheelie autorisé/limité au sol. Les préréglages Route, Drag et Piste sont inclus.
+**ABS et antipatinage** se désactivent séparément dans les paramètres, sous
+la ligne du trafic. Appliquer puis Conserver enregistre ces choix.
+Voir [SUSPENSION.md](SUSPENSION.md) pour l’utilisation et les limites du modèle.
 
 La version **0.11.0** ajoute le burnout : en **première**, à l’arrêt ou presque,
 maintenir **Z/W/↑ + S/↓**. Le frein retient la voiture, les roues motrices tournent
@@ -113,6 +121,7 @@ environ 100 Mo libres. Aucun composant Android n'est téléchargé ou installé.
 | S ou flèche bas | Freiner |
 | Flèches gauche/droite, Q/A et D | Changer de voie |
 | E ou Maj gauche / C | Monter / descendre un rapport |
+| F9 au garage | Régler suspension et wheelie |
 | V maintenu | Point mort ; relâcher pour réengager |
 | 1re + accélérateur + frein | Burnout à l’arrêt ou à très basse vitesse |
 | N maintenu | NOS, si équipé, réserve de 10 secondes par session |

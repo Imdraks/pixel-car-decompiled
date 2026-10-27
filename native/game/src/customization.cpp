@@ -144,6 +144,13 @@ Build buildVehicle(const Profile& profile){
     // Body/part weights share the source lb scale; use SI kg for integration.
     v.mass=std::max(350.0,v.mass+massDelta*.45359237);
     v.torque=(targetHp+addedHp)*745.699872/stockPowerPerTorque;
+    Profile chassis=profile;sanitizeSuspension(chassis);
+    build.rideOffset-=chassis.rideHeightMm*.001*48/1.25;
+    v.centreOfGravityHeight=std::clamp(v.centreOfGravityHeight+chassis.rideHeightMm*.001,.25,.80);
+    v.springStiffness=chassis.springStiffness;v.dampingRatio=chassis.dampingRatio;
+    v.frontWeightFraction=std::clamp((v.drive==DriveLayout::Front?.60:.48)+chassis.frontBias,.28,.75);
+    v.drivenWeightFraction=v.drive==DriveLayout::Front?v.frontWeightFraction:1-v.frontWeightFraction;
+    v.allowWheelie=chassis.allowWheelie;v.suspensionDynamics=true;v.tyreDynamics=true;v.brakeDeceleration=13;
     build.engineHp=targetHp;build.boltOnHp=addedHp;
     build.baseHp=peakPower(v,false).hp;
     auto peak=peakPower(v);build.boostedHp=peak.hp;build.peakRpm=peak.rpm;

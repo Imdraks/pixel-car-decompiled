@@ -7,7 +7,7 @@ using SmokeTint=std::array<unsigned char,3>;
 SmokeTint tireSmokeTint(int tireFrame);
 enum class EffectKind { Smoke, BrakeSmoke, Flame, Nitro, Spark };
 struct Particle { EffectKind kind; double x,y,vx,vy,age,life,scale; int outlet=0; double dx=-1,dy=0; SmokeTint tint{255,255,255}; bool foreground=false; };
-struct EffectSources { double rearWheel=0,frontWheel=0,wheelY=0; std::array<Outlet,3> outlets{}; int outletCount=1;double scale=1.25;int tireFrame=0; };
+struct EffectSources { double rearWheel=0,frontWheel=0,wheelY=0; std::array<Outlet,3> outlets{}; int outletCount=1;double scale=1.25;int tireFrame=0;double frontWheelY=-1,rearWheelY=-1; };
 class DrivingEffects {
     unsigned random=0x564658;
     double lastPosition=0;

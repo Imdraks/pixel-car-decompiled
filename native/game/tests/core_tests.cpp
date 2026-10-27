@@ -3,6 +3,7 @@
 #include "art.hpp"
 #include "effects.hpp"
 #include "road_scene.hpp"
+#include "chassis_pose.hpp"
 #include "original_ui.hpp"
 #include "content_art.hpp"
 #include "base_audio.hpp"
@@ -162,7 +163,9 @@ int main(int argc,char**argv){
     auto jz=buildVehicle(custom);
     expect(std::abs(jz.baseHp-410)<.001,"recovered 2JZ catalog power drives the native torque curve");
     Profile lowPower,highPower;equipPart(lowPower,PartSlot::Engine,1001);equipPart(highPower,PartSlot::Engine,1014);
-    auto lowBuild=buildVehicle(lowPower),highBuild=buildVehicle(highPower);CarState lowRun,highRun;
+    auto lowBuild=buildVehicle(lowPower),highBuild=buildVehicle(highPower);
+    // Isolate engine power from tyre saturation for this rolling comparison.
+    lowBuild.vehicle.grip=highBuild.vehicle.grip=4;CarState lowRun,highRun;
     lowRun.speed=highRun.speed=30;lowRun.gear=highRun.gear=4;
     for(int i=0;i<120;i++){stepCar(lowRun,lowBuild.vehicle,{true,false,false},Step,0);stepCar(highRun,highBuild.vehicle,{true,false,false},Step,0);}
     expect(highRun.speed>lowRun.speed+.5&&highRun.rpm<highBuild.vehicle.redlineRpm,"stronger engine improves rolling acceleration below its own rev limit");
@@ -529,6 +532,97 @@ int main(int argc,char**argv){
     expect(std::size(OriginalVehicleIdentities)==191&&std::string(vehicleIdentity(0,true).name).find("Honda Civic")!=std::string::npos,"every body has a stable identity label and the stock hatch is identified from its picture reference");
     expect(vehicleIdentity(100,true).tentative&&vehicleIdentity(153,true).tentative,"unresolved original models remain explicitly uncertain");
     expect(std::string(vehicleIdentity(63,false).name)!=vehicleIdentity(63,true).name&&vehicleIdentity(75,false).tentative,"mod visual replacements retain separate model labels and uncertainty instead of borrowing their base's manufacturer identity");
+    Profile chassis;chassis.car=20;chassis.factoryDrive=false;chassis.drive=DriveLayout::Rear;
+    auto standard=buildVehicle(chassis);Profile raised=chassis;raised.rideHeightMm=120;auto tall=buildVehicle(raised);
+    expect(std::abs(tall.rideOffset-standard.rideOffset+4.608)<1e-8&&std::abs(tall.vehicle.centreOfGravityHeight-standard.vehicle.centreOfGravityHeight-.12)<1e-8,"120 mm ride adjustment moves the body and physical centre of gravity consistently");
+    expect(tall.vehicle.mass==standard.vehicle.mass&&tall.baseHp==standard.baseHp,"chassis tuning cannot invent mass or horsepower");
+    raised.springStiffness=.7;raised.dampingRatio=.35;raised.frontBias=-.12;raised.allowWheelie=true;
+    saveProfile(root/"suspension.ini",raised,error);auto persistedChassis=loadProfile(root/"suspension.ini",191,54);
+    expect(persistedChassis.rideHeightMm==120&&persistedChassis.springStiffness==.7&&persistedChassis.dampingRatio==.35&&persistedChassis.frontBias==-.12&&persistedChassis.allowWheelie,"all suspension, mass balance and wheelie adjustments survive restart");
+    {std::ofstream out(root/"invalid-suspension.ini");out<<"ride_height_mm=10000\nspring_stiffness=nan\ndamping_ratio=-10\nfront_bias=2\n";}
+    auto invalidChassis=loadProfile(root/"invalid-suspension.ini",191,54);
+    expect(invalidChassis.rideHeightMm==120&&invalidChassis.springStiffness==1&&invalidChassis.dampingRatio==.25&&invalidChassis.frontBias==.15,"invalid chassis settings are finite and constrained to supported travel and spring ranges");
+    {std::ofstream out(root/"old-chassis.ini");out<<"version=3\ncar=20\npart_suspension=2015\n";}
+    auto oldChassis=loadProfile(root/"old-chassis.ini",191,54);
+    expect(oldChassis.rideHeightMm==0&&oldChassis.springStiffness==1&&oldChassis.dampingRatio==.65&&!oldChassis.allowWheelie&&oldChassis.parts[1]==2015,"old saves retain installed suspension and receive neutral tuning defaults");
+    Settings aidsOff;aidsOff.abs=false;aidsOff.tractionControl=false;saveSettings(root/"aids.ini",aidsOff,error);
+    auto savedAids=loadSettings(root/"aids.ini");expect(!savedAids.abs&&!savedAids.tractionControl,"ABS and traction control off settings persist independently");
+    expect(loadSettings(root/"no-aids-settings.ini").abs&&loadSettings(root/"no-aids-settings.ini").tractionControl,"new and legacy settings enable the driving aids by default");
+    CarState equilibrium;
+    for(int tick=0;tick<1200;tick++)stepCar(equilibrium,standard.vehicle,{false,false,true},Step,0);
+    expect(std::abs(equilibrium.pitch)<1e-9&&std::abs(equilibrium.heave)<1e-9&&std::abs(equilibrium.frontLoad+equilibrium.rearLoad-standard.vehicle.mass*9.81)<1e-6,"front and rear spring preloads support the resting mass without drift");
+    Profile powerful=chassis;equipBestParts(powerful);auto launchVehicle=buildVehicle(powerful).vehicle;
+    std::array<CarState,2> tcRuns{};std::array<double,2> slipIntegral{};std::array<double,2> minFactors{1,1};
+    for(int enabled=0;enabled<2;enabled++){
+        auto car=launchVehicle;car.tractionControl=enabled;
+        for(int tick=0;tick<600;tick++){stepCar(tcRuns[enabled],car,{true,false,true},Step,0);slipIntegral[enabled]+=tcRuns[enabled].wheelSlip*Step;minFactors[enabled]=std::min(minFactors[enabled],tcRuns[enabled].tractionFactor);}
+    }
+    expect(slipIntegral[1]<slipIntegral[0]*.1&&tcRuns[1].position>tcRuns[0].position,"traction control suppresses sustained excess-power wheelspin and improves this traction-limited launch");
+    expect(minFactors[1]<.9&&minFactors[0]==1,"traction control reduces delivered torque only when enabled");
+    std::array<CarState,2> absRuns{};std::array<int,2> lockedTicks{},absTicks{};
+    for(int enabled=0;enabled<2;enabled++){
+        auto car=buildVehicle(Profile{}).vehicle;car.abs=enabled;absRuns[enabled].speed=100/3.6;absRuns[enabled].gear=4;
+        for(int tick=0;tick<1200&&absRuns[enabled].speed>0;tick++){stepCar(absRuns[enabled],car,{false,true,true},Step,0);lockedTicks[enabled]+=absRuns[enabled].frontLocked;absTicks[enabled]+=absRuns[enabled].absActive;}
+    }
+    expect(absRuns[0].speed==0&&absRuns[1].speed==0&&absRuns[1].position<absRuns[0].position*.85,"ABS avoids the lower sliding friction and shortens the reference 100-to-zero stop");
+    expect(lockedTicks[0]>100&&lockedTicks[1]==0&&absTicks[0]==0&&absTicks[1]>100,"disabled ABS permits wheel lock while enabled ABS regulates service braking");
+    auto withAids=launchVehicle;withAids.abs=withAids.tractionControl=true;CarState deliberateBurn;
+    for(int tick=0;tick<240;tick++)stepCar(deliberateBurn,withAids,{true,true,true,true},Step,0);
+    expect(deliberateBurn.burningOut&&deliberateBurn.wheelSlip>.5&&!deliberateBurn.tcActive&&!deliberateBurn.absActive&&deliberateBurn.frontLift==0,"aids preserve deliberate stationary burnouts without artificial pitch or wheel lift");
+    CarState handAbs;handAbs.speed=25;stepCar(handAbs,withAids,{true,false,true,false,false,true},Step,0);
+    expect(handAbs.rearLocked&&handAbs.rearRollDistance==0&&!handAbs.nitroActive,"ABS does not release the manually held rear handbrake");
+    std::array<double,2> springPeaks{};
+    for(int setup=0;setup<2;setup++){
+        auto car=launchVehicle;car.tractionControl=true;car.springStiffness=setup?3:.4;CarState body;
+        for(int tick=0;tick<240;tick++){stepCar(body,car,{true,false,true},Step,0);springPeaks[setup]=std::max(springPeaks[setup],body.pitch);}
+    }
+    expect(springPeaks[0]>springPeaks[1]*2,"stiffer springs reduce actual pitch excursion under the same launch demand");
+    std::array<int,2> crossings{};
+    for(int damper=0;damper<2;damper++){
+        auto car=standard.vehicle;car.dampingRatio=damper?1.3:.25;CarState body;body.pitch=.04;double previous=body.pitch;
+        for(int tick=0;tick<480;tick++){stepCar(body,car,{false,false,true},Step,0);if(previous*body.pitch<0)++crossings[damper];previous=body.pitch;}
+        expect(std::abs(body.pitch)<.002&&std::abs(body.heave)<.002,"spring and damper motion settles without accumulating energy at rest");
+    }
+    expect(crossings[0]>crossings[1],"stronger damping suppresses oscillations instead of changing only the sprite");
+    Profile drag=powerful;drag.rideHeightMm=120;drag.springStiffness=.5;drag.dampingRatio=.3;drag.frontBias=-.15;drag.allowWheelie=true;
+    auto dragVehicle=buildVehicle(drag).vehicle;dragVehicle.tractionControl=true;
+    double peakLift=0;CarState wheelieAtPeak,dragState,groundState;auto grounded=dragVehicle;grounded.allowWheelie=false;
+    std::ofstream suspensionTrace(root/"suspension-physics.csv");suspensionTrace<<"time_s,speed_mps,pitch_rad,heave_m,front_load_n,rear_load_n,front_lift_m\n";
+    for(int tick=0;tick<720;tick++){
+        stepCar(dragState,dragVehicle,{true,false,true,true},Step,0);stepCar(groundState,grounded,{true,false,true,true},Step,0);
+        if(dragState.frontLift>peakLift){peakLift=dragState.frontLift;wheelieAtPeak=dragState;}
+        if(tick%12==0)suspensionTrace<<dragState.elapsed<<','<<dragState.speed<<','<<dragState.pitch<<','<<dragState.heave<<','<<dragState.frontLoad<<','<<dragState.rearLoad<<','<<dragState.frontLift<<'\n';
+    }
+    expect(peakLift>.1&&wheelieAtPeak.frontLoad==0&&wheelieAtPeak.rearLoad>0,"high-power rearward-balanced drag setup physically unloads and lifts the front axle");
+    expect(groundState.frontLift==0&&groundState.rearLift==0,"grounded constraint prevents wheel lift under the same preparation without infinite grip");
+    for(int tick=0;tick<1200;tick++)stepCar(dragState,dragVehicle,{false,true,true},Step,0);
+    expect(dragState.speed==0&&dragState.frontLift==0&&std::abs(dragState.pitch)<.002,"wheelie returns to the contact plane and the springs settle after braking");
+    auto pose=chassisPose(62,160,58,dragVehicle,wheelieAtPeak);auto frontPose=pose.wheel(true),rearPose=pose.wheel(false),pivotPose=pose.body(pose.pivotX,pose.pivotY);
+    expect(frontPose.y<rearPose.y&&std::abs(58-frontPose.y-wheelieAtPeak.frontLift*pose.pixelsPerMetre)<1e-9,"rendered front wheel lift uses the simulated metre displacement");
+    expect(std::abs(pivotPose.x-pose.pivotX)<1e-9&&std::abs(pivotPose.y-pose.pivotY+wheelieAtPeak.heave*pose.pixelsPerMetre)<1e-9,"body and exhaust transform share the simulated heave and pitch pivot");
+    auto archlessPose=chassisPose(0,0,0,dragVehicle,wheelieAtPeak).wheel(true);
+    expect(std::isfinite(archlessPose.x)&&std::isfinite(archlessPose.y),"archless special body keeps finite transformed anchors");
+    DrivingEffects airborne;EffectSources airPoints=points;CarState air=wheelieAtPeak;air.wheelSlip=1;
+    Vehicle awdAir=dragVehicle;awdAir.drive=DriveLayout::All;airborne.update(air,awdAir,{true,false,true},airPoints,0,Step,false);
+    expect(std::count_if(airborne.particles.begin(),airborne.particles.end(),[](const Particle& p){return p.kind==EffectKind::Smoke;})==1&&std::all_of(airborne.particles.begin(),airborne.particles.end(),[&](const Particle& p){return p.kind!=EffectKind::Smoke||p.x==points.rearWheel;}),"airborne front tyre cannot emit ground-contact skid smoke");
+    bool stableChassis=true;int chassisCases=0;
+    for(double height:{-60.,120.})for(double spring:{.4,3.})for(double damper:{.25,1.5})for(double bias:{-.15,.15})for(bool lift:{false,true})for(bool tc:{false,true}){
+        Profile p=powerful;p.rideHeightMm=height;p.springStiffness=spring;p.dampingRatio=damper;p.frontBias=bias;p.allowWheelie=lift;
+        auto car=buildVehicle(p).vehicle;car.tractionControl=tc;car.abs=true;CarState body;
+        for(int tick=0;tick<960;tick++){
+            stepCar(body,car,tick<480?DriverInput{true,false,true,true}:DriverInput{false,true,true},Step,0);
+            stableChassis&=std::isfinite(body.pitch)&&std::isfinite(body.heave)&&std::isfinite(body.speed)&&body.frontLoad>=0&&body.rearLoad>=0&&body.frontLift>=0&&body.rearLift>=0&&body.pitch<=.55&&body.pitch>=-.15;
+            if(!lift)stableChassis&=body.frontLift==0&&body.rearLift==0;
+        }++chassisCases;
+    }
+    expect(stableChassis&&chassisCases==64,"64 extreme chassis, wheelie and aid configurations stay finite through launch and braking");
+    for(int fps:{30,60,144,240}){
+        CarState body,reference;double acc=0;
+        for(int frame=0;frame<fps*6;frame++){acc+=1.0/fps;while(acc+1e-12>=Step){stepCar(body,dragVehicle,{true,false,true,true},Step,0);acc-=Step;}}
+        for(int tick=0;tick<720;tick++)stepCar(reference,dragVehicle,{true,false,true,true},Step,0);
+        expect(std::abs(body.pitch-reference.pitch)<1e-10&&std::abs(body.heave-reference.heave)<1e-10&&std::abs(body.position-reference.position)<1e-8,"spring dynamics and wheelie remain independent of rendering FPS");
+    }
+    {std::ofstream out(root/"suspension-aids.json");out<<"{\n  \"chassis_configurations_checked\": "<<chassisCases<<",\n  \"max_wheelie_lift_m\": "<<peakLift<<",\n  \"abs_stop_m\": "<<absRuns[1].position<<",\n  \"locked_stop_m\": "<<absRuns[0].position<<",\n  \"tc_launch_distance_m\": "<<tcRuns[1].position<<",\n  \"uncontrolled_launch_distance_m\": "<<tcRuns[0].position<<",\n  \"full_android_dynamics_equivalence\": false\n}\n";}
     Profile flags;flags.rollCage=true;flags.headlights=true;flags.audioSource=1;flags.contentSource=0;saveProfile(root/"flags.ini",flags,error);auto loadedFlags=loadProfile(root/"flags.ini",191,54);
     expect(loadedFlags.rollCage&&loadedFlags.headlights&&loadedFlags.audioSource==1&&loadedFlags.contentSource==0,"cage, headlights and independent audio source survive reload");
     {std::ofstream out(root/"legacy-seat.ini");out<<"version=1\ncontent_source=1\ncosmetic_9=109001\npart_engine=1002\n";}

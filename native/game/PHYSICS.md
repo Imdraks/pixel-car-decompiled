@@ -1,3 +1,15 @@
+# Châssis et aides — 0.12.0
+
+Les voitures jouables utilisent désormais un modèle de suspension à deux essieux :
+ressorts préchargés, amortisseurs, déplacement vertical et tangage. Les charges
+aux essieux influencent les efforts aux pneus et la perte de contact en wheelie.
+Les réglages du garage et les aides ABS/TC sont décrits dans
+[SUSPENSION.md](SUSPENSION.md), avec les calibrations et les limites.
+
+Le banc générique historique ci-dessous reste une référence de régression.
+Il ne valide pas ces nouveaux comportements : `suspension-aids.json` et
+`suspension-physics.csv` ajoutent les scénarios de suspension, de wheelie et d’aides.
+
 # Burnout et point mort — 0.11.0
 
 - En première, frein de service + accélérateur active le burnout sous 3 m/s.
