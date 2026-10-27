@@ -1,3 +1,14 @@
+# Validation 0.13.4 — associations source moteur/son
+
+- Les 15 gardes de puissance couvrant 16 moteurs interchangeables sont extraites
+  séparément des deux ELF vérifiés ; profils et identifiants audio concordent.
+- AUTO reprend les sons source de charge et de relâchement. Les préférences
+  manuelles restent prioritaires. La sélection des moteurs stock reste à confirmer.
+- 321 contrôles du cœur Linux, dont 32 cas moteur/banque et priorité des overrides.
+- Mixage des 16 moteurs dans les deux banques, en charge et au relâchement,
+  sur périphérique logiciel ; aucune revendication d’écoute physique.
+- Correspondances : `ENGINE-AUDIO.md` et `../evidence/merged/engine-audio-assignments.json`.
+
 # Validation 0.13.3 — régime libre au frein à main et puissance/cabrage
 
 - 319 contrôles du cœur Linux réussis. Trois transmissions vérifiées : régime

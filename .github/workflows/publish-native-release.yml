@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.13.3-native-preview
+        default: v0.13.4-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -93,6 +93,9 @@ jobs:
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\customization-render.json" validation/customization-render.json
           $cosmetics = Get-Content validation/customization-render.json -Raw | ConvertFrom-Json
           if ($cosmetics.palette_shades_checked -ne 2376 -or $cosmetics.cosmetic_cases_checked -ne 192146 -or $cosmetics.hood_body_kit_pipe_cases -ne 14898 -or $cosmetics.rim_finish_recipes -ne 521 -or $cosmetics.hood_coordinates_recovered_from_android) { throw 'Customization source coverage differs' }
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\engine-audio-assignments.json" validation/engine-audio-assignments.json
+          $engineAudio = Get-Content validation/engine-audio-assignments.json -Raw | ConvertFrom-Json
+          if ($engineAudio.equipped_engine_bank_cases -ne 32 -or -not $engineAudio.source_sample_selection_verified -or $engineAudio.stock_selection_recovered) { throw 'Equipped engine audio selection failed' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\rev-launch.json" validation/rev-launch.json
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\rev-launch.csv" validation/rev-launch.csv
           $revLaunch = Get-Content validation/rev-launch.json -Raw | ConvertFrom-Json

@@ -2,6 +2,7 @@
 #include "art.hpp"
 #include "wheelie_bars.hpp"
 #include "original_audio.hpp"
+#include "engine_assignments.hpp"
 #include <algorithm>
 #include <cmath>
 #include <string>
@@ -9,12 +10,12 @@
 namespace pcr {
 EngineSamples engineSamples(const Profile& profile){
     EngineSamples samples;const Part* engine=findPart(profile.parts[int(PartSlot::Engine)]);
-    // Native family-based automatic assignment; original engine-item -> sound-profile
-    // assignments are not established. The two original profile indices can override it.
+    // Recovered engine_hp -> e_s/e_s2 -> sample dispatch, checked in both banks.
+    // Stock-car selection remains a native fallback. Explicit PC overrides win.
     if(engine){
-        static constexpr int familyOn[]={21,21,23,20,23,23,23,24,47,47,71,47,47,47,47,20,21};
-        samples.on=familyOn[std::clamp(engine->subimage,0,16)];
-        samples.off=samples.on==21?22:samples.on==20?78:samples.on==71?24:samples.on;
+        int frame=std::clamp(engine->subimage,0,16);
+        samples.on=ReplacementEngineSamples[frame][0];
+        samples.off=ReplacementEngineSamples[frame][1];
     }
     if(profile.soundOn>=0&&profile.soundOn<16)samples.on=EngineSoundProfiles[profile.soundOn][0];
     if(profile.soundOff>=0&&profile.soundOff<16)samples.off=EngineSoundProfiles[profile.soundOff][1];

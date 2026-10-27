@@ -30,6 +30,14 @@ int main(int argc,char** argv){
                 for(int tick=0;tick<12;tick++){audio.update(profile,setup.vehicle,state,{true,false,true},0,true,true);std::this_thread::sleep_for(std::chrono::milliseconds(10));}
                 audio.update(profile,setup.vehicle,state,{false,false,true},0,true,true);
             }
+            profile.soundOn=profile.soundOff=-1;
+            for(const auto& part:PartCatalog)if(part.slot==PartSlot::Engine){
+                equipPart(profile,PartSlot::Engine,part.id);
+                for(bool throttle:{true,false})for(int tick=0;tick<12;tick++){
+                    audio.update(profile,setup.vehicle,state,{throttle,false,true},0,true,true);
+                    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+                }
+            }
             state.nitroActive=true;
             for(int tick=0;tick<30;tick++){audio.update(profile,setup.vehicle,state,{true,false,true,true},0,true,true);std::this_thread::sleep_for(std::chrono::milliseconds(10));}
             setup.vehicle.supercharged=true;state.gear=4;
@@ -43,9 +51,9 @@ int main(int argc,char** argv){
         }
         if(frames.load()==0||energy.load()==0)throw std::runtime_error("Original audio did not produce non-silent mixed PCM");
         std::ofstream out(std::filesystem::u8path(argv[2]));
-        out<<"PASS: both banks, 16 engine profile pairs per bank, turbo, supercharger, NOS and event sounds mixed through the real Raylib audio backend.\n"
+        out<<"PASS: both banks, 16 engine profile pairs per bank, 16 automatic equipped-engine pairs per bank, turbo, supercharger, NOS and event sounds mixed through the real Raylib audio backend.\n"
            <<"stream_decode_failures=0\n"<<"frames="<<frames.load()<<"\nabsolute_pcm_energy_scaled="<<energy.load()<<"\n"
-           <<"Software/null audio device only; physical speaker playback and exact original engine assignment are not established.\n";
+           <<"Software/null audio device only; physical speaker playback and stock-car engine assignment are not established.\n";
         std::cout<<"PASS: non-silent original audio mix, "<<frames.load()<<" frames\n";return 0;
     }catch(const std::exception& e){std::cerr<<"FAIL: "<<e.what()<<'\n';return 1;}
 }

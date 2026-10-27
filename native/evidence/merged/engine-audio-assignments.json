@@ -1,0 +1,1324 @@
+{
+  "method": "Static engine_hp equality guards -> e_s/e_s2 literal assignments -> profile dispatch -> sample IDs; independently checked in both pinned Android libraries",
+  "replacement_engine_count": 16,
+  "same_assignments_in_both_banks": true,
+  "engines": [
+    {
+      "id": 1001,
+      "name": "SR20",
+      "subimage": 1,
+      "hp": 250.0,
+      "on": {
+        "profile": 7,
+        "field_write_address": "0x11b949b",
+        "sample_id": 21,
+        "sample_name": "sfx_engine2",
+        "case_address": "0x11abf8d",
+        "literal_address": "0x11abfb2"
+      },
+      "off": {
+        "profile": -1,
+        "field_write_address": "0x11b94e6",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    },
+    {
+      "id": 1002,
+      "name": "2JZ",
+      "subimage": 2,
+      "hp": 410.0,
+      "on": {
+        "profile": 7,
+        "field_write_address": "0x11b92b2",
+        "sample_id": 21,
+        "sample_name": "sfx_engine2",
+        "case_address": "0x11abf8d",
+        "literal_address": "0x11abfb2"
+      },
+      "off": {
+        "profile": -1,
+        "field_write_address": "0x11b92fd",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    },
+    {
+      "id": 1003,
+      "name": "K20",
+      "subimage": 3,
+      "hp": 212.0,
+      "on": {
+        "profile": 7,
+        "field_write_address": "0x11b9bd9",
+        "sample_id": 21,
+        "sample_name": "sfx_engine2",
+        "case_address": "0x11abf8d",
+        "literal_address": "0x11abfb2"
+      },
+      "off": {
+        "profile": -1,
+        "field_write_address": "0x11b9c24",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    },
+    {
+      "id": 1004,
+      "name": "RB25",
+      "subimage": 4,
+      "hp": 270.0,
+      "on": {
+        "profile": 7,
+        "field_write_address": "0x11b9684",
+        "sample_id": 21,
+        "sample_name": "sfx_engine2",
+        "case_address": "0x11abf8d",
+        "literal_address": "0x11abfb2"
+      },
+      "off": {
+        "profile": -1,
+        "field_write_address": "0x11b96cf",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    },
+    {
+      "id": 1005,
+      "name": "RB26",
+      "subimage": 5,
+      "hp": 290.0,
+      "on": {
+        "profile": 7,
+        "field_write_address": "0x11b9dc2",
+        "sample_id": 21,
+        "sample_name": "sfx_engine2",
+        "case_address": "0x11abf8d",
+        "literal_address": "0x11abfb2"
+      },
+      "off": {
+        "profile": -1,
+        "field_write_address": "0x11b9e0d",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    },
+    {
+      "id": 1006,
+      "name": "1JZ",
+      "subimage": 6,
+      "hp": 330.0,
+      "on": {
+        "profile": 7,
+        "field_write_address": "0x11b9fab",
+        "sample_id": 21,
+        "sample_name": "sfx_engine2",
+        "case_address": "0x11abf8d",
+        "literal_address": "0x11abfb2"
+      },
+      "off": {
+        "profile": -1,
+        "field_write_address": "0x11b9ff6",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    },
+    {
+      "id": 1007,
+      "name": "VR38",
+      "subimage": 7,
+      "hp": 478.0,
+      "on": {
+        "profile": 5,
+        "field_write_address": "0x11ba194",
+        "sample_id": 71,
+        "sample_name": "sfx_engine_6",
+        "case_address": "0x11ac029",
+        "literal_address": "0x11ac04e"
+      },
+      "off": {
+        "profile": 2,
+        "field_write_address": "0x11ba1df",
+        "sample_id": 23,
+        "sample_name": "sfx_engine3",
+        "case_address": "0x11ac488",
+        "literal_address": "0x11ac4b2"
+      }
+    },
+    {
+      "id": 1008,
+      "name": "LS",
+      "subimage": 8,
+      "hp": 505.0,
+      "on": {
+        "profile": 3,
+        "field_write_address": "0x11ba37d",
+        "sample_id": 24,
+        "sample_name": "sfx_engine4",
+        "case_address": "0x11abf3f",
+        "literal_address": "0x11abf64"
+      },
+      "off": {
+        "profile": 7,
+        "field_write_address": "0x11ba3c8",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    },
+    {
+      "id": 1009,
+      "name": "FR9",
+      "subimage": 9,
+      "hp": 656.0,
+      "on": {
+        "profile": 8,
+        "field_write_address": "0x11ba566",
+        "sample_id": 79,
+        "sample_name": "engine_test1",
+        "case_address": "0x11ac10c",
+        "literal_address": "0x11ac131"
+      },
+      "off": {
+        "profile": -1,
+        "field_write_address": "0x11ba5b1",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    },
+    {
+      "id": 1010,
+      "name": "F1X",
+      "subimage": 10,
+      "hp": 542.0,
+      "on": {
+        "profile": 0,
+        "field_write_address": "0x11ba74f",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11abd6b",
+        "literal_address": "0x11abd90"
+      },
+      "off": {
+        "profile": 3,
+        "field_write_address": "0x11ba79a",
+        "sample_id": 24,
+        "sample_name": "sfx_engine4",
+        "case_address": "0x11ac4db",
+        "literal_address": "0x11ac505"
+      }
+    },
+    {
+      "id": 1011,
+      "name": "Hemi",
+      "subimage": 11,
+      "hp": 707.0,
+      "on": {
+        "profile": 3,
+        "field_write_address": "0x11ba938",
+        "sample_id": 24,
+        "sample_name": "sfx_engine4",
+        "case_address": "0x11abf3f",
+        "literal_address": "0x11abf64"
+      },
+      "off": {
+        "profile": 7,
+        "field_write_address": "0x11ba983",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    },
+    {
+      "id": 1012,
+      "name": "Hemi 24K",
+      "subimage": 12,
+      "hp": 707.0,
+      "on": {
+        "profile": 3,
+        "field_write_address": "0x11ba938",
+        "sample_id": 24,
+        "sample_name": "sfx_engine4",
+        "case_address": "0x11abf3f",
+        "literal_address": "0x11abf64"
+      },
+      "off": {
+        "profile": 7,
+        "field_write_address": "0x11ba983",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    },
+    {
+      "id": 1013,
+      "name": "LSX",
+      "subimage": 13,
+      "hp": 627.0,
+      "on": {
+        "profile": 3,
+        "field_write_address": "0x11bab21",
+        "sample_id": 24,
+        "sample_name": "sfx_engine4",
+        "case_address": "0x11abf3f",
+        "literal_address": "0x11abf64"
+      },
+      "off": {
+        "profile": 7,
+        "field_write_address": "0x11bab6c",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    },
+    {
+      "id": 1014,
+      "name": "LT5",
+      "subimage": 14,
+      "hp": 755.0,
+      "on": {
+        "profile": 3,
+        "field_write_address": "0x11bad0a",
+        "sample_id": 24,
+        "sample_name": "sfx_engine4",
+        "case_address": "0x11abf3f",
+        "literal_address": "0x11abf64"
+      },
+      "off": {
+        "profile": 7,
+        "field_write_address": "0x11bad55",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    },
+    {
+      "id": 1015,
+      "name": "Spoon",
+      "subimage": 15,
+      "hp": 260.0,
+      "on": {
+        "profile": 7,
+        "field_write_address": "0x11bb386",
+        "sample_id": 21,
+        "sample_name": "sfx_engine2",
+        "case_address": "0x11abf8d",
+        "literal_address": "0x11abfb2"
+      },
+      "off": {
+        "profile": -1,
+        "field_write_address": "0x11bb3d1",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    },
+    {
+      "id": 1016,
+      "name": "2AR",
+      "subimage": 16,
+      "hp": 187.0,
+      "on": {
+        "profile": 7,
+        "field_write_address": "0x11baef3",
+        "sample_id": 21,
+        "sample_name": "sfx_engine2",
+        "case_address": "0x11abf8d",
+        "literal_address": "0x11abfb2"
+      },
+      "off": {
+        "profile": 7,
+        "field_write_address": "0x11baf3e",
+        "sample_id": 20,
+        "sample_name": "sfx_engine",
+        "case_address": "0x11ac3e2",
+        "literal_address": "0x11ac40c"
+      }
+    }
+  ],
+  "banks": {
+    "original": {
+      "binary_sha256": "af1f9adc9a3a0a4ec1547d051fe41a89974045cb3d7666fbbb94715ce2872a18",
+      "dispatch": {
+        "on": {
+          "0": {
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11abd6b",
+            "literal_address": "0x11abd90"
+          },
+          "2": {
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x11abfdb",
+            "literal_address": "0x11ac000"
+          },
+          "1": {
+            "sample_id": 23,
+            "sample_name": "sfx_engine3",
+            "case_address": "0x11abef1",
+            "literal_address": "0x11abf16"
+          },
+          "3": {
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x11abf3f",
+            "literal_address": "0x11abf64"
+          },
+          "4": {
+            "sample_id": 47,
+            "sample_name": "sfx_engine5",
+            "case_address": "0x11abe55",
+            "literal_address": "0x11abe7a"
+          },
+          "5": {
+            "sample_id": 71,
+            "sample_name": "sfx_engine_6",
+            "case_address": "0x11ac029",
+            "literal_address": "0x11ac04e"
+          },
+          "6": {
+            "sample_id": 73,
+            "sample_name": "sfx_engine_7",
+            "case_address": "0x11ac077",
+            "literal_address": "0x11ac09c"
+          },
+          "7": {
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x11abf8d",
+            "literal_address": "0x11abfb2"
+          },
+          "8": {
+            "sample_id": 79,
+            "sample_name": "engine_test1",
+            "case_address": "0x11ac10c",
+            "literal_address": "0x11ac131"
+          },
+          "9": {
+            "sample_id": 80,
+            "sample_name": "engine_test2",
+            "case_address": "0x11abea3",
+            "literal_address": "0x11abec8"
+          },
+          "10": {
+            "sample_id": 81,
+            "sample_name": "engine_test3",
+            "case_address": "0x11ac0c5",
+            "literal_address": "0x11ac0ea"
+          },
+          "15": {
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x11abe07",
+            "literal_address": "0x11abe2c"
+          },
+          "-1": {
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x11abdb9",
+            "literal_address": "0x11abdde"
+          }
+        },
+        "off": {
+          "0": {
+            "sample_id": 78,
+            "sample_name": "sfx_engine8",
+            "case_address": "0x11ac38f",
+            "literal_address": "0x11ac3b9"
+          },
+          "1": {
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x11ac581",
+            "literal_address": "0x11ac5ab"
+          },
+          "2": {
+            "sample_id": 23,
+            "sample_name": "sfx_engine3",
+            "case_address": "0x11ac488",
+            "literal_address": "0x11ac4b2"
+          },
+          "3": {
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x11ac4db",
+            "literal_address": "0x11ac505"
+          },
+          "4": {
+            "sample_id": 47,
+            "sample_name": "sfx_engine5",
+            "case_address": "0x11ac435",
+            "literal_address": "0x11ac45f"
+          },
+          "5": {
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x11ac5d4",
+            "literal_address": "0x11ac5fe"
+          },
+          "6": {
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x11ac620",
+            "literal_address": "0x11ac64a"
+          },
+          "15": {
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x11ac52e",
+            "literal_address": "0x11ac558"
+          },
+          "-1": {
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        }
+      },
+      "assignments": [
+        {
+          "engine_hp_guard": 410.0,
+          "guard_address": "11b91aa",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x11b92b2",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x11abf8d",
+            "literal_address": "0x11abfb2"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x11b92fd",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        },
+        {
+          "engine_hp_guard": 250.0,
+          "guard_address": "11b9393",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x11b949b",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x11abf8d",
+            "literal_address": "0x11abfb2"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x11b94e6",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        },
+        {
+          "engine_hp_guard": 270.0,
+          "guard_address": "11b957c",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x11b9684",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x11abf8d",
+            "literal_address": "0x11abfb2"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x11b96cf",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        },
+        {
+          "engine_hp_guard": 212.0,
+          "guard_address": "11b9765",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x11b9bd9",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x11abf8d",
+            "literal_address": "0x11abfb2"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x11b9c24",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        },
+        {
+          "engine_hp_guard": 290.0,
+          "guard_address": "11b9cba",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x11b9dc2",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x11abf8d",
+            "literal_address": "0x11abfb2"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x11b9e0d",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        },
+        {
+          "engine_hp_guard": 330.0,
+          "guard_address": "11b9ea3",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x11b9fab",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x11abf8d",
+            "literal_address": "0x11abfb2"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x11b9ff6",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        },
+        {
+          "engine_hp_guard": 478.0,
+          "guard_address": "11ba08c",
+          "on": {
+            "profile": 5,
+            "field_write_address": "0x11ba194",
+            "sample_id": 71,
+            "sample_name": "sfx_engine_6",
+            "case_address": "0x11ac029",
+            "literal_address": "0x11ac04e"
+          },
+          "off": {
+            "profile": 2,
+            "field_write_address": "0x11ba1df",
+            "sample_id": 23,
+            "sample_name": "sfx_engine3",
+            "case_address": "0x11ac488",
+            "literal_address": "0x11ac4b2"
+          }
+        },
+        {
+          "engine_hp_guard": 505.0,
+          "guard_address": "11ba275",
+          "on": {
+            "profile": 3,
+            "field_write_address": "0x11ba37d",
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x11abf3f",
+            "literal_address": "0x11abf64"
+          },
+          "off": {
+            "profile": 7,
+            "field_write_address": "0x11ba3c8",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        },
+        {
+          "engine_hp_guard": 656.0,
+          "guard_address": "11ba45e",
+          "on": {
+            "profile": 8,
+            "field_write_address": "0x11ba566",
+            "sample_id": 79,
+            "sample_name": "engine_test1",
+            "case_address": "0x11ac10c",
+            "literal_address": "0x11ac131"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x11ba5b1",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        },
+        {
+          "engine_hp_guard": 542.0,
+          "guard_address": "11ba647",
+          "on": {
+            "profile": 0,
+            "field_write_address": "0x11ba74f",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11abd6b",
+            "literal_address": "0x11abd90"
+          },
+          "off": {
+            "profile": 3,
+            "field_write_address": "0x11ba79a",
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x11ac4db",
+            "literal_address": "0x11ac505"
+          }
+        },
+        {
+          "engine_hp_guard": 707.0,
+          "guard_address": "11ba830",
+          "on": {
+            "profile": 3,
+            "field_write_address": "0x11ba938",
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x11abf3f",
+            "literal_address": "0x11abf64"
+          },
+          "off": {
+            "profile": 7,
+            "field_write_address": "0x11ba983",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        },
+        {
+          "engine_hp_guard": 627.0,
+          "guard_address": "11baa19",
+          "on": {
+            "profile": 3,
+            "field_write_address": "0x11bab21",
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x11abf3f",
+            "literal_address": "0x11abf64"
+          },
+          "off": {
+            "profile": 7,
+            "field_write_address": "0x11bab6c",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        },
+        {
+          "engine_hp_guard": 755.0,
+          "guard_address": "11bac02",
+          "on": {
+            "profile": 3,
+            "field_write_address": "0x11bad0a",
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x11abf3f",
+            "literal_address": "0x11abf64"
+          },
+          "off": {
+            "profile": 7,
+            "field_write_address": "0x11bad55",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        },
+        {
+          "engine_hp_guard": 187.0,
+          "guard_address": "11badeb",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x11baef3",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x11abf8d",
+            "literal_address": "0x11abfb2"
+          },
+          "off": {
+            "profile": 7,
+            "field_write_address": "0x11baf3e",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        },
+        {
+          "engine_hp_guard": 260.0,
+          "guard_address": "11bafd4",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x11bb386",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x11abf8d",
+            "literal_address": "0x11abfb2"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x11bb3d1",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x11ac3e2",
+            "literal_address": "0x11ac40c"
+          }
+        }
+      ]
+    },
+    "unbound": {
+      "binary_sha256": "fb3726e175e7d1c643e0ddac1ec1a365901c4d52a16ded97e89fd672f6a9e9cc",
+      "dispatch": {
+        "on": {
+          "0": {
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61e3ea",
+            "literal_address": "0x61e746"
+          },
+          "1": {
+            "sample_id": 23,
+            "sample_name": "sfx_engine3",
+            "case_address": "0x61e47b",
+            "literal_address": "0x61e798"
+          },
+          "2": {
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e424",
+            "literal_address": "0x61e650"
+          },
+          "3": {
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x61e4d2",
+            "literal_address": "0x61e88e"
+          },
+          "4": {
+            "sample_id": 47,
+            "sample_name": "sfx_engine5",
+            "case_address": "0x61e4ef",
+            "literal_address": "0x61e8e0"
+          },
+          "5": {
+            "sample_id": 71,
+            "sample_name": "sfx_engine_6",
+            "case_address": "0x61e441",
+            "literal_address": "0x61e6a2"
+          },
+          "6": {
+            "sample_id": 73,
+            "sample_name": "sfx_engine_7",
+            "case_address": "0x61e498",
+            "literal_address": "0x61e7ea"
+          },
+          "7": {
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e4b5",
+            "literal_address": "0x61e83c"
+          },
+          "8": {
+            "sample_id": 79,
+            "sample_name": "engine_test1",
+            "case_address": "0x61e529",
+            "literal_address": "0x61e984"
+          },
+          "9": {
+            "sample_id": 80,
+            "sample_name": "engine_test2",
+            "case_address": "0x61e50c",
+            "literal_address": "0x61e932"
+          },
+          "10": {
+            "sample_id": 81,
+            "sample_name": "engine_test3",
+            "case_address": "0x61e407",
+            "literal_address": "0x61e5fe"
+          },
+          "11": {
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e546",
+            "literal_address": "0x61e9cf"
+          },
+          "12": {
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e546",
+            "literal_address": "0x61e9cf"
+          },
+          "13": {
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e546",
+            "literal_address": "0x61e9cf"
+          },
+          "14": {
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e546",
+            "literal_address": "0x61e9cf"
+          },
+          "15": {
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x61e45e",
+            "literal_address": "0x61e6f4"
+          },
+          "-1": {
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e546",
+            "literal_address": "0x61e9cf"
+          }
+        },
+        "off": {
+          "0": {
+            "sample_id": 78,
+            "sample_name": "sfx_engine8",
+            "case_address": "0x61ea70",
+            "literal_address": "0x61ed81"
+          },
+          "1": {
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61eac7",
+            "literal_address": "0x61ec39"
+          },
+          "2": {
+            "sample_id": 23,
+            "sample_name": "sfx_engine3",
+            "case_address": "0x61eb1e",
+            "literal_address": "0x61ed2f"
+          },
+          "3": {
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x61eb3b",
+            "literal_address": "0x61edd3"
+          },
+          "4": {
+            "sample_id": 47,
+            "sample_name": "sfx_engine5",
+            "case_address": "0x61eb58",
+            "literal_address": "0x61ee1e"
+          },
+          "5": {
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x61eaaa",
+            "literal_address": "0x61ebe7"
+          },
+          "6": {
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x61eae4",
+            "literal_address": "0x61ec8b"
+          },
+          "7": {
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          },
+          "8": {
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          },
+          "9": {
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          },
+          "10": {
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          },
+          "11": {
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          },
+          "12": {
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          },
+          "13": {
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          },
+          "14": {
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          },
+          "15": {
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x61eb01",
+            "literal_address": "0x61ecdd"
+          },
+          "-1": {
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        }
+      },
+      "assignments": [
+        {
+          "engine_hp_guard": 410.0,
+          "guard_address": "6134f9",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x6136c0",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e4b5",
+            "literal_address": "0x61e83c"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x61371d",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        },
+        {
+          "engine_hp_guard": 250.0,
+          "guard_address": "613800",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x61391f",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e4b5",
+            "literal_address": "0x61e83c"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x61397c",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        },
+        {
+          "engine_hp_guard": 270.0,
+          "guard_address": "613a5f",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x613b7e",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e4b5",
+            "literal_address": "0x61e83c"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x613bdb",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        },
+        {
+          "engine_hp_guard": 212.0,
+          "guard_address": "613cbe",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x614177",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e4b5",
+            "literal_address": "0x61e83c"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x6141d4",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        },
+        {
+          "engine_hp_guard": 290.0,
+          "guard_address": "6142b7",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x6143d6",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e4b5",
+            "literal_address": "0x61e83c"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x614433",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        },
+        {
+          "engine_hp_guard": 330.0,
+          "guard_address": "614516",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x614635",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e4b5",
+            "literal_address": "0x61e83c"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x614692",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        },
+        {
+          "engine_hp_guard": 478.0,
+          "guard_address": "614775",
+          "on": {
+            "profile": 5,
+            "field_write_address": "0x614894",
+            "sample_id": 71,
+            "sample_name": "sfx_engine_6",
+            "case_address": "0x61e441",
+            "literal_address": "0x61e6a2"
+          },
+          "off": {
+            "profile": 2,
+            "field_write_address": "0x6148f1",
+            "sample_id": 23,
+            "sample_name": "sfx_engine3",
+            "case_address": "0x61eb1e",
+            "literal_address": "0x61ed2f"
+          }
+        },
+        {
+          "engine_hp_guard": 505.0,
+          "guard_address": "6149d4",
+          "on": {
+            "profile": 3,
+            "field_write_address": "0x614af3",
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x61e4d2",
+            "literal_address": "0x61e88e"
+          },
+          "off": {
+            "profile": 7,
+            "field_write_address": "0x614b50",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        },
+        {
+          "engine_hp_guard": 656.0,
+          "guard_address": "614c33",
+          "on": {
+            "profile": 8,
+            "field_write_address": "0x614d52",
+            "sample_id": 79,
+            "sample_name": "engine_test1",
+            "case_address": "0x61e529",
+            "literal_address": "0x61e984"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x614daf",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        },
+        {
+          "engine_hp_guard": 542.0,
+          "guard_address": "614e92",
+          "on": {
+            "profile": 0,
+            "field_write_address": "0x614fb1",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61e3ea",
+            "literal_address": "0x61e746"
+          },
+          "off": {
+            "profile": 3,
+            "field_write_address": "0x61500e",
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x61eb3b",
+            "literal_address": "0x61edd3"
+          }
+        },
+        {
+          "engine_hp_guard": 707.0,
+          "guard_address": "6150f1",
+          "on": {
+            "profile": 3,
+            "field_write_address": "0x615210",
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x61e4d2",
+            "literal_address": "0x61e88e"
+          },
+          "off": {
+            "profile": 7,
+            "field_write_address": "0x61526d",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        },
+        {
+          "engine_hp_guard": 627.0,
+          "guard_address": "615350",
+          "on": {
+            "profile": 3,
+            "field_write_address": "0x61546f",
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x61e4d2",
+            "literal_address": "0x61e88e"
+          },
+          "off": {
+            "profile": 7,
+            "field_write_address": "0x6154cc",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        },
+        {
+          "engine_hp_guard": 755.0,
+          "guard_address": "6155af",
+          "on": {
+            "profile": 3,
+            "field_write_address": "0x6156ce",
+            "sample_id": 24,
+            "sample_name": "sfx_engine4",
+            "case_address": "0x61e4d2",
+            "literal_address": "0x61e88e"
+          },
+          "off": {
+            "profile": 7,
+            "field_write_address": "0x61572b",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        },
+        {
+          "engine_hp_guard": 187.0,
+          "guard_address": "61580e",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x61592d",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e4b5",
+            "literal_address": "0x61e83c"
+          },
+          "off": {
+            "profile": 7,
+            "field_write_address": "0x61598a",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        },
+        {
+          "engine_hp_guard": 260.0,
+          "guard_address": "615a6d",
+          "on": {
+            "profile": 7,
+            "field_write_address": "0x615f26",
+            "sample_id": 21,
+            "sample_name": "sfx_engine2",
+            "case_address": "0x61e4b5",
+            "literal_address": "0x61e83c"
+          },
+          "off": {
+            "profile": -1,
+            "field_write_address": "0x615f83",
+            "sample_id": 20,
+            "sample_name": "sfx_engine",
+            "case_address": "0x61ea8d",
+            "literal_address": "0x61eb95"
+          }
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Stock-car audio selection is not established by this replacement-engine extraction.",
+    "Manual PC audio overrides remain available.",
+    "Sample selection is recovered; complete original pitch, gain and playback timing are not imported."
+  ]
+}

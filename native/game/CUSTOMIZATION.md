@@ -27,8 +27,9 @@ adaptations sont natives et provisoires : les équations originales ne sont pas
 entièrement récupérées. Les carrosseries partagent encore une base mécanique.
 
 Deux banques de 94 sons (original et Unbound) sont conservées sans réencodage. Les 16 paires de dispatch
-charge/décélération sont récupérées, mais leur association aux 16 moteurs du
-catalogue reste inconnue. AUTO choisit une famille approximative. Les choix
+charge/décélération et les associations des 16 moteurs équipables sont récupérées
+et vérifiées dans les deux bibliothèques depuis 0.13.4. Les moteurs stock restent
+à vérifier séparément. Voir [ENGINE-AUDIO.md](ENGINE-AUDIO.md). Les choix
 manuels charge/décélération (16 profils chacun) et valve (4) sont indépendants,
 sauvegardés, et disposent d'une préécoute. Les événements de conduite utilisent
 les échantillons d'origine ; les gains, hauteurs et transitions sont recalibrés.

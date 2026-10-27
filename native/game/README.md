@@ -1,4 +1,4 @@
-# Pixel Car Racer — Unbound Native 0.13.3
+# Pixel Car Racer — Unbound Native 0.13.4
 
 La version **0.13.3** permet d’accélérer moteur débrayé avec **Espace** maintenu :
 le régime et le son moteur suivent l’accélérateur, les roues arrière restent bloquées,
@@ -121,12 +121,12 @@ pagination, équipement et sauvegarde : 16 moteurs, 16 suspensions, 14 turbos,
 48 échappements et 36 pneus. Ouvrir **CUSTOMISATION** depuis le menu ou le garage.
 Les pièces sont librement équipables, sans économie simulée.
 
-Les 94 fichiers audio d'origine sont inclus. Le mixage de conduite utilise les
-boucles moteur en charge/décélération, turbo, compresseur et NOS, ainsi que les
-valves, passages de rapports, détonations, collisions et klaxon. **La liaison
-exacte entre chaque moteur et son profil audio n'est pas prouvée** : AUTO est
-une attribution native approximative par famille. **SON DU MOTEUR** permet de
-choisir séparément charge, décélération et valve, avec préécoute.
+Les deux banques de 94 fichiers audio sont incluses. Depuis **0.13.4**, AUTO
+utilise les associations source des **16 moteurs équipables**, vérifiées dans
+les deux bibliothèques Android. La sélection des moteurs stock reste à confirmer.
+Les réglages manuels charge/décélération et valve restent prioritaires, avec
+préécoute. La hauteur, les volumes et transitions restent natifs.
+Voir [ENGINE-AUDIO.md](ENGINE-AUDIO.md) pour les correspondances et les limites.
 Fumée, flammes et étincelles utilisent les images originales ; le jet bleu NOS
 est procédural. Tous les événements et animations du jeu Android ne sont pas
 reconstruits. Voir [CUSTOMIZATION.md](CUSTOMIZATION.md) et [PHYSICS.md](PHYSICS.md).

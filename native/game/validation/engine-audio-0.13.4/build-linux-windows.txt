@@ -1,0 +1,5 @@
+0-100 km/h 4.50833 s; telemetry physics-baseline.csv
+Physics baseline (provisional, not original): 100-0 km/h 41.3935 m / 3.00833 s; restart in sixth after 10 s 155.343 km/h
+Native maximum: 4437.94 HP, 4687.94 HP with NOS; 192416 combinations checked.
+PASS: 321 checks; quarter mile 12.7266 s; endless distance 4402.27 m
+Linux and Windows native builds completed.

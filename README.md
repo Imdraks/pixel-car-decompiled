@@ -1,12 +1,16 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.13.3](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.13.3-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.3-native-preview)
+**[Télécharger Windows x64 — version 0.13.4](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.13.4-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.4-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+La version **0.13.4** corrige les sons AUTO des **16 moteurs équipables**, en
+reprenant les associations vérifiées dans les deux codes source. Les réglages
+manuels restent prioritaires. [Tableau et preuves](native/game/ENGINE-AUDIO.md).
 
 La version **0.13.3** permet de prendre des tours avec **Espace + accélérateur**,
 comme au point mort, en gardant les roues arrière bloquées. Relâcher Espace
@@ -94,7 +98,7 @@ avec jantes nommées, esthétique et sélection des deux banques d’images/sons
   Turbo et compresseur sont exclusifs. Règles natives détaillées dans
   [PERFORMANCE.md](native/game/PERFORMANCE.md), sans équivalence Android démontrée.
 - Sons originaux de conduite, profils moteur réglables et effets de fumée,
-  flammes, étincelles et NOS. AUTO moteur–son reste approximatif ; sélection
+  flammes, étincelles et NOS. AUTO suit les sons source des 16 moteurs équipables ; sélection
   manuelle indépendante disponible dans **SON DU MOTEUR**.
 - Plein écran, fenêtre sans bordure ou avec bordure ; résolution, limite FPS,
   VSync, qualité graphique et son. Confirmation des changements d’affichage.
@@ -114,7 +118,7 @@ de transmission sont conservées. L’équivalence avec Android n’est pas vali
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-319 contrôles du cœur et 83 contrôles graphiques passent sous Linux et Windows ; les mesures
+321 contrôles du cœur et 83 contrôles graphiques passent sous Linux et Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
 Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 160 contrôles
 clavier/souris et 192 416 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.

@@ -20,6 +20,6 @@ lines+=['};','}'];(game/'src/original_audio.hpp').write_text('\n'.join(lines)+'\
 p=game/'assets/provenance.json';provenance=json.loads(p.read_text())
 provenance['files']=[f for f in provenance['files'] if not f['file'].startswith('audio/')]
 provenance['files'] += [{'file':'audio/'+s['file'],'sha256':s['sha256']} for s in sounds]
-provenance['original_audio']={'count':94,'manifest':'audio/sounds.json','sound_profile_dispatch':'Recovered from original e_s/e_s2 switches','engine_item_automatic_assignment':'Native family approximation; manual override available'}
+provenance['original_audio']={'count':94,'manifest':'audio/sounds.json','sound_profile_dispatch':'Recovered from original e_s/e_s2 switches','engine_item_automatic_assignment':'16 replacement-engine assignments verified in both ELF banks; stock selection unresolved; manual override available'}
 p.write_text(json.dumps(provenance,indent=2)+'\n')
 print('Verified and staged',len(sounds),'original sounds; generated sound profile metadata')

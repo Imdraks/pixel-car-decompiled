@@ -212,6 +212,19 @@ int main(int argc,char**argv){
     Profile soundProfile;soundProfile.soundOn=5;soundProfile.soundOff=4;soundProfile.bov=3;
     auto sounds=engineSamples(soundProfile);
     expect(sounds.on==71&&sounds.off==47,"manual sound profiles match the original native dispatch tables");
+    bool replacementAudio=true;int engineAudioCases=0;
+    for(int source=0;source<2;source++)for(const auto& part:PartCatalog)if(part.slot==PartSlot::Engine){
+        Profile p;p.audioSource=source;equipPart(p,PartSlot::Engine,part.id);auto selected=engineSamples(p);
+        // Independent fixture from the two source engine_hp/e_s/e_s2 chains.
+        int on=part.stat==478?71:part.stat==656?79:part.stat==542?20:part.stat>=505?24:21;
+        int off=part.stat==478?23:part.stat==542?24:20;
+        replacementAudio&=selected.on==on&&selected.off==off;++engineAudioCases;
+    }
+    expect(replacementAudio&&engineAudioCases==32,"all sixteen equipped engines select their recovered acceleration and deceleration samples in both audio banks");
+    Profile swappedSound;equipPart(swappedSound,PartSlot::Engine,1007);swappedSound.soundOn=4;
+    auto overrideSound=engineSamples(swappedSound);
+    expect(overrideSound.on==47&&overrideSound.off==23,"manual acceleration override preserves the equipped engine's recovered deceleration sound");
+    {std::ofstream out(root/"engine-audio-assignments.json");out<<"{\n  \"equipped_engine_bank_cases\": "<<engineAudioCases<<",\n  \"source_sample_selection_verified\": "<<(replacementAudio?"true":"false")<<",\n  \"stock_selection_recovered\": false\n}\n";}
     expect(saveProfile(root/"sound.ini",soundProfile,customError),"original audio preferences save");
     auto savedSound=loadProfile(root/"sound.ini",191,54);
     expect(savedSound.soundOn==5&&savedSound.soundOff==4&&savedSound.bov==3,"engine and valve audio preferences persist independently");

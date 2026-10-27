@@ -255,7 +255,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.13.3",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.13.4",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},"GARAGE")){openCustomization();screen=Screen::Garage;}
@@ -568,7 +568,7 @@ struct App {
             if(button({305,435,204,43},"ÉCOUTER CHARGE",false,audio.ready&&settings.sound)){previewGas=true;audioPreviewUntil=GetTime()+3;}
             if(button({521,435,204,43},"ÉCOUTER LEVER",false,audio.ready&&settings.sound)){previewGas=false;audioPreviewUntil=GetTime()+3;}
             if(button({737,435,210,43},"ÉCOUTER VALVE",false,audio.ready&&settings.sound))audio.valve(profile.bov,settings.sound);
-            text("AUTO : attribution native approximative par famille moteur.",305,503,16,Muted);
+            text("AUTO : son du moteur équipé ; moteur stock à confirmer.",305,503,16,Muted);
             if(button({720,539,227,39},"FERMER",true)){audioPopup=false;audioPreviewUntil=0;}
         }
     }
