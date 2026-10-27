@@ -1,4 +1,5 @@
 #include "model.hpp"
+#include "engine_mix.hpp"
 #include "garage_engine.hpp"
 #include "benchmark.hpp"
 #include "art.hpp"
@@ -210,6 +211,17 @@ int main(int argc,char**argv){
     {std::ofstream out(root/"custom.ini");out<<"part_engine=3002\npart_tires=999999\npart_turbo=3002\npart_supercharger=3020\n";}
     auto corruptCustom=loadProfile(root/"custom.ini",191,54);
     expect(corruptCustom.parts[0]==0&&corruptCustom.parts[10]==0&&corruptCustom.parts[2]==0&&corruptCustom.parts[3]==3020,"malformed equipment falls back safely and cannot stack forced induction");
+    EngineMix audioEnvelope;audioEnvelope.update(8000,true,true,1.0/60);
+    expect(audioEnvelope.load>0&&audioEnvelope.load<1&&audioEnvelope.pitch<1.4,"engine load fades in and high RPM avoids the old excessive pitch multiplier");
+    for(int i=0;i<120;i++)audioEnvelope.update(8000,true,true,1.0/60);
+    expect(audioEnvelope.load>.999,"steady throttle selects the load sample without a permanent detuned coast layer");
+    audioEnvelope.update(1000,false,true,1.0/60);
+    expect(audioEnvelope.load>0&&audioEnvelope.load<1&&audioEnvelope.pitch>1,"RPM and load transitions are smoothed on throttle release");
+    audioEnvelope.update(1000,false,false,1.0/60);expect(audioEnvelope.load==0&&!audioEnvelope.ready,"stopping the engine resets the audio envelope");
+    std::vector<float> loopFixture(8000);for(size_t i=0;i<loopFixture.size();i++)loopFixture[i]=float(.4+.3*std::sin(i*.03));
+    auto joined=seamlessEngineLoop(loopFixture.data(),4000,2,48000);double maxSeam=0;for(int channel=0;channel<2;channel++)maxSeam=std::max(maxSeam,double(std::abs(joined[channel]-joined[joined.size()-2+channel])));
+    expect(joined.size()<loopFixture.size()&&maxSeam<.03&&*std::max_element(joined.begin(),joined.end())<=.7f,"engine loop tail overlaps its head with bounded peaks and continuous wrap");
+    expect(std::abs(sourceSound(20,0).volume-.33)<.001&&std::abs(sourceSound(21,0).volume-.81)<.001&&std::abs(sourceSound(24,1).volume-.93)<.001,"original sample gain metadata is retained instead of treating all recordings equally");
     GarageEngine garageMotor;garageMotor.stop();garageMotor.update(v,true,1);
     expect(!garageMotor.running&&garageMotor.state.rpm==0,"garage throttle cannot start a stopped engine");
     garageMotor.toggle(v);for(int i=0;i<240;i++)garageMotor.update(v,true,Step);

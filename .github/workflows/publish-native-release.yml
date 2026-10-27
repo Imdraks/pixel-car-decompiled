@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.13.5-native-preview
+        default: v0.13.6-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -170,6 +170,10 @@ jobs:
           if ($p.ExitCode -ne 0) { throw 'Original audio decoder validation failed' }
           $report = Get-Content "$out/audio-report.txt"
           if (($report | Select-String '^PASS [^:]').Count -ne 188 -or ($report | Select-String '^FAIL ')) { throw 'Expected 188 valid original and Unbound sound samples' }
+          $engineLoops = Get-Content "$out/engine-loop-report.json" -Raw | ConvertFrom-Json
+          if ($engineLoops.engine_bank_cases -ne 24 -or $engineLoops.source_files_modified) { throw 'Engine loop coverage failed' }
+          foreach ($loop in $engineLoops.loops) { if ($loop.seam_after -gt $loop.seam_before + 0.00001 -or $loop.peak_after -gt $loop.peak_before + 0.00001) { throw 'Engine loop seam or peak worsened' } }
+          Copy-Item "$out/engine-loop-report.json" validation/engine-loop-report.json
           Get-Content "$out/audio-report.txt"
       - name: Prepare verified software OpenGL for the CI runner only
         shell: pwsh

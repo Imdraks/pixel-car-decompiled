@@ -1,3 +1,15 @@
+# Validation 0.13.6 — rendu audio moteur
+
+- 333 contrôles du cœur Linux, dont enveloppe de charge, transitions de pitch,
+  arrêt et raccord de boucle sans hausse des pics.
+- 188 sons décodés ; les 24 cas moteur/banque ont une jonction conservée ou
+  réduite et ne dépassent pas leur pic initial. Fichiers source non modifiés.
+- Le mixeur logiciel couvre banques, 16 moteurs AUTO, profils manuels, G/Z,
+  démarreur et rupteur ; aucune erreur de décodage des flux.
+- 86 contrôles graphiques et 39 essais de touches avec audio réussis sous Linux.
+- Il s’agit d’un réglage du mixage natif, pas d’une validation subjective sur
+  tous les matériels ni d’une récupération complète du mixage Android.
+
 # Validation 0.13.5 — moteur au garage
 
 - 327 contrôles du cœur Linux : G/Z au garage, ralenti, limiteur borné, retour

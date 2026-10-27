@@ -12,8 +12,8 @@ for sound in sounds:
  if hashlib.file_digest(source.open('rb'),'sha256').hexdigest()!=sound['sha256']:raise ValueError('Sound digest mismatch: '+sound['name'])
  shutil.copy2(source,out/sound['file'])
 shutil.copy2(a.source/'sounds.json',out/'sounds.json')
-lines=['// Original Unbound sound metadata and verified sound-profile dispatch.','#pragma once','namespace pcr {','struct OriginalSound { const char* name; const char* file; };','inline constexpr OriginalSound OriginalSounds[] = {']
-for sound in sounds:lines.append('{'+json.dumps(sound['name'])+','+json.dumps('audio/'+sound['file'])+'},')
+lines=['// Original Unbound sound metadata and verified sound-profile dispatch.','#pragma once','namespace pcr {','struct OriginalSound { const char* name; const char* file; float volume=1; };','inline constexpr OriginalSound OriginalSounds[] = {']
+for sound in sounds:lines.append('{'+json.dumps(sound['name'])+','+json.dumps('audio/'+sound['file'])+','+format(float(sound['volume']),'.8f')+'f},')
 lines+=['};','inline constexpr int EngineSoundProfiles[16][2] = {']
 for row in profile:lines.append('{'+str(row['on']['id'])+','+str(row['off']['id'])+'},')
 lines+=['};','}'];(game/'src/original_audio.hpp').write_text('\n'.join(lines)+'\n')

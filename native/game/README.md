@@ -1,4 +1,8 @@
-# Pixel Car Racer — Unbound Native 0.13.5
+# Pixel Car Racer — Unbound Native 0.13.6
+
+La version **0.13.6** corrige le mixage moteur : fondu charge/relâchement sans
+désaccordage, pitch moins forcé, niveaux relatifs source et raccord des boucles
+qui présentent une coupure nette. [AUDIO-MIX.md](AUDIO-MIX.md).
 
 Dans le garage/customisation : **G** démarre ou éteint le moteur ; maintenir
 **Z** accélère jusqu’au rupteur du moteur équipé. Relâcher Z revient au ralenti.

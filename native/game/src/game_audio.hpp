@@ -1,16 +1,18 @@
 #pragma once
 #include "raylib.h"
 #include "model.hpp"
+#include "engine_mix.hpp"
 #include <filesystem>
 #include <map>
 #include <algorithm>
 namespace pcr {
 void checkOriginalAudio(const std::filesystem::path& assets,const std::filesystem::path& output);
 class GameAudio {
-    struct Loop { Music music{}; int id=-1; };
+    struct Loop { Music music{}; int id=-1;std::vector<unsigned char> memory;float gain=0; };
     std::filesystem::path root;
     std::map<int,Sound> shots;
     Loop on,off,turbo,blower,nos,town;
+    EngineMix engineMix;double lastUpdate=0,audioDt=1.0/60;
     int bank=0;
     bool lastGas=false,lastNos=false;int lastGear=1,crashes=0;double lastBoost=0,lastCollision=0,nextLaunchPop=0;
     void loop(Loop&,int id,float volume,float pitch);
