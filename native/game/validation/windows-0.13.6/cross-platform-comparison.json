@@ -1,0 +1,84 @@
+{
+  "body_composite_hashes_identical": 1528,
+  "tolerance": 0.01,
+  "full_android_render_equivalence": false,
+  "stock-vehicle-physics.csv": {
+    "rows_compared": 191,
+    "max_absolute_differences": {
+      "body": 0.0,
+      "mass_kg": 0.0,
+      "stock_hp": 0.0,
+      "redline_rpm": 0.0,
+      "layout": 0.0,
+      "grip_native": 0.0,
+      "speed_after_10s_kmh": 0.0,
+      "seconds_100_0": 0.0,
+      "metres_100_0": 0.0
+    }
+  },
+  "suspension-physics.csv": {
+    "rows_compared": 60,
+    "max_absolute_differences": {
+      "time_s": 0.0,
+      "speed_mps": 0.0,
+      "pitch_rad": 0.0,
+      "heave_m": 0.0,
+      "front_load_n": 0.0,
+      "rear_load_n": 0.0,
+      "front_lift_m": 0.0
+    }
+  },
+  "drag-launch.csv": {
+    "rows_compared": 12,
+    "max_absolute_differences": {
+      "layout": 0.0,
+      "tc": 0.0,
+      "setup": 0.0,
+      "distance_10s_m": 0.0,
+      "speed_10s_kmh": 0.0,
+      "peak_front_lift_m": 0.0,
+      "peak_pitch_rad": 0.0
+    }
+  },
+  "wheelie-bars.csv": {
+    "rows_compared": 382,
+    "max_absolute_differences": {
+      "bank": 0.0,
+      "body": 0.0,
+      "peak_front_lift_m": 0.0,
+      "roller_touched": 0.0,
+      "peak_pitch_rad": 0.0
+    }
+  },
+  "wheelie-tuning.csv": {
+    "rows_compared": 5,
+    "max_absolute_differences": {
+      "tune": 0.0,
+      "peak_front_lift_m": 0.0,
+      "distance_6s_m": 0.0
+    }
+  },
+  "power-wheelie.csv": {
+    "rows_compared": 5,
+    "max_absolute_differences": {
+      "engine_hp": 0.0,
+      "peak_front_lift_m": 0.0,
+      "first_lift_s": 0.0,
+      "distance_5s_m": 0.0,
+      "mass_kg": 0.0,
+      "grip": 0.0,
+      "front_weight_fraction": 0.0
+    }
+  },
+  "rev-launch.csv": {
+    "rows_compared": 11,
+    "max_absolute_differences": {
+      "power_hp": 0.0,
+      "tc": 0.0,
+      "spin_seconds": 0.0,
+      "launch_slip_m": 0.0,
+      "total_slip_m": 0.0,
+      "distance_4s_m": 0.0
+    }
+  }
+}

@@ -10,6 +10,29 @@
 - Il s’agit d’un réglage du mixage natif, pas d’une validation subjective sur
   tous les matériels ni d’une récupération complète du mixage Android.
 
+## Publication Windows vérifiée — 0.13.6
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40583909362) : 333 contrôles du cœur, 86 graphiques et 188 sons décodés.
+- Les 24 cas moteur/banque conservent ou réduisent leur saut de jonction sans
+  augmenter les pics, sous Windows comme sous Linux. Les fichiers source restent inchangés.
+- Le mixeur logiciel Linux couvre charge/relâchement, les deux banques, profils
+  et moteurs AUTO ; les 39 essais de touches avec audio passent également.
+- Six captures avant/après sur 2JZ, LT5 et FR9 : aucune valeur non finie ni
+  écrêtage. Fréquence du PCM de capture étalonnée à 48000 Hz avec un signal
+  1000 Hz. Comparatif public à RMS 0,12 par gain constant, sans égalisation ou
+  compression dynamique. Ces captures ne sont pas alignées à l’échantillon près.
+- Les 1528 compositions et mesures physiques concordent avec Linux ; les
+  contrôles pixels des effets, matériaux et défilement passent.
+- ZIP public, EXE, CRC, source compilée, tableau des sons et treize aperçus
+  Windows vérifiés. Le ZIP du comparatif et les six empreintes WAV sont vérifiés.
+- Restauration sur dossier vide puis réutilisation : 248 ressources.
+- Rapports : `validation/windows-0.13.6/` et `validation/audio-mix-0.13.6/`.
+  Rendu Mesa et périphérique audio logiciel ; aucune promesse de qualité
+  subjective universelle ni d’équivalence complète du mixage Android.
+- Source compilée : `431dfa114448c2e8580a8abc682ec0a5e44db8e7`.
+- ZIP : 59488759 octets, SHA-256 `40b5c6ddb298310fddf9f443d18153d23571bd39090db5f4d5a7b3052086eb26`.
+- EXE : SHA-256 `d44361eb253cbe0bb1f13fa26079a726572c1c69e2988f22c66601f9364f31b8`.
+
 # Validation 0.13.5 — moteur au garage
 
 - 327 contrôles du cœur Linux : G/Z au garage, ralenti, limiteur borné, retour

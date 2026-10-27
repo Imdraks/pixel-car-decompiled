@@ -1,0 +1,3 @@
+Archive SHA256: 40b5c6ddb298310fddf9f443d18153d23571bd39090db5f4d5a7b3052086eb26
+Core test SHA256: 1a76888f6470f35e836c266a10714d93a5df2062a5269a2b941cf40f0e925455
+Run: https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40583909362
