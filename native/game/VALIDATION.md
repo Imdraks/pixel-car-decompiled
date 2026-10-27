@@ -1,3 +1,20 @@
+# Validation 0.13.1 — Drag, wheelie bars et balance
+
+- 297 contrôles du cœur Linux réussis. Les six lancements traction/propulsion/
+  intégrale avec et sans TC conservent le contact au sol dans le préréglage Drag.
+- Les wheelie bars DRAG PRO des 382 entrées source ont été testées pendant six
+  secondes : valeurs finies et respect du plan de contact ; levée maximale nulle
+  dans ces scénarios. Référence sans barre : 0,379724 m ; avec barre : 0 m.
+- Le repère Balanced 50/50 donne des charges statiques égales pour les trois
+  transmissions ; pièces, masse et réglage Wheelie restent indépendants.
+- 78 contrôles graphiques Linux et 141 essais clavier/souris : 23 châssis/Drag/
+  barres/balance, 15 burnout, 18 personnalisation, 69 garage/audio, 16 affichage/trafic.
+- Les captures des matériaux, huit fumées, NOS/flammes et défilement passent les
+  contrôles pixels. Preuves : `validation/drag-0.13.1/`.
+- Analyse statique des deux bibliothèques : code de conduite localisé, mais
+  équations complètes Android non importées. La réaction des barres et les
+  préréglages sont natifs. Voir `DRAG.md` et `native/evidence/merged/drag-physics/`.
+
 # Validation 0.13.0 — personnalisation et matériaux
 
 - 277 contrôles du cœur Linux réussis ; 2376 nuances source, 521 recettes de

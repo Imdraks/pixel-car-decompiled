@@ -1,4 +1,4 @@
-# Suspension, wheelie et aides à la conduite — 0.12.0
+# Suspension, wheelie et aides à la conduite — 0.13.1
 
 Au garage, appuyer sur **F9**, ou ouvrir **F5 → Réglages suspension**.
 Les curseurs et boutons −/+ donnent un aperçu de la hauteur. **Enregistrer**
@@ -12,12 +12,14 @@ conserve la préparation ; **Annuler** conserve les réglages précédents.
 | Répartition avant | ±15 points | Déplace la répartition des masses autour de la calibration du châssis, sans ajouter de masse |
 | Wheelie | Autorisé / limité au sol | Autorise la perte de contact ou applique une contrainte anti-levée |
 
-Les préréglages **Route**, **Drag / Wheelie** et **Piste** combinent ces valeurs.
+Les préréglages **Route**, **Drag**, **Piste** et **Wheelie** combinent ces valeurs.
+Depuis 0.13.1, Drag est amorti et limité au sol ; Wheelie conserve la préparation
+de cabrage. Voir [DRAG.md](DRAG.md) pour les réglages et la recherche du code original.
 Ils conservent les pièces équipées. Les anciennes sauvegardes reçoivent un
 ajustement de hauteur nul et un réglage Route ; leur suspension équipée reste en place.
 
 Pour essayer un wheelie : choisir une propulsion puissante, des pneus adhérents,
-le préréglage Drag et l’antipatinage activé. Accélérer ; le NOS peut aider une fois
+le préréglage Wheelie et l’antipatinage activé. Accélérer ; le NOS peut aider une fois
 la voiture en mouvement. Le réglage autorise le wheelie, mais ne garantit pas
 qu’une voiture faible ou qui patine puisse lever. Le mode limité au sol empêche
 la levée sans rendre les pneus infiniment adhérents.

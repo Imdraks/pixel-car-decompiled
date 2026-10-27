@@ -1,3 +1,10 @@
+## Correctif Drag 0.13.1
+
+Le préréglage de lancement est séparé du wheelie, amorti et adapté aux essieux
+moteurs. Le code original de motricité/chauffe/RPM a été localisé dans les deux
+ELF ; les équations complètes ne sont pas importées. Voir [DRAG.md](DRAG.md)
+pour les preuves, limites et six scénarios de lancement.
+
 # Châssis et aides — 0.12.0
 
 Les voitures jouables utilisent désormais un modèle de suspension à deux essieux :

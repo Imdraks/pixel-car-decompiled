@@ -626,6 +626,67 @@ int main(int argc,char**argv){
         expect(std::abs(body.pitch-reference.pitch)<1e-10&&std::abs(body.heave-reference.heave)<1e-10&&std::abs(body.position-reference.position)<1e-8,"spring dynamics and wheelie remain independent of rendering FPS");
     }
     {std::ofstream out(root/"suspension-aids.json");out<<"{\n  \"chassis_configurations_checked\": "<<chassisCases<<",\n  \"max_wheelie_lift_m\": "<<peakLift<<",\n  \"abs_stop_m\": "<<absRuns[1].position<<",\n  \"locked_stop_m\": "<<absRuns[0].position<<",\n  \"tc_launch_distance_m\": "<<tcRuns[1].position<<",\n  \"uncontrolled_launch_distance_m\": "<<tcRuns[0].position<<",\n  \"full_android_dynamics_equivalence\": false\n}\n";}
+    int dragCases=0;bool stableDrag=true,preservedDrag=true,lessPitch=true;double dragMaxPitch=0;
+    std::ofstream dragTrace(root/"drag-launch.csv");dragTrace<<"layout,tc,setup,distance_10s_m,speed_10s_kmh,peak_front_lift_m,peak_pitch_rad\n";
+    for(auto layout:{DriveLayout::Front,DriveLayout::Rear,DriveLayout::All})for(bool tc:{false,true}){
+        Profile launch=powerful;launch.factoryDrive=false;launch.drive=layout;
+        std::array<double,2> excursions{};
+        for(int setup=0;setup<2;setup++){
+            Profile p=launch;applySuspensionPreset(p,setup?SuspensionPreset::Drag:SuspensionPreset::Road);
+            preservedDrag&=p.parts==launch.parts&&p.gearRatios==launch.gearRatios&&p.drive==launch.drive&&p.factoryDrive==launch.factoryDrive;
+            auto v=buildVehicle(p).vehicle;v.tractionControl=tc;CarState car;
+            for(int tick=0;tick<1200;tick++){
+                stepCar(car,v,{true,false,true,true},Step,0);excursions[setup]=std::max(excursions[setup],std::abs(car.pitch));
+                stableDrag&=std::isfinite(car.speed)&&car.frontLift==0&&car.rearLift==0&&car.frontLoad>0&&car.rearLoad>0;
+            }
+            if(setup){dragMaxPitch=std::max(dragMaxPitch,excursions[setup]);++dragCases;}
+            dragTrace<<int(layout)<<','<<tc<<','<<setup<<','<<car.position<<','<<car.speed*3.6<<','<<car.peakFrontLift<<','<<excursions[setup]<<'\n';
+        }
+        lessPitch&=excursions[1]<excursions[0];
+        Profile p=launch;applySuspensionPreset(p,SuspensionPreset::Drag);
+        expect((layout==DriveLayout::Front?p.frontBias>0:layout==DriveLayout::Rear?p.frontBias<0:p.frontBias==0),"drag balance follows the selected driven axle layout");
+    }
+    expect(stableDrag&&dragCases==6,"all six drag launch layout/TC combinations retain positive tyre contact for ten seconds");
+    expect(lessPitch&&dragMaxPitch<.04,"drag setup reduces pitch relative to road without using the extreme wheelie setup");
+    expect(preservedDrag,"suspension presets preserve installed power parts, gearing and drive conversion");
+    Profile explicitWheelie=powerful;applySuspensionPreset(explicitWheelie,SuspensionPreset::Wheelie);
+    expect(explicitWheelie.allowWheelie&&explicitWheelie.rideHeightMm==120,"wheelie remains an explicit separate suspension preset");
+    {std::ofstream out(root/"drag-setup.json");out<<"{\n  \"launch_cases_checked\": "<<dragCases<<",\n  \"max_drag_pitch_rad\": "<<dragMaxPitch<<",\n  \"drag_keeps_contact\": "<<(stableDrag?"true":"false")<<",\n  \"original_physics_imported\": false\n}\n";}
+    bool barStable=true,barContactValid=true;int barCases=0;double maxBarLift=0;
+    std::ofstream barsTrace(root/"wheelie-bars.csv");barsTrace<<"bank,body,peak_front_lift_m,roller_touched,peak_pitch_rad\n";
+    for(int bank=0;bank<2;bank++)for(int body=0;body<191;body++){
+        Profile p=powerful;p.car=body;p.contentSource=bank;p.factoryDrive=false;p.drive=DriveLayout::Rear;
+        applySuspensionPreset(p,SuspensionPreset::Wheelie);p.cosmetics[6]=106011;
+        auto v=buildVehicle(p).vehicle;v.tractionControl=true;CarState car;double pitch=0;
+        barStable&=v.wheelieBar&&v.allowWheelie&&v.wheelieBarArm<0&&v.wheelieBarClearance>=0;
+        for(int tick=0;tick<720;tick++){
+            stepCar(car,v,{true,false,true,true},Step,0);pitch=std::max(pitch,car.pitch);
+            barStable&=std::isfinite(car.speed)&&std::isfinite(car.pitch)&&car.frontLoad>=0&&car.rearLoad>=0;
+            barContactValid&=v.wheelieBarClearance+car.heave+v.wheelieBarArm*car.pitch>=-1e-8;
+        }
+        maxBarLift=std::max(maxBarLift,car.peakFrontLift);++barCases;
+        barsTrace<<bank<<','<<body<<','<<car.peakFrontLift<<','<<car.wheelieBarTouched<<','<<pitch<<'\n';
+    }
+    expect(barCases==382&&barStable,"DRAG PRO rollers on all 382 source bodies produce finite support without disabling the wheelie setting");
+    expect(barContactValid,"rear roller unilateral support prevents penetration of the contact plane on every source body");
+    Profile barProfile=drag;barProfile.cosmetics[6]=106011;auto barVehicle=buildVehicle(barProfile).vehicle;barVehicle.tractionControl=true;CarState barred;
+    for(int tick=0;tick<720;tick++)stepCar(barred,barVehicle,{true,false,true,true},Step,0);
+    expect(barred.wheelieBarTouched&&barred.peakFrontLift<.01&&peakLift>.1,"equipping the source rear roller stops the tested high-power wheelie through rear contact");
+    barProfile.cosmetics[6]=0;barProfile.cosmetics[4]=104011;
+    expect(buildVehicle(barProfile).vehicle.wheelieBar,"full DRAG PRO kit includes rear roller support");
+    barProfile.cosmetics[6]=106002;
+    expect(!buildVehicle(barProfile).vehicle.wheelieBar,"deleting or replacing the rear piece removes the full kit wheelie bar effect");
+    barProfile.cosmetics[4]=0;barProfile.cosmetics[6]=106005;
+    expect(!buildVehicle(barProfile).vehicle.wheelieBar,"ordinary drag rear panel without rollers is not treated as a wheelie bar");
+    barProfile.cosmetics[6]=0;auto restoredWheelie=buildVehicle(barProfile).vehicle;restoredWheelie.tractionControl=true;CarState restoredLift;
+    for(int tick=0;tick<720;tick++)stepCar(restoredLift,restoredWheelie,{true,false,true,true},Step,0);
+    expect(restoredLift.peakFrontLift>.1,"removing the bar restores the original wheelie preparation without overwriting it");
+    {std::ofstream out(root/"wheelie-bars.json");out<<"{\n  \"source_bodies_checked\": "<<barCases<<",\n  \"contact_plane_respected\": "<<(barContactValid?"true":"false")<<",\n  \"reference_unbarred_lift_m\": "<<peakLift<<",\n  \"reference_barred_lift_m\": "<<barred.peakFrontLift<<",\n  \"max_lift_across_barred_bodies_m\": "<<maxBarLift<<",\n  \"original_bar_physics_recovered\": false\n}\n";}
+    for(auto layout:{DriveLayout::Front,DriveLayout::Rear,DriveLayout::All}){
+        Profile balanced=powerful;balanced.factoryDrive=false;balanced.drive=layout;balanced.frontBias=.5-(layout==DriveLayout::Front?.60:.48);
+        auto v=buildVehicle(balanced).vehicle;CarState atRest;stepCar(atRest,v,{false,false,true},Step,0);
+        expect(std::abs(v.frontWeightFraction-.5)<1e-9&&std::abs(atRest.frontLoad-atRest.rearLoad)<1e-6,"balanced marker gives equal static axle loads for every drivetrain without changing total mass");
+    }
     bool paletteTransfer=true;int paletteCases=0;
     for(bool original:{false,true})for(int column=0;column<108;column++)for(int row=0;row<11;row++){
         const auto& pal=original?materials::originalPaint:materials::unboundPaint;

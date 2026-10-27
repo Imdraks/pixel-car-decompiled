@@ -1,5 +1,6 @@
 #include "model.hpp"
 #include "art.hpp"
+#include "wheelie_bars.hpp"
 #include "original_audio.hpp"
 #include <algorithm>
 #include <cmath>
@@ -152,6 +153,18 @@ Build buildVehicle(const Profile& profile){
     v.frontWeightFraction=std::clamp((v.drive==DriveLayout::Front?.60:.48)+chassis.frontBias,.28,.75);
     v.drivenWeightFraction=v.drive==DriveLayout::Front?v.frontWeightFraction:1-v.frontWeightFraction;
     v.allowWheelie=chassis.allowWheelie;v.suspensionDynamics=true;v.tyreDynamics=true;v.brakeDeceleration=13;
+    // The roller belongs to the DRAG PRO rear piece, including the full kit.
+    const auto* rear=findCosmetic(profile.cosmetics[6]);const auto* kit=findCosmetic(profile.cosmetics[4]);
+    int rearKit=rear?rear->subimage:kit?kit->subimage:0;
+    const auto& roller=wheelie_bars::roller(profile.car,profile.contentSource==1);
+    if(rearKit==11&&roller.present){
+        v.wheelieBar=true;
+        // Rear wheel origin is (62,58). Front arch locations are body-specific.
+        const auto& wheels=roller;
+        double span=std::max(1.0,double(wheels.front-wheels.rear)),ppm=span/v.wheelbase;
+        v.wheelieBarArm=(roller.x-wheels.rear)/ppm-v.wheelbase*v.frontWeightFraction;
+        v.wheelieBarClearance=std::max(0.0,(wheels.y+wheels.radius-roller.bottom-build.rideOffset)/ppm);
+    }
     build.engineHp=targetHp;build.boltOnHp=addedHp;
     build.baseHp=peakPower(v,false).hp;
     auto peak=peakPower(v);build.boostedHp=peak.hp;build.peakRpm=peak.rpm;

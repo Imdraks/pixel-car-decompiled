@@ -9,6 +9,16 @@
 #include <locale>
 
 namespace pcr {
+void applySuspensionPreset(Profile& p,SuspensionPreset preset){
+    p.rideHeightMm=0;p.springStiffness=1;p.dampingRatio=.65;p.frontBias=0;p.allowWheelie=false;
+    if(preset==SuspensionPreset::Drag){
+        // Native launch setup: control pitch and retain contact, rather than
+        // confusing drag preparation with an extreme wheelie demonstration.
+        p.rideHeightMm=-10;p.springStiffness=1.35;p.dampingRatio=.9;
+        auto layout=effectiveDrive(p);p.frontBias=layout==DriveLayout::Front?.04:layout==DriveLayout::Rear?-.06:0;
+    }else if(preset==SuspensionPreset::Track){p.rideHeightMm=-40;p.springStiffness=2;p.dampingRatio=.9;}
+    else if(preset==SuspensionPreset::Wheelie){p.rideHeightMm=120;p.springStiffness=.5;p.dampingRatio=.3;p.frontBias=-.15;p.allowWheelie=true;}
+}
 void equipRim(Profile& p,int id,int axle){
     if(!isRimFrame(id))return;
     if(axle==2){p.rearRim=id;return;}
@@ -188,6 +198,19 @@ static void updateSuspension(CarState& s,const Vehicle& v,double tyreForce,doubl
                 double velocity=s.heaveRate+arm*s.pitchRate;
                 if(velocity>0){impulse=velocity/inverse;s.heaveRate-=impulse/v.mass;s.pitchRate-=impulse*arm/inertia;}
             }
+        }
+    }
+    s.wheelieBarContact=false;
+    if(v.wheelieBar){
+        // Unilateral rear roller support. A downward-moving bar cannot penetrate
+        // the road: its reaction raises the CG and opposes nose-up rotation.
+        double arm=v.wheelieBarArm,gap=v.wheelieBarClearance+s.heave+arm*s.pitch;
+        if(gap<0){
+            double inverse=1/v.mass+arm*arm/inertia,correction=-gap/inverse;
+            s.heave+=correction/v.mass;s.pitch+=correction*arm/inertia;
+            double velocity=s.heaveRate+arm*s.pitchRate;
+            if(velocity<0){double impulse=-velocity/inverse;s.heaveRate+=impulse/v.mass;s.pitchRate+=impulse*arm/inertia;}
+            s.wheelieBarContact=true;s.wheelieBarTouched=true;
         }
     }
     // Native travel/angle stops prevent an uncontrolled flip, not unlimited rotation.

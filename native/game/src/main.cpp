@@ -598,15 +598,21 @@ struct App {
         slider(0,"HAUTEUR (ajustement)",suspensionDraft.rideHeightMm,-60,120,5,TextFormat("%+.0f mm",suspensionDraft.rideHeightMm));
         slider(1,"RIGIDITÉ DES RESSORTS",suspensionDraft.springStiffness,.4,3,.1,TextFormat("×%.2f",suspensionDraft.springStiffness));
         slider(2,"AMORTISSEMENT",suspensionDraft.dampingRatio,.25,1.5,.05,TextFormat("%.2f",suspensionDraft.dampingRatio));
-        slider(3,"RÉPARTITION AVANT",suspensionDraft.frontBias,-.15,.15,.01,TextFormat("%.0f %%",preview.vehicle.frontWeightFraction*100));
+        slider(3,"BALANCE AVANT / ARRIÈRE",suspensionDraft.frontBias,-.15,.15,.01,TextFormat("%.0f / %.0f %%",preview.vehicle.frontWeightFraction*100,(1-preview.vehicle.frontWeightFraction)*100));
+        // Same weight adjustment, with the actual static 50/50 reference marked.
+        double baseFront=preview.vehicle.drive==DriveLayout::Front?.60:.48;
+        float balancedX=802+float((.5-baseFront+.15)/.30)*374;
+        DrawLine(int(balancedX),435,int(balancedX),456,Gold);
+        text("ARRIÈRE",802,422,11,Muted);text("AVANT",1138,422,11,Muted);
+        if(button({balancedX-71,465,142,22},"BALANCED 50/50",std::abs(preview.vehicle.frontWeightFraction-.5)<.005))suspensionDraft.frontBias=.5-baseFront;
         if(button({754,493,469,43},suspensionDraft.allowWheelie?"WHEELIE : AUTORISÉ":"WHEELIE : LIMITÉ AU SOL",suspensionDraft.allowWheelie))suspensionDraft.allowWheelie=!suspensionDraft.allowWheelie;
-        text("Un wheelie exige assez de couple et d'adhérence.",754,553,14,Muted);
-        text("La répartition déplace la masse, sans en ajouter.",754,576,14,Muted);
+        text(preview.vehicle.wheelieBar?"Wheelie bar équipée : appui arrière contre le cabrage.":"Un wheelie exige assez de couple et d'adhérence.",754,553,14,Muted);
+        text(TextFormat("Avant %.0f kg / Arrière %.0f kg",preview.vehicle.mass*preview.vehicle.frontWeightFraction,preview.vehicle.mass*(1-preview.vehicle.frontWeightFraction)),754,576,14,Muted);
         card({34,519,674,92});text("PRÉRÉGLAGES",53,535,16,Muted);
-        auto preset=[&](int kind){suspensionDraft.rideHeightMm=kind==1?120:kind==2?-40:0;suspensionDraft.springStiffness=kind==1?.5:kind==2?2:1;suspensionDraft.dampingRatio=kind==1?.3:kind==2?.9:.65;suspensionDraft.frontBias=kind==1?-.15:0;suspensionDraft.allowWheelie=kind==1;};
-        if(button({53,562,201,33},"ROUTE"))preset(0);
-        if(button({266,562,201,33},"DRAG / WHEELIE"))preset(1);
-        if(button({479,562,208,33},"PISTE"))preset(2);
+        if(button({53,562,153,33},"ROUTE"))applySuspensionPreset(suspensionDraft,SuspensionPreset::Road);
+        if(button({214,562,153,33},"DRAG"))applySuspensionPreset(suspensionDraft,SuspensionPreset::Drag);
+        if(button({375,562,153,33},"PISTE"))applySuspensionPreset(suspensionDraft,SuspensionPreset::Track);
+        if(button({536,562,151,33},"WHEELIE"))applySuspensionPreset(suspensionDraft,SuspensionPreset::Wheelie);
         if(button({34,644,244,46},"ANNULER")){screen=Screen::Customization;}
         if(button({489,644,288,46},"ENREGISTRER",true))commitSuspension();
         if(button({797,644,447,46},"ENREGISTRER ET PRENDRE LA ROUTE",true))queued=[this]{commitSuspension();beginFree();};
@@ -687,7 +693,8 @@ struct App {
         card({29,578,275,111});text(TextFormat("%03i",int(drive.player.speed*3.6)),52,587,60);text("km/h",192,620,22,Muted);
         text(TextFormat("%.0f HP moteur",drive.player.powerHp),344,560,16,Gold);
         text(std::string("ABS ")+(drive.vehicle.abs?(drive.player.absActive?"ACTIF":"ON"):"OFF")+"   TC "+(drive.vehicle.tractionControl?(drive.player.tcActive?"ACTIF":"ON"):"OFF"),34,551,15,(drive.player.absActive||drive.player.tcActive)?Gold:Muted);
-        if(drive.player.frontLift>.02)text("WHEELIE",742,560,16,Accent);
+        if(drive.player.wheelieBarContact)text("WHEELIE BAR",742,560,16,Accent);
+        else if(drive.player.frontLift>.02)text("WHEELIE",742,560,16,Accent);
         if(drive.player.burningOut)text("BURNOUT",580,560,17,Accent);
         else if(drive.player.neutral)text("POINT MORT",580,560,17,Accent);
         else if(drive.player.handbraking)text("FREIN À MAIN",580,560,17,Gold);
@@ -1007,7 +1014,7 @@ struct App {
         if(frames==503){settings.abs=true;settings.tractionControl=true;beginFree();CarState best;
             for(int tick=0;tick<720;tick++){drive.update({true,false,true,true},Step);if(drive.player.frontLift>best.frontLift)best=drive.player;}
             drive.player=best;auto sources=effectSources();effects.update(drive.player,drive.vehicle,{true,false,true,true},sources,0,Step,true);
-            check(drive.player.frontLift>.1&&drive.player.frontLoad==0&&sources.frontWheelY<sources.rearWheelY,"rendered drag launch uses actual front contact loss and lifted wheel anchors");}
+            check(drive.player.frontLift>.1&&drive.player.frontLoad==0&&sources.frontWheelY<sources.rearWheelY,"rendered wheelie setup uses actual front contact loss and lifted wheel anchors");}
         if(frames==506)capture("wheelie-drag.png");
         if(frames==507){profile.allowWheelie=false;beginFree();for(int tick=0;tick<720;tick++)drive.update({true,false,true,true},Step);check(drive.player.peakFrontLift==0,"grounded setup keeps both tyres on the contact plane under full preparation");}
         if(frames==510)capture("chassis-au-sol.png");
@@ -1045,7 +1052,20 @@ struct App {
             if(missing){chooseCosmetic(missing->slot);customPreview=missing->id;auto before=profile.cosmetics[missing->slot];equipGarageChoice();check(profile.cosmetics[missing->slot]==before,"incompatible cosmetic choice cannot silently equip a missing body variant");}
             else check(false,"source compatibility example is available");}
         if(frames==564)capture("compatibilite-accessoires.png");
-        if(frames==565)quit=true;
+        if(frames==565){profile=Profile{};profile.car=20;equipBestParts(profile);applySuspensionPreset(profile,SuspensionPreset::Drag);openSuspension();commitSuspension();
+            auto saved=loadProfile(profileFile(),191,54);check(!saved.allowWheelie&&saved.rideHeightMm==-10&&saved.dampingRatio==.9,"drag preset saves a controlled launch separately from the wheelie preset");}
+        if(frames==567)capture("drag-reglages.png");
+        if(frames==568){settings.tractionControl=true;beginFree();for(int tick=0;tick<600;tick++)drive.update({true,false,true,true},Step);
+            check(drive.player.peakFrontLift==0&&drive.player.position>20,"drag launch progresses with both wheels on the ground");}
+        if(frames==571)capture("drag-depart.png");
+        if(frames==572){profile=Profile{};profile.car=20;equipBestParts(profile);applySuspensionPreset(profile,SuspensionPreset::Wheelie);profile.cosmetics[6]=106011;settings.tractionControl=true;beginFree();
+            for(int tick=0;tick<600;tick++)drive.update({true,false,true,true},Step);
+            check(profile.allowWheelie&&drive.vehicle.wheelieBar&&drive.player.wheelieBarTouched&&drive.player.peakFrontLift<.01,"equipped source DRAG PRO rear roller arrests wheelie without changing the garage tuning");}
+        if(frames==574)capture("wheelie-bar-appui.png");
+        if(frames==575){openSuspension();suspensionDraft.frontBias=.5-(effectiveDrive(suspensionDraft)==DriveLayout::Front?.60:.48);commitSuspension();
+            check(std::abs(configuration.vehicle.frontWeightFraction-.5)<1e-9&&profile.allowWheelie,"balanced static weight setting preserves independent wheelie tuning");}
+        if(frames==577)capture("balance-repartition.png");
+        if(frames==580)quit=true;
 
     }
     int run(){
@@ -1053,7 +1073,7 @@ struct App {
         while(!WindowShouldClose()&&!quit){double dt=args.smoke?(frames>=290?0:1.0/30.0):std::clamp(double(GetFrameTime()),0.0,.1);controls(dt);renderFrame();if(IsKeyPressed(KEY_F12))capture(TextFormat("capture-%06i.png",frames));if(queued){auto action=std::move(queued);queued=nullptr;action();}if(args.smoke)smoke();frames++;}
         if(confirming)revert();
         saveCar();
-        {std::error_code ec;fs::create_directories(args.data,ec);if(!ec){std::ofstream out(args.data/"last-session.txt");out<<"screen="<<int(screen)<<"\ncustom_group="<<customGroup<<"\ncustom_page="<<customPage<<"\ninventory_open="<<inventoryOpen<<"\nnitro_remaining="<<drive.player.nitroRemaining<<"\nnitro_active="<<drive.player.nitroActive<<"\nhandbraking="<<drive.player.handbraking<<"\nneutral="<<drive.player.neutral<<"\nburnout="<<drive.player.burningOut<<"\nrpm="<<drive.player.rpm<<"\nabs_enabled="<<drive.vehicle.abs<<"\ntc_enabled="<<drive.vehicle.tractionControl<<"\nabs_active="<<drive.player.absActive<<"\ntc_active="<<drive.player.tcActive<<"\npitch_rad="<<drive.player.pitch<<"\nheave_m="<<drive.player.heave<<"\nfront_lift_m="<<drive.player.frontLift<<"\npeak_front_lift_m="<<drive.player.peakFrontLift<<"\nrear_lift_m="<<drive.player.rearLift<<"\nfront_load_n="<<drive.player.frontLoad<<"\nrear_load_n="<<drive.player.rearLoad<<"\nfront_roll_m="<<drive.player.frontRollDistance<<"\nrear_roll_m="<<drive.player.rearRollDistance<<"\ntraffic_enabled="<<drive.trafficEnabled<<"\ntraffic_count="<<(drive.trafficEnabled?drive.traffic.size():0)<<"\ndistance_m="<<drive.player.position<<"\nspeed_mps="<<drive.player.speed<<"\ntarget_lane="<<drive.targetLane<<"\ngear="<<drive.player.gear<<"\nfront_rim="<<profile.rim<<"\nrear_rim="<<rearRimId(profile)<<"\nengine_part="<<profile.parts[int(PartSlot::Engine)]<<"\ntire_part="<<profile.parts[int(PartSlot::Tires)]<<"\ngear_count="<<drive.vehicle.gearCount<<"\nfinal_drive="<<drive.vehicle.finalDrive<<"\nshift_seconds="<<drive.vehicle.shiftSeconds<<"\nnative_mass_kg="<<drive.vehicle.mass<<"\nnative_hp="<<configuration.boostedHp<<"\nnative_nos_hp="<<configuration.nitroHp<<"\ncurrent_hp="<<drive.player.powerHp<<"\nnative_torque_nm="<<drive.vehicle.torque<<"\ndrive_layout="<<int(drive.vehicle.drive)<<"\naudio_ready="<<audio.ready<<"\naudio_failures="<<audio.failures<<"\nframes="<<frames<<"\nmode="<<modeKey(settings.mode)<<"\nwidth="<<GetScreenWidth()<<"\nheight="<<GetScreenHeight()<<"\n";}}
+        {std::error_code ec;fs::create_directories(args.data,ec);if(!ec){std::ofstream out(args.data/"last-session.txt");out<<"screen="<<int(screen)<<"\ncustom_group="<<customGroup<<"\ncustom_page="<<customPage<<"\ninventory_open="<<inventoryOpen<<"\nnitro_remaining="<<drive.player.nitroRemaining<<"\nnitro_active="<<drive.player.nitroActive<<"\nhandbraking="<<drive.player.handbraking<<"\nneutral="<<drive.player.neutral<<"\nburnout="<<drive.player.burningOut<<"\nrpm="<<drive.player.rpm<<"\nabs_enabled="<<drive.vehicle.abs<<"\ntc_enabled="<<drive.vehicle.tractionControl<<"\nabs_active="<<drive.player.absActive<<"\ntc_active="<<drive.player.tcActive<<"\npitch_rad="<<drive.player.pitch<<"\nheave_m="<<drive.player.heave<<"\nwheelie_bar_installed="<<drive.vehicle.wheelieBar<<"\nwheelie_bar_touched="<<drive.player.wheelieBarTouched<<"\nfront_lift_m="<<drive.player.frontLift<<"\npeak_front_lift_m="<<drive.player.peakFrontLift<<"\nrear_lift_m="<<drive.player.rearLift<<"\nfront_load_n="<<drive.player.frontLoad<<"\nrear_load_n="<<drive.player.rearLoad<<"\nfront_roll_m="<<drive.player.frontRollDistance<<"\nrear_roll_m="<<drive.player.rearRollDistance<<"\ntraffic_enabled="<<drive.trafficEnabled<<"\ntraffic_count="<<(drive.trafficEnabled?drive.traffic.size():0)<<"\ndistance_m="<<drive.player.position<<"\nspeed_mps="<<drive.player.speed<<"\ntarget_lane="<<drive.targetLane<<"\ngear="<<drive.player.gear<<"\nfront_rim="<<profile.rim<<"\nrear_rim="<<rearRimId(profile)<<"\nengine_part="<<profile.parts[int(PartSlot::Engine)]<<"\ntire_part="<<profile.parts[int(PartSlot::Tires)]<<"\ngear_count="<<drive.vehicle.gearCount<<"\nfinal_drive="<<drive.vehicle.finalDrive<<"\nshift_seconds="<<drive.vehicle.shiftSeconds<<"\nnative_mass_kg="<<drive.vehicle.mass<<"\nnative_hp="<<configuration.boostedHp<<"\nnative_nos_hp="<<configuration.nitroHp<<"\ncurrent_hp="<<drive.player.powerHp<<"\nnative_torque_nm="<<drive.vehicle.torque<<"\ndrive_layout="<<int(drive.vehicle.drive)<<"\naudio_ready="<<audio.ready<<"\naudio_failures="<<audio.failures<<"\nframes="<<frames<<"\nmode="<<modeKey(settings.mode)<<"\nwidth="<<GetScreenWidth()<<"\nheight="<<GetScreenHeight()<<"\n";}}
         if(args.smoke){fs::create_directories(args.data);std::ofstream out(args.data/"smoke-report.txt");
 #ifdef _WIN32
             out<<"Native Windows rendering smoke test. Physical PC GPU and audio are not established.\n";

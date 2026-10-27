@@ -1,12 +1,18 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.13.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.13.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.0-native-preview)
+**[Télécharger Windows x64 — version 0.13.1](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.13.1-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.1-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+La version **0.13.1** sépare **Drag** (départ amorti, roues au sol) de **Wheelie**
+et adapte la répartition aux roues motrices. Les petites roues arrière du **DRAG PRO**
+limitent maintenant le cabrage par leur appui au sol. Appliquer **F9 → Drag → Enregistrer**
+pour remplacer l’ancien réglage. Le code de conduite original est localisé, mais
+ses équations complètes ne sont pas encore importées. [Correction et preuves](native/game/DRAG.md).
 
 La version **0.13.0** affine les peintures et matériaux, sépare les jantes avant/arrière
 et vérifie les accessoires sur les deux banques de carrosseries. Les trois pots
@@ -95,9 +101,10 @@ de transmission sont conservées. L’équivalence avec Android n’est pas vali
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-277 contrôles du cœur et 74 contrôles graphiques passent sous Linux et Windows ; les mesures
+297 contrôles du cœur et 78 contrôles graphiques passent sous Linux ; Windows
+est vérifié par CI avant publication ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
-Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 133 contrôles
+Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 141 contrôles
 clavier/souris et 192 416 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.
 
 La [recherche ciblée YYC](native/evidence/unbound/physics/README.md) a vérifié

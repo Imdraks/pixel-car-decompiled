@@ -27,6 +27,8 @@ struct Profile { int car=0, rim=8,rearRim=-1,contentSource=0,audioSource=0;std::
     double rideHeightMm=0,springStiffness=1,dampingRatio=.65,frontBias=0;bool allowWheelie=false;
 };
 inline DriveLayout effectiveDrive(const Profile& p){return p.factoryDrive?DriveLayout(stockVehicle(p.car).drive):p.drive;}
+enum class SuspensionPreset { Road, Drag, Track, Wheelie };
+void applySuspensionPreset(Profile&,SuspensionPreset);
 inline int rearRimId(const Profile& p){return p.rearRim<0?p.rim:p.rearRim;}
 void equipRim(Profile&,int id,int axle);
 int bodyChoiceIndex(const Profile&);
@@ -59,6 +61,7 @@ struct Vehicle {
     double curveRpmScale=1,boostEfficiency=.7;
     double boostPsi=0,nitroHp=0; bool supercharged=false,twoStep=false;
     bool suspensionDynamics=false,tyreDynamics=false,allowWheelie=false,abs=false,tractionControl=false;
+    bool wheelieBar=false;double wheelieBarArm=0,wheelieBarClearance=0;
     double springStiffness=1,dampingRatio=.65,frontWeightFraction=.48;
 
 };
@@ -94,6 +97,7 @@ struct CarState {
     bool neutral=false,burningOut=false,finished=false;
     double pitch=0,pitchRate=0,heave=0,heaveRate=0,frontLoad=0,rearLoad=0,frontLift=0,rearLift=0,peakFrontLift=0;
     double tractionFactor=1,brakeSlip=0;
+    bool wheelieBarContact=false,wheelieBarTouched=false;
     bool suspensionReady=false,tcActive=false,absActive=false,frontLocked=false,rearLocked=false;
 
 };

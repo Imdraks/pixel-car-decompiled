@@ -1,4 +1,10 @@
-# Pixel Car Racer — Unbound Native 0.13.0
+# Pixel Car Racer — Unbound Native 0.13.1
+
+La version **0.13.1** corrige le préréglage Drag : lancement amorti, roues au
+sol et répartition adaptée à la transmission. Le cabrage volontaire reste dans
+le bouton Wheelie séparé. Appliquer **F9 → Drag → Enregistrer** pour remplacer
+l’ancien réglage. [DRAG.md](DRAG.md) détaille la correction et la recherche du
+code original ; les équations Android complètes ne sont pas encore importées.
 
 La version **0.13.0** ajoute les jantes distinctes par essieu (**F2**, boutons
 AV+AR/AVANT/ARRIÈRE), les nuances et matériaux source, les teintes des optiques

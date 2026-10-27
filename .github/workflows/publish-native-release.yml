@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.13.0-native-preview
+        default: v0.13.1-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -93,6 +93,14 @@ jobs:
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\customization-render.json" validation/customization-render.json
           $cosmetics = Get-Content validation/customization-render.json -Raw | ConvertFrom-Json
           if ($cosmetics.palette_shades_checked -ne 2376 -or $cosmetics.cosmetic_cases_checked -ne 192146 -or $cosmetics.hood_body_kit_pipe_cases -ne 14898 -or $cosmetics.rim_finish_recipes -ne 521 -or $cosmetics.hood_coordinates_recovered_from_android) { throw 'Customization source coverage differs' }
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\wheelie-bars.json" validation/wheelie-bars.json
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\wheelie-bars.csv" validation/wheelie-bars.csv
+          $bars = Get-Content validation/wheelie-bars.json -Raw | ConvertFrom-Json
+          if ($bars.source_bodies_checked -ne 382 -or -not $bars.contact_plane_respected -or $bars.reference_barred_lift_m -gt 0.01 -or $bars.original_bar_physics_recovered) { throw 'Wheelie bar ground-contact check failed' }
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\drag-setup.json" validation/drag-setup.json
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\drag-launch.csv" validation/drag-launch.csv
+          $drag = Get-Content validation/drag-setup.json -Raw | ConvertFrom-Json
+          if ($drag.launch_cases_checked -ne 6 -or -not $drag.drag_keeps_contact -or $drag.max_drag_pitch_rad -ge 0.04 -or $drag.original_physics_imported) { throw 'Drag contact or physics provenance check failed' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\suspension-aids.json" validation/suspension-aids.json
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\suspension-physics.csv" validation/suspension-physics.csv
           $chassis = Get-Content validation/suspension-aids.json -Raw | ConvertFrom-Json
