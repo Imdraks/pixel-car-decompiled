@@ -255,7 +255,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.13.2",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.13.3",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},"GARAGE")){openCustomization();screen=Screen::Garage;}
@@ -1081,7 +1081,12 @@ struct App {
         if(frames==577)capture("balance-repartition.png");
         if(frames==578){suspensionDraft.wheelieTune=1;commitSuspension();check(loadProfile(profileFile(),191,54).wheelieTune==1,"blue wheelie-to-balanced control persists independently of static axle balance");}
         if(frames==580)capture("reglage-wheelie-balanced.png");
-        if(frames==582)quit=true;
+        if(frames==583){beginFree();for(int tick=0;tick<240;tick++)drive.update({true,false,true,true,false,true},Step);
+            check(drive.player.handbraking&&drive.player.rpm>7000&&drive.player.speed==0&&drive.player.rearRollDistance==0&&!drive.player.nitroActive,"handbrake permits free engine revs while locking the rear wheels without NOS");}
+        if(frames==585)capture("frein-main-regime.png");
+        if(frames==586){for(int tick=0;tick<120;tick++)drive.update({true,false,true},Step);check(!drive.player.handbraking&&drive.player.position>1,"releasing handbrake with throttle reconnects and launches the vehicle");}
+        if(frames==588)capture("frein-main-depart.png");
+        if(frames==590)quit=true;
 
     }
     int run(){

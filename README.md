@@ -1,12 +1,16 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.13.2](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.13.2-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.2-native-preview)
+**[Télécharger Windows x64 — version 0.13.3](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.13.3-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.3-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+La version **0.13.3** permet de prendre des tours avec **Espace + accélérateur**,
+comme au point mort, en gardant les roues arrière bloquées. Relâcher Espace
+réengage la transmission et permet le départ. Le son moteur suit le régime.
 
 La version **0.13.2** ajoute la barre bleue **Wheelie → Balanced** et corrige la
 liaison des roues à leurs points de suspension pendant le cabrage. Les courses
@@ -47,8 +51,9 @@ avec jantes nommées, esthétique et sélection des deux banques d’images/sons
 - Garage avec atelier, pont, icônes, jauges et police du jeu original adaptés au PC.
   Six catégories, aperçu, recherche, tri, double-clic et raccourcis F1–F6.
   [Commandes du garage](native/game/GARAGE-PC.md).
-- **Espace : frein à main arrière**, coupure accélération/NOS et roues arrière
-  bloquées. Z/W/↑ restent les accélérateurs.
+- **Espace : frein à main arrière**, roues arrière bloquées et moteur débrayé.
+  Maintenir l’accélérateur permet de prendre des tours ; relâcher Espace réengage
+  la transmission. Le NOS reste coupé. Z/W/↑ restent les accélérateurs.
 
 - Mode libre continu avec circulation sur trois voies, désactivable dans
   **Paramètres → Trafic en mode libre**. Choix sauvegardé, sans collisions
@@ -106,9 +111,9 @@ de transmission sont conservées. L’équivalence avec Android n’est pas vali
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-304 contrôles du cœur et 79 contrôles graphiques passent sous Linux et Windows ; les mesures
+310 contrôles du cœur et 81 contrôles graphiques passent sous Linux et Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
-Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 147 contrôles
+Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 152 contrôles
 clavier/souris et 192 416 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.
 
 La [recherche ciblée YYC](native/evidence/unbound/physics/README.md) a vérifié

@@ -57,6 +57,10 @@ suivent ce rendu, vérifié en 960×540, Full HD et fenêtre 1200×900.
 
 ## Frein à main
 
+Depuis **0.13.3**, maintenir **Espace + Z/W/↑** permet de prendre des tours
+moteur débrayé, avec le son correspondant. Les roues arrière restent bloquées
+et le NOS reste coupé. Relâcher Espace réengage le rapport en sécurité pour partir.
+
 **En conduite, Espace est désormais le frein à main**, et ne sert plus à accélérer.
 Z/W/↑ restent les accélérateurs, S/↓ le frein de service. Le frein à main agit sur
 l'adhérence de l'essieu arrière, coupe la traction et le NOS, bloque la rotation

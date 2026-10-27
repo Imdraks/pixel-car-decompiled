@@ -233,7 +233,7 @@ static void updateSuspension(CarState& s,const Vehicle& v,double tyreForce,doubl
     suspensionLoads(s,v);s.peakFrontLift=std::max(s.peakFrontLift,s.frontLift);
 }
 bool shift(CarState& car,int direction,const Vehicle& vehicle){
-    if(car.shiftLock>0||car.finished||car.neutral||direction==0)return false;
+    if(car.shiftLock>0||car.finished||car.neutral||car.handbraking||direction==0)return false;
     int next=std::clamp(car.gear+(direction>0?1:-1),1,vehicle.gearCount);
     // Reject an unsafe downshift instead of allowing mechanically impossible RPM.
     if(next==car.gear||(next<car.gear&&wheelRpm(car,vehicle,next)>vehicle.redlineRpm))return false;
@@ -246,9 +246,10 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     s.tcActive=false;s.absActive=false;s.frontLocked=false;s.rearLocked=input.handbrake;s.brakeSlip=0;
     s.gear=std::clamp(s.gear,1,v.gearCount);
     s.shiftLock=std::max(0.0,s.shiftLock-dt);
+    bool wasDisconnected=s.neutral||s.handbraking;
     bool braking=input.brake||input.handbrake;s.handbraking=input.handbrake;
-    bool wasNeutral=s.neutral;s.neutral=input.neutral;
-    if(wasNeutral&&!s.neutral){
+    s.neutral=input.neutral;bool freeRev=s.neutral||s.handbraking;
+    if(wasDisconnected&&!freeRev){
         // Reconnect safely even if the retained gear would over-rev the engine.
         while(s.gear<v.gearCount&&wheelRpm(s,v,s.gear)>v.redlineRpm)++s.gear;
         s.shiftLock=std::max(s.shiftLock,v.shiftSeconds);
@@ -256,7 +257,7 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     s.burningOut=!s.neutral&&!input.handbrake&&input.brake&&input.throttle&&s.gear==1&&s.speed<3&&s.shiftLock==0;
     s.launching=!s.neutral&&v.twoStep&&input.launch&&input.throttle&&!braking&&s.speed<3;
     double coupled=wheelRpm(s,v,s.gear);
-    if(input.automatic&&!s.neutral&&!s.burningOut&&s.shiftLock==0){
+    if(input.automatic&&!freeRev&&!s.burningOut&&s.shiftLock==0){
         if(input.throttle&&!braking&&coupled>v.upshiftRpm&&s.gear<v.gearCount)shift(s,1,v);
         else if(s.gear>1&&coupled<(input.throttle&&!braking?2600.0:1500.0)
                 &&wheelRpm(s,v,s.gear-1)<v.upshiftRpm*.9)shift(s,-1,v);
@@ -264,7 +265,7 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     }
     // Simplified slipping clutch below launch RPM. Above it, RPM follows wheel speed.
     double target=s.launching?4200:std::max(input.throttle&&!braking?v.launchRpm:v.idleRpm,coupled);
-    if(s.neutral||s.burningOut){
+    if(freeRev||s.burningOut){
         target=input.throttle?v.redlineRpm*(s.burningOut?.90:.96):v.idleRpm;
         s.rpm+=std::clamp(target-s.rpm,-6500*dt,9000*dt);
     }else if(s.shiftLock>0)s.rpm+=std::clamp(target-s.rpm,-13000*dt,15000*dt);
@@ -291,7 +292,7 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
         wheelForce*=s.tractionFactor;s.powerHp*=s.tractionFactor;
     }else s.tractionFactor=1;
     double driveDemand=wheelForce;
-    if(!s.neutral&&!s.burningOut&&(!input.throttle||braking)&&s.shiftLock==0){
+    if(!freeRev&&!s.burningOut&&(!input.throttle||braking)&&s.shiftLock==0){
         // Engine and service braking share the same tyre contact patch.
         wheelForce-=v.engineBrakeTorque*ratio/v.wheelRadius*std::clamp(coupled/v.idleRpm,0.0,1.0);
     }

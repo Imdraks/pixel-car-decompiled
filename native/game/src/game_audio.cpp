@@ -51,7 +51,7 @@ void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarSt
     if(!ready)return;
     selectBank(profile.audioSource);
     if(!enabled)for(auto& sound:shots)StopSound(sound.second);
-    auto samples=engineSamples(profile);bool gas=active&&input.throttle&&(!input.brake||car.burningOut||car.neutral)&&(!input.handbrake||car.neutral);
+    auto samples=engineSamples(profile);bool gas=active&&input.throttle&&(!input.brake||car.burningOut||car.neutral||car.handbraking);
     float audible=enabled&&active?1.f:0.f;
     float pitch=float(.45+car.rpm/6500.0),load=gas?1.f:.15f;
     if(car.launching)load*=std::sin(car.elapsed*62.831853)>0?1.f:.25f;

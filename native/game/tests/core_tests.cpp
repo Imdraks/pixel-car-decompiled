@@ -225,6 +225,26 @@ int main(int argc,char**argv){
         stepCar(state,car,{true,false,true},Step,0);
         expect(!state.burningOut&&state.speed>0,"releasing the service brake ends the burnout and launches normally");
     }
+    bool handFreeRev=true,handSafeRelease=true,handThrottleDrop=true;
+    for(auto layout:{DriveLayout::Front,DriveLayout::Rear,DriveLayout::All}){
+        Vehicle car=v;car.drive=layout;car.nitroHp=250;CarState parked;parked.gear=3;
+        for(int tick=0;tick<240;tick++)stepCar(parked,car,{true,false,true,true,false,true},Step,0);
+        handFreeRev&=parked.handbraking&&!parked.neutral&&parked.rpm>car.redlineRpm*.9&&parked.speed==0&&parked.position==0&&parked.rearRollDistance==0&&parked.frontRollDistance==0&&parked.gear==3&&!parked.nitroActive&&parked.nitroRemaining==10&&parked.powerHp==0;
+        handFreeRev&=!shift(parked,1,car);
+        stepCar(parked,car,{true,false,true},Step,0);
+        handSafeRelease&=!parked.handbraking&&parked.shiftLock>0&&parked.gear==3;
+        for(int tick=0;tick<120;tick++)stepCar(parked,car,{true,false,true},Step,0);
+        handSafeRelease&=parked.speed>0;
+        for(int tick=0;tick<240;tick++)stepCar(parked,car,{false,false,true,false,false,true},Step,0);
+        handThrottleDrop&=std::abs(parked.rpm-car.idleRpm)<1;
+    }
+    expect(handFreeRev,"handbrake throttle revs freely in all drive layouts without wheel torque, shifts or NOS");
+    expect(handSafeRelease,"handbrake release safely reconnects the retained gear before normal acceleration");
+    expect(handThrottleDrop,"releasing throttle with handbrake held returns the free engine to idle");
+    CarState fastHand;fastHand.speed=80;fastHand.gear=1;stepCar(fastHand,v,{true,false,false,false,false,true},Step,0);
+    double handFastSpeed=fastHand.speed;stepCar(fastHand,v,{true,false,false},Step,0);
+    expect(fastHand.gear>1&&fastHand.shiftLock>0&&fastHand.speed<=handFastSpeed,"handbrake clutch reconnect selects a safe gear at high road speed");
+    {std::ofstream out(root/"handbrake-rev.json");out<<"{\n  \"drivetrains_checked\": 3,\n  \"free_rev_without_drive\": "<<(handFreeRev?"true":"false")<<",\n  \"safe_reengagement\": "<<(handSafeRelease?"true":"false")<<"\n}\n";}
     CarState wrongGear;wrongGear.gear=2;stepCar(wrongGear,v,{true,true,false},Step,0);
     expect(!wrongGear.burningOut&&wrongGear.powerHp==0,"manual second gear cannot enter burnout mode");
     CarState fastBurn;fastBurn.speed=20;stepCar(fastBurn,v,burnInput,Step,0);
@@ -720,6 +740,20 @@ int main(int argc,char**argv){
     expect(attachedHubs&&carrierCases==9168,"wheel hubs remain on the wheel-arch suspension axis across 9168 source-body, stance and pitch cases");
     expect(contactHeight,"wheel carrier correction preserves the physical ground plane and simulated tyre lift");
     {std::ofstream out(root/"wheel-carriers.json");out<<"{\n  \"hub_cases_checked\": "<<carrierCases<<",\n  \"suspension_axes_respected\": "<<(attachedHubs?"true":"false")<<",\n  \"mechanical_travel_respected\": "<<(mechanicalTravel?"true":"false")<<",\n  \"wheelie_endpoint_lift_m\": "<<tunedLifts[0]<<",\n  \"balanced_endpoint_lift_m\": "<<tunedLifts[4]<<",\n  \"full_android_dynamics_equivalence\": false\n}\n";}
+    Profile powerWheelie=drag;powerWheelie.cosmetics[4]=powerWheelie.cosmetics[6]=0;powerWheelie.wheelieTune=0;
+    auto powerBase=buildVehicle(powerWheelie).vehicle;powerBase.nitroHp=0;powerBase.tractionControl=true;
+    const double hpSteps[]={200,400,800,1200,2000};std::array<double,5> powerLifts{};std::array<double,5> liftTimes{};
+    bool samePowerChassis=true;std::ofstream powerTrace(root/"power-wheelie.csv");powerTrace<<"engine_hp,peak_front_lift_m,first_lift_s,distance_5s_m,mass_kg,grip,front_weight_fraction\n";
+    for(int i=0;i<5;i++){
+        auto v=powerBase;v.torque*=hpSteps[i]/peakPower(powerBase).hp;CarState car;liftTimes[i]=-1;
+        for(int tick=0;tick<600;tick++){stepCar(car,v,{true,false,true},Step,0);if(car.frontLift>.01&&liftTimes[i]<0)liftTimes[i]=car.elapsed;}
+        powerLifts[i]=car.peakFrontLift;samePowerChassis&=v.mass==powerBase.mass&&v.grip==powerBase.grip&&v.frontWeightFraction==powerBase.frontWeightFraction;
+        powerTrace<<hpSteps[i]<<','<<car.peakFrontLift<<','<<liftTimes[i]<<','<<car.position<<','<<v.mass<<','<<v.grip<<','<<v.frontWeightFraction<<'\n';
+    }
+    bool strongerWheelie=powerLifts[0]==0&&powerLifts[1]==0&&powerLifts[2]>0&&powerLifts[3]>powerLifts[2]&&powerLifts[4]>powerLifts[3];
+    expect(strongerWheelie&&samePowerChassis,"higher engine power produces stronger wheelie on the same gripping chassis across five controlled power levels");
+    expect(liftTimes[2]>liftTimes[3]&&liftTimes[3]>liftTimes[4],"stronger engines unload the front axle earlier under the same launch controls");
+    {std::ofstream out(root/"power-wheelie.json");out<<"{\n  \"power_levels_checked\": 5,\n  \"same_chassis_and_grip\": "<<(samePowerChassis?"true":"false")<<",\n  \"stronger_wheelie_verified\": "<<(strongerWheelie?"true":"false")<<",\n  \"native_calibration\": true\n}\n";}
     bool paletteTransfer=true;int paletteCases=0;
     for(bool original:{false,true})for(int column=0;column<108;column++)for(int row=0;row<11;row++){
         const auto& pal=original?materials::originalPaint:materials::unboundPaint;

@@ -1,5 +1,17 @@
 # Drag, réglage Wheelie → Balanced et roues — 0.13.2
 
+## Puissance du moteur et cabrage
+
+Le moment de cabrage dépend de l’effort réellement transmis à la route, calculé
+à partir du couple moteur, du régime, du boost, des rapports et de l’adhérence.
+Sur la référence native avec châssis, masse et pneus identiques, les niveaux
+200/400/800/1200/2000 ch donnent 0/0/0,040/0,206/0,385 m de levée ; les moteurs
+plus puissants lèvent plus tôt. Le NOS reste désactivé pour cette comparaison.
+Au-delà de l’adhérence disponible, davantage de puissance peut surtout produire
+du patinage ou une intervention TC. Les interruptions de couple aux changements
+de rapports et les wheelie bars limitent aussi la levée ; les chevaux ne sont
+pas transformés directement en une animation de cabrage.
+
 ## Réglage comme sur la capture
 
 **F9** affiche maintenant une barre bleue **WHEELIE → BALANCED**, avec un

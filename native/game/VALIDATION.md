@@ -1,3 +1,18 @@
+# Validation 0.13.3 — régime libre au frein à main et puissance/cabrage
+
+- 310 contrôles du cœur Linux réussis. Trois transmissions vérifiées : régime
+  libre au frein à main, aucune transmission de couple aux roues, maintien du
+  rapport, NOS coupé, retour au ralenti et réengagement protégé.
+- Cinq niveaux de puissance comparés sur le même châssis, à masse et adhérence
+  identiques, sans NOS : 200/400/800/1200/2000 ch donnent 0/0/0,040/0,206/0,385 m
+  de levée. Les moteurs plus puissants lèvent plus tôt dans ces scénarios.
+  Les limites d’adhérence, le TC et les passages de rapports restent actifs.
+- 81 contrôles graphiques et 152 essais clavier/souris Linux : 29 châssis/curseur,
+  20 burnout/point mort/frein à main, 18 personnalisation, 69 garage/audio et
+  16 affichage/trafic. Contrôles pixels des matériaux et effets réussis.
+- Preuves : `validation/handbrake-0.13.3/`. Modèle natif calibré, sans équivalence
+  complète avec les équations Android ou les mesures constructeur.
+
 # Validation 0.13.2 — roues attachées et curseur Wheelie → Balanced
 
 - 304 contrôles du cœur Linux réussis, dont 9168 vérifications des axes de

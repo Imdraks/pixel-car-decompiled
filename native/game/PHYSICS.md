@@ -1,3 +1,15 @@
+## Moteur libre au frein à main (0.13.3)
+
+Avec Espace maintenu, le moteur est débrayé : l’accélérateur fait monter les tours
+comme au point mort, sans couple aux roues ni NOS. Les roues arrière restent
+bloquées. Les rapports automatiques sont conservés pendant le maintien ; le
+réengagement applique le délai de changement et une protection contre le surrégime.
+Le son de charge moteur suit l’accélérateur même avec le frein à main.
+
+La progression du cabrage avec la puissance est vérifiée séparément à châssis,
+masse et pneus constants : voir `DRAG.md` et `power-wheelie.csv`. L’adhérence,
+les aides et les passages de rapports peuvent limiter la levée à très forte puissance.
+
 ## Roues et curseur Wheelie → Balanced (0.13.2)
 
 Les roues suivent leurs axes de suspension attachés à la caisse, avec des

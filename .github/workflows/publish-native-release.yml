@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.13.2-native-preview
+        default: v0.13.3-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -93,6 +93,13 @@ jobs:
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\customization-render.json" validation/customization-render.json
           $cosmetics = Get-Content validation/customization-render.json -Raw | ConvertFrom-Json
           if ($cosmetics.palette_shades_checked -ne 2376 -or $cosmetics.cosmetic_cases_checked -ne 192146 -or $cosmetics.hood_body_kit_pipe_cases -ne 14898 -or $cosmetics.rim_finish_recipes -ne 521 -or $cosmetics.hood_coordinates_recovered_from_android) { throw 'Customization source coverage differs' }
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\power-wheelie.json" validation/power-wheelie.json
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\power-wheelie.csv" validation/power-wheelie.csv
+          $powerWheelie = Get-Content validation/power-wheelie.json -Raw | ConvertFrom-Json
+          if ($powerWheelie.power_levels_checked -ne 5 -or -not $powerWheelie.same_chassis_and_grip -or -not $powerWheelie.stronger_wheelie_verified) { throw 'Power-dependent wheelie progression failed' }
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\handbrake-rev.json" validation/handbrake-rev.json
+          $handbrake = Get-Content validation/handbrake-rev.json -Raw | ConvertFrom-Json
+          if ($handbrake.drivetrains_checked -ne 3 -or -not $handbrake.free_rev_without_drive -or -not $handbrake.safe_reengagement) { throw 'Handbrake free rev or clutch reconnection failed' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\wheel-carriers.json" validation/wheel-carriers.json
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\wheelie-tuning.csv" validation/wheelie-tuning.csv
           $carriers = Get-Content validation/wheel-carriers.json -Raw | ConvertFrom-Json

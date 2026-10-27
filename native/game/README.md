@@ -1,4 +1,9 @@
-# Pixel Car Racer — Unbound Native 0.13.2
+# Pixel Car Racer — Unbound Native 0.13.3
+
+La version **0.13.3** permet d’accélérer moteur débrayé avec **Espace** maintenu :
+le moteur et son son prennent leurs tours, les roues arrière restent bloquées,
+et le NOS reste coupé. Relâcher Espace réengage le rapport conservé avec une
+protection contre le surrégime. **Espace + Z/W/↑**, puis relâcher Espace pour partir.
 
 La version **0.13.2** reprend le curseur bleu **WHEELIE → BALANCED** dans F9,
 avec un effet progressif et une sauvegarde indépendante des masses avant/arrière.
@@ -71,7 +76,8 @@ Les 194 pièces, 191 carrosseries par banque, 521 jantes nommées et réglages p
 Voir [GARAGE-PC.md](GARAGE-PC.md) pour les catégories et commandes.
 
 **Espace est le frein à main en conduite**, avec roues arrière bloquées,
-ralentissement, fumée arrière et coupure du NOS. Il ne sert plus à accélérer.
+ralentissement, fumée arrière et coupure du NOS. Avec l’accélérateur, le moteur
+prend librement ses tours, débrayé.
 Extraire tout le ZIP pour installer les nouveaux atlas de l'interface.
 
 La version **0.6.0** ajoute **TRANSMISSION** depuis le garage et la customisation :
@@ -136,7 +142,7 @@ environ 100 Mo libres. Aucun composant Android n'est téléchargé ou installé.
 | Commande | Action |
 | --- | --- |
 | Z, W ou flèche haut | Accélérer |
-| Espace maintenu | Frein à main arrière |
+| Espace maintenu | Frein à main arrière ; accélérateur autorisé, moteur débrayé |
 | S ou flèche bas | Freiner |
 | Flèches gauche/droite, Q/A et D | Changer de voie |
 | E ou Maj gauche / C | Monter / descendre un rapport |
