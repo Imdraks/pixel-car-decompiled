@@ -161,9 +161,9 @@ int main(int argc,char**argv){
     expect(std::abs(jz.baseHp-410)<.001,"recovered 2JZ catalog power drives the native torque curve");
     Profile lowPower,highPower;equipPart(lowPower,PartSlot::Engine,1001);equipPart(highPower,PartSlot::Engine,1014);
     auto lowBuild=buildVehicle(lowPower),highBuild=buildVehicle(highPower);CarState lowRun,highRun;
-    lowRun.speed=highRun.speed=40;lowRun.gear=highRun.gear=4;
-    for(int i=0;i<120*3;i++){stepCar(lowRun,lowBuild.vehicle,{true,false,false},Step,0);stepCar(highRun,highBuild.vehicle,{true,false,false},Step,0);}
-    expect(highRun.speed>lowRun.speed+2,"selecting a stronger engine actually improves a rolling acceleration");
+    lowRun.speed=highRun.speed=30;lowRun.gear=highRun.gear=4;
+    for(int i=0;i<120;i++){stepCar(lowRun,lowBuild.vehicle,{true,false,false},Step,0);stepCar(highRun,highBuild.vehicle,{true,false,false},Step,0);}
+    expect(highRun.speed>lowRun.speed+.5&&highRun.rpm<highBuild.vehicle.redlineRpm,"stronger engine improves rolling acceleration below its own rev limit");
     equipPart(custom,PartSlot::Turbo,3002);equipPart(custom,PartSlot::Supercharger,3020);
     expect(custom.parts[int(PartSlot::Turbo)]==0&&custom.parts[int(PartSlot::Supercharger)]==3020,"turbo and supercharger are mutually exclusive");
     expect(!equipPart(custom,PartSlot::Engine,3002)&&!equipPart(custom,PartSlot::Engine,999999),"wrong-category and unknown IDs are rejected");
@@ -174,7 +174,7 @@ int main(int argc,char**argv){
     for(int i=0;i<120;i++)stepCar(spool,turboBuild.vehicle,{false,false,false},Step,0);
     expect(spool.boostPsi==0,"turbo boost releases when the throttle is lifted");
     equipPart(custom,PartSlot::Ecu,4008);auto ecuBuild=buildVehicle(custom);
-    expect(ecuBuild.vehicle.redlineRpm==10400&&ecuBuild.vehicle.upshiftRpm==9400,"ECU raises the native rev limit and automatic shift threshold");
+    expect(ecuBuild.vehicle.redlineRpm==10500&&ecuBuild.vehicle.upshiftRpm==9500,"ECU raises the native rev limit and automatic shift threshold");
     equipPart(custom,PartSlot::Tires,10017);auto tireBuild=buildVehicle(custom);
     expect(tireBuild.vehicle.grip>1.5&&tireBuild.tireFrame==17,"tires change adhesion and select the matching original tire image");
     equipPart(custom,PartSlot::Suspension,2015);auto lowered=buildVehicle(custom);
@@ -240,7 +240,7 @@ int main(int argc,char**argv){
     expect(ultimate.parts[0]==1014&&ultimate.parts[2]==3026&&ultimate.parts[3]==0,"maximum preparation selects LT5 and the best exclusive induction");
     expect(ultimate.car==20&&ultimate.rim==8&&ultimate.drive==DriveLayout::All&&ultimate.soundOn==4,"maximum preparation preserves appearance, drive and audio preferences");
     expect(full.boostedHp>4200&&full.nitroHp>4500&&full.nitroHp-full.boostedHp==250,"maximum parts combine into over 4500 rated HP with NOS");
-    double expectedHp=(755+38+100+95)*(10400.0/8100)*(1+35/14.7);
+    double expectedHp=(755+38+100+95)*((engineRedline(ultimate)+2300)/engineRedline(ultimate))*(1+35/14.7);
     expect(std::abs(full.boostedHp-expectedHp)/expectedHp<.0001,"full preparation matches an independently calculated compound power budget");
     Profile coolerOnly;equipPart(coolerOnly,PartSlot::Intercooler,7013);
     expect(std::abs(buildVehicle(coolerOnly).boostedHp-buildVehicle(Profile{}).boostedHp)<1e-9,"an intercooler cannot add power to an atmospheric engine");
@@ -282,7 +282,7 @@ int main(int argc,char**argv){
         Profile trial;equipPart(trial,PartSlot::Engine,engine);equipPart(trial,PartSlot::Ecu,ecu);
         if(boost)equipPart(trial,findPart(boost)->slot,boost);
         equipPart(trial,PartSlot::Intercooler,cooler);auto result=buildVehicle(trial);const auto& engineData=*findPart(engine);
-        double target=engineData.stat*result.vehicle.curveRpmScale;
+        double target=engineData.stat*result.vehicle.redlineRpm/engineRedline(trial);
         combinationsValid&=std::isfinite(result.boostedHp)&&result.boostedHp>=engineData.stat*.9999&&result.boostedHp<=full.boostedHp+.01;
         combinationsValid&=std::abs(result.baseHp-target)/target<.0001;
         combinationsValid&=std::abs(enginePowerHp(result.vehicle,result.peakRpm,targetBoost(result.vehicle,result.peakRpm))-result.boostedHp)<1e-8;
@@ -389,7 +389,7 @@ int main(int argc,char**argv){
     expect(!std::filesystem::exists(file.u8string()+".tmp"),"successful save leaves no temporary file");
     {std::ofstream out(file);out<<"width=-1\nheight=99999999\nfps=not-a-number\nmode=execute-this\nquality=99\n";}
     auto invalid=loadSettings(file);expect(invalid.width==1280&&invalid.height==720&&invalid.fps==120&&invalid.mode==WindowMode::Windowed&&invalid.quality==Quality::High,"invalid settings safely fall back");
-    Profile p;p.car=190;p.rim=42;p.automatic=false;p.drive=DriveLayout::All;p.bestTime=12.345678;
+    Profile p;p.factoryDrive=false;p.car=190;p.rim=42;p.automatic=false;p.drive=DriveLayout::All;p.bestTime=12.345678;
     expect(saveProfile(root/"profile.ini",p,error),"profile saved");auto loaded=loadProfile(root/"profile.ini",191,54);
     expect(loaded.car==190&&loaded.rim==42&&!loaded.automatic&&loaded.drive==DriveLayout::All&&std::abs(loaded.bestTime-p.bestTime)<1e-9,"garage and driving preferences persist");
     {std::ofstream out(root/"profile.ini");out<<"car=9999\nrim=-2\nbest_time=nan\ndrive=99\n";}
@@ -445,6 +445,45 @@ int main(int argc,char**argv){
     }
     expect(sourcePlacementMatches&&exactSourceFits==18336,"18336 source body/pipe transforms, draw layers and particle roots follow both recovered anchors, independent of kit fitting");
     {std::ofstream out(root/"exhaust-source-rules.json");out<<"{\n  \"source_transforms_checked\": "<<exactSourceFits<<",\n  \"hood_remains_native\": true\n}\n";}
+    expect(std::size(StockVehicles)==191,"all source body IDs have a recovered stock mechanical record");
+    Profile factoryHatch;auto hatch=buildVehicle(factoryHatch);Profile factoryAwd;factoryAwd.car=2;auto awdStock=buildVehicle(factoryAwd);Profile factoryCoupe;factoryCoupe.car=20;auto coupe=buildVehicle(factoryCoupe);
+    expect(std::abs(hatch.vehicle.mass-949.82242278)<1e-6&&std::abs(hatch.baseHp-123)<1e-8&&hatch.vehicle.drive==DriveLayout::Front,"first hatchback uses source 2094 lb, 123 HP and front drive instead of the reference vehicle");
+    expect(std::abs(awdStock.vehicle.mass-3263*.45359237)<1e-6&&std::abs(awdStock.baseHp-300)<1e-8&&awdStock.vehicle.drive==DriveLayout::All,"source AWD saloon uses its own 3263 lb and 300 HP");
+    expect(std::abs(coupe.baseHp-266)<1e-8&&coupe.vehicle.redlineRpm==8000&&std::abs(coupe.vehicle.grip-1.215)<1e-9,"source chassis grip and rev limit reach the native force model");
+    bool engineRevs=true;for(int frame=1;frame<=16;frame++){
+        Profile p;p.car=134;equipPart(p,PartSlot::Engine,1000+frame);auto b=buildVehicle(p);
+        engineRevs&=b.vehicle.redlineRpm==replacementEngine(frame).redlineRpm&&std::abs(b.baseHp-findPart(1000+frame)->stat)<1e-7;
+    }
+    expect(engineRevs,"all 16 engine swaps use recovered engine rev limits and power independently of chassis");
+    Profile micro;micro.car=134;auto small=buildVehicle(micro);expect(std::abs(small.vehicle.mass-1150*.45359237)<1e-8&&std::abs(small.baseHp-31)<1e-8&&small.vehicle.redlineRpm==9000,"light microcar retains its source mass below 600 kg and its own power/revs");
+    factoryHatch.factoryDrive=false;factoryHatch.drive=DriveLayout::Rear;expect(buildVehicle(factoryHatch).vehicle.drive==DriveLayout::Rear,"manual drivetrain conversion overrides factory layout");
+    factoryHatch.factoryDrive=true;factoryHatch.car=2;expect(buildVehicle(factoryHatch).vehicle.drive==DriveLayout::All,"factory layout follows the chosen body without overwriting conversion preferences");
+    saveProfile(root/"factory-drive.ini",factoryHatch,error);auto restoredFactory=loadProfile(root/"factory-drive.ini",191,54);expect(restoredFactory.factoryDrive&&effectiveDrive(restoredFactory)==DriveLayout::All,"factory drivetrain mode persists independently of conversion choice");
+    {std::ofstream out(root/"legacy-drive.ini");out<<"version=2\ncar=0\ndrive=1\n";}
+    auto legacyDrive=loadProfile(root/"legacy-drive.ini",191,54);expect(!legacyDrive.factoryDrive&&effectiveDrive(legacyDrive)==DriveLayout::Rear,"legacy saves retain the player's explicit drivetrain conversion");
+    expect(loadProfile(root/"new-stock-profile.ini",191,54).factoryDrive,"a new profile starts with the car's factory drivetrain");
+    bool everyStockValid=true;std::array<int,3> stockLayouts{};int stockCount=0;
+    std::ofstream stockTelemetry(root/"stock-vehicle-physics.csv");stockTelemetry<<"body,mass_kg,stock_hp,redline_rpm,layout,grip_native,speed_after_10s_kmh,seconds_100_0,metres_100_0\n";
+    for(int body=0;body<191;body++){
+        Profile p;p.car=body;auto b=buildVehicle(p);const auto& raw=stockVehicle(body);CarState launch,stop;stop.speed=100/3.6;double brakeTime=0,brakeStart=stop.position;
+        for(int tick=0;tick<1200;tick++){stepCar(launch,b.vehicle,{true,false,true},Step,0);if(stop.speed>0){stepCar(stop,b.vehicle,{false,true,true},Step,0);brakeTime+=Step;}}
+        everyStockValid&=std::isfinite(launch.speed)&&launch.speed>0&&stop.speed==0&&std::abs(b.baseHp-raw.hp)<1e-7&&std::abs(b.vehicle.mass-raw.weightLb*.45359237)<1e-7;
+        ++stockLayouts[int(b.vehicle.drive)];++stockCount;
+        stockTelemetry<<body<<','<<b.vehicle.mass<<','<<b.baseHp<<','<<b.vehicle.redlineRpm<<','<<int(b.vehicle.drive)<<','<<b.vehicle.grip<<','<<launch.speed*3.6<<','<<brakeTime<<','<<stop.position-brakeStart<<'\n';
+    }
+    expect(everyStockValid&&stockCount==191&&stockLayouts==std::array<int,3>{33,126,32},"all 191 source chassis accelerate, brake to rest and preserve their own power/mass and 33 FWD/126 RWD/32 AWD layouts");
+    CarState littleRun,bigRun;littleRun.speed=bigRun.speed=50/3.6;littleRun.gear=bigRun.gear=3;
+    for(int tick=0;tick<600;tick++){stepCar(littleRun,small.vehicle,{true,false,true},Step,0);stepCar(bigRun,awdStock.vehicle,{true,false,true},Step,0);}
+    expect(bigRun.speed>littleRun.speed+5,"different recovered stock cars produce meaningfully different rolling acceleration");
+    for(int fps:{30,60,144,240}){
+        CarState x;double acc=0;for(int frame=0;frame<fps*10;frame++){acc+=1.0/fps;while(acc+1e-12>=Step){stepCar(x,awdStock.vehicle,{true,false,true},Step,0);acc-=Step;}}
+        CarState reference;for(int tick=0;tick<1200;tick++)stepCar(reference,awdStock.vehicle,{true,false,true},Step,0);
+        expect(std::abs(x.position-reference.position)<1e-8&&std::abs(x.speed-reference.speed)<1e-8,"recovered per-car physics stays independent of rendering FPS");
+    }
+    {std::ofstream out(root/"stock-vehicle-physics.json");out<<"{\n  \"bodies_checked\": "<<stockCount<<",\n  \"fwd\": "<<stockLayouts[0]<<",\n  \"rwd\": "<<stockLayouts[1]<<",\n  \"awd\": "<<stockLayouts[2]<<",\n  \"full_android_dynamics_equivalence\": false\n}\n";}
+    expect(std::size(OriginalVehicleIdentities)==191&&std::string(vehicleIdentity(0,true).name).find("Honda Civic")!=std::string::npos,"every body has a stable identity label and the stock hatch is identified from its picture reference");
+    expect(vehicleIdentity(100,true).tentative&&vehicleIdentity(153,true).tentative,"unresolved original models remain explicitly uncertain");
+    expect(std::string(vehicleIdentity(63,false).name)!=vehicleIdentity(63,true).name&&vehicleIdentity(75,false).tentative,"mod visual replacements retain separate model labels and uncertainty instead of borrowing their base's manufacturer identity");
     Profile flags;flags.rollCage=true;flags.headlights=true;flags.audioSource=1;flags.contentSource=0;saveProfile(root/"flags.ini",flags,error);auto loadedFlags=loadProfile(root/"flags.ini",191,54);
     expect(loadedFlags.rollCage&&loadedFlags.headlights&&loadedFlags.audioSource==1&&loadedFlags.contentSource==0,"cage, headlights and independent audio source survive reload");
     {std::ofstream out(root/"legacy-seat.ini");out<<"version=1\ncontent_source=1\ncosmetic_9=109001\npart_engine=1002\n";}

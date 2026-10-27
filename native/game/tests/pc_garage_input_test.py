@@ -75,6 +75,9 @@ try:
  old=float(box['gear_1']);click(500,203);click(760,582);click(850,674);box=profile();check('ratio_and_final_drive_sliders_work',float(box['gear_1'])!=old and abs(float(box['final_drive'])-3.15)>.1)
  click(53,577);click(850,674);check('gear_count_selector',profile()['gear_count']=='9');click(150,489);click(850,674);click(150,269);click(400,674)
  check('gearbox_cancel_discards_draft',profile()['gear_count']=='10');click(111,518);click(615,674);click(850,674);check('gearbox_reset_restores_six',profile()['gear_count']=='6')
+ click(800,125);click(850,674);box=profile();check('manual_drive_overrides_factory',box['factory_drive']=='0' and box['drive']=='2')
+ click(150,686);click(850,674);check('factory_drive_can_be_restored',profile()['factory_drive']=='1')
+ click(510,125);click(850,674);box=profile();check('manual_conversion_can_be_reselected',box['factory_drive']=='0' and box['drive']=='1')
  click(150,489);click(850,674);key('F12');click(1140,45)
  # Every newly merged appearance slot accepts real keyboard/mouse input.
  click(47,518);[key('Left') for _ in range(21)];check('unified_body_selector_reaches_original_variants',profile()['content_source']=='1')

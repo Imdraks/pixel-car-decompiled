@@ -1,3 +1,25 @@
+# Validation 0.10.0 — paramètres par voiture
+
+- Récupération indépendante de 191 fiches dans chaque bibliothèque : 1337
+  valeurs identiques et 382 bornes d’identifiant vérifiées. Les écritures et
+  empreintes sont conservées dans `stock-vehicles.json`.
+- 166 contrôles du cœur Linux réussis. Accélération/freinage des 191 voitures,
+  masses et puissances de base, 33 FWD / 126 RWD / 32 AWD, 16 moteurs remplacés avec régimes propres, absence de plancher
+  abusif à 600 kg, sauvegardes/conversions, noms/incertitudes et indépendance FPS.
+- 50 contrôles graphiques Linux réussis sur la version finale ; les captures
+  de quatre fiches et de la transmission sont revues. Windows est vérifié par CI
+  avant publication.
+- 85 contrôles d’entrées réelles Linux : 69 garage/audio, 16 affichage/trafic.
+  Le mode de transmission d’origine et les conversions manuelles sont testés.
+- Les 192416 combinaisons de pièces restent vérifiées. Référence de prépa max :
+  4437,94 HP / 4687,94 HP avec NOS. Le banc générique historique est inchangé.
+- Les identités visuelles, les paramètres du jeu et la physique réelle sont
+  distingués. Les équations Android complètes ne sont pas déclarées récupérées.
+
+Preuves Linux : `validation/vehicles-0.10/`.
+
+Les validations ci-dessous concernent les versions antérieures.
+
 # Validation native 0.9.1 — correctif des échappements
 
 - Classificateurs Android Original/Unbound récupérés séparément et identiques

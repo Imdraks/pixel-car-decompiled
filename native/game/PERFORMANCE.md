@@ -1,3 +1,9 @@
+La version 0.10.0 utilise la puissance et le régime de chaque carrosserie source
+quand aucun moteur de remplacement n’est monté. Les calculs décrits ci-dessous
+restent natifs ; l’extension de régime ECU est normalisée au régime d’origine de
+la voiture ou du moteur remplacé. La prépa maximale de référence atteint environ 4438 HP / 4688 HP avec
+NOS après ce changement. La masse de châssis vient aussi de sa fiche propre.
+
 # Puissance et rareté natives 0.8
 
 Le garage affiche la puissance maximale **avec la suralimentation**, séparément
@@ -11,7 +17,7 @@ transmission, limite d'adhérence et traînée ; ce ne sont pas des HP aux roues
 1. La puissance du moteur choisi conserve la valeur du catalogue fusionné Original/Unbound.
 2. Admission, pistons et échappement ajoutent leurs gains source au moteur.
 3. L'ECU étend le régime et la courbe de couple avec le facteur
-   `(8100 + supplément ECU) / 8100`, sans renormaliser pour effacer le gain.
+   `(régime moteur source + supplément ECU) / régime moteur source`, sans renormaliser pour effacer le gain.
 4. Un **turbo OU un compresseur**, jamais les deux, multiplie le couple par
    `1 + pression / 14,7 × rendement`. Le turbo doit monter en pression en conduite.
    Le compresseur suit le régime et conserve une perte d'entraînement de 6 %.
@@ -28,8 +34,8 @@ Suspension et pneus améliorent hauteur, masse ou adhérence, sans chevaux ficti
 Exemple **PRÉPA MAX** : LT5 755 HP, admission +38, pistons +100, échappement +95,
 ECU +2300 tr/min, turbo 35 psi, intercooler 107 et NOS 250.
 La somme atmosphérique avant ECU vaut 988 HP. Le facteur de régime est
-10400/8100 et le facteur de pression à plein boost vaut 1 + 35/14,7.
-Résultat : environ **4289 HP sans NOS**, **4539 HP avec NOS**.
+9300/7000 et le facteur de pression à plein boost vaut 1 + 35/14,7.
+Résultat : environ **4438 HP sans NOS**, **4688 HP avec NOS**.
 Les gains à bas régime restent différents des valeurs maximales du banc.
 
 ## Classement

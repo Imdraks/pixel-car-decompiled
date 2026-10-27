@@ -93,19 +93,29 @@ void applyGearboxPreset(Profile& p,int preset){
     default:p.gearCount=6;p.gearRatios={3.15,2.10,1.55,1.22,1,.82,.68,.56,.46,.38};p.finalDrive=3.9;p.shiftSeconds=.15;
     }
 }
+double engineRedline(const Profile& profile){
+    const auto* engine=findPart(profile.parts[int(PartSlot::Engine)]);
+    return engine&&engine->slot==PartSlot::Engine?replacementEngine(engine->subimage).redlineRpm:stockVehicle(profile.car).redlineRpm;
+}
 Build buildVehicle(const Profile& profile){
-    Build build;auto& v=build.vehicle;v.drive=profile.drive;
+    Build build;auto& v=build.vehicle;const auto& stock=stockVehicle(profile.car);
+    v.drive=effectiveDrive(profile);v.mass=stock.weightLb*.45359237;
+    v.redlineRpm=engineRedline(profile);v.upshiftRpm=v.redlineRpm-1000;
+    v.launchRpm=std::min(2800.0,v.redlineRpm*.4);
+    v.curveRpmScale=v.redlineRpm/8100.0;
+    // Source grip is a game stat, not a dimensionless SI friction coefficient.
+    // Preserve each chassis' relative source grip in the native tyre-force model.
+    const double chassisGrip=stock.gripRaw/1200.0;v.grip=1.08*chassisGrip;
     Profile gearbox=profile;sanitizeTransmission(gearbox);v.gearCount=gearbox.gearCount;v.ratios=gearbox.gearRatios;v.finalDrive=gearbox.finalDrive;v.shiftSeconds=gearbox.shiftSeconds;
-    v.drivenWeightFraction=profile.drive==DriveLayout::Front?.60:.52;
+    v.drivenWeightFraction=v.drive==DriveLayout::Front?.60:.52;
     auto chosen=[&](PartSlot slot){const auto* p=findPart(profile.parts[int(slot)]);return p&&p->slot==slot?p:nullptr;};
     double stockPowerPerTorque=powerPerTorque(v);
-    double targetHp=v.torque*stockPowerPerTorque/745.699872,addedHp=0,massDelta=0;
-    bool powerChanged=false;
-    if(auto* p=chosen(PartSlot::Engine)){targetHp=p->stat;massDelta+=p->weight-250;powerChanged=true;}
+    double targetHp=stock.hp,addedHp=0,massDelta=0;
+    if(auto* p=chosen(PartSlot::Engine)){targetHp=p->stat;massDelta+=p->weight-250;}
     for(PartSlot slot:{PartSlot::Intake,PartSlot::Pistons,PartSlot::Exhaust}){
         if(auto* p=chosen(slot)){
             if(slot==PartSlot::Exhaust)build.exhaustFrame=p->subimage;
-            addedHp+=p->stat;powerChanged=true;
+            addedHp+=p->stat;
             double baseline=slot==PartSlot::Intake?10:slot==PartSlot::Pistons?30:slot==PartSlot::Exhaust?80:0;
             massDelta+=p->weight-baseline;
         }
@@ -127,13 +137,13 @@ Build buildVehicle(const Profile& profile){
         v.centreOfGravityHeight=std::max(.30,v.centreOfGravityHeight-build.rideOffset*.025);
     }
     if(auto* p=chosen(PartSlot::Tires)){
-        v.grip=.8+p->stat*.002;
+        v.grip=(.8+p->stat*.002)*chassisGrip;
         build.tireFrame=std::clamp(p->subimage,0,int(std::size(art::tires))-1);
         v.wheelRadius*=art::tires[build.tireFrame].w/50.0;
     }
-    // Provisional mass calibration. Raw source weights have no verified unit.
-    v.mass=std::max(600.0,v.mass+massDelta*.45359237);
-    if(powerChanged)v.torque=(targetHp+addedHp)*745.699872/stockPowerPerTorque;
+    // Body/part weights share the source lb scale; use SI kg for integration.
+    v.mass=std::max(350.0,v.mass+massDelta*.45359237);
+    v.torque=(targetHp+addedHp)*745.699872/stockPowerPerTorque;
     build.engineHp=targetHp;build.boltOnHp=addedHp;
     build.baseHp=peakPower(v,false).hp;
     auto peak=peakPower(v);build.boostedHp=peak.hp;build.peakRpm=peak.rpm;

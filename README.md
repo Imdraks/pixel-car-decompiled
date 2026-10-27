@@ -1,6 +1,6 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.9.1](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.9.1-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.9.1-native-preview)
+**[Télécharger Windows x64 — version 0.10.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.10.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.10.0-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
@@ -8,8 +8,11 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
 
-Le correctif **0.9.1** corrige les pots arrière/latéraux : ancrages par carrosserie
-et ordre d’affichage récupérés dans les deux versions Android.
+La version **0.10.0** applique les **191 fiches mécaniques par carrosserie**
+récupérées dans les deux jeux : masse, puissance, régime, adhérence relative et
+transmission d’origine. Les noms et les identifications incertaines sont visibles
+au garage. [Fiches des véhicules](native/game/VEHICLES.md).
+Les équations complètes Android et les fiches constructeur restent à reconstruire.
 
 La version 0.9.0 fusionne les boutiques Original 1.2.5 + Unbound : **1220 choix d’équipement**,
 avec jantes nommées, esthétique et sélection des deux banques d’images/sons.
@@ -53,7 +56,7 @@ avec jantes nommées, esthétique et sélection des deux banques d’images/sons
 - Deux banques de 94 sons, choisies dans **SON DU MOTEUR** indépendamment de la
   voiture et des pièces.
 - Puissance combinée des pièces, courbes du **BANC PUISSANCE**, tri de commun à
-  contrebande et **PRÉPA MAX** : environ 4289 HP sans NOS / 4539 HP avec NOS.
+  contrebande et **PRÉPA MAX** : environ 4438 HP sans NOS / 4688 HP avec NOS.
   Turbo et compresseur sont exclusifs. Règles natives détaillées dans
   [PERFORMANCE.md](native/game/PERFORMANCE.md), sans équivalence Android démontrée.
 - Sons originaux de conduite, profils moteur réglables et effets de fumée,
@@ -71,15 +74,15 @@ sauvegardes, le mode de secours et la construction.
 ## Physique d’abord
 
 Cette version est une reconstruction native en C++17/Raylib, avec une physique
-provisoire. Les carrosseries ne disposent pas encore de leurs statistiques
-d’origine : le moteur de référence est commun, et la transmission est un choix
-d’essai. L’équivalence avec la conduite Android n’est pas validée.
+provisoire. Les carrosseries utilisent leurs paramètres de base récupérés ; les courbes de
+couple, coefficients SI et équations de conduite restent natifs. Les conversions
+de transmission sont conservées. L’équivalence avec Android n’est pas validée.
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-146 contrôles du cœur et 45 contrôles graphiques passent sur Windows ; les mesures
+166 contrôles du cœur et 50 contrôles graphiques passent sur Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
-Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 82 contrôles
+Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 85 contrôles
 clavier/souris et 192 416 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.
 
 La [recherche ciblée YYC](native/evidence/unbound/physics/README.md) a vérifié

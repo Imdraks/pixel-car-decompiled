@@ -64,6 +64,7 @@ Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
     for(int slot=0;slot<CosmeticSlotCount;slot++){int id=integer(v,"cosmetic_"+std::to_string(slot),0);auto item=findCosmetic(id);if(item&&item->slot==slot)p.cosmetics[slot]=id;}
     p.car=std::clamp(integer(v,"car",0),0,std::max(0,cars-1));
     p.rim=validRimFrame(integer(v,"rim",8));p.automatic=integer(v,"automatic",1)!=0;
+    p.factoryDrive=integer(v,"factory_drive",v.count("drive")?0:1)!=0;
     int layout=integer(v,"drive",1);p.drive=layout>=0&&layout<=2?DriveLayout(layout):DriveLayout::Rear;
     p.soundOn=integer(v,"sound_on",-1);if(p.soundOn< -1||p.soundOn>15)p.soundOn=-1;
     p.soundOff=integer(v,"sound_off",-1);if(p.soundOff< -1||p.soundOff>15)p.soundOff=-1;
@@ -92,7 +93,8 @@ bool saveSettings(const std::filesystem::path& file,const Settings& settings,std
 bool saveProfile(const std::filesystem::path& file,const Profile& raw,std::string& error){
     Profile p=raw;sanitizeTransmission(p);
     std::ostringstream out;out.imbue(std::locale::classic());
-    out<<"version=2\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
+    out<<"version=3\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
+    out<<"factory_drive="<<p.factoryDrive<<'\n';
     out<<"audio_source="<<p.audioSource<<'\n';
     out<<"roll_cage="<<p.rollCage<<"\nheadlights="<<p.headlights<<'\n';
     out<<"content_source="<<p.contentSource<<'\n';

@@ -193,7 +193,7 @@ struct App {
     }
     void revert(){apply(previous);confirming=false;edited=settings;notice="Réglages précédents restaurés.";}
     void saveCar(){configuration=buildVehicle(profile);std::string error;if(!saveProfile(profileFile(),profile,error))notice="Enregistrement du garage impossible : "+error;}
-    const char* driveLabel()const{return profile.drive==DriveLayout::Front?"TRACTION":profile.drive==DriveLayout::Rear?"PROPULSION":"4 ROUES MOTRICES";}
+    const char* driveLabel()const{return effectiveDrive(profile)==DriveLayout::Front?"TRACTION":effectiveDrive(profile)==DriveLayout::Rear?"PROPULSION":"4 ROUES MOTRICES";}
     void beginFree(){powerPopup=false;audioPopup=false;audio.reset();effects=DrivingEffects{};drive=FreeDrive{};drive.setTraffic(settings.traffic);configuration=buildVehicle(profile);drive.vehicle=configuration.vehicle;accumulator=0;screen=Screen::Free;options=false;paused=false;}
     void init(){
         if(!fs::exists(args.assets/"provenance.json"))throw std::runtime_error("Ressources manquantes. Extrayez entièrement le ZIP, puis lancez PixelCarRacerNative.exe.");
@@ -238,7 +238,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.7",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.10",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},"GARAGE")){openCustomization();screen=Screen::Garage;}
@@ -264,7 +264,7 @@ struct App {
         const auto& b=configuration;const auto& v=b.vehicle;
         text(TextFormat("Moteur catalogue : %.0f HP",b.engineHp),250,190,18);
         text(TextFormat("Pièces atmosphériques : +%.0f HP",b.boltOnHp),250,218,17,Muted);
-        text(TextFormat("ECU : courbe étendue ×%.3f",v.curveRpmScale),250,246,17,Muted);
+        text(TextFormat("ECU : courbe étendue ×%.3f",v.redlineRpm/engineRedline(profile)),250,246,17,Muted);
         text(TextFormat("Boost : %.0f psi  •  rendement %.0f %%",v.boostPsi,v.boostEfficiency*100),250,274,17,Muted);
         text(TextFormat("Atmosphérique : %.0f HP",b.baseHp),727,190,18,Muted);
         text(TextFormat("Sans NOS : %.0f HP",b.boostedHp),727,220,23,Gold);
@@ -514,7 +514,15 @@ struct App {
         if(iconButton({1222,8,36,33},original_ui::buttons[37],"Paramètres PC"))openOptions();
         if(iconButton({1171,65,88,80},original_ui::garageIcons[10],"Prendre la route"))queued=[this]{saveCar();beginFree();};
         pxText("ROUTE",1190,142,13);
-        if(inventoryOpen){pxText("APERÇU",327,82,16,Accent);garageInventory();}
+        const auto& identity=vehicleIdentity(preview.car,preview.contentSource==1);
+        float nameSize=21;while(nameSize>12&&MeasureTextEx(font,identity.name,nameSize,0).x>805)nameSize-=1;
+        text(identity.name,327,65,nameSize,identity.tentative?Gold:Accent);
+        const auto& stock=stockVehicle(preview.car);const char* factory=stock.drive==0?"TRACTION":stock.drive==1?"PROPULSION":"4 ROUES MOTRICES";
+        text(TextFormat("Origine : %.0f HP  /  %.0f kg  /  %.1f L  /  %s",stock.hp,stock.weightLb*.45359237,stock.litres,factory),327,95,14,Muted);
+        if(preview.contentSource==0&&vehicleIdentity(preview.car,false).name!=vehicleIdentity(preview.car,true).name)
+            text(std::string("Base mécanique : ")+vehicleIdentity(preview.car,true).name,327,116,12,Muted);
+        else if(identity.tentative)text("Identification visuelle à confirmer",327,116,12,Gold);
+        if(inventoryOpen){garageInventory();}
         if(!notice.empty()&&!inventoryOpen)text(notice,335,566,16,Accent);
         uiEnabled=originalUi;
         if(powerPopup)powerScene();
@@ -556,7 +564,7 @@ struct App {
         text(notice.empty()?"Boîtes inspirées du réel • enregistrer pour appliquer":notice,34,69,16,Muted);
         if(button({1030,23,217,48},"RETOUR")){screen=Screen::Customization;}
         const char* drives[]={"TRACTION","PROPULSION","4 ROUES MOTRICES"};
-        for(int i=0;i<3;i++)if(button({float(34+i*321),105,306,40},drives[i],int(transmissionDraft.drive)==i))transmissionDraft.drive=DriveLayout(i);
+        for(int i=0;i<3;i++)if(button({float(34+i*321),105,306,40},drives[i],!transmissionDraft.factoryDrive&&int(transmissionDraft.drive)==i)){transmissionDraft.drive=DriveLayout(i);transmissionDraft.factoryDrive=false;}
         if(button({1030,105,217,40},transmissionDraft.automatic?"AUTOMATIQUE":"MANUELLE"))transmissionDraft.automatic=!transmissionDraft.automatic;
         for(int i=0;i<8;i++)if(button({34,float(163+i*44),235,36},gearboxPresetName(i),transmissionDraft.gearboxPreset==i)){applyGearboxPreset(transmissionDraft,i);notice.clear();}
         auto preview=buildVehicle(transmissionDraft);const auto& v=preview.vehicle;
@@ -580,6 +588,7 @@ struct App {
         if(button({34,632,38,30},"-")){transmissionDraft.shiftSeconds=std::max(.04,transmissionDraft.shiftSeconds-.01);transmissionDraft.gearboxPreset=-1;}
         text(TextFormat("%.0f ms",transmissionDraft.shiftSeconds*1000),102,638,17);
         if(button({231,632,38,30},"+")){transmissionDraft.shiftSeconds=std::min(.5,transmissionDraft.shiftSeconds+.01);transmissionDraft.gearboxPreset=-1;}
+        if(button({34,674,235,24},"TRANSMISSION D'ORIGINE",transmissionDraft.factoryDrive))transmissionDraft.factoryDrive=true;
         text("PONT FINAL",316,535,20);text(TextFormat("%.2f",transmissionDraft.finalDrive),920,535,20,Gold);
         if(button({306,566,32,31},"-")){transmissionDraft.finalDrive=std::max(2.0,transmissionDraft.finalDrive-.01);transmissionDraft.gearboxPreset=-1;}
         if(button({1171,566,32,31},"+")){transmissionDraft.finalDrive=std::min(6.0,transmissionDraft.finalDrive+.01);transmissionDraft.gearboxPreset=-1;}
@@ -728,7 +737,7 @@ struct App {
             float x=inGarage?1040:inTuning?1050:1121,y=inGarage?55:inTuning?74:691;
             DrawRectangle(int(x),int(y),inGarage?110:151,24,Ink);text(TextFormat("%i FPS",GetFPS()),x+12,y+4,inGarage?14:16,Accent);
         }
-        if(args.smoke&&frames>=420)exhaustContactSheet();
+        if(args.smoke&&frames>=420&&frames<=431)exhaustContactSheet();
         EndMode2D();EndTextureMode();
         BeginDrawing();ClearBackground(BLACK);DrawTexturePro(render.texture,{0,0,float(render.texture.width),-float(render.texture.height)},output,{0,0},0,WHITE);EndDrawing();
     }
@@ -869,7 +878,18 @@ struct App {
         if(frames==425)capture("echappements-source-original.png");
         if(frames==428)capture("echappements-source-longue.png");
         if(frames==431)capture("echappements-source-kit.png");
-        if(frames==432)quit=true;
+        if(frames==433){openCustomization();profile=Profile{};saveCar();check(std::abs(configuration.baseHp-123)<.001&&configuration.vehicle.drive==DriveLayout::Front,"stock hatchback source power and factory traction reach the garage model");}
+        if(frames==436)capture("fiche-stock-traction.png");
+        if(frames==437){profile.car=2;saveCar();check(configuration.vehicle.drive==DriveLayout::All&&std::abs(configuration.baseHp-300)<.001,"stock AWD model changes power, mass and drivetrain in the garage");}
+        if(frames==440)capture("fiche-stock-awd.png");
+        if(frames==441){profile.car=134;saveCar();check(configuration.vehicle.mass<600&&std::abs(configuration.baseHp-31)<.001,"source microcar keeps its light chassis and small engine in the garage");}
+        if(frames==444)capture("fiche-stock-microcar.png");
+        if(frames==445){profile.car=156;saveCar();check(configuration.vehicle.redlineRpm==7000&&std::abs(configuration.baseHp-755)<.001,"stock V8 model uses its own source engine and rev limit");}
+        if(frames==448)capture("fiche-stock-v8.png");
+        if(frames==449)openTransmission();
+        if(frames==452)capture("transmission-origine.png");
+        if(frames==453){commitTransmission();auto loaded=loadProfile(profileFile(),191,54);check(loaded.factoryDrive&&effectiveDrive(loaded)==DriveLayout::Rear,"factory drivetrain state round trips from the garage transmission editor");}
+        if(frames==456)quit=true;
 
     }
     int run(){

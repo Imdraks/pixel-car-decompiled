@@ -1,0 +1,3086 @@
+{
+  "method": "Community picture/caption references cross-checked visually with source body sprites. Texture matching proposes candidates only; model names are not strings recovered from the Android binary.",
+  "reference_catalog": [
+    "https://www.igcd.net/game.php?id=1000011941",
+    "https://www.igcd.net/game.php?id=1000011941&resultsStyle=asImages&page=2"
+  ],
+  "retrieved_date": "2026-10-27",
+  "records": [
+    {
+      "body": 0,
+      "name": "1992 Honda Civic",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "2ca26462a4e5e624227955888cb6830af24b36b48ab3f114003d3624931f2788",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91406",
+          "caption": "1992 Honda Civic",
+          "image_url": "https://www.igcd.net/images/091/406.jpg",
+          "image_sha256": "e05cdfe6f2ddec94938e89364710766d43fc86151b5f9c706d554c72b588b7ba",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 1,
+      "name": "1997 Honda Civic",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "4f43c032c68a950d58fabfd3c24fdde3d9209bd29d461a5eefc7b3f3d90dd6db",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91407",
+          "caption": "1997 Honda Civic",
+          "image_url": "https://www.igcd.net/images/091/407.jpg",
+          "image_sha256": "ea23515207c477b1e412c13ffff01526415225bbdf3caef99bcaae0f86ec0c0f",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8540121912956238
+    },
+    {
+      "body": 2,
+      "name": "2004 Subaru Impreza WRX STi",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "fd641c64ae57ef2edea271bf306543c31d264326e3602d4da41a6fa4a7708453",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91408",
+          "caption": "2004 Subaru Impreza WRX STi",
+          "image_url": "https://www.igcd.net/images/091/408.jpg",
+          "image_sha256": "eb88243ca8945b780ca99e1d5b6fda0baeb92830e2a079aecd0ee0f8d111637f",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 3,
+      "name": "Nissan 350Z",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "966cdf48844a48285d7671fd82e698be97e5496686654d371f05ace19b4052d5",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=120619",
+          "caption": "Nissan 350Z",
+          "image_url": "https://www.igcd.net/images/120/619.jpg",
+          "image_sha256": "4a42a4a9a7620bbf43f2c3c51dee38c9a83190bb2335e3c6c52d613f1b5b910c",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.6098470091819763
+    },
+    {
+      "body": 4,
+      "name": "2006 Scion xB",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "768fa51a5ecc27af83346634754c41943f210bdf6efe4c6b4f344b38d3fd6469",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91410",
+          "caption": "2006 Scion xB",
+          "image_url": "https://www.igcd.net/images/091/410.jpg",
+          "image_sha256": "bb874b39698013fe6d5599a0782a726b262444b5afc1a7a49cd8151c4f2507a0",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 5,
+      "name": "2002 Honda Civic",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "5914822fee779688b31c2f61af48959765a3f506f8bbdf22c40264aa1c1a80ef",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91411",
+          "caption": "2002 Honda Civic",
+          "image_url": "https://www.igcd.net/images/091/411.jpg",
+          "image_sha256": "f6856a6a2cbf25cbf77de5317ed76198882f11cc98506667e8b57005a1efeace",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7626091241836548
+    },
+    {
+      "body": 6,
+      "name": "Nissan Skyline GT-R R34",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "8d489fd9c11c37244f00023dde5de29c078520339c36f308a0c2b5e2346b7a64",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91412",
+          "caption": "2000 Nissan Skyline GT-R",
+          "image_url": "https://www.igcd.net/images/091/412.jpg",
+          "image_sha256": "dc6fd398705f72e6130df822671c9c7d561910a87010e22930a18bd97216ea93",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 7,
+      "name": "2003 Ford Mustang",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "f037dbf44d9b621f65e1c517aad966fb434be76af5ec5c9668fe3153bc8442e4",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91413",
+          "caption": "2003 Ford Mustang",
+          "image_url": "https://www.igcd.net/images/091/413.jpg",
+          "image_sha256": "ddc9b17d8ac1e8351ebd4429dc773902e6c8630801a829bf61a0647af37a38fa",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8065495491027832
+    },
+    {
+      "body": 8,
+      "name": "2000 Nissan 300ZX",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "92deb416ffc42d6396595607b9e4b946cf22f1270f94e488b48c863db1071696",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91414",
+          "caption": "2000 Nissan 300ZX",
+          "image_url": "https://www.igcd.net/images/091/414.jpg",
+          "image_sha256": "a655c09b7d4f5a111b238b558a05f0f4735bee6fdbb300acc48b78d4f37cd00b",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9058264493942261
+    },
+    {
+      "body": 9,
+      "name": "Toyota Sprinter Trueno AE86",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "92336ade188f4f44a722cea41b41baf2819d58c68c96f7abddb86e00eda10c9a",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=95266",
+          "caption": "1983 Toyota Sprinter Trueno 'Initial D'",
+          "image_url": "https://www.igcd.net/images/095/266.jpg",
+          "image_sha256": "e094fa93a83f26523cc4ba4a169372d5a02b8ecffc646020a23d069849fdbb69",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 10,
+      "name": "1981 Datsun 280ZX",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "14f47ca49c4aae75d6aad61447ab6b00c69d97aa2f659b5f567cbe0fd460c9c2",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=129102",
+          "caption": "1981 Datsun 280ZX",
+          "image_url": "https://www.igcd.net/images/129/102.jpg",
+          "image_sha256": "c30e0f4c223b2b37d2e93e7d7c2285e9fa8b7701be4922b380fd8216dfade43e",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8999276161193848
+    },
+    {
+      "body": 11,
+      "name": "2002 Honda NSX-R",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "d4e3c2c16d2d6064e0cd78e9a1fe260a1b90fee96d350a2c8c4bbbd5e0034496",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91417",
+          "caption": "2002 Honda NSX-R",
+          "image_url": "https://www.igcd.net/images/091/417.jpg",
+          "image_sha256": "df5675e74ad008002aacf36819ca561539aa566e78084f623edd73a74dd8e293",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7918938994407654
+    },
+    {
+      "body": 12,
+      "name": "1990 Honda CR-X",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "ac6a4ea3d7010fa28a26d3c03ad3fc5458dc34935a1bb891fd65341342c7c4ea",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91419",
+          "caption": "1990 Honda CR-X",
+          "image_url": "https://www.igcd.net/images/091/419.jpg",
+          "image_sha256": "e28f62bbaf02cbc9a3d5b3370c7a774473f9286e325f73021d4d89a0a87f4302",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8840898275375366
+    },
+    {
+      "body": 13,
+      "name": "Mazda MX-5 (variante)",
+      "status": "probable",
+      "source_body_rgba_sha256": "981e38c6a08a6ded6a2de868ca733c6e1df36fc08b51bc69a5a036cab547b216",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91451",
+          "caption": "Mazda MX-5",
+          "image_url": "https://www.igcd.net/images/091/451.jpg",
+          "image_sha256": "ca1c29610b8d8d8cd53639b82cef071bf1ce19d37b43fd1d40c50138cc25ab64",
+          "exact_variant": false
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 14,
+      "name": "2005 BMW M3",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "bcdbeb0b0fe1629e17ae0fc556dcd452b4bcf32b0a04d2e3cfc00ec76d6972ea",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91421",
+          "caption": "2005 BMW M3",
+          "image_url": "https://www.igcd.net/images/091/421.jpg",
+          "image_sha256": "15bb0c6809f96c8623c894fdd83d8d22719240685957c43dd5334d1d44cd3e5c",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 15,
+      "name": "1996 Nissan 180SX",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "62e093586b28714e56d039c57c6bd900b9e0fcbfdf5b689a64863716854b3caf",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91422",
+          "caption": "1996 Nissan 180SX",
+          "image_url": "https://www.igcd.net/images/091/422.jpg",
+          "image_sha256": "5aff45717fd9b9cfe8879584de2bb86b42c1054ec4d4ac78911bbc783c8bd3ae",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8806846737861633
+    },
+    {
+      "body": 16,
+      "name": "2001 Honda Integra Type R",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "025622d5e4f89237ca594abd3c792ad3f958f400a316307fbf9e3993a29ef48a",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91423",
+          "caption": "2001 Honda Integra Type R",
+          "image_url": "https://www.igcd.net/images/091/423.jpg",
+          "image_sha256": "d2795d3c1cfff6081cea5360d92d9a3257c03b406e31c8cf2d0c3621c49a84cc",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 17,
+      "name": "2008 Hyundai Genesis Coupé",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "9565ed01d31f0ab848755582c23209ba16b984e6b48e61d3edd0dad51aa7381a",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91424",
+          "caption": "2008 Hyundai Genesis Coupé",
+          "image_url": "https://www.igcd.net/images/091/424.jpg",
+          "image_sha256": "11101ad47364a8ba495a9cf97dd379c119c1c8ff8272c2ebb3937f8fee3d0edb",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7778086066246033
+    },
+    {
+      "body": 18,
+      "name": "2005 Infiniti G35",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "54707eabfacf166b7ef8e59aa2dee0f218929214e8992fa1e117d7d38f85deac",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91425",
+          "caption": "2005 Infiniti G35",
+          "image_url": "https://www.igcd.net/images/091/425.jpg",
+          "image_sha256": "501ef125ee47048d9c4a9b7989ae32b33ebdb3cb01d8c13473b749e2b39f57af",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.754119336605072
+    },
+    {
+      "body": 19,
+      "name": "2003 Mazda RX-8",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "25ebf3afb98a9680bc5e8974462c8abd334403bd1364f5710c79aa0d80cf3363",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91426",
+          "caption": "2003 Mazda RX-8",
+          "image_url": "https://www.igcd.net/images/091/426.jpg",
+          "image_sha256": "902e9342cbf4d825484ae88e4f1f3cf03f830dbb7bd988525bd39be71d857138",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 20,
+      "name": "Nissan Skyline GT-R R32",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "9b7f1582bc37e045ccdd91ba9004f1d1fc8ba9ac451f2a2746804f00c8745301",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91427",
+          "caption": "1992 Nissan Skyline GT-R",
+          "image_url": "https://www.igcd.net/images/091/427.jpg",
+          "image_sha256": "65becd873290e6e7888a2a6b92b4b42beb3276619e71c80973735c071851e2e3",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8067100644111633
+    },
+    {
+      "body": 21,
+      "name": "2003 Honda Accord",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "28a8e9979432344ebbc79c6ed950e74d7576f0867955d7a9e4e26a475d62a1a7",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91428",
+          "caption": "2003 Honda Accord",
+          "image_url": "https://www.igcd.net/images/091/428.jpg",
+          "image_sha256": "e31fd633b3feee5a5fbf119fc8fd2b07f40390211fd96256b22c45641b3c9f35",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7768726944923401
+    },
+    {
+      "body": 22,
+      "name": "smart fortwo",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "6d75ada2438234fcb1b921f7486a27f35d400bde003f1c76331e03727069fcc1",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91429",
+          "caption": "smart fortwo",
+          "image_url": "https://www.igcd.net/images/091/429.jpg",
+          "image_sha256": "73faac4a06c2652c80c37bb93226d3580dd40bf83349f819d45aeb2dd6f2f506",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8654577136039734
+    },
+    {
+      "body": 23,
+      "name": "1980 Datsun 720",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "38e86e142fa9087e6b106c25c73703266a6111115647bd94c8c48d0927207bb1",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91430",
+          "caption": "1980 Datsun 720",
+          "image_url": "https://www.igcd.net/images/091/430.jpg",
+          "image_sha256": "3ad53483eb874481766cec21a67a697ab31ca7de29b3513002d8c6a756114aa1",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 24,
+      "name": "Nissan 370Z",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "653b71c9a7f5dffa7ea9b9512f635301cd3d8ee6b65e9d1ef834141e1b3f7c89",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91431",
+          "caption": "Nissan 370Z",
+          "image_url": "https://www.igcd.net/images/091/431.jpg",
+          "image_sha256": "38ef5263777f6e517503aa175e1dacab19f407320d20a18d763c26bc0e4ef4ad",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 25,
+      "name": "1999 Nissan Silvia S15",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "d193d06fc53aacee6cb90b22ec8ab1a06b4f65ed1b70075bb6603f876c861143",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91432",
+          "caption": "1999 Nissan Silvia",
+          "image_url": "https://www.igcd.net/images/091/432.jpg",
+          "image_sha256": "33680623e4712286cf304187f04d461515541289542315ab90c741f8e5fa3267",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.786858320236206
+    },
+    {
+      "body": 26,
+      "name": "2013 Subaru BRZ",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "def23d80ad574e580dbc45bbf8d639b1cc2195d647cfeed913ea0cf34d256ca3",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91433",
+          "caption": "2013 Subaru BRZ",
+          "image_url": "https://www.igcd.net/images/091/433.jpg",
+          "image_sha256": "b30285e955580ffb5832cb758bf7e259a477f463ba5c81844e9c73ec4e43cf12",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 27,
+      "name": "2008 Honda S2000",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "a436154146a28967a35abec796cb23db92750a72443384b9e07612c30d38ba1b",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91434",
+          "caption": "2008 Honda S2000",
+          "image_url": "https://www.igcd.net/images/091/434.jpg",
+          "image_sha256": "0752e4bf9ad732981202289b3ea0f3a984091e44a010ccce8f7f78e9d33bbae9",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.839821457862854
+    },
+    {
+      "body": 28,
+      "name": "Nissan Silvia S14",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "acd4601c0654b32f87e5f400a05911ab88f59cfca100303d730fdca7b16a6ab2",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91435",
+          "caption": "Nissan Silvia",
+          "image_url": "https://www.igcd.net/images/091/435.jpg",
+          "image_sha256": "abbdae9b21a699ea75c469430852705905078f342b47966652eeea7c93e4f550",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7772313356399536
+    },
+    {
+      "body": 29,
+      "name": "Nissan Silvia S14 (variante)",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "262c6c84b5e158abc68c80d8aac9646d45285045ece99a2a273ef734077cd21c",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91436",
+          "caption": "Nissan Silvia",
+          "image_url": "https://www.igcd.net/images/091/436.jpg",
+          "image_sha256": "ca7a34324600fe6924928af10699f0e7b947e0511e5a7835b357b3d71c589b88",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7646377086639404
+    },
+    {
+      "body": 30,
+      "name": "2001 Mitsubishi Lancer Evolution VII",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "f37ea56979f3f5044589a053f1f31ef1bb76e08e678ad3ec0d114f997fe7051a",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91437",
+          "caption": "2001 Mitsubishi Lancer Evolution VII",
+          "image_url": "https://www.igcd.net/images/091/437.jpg",
+          "image_sha256": "92f7bcbbb1ddedc8e4ad4c46adf345e9ee5d8a9be62394aeaec8cd74ff335157",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 31,
+      "name": "Nissan Silvia S13",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "a72ed373ed8646900c02449af9fe716d4a967443cc741e005c0a624c2ce8b1ac",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91438",
+          "caption": "Nissan Silvia",
+          "image_url": "https://www.igcd.net/images/091/438.jpg",
+          "image_sha256": "0bb3a3f74c961e7ab9fb82b35f6e98cdb198a916042047cfe37ab33514bc66a9",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 32,
+      "name": "1997 Mazda MX-5",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "293c4201c44be87f437c063174e6e15c2cf5f32dd3af06e509bfdde7a47140aa",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91439",
+          "caption": "1997 Mazda MX-5",
+          "image_url": "https://www.igcd.net/images/091/439.jpg",
+          "image_sha256": "f2659b9b84a731124ddc56778cd0eb3afd0e45c92dad4ec845adecee95b87d87",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8829345703125
+    },
+    {
+      "body": 33,
+      "name": "1988 Mazda RX-7",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "b225f036627e91e7cd1d15815cf9a0b80c878beb05ebb1b244aa52d503085a97",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91440",
+          "caption": "1988 Mazda RX-7",
+          "image_url": "https://www.igcd.net/images/091/440.jpg",
+          "image_sha256": "07cbb9e4424d630beaac2db96d562c94cee88ba304b939c7cf266006e9b889d5",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 34,
+      "name": "Toyota Supra",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "187f0d01b585d259a3c24d9630f593600ae298b331e864bf4a4805ec4a4ab1ae",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91441",
+          "caption": "Toyota Supra",
+          "image_url": "https://www.igcd.net/images/091/441.jpg",
+          "image_sha256": "d6be9b9ffb0fbff5735be5cb0b426e6e3cfd9008e796de0c703c0828d835e11e",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 35,
+      "name": "1980 Datsun 510",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "4091fb9be8ce814bc522a7f73ca87dfd14555d2ea4e2137d8fbca19dc047bf9e",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91443",
+          "caption": "1980 Datsun 510",
+          "image_url": "https://www.igcd.net/images/091/443.jpg",
+          "image_sha256": "f1b074c7c0b06e1a3cdb34ecf09e106d6b85eb39bb00d77bf155f34dfdf60995",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7652924656867981
+    },
+    {
+      "body": 36,
+      "name": "2002 Mazda RX-7",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "b0c02beee9d9c184add015f29b70c8060264406222410686458aef4ced4c8f78",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91445",
+          "caption": "2002 Mazda RX-7",
+          "image_url": "https://www.igcd.net/images/091/445.jpg",
+          "image_sha256": "5e87462ce6f96024729e1cea661205e0aa35eab0af099849dbcdfdd2dc296101",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8283899426460266
+    },
+    {
+      "body": 37,
+      "name": "1997 Toyota Aristo",
+      "status": "probable",
+      "source_body_rgba_sha256": "11c1b8de68a6201a58bf16e2c31dd57002e9f92d4868d8a48b4411c0d45c9077",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=167675",
+          "caption": "1997 Toyota Aristo",
+          "image_url": "https://www.igcd.net/images/167/675.jpg",
+          "image_sha256": "d9e4dd5b79e5eea9f1d5bca2e1d02f4b71bb3656217e31adbc5e31f9e5739473",
+          "exact_variant": false
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 38,
+      "name": "2008 Mitsubishi Lancer Evolution X",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "67884288ae5d671dfd0a130dfb6828bcf2ea629972a3d995a787e56f97a52886",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91447",
+          "caption": "2008 Mitsubishi Lancer Evolution X",
+          "image_url": "https://www.igcd.net/images/091/447.jpg",
+          "image_sha256": "0e26b2d3daeb91f94d34d8a56b434562ed310e8000e1124f01a19c43cf70362f",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7654165029525757
+    },
+    {
+      "body": 39,
+      "name": "1995 Honda Civic",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "c4fff7833102cd4f907759bbe479696c063be1bdd1592703ad2398deb5098847",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91449",
+          "caption": "1995 Honda Civic",
+          "image_url": "https://www.igcd.net/images/091/449.jpg",
+          "image_sha256": "120bfa0f4d624e2b614f4147e64b9d8522f19e2d6fb359b0ff4fa39cfc258665",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8719591498374939
+    },
+    {
+      "body": 40,
+      "name": "Volkswagen Golf",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "35cb6f3315dbb128edb3203bf1757a181f7ab5014cd57419f861e6eb64a120d3",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91450",
+          "caption": "Volkswagen Golf",
+          "image_url": "https://www.igcd.net/images/091/450.jpg",
+          "image_sha256": "8f581a794b108c89b0dd9175b0936c677775ced06073e67dd72aefb813c7e095",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 41,
+      "name": "Mazda MX-5",
+      "status": "probable",
+      "source_body_rgba_sha256": "4fe21168556cf2009a36061c792d28976e1f1324b2b900fdc214f370028c8430",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91451",
+          "caption": "Mazda MX-5",
+          "image_url": "https://www.igcd.net/images/091/451.jpg",
+          "image_sha256": "ca1c29610b8d8d8cd53639b82cef071bf1ce19d37b43fd1d40c50138cc25ab64",
+          "exact_variant": false
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 42,
+      "name": "1990 BMW M3",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "f823b735f01163d660dcc5affafc1897242e0dc6705454b13766e4757cc48576",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=129122",
+          "caption": "1990 BMW M3",
+          "image_url": "https://www.igcd.net/images/129/122.jpg",
+          "image_sha256": "2523b2db2a815364fa61b29a6b38cce60e634690fc017d3c29fd1f31e2b02db6",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8249609470367432
+    },
+    {
+      "body": 43,
+      "name": "2008 BMW 3",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "5531224945ac8d11dc8d0e168327c70494b5dc216937a28ddd5ea0c26cad53d7",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91454",
+          "caption": "2008 BMW 3",
+          "image_url": "https://www.igcd.net/images/091/454.jpg",
+          "image_sha256": "a1271e3436d3a68e047f2fb1827a055055b5a53086e25793a732b3f996bfb3aa",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 44,
+      "name": "2004 Toyota Crown Athlete",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "91c57559f860bc406b5146f79cba3755b7427f9df464ea9d002c9c4abb378898",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=129115",
+          "caption": "2004 Toyota Crown Athlete",
+          "image_url": "https://www.igcd.net/images/129/115.jpg",
+          "image_sha256": "3785b3f85a06f34f1342d6c9232f2f6e5cf871e267ab151f62c2487e739c4968",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 45,
+      "name": "2008 Subaru Impreza",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "2dccf56abf04ecc4816f1115618b67dd006986ca2872dec6711f3e01c127863d",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91456",
+          "caption": "2008 Subaru Impreza",
+          "image_url": "https://www.igcd.net/images/091/456.jpg",
+          "image_sha256": "73faf9dcf66ce627d1fa060fcef06a55eee0499bdcf8c27a9bee8f5365c6f451",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7807840704917908
+    },
+    {
+      "body": 46,
+      "name": "1973 Mazda RX-3",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "c45e6f546d3611e6265f08902036a94e881121ede4d76b7c812ceee4ba8fe646",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91457",
+          "caption": "1973 Mazda RX-3",
+          "image_url": "https://www.igcd.net/images/091/457.jpg",
+          "image_sha256": "e07d22b0d61f7db6989b81aeb8cdd92a1a30eb72628feb0d4a16548b8ce64272",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9495868682861328
+    },
+    {
+      "body": 47,
+      "name": "1983 Datsun Sunny Truck",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "91c2a509bf8b36441a2137c962cf92fbccce386d3ec69bb8e173b74c41d043b7",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91458",
+          "caption": "1983 Datsun Sunny Truck",
+          "image_url": "https://www.igcd.net/images/091/458.jpg",
+          "image_sha256": "56b71be8d57e1b7b9d1c82c07c97e6eb4e373c784fedaf720097b8c7fd1d6de4",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.930732786655426
+    },
+    {
+      "body": 48,
+      "name": "1965 Austin Mini Cooper",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "458b70ef6a19204bdaa2040c5242acc67f4f08587d3d743a50224862950a6741",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91459",
+          "caption": "1965 Austin Mini Cooper",
+          "image_url": "https://www.igcd.net/images/091/459.jpg",
+          "image_sha256": "13cecb5cc54d0b884208d6e45f1a710d75ac88e94052d28a282c739ab1ae125d",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.815707266330719
+    },
+    {
+      "body": 49,
+      "name": "Porsche 911",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "643b4b801594e574a1b58385b0225726b9d14d127c177d37be00c88c481cddc0",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=105979",
+          "caption": "Porsche 911",
+          "image_url": "https://www.igcd.net/images/105/979.jpg",
+          "image_sha256": "9ba93aacde742c4d3fdeca42b52fb68b8b35df9bf17d56aeb14ecb562fdb0ff4",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8641871213912964
+    },
+    {
+      "body": 50,
+      "name": "1995 BMW M3",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "d9a2b4afa53261a3409ddf998e9a9ccd20e1291a95c24fa2afe8a07788c7dda0",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=98462",
+          "caption": "1995 BMW M3",
+          "image_url": "https://www.igcd.net/images/098/462.jpg",
+          "image_sha256": "3c020255b73a98d6507940b5a63337ca85eaa856c9226b6c8d10575dba44e79e",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9018663167953491
+    },
+    {
+      "body": 51,
+      "name": "1998 Toyota Altezza",
+      "status": "probable",
+      "source_body_rgba_sha256": "6b5773f17dc79669539dd497bffe5bf9b2ac3b798475e6d10886519f77a8cfae",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=95276",
+          "caption": "1998 Toyota Altezza",
+          "image_url": "https://www.igcd.net/images/095/276.jpg",
+          "image_sha256": "8a54f680cd2fb05f1c78f61c040bb306be0e2b65c3a6bf54ea90673f15738bc0",
+          "exact_variant": false
+        }
+      ],
+      "candidate_texture_score": 0.7492958903312683
+    },
+    {
+      "body": 52,
+      "name": "1969 Chevrolet Camaro",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "871f78318d1ce7e9e30903e52d239342a2ec53f961b6ddcb33b6dc795b1a0aff",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=95268",
+          "caption": "1969 Chevrolet Camaro",
+          "image_url": "https://www.igcd.net/images/095/268.jpg",
+          "image_sha256": "fed1c883e66ecee9a2f5cebdfb706fd0f0815cb004418a3ddb546929ba37ce6a",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8235355019569397
+    },
+    {
+      "body": 53,
+      "name": "Nissan GT-R R35",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "c20aa46b84e67f1560490069a67424b0c408228ecaaf033210132c1763dab5df",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=95275",
+          "caption": "2008 Nissan GT-R",
+          "image_url": "https://www.igcd.net/images/095/275.jpg",
+          "image_sha256": "79944afafef3039c10f3f0c9c56e7f4df16caf076270483b240c62fddf5d671b",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7719507813453674
+    },
+    {
+      "body": 54,
+      "name": "2004 Subaru Impreza Sports Wagon WRX",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "8ffaace5d1138df6f74506c9dceaad77b4a663e1d2e0c4273c58c6540b5f5ab7",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=95274",
+          "caption": "2004 Subaru Impreza Sports Wagon WRX",
+          "image_url": "https://www.igcd.net/images/095/274.jpg",
+          "image_sha256": "119bb073e4bff6f7d74d65e95b7a5e2d7f8c3ff2f7b4fd836346bd7e3868b769",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 55,
+      "name": "1989 Honda Civic",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "6749098e61aa4afe2187f1b4a571924ecfce3859cf8689f327b86041d2cd7c99",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=95273",
+          "caption": "1989 Honda Civic",
+          "image_url": "https://www.igcd.net/images/095/273.jpg",
+          "image_sha256": "94692fa082639321d63283c3065d255d9a0dec3413535ac6cc53fc959f06e2d2",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 56,
+      "name": "Toyota Corolla Levin AE86",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "a1890f3cd79e978b2f25361ba429e58f6cb3759c903b0338bfd1426c55aad000",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91415",
+          "caption": "1983 Toyota Corolla Levin",
+          "image_url": "https://www.igcd.net/images/091/415.jpg",
+          "image_sha256": "b7b887f3986ed2a35248a09c391416606ea8edc51623922e8b4bd7915270ee5c",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 57,
+      "name": "Nissan Skyline GT-R R33",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "cf51a808042e8f629edc8fa7eed9efa7f4804d83f7e86a932185e8e3164607cc",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=95272",
+          "caption": "1995 Nissan Skyline GT-R",
+          "image_url": "https://www.igcd.net/images/095/272.jpg",
+          "image_sha256": "84a3064b18ee981c65d60ba6becaa167c7c2490c8d623f3450a9e9145beade37",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 58,
+      "name": "2006 Honda Civic",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "8eab8a835ad25512329b3e78ae93296c38fce55f80d2fc4ef23e145bcea857b4",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=95271",
+          "caption": "2006 Honda Civic",
+          "image_url": "https://www.igcd.net/images/095/271.jpg",
+          "image_sha256": "146e0d664a5c6b9a9d9e117ddbe772192a43a5c26bd27b4f503125b0e3058446",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8144392967224121
+    },
+    {
+      "body": 59,
+      "name": "Toyota MR2 (variante)",
+      "status": "probable",
+      "source_body_rgba_sha256": "667874447c95acdfceb7f75e5c166290f208ea204a293016498799b955f968ae",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=145133",
+          "caption": "1997 Toyota MR2",
+          "image_url": "https://www.igcd.net/images/145/133.jpg",
+          "image_sha256": "9ef617d36300460d267597611bf84cf4fd3b714ae2b159c00b83f87128dcd756",
+          "exact_variant": false
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 60,
+      "name": "2011 Dodge Charger",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "6666a3806933ebb733284f7193697b29820c498bd0a2978f8c4025c07e4983bb",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=95269",
+          "caption": "2011 Dodge Charger",
+          "image_url": "https://www.igcd.net/images/095/269.jpg",
+          "image_sha256": "8611e9fab9c97d5be248a33c89c1a741a0768e48c453b8ce8ca7a738a889addb",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.5339802503585815
+    },
+    {
+      "body": 61,
+      "name": "2009 Dodge Challenger",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "6d8352017edd7a8132e3c0476b1baef6266779e92061678ec1116762d090964d",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=95267",
+          "caption": "2009 Dodge Challenger",
+          "image_url": "https://www.igcd.net/images/095/267.jpg",
+          "image_sha256": "a72d2dcdc26e5dc3428d99ed99fc12f98bbed53e42d076518582f1f5cf6441eb",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8427475094795227
+    },
+    {
+      "body": 62,
+      "name": "1993 Ford Mustang SVT Cobra",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "7c9ac597f5fba3f34a0e348009e974317f1d33b203111f3769941efbe7581c0a",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=98396",
+          "caption": "1993 Ford Mustang SVT Cobra",
+          "image_url": "https://www.igcd.net/images/098/396.jpg",
+          "image_sha256": "fdf484422a763abdf5bdad12ac72f6bbca84361db72b35815f22ba29e8e71bdd",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 63,
+      "name": "1974 Volkswagen Golf",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "63448a14669ff1bf88f176785ccad5af412c561bc3e9cd03c0b4f6d99ea0d7c6",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=98397",
+          "caption": "1974 Volkswagen Golf",
+          "image_url": "https://www.igcd.net/images/098/397.jpg",
+          "image_sha256": "554a6d3937b87e023199a5ef4bb79bada55c8bccdfb80e2063912e9748623ea4",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9211799502372742
+    },
+    {
+      "body": 64,
+      "name": "Nissan Stagea",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "b74068d47564e2764ca4f78639786c0cc855f5a8b5353bc5876efc2b7a099bcd",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=98398",
+          "caption": "Nissan Stagea",
+          "image_url": "https://www.igcd.net/images/098/398.jpg",
+          "image_sha256": "e89778d89e249a3335e03472bf5a1a91b9b6a67ea899dc05061cbf57d9e9f0b0",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8460181951522827
+    },
+    {
+      "body": 65,
+      "name": "2016 Abarth 595",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "d36a12ce54914ce6d1286f9bcfbfd779e7ae48d4ea9c8bbffb65d43253d2ceb2",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=102195",
+          "caption": "2016 Abarth 595",
+          "image_url": "https://www.igcd.net/images/102/195.jpg",
+          "image_sha256": "41d0ef81f9db28c143ded64be27e4ed7825db978397e4cf4600d3be40cdebad8",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 66,
+      "name": "2016 Mazda MX-5",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "00c69248f8ea2cbdfd18b008edd795ff93d355029f9ae0e49dbbf96507d6a551",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=102196",
+          "caption": "2016 Mazda MX-5",
+          "image_url": "https://www.igcd.net/images/102/196.jpg",
+          "image_sha256": "126618b671dc121c37cdf1be8a2f442236313fabbe020bc2cebbcda886e77652",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 67,
+      "name": "2017 Honda NSX",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "0cb021a32ad9878d04a37c3d2e8040b3e56c1a90f406b9e0b9bca235b0483aa6",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=102197",
+          "caption": "2017 Honda NSX",
+          "image_url": "https://www.igcd.net/images/102/197.jpg",
+          "image_sha256": "c10ff6b35f0b7accc790e83077d4a41f1893a9dd91e47e9592870aaf4bf7e16a",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 68,
+      "name": "1969 Ford Mustang Boss 429",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "266861cb923ae9fb5fad8eb5262c68c0d63bb282899d0dff3d5ad009570e3c52",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=103220",
+          "caption": "1969 Ford Mustang Boss 429",
+          "image_url": "https://www.igcd.net/images/103/220.jpg",
+          "image_sha256": "58d97ab5a79fbfd666f41cf9bb0d097c244816fd51927604f01fb1d3e4864bd9",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7821741700172424
+    },
+    {
+      "body": 69,
+      "name": "2011 Toyota Prius",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "01763c244a06d994a99c2482605f6ee6d35bafe85f9f8bc1f7c1523db4f68a98",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=103136",
+          "caption": "2011 Toyota Prius",
+          "image_url": "https://www.igcd.net/images/103/136.jpg",
+          "image_sha256": "bd0eee8be05ded5adaad82009e162b4e0d49cc92886d56fd939668179568016c",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 70,
+      "name": "2006 Chevrolet Corvette",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "638a84b370057e9cc68547e2b2b12600f038f27694994f78c075825d2fcd0b6f",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=103135",
+          "caption": "2006 Chevrolet Corvette",
+          "image_url": "https://www.igcd.net/images/103/135.jpg",
+          "image_sha256": "827814dcbec8e4dd7aef8abb7b4ff41f78f809cb9e2d8fc8d5ac52d431ad8d13",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8264552354812622
+    },
+    {
+      "body": 71,
+      "name": "2016 Chevrolet Camaro SS",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "d1ed96adc825769cb85ad55fdaa09f4a7d31ee6f1acbb8c04bb3780a08e98186",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=104776",
+          "caption": "2016 Chevrolet Camaro SS",
+          "image_url": "https://www.igcd.net/images/104/776.jpg",
+          "image_sha256": "5239f9d0304bb65f9e9045deb328c87cc8f099cf427f5f830077f42acc3c8c4e",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8532619476318359
+    },
+    {
+      "body": 72,
+      "name": "2014 Volkswagen Golf R",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "a8b67ff75ae1b1697c01aba30471d8e69d57580b1ca92d7c4fff81f72f4650c3",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=104777",
+          "caption": "2014 Volkswagen Golf R",
+          "image_url": "https://www.igcd.net/images/104/777.jpg",
+          "image_sha256": "7fef17d89ec6e3ceb685b70ff7c02e4ba0d7b2c898ece95d2aa0b16e2ede12e4",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8799240589141846
+    },
+    {
+      "body": 73,
+      "name": "Volkswagen Corrado",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "9ccecdf40e76be1326f05d5737e3087ca2cdc33742ace1316bc52762e7819663",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=104964",
+          "caption": "Volkswagen Corrado",
+          "image_url": "https://www.igcd.net/images/104/964.jpg",
+          "image_sha256": "a7eb834657f490ef17602ff3109613f6743e968d7c4301d454ff9ad0976ba074",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7907052040100098
+    },
+    {
+      "body": 74,
+      "name": "Volkswagen 'Beetle'",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "a6b1d1d1463618a6b5f3ae9deb6bbe26ae2afb4b203bb52e4eba1fa71c2958a9",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=105843",
+          "caption": "Volkswagen 'Beetle'",
+          "image_url": "https://www.igcd.net/images/105/843.jpg",
+          "image_sha256": "2325960bd58c7a1c32fcd893035517d130f0793e1374e0d2a73ff97950fe56ce",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8602874875068665
+    },
+    {
+      "body": 75,
+      "name": "2010 Ford Mustang",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "f54f95b73cc0a8a0b94c0f04f7af85b893c3f9fde6bea09059cca05db676377a",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=105844",
+          "caption": "2010 Ford Mustang",
+          "image_url": "https://www.igcd.net/images/105/844.jpg",
+          "image_sha256": "8556e0e25826756f00ec611e718c18062aad7c7e97612c2145a6e6efe0d2ab0c",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.6740202903747559
+    },
+    {
+      "body": 76,
+      "name": "1983 Nissan Skyline",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "17bcbc2c8181ee8b1023084aa16da6b09013fdec389cff8875cf288f460652d3",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=106896",
+          "caption": "1983 Nissan Skyline",
+          "image_url": "https://www.igcd.net/images/106/896.jpg",
+          "image_sha256": "45eeda07b88fab73d65d1684d950a9384dfa2258d165ef7e75035dd2320970d3",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8308770060539246
+    },
+    {
+      "body": 77,
+      "name": "1998 Mitsubishi Lancer Evolution V",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "e218c0d965fb216daf3f3c7e48f70a9d67e435a9e3b4d0180541a44420d455d8",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=106895",
+          "caption": "1998 Mitsubishi Lancer Evolution V",
+          "image_url": "https://www.igcd.net/images/106/895.jpg",
+          "image_sha256": "9ba6a90dfcc4927875c6e93a4f6e3acaee1f4ee5b5dd339d2007c2b7a8a3fcb1",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.6488199234008789
+    },
+    {
+      "body": 78,
+      "name": "1969 Dodge Charger",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "c9a2a5b2f7ec733dbbba3adc8c489fc3244af762f75108ea3365fe7f1e8a4a8b",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=106893",
+          "caption": "1969 Dodge Charger",
+          "image_url": "https://www.igcd.net/images/106/893.jpg",
+          "image_sha256": "94489df7831e8e0fc89ac885340a34b11162f774ff22116c08891ce35dc29bb9",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8912025690078735
+    },
+    {
+      "body": 79,
+      "name": "2015 BMW M4",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "34dda603419270a351412d7a38b261f30089a9cf6efc7a0aad885410565e8f2f",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=106892",
+          "caption": "2015 BMW M4",
+          "image_url": "https://www.igcd.net/images/106/892.jpg",
+          "image_sha256": "0c1d2954549f210cef13af3089694640473962aa0dc09c9695d7a54fd1076a93",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7828010320663452
+    },
+    {
+      "body": 80,
+      "name": "2015 Lexus RC F",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "8f57954bdba630a0e6b37291ae712ca49cbdbf809205ed2d62fdb39beca8d733",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=106897",
+          "caption": "2015 Lexus RC F",
+          "image_url": "https://www.igcd.net/images/106/897.jpg",
+          "image_sha256": "b052d15eb9534f319f1d24b105a35617e5051cc74dfdc7e26d7952cfe91eed73",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7867738604545593
+    },
+    {
+      "body": 81,
+      "name": "2011 Cadillac CTS-V Sport Wagon",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "4b58966238c1c63824ba11a964a6aca96b08ca69cc9287bddf669bb694e55bd5",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=106894",
+          "caption": "2011 Cadillac CTS-V Sport Wagon",
+          "image_url": "https://www.igcd.net/images/106/894.jpg",
+          "image_sha256": "b9c272d39505e69cb4dd9307c9f6c125c15ee029fdfe20c59dfb83635e9cc00f",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.839730441570282
+    },
+    {
+      "body": 82,
+      "name": "2001 Honda Fit",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "83055a86d65309ddaf588ffd85aa5e9c55d04dbb9da61ff4874484cd10b395c5",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=108518",
+          "caption": "2001 Honda Fit",
+          "image_url": "https://www.igcd.net/images/108/518.jpg",
+          "image_sha256": "7cd33b600b1cc8331752741cb17892e47d98867e9ae12f2cc5247619d48ec946",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7431642413139343
+    },
+    {
+      "body": 83,
+      "name": "1998 Subaru Impreza 22B-STi",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "fc2a678fe31845a7553f5eb934635a0a3b90f0495d07df52a652f7bf6038b9af",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=135391",
+          "caption": "1998 Subaru Impreza 22B-STi",
+          "image_url": "https://www.igcd.net/images/135/391.jpg",
+          "image_sha256": "9b219fee24ecaf1f7a98914203ecc5d0cb9e260260eaf73415fce29c7a321e2e",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 84,
+      "name": "1999 Honda Integra",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "b68ad5a056a7db8991e89c7f125944eea40198ca331aaf0dfe51c1c7a0fa2dac",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=117690",
+          "caption": "1999 Honda Integra",
+          "image_url": "https://www.igcd.net/images/117/690.jpg",
+          "image_sha256": "f47d28ecd32ae4aa1fe912300eaca5d7408b92b24122330cce3b10a8559e3df1",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7824172973632812
+    },
+    {
+      "body": 85,
+      "name": "2016 Audi RS7 Sportback",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "746f86994cbcb3ccfe51e809e1a60f95cccf1ea72e41bc7400e05ab4ed9df78b",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=108574",
+          "caption": "2016 Audi RS7 Sportback",
+          "image_url": "https://www.igcd.net/images/108/574.jpg",
+          "image_sha256": "a30ad16c446d0db4a746c45a96250595e9b7f9de15ab28e220f736a650221d47",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7948423624038696
+    },
+    {
+      "body": 86,
+      "name": "Eagle Talon",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "1cf75ada02ef920d1d9a9ec488d61965272d3b740d2b912cc9d9eb36987bc8b5",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=110902",
+          "caption": "Eagle Talon",
+          "image_url": "https://www.igcd.net/images/110/902.jpg",
+          "image_sha256": "44b23ca643d476bf7aa44a962973827369e49b8658795fba9e4834d1d5693827",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8214877843856812
+    },
+    {
+      "body": 87,
+      "name": "1997 Mitsubishi Eclipse",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "8c9823fdd55144393346cb669037912434e0c974c138fcdcb9b3b613d10e2347",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=108517",
+          "caption": "1997 Mitsubishi Eclipse",
+          "image_url": "https://www.igcd.net/images/108/517.jpg",
+          "image_sha256": "3b9e6c982f595d488828afd7de3b06893e595098997571cab07ace0cffd8cc0a",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7107936143875122
+    },
+    {
+      "body": 88,
+      "name": "1971 Chevrolet Corvette",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "c1e4d8ae36ec49afc7ba643112e6ee97891a852bcd6f8f6b67f9ab6a0157f9a0",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=110903",
+          "caption": "1971 Chevrolet Corvette",
+          "image_url": "https://www.igcd.net/images/110/903.jpg",
+          "image_sha256": "cf6f3b22f605b8779dc68d6ccbc3a95bad5d73070d20f1439fac4dbebe5a349f",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9132019877433777
+    },
+    {
+      "body": 89,
+      "name": "1970 Dodge Challenger",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "bbdb266dd667b67a6a2827035c6e9757d360aeab8d649619237ff9b5923b3a1a",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=110904",
+          "caption": "1970 Dodge Challenger",
+          "image_url": "https://www.igcd.net/images/110/904.jpg",
+          "image_sha256": "2c83a444da36bcb622ade9f49120cdce23d34a809ac45045f89034d58cc7a164",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.864944577217102
+    },
+    {
+      "body": 90,
+      "name": "1970 Datsun 240Z",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "5805b2fdc7a480002afdd844256092dd33354e2e4cd0b2304c8d0a477c4b239a",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=135388",
+          "caption": "1970 Datsun 240Z",
+          "image_url": "https://www.igcd.net/images/135/388.jpg",
+          "image_sha256": "60ed81ca812db191f614d91e253a77c0b5b61a6bd1d220c49e662f3dd19551b4",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8849902153015137
+    },
+    {
+      "body": 91,
+      "name": "Lotus Elise",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "f6e7648e5222d27186522bb82de7b0eebf989e32ad1fd2ab73175f2160f6e563",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=116028",
+          "caption": "Lotus Elise",
+          "image_url": "https://www.igcd.net/images/116/028.jpg",
+          "image_sha256": "d880f5ba6c0e0192014dea8de52d08d885111d59c1afc9637fb5f69aed40bbda",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 92,
+      "name": "2014 Lexus IS",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "7bf73aace01a2842144e21e09d3c69c01b9454c73c56f29adbb0a655d1c0b338",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=116845",
+          "caption": "2014 Lexus IS",
+          "image_url": "https://www.igcd.net/images/116/845.jpg",
+          "image_sha256": "80ef075a2c3f6b825fb3660a4b577f46b36998a592d0a37527d837e7945132dd",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.858430802822113
+    },
+    {
+      "body": 93,
+      "name": "Volkswagen Karmann Ghia",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "8c01ac43de07cdff04f4527094ce8a941fddecb6ef49f2ff9e9db104c9c67d28",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=116027",
+          "caption": "Volkswagen Karmann Ghia",
+          "image_url": "https://www.igcd.net/images/116/027.jpg",
+          "image_sha256": "726c453ade22d865681cf4785fa1a8ad2a44b96f725d884a87d7d4834d86f2e5",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 94,
+      "name": "2010 BMW M5",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "9e936f92b21cd79360758562f58d642fc35550b9f2fe6ed25d70617eacff1e64",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=116029",
+          "caption": "2010 BMW M5",
+          "image_url": "https://www.igcd.net/images/116/029.jpg",
+          "image_sha256": "47378166ebbc0a83916719b3c82e139e949a393831d565339c6384bf4de4aed5",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8635891675949097
+    },
+    {
+      "body": 95,
+      "name": "Nissan GT-R Nismo R35",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "29e3cd7799ba3f35cf42681d22d278277065f7e2be536aea5b8c79fc802aedc0",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=135386",
+          "caption": "2018 Nissan GT-R Nismo",
+          "image_url": "https://www.igcd.net/images/135/386.jpg",
+          "image_sha256": "1f375eeb011090773c32743aecb424bc4a4649fc2c731655149261a927c0a84e",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8864583373069763
+    },
+    {
+      "body": 96,
+      "name": "2012 Aston Martin V8 Vantage S",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "0ddaabb19ff74834fc3de9f274f3d8f1ac954654b28125cf0c1df9a98fad46fb",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=126185",
+          "caption": "2012 Aston Martin V8 Vantage S",
+          "image_url": "https://www.igcd.net/images/126/185.jpg",
+          "image_sha256": "6d571a296205da2bf195225ba98cbb66f1475518094e4771c92d8c6b19fdc267",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8391147255897522
+    },
+    {
+      "body": 97,
+      "name": "2012 Mercedes-Benz C 63 AMG Black Series",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "82bebf538f48d4fee9e30416a339cd097b2dbdebd3a64a30685d53a4ee81552d",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=126182",
+          "caption": "2012 Mercedes-Benz C 63 AMG Black Series",
+          "image_url": "https://www.igcd.net/images/126/182.jpg",
+          "image_sha256": "91b6415f8c9a080f6b68d90ee40740775fe309bb6aa608a318127cd884ce8ca6",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8651592135429382
+    },
+    {
+      "body": 98,
+      "name": "2000 Chevrolet Camaro SS",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "96329343fd371062ea4a236bee0ddf07bc71786fcfeef1d9c790d83615ce3dc5",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=135389",
+          "caption": "2000 Chevrolet Camaro SS",
+          "image_url": "https://www.igcd.net/images/135/389.jpg",
+          "image_sha256": "4ffbe500486c906478fd6cf1aeffb518ad03e118b860f19e81d70a136f2f085c",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9136629700660706
+    },
+    {
+      "body": 99,
+      "name": "1974 BMW 3.0 CSL",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "ea5f81644ce9b3b5cf7a5d7280aea96d6529ad0c22353833d9caee438f328eec",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=117689",
+          "caption": "1974 BMW 3.0 CSL",
+          "image_url": "https://www.igcd.net/images/117/689.jpg",
+          "image_sha256": "6d95b27cb045392f4babf66235c8911b9d8620a47c6408c23a139137bf2d6eb4",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7894870042800903
+    },
+    {
+      "body": 100,
+      "name": "Modèle 101 à identifier",
+      "status": "unresolved",
+      "source_body_rgba_sha256": "899690fc5b572961c43b3f6c4f02be888423a86c5a08c010ddc0795bde854586",
+      "references": []
+    },
+    {
+      "body": 101,
+      "name": "2010 Lexus LFA",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "9de19a0b4e177d64be3e9a5a70a1820798f4a24f58376cba0e6d2df6e4ecf3b5",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=126189",
+          "caption": "2010 Lexus LFA",
+          "image_url": "https://www.igcd.net/images/126/189.jpg",
+          "image_sha256": "4eb6a7edbb51f4ee2e931d43d11ab35f7acb2b90e7adfc92d7ed770b155cfdaa",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 102,
+      "name": "2015 Mercedes-Benz A 45 AMG",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "a18e54887924d917645ba5b35999c33b7dd2b7a76f1f7254aed288d4d9ce270a",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=126183",
+          "caption": "2015 Mercedes-Benz A 45 AMG",
+          "image_url": "https://www.igcd.net/images/126/183.jpg",
+          "image_sha256": "9224538c2192f364e074b18b329509ec13a8f085753abf5b10d01ea23fe84cfe",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8855768442153931
+    },
+    {
+      "body": 103,
+      "name": "2014 Scion tC",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "e99f31a059c990c02aa48b7f76f0902d68d8028d23095322bcf307930d2f5cd9",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=131045",
+          "caption": "2014 Scion tC",
+          "image_url": "https://www.igcd.net/images/131/045.jpg",
+          "image_sha256": "92600d077deaf98d97a92629ea50f7c03d7929e80473aa927d6a56d1ef51029e",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8802686333656311
+    },
+    {
+      "body": 104,
+      "name": "2016 Audi RS6 Avant",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "466a051f4f576ea9e83b7d24b1cb9a4bb5d1e30c724475f270bb37c6d34e5db9",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=121530",
+          "caption": "2016 Audi RS6 Avant",
+          "image_url": "https://www.igcd.net/images/121/530.jpg",
+          "image_sha256": "ece41dbb28092edad955e15d1df9858bc2d55791d6d05e624b2455ed43a697d5",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7915106415748596
+    },
+    {
+      "body": 105,
+      "name": "2017 Honda Civic Type R",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "87c4ab00ab96b62a8f2f50ff1434cee89e861a7213d16f9b2cab3e8f65073785",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=121494",
+          "caption": "2017 Honda Civic Type R",
+          "image_url": "https://www.igcd.net/images/121/494.jpg",
+          "image_sha256": "807b50bedbf3b11b6aeddf5ff145d395becb7548543a83e427d641476be743bf",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.803562581539154
+    },
+    {
+      "body": 106,
+      "name": "1997 Volvo 850 R",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "71e488c474b71471080a6aeac96767accd7e02af87dd82d8d1fd45819e08d3f4",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=121492",
+          "caption": "1997 Volvo 850 R",
+          "image_url": "https://www.igcd.net/images/121/492.jpg",
+          "image_sha256": "a79b20a391379ddf746aa0f8160ac0456169ef768f4c6544e465fcb4b3b9d6c0",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8656799793243408
+    },
+    {
+      "body": 107,
+      "name": "1978 Datsun 260Z",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "3d4ab2fa8d659d6b5108176dcd034dfdb3eb5b93ee3c88693d2d07d3f163f1c0",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=121493",
+          "caption": "1978 Datsun 260Z",
+          "image_url": "https://www.igcd.net/images/121/493.jpg",
+          "image_sha256": "c68968f587cb9bb31124bec8e680ea544154e8bdd44c0bf4b36720b63f8a18fa",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 108,
+      "name": "2014 Ford Fiesta ST",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "844f1ea5d6d129b5f88d1d1208c6477394c75639c5a67470d704f4344223eca9",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=121499",
+          "caption": "2014 Ford Fiesta ST",
+          "image_url": "https://www.igcd.net/images/121/499.jpg",
+          "image_sha256": "7614e14b2200df127bf2a344b7f0f7e13b712d1f715e5e70ec9056ee140f5f3d",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7919838428497314
+    },
+    {
+      "body": 109,
+      "name": "2018 Subaru WRX STi",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "371bcd91844d76037df3cfc7734bf9fbf169f14ad06307dc13b50c8e9a2e2543",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=121495",
+          "caption": "2018 Subaru WRX STi",
+          "image_url": "https://www.igcd.net/images/121/495.jpg",
+          "image_sha256": "41006ddcad11774c112973badb2ed36925de95b5ccc12af8107512db70add6b5",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7962939739227295
+    },
+    {
+      "body": 110,
+      "name": "2015 BMW 1",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "ac923f784cfcef779cf72524a2ea49fccaf3555d4974a6bff1040b320182be07",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=124680",
+          "caption": "2015 BMW 1",
+          "image_url": "https://www.igcd.net/images/124/680.jpg",
+          "image_sha256": "6b05f19d561b779adaee0c665cde96a89a56fa2d1a14abe014cc999b312552cf",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8428044319152832
+    },
+    {
+      "body": 111,
+      "name": "2017 Chevrolet Cruze",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "5a686ae311b31994b8d1950b5fe9ad099f37e0f99dca6f5c127fb4907c0f994f",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=123794",
+          "caption": "2017 Chevrolet Cruze",
+          "image_url": "https://www.igcd.net/images/123/794.jpg",
+          "image_sha256": "ce953dc4dd1d679c474f180547d569458208f8d94aae790cff8d334a9ae5069d",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8577174544334412
+    },
+    {
+      "body": 112,
+      "name": "2016 Ford Focus RS",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "50690c8e06d42d9501db951df43fce8168d166f1e31bffb3a491003d14d50c7e",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=124679",
+          "caption": "2016 Ford Focus RS",
+          "image_url": "https://www.igcd.net/images/124/679.jpg",
+          "image_sha256": "9bcd074fc47fcfb77b2950d3ef3e5503ba2e8ae2ae7c5bbe30a1b354a59cff4f",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8154451847076416
+    },
+    {
+      "body": 113,
+      "name": "2010 Mazda Mazdaspeed 3",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "2f4132046499dc6bd9ef9bca1f9d028d8f86b5ba6d785baa9d29814780640aeb",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=124681",
+          "caption": "2010 Mazda Mazdaspeed 3",
+          "image_url": "https://www.igcd.net/images/124/681.jpg",
+          "image_sha256": "4f2328330cec64dab241cbf6641bdb5762ebeb54bff49804276049cb6aea3350",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8211814165115356
+    },
+    {
+      "body": 114,
+      "name": "2015 Dodge Charger SRT Hellcat",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "46b934e9ef87471822e12223592d90e44360f5a0e6a836c0dc1dea5b5058475a",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=126179",
+          "caption": "2015 Dodge Charger SRT Hellcat",
+          "image_url": "https://www.igcd.net/images/126/179.jpg",
+          "image_sha256": "fa678a182d970472bd503271378b33cd9cc901eb4a3a9720c451e97b278c06f8",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7849886417388916
+    },
+    {
+      "body": 115,
+      "name": "2015 Jaguar F-Type R Coupé",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "f0413d54d8d192c8326f5cb25ad995c46854a09434fbf9cddd221f3d2a9225e7",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=126180",
+          "caption": "2015 Jaguar F-Type R Coupé",
+          "image_url": "https://www.igcd.net/images/126/180.jpg",
+          "image_sha256": "a338b186eb0ca4f38a9d9d862713ce385ddc7122ab6c3d18e9871f05925f923c",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8495490550994873
+    },
+    {
+      "body": 116,
+      "name": "Nissan Sileighty",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "d875723eaef9e01f51fb1795b363082c6cd0d62982381487b88b1b5e85522653",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=126187",
+          "caption": "Nissan Sileighty",
+          "image_url": "https://www.igcd.net/images/126/187.jpg",
+          "image_sha256": "d59a82768742cb1da317fafc8d5ce11a7c79bce0093dc96ac7c22c5b8c23ef5b",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9157404899597168
+    },
+    {
+      "body": 117,
+      "name": "Nissan Onevia",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "29fdc74f73337b6c551bdac9c843d35b84cc59bcefd31fa26116dfcf821b42ad",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=126186",
+          "caption": "Nissan Onevia",
+          "image_url": "https://www.igcd.net/images/126/186.jpg",
+          "image_sha256": "1a4fe9a9cbde4b05f7f916c5c01d4e7787fe0a8f5ddec1c2ac24e4412683feba",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 118,
+      "name": "2016 Cadillac ATS-V",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "4a2ebb287f9bfc0d86500b79193c28ef4ca867e41746f4458922707ea7d64c8c",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=129099",
+          "caption": "2016 Cadillac ATS-V",
+          "image_url": "https://www.igcd.net/images/129/099.jpg",
+          "image_sha256": "a42d24d6739b940cc0f1dd7aafe26528a35e8f7c3e8a164b1368f49bc08f92ec",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9133283495903015
+    },
+    {
+      "body": 119,
+      "name": "Toyota Chaser",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "cf0134199541e86292c26cf150d244a5bcbab9c7322cd9b64a33988e6364331a",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91446",
+          "caption": "Toyota Chaser",
+          "image_url": "https://www.igcd.net/images/091/446.jpg",
+          "image_sha256": "091946e7ac13ff1e1763eff462796bdc955b7405b6948f4aac010c7684600b5f",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 120,
+      "name": "2017 Alfa Romeo Giulia Quadrifoglio",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "fc68d3686ef7e9c910288465d6e2bb6cdbb4af5bb4009bde70250f6b2af6fb37",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=129112",
+          "caption": "2017 Alfa Romeo Giulia Quadrifoglio",
+          "image_url": "https://www.igcd.net/images/129/112.jpg",
+          "image_sha256": "8f05f73e255e4ad0339b3cddeaa1a2a94afad21d7dcd9fbcd7bb1fe778c4f28f",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7585833072662354
+    },
+    {
+      "body": 121,
+      "name": "2018 BMW M5",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "64d86dd8a2c87654fe97d920256b0eb918d4ff55727a67a5099b7d09e8b14c1c",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=129097",
+          "caption": "2018 BMW M5",
+          "image_url": "https://www.igcd.net/images/129/097.jpg",
+          "image_sha256": "3949bbc1cf69b0ec9d796df7b1e42b0462a8e7fae4973e0a4e4bea1f23f8767c",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8460197448730469
+    },
+    {
+      "body": 122,
+      "name": "BMW M5 (variante)",
+      "status": "probable",
+      "source_body_rgba_sha256": "39dbbd5de7f3491733f2d99c88a51d952b7d600effc23f11991ec2708a0ceab0",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=129097",
+          "caption": "2018 BMW M5",
+          "image_url": "https://www.igcd.net/images/129/097.jpg",
+          "image_sha256": "3949bbc1cf69b0ec9d796df7b1e42b0462a8e7fae4973e0a4e4bea1f23f8767c",
+          "exact_variant": false
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 123,
+      "name": "2014 HSV Maloo",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "b879f83c6b6d048d42b99fca3b1b2be0bd76f8f297e0ad9fa5a47cb150946a61",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=133830",
+          "caption": "2014 HSV Maloo",
+          "image_url": "https://www.igcd.net/images/133/830.jpg",
+          "image_sha256": "9dccea6df4359217cc40e3ba2f73162e83e9ced1c5818e3e9f658cc0c32fe117",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8521062731742859
+    },
+    {
+      "body": 124,
+      "name": "1973 Ford Falcon",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "e791790e95389753bcf3de299932bf5a8f06b663ff441af7c871067a64eb8ec8",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=131044",
+          "caption": "1973 Ford Falcon",
+          "image_url": "https://www.igcd.net/images/131/044.jpg",
+          "image_sha256": "72585d03dba041c08814c938cdc9d1fe08028070cdbe3e2dc3d0e8f4299cef44",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9119401574134827
+    },
+    {
+      "body": 125,
+      "name": "2017 HSV GTS-R",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "b21218c55d79ac34243d1f513360512a648dd6e4d9320d285d9073471e80ed96",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=131041",
+          "caption": "2017 HSV GTS-R",
+          "image_url": "https://www.igcd.net/images/131/041.jpg",
+          "image_sha256": "9e0a13581ad0eb3880f4f96552a4ff4002fae00531b25bb6dcf5210c5828a9fe",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8848376870155334
+    },
+    {
+      "body": 126,
+      "name": "1972 Ford Falcon",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "348139112450de34e3c47f1eaf9ff987e406cfc7cd3935a3b5552663399904de",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=131043",
+          "caption": "1972 Ford Falcon",
+          "image_url": "https://www.igcd.net/images/131/043.jpg",
+          "image_sha256": "54826af0c187bc84d10c101cffd1eb2b195a2349b90d0f9d265e07ccf6b881fc",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9120625853538513
+    },
+    {
+      "body": 127,
+      "name": "1970 Toyota Celica",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "a6bf9fd428cc74eae6555651e9512d337dfe9e9cc7fc418f56c2120e000e7eea",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=133824",
+          "caption": "1970 Toyota Celica",
+          "image_url": "https://www.igcd.net/images/133/824.jpg",
+          "image_sha256": "06c5e791d7938a348da08a7fa4207f00ae1bec1bf1bdda023ad8b9f18f834223",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.93439120054245
+    },
+    {
+      "body": 128,
+      "name": "1981 Toyota Celica XX",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "b8de07abdd8a0026d1f7c2c3d49052e1c03b63e522a8f8ad38fa9a87308048fb",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=133825",
+          "caption": "1981 Toyota Celica XX",
+          "image_url": "https://www.igcd.net/images/133/825.jpg",
+          "image_sha256": "5c7de6df5c724f1cb1b51914fe7d2541ce9e8d3ccd1341be5781955cea724d87",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8844923973083496
+    },
+    {
+      "body": 129,
+      "name": "1978 Toyota Corona Mark II",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "3211e62947386ae252d3f5947ecbfe8bde62a793bfbfd619e822df2181bca220",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=133829",
+          "caption": "1978 Toyota Corona Mark II",
+          "image_url": "https://www.igcd.net/images/133/829.jpg",
+          "image_sha256": "54f1894c38dacdb560aa9517fb4ea38d9ba1f7f414c0663b5c35f03ae03b8778",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.919917106628418
+    },
+    {
+      "body": 130,
+      "name": "1970 Mitsubishi Colt Galant GTO",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "d7ba49c5afbe968134b9f75909de559e02ab1e1c5f8b520b8f25d2a29af18412",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=133826",
+          "caption": "1970 Mitsubishi Colt Galant GTO",
+          "image_url": "https://www.igcd.net/images/133/826.jpg",
+          "image_sha256": "1139b21d24cf11db2f19dd2adb0b26c290fcea9417e5d2b930864382cc29472a",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8484088182449341
+    },
+    {
+      "body": 131,
+      "name": "1967 Toyota 2000GT",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "743ca1b4a66f4db97c28ff8b9066912651b02b4d7bfdd0d05ba6ad01d6a02ab0",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=133822",
+          "caption": "1967 Toyota 2000GT",
+          "image_url": "https://www.igcd.net/images/133/822.jpg",
+          "image_sha256": "95fb9e7913923b1ce6fd35a58792bc2f3d149f524f908a6a157573ae12078622",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8846082091331482
+    },
+    {
+      "body": 132,
+      "name": "1972 Nissan Laurel",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "6d9a03e264cdc56ed35a33f4fc0a6613204775a640b2b5e71066555b7eb4d3c4",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=133828",
+          "caption": "1972 Nissan Laurel",
+          "image_url": "https://www.igcd.net/images/133/828.jpg",
+          "image_sha256": "b8f2aff965835429eb31efd2367dcc6298a7ef0a2606c697cf8184dad1e18da6",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8134933710098267
+    },
+    {
+      "body": 133,
+      "name": "1978 Mazda RX-7",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "ca63548bbf2b57238278d7ad8b17b03fe1ab144c7acf8846522953ed6b788849",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=133827",
+          "caption": "1978 Mazda RX-7",
+          "image_url": "https://www.igcd.net/images/133/827.jpg",
+          "image_sha256": "5cf63a826e99c3ee970db3fd5d3dfe0e08b25217bcdaae2fd0d2eae7e22e22f7",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7220382690429688
+    },
+    {
+      "body": 134,
+      "name": "1969 Subaru R-2",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "8498ac598b8b23ae4e86b8459c1abc0ca604ac742c46a04ab2de6966881b2c24",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=133823",
+          "caption": "1969 Subaru R-2",
+          "image_url": "https://www.igcd.net/images/133/823.jpg",
+          "image_sha256": "fec9871ecae5d6000a49824b9c8f314952673076ed3e26cc262f813d49f81891",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9319379329681396
+    },
+    {
+      "body": 135,
+      "name": "Peugeot 206",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "1014c8d03ec19a9bff4b1f29fe31e397211f0d0d8b974854cd1eb12c8bf362f7",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=134611",
+          "caption": "Peugeot 206",
+          "image_url": "https://www.igcd.net/images/134/611.jpg",
+          "image_sha256": "2aa4506bbc4b495697ff495f35bec727a6c98ecd0568330af1cff87cef1e6d63",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9478079080581665
+    },
+    {
+      "body": 136,
+      "name": "2003 Renault Clio V6",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "19d73db8142ada7939faed1e9f5e878e696c6d253bcf23ca8fe64e97008a7797",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=134614",
+          "caption": "2003 Renault Clio V6",
+          "image_url": "https://www.igcd.net/images/134/614.jpg",
+          "image_sha256": "3df8b52d934de6dfd54dcdc47e5c1e8eb1adf3d0874c07b6094c0d2a72ab2c32",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8778086304664612
+    },
+    {
+      "body": 137,
+      "name": "1980 Renault 5 Turbo",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "3325fe2c9410351cde6d9cc194866ce8adb7cb8ab60f55b619a2f6265df0c6b2",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=134619",
+          "caption": "1980 Renault 5 Turbo",
+          "image_url": "https://www.igcd.net/images/134/619.jpg",
+          "image_sha256": "b2fdd55722b418ab5dd5beb898e5b49b95d8625b442843d70bda25798260a4ba",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.897675096988678
+    },
+    {
+      "body": 138,
+      "name": "1983 Audi Sport quattro",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "1960f643c1908553578b56dbc8ea977f803d7eccef80ebe0d869c2962980e1f8",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=134626",
+          "caption": "1983 Audi Sport quattro",
+          "image_url": "https://www.igcd.net/images/134/626.jpg",
+          "image_sha256": "5c0fcb38764aa72dd3d7d7817d7535a9758cb222e63891e0def3f15c7e7d4cbf",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9086833000183105
+    },
+    {
+      "body": 139,
+      "name": "1991 Lancia Delta HF Integrale Evoluzione",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "10b8188a3c409e0fa381b3fe5cf756c6800b89cb05c9ccff1f90637a51709945",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=134622",
+          "caption": "1991 Lancia Delta HF Integrale Evoluzione",
+          "image_url": "https://www.igcd.net/images/134/622.jpg",
+          "image_sha256": "b46a9ebbfdfc838aa1e53e962cc7d9945e78604af79a5aa7ee6e7f13005e5487",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.868641197681427
+    },
+    {
+      "body": 140,
+      "name": "Peugeot 205 GTI",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "2d56a3a11d9a0ea7b1996e01f908091e8c42064f473f9907b015b19d63f04b61",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=134612",
+          "caption": "Peugeot 205 GTI",
+          "image_url": "https://www.igcd.net/images/134/612.jpg",
+          "image_sha256": "cce6babf77b1a07ff4a8fab758393c002bd67d8499407ae00bb8f211e0142365",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8731688857078552
+    },
+    {
+      "body": 141,
+      "name": "2017 Abarth 124 Spider",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "1c48416ac5b912298bec504bc9baf9a903bae7b1db56ccc3f9b07bd3708dd941",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=134616",
+          "caption": "2017 Abarth 124 Spider",
+          "image_url": "https://www.igcd.net/images/134/616.jpg",
+          "image_sha256": "9318e4ca283eb5a37d93dcc4fda1ad90dfe62b7a75b697a8866469a35419134e",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8030521869659424
+    },
+    {
+      "body": 142,
+      "name": "1975 Lancia Stratos",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "24cb54fa39f772555c88da5defa262927b348a883e9a366f882268e47ceede4a",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=134627",
+          "caption": "1975 Lancia Stratos",
+          "image_url": "https://www.igcd.net/images/134/627.jpg",
+          "image_sha256": "20a0447cd517639becb8adc1dae6126f9015d2923b8bec04e9d55d403387b4b5",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.764411211013794
+    },
+    {
+      "body": 143,
+      "name": "1973 Alpine A110",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "2e2c2771e877b602ec967da6f49f9dd43854099476142c00833a11f2bbdb6fef",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=134624",
+          "caption": "1973 Alpine A110",
+          "image_url": "https://www.igcd.net/images/134/624.jpg",
+          "image_sha256": "2bd0b1edd5e9fc32c30dde324c7c4a329383579398ab3c3596ddec0680d17d68",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.857381284236908
+    },
+    {
+      "body": 144,
+      "name": "2011 Citroën DS3",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "cea39ed558682b120a0bdcca931efe55bacf2b3e5454841baa30ccb0b26e486c",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=134613",
+          "caption": "2011 Citroën DS3",
+          "image_url": "https://www.igcd.net/images/134/613.jpg",
+          "image_sha256": "a9239a994debc8a5f2553e79623b339d800dea5b53b73ea64b958eb88a902239",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8315728902816772
+    },
+    {
+      "body": 145,
+      "name": "1970 Chevrolet Chevelle",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "fe91151a95604c21fda478fee9f627bdaa001d8526dd12de7ffe3d75f2e7ac4d",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141084",
+          "caption": "1970 Chevrolet Chevelle",
+          "image_url": "https://www.igcd.net/images/141/084.jpg",
+          "image_sha256": "24bf50ccc3485cedb528a3bde4746cd285371e00d8be8809d772786136794beb",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8492545485496521
+    },
+    {
+      "body": 146,
+      "name": "2005 Chevrolet Cobalt",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "a4d3fa9991d5cf9942b76bc4d5bbfab28d2f357f71e6db346e0d2b227404ff7d",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141080",
+          "caption": "2005 Chevrolet Cobalt",
+          "image_url": "https://www.igcd.net/images/141/080.jpg",
+          "image_sha256": "c4b879650af2fc28c49b59119069e93ca7c196a363d01f9a96e2435f08d628a8",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7790343761444092
+    },
+    {
+      "body": 147,
+      "name": "Ford Escort",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "266a81d01c45b22b3ac421e23da6affa7d7a6dbc7f67861ef64f3293ec5d01af",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141082",
+          "caption": "Ford Escort",
+          "image_url": "https://www.igcd.net/images/141/082.jpg",
+          "image_sha256": "2f04322f0bcc6d9580ff5e2498fcb7e58f6fde396cf88eedd4b4948c93e3dc69",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9388396143913269
+    },
+    {
+      "body": 148,
+      "name": "1987 Buick GNX",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "487bddc96116fd21054095c4bd6ab6e90d6afe92e2402baa9147ece57d077507",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141085",
+          "caption": "1987 Buick GNX",
+          "image_url": "https://www.igcd.net/images/141/085.jpg",
+          "image_sha256": "0c2965fd928fbf80e006e6036a0392b2a13e65f2038615bf1470a8d83f0c992e",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8245084285736084
+    },
+    {
+      "body": 149,
+      "name": "2006 Pontiac GTO",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "6a88d9858b1e3168110c790aca3c1329f8f74b40106ca52c9ce1a9c87478993a",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141105",
+          "caption": "2006 Pontiac GTO",
+          "image_url": "https://www.igcd.net/images/141/105.jpg",
+          "image_sha256": "09a95863231ba5b49ca3e827092050d40bd17ae4abbac1661d0db683d62b6e96",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8318773508071899
+    },
+    {
+      "body": 150,
+      "name": "1965 Pontiac GTO",
+      "status": "probable",
+      "source_body_rgba_sha256": "bc59b1694b7e2dd6dc88ba035a5e5eab331da1cd1b2ac0af97fab1a0cfecf8c0",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141088",
+          "caption": "1965 Pontiac GTO",
+          "image_url": "https://www.igcd.net/images/141/088.jpg",
+          "image_sha256": "87ecb7d1570220bcebfd80ecf04e4938e1571534a47f2f131b6653c152e89bda",
+          "exact_variant": false
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 151,
+      "name": "1990 Chevrolet Camaro IROC-Z",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "ae3c7194113b0f616107772ecca0d3350081825b02ad902d394e21c0d1057c65",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141079",
+          "caption": "1990 Chevrolet Camaro IROC-Z",
+          "image_url": "https://www.igcd.net/images/141/079.jpg",
+          "image_sha256": "7c4052924cd5e9a7d28d020b462942616ba0628b7fe63fce4d3f6f37803c51b7",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.879530668258667
+    },
+    {
+      "body": 152,
+      "name": "1968 Ford Mustang",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "f205e213b77c92021f61dfebf8f3feafb81b4d86ee940d2675beb0617f5dfea0",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141083",
+          "caption": "1968 Ford Mustang",
+          "image_url": "https://www.igcd.net/images/141/083.jpg",
+          "image_sha256": "bf46e5ecb87a30b4fd2736de9bd7535efc1ca6eff4f2685048bccda8ffc04b23",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.811581015586853
+    },
+    {
+      "body": 153,
+      "name": "Modèle 154 à identifier",
+      "status": "unresolved",
+      "source_body_rgba_sha256": "a128b3280e94e5ecadac601397da2f54c4617a3de0452903c64fda6b0c9fd534",
+      "references": []
+    },
+    {
+      "body": 154,
+      "name": "1974 Ford Pinto",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "3ca60f93ce3ad02e9e0a867db855dee72ff9798cf084bd73df59a831dc86a95f",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141089",
+          "caption": "1974 Ford Pinto",
+          "image_url": "https://www.igcd.net/images/141/089.jpg",
+          "image_sha256": "e499192f5f0be9f8187472d3ebcc8c927273faa56727995223480475cc26c991",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9465432167053223
+    },
+    {
+      "body": 155,
+      "name": "1998 Dodge Viper GTS-R",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "8ab6467646a07728a2883d4430de940ca13747ee94864f671d655fd45165e2a6",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141086",
+          "caption": "1998 Dodge Viper GTS-R",
+          "image_url": "https://www.igcd.net/images/141/086.jpg",
+          "image_sha256": "0b2bf2c4f5f16612a10db15e133e6386f2619837f45a6d7eddd8382c32d9296a",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 156,
+      "name": "2019 Chevrolet Corvette ZR1",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "8afc26a07228af997b4bdb9bf9333451b6ef0fb6af0ccb63561ce9a36352ab7f",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141087",
+          "caption": "2019 Chevrolet Corvette ZR1",
+          "image_url": "https://www.igcd.net/images/141/087.jpg",
+          "image_sha256": "fa2c0386ca9ff5939eadf43c1bbf16e8bf83a858eaf3e8a2c64a2903c49950ec",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7594583034515381
+    },
+    {
+      "body": 157,
+      "name": "2013 Mercedes-Benz CLA 45 AMG",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "860641a490626b89acf362beffa884ac661fd980d86bcdb01ae0208f3193b231",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141107",
+          "caption": "2013 Mercedes-Benz CLA 45 AMG",
+          "image_url": "https://www.igcd.net/images/141/107.jpg",
+          "image_sha256": "00bd4c4090ff1ebf4cad46f9d2c4695a4c9f52484a2516957e7b41f31c134629",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8656491041183472
+    },
+    {
+      "body": 158,
+      "name": "2018 Alpine A110",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "9f928d79710902ec1a1c504412461dee65575f6e2c7d80fd8b716327ecc731b2",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141103",
+          "caption": "2018 Alpine A110",
+          "image_url": "https://www.igcd.net/images/141/103.jpg",
+          "image_sha256": "8379e20117c6e983ff326f96dd15a74575f8003d55dbd7b4f67117a2a19657fd",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8436444401741028
+    },
+    {
+      "body": 159,
+      "name": "2014 Alfa Romeo 4C",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "792c9f1ca39d1bcad2e12c046443e489fdbe3d7f29b1cd5cbee1b8dcf0eb6c17",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=141104",
+          "caption": "2014 Alfa Romeo 4C",
+          "image_url": "https://www.igcd.net/images/141/104.jpg",
+          "image_sha256": "2500a15ed2cbdecde73a9b030dc643224b29ef2da2d5aad87db9354568f8c6c8",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 160,
+      "name": "1995 Toyota Celica",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "5eddc47c542f825b84f6bc97c1be8c8c0f46a5fef8b2c7a2a99f2e7db440a1d3",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=145132",
+          "caption": "1995 Toyota Celica",
+          "image_url": "https://www.igcd.net/images/145/132.jpg",
+          "image_sha256": "ba7451ba74726ef98d97a2f857fee5704303be7e48880107f90cc3837ecf770f",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8060013651847839
+    },
+    {
+      "body": 161,
+      "name": "1997 Toyota MR2",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "f4e5f2f11ad971657ae051cd8b64379a3531169bbc01122454bc0eb24895eef3",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=145133",
+          "caption": "1997 Toyota MR2",
+          "image_url": "https://www.igcd.net/images/145/133.jpg",
+          "image_sha256": "9ef617d36300460d267597611bf84cf4fd3b714ae2b159c00b83f87128dcd756",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8930760025978088
+    },
+    {
+      "body": 162,
+      "name": "Toyota Soarer",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "f4409f7019e2367d57002982ff563819e2321c59f9b4a600962fb7ecb487f820",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=145131",
+          "caption": "Toyota Soarer",
+          "image_url": "https://www.igcd.net/images/145/131.jpg",
+          "image_sha256": "c1a506d3367fa62b64be37fdbaa7b2451d51a3a2f8334deac251a4593d787f47",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8575414419174194
+    },
+    {
+      "body": 163,
+      "name": "1997 Mitsubishi FTO",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "8b33873b5dc54982777e51c56f49495186ff1f4dbbdbd1cea24dc439652db385",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=145130",
+          "caption": "1997 Mitsubishi FTO",
+          "image_url": "https://www.igcd.net/images/145/130.jpg",
+          "image_sha256": "61ff58d3b3a901a2e19de13e04e0191f71176f1b9648289e6b70ce58a4b3eb18",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7818974256515503
+    },
+    {
+      "body": 164,
+      "name": "Mercedes-Benz 190 E",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "3a0dbdbc273872260b5c095e581413e3592c2142606231525ab801d76fb46104",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=156791",
+          "caption": "Mercedes-Benz 190 E",
+          "image_url": "https://www.igcd.net/images/156/791.jpg",
+          "image_sha256": "0a3f38fcd7a8adefd02ab6df4ae906a5c22c3e8a242ed8b8e09a799e75559341",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8256828784942627
+    },
+    {
+      "body": 165,
+      "name": "1992 Alfa Romeo 155",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "0e36e8c20fc1a6d5caa3987dc5ad6b2ee63c332618885d4b21737810582fb5be",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=156790",
+          "caption": "1992 Alfa Romeo 155",
+          "image_url": "https://www.igcd.net/images/156/790.jpg",
+          "image_sha256": "dcd5bb4e2b73286a0a9807e522ac3000ea26738a5b0455aa0006cf2726d3878d",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8375760316848755
+    },
+    {
+      "body": 166,
+      "name": "2006 Audi RS4",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "b18c8e6b95d7d0d15a5256993255e06e1f2c793684aa19b658250ac07e4affbb",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=156793",
+          "caption": "2006 Audi RS4",
+          "image_url": "https://www.igcd.net/images/156/793.jpg",
+          "image_sha256": "7c748577be37d3084aceef60d4af6ca8993e960dbd6bfbd5a5d9f3fddf5930da",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7857072353363037
+    },
+    {
+      "body": 167,
+      "name": "1979 BMW M1",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "fe7d456c0677eb0830890aed3d38e91486bca9c940fc11e8b51271e54b8c913b",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=156795",
+          "caption": "1979 BMW M1",
+          "image_url": "https://www.igcd.net/images/156/795.jpg",
+          "image_sha256": "22d99db59ba2b2e9175f462caaf14868eaa316eeaafcfb9569277f3281d85006",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7952201962471008
+    },
+    {
+      "body": 168,
+      "name": "1992 Autozam AZ-1",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "f300628ec254330b207e73f526179b098e3406e266e9f06f1e1148af291407e1",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=156797",
+          "caption": "1992 Autozam AZ-1",
+          "image_url": "https://www.igcd.net/images/156/797.jpg",
+          "image_sha256": "fdee4d54e8143d1c45e71c2f8f9e316283055769e3aa5e68716f0275a913994a",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8962134122848511
+    },
+    {
+      "body": 169,
+      "name": "1995 Suzuki Cappuccino",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "26f745d7ac53590dba21b1b8aa25ef5f98649649df40ddc319299dbd99678e75",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=156796",
+          "caption": "1995 Suzuki Cappuccino",
+          "image_url": "https://www.igcd.net/images/156/796.jpg",
+          "image_sha256": "e99650b287b663804141c6fe339f72ca05dc5693a4d8ee2534e163861b3f8cd8",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.861294150352478
+    },
+    {
+      "body": 170,
+      "name": "1964 Chevrolet Impala",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "188c72fd30993eea02df05763e2a443acb121a9d2f8cfbbf13f8eb9ce2c20080",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=160007",
+          "caption": "1964 Chevrolet Impala",
+          "image_url": "https://www.igcd.net/images/160/007.jpg",
+          "image_sha256": "d13acc7a96cf51909b99e30f1e4888a3fff4624ffcdb5e19db7643f362facc0c",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 171,
+      "name": "1996 Chevrolet Impala",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "1d0bf7371266e4fce779132f93948963b2c7d0d3643d35d11c7820adf9dd3be1",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=160008",
+          "caption": "1996 Chevrolet Impala",
+          "image_url": "https://www.igcd.net/images/160/008.jpg",
+          "image_sha256": "171d3aecdeb37717e61d87f86a269448d8af004e87992f1820ffcc6aaad147a1",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8377805948257446
+    },
+    {
+      "body": 172,
+      "name": "1985 Cadillac Fleetwood",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "39d0c565e349491692def3273bb238fad7f3fa8bcc86d99405f7c73639d04a4e",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=160011",
+          "caption": "1985 Cadillac Fleetwood",
+          "image_url": "https://www.igcd.net/images/160/011.jpg",
+          "image_sha256": "80f1b69d63ef6b88afe73f35746a07a9da86816b64df1bf728486a322103c548",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 173,
+      "name": "1949 Mercury Eight",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "9841aff0511c4b729f443ed80eba8b91941ce0a7730f14b53f1acadf581f84c8",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=160009",
+          "caption": "1949 Mercury Eight",
+          "image_url": "https://www.igcd.net/images/160/009.jpg",
+          "image_sha256": "fc09851cd1119cad40fbe011c9c723fe3a490f71b6ad115732adc673cb9fa05a",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9336073994636536
+    },
+    {
+      "body": 174,
+      "name": "1956 Ford F-100",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "8464f9116d388d6d6910253a89f73aeb521ee0df050141334b958057aed1d902",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=160010",
+          "caption": "1956 Ford F-100",
+          "image_url": "https://www.igcd.net/images/160/010.jpg",
+          "image_sha256": "3f3ebedb1e6e42093bd4ff82f0e37745947b49bf7949cdf45ef3e5959e46c5c8",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.9398972988128662
+    },
+    {
+      "body": 175,
+      "name": "2016 Ford Shelby GT350R",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "78a1eb09eaee38a1a545fb36cf25ee58da755f0b13cfd3015cb156909758a370",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=160006",
+          "caption": "2016 Ford Shelby GT350R",
+          "image_url": "https://www.igcd.net/images/160/006.jpg",
+          "image_sha256": "7a46777ca1d9cea4a0fc13fa3203908924adbff9cddff4b6d03128cd5c9e02c8",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8095404505729675
+    },
+    {
+      "body": 176,
+      "name": "2009 Lexus IS-F",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "d5b162aa9f9399e6944ed0f0be812de6377400c3841ae904ce1ed17c9810dc7c",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=91455",
+          "caption": "2009 Lexus IS-F",
+          "image_url": "https://www.igcd.net/images/091/455.jpg",
+          "image_sha256": "b2ce9e5dcf3762e39780c781aafe454f6022c715b60089d419782d790099eb28",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 177,
+      "name": "2018 Lexus LC 500",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "0e606f0ea78f8dbcd7b7028aa4e667cfd3d5d4a1dfccc79b6d9b1656b55c2fab",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=167679",
+          "caption": "2018 Lexus LC 500",
+          "image_url": "https://www.igcd.net/images/167/679.jpg",
+          "image_sha256": "a515c001f66455b19899aaa26a4eb61b31b39ce51212249921f4ea02c6878efb",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7939531803131104
+    },
+    {
+      "body": 178,
+      "name": "2013 Mazda Atenza",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "9fa68ddd4c0100f2cf1293c4550abc7a7f174c8f52c11b7ebe6ec96306e3876d",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=167676",
+          "caption": "2013 Mazda Atenza",
+          "image_url": "https://www.igcd.net/images/167/676.jpg",
+          "image_sha256": "e31b936221e8dc7cd1f96a37ca825bb979cebfd023e64d343713e75c66c24d79",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8340291380882263
+    },
+    {
+      "body": 179,
+      "name": "2010 Daihatsu Move Custom",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "119e949c365b332b513dbe856bc79bca985ba9a86079d2b20c12fa6803c7249d",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=167674",
+          "caption": "2010 Daihatsu Move Custom",
+          "image_url": "https://www.igcd.net/images/167/674.jpg",
+          "image_sha256": "3ec097d48db19241a83cd7670ffe0e9350a40c1df8b153981cc7baa3a4df8f02",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7913315296173096
+    },
+    {
+      "body": 180,
+      "name": "2018 Toyota Alphard",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "41ece5a1c84b168938d39048c646d5694ba7af9d6f1327f2c4b801724084ea41",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=167677",
+          "caption": "2018 Toyota Alphard",
+          "image_url": "https://www.igcd.net/images/167/677.jpg",
+          "image_sha256": "7a2948e4ba82a9e1be7feb72e90b1525b05186e2312536993f7f326da0aedbfd",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8137463331222534
+    },
+    {
+      "body": 181,
+      "name": "2018 Kia Stinger",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "181e19adeb55b0fd6c732b9815fa7a81eb3f3d8478c97d95fc429b149c564857",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=167678",
+          "caption": "2018 Kia Stinger",
+          "image_url": "https://www.igcd.net/images/167/678.jpg",
+          "image_sha256": "69c21d36ef88339a0d6f34384259cfd6d590f318420f535d6db9ecdea8456728",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 182,
+      "name": "1932 Ford Hot Rod",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "22ce5212f99ff1cb865efcc9cb48729dc2ed2fed867b25acbf52184aeeaad40d",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=171620",
+          "caption": "1932 Ford Hot Rod",
+          "image_url": "https://www.igcd.net/images/171/620.jpg",
+          "image_sha256": "3451649f04e25edc8d7e6a5d23a4ead031e6c004e3aad6b9f8d9d7a984e07ec0",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 183,
+      "name": "1981 DMC DeLorean",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "692193ed6a2e9116616d1a046cfbbebce48f98feaba9dd9c89369925181b7a09",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=171623",
+          "caption": "1981 DMC DeLorean",
+          "image_url": "https://www.igcd.net/images/171/623.jpg",
+          "image_sha256": "1ec88ea3f7718eca9102369aa7d088160851fdb96a41431f45cc0a7753c3dc08",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8888698816299438
+    },
+    {
+      "body": 184,
+      "name": "1955 Chevrolet Bel Air",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "670d8f0d8066f313bbc48b78175e1cae7af46dc459ca88fe3e7ec4687c84403b",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=171622",
+          "caption": "1955 Chevrolet Bel Air",
+          "image_url": "https://www.igcd.net/images/171/622.jpg",
+          "image_sha256": "2631b904adbd78344639f5b0cb3241495230a13def4ba3bce3ef34daf5d02836",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": null
+    },
+    {
+      "body": 185,
+      "name": "1977 Pontiac Firebird Trans Am",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "f2299c61a1b92eab95da668823f9accdd3c2167e9dd5d5c4f9cf42a91f827285",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=171621",
+          "caption": "1977 Pontiac Firebird Trans Am",
+          "image_url": "https://www.igcd.net/images/171/621.jpg",
+          "image_sha256": "f09007b725f8003ea4a2afaab78e68e4387a90b9486c930d6185e18e2f5116dc",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8089765310287476
+    },
+    {
+      "body": 186,
+      "name": "2005 Ford GT",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "2406e3cc8ea517c4385167e3c986c06d02b7a9b0711bd17d39456290fb20f6d3",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=193505",
+          "caption": "2005 Ford GT",
+          "image_url": "https://www.igcd.net/images/193/505.jpg",
+          "image_sha256": "98534fc002db28e44f262ff96cf403624a066b78b5ff1ddab6aa54a69b25840f",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8588597178459167
+    },
+    {
+      "body": 187,
+      "name": "2019 Audi R8",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "ca74ef138515ab73e3544685946253bfe915a01bb9e2e59f546dfc62a5d89a71",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=193501",
+          "caption": "2019 Audi R8",
+          "image_url": "https://www.igcd.net/images/193/501.jpg",
+          "image_sha256": "91d56632532214f3c950a5fe8238ffa85a5238b9062f12a8ef1edf339bb09b24",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8359242081642151
+    },
+    {
+      "body": 188,
+      "name": "2018 Aston Martin Vantage",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "23549260caafc7711efe82df2174abbefb6570374534e06cfcf132b9ccba53ec",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=193504",
+          "caption": "2018 Aston Martin Vantage",
+          "image_url": "https://www.igcd.net/images/193/504.jpg",
+          "image_sha256": "4162189a3367ae1c0c5f769fb33e1c6e22758c5559f986ce55f1efd6f7b06137",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8450556397438049
+    },
+    {
+      "body": 189,
+      "name": "2020 Mercedes-AMG GT S",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "b38206b59d7678299a28d451b316d9ff91b3f8f00cc881ed295012df676d9f76",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=193503",
+          "caption": "2020 Mercedes-AMG GT S",
+          "image_url": "https://www.igcd.net/images/193/503.jpg",
+          "image_sha256": "a6e4e6bd15090728a88e3a8d309fa7df34764153ddf40bfd05c03fd4d74e63fb",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.7757289409637451
+    },
+    {
+      "body": 190,
+      "name": "2019 Toyota GR Supra",
+      "status": "visually_reviewed",
+      "source_body_rgba_sha256": "76bb8a5d21d6637f76bd0e60296e88aa1c6156cadba84eb57c98984771c747e3",
+      "references": [
+        {
+          "url": "https://www.igcd.net/vehicle.php?id=193502",
+          "caption": "2019 Toyota GR Supra",
+          "image_url": "https://www.igcd.net/images/193/502.jpg",
+          "image_sha256": "87a5d0623c59d00f7a0e4b0be2feab73782cf3710fe73e3c3964c2fd9556c668",
+          "exact_variant": true
+        }
+      ],
+      "candidate_texture_score": 0.8057901859283447
+    }
+  ],
+  "unbound_visual_replacements": [
+    {
+      "body": 63,
+      "name": "Porsche 911 Unbound (variante)",
+      "status": "probable"
+    },
+    {
+      "body": 75,
+      "name": "Hypercar Unbound à identifier",
+      "status": "unresolved"
+    },
+    {
+      "body": 85,
+      "name": "Lamborghini Unbound (modèle à confirmer)",
+      "status": "probable"
+    },
+    {
+      "body": 121,
+      "name": "Hypercar Unbound à identifier",
+      "status": "unresolved"
+    },
+    {
+      "body": 186,
+      "name": "Hypercar Unbound à identifier",
+      "status": "unresolved"
+    },
+    {
+      "body": 187,
+      "name": "Lamborghini Unbound (modèle à confirmer)",
+      "status": "probable"
+    }
+  ],
+  "limitations": [
+    "Identity confidence and exact-variant uncertainty are explicit.",
+    "Two original silhouettes and three Unbound hypercars remain unnamed.",
+    "Mechanical values come from the game source, not manufacturer specifications.",
+    "The mod retains the original mechanical values for its visual replacement slots."
+  ]
+}

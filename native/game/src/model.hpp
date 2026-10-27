@@ -7,6 +7,8 @@
 #include "rims.hpp"
 #include "content_catalog.hpp"
 #include "body_choices.hpp"
+#include "stock_vehicles.hpp"
+#include "vehicle_identities.hpp"
 
 namespace pcr {
 enum class WindowMode { Windowed, Borderless, Fullscreen };
@@ -19,10 +21,11 @@ struct Settings {
     bool vsync=true, showFps=false, sound=true, traffic=true;
     Quality quality=Quality::High;
 };
-struct Profile { int car=0, rim=8,contentSource=0,audioSource=0;std::array<int,CosmeticSlotCount> cosmetics{};bool rollCage=false,headlights=false; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1;
+struct Profile { int car=0, rim=8,contentSource=0,audioSource=0;std::array<int,CosmeticSlotCount> cosmetics{};bool rollCage=false,headlights=false,factoryDrive=true; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1;
     int gearboxPreset=0,gearCount=6;std::array<double,10> gearRatios{3.15,2.10,1.55,1.22,1.0,.82,.68,.56,.46,.38};
     double finalDrive=3.9,shiftSeconds=.15;
 };
+inline DriveLayout effectiveDrive(const Profile& p){return p.factoryDrive?DriveLayout(stockVehicle(p.car).drive):p.drive;}
 int bodyChoiceIndex(const Profile&);
 void cycleBody(Profile&,int);
 void sanitizeTransmission(Profile&);
@@ -37,7 +40,8 @@ bool saveProfile(const std::filesystem::path&, const Profile&, std::string& erro
 const char* modeKey(WindowMode);
 double easeLinear(double t, double b, double c, double d);
 
-// New native simulation. These parameters are not recovered original vehicle data.
+// Native integration defaults for the diagnostic reference car. buildVehicle applies
+// recovered per-body stock mass/power/revs/grip/layout before installed parts.
 struct Vehicle {
     double mass=1240, torque=345, wheelRadius=.32, finalDrive=3.9;
     int gearCount=6;std::array<double,10> ratios{3.15,2.10,1.55,1.22,1.0,.82,.68,.56,.46,.38};
@@ -73,6 +77,7 @@ struct Build {
     Vehicle vehicle; double baseHp=0,engineHp=0,boltOnHp=0,boostedHp=0,nitroHp=0,peakRpm=0,rideOffset=0;
     int tireFrame=0,exhaustFrame=0;
 };
+double engineRedline(const Profile&);
 Build buildVehicle(const Profile&);
 struct DriverInput { bool throttle=false, brake=false, automatic=true,nitro=false,launch=false,handbrake=false; };
 struct CarState {

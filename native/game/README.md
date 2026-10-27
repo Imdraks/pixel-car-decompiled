@@ -1,7 +1,14 @@
-# Pixel Car Racer — Unbound Native 0.9.1
+# Pixel Car Racer — Unbound Native 0.10.0
 
-Le correctif **0.9.1** rétablit les deux ancrages et les couches d’affichage
-des pots arrière/latéraux du code source. Voir [EXHAUST.md](EXHAUST.md).
+La version **0.10.0** remplace la voiture mécanique commune par les **191 fiches
+d’origine** : masse, puissance, régime, adhérence de châssis et transmission
+propres à chaque identifiant. Les noms et incertitudes s’affichent au garage.
+Voir [VEHICLES.md](VEHICLES.md) et [PHYSICS.md](PHYSICS.md) : ces paramètres sont
+récupérés, mais les équations Android complètes et les fiches constructeur ne
+sont pas encore importées. Les deux silhouettes 101 et 154 restent à nommer.
+
+Les anciennes conversions de transmission sont conservées. Pour retrouver la
+transmission du modèle, ouvrez TRANSMISSION et choisissez **TRANSMISSION D’ORIGINE**.
 
 La version **0.9.0** réunit Original et Unbound dans les mêmes catégories,
 avec la provenance affichée sous chaque pièce. Elle corrige les ancrages des

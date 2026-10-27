@@ -1,3 +1,57 @@
+# Physique par voiture — 0.10.0
+
+Les 191 carrosseries utilisent désormais leurs fiches mécaniques d’origine,
+récupérées dans `ob_car_Step_0` des deux bibliothèques Android. Chaque branche
+est liée à son intervalle d’identifiant de voiture ; les 382 bornes sont
+vérifiées. Les 1337 valeurs de chaque banque sont identiques : poids, HP,
+adhérence brute, vitesse catalogue, régime, cylindrée brute et transmission.
+Les adresses des écritures, empreintes et valeurs sont dans
+`../evidence/merged/stock-vehicles.json`. Reproduction :
+`python native/tools/recover_vehicle_data.py`.
+
+## Ce qui influence réellement la conduite
+
+- Masse propre à la carrosserie, convertie de lb en kg. Le plancher à 600 kg
+  est retiré : la petite voiture de 1150 lb conserve ses 521,6 kg.
+- Puissance d’origine calibrée sur le pic de la courbe native, puis moteur
+  remplacé et pièces ajoutées. Changer de carrosserie ne ramène plus tous les
+  moteurs d’origine à la même puissance de référence.
+- Limiteur propre à la voiture ; ECU, changements de rapports et courbe native
+  se basent sur ce régime. Les 16 moteurs de remplacement utilisent aussi leurs
+  régimes et cylindrées source (15 familles mécaniques, deux Hemi partageant
+  la même fiche), vérifiés indépendamment dans les deux banques.
+- Adhérence relative du châssis conservée avec les pneus équipés. Le coefficient
+  SI utilise encore la calibration native `1.08 × grip_source / 1200`.
+- Transmission d’origine : 33 tractions, 126 propulsions, 32 intégrales. Une
+  conversion choisie manuellement reste prioritaire ; le bouton TRANSMISSION
+  D’ORIGINE rétablit le suivi automatique de la carrosserie.
+- Sauvegardes version 3. Les anciennes préférences de transmission sont
+  conservées ; un nouveau profil démarre avec la transmission d’origine.
+
+La vitesse catalogue et la cylindrée figurent dans la fiche ; elles ne servent
+pas de plafond artificiel de vitesse ou de multiplicateur de puissance.
+La vitesse réelle résulte toujours des rapports, du couple, de la masse et des
+résistances. Les variantes visuelles du mod gardent leur fiche mécanique source :
+un changement d’image ne suffit pas à attribuer les caractéristiques d’un autre
+modèle réel.
+
+## Limites de fidélité
+
+Les **paramètres de stock** sont récupérés. Les **équations complètes Android**
+ne le sont pas. Courbe de couple, coefficient d’adhérence, géométrie SI,
+aérodynamique, inertie et pneus restent des adaptations natives. Les données du
+jeu peuvent aussi différer des fiches constructeur ; elles ne sont pas présentées
+comme une simulation homologuée des vraies voitures. Les identités visuelles
+et leurs degrés de certitude sont documentés séparément.
+
+Le banc historique ci-dessous conserve sa voiture de référence générique pour
+les comparaisons entre plateformes ; il ne représente pas toutes les voitures.
+Le nouveau `stock-vehicle-physics.csv` contrôle les 191 configurations en
+accélération et au freinage et `stock-vehicle-physics.json` en conserve la
+couverture. Quatre cadences de rendu sont aussi comparées pour une voiture source.
+
+## Historique de la reconstruction
+
 # Physique native et pièces 0.7
 
 Le mode libre dispose désormais du catalogue demandé. La fidélité physique au
