@@ -12,6 +12,23 @@
 - Preuves : `validation/garage-engine-0.13.5/`.
 - Le comportement de régime/limiteur reste une adaptation native.
 
+## Publication Windows vérifiée — 0.13.5
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40579889724) : 327 contrôles du cœur, 86 graphiques et 188 sons décodés.
+- Démarrage au garage, régime jusqu’au limiteur et arrêt vérifiés dans
+  l’application Windows. Capture du régime et de l’indication RUPTEUR revue.
+- Les 39 essais de touches avec audio et le mixage du démarreur/limiteur
+  concernent Linux et un périphérique logiciel, pas des haut-parleurs physiques.
+- 1528 compositions et mesures physiques concordent avec Linux ; les contrôles
+  pixels des matériaux, huit fumées, NOS/flammes et défilement réussissent.
+- Archive publique redéchargée : CRC, SHA-256, EXE, source compilée, tableau des
+  sons et treize aperçus Windows vérifiés. Restauration vide puis réutilisation :
+  248 ressources. Rapports : `validation/windows-0.13.5/`.
+- Rendu Mesa de CI ; GPU physique et équivalence audio complète Android non établis.
+- Source compilée : `cb867e6cfaf273dd62d963d3f6b2d4a7bb537fda`.
+- ZIP : 59482374 octets, SHA-256 `b84112e0553e5b598e50b22719ad3b6cba61cbf93a5f5d32055fa05f2738b9ff`.
+- EXE : SHA-256 `ad828071d5ae3e086b0e57d914b511aef735c45b5a50ae2aad8003fa7e69180e`.
+
 # Validation 0.13.4 — associations source moteur/son
 
 - Les 15 gardes de puissance couvrant 16 moteurs interchangeables sont extraites
