@@ -47,7 +47,8 @@ avec jantes nommées, esthétique et sélection des deux banques d’images/sons
 - Une seule liste par catégorie : **ORIGINAL**, **UNBOUND** ou **ORIGINAL + UNBOUND**
   sous les pièces. Les variantes de sièges sont conservées séparément.
 - Positions des pots arrière, sièges, galeries et crochets récupérées dans les
-  deux jeux ; VFX et pots partagent leur placement, ajusté aux kits.
+  deux jeux ; les pots arrière/latéraux suivent leurs deux ancrages et les couches
+  du code original. VFX et pots partagent leur placement.
   [Ancrages et limites](native/game/ATTACHMENTS.md). **F8** : arceau ; **K** : phares.
 - Deux banques de 94 sons, choisies dans **SON DU MOTEUR** indépendamment de la
   voiture et des pièces.
@@ -76,7 +77,7 @@ d’essai. L’équivalence avec la conduite Android n’est pas validée.
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-143 contrôles du cœur et 45 contrôles graphiques passent sur Windows ; les mesures
+146 contrôles du cœur et 45 contrôles graphiques passent sur Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
 Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 82 contrôles
 clavier/souris et 192 416 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.

@@ -14,6 +14,22 @@
   l’équivalence complète du rendu Android n’est pas revendiquée.
 - Preuves Linux : `validation/exhaust-source-0.9.1/`.
 
+## Publication Windows vérifiée — 0.9.1
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40463130324) : 146 contrôles du cœur, 45 contrôles graphiques, 188 sons décodés,
+  physique Linux/Windows à 0,01 près et 192416 combinaisons de pièces.
+- Source des 18336 transformations et couches vérifiée ; quatre planches du vrai
+  rendu Windows sont dans le ZIP de validation. Aperçu des pots revu.
+- ZIP public redéchargé : CRC, SHA-256, source compilée et EXE vérifiés.
+  Les sept aperçus publics sont identiques aux captures Windows validées.
+- Vitesse du décor, immobilité des roues et pixels NOS/flammes vérifiés sur les
+  captures Windows. Restauration à froid/réutilisation : 247 ressources chacune.
+- Rapports : `validation/windows-0.9.1/`. Rendu Windows logiciel Mesa ; GPU et
+  haut-parleurs physiques non testés.
+- Source compilée : `c2f73a2c13aede7619a6a6c590b819f42772b692`.
+- ZIP : 59228865 octets, SHA-256 `9a5a6c8c2cf8ae8d48b8cd1665f8fd3eb72b16ffcd3a8d1f893810846c291f13`.
+- EXE : SHA-256 `e30a5114e07d5343f90ac838a6ad2340eeef86929aeb32eb2d39dad3b08fc81d`.
+
 Les validations ci-dessous concernent les versions antérieures.
 
 # Validation native 0.9.0
