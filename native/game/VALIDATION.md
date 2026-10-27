@@ -9,10 +9,24 @@
   les contrôles pixels et les captures burnout/point mort ont été revues.
 - 100 contrôles d’entrées réelles Linux réussis : 15 burnout/point mort,
   69 garage/audio et 16 affichage/trafic.
-- Compilation Windows x64 terminée ; la publication exige les mêmes contrôles
-  du cœur et des captures sous Windows via CI.
+- Windows x64 validé par CI : mêmes contrôles du cœur et des captures réussis.
 - Preuves Linux : `validation/burnout-0.11/`.
 - Il s’agit d’une adaptation native ; la chauffe des pneus Android n’est pas portée.
+
+## Publication Windows vérifiée — 0.11.0
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40499296308) : 233 contrôles du cœur, 60 graphiques, 188 sons décodés et huit
+  couleurs de fumée vérifiées sur les captures Windows. Aperçu du burnout revu.
+- Mesures des 191 voitures identiques à Linux à la précision des CSV exportés.
+  Contrôles pixels du décor, des roues, des flammes et du NOS réussis.
+- Archive publique redéchargée : CRC, SHA-256, EXE et source compilée vérifiés.
+  Les neuf aperçus publics correspondent aux captures Windows validées.
+- Restauration sur dossier vide puis réutilisation : 247 ressources chacune.
+  Rapports dans `validation/windows-0.11/`. Rendu Mesa logiciel ; GPU et
+  haut-parleurs physiques non testés.
+- Source compilée : `a23add970340058799a90ad298c9cd3816fbfa29`.
+- ZIP : 59298741 octets, SHA-256 `dde9dba9b747af892b4cb703ceee148ce65e2c198cc1c1c3ffe616f253773a49`.
+- EXE : SHA-256 `bc33aae9dd3ac2c29bc35d08c290f7659681f1c3f96ac66d8fa418f539396048`.
 
 # Validation 0.10.0 — paramètres par voiture
 

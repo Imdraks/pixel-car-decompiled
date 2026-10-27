@@ -1,0 +1,16 @@
+{
+  "bodies_compared": 191,
+  "max_absolute_differences": {
+    "body": 0.0,
+    "mass_kg": 0.0,
+    "stock_hp": 0.0,
+    "redline_rpm": 0.0,
+    "layout": 0.0,
+    "grip_native": 0.0,
+    "speed_after_10s_kmh": 0.0,
+    "seconds_100_0": 0.0,
+    "metres_100_0": 0.0
+  },
+  "tolerance": 0.01,
+  "android_dynamics_equivalence": false
+}
