@@ -13,6 +13,23 @@
   de capot ne sont pas récupérées ; leur ajustement est natif. Aucune équivalence
   complète Android n’est revendiquée. Voir `CUSTOMIZATION-COMPLETE.md`.
 
+## Publication Windows vérifiée — 0.13.0
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40522763934) : 277 contrôles du cœur, 74 graphiques,
+  188 sons décodés, audit des 382 entrées et douze peintures distinctes vérifiés.
+- Les 1528 empreintes de compositions de carrosserie sont identiques à Linux ;
+  mesures des 191 voitures et trajectoire de suspension concordantes à 0,01 près.
+- Captures Windows des matériaux et pots de capot revues ; contrôles pixels des
+  matériaux, flammes, NOS, huit fumées et défilement réussis.
+- Archive publique redéchargée : CRC, SHA-256, EXE et source compilée vérifiés.
+  Les treize aperçus publics correspondent aux captures Windows validées.
+- Restauration sur dossier vide puis réutilisation : 248 ressources chacune.
+- Rapports : `validation/windows-0.13/`. Rendu Mesa logiciel ; GPU et
+  haut-parleurs physiques non testés. Aucune équivalence complète Android.
+- Source compilée : `b35ae7d0dda82b42799c6a556b09698d99fd5d98`.
+- ZIP : 59447865 octets, SHA-256 `709dbe4bfcafc334b11cb0d79d43b0cbc722d989d5e6ccd4cf0de8119003a2cb`.
+- EXE : SHA-256 `92325d54838f3daf14cf9417cd44cb74625a3f92ac599b61bc33133db7d72a5d`.
+
 # Validation 0.12.0 — suspension, wheelie, ABS et antipatinage
 
 - 263 contrôles du cœur Linux réussis, dont 64 combinaisons extrêmes de hauteur,

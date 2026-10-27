@@ -95,7 +95,7 @@ de transmission sont conservées. L’équivalence avec Android n’est pas vali
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-277 contrôles du cœur et 74 contrôles graphiques passent sous Linux ; les mesures
+277 contrôles du cœur et 74 contrôles graphiques passent sous Linux et Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
 Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 133 contrôles
 clavier/souris et 192 416 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.

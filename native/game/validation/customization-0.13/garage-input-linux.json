@@ -241,7 +241,7 @@
     "drive_layout": "1",
     "audio_ready": "1",
     "audio_failures": "0",
-    "frames": "4705",
+    "frames": "4687",
     "mode": "windowed",
     "width": "1920",
     "height": "1080"
@@ -291,7 +291,7 @@
     "drive_layout": "1",
     "audio_ready": "1",
     "audio_failures": "0",
-    "frames": "137",
+    "frames": "142",
     "mode": "windowed",
     "width": "960",
     "height": "540"
