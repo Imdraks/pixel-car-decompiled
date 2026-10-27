@@ -7,8 +7,7 @@
   masses et puissances de base, 33 FWD / 126 RWD / 32 AWD, 16 moteurs remplacés avec régimes propres, absence de plancher
   abusif à 600 kg, sauvegardes/conversions, noms/incertitudes et indépendance FPS.
 - 50 contrôles graphiques Linux réussis sur la version finale ; les captures
-  de quatre fiches et de la transmission sont revues. Windows est vérifié par CI
-  avant publication.
+  de quatre fiches et de la transmission sont revues. Windows est aussi validé.
 - 85 contrôles d’entrées réelles Linux : 69 garage/audio, 16 affichage/trafic.
   Le mode de transmission d’origine et les conversions manuelles sont testés.
 - Les 192416 combinaisons de pièces restent vérifiées. Référence de prépa max :
@@ -17,6 +16,22 @@
   distingués. Les équations Android complètes ne sont pas déclarées récupérées.
 
 Preuves Linux : `validation/vehicles-0.10/`.
+
+## Publication Windows vérifiée — 0.10.0
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40484200968) : 166 contrôles du cœur, 50 contrôles graphiques et 188 sons décodés.
+- Les mesures d’accélération/freinage et les paramètres des 191 voitures
+  concordent avec Linux à la précision des CSV exportés (tolérance 0,01).
+- Archive publique redéchargée : CRC, SHA-256, source compilée et EXE vérifiés.
+  Les huit aperçus publics correspondent aux captures Windows validées ; la
+  fiche AWD a été revue visuellement.
+- Contrôles pixels de vitesse, roues, NOS/flammes réussis sous Windows.
+  Restauration des 247 ressources sur dossier vide puis réutilisation réussies.
+- Rapports : `validation/windows-0.10/`. Rendu Mesa logiciel ; GPU et
+  haut-parleurs physiques non testés.
+- Source compilée : `36754b81fe4451ffd9c5f25cfdc4297f3918968e`.
+- ZIP : 59294935 octets, SHA-256 `91692f5be3f5d710183e815ed57bac667a67866aef57fa72e56260ea9aa2ad92`.
+- EXE : SHA-256 `df9b6911e39b44216422faeebe4c6e6068ae5868c47ae3acee85f31cc732f651`.
 
 Les validations ci-dessous concernent les versions antérieures.
 
