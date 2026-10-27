@@ -1,12 +1,15 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.9.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.9.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.9.0-native-preview)
+**[Télécharger Windows x64 — version 0.9.1](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.9.1-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.9.1-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+Le correctif **0.9.1** corrige les pots arrière/latéraux : ancrages par carrosserie
+et ordre d’affichage récupérés dans les deux versions Android.
 
 La version 0.9.0 fusionne les boutiques Original 1.2.5 + Unbound : **1220 choix d’équipement**,
 avec jantes nommées, esthétique et sélection des deux banques d’images/sons.

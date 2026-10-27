@@ -420,7 +420,7 @@ int main(int argc,char**argv){
     expect(audioBanksValid,"both 94-sample banks preserve stable names, IDs and separate resource paths");
     const auto& sourceAnchors=attachments::anchors(20,false);
     expect(sourceAnchors.roofX==34&&sourceAnchors.roofY==-50&&sourceAnchors.hookX==130&&sourceAnchors.seatX==30,"known body uses recovered roof, hook and seat coordinates instead of generic positions");
-    auto fittedRear=placeExhaust(20,7);expect(fittedRear.x==-15&&fittedRear.y==-2&&fittedRear.front,"rear pipe uses recovered source position, source sprite origin and visible foreground order");
+    auto fittedRear=placeExhaust(20,7);expect(fittedRear.x==-15&&fittedRear.y==-2&&!fittedRear.front,"rear pipe uses recovered source position and is occluded by the body as in source");
     bool allSourceFits=true;int fittedVariants=0;
     for(int bank=0;bank<2;bank++)for(int car=0;car<191;car++)for(int pipe=0;pipe<51;pipe++){
         if(pipe!=0&&!std::any_of(std::begin(PartCatalog),std::end(PartCatalog),[&](const Part& p){return p.slot==PartSlot::Exhaust&&p.subimage==pipe;}))continue;
@@ -431,6 +431,20 @@ int main(int argc,char**argv){
     bool choicesValid=true;for(size_t i=0;i<std::size(BodyChoices);i++){Profile p;p.car=BodyChoices[i].body;p.contentSource=BodyChoices[i].source;choicesValid&=bodyChoiceIndex(p)==int(i);cycleBody(p,1);cycleBody(p,-1);choicesValid&=bodyChoiceIndex(p)==int(i);}
     expect(choicesValid&&std::size(BodyChoices)==239,"one body selector preserves every distinct source body and accessory bundle without duplicates");
     expect(findPart(3027)->sourceMask==1&&findPart(1002)->sourceMask==3&&findCosmetic(109001)->sourceMask==2&&findCosmetic(309001)->sourceMask==1,"source badges distinguish original exclusives, common parts and both seat variants");
+    auto sourceSide=placeExhaust(20,44),sourceStack=placeExhaust(20,34),sourceRearStack=placeExhaust(20,33),sourceDownpipe=placeExhaust(20,43);
+    expect(sourceSide.x==22&&sourceSide.y==2&&sourceSide.front&&sourceStack.x==22&&sourceStack.y==2&&sourceStack.front,"side outlets and side stacks use the second source anchor instead of the sill estimate");
+    expect(!sourceRearStack.front&&sourceRearStack.x==-15&&!sourceDownpipe.front&&sourceDownpipe.x==-15,"rear stacks and Downpipe retain rear anchors and body occlusion");
+    bool sourcePlacementMatches=true;int exactSourceFits=0;
+    for(int bank=0;bank<2;bank++)for(int car=0;car<191;car++)for(int pipe=0;pipe<48;pipe++){
+        const auto& a=attachments::anchors(car,bank);int type=attachments::exhaustTypes[pipe];bool foreground=type==1||type==4;
+        auto fit=placeExhaust(car,pipe,6,bank,7,12);
+        double x=22+(foreground?a.exhaust2X:a.exhaustX),y=-4+(foreground?a.exhaust2Y:a.exhaustY)+6;
+        sourcePlacementMatches&=fit.x==x&&fit.y==y&&fit.front==foreground;
+        for(int j=0;j<fit.count;j++)sourcePlacementMatches&=std::abs(fit.outlets[j].x-x-art::pipeLayouts[pipe].outlets[j].x)<1e-7&&std::abs(fit.outlets[j].y-y-art::pipeLayouts[pipe].outlets[j].y)<1e-7;
+        ++exactSourceFits;
+    }
+    expect(sourcePlacementMatches&&exactSourceFits==18336,"18336 source body/pipe transforms, draw layers and particle roots follow both recovered anchors, independent of kit fitting");
+    {std::ofstream out(root/"exhaust-source-rules.json");out<<"{\n  \"source_transforms_checked\": "<<exactSourceFits<<",\n  \"hood_remains_native\": true\n}\n";}
     Profile flags;flags.rollCage=true;flags.headlights=true;flags.audioSource=1;flags.contentSource=0;saveProfile(root/"flags.ini",flags,error);auto loadedFlags=loadProfile(root/"flags.ini",191,54);
     expect(loadedFlags.rollCage&&loadedFlags.headlights&&loadedFlags.audioSource==1&&loadedFlags.contentSource==0,"cage, headlights and independent audio source survive reload");
     {std::ofstream out(root/"legacy-seat.ini");out<<"version=1\ncontent_source=1\ncosmetic_9=109001\npart_engine=1002\n";}

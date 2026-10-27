@@ -1,4 +1,4 @@
-# Pots et points d’émission natifs — 0.9
+# Pots et points d’émission natifs — 0.9.1
 
 Les 48 échappements équipables et le pot de base utilisent leurs images Unbound
 originales. Ils apparaissent au garage, au menu et en conduite. Leur placement
@@ -12,11 +12,13 @@ Les retours de flamme sont teintés chaud ; le NOS forme un jet bleu visible.
 Les flammes et le NOS restent attachés au pot pendant leur durée de vie. Les
 fumées de pneus et étincelles continuent de suivre le sol et leur propre mouvement.
 
-Les pots arrière utilisent désormais les coordonnées de `scr_part_positions`
-pour chaque carrosserie et chaque banque. Les origines des sprites sont appliquées
-explicitement, et la même transformation sert au rendu et aux émetteurs. Les
-capots/bas de caisse et pare-chocs modifiés utilisent des ajustements natifs
-de surface. Voir [ATTACHMENTS.md](ATTACHMENTS.md) pour la provenance et les limites.
+Les pots utilisent les deux ancrages de `scr_part_positions` et les types de
+`exhaust_get_type`, récupérés dans les deux banques. Comme dans le code original,
+les types arrière 2/3 sont derrière la carrosserie ; les types latéraux 1/4 sont
+devant, à `part_exhaust2_x/y`. Le placement estimé au milieu du bas de caisse et
+les corrections artificielles selon les kits sont supprimés. Les trois pots de
+capot conservent leur adaptation native. Voir [ATTACHMENTS.md](ATTACHMENTS.md)
+pour les adresses source et les limites.
 Les contrôles couvrent 18718 configurations corps/pot et 243334 variantes de
 fitting avec les kits. Le défilement, l’orientation et l’attachement des effets
 restent vérifiés en conduite et pendant les changements de voie.

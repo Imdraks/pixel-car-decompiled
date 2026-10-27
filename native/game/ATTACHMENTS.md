@@ -1,4 +1,4 @@
-# Ancrages et rendu des accessoires — 0.9.0
+# Ancrages et rendu des accessoires — 0.9.1
 
 Les pots arrière, galeries, sièges et crochets utilisent maintenant les positions
 par carrosserie de `scr_part_positions`, récupérées statiquement dans les deux
@@ -14,14 +14,28 @@ Le siège et l’arceau se dessinent derrière les vitres translucides et les po
 Les cargaisons disposent toujours d’une marge de 64 pixels au-dessus du toit.
 Les écrous forment maintenant une couronne de cinq points autour du moyeu.
 
-Les pots sont visibles après la carrosserie, y compris le pot de base. Leur
-transformation est partagée avec les sorties NOS/flammes. Le placement arrière
-suit aussi les dimensions du pare-chocs équipé ; le capot et les sorties latérales
-utilisent la silhouette de la bonne version et le bas de caisse choisi. Les
-18718 configurations corps/pot des deux banques, et 243334 cas avec les variantes
-de kits, sont vérifiés. Les bouches/directions des pots et ces ajustements de
-surface restent des adaptations natives, et non une récupération complète du
-rendu Android.
+Les échappements suivent les deux branches d’ancrage et l’ordre de dessin du
+`gml_Object_ob_car_Draw_0` original, confirmés dans Unbound : types 2/3 derrière
+la carrosserie à `part_exhaust_x/y`, types 1/4 devant à `part_exhaust2_x/y`.
+Les types sont récupérés séparément dans les deux `exhaust_get_type` (51 images,
+tableaux identiques), avec les cibles des branches dans
+`native/evidence/merged/exhaust-rules.json`. Le script reproductible est
+`native/tools/recover_exhaust_rules.py`.
+
+Les sorties latérales 40,41,44–47 et les grands pots latéraux 32,34,37–39
+utilisent donc le second ancrage. Les pots 33,35,36 et le Downpipe 43 restent
+sur le premier, derrière la carrosserie. Les ajustements estimés de bas de
+caisse/pare-chocs sont supprimés : ces branches d’origine ne les ajoutent pas.
+Le pot et ses sorties NOS/flammes partagent toujours exactement la même
+transformation, avec le mouvement de suspension.
+
+Les 18336 transformations des images 0–47 sur les 191 carrosseries des deux
+banques sont vérifiées contre les coordonnées récupérées, avec les couches de
+dessin et les racines des particules. Les contrôles existants couvrent aussi
+18718 configurations corps/pot et 243334 variantes avec kits.
+Les bouches/directions et les trois pots de capot (type 0) restent adaptés
+nativement : aucune des quatre branches de dessin récupérées ne dessine ces
+images de capot, et leur rendu Android complet n’est pas encore reconstitué.
 
 Un kit sans image compatible pour la carrosserie conserve désormais le panneau
 d’origine. Seul le kit Delete retire intentionnellement les panneaux. Les pièces

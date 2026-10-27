@@ -1,3 +1,21 @@
+# Validation native 0.9.1 — correctif des échappements
+
+- Classificateurs Android Original/Unbound récupérés séparément et identiques
+  pour les 51 images ; coordonnées et branches de dessin conservées dans
+  `native/evidence/merged/exhaust-rules.json`.
+- 146 contrôles du cœur Linux réussis : 18336 transformations source, couches
+  et racines de particules, plus les contrôles existants de physique et contenu.
+- 45 contrôles graphiques Linux réussis. Quatre nouvelles planches du vrai
+  moteur montrent 12 pots sur carrosserie standard, courte, longue et kit avec
+  suspension modifiée. Contrôles pixels de vitesse et NOS/flammes réussis.
+- Binaires Windows x64 et Linux compilés. La publication du correctif exige
+  aussi les contrôles Windows via le workflow de release.
+- Les pots de capot et directions des bouches restent des adaptations natives ;
+  l’équivalence complète du rendu Android n’est pas revendiquée.
+- Preuves Linux : `validation/exhaust-source-0.9.1/`.
+
+Les validations ci-dessous concernent les versions antérieures.
+
 # Validation native 0.9.0
 
 - 143 contrôles du cœur : récupération de 4584 coordonnées, fitting de

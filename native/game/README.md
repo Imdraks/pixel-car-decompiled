@@ -1,4 +1,7 @@
-# Pixel Car Racer — Unbound Native 0.9.0
+# Pixel Car Racer — Unbound Native 0.9.1
+
+Le correctif **0.9.1** rétablit les deux ancrages et les couches d’affichage
+des pots arrière/latéraux du code source. Voir [EXHAUST.md](EXHAUST.md).
 
 La version **0.9.0** réunit Original et Unbound dans les mêmes catégories,
 avec la provenance affichée sous chaque pièce. Elle corrige les ancrages des

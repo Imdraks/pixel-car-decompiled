@@ -26,7 +26,7 @@ layouts=[]
 # Long source pipes have real visible upper tips; miniature side outlets are
 # placed below the sill. These are native mounts, not recovered YYC offsets.
 tops={11:[(39.5,46)],18:[(39.5,45)],32:[(43.5,4)],33:[(22.5,10)],34:[(41.5,6),(46.5,2)],35:[(26.5,21)],36:[(30.5,37)],37:[(35.5,15),(37.5,4)],38:[(33.5,7)],39:[(33.5,23),(36.5,12),(38.5,4)]}
-side={40:[(57.5,57),(61.5,57)],41:[(59.5,62)],43:[(41.5,64.5)],44:[(59.5,63),(63.5,63)],45:[(58.5,60.5),(63.5,60.5)],46:[(59,62.5)],47:[(59,62.5),(64,62.5)]}
+side={40:[(57.5,57),(61.5,57)],41:[(59.5,62)],44:[(59.5,63),(63.5,63)],45:[(58.5,60.5),(63.5,60.5)],46:[(59,62.5)],47:[(59,62.5),(64,62.5)]}
 for i,f in enumerate(ex['frames']):
  dx,dy=f['target_offset'];w,h=crop(f).size
  kind='rear';direction=(-1,0)
@@ -36,6 +36,8 @@ for i,f in enumerate(ex['frames']):
   kind='side';points=side[i];direction=(-.8,.6);base=(sum(p[0] for p in points)/len(points),sum(p[1] for p in points)/len(points))
  elif i in tops:
   kind='stack';points=tops[i];direction=(0,-1) if i in [11,18] else (-.35,-math.sqrt(1-.35**2));base=(dx+w-2,dy+h-3)
+ elif i==43:
+  points=[(41.5,64.5)];direction=(-.8,.6);base=points[0]
  elif i==42:
   points=[(41.5,57),(41.5,62)];base=(41.5,59.5)
  else:

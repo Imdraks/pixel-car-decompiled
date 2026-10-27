@@ -1,0 +1,348 @@
+{
+  "method": "Static ELF classifier switch recovery; no Android code executed",
+  "banks": {
+    "original": {
+      "binary_sha256": "af1f9adc9a3a0a4ec1547d051fe41a89974045cb3d7666fbbb94715ce2872a18",
+      "classifier": {
+        "name": "_Z27gml_Script_exhaust_get_typeP9CInstanceS0_R8YYRValueiPPS1_",
+        "address": "0x00c7af60",
+        "size": 1695,
+        "kind": 2,
+        "demangled": "gml_Script_exhaust_get_type(CInstance*, CInstance*, YYRValue&, int, YYRValue**)"
+      },
+      "frame_types": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        4,
+        3,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "switch_targets": {
+        "0": "0xc7b16b",
+        "35": "0xc7b242",
+        "36": "0xc7b242",
+        "33": "0xc7b242",
+        "32": "0xc7b1d4",
+        "34": "0xc7b1d4",
+        "37": "0xc7b1d4",
+        "38": "0xc7b1d4",
+        "39": "0xc7b1d4",
+        "40": "0xc7b20b",
+        "41": "0xc7b20b",
+        "44": "0xc7b20b",
+        "45": "0xc7b20b",
+        "46": "0xc7b20b",
+        "47": "0xc7b20b",
+        "48": "0xc7b1a2",
+        "49": "0xc7b1a2",
+        "50": "0xc7b1a2"
+      },
+      "draw_function": {
+        "name": "_Z24gml_Object_ob_car_Draw_0P9CInstanceS0_",
+        "address": "0x0121c030",
+        "size": 407837,
+        "kind": 2,
+        "demangled": "gml_Object_ob_car_Draw_0(CInstance*, CInstance*)"
+      },
+      "draw_field_accesses": [
+        {
+          "address": "1230230",
+          "field": "part_exhaust_x"
+        },
+        {
+          "address": "1230260",
+          "field": "part_exhaust_y"
+        },
+        {
+          "address": "1242610",
+          "field": "part_exhaust2_x"
+        },
+        {
+          "address": "1242640",
+          "field": "part_exhaust2_y"
+        },
+        {
+          "address": "124353d",
+          "field": "part_exhaust2_x"
+        },
+        {
+          "address": "1243561",
+          "field": "part_exhaust2_y"
+        },
+        {
+          "address": "124c28c",
+          "field": "part_exhaust_x"
+        },
+        {
+          "address": "124c2a3",
+          "field": "part_exhaust_y"
+        },
+        {
+          "address": "125a937",
+          "field": "part_exhaust2_x"
+        },
+        {
+          "address": "125a94e",
+          "field": "part_exhaust2_y"
+        }
+      ]
+    },
+    "unbound": {
+      "binary_sha256": "fb3726e175e7d1c643e0ddac1ec1a365901c4d52a16ded97e89fd672f6a9e9cc",
+      "classifier": {
+        "name": "_Z27gml_Script_exhaust_get_typeP9CInstanceS0_R8YYRValueiPPS1_",
+        "address": "0x00288880",
+        "size": 957,
+        "kind": 2,
+        "demangled": "gml_Script_exhaust_get_type(CInstance*, CInstance*, YYRValue&, int, YYRValue**)"
+      },
+      "frame_types": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        4,
+        3,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "switch_targets": {
+        "0": "0x288b85",
+        "1": "0x288b4c",
+        "2": "0x288b4c",
+        "3": "0x288b4c",
+        "4": "0x288b4c",
+        "5": "0x288b4c",
+        "6": "0x288b4c",
+        "7": "0x288b4c",
+        "8": "0x288b4c",
+        "9": "0x288b4c",
+        "10": "0x288b4c",
+        "11": "0x288b4c",
+        "12": "0x288b4c",
+        "13": "0x288b4c",
+        "14": "0x288b4c",
+        "15": "0x288b4c",
+        "16": "0x288b4c",
+        "17": "0x288b4c",
+        "18": "0x288b4c",
+        "19": "0x288b4c",
+        "20": "0x288b4c",
+        "21": "0x288b4c",
+        "22": "0x288b4c",
+        "23": "0x288b4c",
+        "24": "0x288b4c",
+        "25": "0x288b4c",
+        "26": "0x288b4c",
+        "27": "0x288b4c",
+        "28": "0x288b4c",
+        "29": "0x288b4c",
+        "30": "0x288b4c",
+        "31": "0x288b4c",
+        "32": "0x288a9d",
+        "33": "0x288b0f",
+        "34": "0x288a9d",
+        "35": "0x288b0f",
+        "36": "0x288b0f",
+        "37": "0x288a9d",
+        "38": "0x288a9d",
+        "39": "0x288a9d",
+        "40": "0x288a5d",
+        "41": "0x288a5d",
+        "42": "0x288b4c",
+        "43": "0x288b4c",
+        "44": "0x288a5d",
+        "45": "0x288a5d",
+        "46": "0x288a5d",
+        "47": "0x288a5d",
+        "48": "0x288add",
+        "49": "0x288add",
+        "50": "0x288add"
+      },
+      "draw_function": {
+        "name": "_Z24gml_Object_ob_car_Draw_0P9CInstanceS0_",
+        "address": "0x0064cdb0",
+        "size": 362582,
+        "kind": 2,
+        "demangled": "gml_Object_ob_car_Draw_0(CInstance*, CInstance*)"
+      },
+      "draw_field_accesses": [
+        {
+          "address": "65d7e5",
+          "field": "part_exhaust_x"
+        },
+        {
+          "address": "65fc53",
+          "field": "part_exhaust_y"
+        },
+        {
+          "address": "66f645",
+          "field": "part_exhaust2_x"
+        },
+        {
+          "address": "66fd0e",
+          "field": "part_exhaust2_y"
+        },
+        {
+          "address": "670757",
+          "field": "part_exhaust2_x"
+        },
+        {
+          "address": "67345f",
+          "field": "part_exhaust2_y"
+        },
+        {
+          "address": "681247",
+          "field": "part_exhaust_x"
+        },
+        {
+          "address": "681297",
+          "field": "part_exhaust_y"
+        },
+        {
+          "address": "68e910",
+          "field": "part_exhaust2_x"
+        },
+        {
+          "address": "68e960",
+          "field": "part_exhaust2_y"
+        }
+      ]
+    }
+  },
+  "draw_rules": {
+    "2,3": "Before body; part_exhaust_x/y minus sprite origin (40,62)",
+    "1,4": "After body; part_exhaust2_x/y minus sprite origin (40,62)",
+    "0": "No sp_car_exhaust draw in the four recovered draw branches; hood fitting remains a native adaptation"
+  },
+  "original_draw_branches": {
+    "rear_garage": {
+      "types": [
+        2,
+        3
+      ],
+      "compare_calls": [
+        "0x1230104",
+        "0x12301f6"
+      ],
+      "draw_call": "0x12305f7"
+    },
+    "side_garage": {
+      "types": [
+        1,
+        4
+      ],
+      "compare_calls": [
+        "0x124258a",
+        "0x12425d6"
+      ],
+      "draw_call": "0x12429d7"
+    },
+    "rear_route": {
+      "types": [
+        2,
+        3
+      ],
+      "draw_call": "0x124c5f3"
+    },
+    "side_route": {
+      "types": [
+        1,
+        4
+      ],
+      "draw_call": "0x125ac79"
+    }
+  },
+  "limitations": [
+    "Mouth directions and hood fitting remain native; original material effects and all Android visuals are not validated."
+  ]
+}

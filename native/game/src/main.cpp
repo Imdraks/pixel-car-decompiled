@@ -1,4 +1,5 @@
 #include "raylib.h"
+#include "rlgl.h"
 #include "model.hpp"
 #include "benchmark.hpp"
 #include "game_audio.hpp"
@@ -727,8 +728,30 @@ struct App {
             float x=inGarage?1040:inTuning?1050:1121,y=inGarage?55:inTuning?74:691;
             DrawRectangle(int(x),int(y),inGarage?110:151,24,Ink);text(TextFormat("%i FPS",GetFPS()),x+12,y+4,inGarage?14:16,Accent);
         }
+        if(args.smoke&&frames>=420)exhaustContactSheet();
         EndMode2D();EndTextureMode();
         BeginDrawing();ClearBackground(BLACK);DrawTexturePro(render.texture,{0,0,float(render.texture.width),-float(render.texture.height)},output,{0,0},0,WHITE);EndDrawing();
+    }
+    // Diagnostic-only contact sheets use the same car() renderer as garage/free drive.
+    void exhaustContactSheet(){
+        const int pipes[]={7,33,34,40,41,42,43,44,45,46,47,39};
+        const int page=std::clamp((frames-420)/3,0,3);
+        Profile sample;sample.car=page==1?22:page==2?167:20;sample.contentSource=page==1?1:0;
+        if(page==3)sample.cosmetics[4]=104007;
+        rlDrawRenderBatchActive();
+        DrawRectangle(0,0,1280,720,Color{44,46,53,255});
+        text(TextFormat("ANCRAGES SOURCE - %s - CAR %03i%s",sample.contentSource?"ORIGINAL":"UNBOUND",sample.car+1,page==3?" / KIT FORTUNE / SUSPENSION +6":""),14,8,17,WHITE);
+        text("Points turquoise : sorties des particules. Ordre et positions issus du code source.",14,33,12,Accent);
+        for(int i=0;i<12;i++){
+            float x=8+424*(i%3),y=60+164*(i/3);int pipe=pipes[i];
+            auto fit=installedExhaust(sample,pipe,page==3?6:0);
+            text(TextFormat("%02i %s / ANCRAGE %i",pipe,fit.front?"DEVANT":"DERRIERE",fit.front?2:1),x,y,13,WHITE);
+            car(sample.car,9,x+5,y+28,1.7f,0,false,0,page==3?6:0,pipe,-1,&sample);
+            for(int k=0;k<fit.count;k++){
+                const auto& o=fit.outlets[k];Vector2 pt{x+5+float(o.x)*1.7f,y+28+float(o.y)*1.7f};
+                DrawCircleV(pt,2,Accent);DrawLineV(pt,{pt.x+float(o.dx)*9,pt.y+float(o.dy)*9},Accent);
+            }
+        }
     }
     void check(bool condition,const std::string& name){smokeChecks.push_back((condition?"PASS ":"FAIL ")+name);smokePassed&=condition;}
     void capture(const std::string& name){if(!args.capture.empty()){fs::create_directories(args.capture);TakeScreenshot((args.capture/name).u8string().c_str());}}
@@ -842,7 +865,11 @@ struct App {
         if(frames==415){chooseGroup(3);customSearch="Reddy T60AD";customPage=0;customPreview=3028;check(choiceSource(3028)==1,"original-only equipment is identified in the unified catalog");}
         if(frames==418)capture("original-exclusif.png");
         if(frames==419){saveCar();auto loaded=loadProfile(profileFile(),191,54);check(loaded.rollCage&&loaded.headlights,"transferred cage and lighting preferences persist");}
-        if(frames==422)quit=true;
+        if(frames==422)capture("echappements-source-unbound.png");
+        if(frames==425)capture("echappements-source-original.png");
+        if(frames==428)capture("echappements-source-longue.png");
+        if(frames==431)capture("echappements-source-kit.png");
+        if(frames==432)quit=true;
 
     }
     int run(){
