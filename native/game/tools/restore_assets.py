@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Restore verified v0.11.0 assets without executing an APK or overwriting edits."""
+"""Restore verified v0.12.0 assets without executing an APK or overwriting edits."""
 import argparse
 import hashlib
 from pathlib import Path
@@ -8,10 +8,10 @@ import zipfile
 
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--destination',type=Path,required=True)
-parser.add_argument('--cache',type=Path,default=Path('/workspace/native-runtime/downloads/native-release-0.11.0.zip'))
+parser.add_argument('--cache',type=Path,default=Path('/workspace/native-runtime/downloads/native-release-0.12.0.zip'))
 args=parser.parse_args()
-expected='dde9dba9b747af892b4cb703ceee148ce65e2c198cc1c1c3ffe616f253773a49'
-url='https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.11.0-native-preview/PixelCarRacerNative-Windows-x64.zip'
+expected='398b0fa18149a598c50903891dbe9c6215fb0e776deb4a2a72899fdf7803feac'
+url='https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.12.0-native-preview/PixelCarRacerNative-Windows-x64.zip'
 args.cache.parent.mkdir(parents=True,exist_ok=True)
 if not args.cache.exists():
     temp=args.cache.with_suffix('.download')

@@ -10,9 +10,25 @@
   indicateurs ABS/TC, sauvegarde des aides et retour après essai non confirmé.
 - 115 contrôles d’entrées réelles Linux réussis : 15 châssis/aides, 15 burnout/
   point mort, 69 garage/audio et 16 affichage/trafic.
-- Preuves Linux : `validation/chassis-0.12/`. Windows est testé par CI avant publication.
+- Preuves Linux : `validation/chassis-0.12/`. Windows est aussi validé par CI.
 - Modèle longitudinal natif calibré ; aucune équivalence complète Android ou
   constructeur n’est revendiquée. Le banc générique historique est inchangé.
+
+## Publication Windows vérifiée — 0.12.0
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40504627540) : 263 contrôles du cœur, 70 graphiques, 188 sons décodés ; couverture
+  des 64 réglages extrêmes et effets des aides vérifiés sous Windows.
+- Rapport châssis, trajectoire de wheelie et mesures des 191 voitures concordent
+  avec Linux à 0,01 près. Menu suspension et wheelie Windows revus visuellement.
+- Archive publique redéchargée : CRC, SHA-256, EXE et source compilée vérifiés.
+  Les onze aperçus publics correspondent aux captures Windows validées.
+- Contrôles pixels du décor, des roues, des flammes, du NOS et des huit fumées
+  réussis. Restauration sur dossier vide puis réutilisation : 247 ressources chacune.
+- Rapports : `validation/windows-0.12/`. Rendu Mesa logiciel ; GPU et
+  haut-parleurs physiques non testés.
+- Source compilée : `bbbd337f58f363582e92ab5e7ce2628b1bb008c8`.
+- ZIP : 59313198 octets, SHA-256 `398b0fa18149a598c50903891dbe9c6215fb0e776deb4a2a72899fdf7803feac`.
+- EXE : SHA-256 `cf65ec0bc9a3f9fcb8cca7d8ba387284585cbee7216d23dfe8d482ffd0212aa3`.
 
 # Validation 0.11.0 — burnout et point mort
 
