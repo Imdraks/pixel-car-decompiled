@@ -21,12 +21,14 @@ struct Settings {
     bool vsync=true, showFps=false, sound=true, traffic=true,abs=true,tractionControl=true;
     Quality quality=Quality::High;
 };
-struct Profile { int car=0, rim=8,contentSource=0,audioSource=0;std::array<int,CosmeticSlotCount> cosmetics{};bool rollCage=false,headlights=false,factoryDrive=true; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1;
+struct Profile { int car=0, rim=8,rearRim=-1,contentSource=0,audioSource=0;std::array<int,CosmeticSlotCount> cosmetics{};bool rollCage=false,headlights=false,factoryDrive=true; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1;
     int gearboxPreset=0,gearCount=6;std::array<double,10> gearRatios{3.15,2.10,1.55,1.22,1.0,.82,.68,.56,.46,.38};
     double finalDrive=3.9,shiftSeconds=.15;
     double rideHeightMm=0,springStiffness=1,dampingRatio=.65,frontBias=0;bool allowWheelie=false;
 };
 inline DriveLayout effectiveDrive(const Profile& p){return p.factoryDrive?DriveLayout(stockVehicle(p.car).drive):p.drive;}
+inline int rearRimId(const Profile& p){return p.rearRim<0?p.rim:p.rearRim;}
+void equipRim(Profile&,int id,int axle);
 int bodyChoiceIndex(const Profile&);
 void cycleBody(Profile&,int);
 void sanitizeTransmission(Profile&);

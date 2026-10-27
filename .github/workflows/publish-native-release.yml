@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.12.0-native-preview
+        default: v0.13.0-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -90,6 +90,9 @@ jobs:
           if ($LASTEXITCODE -ne 0) { Get-Content validation/core-tests.txt; throw 'Windows core tests failed' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\exhaust-gearbox.json" validation/exhaust-gearbox.json
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\attachment-fit.json" validation/attachment-fit.json
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\customization-render.json" validation/customization-render.json
+          $cosmetics = Get-Content validation/customization-render.json -Raw | ConvertFrom-Json
+          if ($cosmetics.palette_shades_checked -ne 2376 -or $cosmetics.cosmetic_cases_checked -ne 192146 -or $cosmetics.hood_body_kit_pipe_cases -ne 14898 -or $cosmetics.rim_finish_recipes -ne 521 -or $cosmetics.hood_coordinates_recovered_from_android) { throw 'Customization source coverage differs' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\suspension-aids.json" validation/suspension-aids.json
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\suspension-physics.csv" validation/suspension-physics.csv
           $chassis = Get-Content validation/suspension-aids.json -Raw | ConvertFrom-Json
@@ -250,6 +253,37 @@ jobs:
             } finally { $image.Dispose() }
           }
           $result | ConvertTo-Json | Out-File validation/burnout-pixels.json
+      - name: Verify twelve paint previews use distinct body textures
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Add-Type -AssemblyName System.Drawing
+          $image = [System.Drawing.Bitmap]::new((Join-Path $PWD 'validation/screens/materiaux-source.png'))
+          try {
+            $hashes = @()
+            for ($i=0; $i -lt 12; $i++) {
+              $x=8+424*($i % 3)+5; $y=60+164*[math]::Floor($i/3)+28
+              $rect = [System.Drawing.Rectangle]::FromLTRB([int][math]::Round($x*$image.Width/1280),[int][math]::Round($y*$image.Height/720),[int][math]::Round(($x+400)*$image.Width/1280),[int][math]::Round(($y+125)*$image.Height/720))
+              $crop=$image.Clone($rect,$image.PixelFormat); $stream=[System.IO.MemoryStream]::new()
+              try {
+                $crop.Save($stream,[System.Drawing.Imaging.ImageFormat]::Png)
+                $hashes += [Convert]::ToHexString([System.Security.Cryptography.SHA256]::HashData($stream.ToArray()))
+              } finally { $crop.Dispose(); $stream.Dispose() }
+            }
+            if (($hashes | Select-Object -Unique).Count -ne 12) { throw 'Paint previews reused a body texture' }
+            @{ distinct_body_previews=12; crop_sha256=$hashes } | ConvertTo-Json | Out-File validation/customization-pixels.json
+          } finally { $image.Dispose() }
+      - name: Audit customization on every source body and export contact sheets
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $exe = "$env:RUNNER_TEMP\pcr-native-app\PixelCarRacerNative.exe"
+          $out = Join-Path $PWD 'validation/customization'
+          $assets = "$env:RUNNER_TEMP\pcr-native-app\assets"
+          $p = Start-Process $exe -ArgumentList "--assets-dir `"$assets`" --check-customization-dir `"$out`"" -Wait -PassThru -RedirectStandardOutput validation/customization-stdout.txt -RedirectStandardError validation/customization-stderr.txt
+          if ($p.ExitCode -ne 0) { throw 'Customization body render audit failed' }
+          $report = Get-Content "$out/customization-audit.json" -Raw | ConvertFrom-Json
+          if ($report.body_banks_checked -ne 382 -or $report.cosmetic_cases_checked -ne 192146 -or $report.full_body_renders -ne 1528 -or $report.generic_mounts_checked -ne 27122 -or $report.hood_cases_checked -ne 14898 -or $report.android_full_render_equivalence) { throw 'Customization rendering coverage differs' }
       - name: Collect Windows validation
         if: always()
         shell: pwsh
@@ -285,12 +319,12 @@ jobs:
           import zipfile
           from pathlib import Path
           with zipfile.ZipFile('../validation/Validation-Windows.zip') as archive:
-              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png'),('screens/ancrages-source.png','Apercu-Ancrages.png'),('screens/origines-pieces.png','Apercu-Provenance.png'),('screens/echappements-source-unbound.png','Apercu-Echappements.png'),('screens/fiche-stock-awd.png','Apercu-Physique.png'),('screens/burnout-09.png','Apercu-Burnout.png'),('screens/suspension-reglages.png','Apercu-Suspension.png'),('screens/wheelie-drag.png','Apercu-Wheelie.png')]:
+              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png'),('screens/ancrages-source.png','Apercu-Ancrages.png'),('screens/origines-pieces.png','Apercu-Provenance.png'),('screens/echappements-source-unbound.png','Apercu-Echappements.png'),('screens/fiche-stock-awd.png','Apercu-Physique.png'),('screens/burnout-09.png','Apercu-Burnout.png'),('screens/suspension-reglages.png','Apercu-Suspension.png'),('screens/wheelie-drag.png','Apercu-Wheelie.png'),('screens/materiaux-source.png','Apercu-Materiaux.png'),('screens/capots-unbound.png','Apercu-Capots.png')]:
                   data=archive.read(source)
                   if not data.startswith(bytes.fromhex('89504e470d0a1a0a')): raise SystemExit('Invalid native UI preview')
                   Path(target).write_bytes(data)
           PY_PREVIEW
-          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png Apercu-Ancrages.png Apercu-Provenance.png Apercu-Echappements.png Apercu-Physique.png Apercu-Burnout.png Apercu-Suspension.png Apercu-Wheelie.png
+          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png Apercu-Ancrages.png Apercu-Provenance.png Apercu-Echappements.png Apercu-Physique.png Apercu-Burnout.png Apercu-Suspension.png Apercu-Wheelie.png Apercu-Materiaux.png Apercu-Capots.png
           for part in $(seq 0 $((PART_COUNT-1))); do
             name="$(printf 'PixelCarRacerNative-Windows-x64.zip.part-%03d' "$part")"
             gh release delete-asset "$RELEASE_TAG" "$name" --yes

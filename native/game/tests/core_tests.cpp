@@ -4,6 +4,9 @@
 #include "effects.hpp"
 #include "road_scene.hpp"
 #include "chassis_pose.hpp"
+#include "materials.hpp"
+#include "cosmetic_geometry.hpp"
+#include "rim_finish_art.hpp"
 #include "original_ui.hpp"
 #include "content_art.hpp"
 #include "base_audio.hpp"
@@ -623,6 +626,46 @@ int main(int argc,char**argv){
         expect(std::abs(body.pitch-reference.pitch)<1e-10&&std::abs(body.heave-reference.heave)<1e-10&&std::abs(body.position-reference.position)<1e-8,"spring dynamics and wheelie remain independent of rendering FPS");
     }
     {std::ofstream out(root/"suspension-aids.json");out<<"{\n  \"chassis_configurations_checked\": "<<chassisCases<<",\n  \"max_wheelie_lift_m\": "<<peakLift<<",\n  \"abs_stop_m\": "<<absRuns[1].position<<",\n  \"locked_stop_m\": "<<absRuns[0].position<<",\n  \"tc_launch_distance_m\": "<<tcRuns[1].position<<",\n  \"uncontrolled_launch_distance_m\": "<<tcRuns[0].position<<",\n  \"full_android_dynamics_equivalence\": false\n}\n";}
+    bool paletteTransfer=true;int paletteCases=0;
+    for(bool original:{false,true})for(int column=0;column<108;column++)for(int row=0;row<11;row++){
+        const auto& pal=original?materials::originalPaint:materials::unboundPaint;
+        auto source=materials::unpack(pal[0][row]),expected=materials::unpack(pal[column][row]),actual=materials::paintPixel(source,column+1,original);
+        paletteTransfer&=actual.r==expected.r&&actual.g==expected.g&&actual.b==expected.b&&actual.a==expected.a;++paletteCases;
+    }
+    expect(paletteTransfer&&paletteCases==2376,"all source paint shade texels follow the recovered palette shader mapping");
+    auto glass=materials::Rgba{11,12,15,199};auto unchanged=materials::paintPixel(glass,85,false);
+    expect(unchanged.r==glass.r&&unchanged.a==glass.a&&materials::paintRow({255,0,0,255},false)<0,"paint palette preserves source glass and non-paint emissive colours");
+    auto baseBlue=materials::unpack(materials::unboundPaint[0][5]);auto nearBlue=baseBlue;nearBlue.r+=1;
+    expect(materials::paintRow(nearBlue,false)==5,"source shader tolerance includes one integer channel step");nearBlue.g+=1;
+    expect(materials::paintRow(nearBlue,false)<0,"source shader tolerance rejects larger colour distances");
+    auto tinted=materials::glassTint(glass,2);auto noTint=materials::glassTint(baseBlue,2);
+    expect(tinted.a>glass.a&&tinted.b>tinted.r&&noTint.r==baseBlue.r&&noTint.a==baseBlue.a,"glass tint follows actual translucent source pixels instead of a fixed cabin rectangle");
+    std::vector<unsigned> tints;
+    for(int tint=1;tint<=10;tint++){auto c=materials::lightTint({220,220,220,255},tint);tints.push_back(unsigned(c.r)*65536+unsigned(c.g)*256+c.b);}
+    std::sort(tints.begin(),tints.end());expect(std::adjacent_find(tints.begin(),tints.end())==tints.end(),"all ten headlight tint choices produce distinct rendered colours or darkness");
+    auto tailTint=materials::lightTint({200,100,40,255},3,true);expect(tailTint.r<70&&tailTint.g<40&&tailTint.r>tailTint.g&&tailTint.g>tailTint.b,"taillight darkness preserves the source lens colours");
+    int fitCases=0,unsupported=0,partial=0;
+    for(int bank=0;bank<2;bank++)for(int body=0;body<191;body++)for(const auto& c:CosmeticCatalog){Profile p;p.car=body;p.contentSource=bank;auto fit=cosmeticFit(p,c.id);++fitCases;unsupported+=!fit.supported;partial+=fit.partial;}
+    expect(fitCases==192146&&unsupported==129&&partial==2309,"all 503 cosmetic choices across 382 body banks expose source compatibility and partial kits");
+    bool hoodFits=true;int hoodCases=0,kitMoves=0;
+    for(bool original:{false,true})for(int body=0;body<191;body++)for(int front=0;front<13;front++)for(int pipe=48;pipe<=50;pipe++){
+        const auto& mount=materials::hoodMount(body,front,original);auto fit=placeExhaust(body,pipe,6,original,0,front);const auto& shape=art::pipeLayouts[pipe];
+        hoodFits&=fit.front&&std::abs(fit.x+shape.baseX-mount.x)<1e-8&&std::abs(fit.y+shape.baseY-mount.y-6)<1e-8&&fit.count==(pipe==50?3:1)&&mount.x>=0&&mount.x<220&&mount.y>=0&&mount.y<70;
+        for(int i=0;i<fit.count;i++)hoodFits&=fit.outlets[i].dy==-1&&fit.outlets[i].y<fit.y+shape.baseY;
+        if(front&&materials::hoodMount(body,0,original).y!=mount.y)++kitMoves;
+        ++hoodCases;
+    }
+    expect(hoodFits&&hoodCases==14898&&kitMoves>0,"all three hood pipes share per-body and per-front-kit bonnet contact with suspension and separate particle mouths");
+    Profile splitRims;splitRims.rim=10101;equipRim(splitRims,10100,1);
+    expect(splitRims.rim==10100&&rearRimId(splitRims)==10101,"front-only rim change retains the previously equipped rear rim");
+    equipRim(splitRims,RimFrames[5],2);saveProfile(root/"split-rims.ini",splitRims,error);auto reloadedRims=loadProfile(root/"split-rims.ini",191,54);
+    expect(reloadedRims.rim==10100&&rearRimId(reloadedRims)==RimFrames[5],"independent front and rear rims survive restart");
+    equipRim(splitRims,10101,0);expect(splitRims.rearRim==-1&&rearRimId(splitRims)==splitRims.rim,"both-axle selection restores the linked rim behaviour");
+    bool finishes=true;for(int rim:RimFrames){auto f=rim_finish::finish(rim);finishes&=f&&f->shine>=0&&f->shine<54&&f->shadow>=0&&f->shadow<4;}
+    expect(finishes&&std::size(rim_finish::Finishes)==521,"all named rim recipes retain stationary shine and shadow passes from source data");
+    Profile lightSeat;auto seatStock=buildVehicle(lightSeat);lightSeat.cosmetics[9]=109001;auto seatBuild=buildVehicle(lightSeat);
+    expect(std::abs(seatBuild.vehicle.mass-seatStock.vehicle.mass+90*.45359237)<1e-8&&seatBuild.baseHp==seatStock.baseHp,"source seat weight reduction affects native mass without creating engine horsepower");
+    {std::ofstream out(root/"customization-render.json");out<<"{\n  \"palette_shades_checked\": "<<paletteCases<<",\n  \"cosmetic_cases_checked\": "<<fitCases<<",\n  \"unsupported_choices\": "<<unsupported<<",\n  \"partial_choices\": "<<partial<<",\n  \"hood_body_kit_pipe_cases\": "<<hoodCases<<",\n  \"rim_finish_recipes\": 521,\n  \"hood_coordinates_recovered_from_android\": false\n}\n";}
     Profile flags;flags.rollCage=true;flags.headlights=true;flags.audioSource=1;flags.contentSource=0;saveProfile(root/"flags.ini",flags,error);auto loadedFlags=loadProfile(root/"flags.ini",191,54);
     expect(loadedFlags.rollCage&&loadedFlags.headlights&&loadedFlags.audioSource==1&&loadedFlags.contentSource==0,"cage, headlights and independent audio source survive reload");
     {std::ofstream out(root/"legacy-seat.ini");out<<"version=1\ncontent_source=1\ncosmetic_9=109001\npart_engine=1002\n";}

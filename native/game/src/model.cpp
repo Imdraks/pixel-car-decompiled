@@ -9,6 +9,12 @@
 #include <locale>
 
 namespace pcr {
+void equipRim(Profile& p,int id,int axle){
+    if(!isRimFrame(id))return;
+    if(axle==2){p.rearRim=id;return;}
+    if(axle==1&&p.rearRim<0)p.rearRim=p.rim;
+    p.rim=id;if(axle==0)p.rearRim=-1;
+}
 int bodyChoiceIndex(const Profile& p){for(size_t i=0;i<std::size(BodyChoices);i++)if(BodyChoices[i].body==p.car&&(BodyChoices[i].source==p.contentSource||BodyChoices[i].sourceMask==3))return int(i);return 0;}
 void cycleBody(Profile& p,int direction){int index=(bodyChoiceIndex(p)+direction+int(std::size(BodyChoices)))%int(std::size(BodyChoices));p.car=BodyChoices[index].body;p.contentSource=BodyChoices[index].source;}
 
@@ -68,7 +74,7 @@ Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
     (void)rims;p.rollCage=integer(v,"roll_cage",0)!=0;p.headlights=integer(v,"headlights",0)!=0;p.contentSource=std::clamp(integer(v,"content_source",0),0,1);p.audioSource=std::clamp(integer(v,"audio_source",p.contentSource),0,1);
     for(int slot=0;slot<CosmeticSlotCount;slot++){int id=integer(v,"cosmetic_"+std::to_string(slot),0);auto item=findCosmetic(id);if(item&&item->slot==slot)p.cosmetics[slot]=id;}
     p.car=std::clamp(integer(v,"car",0),0,std::max(0,cars-1));
-    p.rim=validRimFrame(integer(v,"rim",8));p.automatic=integer(v,"automatic",1)!=0;
+    p.rim=validRimFrame(integer(v,"rim",8));p.rearRim=integer(v,"rear_rim",-1);if(p.rearRim!=-1&&!isRimFrame(p.rearRim))p.rearRim=-1;p.automatic=integer(v,"automatic",1)!=0;
     p.factoryDrive=integer(v,"factory_drive",v.count("drive")?0:1)!=0;
     int layout=integer(v,"drive",1);p.drive=layout>=0&&layout<=2?DriveLayout(layout):DriveLayout::Rear;
     p.soundOn=integer(v,"sound_on",-1);if(p.soundOn< -1||p.soundOn>15)p.soundOn=-1;
@@ -101,8 +107,9 @@ bool saveSettings(const std::filesystem::path& file,const Settings& settings,std
 bool saveProfile(const std::filesystem::path& file,const Profile& raw,std::string& error){
     Profile p=raw;sanitizeTransmission(p);sanitizeSuspension(p);
     std::ostringstream out;out.imbue(std::locale::classic());
-    out<<"version=4\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
+    out<<"version=5\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
     out<<"ride_height_mm="<<p.rideHeightMm<<"\nspring_stiffness="<<p.springStiffness<<"\ndamping_ratio="<<p.dampingRatio<<"\nfront_bias="<<p.frontBias<<"\nallow_wheelie="<<p.allowWheelie<<'\n';
+    out<<"rear_rim="<<p.rearRim<<'\n';
     out<<"factory_drive="<<p.factoryDrive<<'\n';
     out<<"audio_source="<<p.audioSource<<'\n';
     out<<"roll_cage="<<p.rollCage<<"\nheadlights="<<p.headlights<<'\n';

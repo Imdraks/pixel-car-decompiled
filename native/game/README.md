@@ -1,4 +1,11 @@
-# Pixel Car Racer — Unbound Native 0.12.0
+# Pixel Car Racer — Unbound Native 0.13.0
+
+La version **0.13.0** ajoute les jantes distinctes par essieu (**F2**, boutons
+AV+AR/AVANT/ARRIÈRE), les nuances et matériaux source, les teintes des optiques
+et le contrôle des variantes incompatibles. **F7** ouvre les catégories de style.
+Les trois pots de capot suivent la surface du capot et du kit installé.
+Voir [CUSTOMIZATION-COMPLETE.md](CUSTOMIZATION-COMPLETE.md) pour les fonctions,
+les contrôles de toutes les carrosseries et les limites de reconstruction.
 
 La version **0.12.0** ajoute une suspension avec ressorts et amortisseurs,
 transfert de charge, cabrage et plongeon. Au garage, **F9** ou **F5 → Réglages

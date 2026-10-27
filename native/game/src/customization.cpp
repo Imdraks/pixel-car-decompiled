@@ -141,6 +141,7 @@ Build buildVehicle(const Profile& profile){
         build.tireFrame=std::clamp(p->subimage,0,int(std::size(art::tires))-1);
         v.wheelRadius*=art::tires[build.tireFrame].w/50.0;
     }
+    for(int id:profile.cosmetics)if(const auto* cosmetic=findCosmetic(id))massDelta+=cosmetic->weight;
     // Body/part weights share the source lb scale; use SI kg for integration.
     v.mass=std::max(350.0,v.mass+massDelta*.45359237);
     v.torque=(targetHp+addedHp)*745.699872/stockPowerPerTorque;

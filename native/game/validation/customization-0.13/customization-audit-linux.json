@@ -1,0 +1,11 @@
+{
+  "body_banks_checked": 382,
+  "cosmetic_cases_checked": 192146,
+  "unsupported_choices": 129,
+  "partial_choices": 2309,
+  "generic_mounts_checked": 27122,
+  "full_body_renders": 1528,
+  "hood_cases_checked": 14898,
+  "hood_fallback_cases": 1242,
+  "android_full_render_equivalence": false
+}

@@ -1,4 +1,4 @@
-# Ancrages et rendu des accessoires — 0.9.1
+# Ancrages et rendu des accessoires — 0.13.0
 
 Les pots arrière, galeries, sièges et crochets utilisent maintenant les positions
 par carrosserie de `scr_part_positions`, récupérées statiquement dans les deux
@@ -11,7 +11,7 @@ Les coordonnées sont relatives à l’origine de la voiture (62,58). Le rendu
 soustrait aussi l’origine du sprite : pot (40,62), galerie (60,45), siège (16,16),
 crochet (12,13). Les positions fixes communes à toutes les voitures sont retirées.
 Le siège et l’arceau se dessinent derrière les vitres translucides et les portes.
-Les cargaisons disposent toujours d’une marge de 64 pixels au-dessus du toit.
+Le canevas 225 × 138, décalé de (3,66), couvre les accessoires des deux banques.
 Les écrous forment maintenant une couronne de cinq points autour du moyeu.
 
 Les échappements suivent les deux branches d’ancrage et l’ordre de dessin du
@@ -36,6 +36,9 @@ dessin et les racines des particules. Les contrôles existants couvrent aussi
 Les bouches/directions et les trois pots de capot (type 0) restent adaptés
 nativement : aucune des quatre branches de dessin récupérées ne dessine ces
 images de capot, et leur rendu Android complet n’est pas encore reconstitué.
+En 0.13, leurs pieds suivent le contour opaque du capot et du kit avant monté.
+Voir [CUSTOMIZATION-COMPLETE.md](CUSTOMIZATION-COMPLETE.md) pour les 14898
+contrôles de montage et les replis sans capot.
 
 Un kit sans image compatible pour la carrosserie conserve désormais le panneau
 d’origine. Seul le kit Delete retire intentionnellement les panneaux. Les pièces

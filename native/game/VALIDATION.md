@@ -1,3 +1,18 @@
+# Validation 0.13.0 — personnalisation et matériaux
+
+- 277 contrôles du cœur Linux réussis ; 2376 nuances source, 521 recettes de
+  finition de jantes et sauvegarde indépendante des essieux vérifiées.
+- Audit des 382 entrées de carrosserie : 192146 associations, 129 variantes
+  absentes signalées, 2309 kits partiels, 27122 montages d’accessoires.
+- 1528 compositions de carrosserie exportées et 14898 montages des pots de capot
+  contrôlés ; 1242 replis sans capot distingués des contacts géométriques.
+- 74 contrôles graphiques et 133 contrôles clavier/souris Linux réussis : 18
+  nouveaux de personnalisation, 15 châssis, 15 burnout, 69 garage/audio et 16
+  affichage/trafic. Les matériaux et pots sont aussi revus sur captures.
+- Preuves : `validation/customization-0.13/`. Les coordonnées Android des pots
+  de capot ne sont pas récupérées ; leur ajustement est natif. Aucune équivalence
+  complète Android n’est revendiquée. Voir `CUSTOMIZATION-COMPLETE.md`.
+
 # Validation 0.12.0 — suspension, wheelie, ABS et antipatinage
 
 - 263 contrôles du cœur Linux réussis, dont 64 combinaisons extrêmes de hauteur,
