@@ -1,4 +1,4 @@
-# Suspension, wheelie et aides à la conduite — 0.13.1
+# Suspension, wheelie et aides à la conduite — 0.13.2
 
 Au garage, appuyer sur **F9**, ou ouvrir **F5 → Réglages suspension**.
 Les curseurs et boutons −/+ donnent un aperçu de la hauteur. **Enregistrer**
@@ -10,6 +10,7 @@ conserve la préparation ; **Annuler** conserve les réglages précédents.
 | Rigidité | ×0,40 à ×3,00 | Raideur des ressorts ; modifie le cabrage et le plongeon |
 | Amortissement | 0,25 à 1,50 | Rapport d’amortissement ; contrôle les oscillations |
 | Répartition avant | ±15 points | Déplace la répartition des masses autour de la calibration du châssis, sans ajouter de masse |
+| Wheelie → Balanced | Curseur bleu 0–100 % | Limite progressivement le cabrage sans modifier la répartition des masses |
 | Wheelie | Autorisé / limité au sol | Autorise la perte de contact ou applique une contrainte anti-levée |
 
 Les préréglages **Route**, **Drag**, **Piste** et **Wheelie** combinent ces valeurs.
@@ -25,6 +26,10 @@ qu’une voiture faible ou qui patine puisse lever. Le mode limité au sol empê
 la levée sans rendre les pneus infiniment adhérents.
 
 ## Modèle physique
+
+Les moyeux restent sur leurs axes de suspension liés aux ailes pendant le
+tangage. Les passages de roue suivent la caisse ; la détente (120 mm) et la
+compression (80 mm) sont bornées indépendamment des ressorts. Voir [DRAG.md](DRAG.md).
 
 Le châssis utilise un modèle longitudinal à deux essieux, avec deux degrés de
 liberté : déplacement vertical de la masse suspendue et tangage. Chaque essieu

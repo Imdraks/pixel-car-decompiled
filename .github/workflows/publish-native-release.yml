@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.13.1-native-preview
+        default: v0.13.2-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -93,6 +93,10 @@ jobs:
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\customization-render.json" validation/customization-render.json
           $cosmetics = Get-Content validation/customization-render.json -Raw | ConvertFrom-Json
           if ($cosmetics.palette_shades_checked -ne 2376 -or $cosmetics.cosmetic_cases_checked -ne 192146 -or $cosmetics.hood_body_kit_pipe_cases -ne 14898 -or $cosmetics.rim_finish_recipes -ne 521 -or $cosmetics.hood_coordinates_recovered_from_android) { throw 'Customization source coverage differs' }
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\wheel-carriers.json" validation/wheel-carriers.json
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\wheelie-tuning.csv" validation/wheelie-tuning.csv
+          $carriers = Get-Content validation/wheel-carriers.json -Raw | ConvertFrom-Json
+          if ($carriers.hub_cases_checked -ne 9168 -or -not $carriers.suspension_axes_respected -or -not $carriers.mechanical_travel_respected -or $carriers.wheelie_endpoint_lift_m -lt 0.1 -or $carriers.balanced_endpoint_lift_m -ne 0 -or $carriers.full_android_dynamics_equivalence) { throw 'Wheel attachment or progressive wheelie tuning differs' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\wheelie-bars.json" validation/wheelie-bars.json
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\wheelie-bars.csv" validation/wheelie-bars.csv
           $bars = Get-Content validation/wheelie-bars.json -Raw | ConvertFrom-Json
@@ -327,7 +331,7 @@ jobs:
           import zipfile
           from pathlib import Path
           with zipfile.ZipFile('../validation/Validation-Windows.zip') as archive:
-              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png'),('screens/ancrages-source.png','Apercu-Ancrages.png'),('screens/origines-pieces.png','Apercu-Provenance.png'),('screens/echappements-source-unbound.png','Apercu-Echappements.png'),('screens/fiche-stock-awd.png','Apercu-Physique.png'),('screens/burnout-09.png','Apercu-Burnout.png'),('screens/suspension-reglages.png','Apercu-Suspension.png'),('screens/wheelie-drag.png','Apercu-Wheelie.png'),('screens/materiaux-source.png','Apercu-Materiaux.png'),('screens/capots-unbound.png','Apercu-Capots.png')]:
+              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png'),('screens/ancrages-source.png','Apercu-Ancrages.png'),('screens/origines-pieces.png','Apercu-Provenance.png'),('screens/echappements-source-unbound.png','Apercu-Echappements.png'),('screens/fiche-stock-awd.png','Apercu-Physique.png'),('screens/burnout-09.png','Apercu-Burnout.png'),('screens/reglage-wheelie-balanced.png','Apercu-Suspension.png'),('screens/wheelie-drag.png','Apercu-Wheelie.png'),('screens/materiaux-source.png','Apercu-Materiaux.png'),('screens/capots-unbound.png','Apercu-Capots.png')]:
                   data=archive.read(source)
                   if not data.startswith(bytes.fromhex('89504e470d0a1a0a')): raise SystemExit('Invalid native UI preview')
                   Path(target).write_bytes(data)

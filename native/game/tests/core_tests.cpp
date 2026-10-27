@@ -587,7 +587,7 @@ int main(int argc,char**argv){
         expect(std::abs(body.pitch)<.002&&std::abs(body.heave)<.002,"spring and damper motion settles without accumulating energy at rest");
     }
     expect(crossings[0]>crossings[1],"stronger damping suppresses oscillations instead of changing only the sprite");
-    Profile drag=powerful;drag.rideHeightMm=120;drag.springStiffness=.5;drag.dampingRatio=.3;drag.frontBias=-.15;drag.allowWheelie=true;
+    Profile drag=powerful;drag.rideHeightMm=120;drag.springStiffness=.5;drag.dampingRatio=.3;drag.frontBias=-.15;drag.allowWheelie=true;drag.wheelieTune=0;
     auto dragVehicle=buildVehicle(drag).vehicle;dragVehicle.tractionControl=true;
     double peakLift=0;CarState wheelieAtPeak,dragState,groundState;auto grounded=dragVehicle;grounded.allowWheelie=false;
     std::ofstream suspensionTrace(root/"suspension-physics.csv");suspensionTrace<<"time_s,speed_mps,pitch_rad,heave_m,front_load_n,rear_load_n,front_lift_m\n";
@@ -687,6 +687,39 @@ int main(int argc,char**argv){
         auto v=buildVehicle(balanced).vehicle;CarState atRest;stepCar(atRest,v,{false,false,true},Step,0);
         expect(std::abs(v.frontWeightFraction-.5)<1e-9&&std::abs(atRest.frontLoad-atRest.rearLoad)<1e-6,"balanced marker gives equal static axle loads for every drivetrain without changing total mass");
     }
+    Profile tuned=drag;tuned.wheelieTune=.37;saveProfile(root/"wheelie-tune.ini",tuned,error);
+    auto savedTune=loadProfile(root/"wheelie-tune.ini",191,54);
+    expect(savedTune.wheelieTune==.37&&savedTune.allowWheelie&&savedTune.frontBias==tuned.frontBias,"wheelie tune saves independently of mass balance and lift permission");
+    {std::ofstream out(root/"legacy-wheelie.ini");out<<"version=5\nallow_wheelie=1\n";}
+    expect(loadProfile(root/"legacy-wheelie.ini",191,54).wheelieTune==0&&loadProfile(root/"old-chassis.ini",191,54).wheelieTune==1,"legacy wheelie preparations remain free while grounded saves receive balanced tuning");
+    tuned.wheelieTune=10;sanitizeSuspension(tuned);expect(tuned.wheelieTune==1,"wheelie tuning is constrained to the supported range");
+    std::array<double,5> tunedLifts{};std::ofstream tuneTrace(root/"wheelie-tuning.csv");tuneTrace<<"tune,peak_front_lift_m,distance_6s_m\n";
+    bool mechanicalTravel=true;
+    for(int i=0;i<5;i++){
+        Profile p=drag;p.wheelieTune=i*.25;auto v=buildVehicle(p).vehicle;v.tractionControl=true;CarState car;
+        for(int tick=0;tick<720;tick++){
+            stepCar(car,v,{true,false,true,true},Step,0);
+            double a=v.wheelbase*(1-v.frontWeightFraction),b=v.wheelbase*v.frontWeightFraction;
+            mechanicalTravel&=car.heave+a*car.pitch>=-v.suspensionBump-1e-6&&car.heave-b*car.pitch>=-v.suspensionBump-1e-6;
+        }
+        tunedLifts[i]=car.peakFrontLift;tuneTrace<<i*.25<<','<<car.peakFrontLift<<','<<car.position<<'\n';
+    }
+    expect(tunedLifts[0]>.1&&tunedLifts[4]==0&&tunedLifts[0]>tunedLifts[1]&&tunedLifts[1]>tunedLifts[2]&&tunedLifts[2]>tunedLifts[3]&&tunedLifts[3]>tunedLifts[4],"five wheelie-to-balanced positions progressively reduce actual lift without changing weight distribution");
+    expect(mechanicalTravel,"rear squat and front dive respect finite shock compression through all five launch tunes");
+    bool attachedHubs=true,contactHeight=true;int carrierCases=0;
+    for(bool original:{false,true})for(int body=0;body<191;body++)for(double ride:{-4.,0.,6.})for(double pitch:{-.1,0.,.15,.35}){
+        const float* w=original?content_art::originalAnchors[body]:content_art::unboundAnchors[body];CarState state;state.pitch=pitch;state.heave=.02;state.frontLift=std::max(0.,pitch*.8);state.rearLift=std::max(0.,-pitch*.8);
+        auto pose=chassisPose(w[0],w[1],w[2],dragVehicle,state,ride);
+        for(bool front:{false,true}){
+            auto hub=pose.body(front?w[1]:w[0],w[2]+ride),wheel=pose.wheel(front);
+            double localX=std::cos(pitch)*(wheel.x-hub.x)-std::sin(pitch)*(wheel.y-hub.y);
+            attachedHubs&=std::isfinite(wheel.x)&&std::abs(localX)<1e-9;
+            contactHeight&=std::abs(wheel.y-(w[2]-(front?state.frontLift:state.rearLift)*pose.pixelsPerMetre))<1e-9;++carrierCases;
+        }
+    }
+    expect(attachedHubs&&carrierCases==9168,"wheel hubs remain on the wheel-arch suspension axis across 9168 source-body, stance and pitch cases");
+    expect(contactHeight,"wheel carrier correction preserves the physical ground plane and simulated tyre lift");
+    {std::ofstream out(root/"wheel-carriers.json");out<<"{\n  \"hub_cases_checked\": "<<carrierCases<<",\n  \"suspension_axes_respected\": "<<(attachedHubs?"true":"false")<<",\n  \"mechanical_travel_respected\": "<<(mechanicalTravel?"true":"false")<<",\n  \"wheelie_endpoint_lift_m\": "<<tunedLifts[0]<<",\n  \"balanced_endpoint_lift_m\": "<<tunedLifts[4]<<",\n  \"full_android_dynamics_equivalence\": false\n}\n";}
     bool paletteTransfer=true;int paletteCases=0;
     for(bool original:{false,true})for(int column=0;column<108;column++)for(int row=0;row<11;row++){
         const auto& pal=original?materials::originalPaint:materials::unboundPaint;

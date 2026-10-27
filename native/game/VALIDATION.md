@@ -1,3 +1,20 @@
+# Validation 0.13.2 — roues attachées et curseur Wheelie → Balanced
+
+- 304 contrôles du cœur Linux réussis, dont 9168 vérifications des axes de
+  fixation des moyeux sur les deux banques, trois hauteurs et quatre tangages.
+- Compression mécanique limitée à 80 mm et détente à 120 mm, indépendantes de
+  la raideur ; les cinq réglages de lancement respectent les butées vérifiées.
+- Cinq positions du curseur donnent 0,2795 / 0,2445 / 0,1570 / 0,0697 / 0 m de
+  levée sur la référence, sans changer sa répartition des masses.
+- Sauvegarde et migration du curseur, extrêmes châssis, 382 montages de barres,
+  six départs Drag et paramètres des 191 voitures conservés.
+- 79 contrôles graphiques et 147 essais clavier/souris Linux réussis : 29 châssis/
+  Drag/barres/balance/curseur bleu, 15 burnout, 18 personnalisation, 69 garage/audio,
+  16 affichage/trafic. Les contrôles pixels existants passent aussi.
+- Captures du réglage bleu et du wheelie revues. Preuves :
+  `validation/wheel-carriers-0.13.2/`. Modèle natif calibré ; équations complètes
+  Android, trains réels et géométrie d’anti-squat non importés.
+
 # Validation 0.13.1 — Drag, wheelie bars et balance
 
 - 297 contrôles du cœur Linux réussis. Les six lancements traction/propulsion/
@@ -14,6 +31,16 @@
 - Analyse statique des deux bibliothèques : code de conduite localisé, mais
   équations complètes Android non importées. La réaction des barres et les
   préréglages sont natifs. Voir `DRAG.md` et `native/evidence/merged/drag-physics/`.
+
+## Publication Windows vérifiée — 0.13.1
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40528066686) : 297 contrôles du cœur, 78 graphiques, audit des 382 entrées et
+  188 sons décodés. Archive publique, EXE, source, CRC et treize aperçus vérifiés.
+- Source compilée : `cc21df5a4e10496b9998ef1422d5b8997ee71031`.
+- ZIP : 59461066 octets, SHA-256 `59a55569be89b9c7d351d1a764488ecbaf44b035b05d977df845c4c4d4795789`.
+- EXE : SHA-256 `37fa23453f797a808568add8aee67a56e6f0c5e8572abe39a0deac5800c4c069`.
+- Rapports : `validation/windows-0.13.1/`. Mesa logiciel ; aucune équivalence
+  complète avec Android ni validation sur GPU physique.
 
 # Validation 0.13.0 — personnalisation et matériaux
 

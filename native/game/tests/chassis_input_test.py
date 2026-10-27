@@ -117,6 +117,13 @@ try:
     start();click(280,435);key('F9');click(1014,475);click(630,667)
     balanced=ini('profile.ini');check('balanced_marker_sets_static_fifty_fifty',abs(float(balanced['front_bias'])-.02)<1e-9 and balanced['allow_wheelie']=='1' and balanced['cosmetic_6']=='106011')
     close('balanced')
+    start();click(280,435);key('F9');click(276,477);click(630,667)
+    tune=ini('profile.ini');check('blue_tune_slider_sets_independent_fraction',abs(float(tune['wheelie_tune'])-.35)<1e-9 and tune['front_bias']==balanced['front_bias'] and tune['allow_wheelie']=='1')
+    click(610,443);click(630,667);check('balanced_blue_endpoint_saves',ini('profile.ini')['wheelie_tune']=='1')
+    close('blue_balanced')
+    start();click(280,435);key('F9');key('F12');check('blue_tune_survives_restart',ini('profile.ini')['wheelie_tune']=='1');click(110,443);click(630,667)
+    check('wheelie_blue_endpoint_saves',ini('profile.ini')['wheelie_tune']=='0')
+    close('blue_wheelie')
     (a.output / 'report.json').write_text(json.dumps({'checks': checks, 'sessions': sessions, 'profile': saved}, indent=2) + '\n')
     print('PASS:', len(checks), 'actual chassis and driving-aid input checks')
 finally:

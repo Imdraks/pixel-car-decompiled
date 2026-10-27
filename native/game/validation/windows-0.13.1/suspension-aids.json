@@ -1,0 +1,9 @@
+{
+  "chassis_configurations_checked": 64,
+  "max_wheelie_lift_m": 0.379724,
+  "abs_stop_m": 36.8296,
+  "locked_stop_m": 48.6236,
+  "tc_launch_distance_m": 126.602,
+  "uncontrolled_launch_distance_m": 99.5224,
+  "full_android_dynamics_equivalence": false
+}

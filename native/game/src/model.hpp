@@ -24,7 +24,7 @@ struct Settings {
 struct Profile { int car=0, rim=8,rearRim=-1,contentSource=0,audioSource=0;std::array<int,CosmeticSlotCount> cosmetics{};bool rollCage=false,headlights=false,factoryDrive=true; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1;
     int gearboxPreset=0,gearCount=6;std::array<double,10> gearRatios{3.15,2.10,1.55,1.22,1.0,.82,.68,.56,.46,.38};
     double finalDrive=3.9,shiftSeconds=.15;
-    double rideHeightMm=0,springStiffness=1,dampingRatio=.65,frontBias=0;bool allowWheelie=false;
+    double rideHeightMm=0,springStiffness=1,dampingRatio=.65,frontBias=0,wheelieTune=1;bool allowWheelie=false;
 };
 inline DriveLayout effectiveDrive(const Profile& p){return p.factoryDrive?DriveLayout(stockVehicle(p.car).drive):p.drive;}
 enum class SuspensionPreset { Road, Drag, Track, Wheelie };
@@ -62,7 +62,8 @@ struct Vehicle {
     double boostPsi=0,nitroHp=0; bool supercharged=false,twoStep=false;
     bool suspensionDynamics=false,tyreDynamics=false,allowWheelie=false,abs=false,tractionControl=false;
     bool wheelieBar=false;double wheelieBarArm=0,wheelieBarClearance=0;
-    double springStiffness=1,dampingRatio=.65,frontWeightFraction=.48;
+    double springStiffness=1,dampingRatio=.65,frontWeightFraction=.48,wheelieTune=1;
+    double suspensionDroop=.12,suspensionBump=.08;
 
 };
 const Part* findPart(int id);

@@ -1,3 +1,10 @@
+## Roues et curseur Wheelie → Balanced (0.13.2)
+
+Les roues suivent leurs axes de suspension attachés à la caisse, avec des
+courses mécaniques bornées indépendamment de la raideur des ressorts. Le curseur
+bleu limite progressivement le cabrage sans déplacer la masse. Les équations
+Android complètes restent à reconstruire. Voir [DRAG.md](DRAG.md).
+
 ## Correctif Drag 0.13.1
 
 Le préréglage de lancement est séparé du wheelie, amorti et adapté aux essieux

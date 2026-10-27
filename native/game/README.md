@@ -1,4 +1,10 @@
-# Pixel Car Racer — Unbound Native 0.13.1
+# Pixel Car Racer — Unbound Native 0.13.2
+
+La version **0.13.2** reprend le curseur bleu **WHEELIE → BALANCED** dans F9,
+avec un effet progressif et une sauvegarde indépendante des masses avant/arrière.
+Les moyeux suivent maintenant leurs fixations de suspension pendant le tangage ;
+compression et détente sont limitées, et les passages de roue suivent la caisse.
+Les wheelie bars du DRAG PRO restent fonctionnelles. Voir [DRAG.md](DRAG.md).
 
 La version **0.13.1** corrige le préréglage Drag : lancement amorti, roues au
 sol et répartition adaptée à la transmission. Le cabrage volontaire reste dans

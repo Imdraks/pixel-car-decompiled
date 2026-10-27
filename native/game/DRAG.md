@@ -1,6 +1,43 @@
-# Drag : correction du préréglage et recherche de la physique originale
+# Drag, réglage Wheelie → Balanced et roues — 0.13.2
 
-## Correction 0.13.1
+## Réglage comme sur la capture
+
+**F9** affiche maintenant une barre bleue **WHEELIE → BALANCED**, avec un
+curseur blanc utilisable à la souris. Le côté Wheelie laisse la préparation
+cabrer ; se rapprocher de Balanced limite progressivement la levée. Les cinq
+positions 0, 25, 50, 75 et 100 % ont été comparées avec la même voiture et la
+même répartition des masses : levées de 0,2795 / 0,2445 / 0,1570 / 0,0697 / 0 m.
+Ce sont des mesures natives, pas des valeurs Android ou constructeur.
+
+Le curseur est sauvegardé avec la voiture, indépendamment de la répartition des
+masses, des pièces et de l’autorisation de wheelie. Le bouton Wheelie met le
+curseur à gauche ; Drag, Route et Piste le mettent côté Balanced. Les anciennes
+préparations conservent leur autorisation de cabrage lors de la migration.
+
+## Liaison des roues et débattement
+
+Auparavant, les roues suivaient une rotation indépendante de celle de la caisse,
+avec un centre arrière fixe : les moyeux glissaient par rapport aux ailes. La
+course disponible augmentait aussi excessivement avec des ressorts souples,
+car la compression statique servait de limite de détente.
+
+Les deux moyeux suivent désormais leur axe de suspension attaché à la caisse,
+y compris pendant le tangage et avec un réglage de hauteur. Les garnitures
+noires des passages de roue suivent la caisse. Le contact avec la route et la
+levée simulée déterminent la hauteur des pneus ; les racines des particules
+utilisent les mêmes points. Les contrôles couvrent 9168 configurations de
+carrosserie, hauteur, tangage et essieu.
+
+La détente mécanique est limitée à 120 mm et la compression à 80 mm dans ce
+modèle natif. Ces courses sont indépendantes de la rigidité des ressorts.
+Le transfert longitudinal suit le principe ΔF = m × a × h / L : l’accélération
+charge l’arrière et décharge l’avant. La suspension contrôle le mouvement de la
+caisse ; l’avant se détend avant de perdre le contact. L’essieu arrière reste
+porteur pendant le wheelie, sans imposer que les roues soient soudées à la caisse.
+La géométrie exacte des trains et l’anti-squat d’une vraie voiture ne sont pas
+encore simulés : il s’agit d’un modèle longitudinal natif à ressorts linéaires.
+
+## Correction du préréglage Drag (0.13.1)
 
 Dans F9, **Drag** et **Wheelie** ont maintenant deux boutons distincts.
 Le précédent « Drag / Wheelie » imposait +120 mm, des ressorts ×0,50,
@@ -27,7 +64,7 @@ ne sont ni des temps constructeur ni une comparaison de fidélité Android.
 ## Curseur de balance
 
 F9 affiche une barre de **balance avant/arrière**, les deux pourcentages et la
-masse en kilogrammes sur chaque essieu. Le repère cliquable **BALANCED 50/50**
+masse en kilogrammes sur chaque essieu. Le repère cliquable **50/50**
 règle exactement la répartition statique à parts égales. Le curseur conserve
 sa plage de réglage par châssis et n’ajoute aucune masse. Les réglages de wheelie
 et les pièces équipées restent indépendants.
@@ -52,8 +89,9 @@ n’est ajouté. Le HUD indique WHEELIE BAR pendant l’appui. En retirant la pi
 le comportement de cabrage de la préparation est retrouvé.
 
 Les 382 montages source ont été lancés pendant six secondes avec une préparation
-puissante : pas de pénétration du plan de contact, valeurs finies et levée avant
-nulle dans ces scénarios. Sur la référence, la levée sans barre atteint 0,38 m.
+puissante : pas de pénétration du plan de contact, valeurs finies et appui arrière respecté. La levée résiduelle dépend de la
+hauteur et de la géométrie du montage : la barre agit quand elle touche le sol.
+Sur la référence actuelle, la levée passe de 0,2795 m sans barre à 0,0085 m avec.
 Les images et points du rouleau sont récupérés ; **sa réaction mécanique reste
 une implémentation native**, pas une équation Android retrouvée.
 

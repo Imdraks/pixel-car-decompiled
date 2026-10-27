@@ -10,14 +10,14 @@
 
 namespace pcr {
 void applySuspensionPreset(Profile& p,SuspensionPreset preset){
-    p.rideHeightMm=0;p.springStiffness=1;p.dampingRatio=.65;p.frontBias=0;p.allowWheelie=false;
+    p.rideHeightMm=0;p.springStiffness=1;p.dampingRatio=.65;p.frontBias=0;p.allowWheelie=false;p.wheelieTune=1;
     if(preset==SuspensionPreset::Drag){
         // Native launch setup: control pitch and retain contact, rather than
         // confusing drag preparation with an extreme wheelie demonstration.
         p.rideHeightMm=-10;p.springStiffness=1.35;p.dampingRatio=.9;
         auto layout=effectiveDrive(p);p.frontBias=layout==DriveLayout::Front?.04:layout==DriveLayout::Rear?-.06:0;
     }else if(preset==SuspensionPreset::Track){p.rideHeightMm=-40;p.springStiffness=2;p.dampingRatio=.9;}
-    else if(preset==SuspensionPreset::Wheelie){p.rideHeightMm=120;p.springStiffness=.5;p.dampingRatio=.3;p.frontBias=-.15;p.allowWheelie=true;}
+    else if(preset==SuspensionPreset::Wheelie){p.rideHeightMm=120;p.springStiffness=.5;p.dampingRatio=.3;p.frontBias=-.15;p.allowWheelie=true;p.wheelieTune=0;}
 }
 void equipRim(Profile& p,int id,int axle){
     if(!isRimFrame(id))return;
@@ -67,7 +67,7 @@ void sanitizeTransmission(Profile& p){
 void sanitizeSuspension(Profile& p){
     auto bounded=[](double& x,double lo,double hi,double fallback){x=std::isfinite(x)?std::clamp(x,lo,hi):fallback;};
     bounded(p.rideHeightMm,-60,120,0);bounded(p.springStiffness,.4,3,1);
-    bounded(p.dampingRatio,.25,1.5,.65);bounded(p.frontBias,-.15,.15,0);
+    bounded(p.wheelieTune,0,1,1);bounded(p.dampingRatio,.25,1.5,.65);bounded(p.frontBias,-.15,.15,0);
 }
 Settings loadSettings(const std::filesystem::path& file){
     auto v=readIni(file);Settings s;
@@ -98,6 +98,7 @@ Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
     for(int i=0;i<10;i++)p.gearRatios[i]=real(v,"gear_"+std::to_string(i+1),p.gearRatios[i]);
     p.rideHeightMm=real(v,"ride_height_mm",0);p.springStiffness=real(v,"spring_stiffness",1);
     p.dampingRatio=real(v,"damping_ratio",.65);p.frontBias=real(v,"front_bias",0);p.allowWheelie=integer(v,"allow_wheelie",0)!=0;
+    p.wheelieTune=real(v,"wheelie_tune",p.allowWheelie?0:1);
     sanitizeTransmission(p);sanitizeSuspension(p);
     return p;
 }
@@ -117,8 +118,9 @@ bool saveSettings(const std::filesystem::path& file,const Settings& settings,std
 bool saveProfile(const std::filesystem::path& file,const Profile& raw,std::string& error){
     Profile p=raw;sanitizeTransmission(p);sanitizeSuspension(p);
     std::ostringstream out;out.imbue(std::locale::classic());
-    out<<"version=5\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
+    out<<"version=6\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
     out<<"ride_height_mm="<<p.rideHeightMm<<"\nspring_stiffness="<<p.springStiffness<<"\ndamping_ratio="<<p.dampingRatio<<"\nfront_bias="<<p.frontBias<<"\nallow_wheelie="<<p.allowWheelie<<'\n';
+    out<<"wheelie_tune="<<p.wheelieTune<<'\n';
     out<<"rear_rim="<<p.rearRim<<'\n';
     out<<"factory_drive="<<p.factoryDrive<<'\n';
     out<<"audio_source="<<p.audioSource<<'\n';
@@ -175,7 +177,7 @@ static void suspensionLoads(CarState& s,const Vehicle& v){
     const double a=v.wheelbase*(1-v.frontWeightFraction),b=v.wheelbase*v.frontWeightFraction;
     const double kf=v.mass*v.frontWeightFraction*omega*omega,kr=v.mass*(1-v.frontWeightFraction)*omega*omega;
     const double cf=2*v.dampingRatio*v.mass*v.frontWeightFraction*omega,cr=2*v.dampingRatio*v.mass*(1-v.frontWeightFraction)*omega;
-    const double front=s.heave+a*s.pitch,rear=s.heave-b*s.pitch,droop=9.81/(omega*omega)+.035;
+    const double front=s.heave+a*s.pitch,rear=s.heave-b*s.pitch,droop=v.suspensionDroop;
     s.frontLift=v.allowWheelie?std::max(0.0,front-droop):0;
     s.rearLift=v.allowWheelie?std::max(0.0,rear-droop):0;
     s.frontLoad=s.frontLift>0?0:std::clamp(v.mass*9.81*v.frontWeightFraction-kf*front-cf*(s.heaveRate+a*s.pitchRate),0.0,3*v.mass*9.81);
@@ -187,10 +189,10 @@ static void updateSuspension(CarState& s,const Vehicle& v,double tyreForce,doubl
     s.heaveRate+=(s.frontLoad+s.rearLoad-v.mass*9.81)/v.mass*dt;
     s.pitchRate+=(s.frontLoad*a-s.rearLoad*b+tyreForce*v.centreOfGravityHeight)/inertia*dt;
     s.heave+=s.heaveRate*dt;s.pitch+=s.pitchRate*dt;
-    if(!v.allowWheelie){
+    if(!v.allowWheelie||v.wheelieTune>0){
         // An anti-lift constraint represents the grounded setup/wheelie stop.
         // Project position and outgoing velocity, rather than adding tyre grip.
-        double droop=.85*(9.81/(std::pow(2*3.141592653589793*1.6,2)*v.springStiffness)+.035);
+        double droop=.85*v.suspensionDroop+(v.allowWheelie?(1-v.wheelieTune)*.35:0);
         for(double arm:{a,-b}){
             double excess=s.heave+arm*s.pitch-droop;
             if(excess>0){double inverse=1/v.mass+arm*arm/inertia,impulse=excess/inverse;
@@ -198,6 +200,16 @@ static void updateSuspension(CarState& s,const Vehicle& v,double tyreForce,doubl
                 double velocity=s.heaveRate+arm*s.pitchRate;
                 if(velocity>0){impulse=velocity/inverse;s.heaveRate-=impulse/v.mass;s.pitchRate-=impulse*arm/inertia;}
             }
+        }
+    }
+    // Shock travel is mechanical, independent of static spring compression.
+    // Rear squat cannot move an axle arbitrarily far through its wheel arch.
+    for(double arm:{a,-b}){
+        double compression=s.heave+arm*s.pitch+v.suspensionBump;
+        if(compression<0){double inverse=1/v.mass+arm*arm/inertia,correction=-compression/inverse;
+            s.heave+=correction/v.mass;s.pitch+=correction*arm/inertia;
+            double velocity=s.heaveRate+arm*s.pitchRate;
+            if(velocity<0){double impulse=-velocity/inverse;s.heaveRate+=impulse/v.mass;s.pitchRate+=impulse*arm/inertia;}
         }
     }
     s.wheelieBarContact=false;

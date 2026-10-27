@@ -152,7 +152,7 @@ Build buildVehicle(const Profile& profile){
     v.springStiffness=chassis.springStiffness;v.dampingRatio=chassis.dampingRatio;
     v.frontWeightFraction=std::clamp((v.drive==DriveLayout::Front?.60:.48)+chassis.frontBias,.28,.75);
     v.drivenWeightFraction=v.drive==DriveLayout::Front?v.frontWeightFraction:1-v.frontWeightFraction;
-    v.allowWheelie=chassis.allowWheelie;v.suspensionDynamics=true;v.tyreDynamics=true;v.brakeDeceleration=13;
+    v.wheelieTune=chassis.wheelieTune;v.allowWheelie=chassis.allowWheelie;v.suspensionDynamics=true;v.tyreDynamics=true;v.brakeDeceleration=13;
     // The roller belongs to the DRAG PRO rear piece, including the full kit.
     const auto* rear=findCosmetic(profile.cosmetics[6]);const auto* kit=findCosmetic(profile.cosmetics[4]);
     int rearKit=rear?rear->subimage:kit?kit->subimage:0;
