@@ -2,10 +2,17 @@
 #include "road_scene.hpp"
 #include <algorithm>
 namespace pcr {
+SmokeTint tireSmokeTint(int frame){
+    // Only Burn Slicks 9..16 produce coloured smoke. Sidewall colours on other
+    // tyre models do not turn their smoke into a special effect.
+    static constexpr SmokeTint colors[]={{75,230,85},{60,225,205},{180,95,235},{255,105,195},
+        {255,75,75},{255,155,60},{245,230,65},{85,145,255}};
+    return frame>=9&&frame<=16?colors[frame-9]:SmokeTint{255,255,255};
+}
 double DrivingEffects::sample(){random=1664525u*random+1013904223u;return (random>>8)/16777216.0;}
-void DrivingEffects::add(EffectKind kind,double x,double y){
+void DrivingEffects::add(EffectKind kind,double x,double y,SmokeTint tint){
     if(particles.size()>=256)return;
-    Particle p{kind,x,y,0,0,0,.18,1};
+    Particle p{kind,x,y,0,0,0,.18,1};p.tint=tint;
     if(kind==EffectKind::Smoke||kind==EffectKind::BrakeSmoke){p.vx=-20+sample()*40;p.vy=-30-sample()*30;p.life=.6+sample()*.6;p.scale=.5+sample()*.6;}
     if(kind==EffectKind::Spark){p.vx=-80-sample()*180;p.vy=-130+sample()*180;p.life=.15+sample()*.3;}
     if(kind==EffectKind::Nitro)p.life=.10;
@@ -24,12 +31,16 @@ void DrivingEffects::update(const CarState& car,const Vehicle& vehicle,const Dri
     }
     particles.erase(std::remove_if(particles.begin(),particles.end(),[](const Particle& p){return p.age>=p.life||p.x< -120||p.y< -120||p.y>820;}),particles.end());
     smokeTimer-=dt;nitroTimer-=dt;flameTimer-=dt;
-    bool slip=input.throttle&&car.wheelSlip>.05;
+    bool slip=!car.neutral&&input.throttle&&car.wheelSlip>.05;
     bool braking=(input.brake||input.handbrake)&&car.speed>18;
+    auto tyreSmoke=[&](double x){
+        auto count=particles.size();add(braking?EffectKind::BrakeSmoke:EffectKind::Smoke,x,source.wheelY,tireSmokeTint(source.tireFrame));
+        if(car.burningOut&&particles.size()>count){particles.back().scale*=2;particles.back().vy*=1.3;particles.back().foreground=true;}
+    };
     if((slip||braking)&&smokeTimer<=0){
-        if((slip&&vehicle.drive!=DriveLayout::Front)||braking)add(braking?EffectKind::BrakeSmoke:EffectKind::Smoke,source.rearWheel,source.wheelY);
-        if((slip&&vehicle.drive!=DriveLayout::Rear)||(braking&&input.brake))add(braking?EffectKind::BrakeSmoke:EffectKind::Smoke,source.frontWheel,source.wheelY);
-        smokeTimer=.045;
+        if((slip&&vehicle.drive!=DriveLayout::Front)||braking)tyreSmoke(source.rearWheel);
+        if((slip&&vehicle.drive!=DriveLayout::Rear)||(braking&&input.brake))tyreSmoke(source.frontWheel);
+        smokeTimer=car.burningOut?.025:.045;
     }
     auto jets=[&](EffectKind kind){for(int i=0;i<source.outletCount;i++){
         if(particles.size()>=256)break;

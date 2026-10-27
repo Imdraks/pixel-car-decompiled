@@ -1,4 +1,15 @@
-# Pixel Car Racer — Unbound Native 0.10.0
+# Pixel Car Racer — Unbound Native 0.11.0
+
+La version **0.11.0** ajoute le burnout : en **première**, à l’arrêt ou presque,
+maintenir **Z/W/↑ + S/↓**. Le frein retient la voiture, les roues motrices tournent
+et la fumée prend la couleur des **Burn Slicks** équipés (vert, turquoise,
+violet, rose, rouge, orange, jaune, bleu). Les autres pneus gardent une fumée
+blanche, même lorsque leurs inscriptions sont colorées.
+
+Maintenir **V** pour le point mort : le HUD affiche **N**, le moteur prend ses
+tours sans entraîner les roues. Relâcher V réengage le rapport conservé, avec
+un rapport supérieur de sécurité si nécessaire pour éviter un surrégime.
+Le NOS reste sur **N** ; Espace reste le frein à main et coupe le burnout.
 
 La version **0.10.0** remplace la voiture mécanique commune par les **191 fiches
 d’origine** : masse, puissance, régime, adhérence de châssis et transmission
@@ -57,8 +68,8 @@ replacés à distance devant vous. Les anciennes sauvegardes gardent le trafic a
 La version **0.5.0** combine moteur, pièces atmosphériques, ECU, suralimentation,
 intercooler et NOS avec le même calcul pour le banc et la conduite. Le garage
 montre les HP sans/avec NOS, le gain de la pièce sélectionnée, et un banc de
-puissance. **PRÉPA MAX** équipe les meilleures pièces : environ **4289 HP sans
-NOS / 4539 HP avec NOS**. Turbo et compresseur restent strictement exclusifs.
+puissance. **PRÉPA MAX** équipe les meilleures pièces : environ **4438 HP sans
+NOS / 4688 HP avec NOS**. Turbo et compresseur restent strictement exclusifs.
 
 Les pièces sont triées de **commun à contrebande**, avec raretés colorées et tri
 inversible. Contrebande désigne le sommet de performance de chaque catégorie.
@@ -102,6 +113,8 @@ environ 100 Mo libres. Aucun composant Android n'est téléchargé ou installé.
 | S ou flèche bas | Freiner |
 | Flèches gauche/droite, Q/A et D | Changer de voie |
 | E ou Maj gauche / C | Monter / descendre un rapport |
+| V maintenu | Point mort ; relâcher pour réengager |
+| 1re + accélérateur + frein | Burnout à l’arrêt ou à très basse vitesse |
 | N maintenu | NOS, si équipé, réserve de 10 secondes par session |
 | L + accélérateur | 2STEP avec ECU compatible ; relâcher L pour partir |
 | H | Klaxon |

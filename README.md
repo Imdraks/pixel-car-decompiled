@@ -1,12 +1,17 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.10.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.10.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.10.0-native-preview)
+**[Télécharger Windows x64 — version 0.11.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.11.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.11.0-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+La version **0.11.0** ajoute le **burnout** : en première, à l’arrêt ou presque,
+maintenir accélérateur + frein. Les Burn Slicks équipés colorent la fumée.
+**V maintenu** garde le point mort ; relâcher V réengage la transmission.
+N reste la touche du NOS et Espace celle du frein à main.
 
 La version **0.10.0** applique les **191 fiches mécaniques par carrosserie**
 récupérées dans les deux jeux : masse, puissance, régime, adhérence relative et
@@ -80,9 +85,9 @@ de transmission sont conservées. L’équivalence avec Android n’est pas vali
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-166 contrôles du cœur et 50 contrôles graphiques passent sur Windows ; les mesures
+233 contrôles du cœur et 60 contrôles graphiques passent sur Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
-Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 85 contrôles
+Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 100 contrôles
 clavier/souris et 192 416 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.
 
 La [recherche ciblée YYC](native/evidence/unbound/physics/README.md) a vérifié

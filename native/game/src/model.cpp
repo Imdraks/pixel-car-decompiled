@@ -145,7 +145,7 @@ static double drivenGrip(const Vehicle& vehicle,bool accelerating){
         vehicle.mass*9.81*vehicle.grip*vehicle.drivenWeightFraction/denominator);
 }
 bool shift(CarState& car,int direction,const Vehicle& vehicle){
-    if(car.shiftLock>0||car.finished||direction==0)return false;
+    if(car.shiftLock>0||car.finished||car.neutral||direction==0)return false;
     int next=std::clamp(car.gear+(direction>0?1:-1),1,vehicle.gearCount);
     // Reject an unsafe downshift instead of allowing mechanically impossible RPM.
     if(next==car.gear||(next<car.gear&&wheelRpm(car,vehicle,next)>vehicle.redlineRpm))return false;
@@ -157,9 +157,16 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     s.gear=std::clamp(s.gear,1,v.gearCount);
     s.shiftLock=std::max(0.0,s.shiftLock-dt);
     bool braking=input.brake||input.handbrake;s.handbraking=input.handbrake;
-    s.launching=v.twoStep&&input.launch&&input.throttle&&!braking&&s.speed<3;
+    bool wasNeutral=s.neutral;s.neutral=input.neutral;
+    if(wasNeutral&&!s.neutral){
+        // Reconnect safely even if the retained gear would over-rev the engine.
+        while(s.gear<v.gearCount&&wheelRpm(s,v,s.gear)>v.redlineRpm)++s.gear;
+        s.shiftLock=std::max(s.shiftLock,v.shiftSeconds);
+    }
+    s.burningOut=!s.neutral&&!input.handbrake&&input.brake&&input.throttle&&s.gear==1&&s.speed<3&&s.shiftLock==0;
+    s.launching=!s.neutral&&v.twoStep&&input.launch&&input.throttle&&!braking&&s.speed<3;
     double coupled=wheelRpm(s,v,s.gear);
-    if(input.automatic&&s.shiftLock==0){
+    if(input.automatic&&!s.neutral&&!s.burningOut&&s.shiftLock==0){
         if(input.throttle&&!braking&&coupled>v.upshiftRpm&&s.gear<v.gearCount)shift(s,1,v);
         else if(s.gear>1&&coupled<(input.throttle&&!braking?2600.0:1500.0)
                 &&wheelRpm(s,v,s.gear-1)<v.upshiftRpm*.9)shift(s,-1,v);
@@ -167,24 +174,27 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     }
     // Simplified slipping clutch below launch RPM. Above it, RPM follows wheel speed.
     double target=s.launching?4200:std::max(input.throttle&&!braking?v.launchRpm:v.idleRpm,coupled);
-    if(s.shiftLock>0)s.rpm+=std::clamp(target-s.rpm,-13000*dt,15000*dt);
+    if(s.neutral||s.burningOut){
+        target=input.throttle?v.redlineRpm*(s.burningOut?.90:.96):v.idleRpm;
+        s.rpm+=std::clamp(target-s.rpm,-6500*dt,9000*dt);
+    }else if(s.shiftLock>0)s.rpm+=std::clamp(target-s.rpm,-13000*dt,15000*dt);
     else s.rpm=target;
     double ratio=v.ratios[s.gear-1]*v.finalDrive;
-    double boostTarget=input.throttle&&(!braking||s.launching)&&s.shiftLock==0
+    double boostTarget=!s.neutral&&input.throttle&&(!braking||s.launching||s.burningOut)&&s.shiftLock==0
         ?targetBoost(v,s.rpm):0;
     double boostRate=v.boostPsi*(boostTarget>s.boostPsi?(v.supercharged?10:2):8);
     s.boostPsi+=std::clamp(boostTarget-s.boostPsi,-boostRate*dt,boostRate*dt);
     double torque=engineTorque(v,s.rpm,s.boostPsi);
-    s.nitroActive=input.nitro&&input.throttle&&!braking&&s.shiftLock==0&&!s.launching&&s.speed>2&&coupled<v.redlineRpm&&v.nitroHp>0&&s.nitroRemaining>0;
+    s.nitroActive=!s.neutral&&!s.burningOut&&input.nitro&&input.throttle&&!braking&&s.shiftLock==0&&!s.launching&&s.speed>2&&coupled<v.redlineRpm&&v.nitroHp>0&&s.nitroRemaining>0;
     double nitroFraction=s.nitroActive?std::min(1.0,s.nitroRemaining/dt):0;
     if(s.nitroActive)s.nitroRemaining=std::max(0.0,s.nitroRemaining-dt);
-    bool delivering=input.throttle&&!braking&&!s.launching&&s.shiftLock==0&&coupled<v.redlineRpm;
-    s.powerHp=delivering?enginePowerHp(v,s.rpm,s.boostPsi,false)+nitroFraction*v.nitroHp:0;
+    bool delivering=!s.neutral&&input.throttle&&!braking&&!s.launching&&s.shiftLock==0&&coupled<v.redlineRpm;
+    s.powerHp=(delivering||s.burningOut)?enginePowerHp(v,s.rpm,s.boostPsi,false)+nitroFraction*v.nitroHp:0;
     double tractionLimit=drivenGrip(v,true);
-    double wheelForce=input.throttle&&!braking&&!s.launching&&s.shiftLock==0&&coupled<v.redlineRpm
+    double wheelForce=!s.neutral&&input.throttle&&!braking&&!s.launching&&s.shiftLock==0&&coupled<v.redlineRpm
         ?torque*ratio*v.efficiency/v.wheelRadius:0;
     wheelForce+=nitroFraction*v.nitroHp*745.699872*v.efficiency/std::max(10.0,s.speed);
-    if((!input.throttle||braking)&&s.shiftLock==0){
+    if(!s.neutral&&!s.burningOut&&(!input.throttle||braking)&&s.shiftLock==0){
         // Engine and service braking share the same tyre contact patch.
         wheelForce-=v.engineBrakeTorque*ratio/v.wheelRadius*std::clamp(coupled/v.idleRpm,0.0,1.0);
     }
@@ -194,13 +204,19 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     if(input.handbrake&&!input.brake)wheelForce-=handbrakeLimit;
     double brakingLimit=input.brake?v.mass*9.81*v.grip:input.handbrake?handbrakeLimit:drivenGrip(v,false);
     s.wheelSlip=std::clamp((wheelForce-tractionLimit)/std::max(1.0,tractionLimit),0.0,2.0);
+    if(s.burningOut)s.wheelSlip=2*std::clamp((s.rpm-v.idleRpm)/(v.redlineRpm-v.idleRpm),0.0,1.0);
     double force=std::clamp(wheelForce,-brakingLimit,tractionLimit);
     double resistance=.5*1.225*v.dragArea*s.speed*s.speed+v.mass*9.81*v.rollingResistance;
     double previous=s.position,oldSpeed=s.speed;
     s.speed=std::max(0.0,s.speed+(force-resistance)/v.mass*dt);
     // Integrate the stopping fraction so hard braking never moves backwards.
     double movementTime=oldSpeed>0&&s.speed==0?std::min(dt,oldSpeed*v.mass/std::max(1.0,resistance-force)):dt;
-    double traveled=(oldSpeed+s.speed)*.5*movementTime;s.position+=traveled;if(!input.handbrake)s.rearRollDistance+=traveled;s.elapsed+=dt;
+    double traveled=(oldSpeed+s.speed)*.5*movementTime;s.position+=traveled;
+    // Burnout wheel travel is independent of ground/camera travel, by driven axle.
+    double spun=s.burningOut?std::max(traveled,s.rpm*2*3.141592653589793*v.wheelRadius/(60*ratio)*dt):traveled;
+    s.frontRollDistance+=s.burningOut&&v.drive!=DriveLayout::Rear?spun:traveled;
+    if(!input.handbrake)s.rearRollDistance+=s.burningOut&&v.drive!=DriveLayout::Front?spun:traveled;
+    s.elapsed+=dt;
     if(finishDistance>0&&s.position>=finishDistance){double fraction=(finishDistance-previous)/(s.position-previous);s.finishTime=s.elapsed-dt+fraction*dt;s.position=finishDistance;s.finished=true;}
 }
 FreeDrive::FreeDrive(){for(size_t i=0;i<traffic.size();i++){respawn(traffic[i]);traffic[i].position=70+i*55;}}

@@ -1,3 +1,25 @@
+# Burnout et point mort — 0.11.0
+
+- En première, frein de service + accélérateur active le burnout sous 3 m/s.
+  Le frein maintient l’arrêt ; la distance de rotation des roues est indépendante
+  de celle du décor. Seul l’essieu moteur tourne (les deux en transmission intégrale).
+- Relâcher une des deux commandes termine le burnout. Le frein à main est
+  prioritaire. Hors de ces conditions, frein + accélérateur continue de freiner.
+- V maintenu désaccouple le moteur. L’accélérateur augmente le régime sans force
+  motrice ni frein moteur. Freinage, inertie et résistance au roulement restent actifs.
+  Les changements automatiques/manuels sont suspendus pendant le maintien.
+- Au relâchement, le rapport conservé est réengagé avec le délai d’embrayage ;
+  un rapport supérieur évite un surrégime si la vitesse l’exige.
+- Le NOS ne se consomme pas en burnout ou au point mort. Les sons moteur suivent
+  l’accélérateur et le régime dans ces deux modes.
+- Les Burn Slicks 9..16 définissent les huit teintes de fumée. Les particules
+  gardent leur teinte d’émission ; les autres pneus émettent une fumée blanche.
+
+Ces comportements, régimes de maintien et teintes RGB sont des adaptations natives.
+Ils ne constituent pas une récupération des équations Android de chauffe des pneus,
+d’usure ou d’adhérence thermique. Les sorties de particules suivent les ancrages
+existants des roues. Aucun bonus de grip permanent n’est ajouté par un burnout.
+
 # Physique par voiture — 0.10.0
 
 Les 191 carrosseries utilisent désormais leurs fiches mécaniques d’origine,

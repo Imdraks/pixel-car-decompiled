@@ -1,3 +1,19 @@
+# Validation 0.11.0 — burnout et point mort
+
+- 233 contrôles du cœur : burnout FWD/RWD/AWD, immobilité du décor et rotation
+  des essieux, frein prioritaire à vitesse élevée, frein à main, point mort,
+  inertie, freinage, régime, NOS bloqué et réengagement sans surrégime.
+- 40 images de pneus contrôlées : seules les 8 Burn Slicks colorent la fumée.
+  La couleur est conservée pendant la vie de chaque particule.
+- 60 contrôles graphiques Linux réussis ; les huit couleurs sont visibles selon
+  les contrôles pixels et les captures burnout/point mort ont été revues.
+- 100 contrôles d’entrées réelles Linux réussis : 15 burnout/point mort,
+  69 garage/audio et 16 affichage/trafic.
+- Compilation Windows x64 terminée ; la publication exige les mêmes contrôles
+  du cœur et des captures sous Windows via CI.
+- Preuves Linux : `validation/burnout-0.11/`.
+- Il s’agit d’une adaptation native ; la chauffe des pneus Android n’est pas portée.
+
 # Validation 0.10.0 — paramètres par voiture
 
 - Récupération indépendante de 191 fiches dans chaque bibliothèque : 1337

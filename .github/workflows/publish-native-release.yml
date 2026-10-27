@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.10.0-native-preview
+        default: v0.11.0-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -90,6 +90,9 @@ jobs:
           if ($LASTEXITCODE -ne 0) { Get-Content validation/core-tests.txt; throw 'Windows core tests failed' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\exhaust-gearbox.json" validation/exhaust-gearbox.json
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\attachment-fit.json" validation/attachment-fit.json
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\burnout-neutral.json" validation/burnout-neutral.json
+          $burnout = Get-Content validation/burnout-neutral.json -Raw | ConvertFrom-Json
+          if ($burnout.burnout_layouts_checked -ne 3 -or $burnout.special_smoke_colours -ne 8 -or !$burnout.neutral_behaviour_checked) { throw 'Burnout or neutral regression coverage differs' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\stock-vehicle-physics.json" validation/stock-vehicle-physics.json
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\stock-vehicle-physics.csv" validation/stock-vehicle-physics.csv
           $stock = Get-Content validation/stock-vehicle-physics.json -Raw | ConvertFrom-Json
@@ -219,6 +222,30 @@ jobs:
             if ($blue -lt 5 -or $warm -lt 5) { throw "Exhaust effects not visibly rendered: blue=$blue warm=$warm" }
             "PASS visible NOS and backfire pixels: blue=$blue warm=$warm" | Out-File validation/exhaust-pixels.txt
           } finally { $image.Dispose() }
+      - name: Verify all eight burnout smoke colours in Windows captures
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          Add-Type -AssemblyName System.Drawing
+          $colours = @(@('green',90,150),@('teal',155,195),@('purple',255,295),@('pink',305,345),@('red',345,20),@('orange',20,45),@('yellow',45,75),@('blue',200,245))
+          $result = [ordered]@{}
+          for ($i=0; $i -lt 8; $i++) {
+            $file = Join-Path $PWD ('validation/screens/burnout-{0:00}.png' -f ($i+9))
+            $image = [System.Drawing.Bitmap]::new($file)
+            try {
+              $count=0; $low=[double]($colours[$i][1]); $high=[double]($colours[$i][2])
+              for ($y=[int][math]::Round(370*$image.Height/720); $y -lt [int][math]::Round(475*$image.Height/720); $y++) {
+                for ($x=[int][math]::Round(375*$image.Width/1280); $x -lt [int][math]::Round(470*$image.Width/1280); $x++) {
+                  $pixel=$image.GetPixel($x,$y); $hue=$pixel.GetHue()
+                  $inside=if ($low -le $high) { $hue -ge $low -and $hue -le $high } else { $hue -ge $low -or $hue -le $high }
+                  if ($inside -and $pixel.GetSaturation() -gt 0.3 -and [math]::Max($pixel.R,[math]::Max($pixel.G,$pixel.B)) -gt 30) { $count++ }
+                }
+              }
+              if ($count -lt 80) { throw "Missing burnout smoke colour: $($colours[$i][0])" }
+              $result[$colours[$i][0]]=$count
+            } finally { $image.Dispose() }
+          }
+          $result | ConvertTo-Json | Out-File validation/burnout-pixels.json
       - name: Collect Windows validation
         if: always()
         shell: pwsh
@@ -254,12 +281,12 @@ jobs:
           import zipfile
           from pathlib import Path
           with zipfile.ZipFile('../validation/Validation-Windows.zip') as archive:
-              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png'),('screens/ancrages-source.png','Apercu-Ancrages.png'),('screens/origines-pieces.png','Apercu-Provenance.png'),('screens/echappements-source-unbound.png','Apercu-Echappements.png'),('screens/fiche-stock-awd.png','Apercu-Physique.png')]:
+              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png'),('screens/ancrages-source.png','Apercu-Ancrages.png'),('screens/origines-pieces.png','Apercu-Provenance.png'),('screens/echappements-source-unbound.png','Apercu-Echappements.png'),('screens/fiche-stock-awd.png','Apercu-Physique.png'),('screens/burnout-09.png','Apercu-Burnout.png')]:
                   data=archive.read(source)
                   if not data.startswith(bytes.fromhex('89504e470d0a1a0a')): raise SystemExit('Invalid native UI preview')
                   Path(target).write_bytes(data)
           PY_PREVIEW
-          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png Apercu-Ancrages.png Apercu-Provenance.png Apercu-Echappements.png Apercu-Physique.png
+          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png Apercu-Ancrages.png Apercu-Provenance.png Apercu-Echappements.png Apercu-Physique.png Apercu-Burnout.png
           for part in $(seq 0 $((PART_COUNT-1))); do
             name="$(printf 'PixelCarRacerNative-Windows-x64.zip.part-%03d' "$part")"
             gh release delete-asset "$RELEASE_TAG" "$name" --yes

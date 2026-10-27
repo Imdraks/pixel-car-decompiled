@@ -76,12 +76,14 @@ int main(int argc,char**argv){
     for(int i=0;i<120;i++){stepCar(low,v,{false,false,false},Step,0);stepCar(high,v,{false,false,false},Step,0);}
     expect(low.speed<high.speed,"lower gear provides stronger engine braking");
     CarState braking,conflicting;braking.speed=conflicting.speed=100/3.6;
-    double brakingTime=0;
+    double brakingTime=0;bool roadBrakingSame=true;
     for(int i=0;i<1200&&braking.speed>0;i++){
         stepCar(braking,v,{false,true,true},Step,0);stepCar(conflicting,v,{true,true,true},Step,0);brakingTime+=Step;
+        if(braking.speed>3)roadBrakingSame&=std::abs(braking.position-conflicting.position)<1e-9;
     }
     expect(braking.speed==0&&braking.position>35&&braking.position<55,"100 km/h stopping distance remains plausible");
-    expect(std::abs(braking.position-conflicting.position)<1e-9,"brake overrides simultaneous throttle");
+    for(int tick=0;tick<120;tick++)stepCar(conflicting,v,{true,true,true},Step,0);
+    expect(roadBrakingSame&&conflicting.speed==0,"brake overrides simultaneous throttle at road speed, then holds the low-speed burnout stopped");
     CarState lighter,heavier;lighter.speed=heavier.speed=25;lighter.gear=heavier.gear=3;
     Vehicle heavy=v;heavy.mass*=1.5;
     for(int i=0;i<120;i++){stepCar(lighter,v,{true,false,false},Step,0);stepCar(heavier,heavy,{true,false,false},Step,0);}
@@ -207,10 +209,53 @@ int main(int argc,char**argv){
     expect(saveProfile(root/"sound.ini",soundProfile,customError),"original audio preferences save");
     auto savedSound=loadProfile(root/"sound.ini",191,54);
     expect(savedSound.soundOn==5&&savedSound.soundOff==4&&savedSound.bov==3,"engine and valve audio preferences persist independently");
+    DriverInput burnInput{true,true,true,true};
+    for(auto layout:{DriveLayout::Front,DriveLayout::Rear,DriveLayout::All}){
+        Vehicle car=v;car.drive=layout;car.nitroHp=250;CarState state;
+        for(int tick=0;tick<240;tick++)stepCar(state,car,burnInput,Step,0);
+        expect(state.burningOut&&state.gear==1&&state.speed==0&&state.position==0&&state.rpm>car.redlineRpm*.85&&state.rpm<car.redlineRpm,"first-gear brake and throttle hold the car while its engine revs for a burnout");
+        expect((layout==DriveLayout::Rear?state.frontRollDistance==0:state.frontRollDistance>10)&&(layout==DriveLayout::Front?state.rearRollDistance==0:state.rearRollDistance>10),"burnout rotates only the driven axle independently of stationary ground travel");
+        expect(!state.nitroActive&&state.nitroRemaining==10&&state.powerHp>0&&state.wheelSlip>.5,"burnout drives spinning wheels but blocks NOS consumption");
+        stepCar(state,car,{true,false,true},Step,0);
+        expect(!state.burningOut&&state.speed>0,"releasing the service brake ends the burnout and launches normally");
+    }
+    CarState wrongGear;wrongGear.gear=2;stepCar(wrongGear,v,{true,true,false},Step,0);
+    expect(!wrongGear.burningOut&&wrongGear.powerHp==0,"manual second gear cannot enter burnout mode");
+    CarState fastBurn;fastBurn.speed=20;stepCar(fastBurn,v,burnInput,Step,0);
+    expect(!fastBurn.burningOut&&fastBurn.speed<20,"brake plus throttle at road speed continues braking");
+    CarState lockedBurn;stepCar(lockedBurn,v,{true,true,true,true,false,true},Step,0);
+    expect(!lockedBurn.burningOut&&lockedBurn.powerHp==0&&lockedBurn.rearRollDistance==0,"handbrake has priority over the service-brake burnout");
+    Vehicle nosNeutral=v;nosNeutral.nitroHp=250;
+    CarState freeRev;freeRev.gear=4;
+    for(int tick=0;tick<240;tick++)stepCar(freeRev,nosNeutral,{true,false,true,true,false,false,true},Step,0);
+    expect(freeRev.neutral&&freeRev.gear==4&&freeRev.rpm>v.redlineRpm*.9&&freeRev.rpm<v.redlineRpm&&freeRev.position==0&&freeRev.speed==0,"held neutral revs freely without acceleration or automatic shifting");
+    expect(!shift(freeRev,-1,v)&&freeRev.powerHp==0&&!freeRev.nitroActive&&freeRev.nitroRemaining==10&&freeRev.wheelSlip==0,"neutral disconnects wheel torque, shift commands and NOS");
+    stepCar(freeRev,v,{true,false,false},Step,0);
+    expect(!freeRev.neutral&&freeRev.gear==4&&freeRev.shiftLock>0,"releasing neutral reconnects the retained gear through the shift delay");
+    CarState coast,engaged;coast.speed=engaged.speed=20;coast.gear=engaged.gear=3;
+    for(int tick=0;tick<120;tick++){stepCar(coast,v,{false,false,false,false,false,false,true},Step,0);stepCar(engaged,v,{false,false,false},Step,0);}
+    expect(coast.speed>engaged.speed&&coast.speed<20,"neutral retains momentum and rolling resistance without engine braking");
+    for(int tick=0;tick<600;tick++)stepCar(coast,v,{true,true,true,true,false,false,true},Step,0);
+    expect(coast.speed==0&&!coast.burningOut&&coast.neutral,"service braking remains effective in neutral and cannot trigger burnout");
+    CarState reconnect;reconnect.gear=1;reconnect.speed=30;
+    stepCar(reconnect,v,{false,false,false,false,false,false,true},Step,0);stepCar(reconnect,v,{true,false,false},Step,0);
+    expect(!reconnect.neutral&&reconnect.gear>1&&reconnect.rpm<=v.redlineRpm,"neutral release selects a safe ratio when the retained gear would over-rev");
+    for(int frame=0;frame<40;frame++){
+        auto tint=tireSmokeTint(frame);bool special=frame>=9&&frame<=16;
+        expect((tint!=SmokeTint{255,255,255})==special,"only the eight Burn Slicks colours tint tyre smoke");
+    }
+    {std::ofstream out(root/"burnout-neutral.json");out<<"{\n  \"burnout_layouts_checked\": 3,\n  \"smoke_tyre_frames_checked\": 40,\n  \"special_smoke_colours\": 8,\n  \"neutral_behaviour_checked\": true\n}\n";}
     DrivingEffects visuals;CarState visibleCar;visibleCar.wheelSlip=.4;
     EffectSources points;points.rearWheel=400;points.frontWheel=520;points.wheelY=450;points.outlets[0]={350,440,-1,0};
     visuals.update(visibleCar,v,{true,false,true},points,0,Step,false);
     expect(!visuals.particles.empty()&&visuals.particles.front().kind==EffectKind::Smoke,"wheel slip emits original smoke particles");
+    for(auto layout:{DriveLayout::Front,DriveLayout::Rear,DriveLayout::All}){
+        DrivingEffects smoke;Vehicle car=v;car.drive=layout;CarState state;state.burningOut=true;state.wheelSlip=1;
+        EffectSources sources=points;sources.tireFrame=13;smoke.update(state,car,burnInput,sources,0,Step,false);
+        expect(smoke.particles.size()==(layout==DriveLayout::All?2u:1u)&&std::all_of(smoke.particles.begin(),smoke.particles.end(),[&](const Particle& p){return p.tint==SmokeTint{255,75,75}&&(layout==DriveLayout::All||p.x==(layout==DriveLayout::Front?points.frontWheel:points.rearWheel));}),"coloured burnout smoke originates at the driven tyre contact patch");
+        auto tint=smoke.particles.front().tint;sources.tireFrame=0;state.wheelSlip=0;smoke.update(state,car,{false,false,true},sources,0,.1,false);
+        expect(smoke.particles.front().tint==tint,"existing smoke keeps its emitted colour when tyre selection changes");
+    }
     visibleCar.wheelSlip=0;visibleCar.nitroActive=true;
     visuals.update(visibleCar,v,{true,false,true,true},points,0,Step,false);
     expect(std::any_of(visuals.particles.begin(),visuals.particles.end(),[](const Particle& p){return p.kind==EffectKind::Nitro;}),"active NOS emits a distinct effect");

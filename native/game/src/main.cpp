@@ -238,7 +238,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.10",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.11",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},"GARAGE")){openCustomization();screen=Screen::Garage;}
@@ -602,9 +602,9 @@ struct App {
     void garage(){customizationScene();}
     void renderEffects(bool front){
         for(const auto& p:effects.particles){
-            bool isFront=p.kind!=EffectKind::Smoke&&p.kind!=EffectKind::BrakeSmoke;if(isFront!=front)continue;
+            bool isFront=p.foreground||(p.kind!=EffectKind::Smoke&&p.kind!=EffectKind::BrakeSmoke);if(isFront!=front)continue;
             float fade=float(1-p.age/p.life);const art::Frame* sprite=nullptr;float scale=float(p.scale);Vector2 origin{19,15};Color color=Fade(WHITE,fade*.65f);float rotation=0;
-            if(p.kind==EffectKind::Smoke||p.kind==EffectKind::BrakeSmoke){sprite=p.kind==EffectKind::Smoke?&art::smoke[0]:&art::smoke2[0];scale*=float(1+p.age*2);}
+            if(p.kind==EffectKind::Smoke||p.kind==EffectKind::BrakeSmoke){sprite=p.kind==EffectKind::Smoke?&art::smoke[0]:&art::smoke2[0];scale*=float(1+p.age*2);color=Fade(Color{p.tint[0],p.tint[1],p.tint[2],255},fade*.65f);}
             else if(p.kind==EffectKind::Flame){sprite=&art::flames[int(p.age*30)%int(std::size(art::flames))];origin={art::flameRoots[int(p.age*30)%int(std::size(art::flames))].x,art::flameRoots[int(p.age*30)%int(std::size(art::flames))].y};scale=float(p.scale);color=Fade(Color{255,185,65,255},fade);rotation=float(std::atan2(p.dy,p.dx)*180/3.141592653589793-180);}
             else if(p.kind==EffectKind::Spark){sprite=&art::sparks[0];origin={0,0};scale=1.5f;color=Fade(Gold,fade);rotation=float(std::atan2(p.vy,p.vx)*180/3.141592653589793);}
             else if(p.kind==EffectKind::Nitro){
@@ -622,7 +622,7 @@ struct App {
         renderEffects(false);
         for(int lane=0;lane<3;lane++){
             for(const auto& t:drive.traffic)if(drive.trafficEnabled&&t.lane==lane){float x=float(scene::trafficX(t.position,drive.player.position));if(x>-400&&x<1600)car(t.appearance,RimFrames[t.appearance%RimFrames.size()],x,269+lane*96,1.25,scene::wheelAngle(t.position,.32));}
-            if(std::clamp(int(std::round(drive.lane)),0,2)==lane)car(profile.car,profile.rim,360,269+float(drive.lane)*96,1.25,scene::wheelAngle(drive.player.position,drive.vehicle.wheelRadius),true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,scene::wheelAngle(drive.player.rearRollDistance,drive.vehicle.wheelRadius),&profile);
+            if(std::clamp(int(std::round(drive.lane)),0,2)==lane)car(profile.car,profile.rim,360,269+float(drive.lane)*96,1.25,scene::wheelAngle(drive.player.frontRollDistance,drive.vehicle.wheelRadius),true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,scene::wheelAngle(drive.player.rearRollDistance,drive.vehicle.wheelRadius),&profile);
         }
         renderEffects(true);
         if(drive.collisionCooldown>1.0)DrawRectangle(0,0,1280,720,Fade(RED,.10f));
@@ -632,11 +632,13 @@ struct App {
         if(button({1066,17,177,51},paused?"REPRENDRE":"PAUSE"))paused=!paused;
         card({29,578,275,111});text(TextFormat("%03i",int(drive.player.speed*3.6)),52,587,60);text("km/h",192,620,22,Muted);
         text(TextFormat("%.0f HP moteur",drive.player.powerHp),344,560,16,Gold);
-        if(drive.player.handbraking)text("FREIN À MAIN",580,560,17,Gold);
+        if(drive.player.burningOut)text("BURNOUT",580,560,17,Accent);
+        else if(drive.player.neutral)text("POINT MORT",580,560,17,Accent);
+        else if(drive.player.handbraking)text("FREIN À MAIN",580,560,17,Gold);
         card({320,578,563,111});text(std::string(profile.automatic?"AUTO  •  ":"MANUELLE  •  ")+driveLabel(),344,595,17,Accent);
-        text("Z / ↑  Accélérer     S / ↓  Freiner",344,625,17);
-        text("← / →  Voies    E / C Rapports  T Boîte  Espace F.à main  N NOS",344,655,14,Muted);
-        card({900,578,350,111});text(TextFormat("%i",drive.player.gear),927,596,57,Gold);
+        text("Z / ↑ Accélérer   S / ↓ Freiner   1re + les deux : burnout",344,625,17);
+        text("← / → Voies   E/C Rapports   T Boîte   Espace F.à main   N NOS   V Neutre",344,655,14,Muted);
+        card({900,578,350,111});text(drive.player.neutral?"N":TextFormat("%i",drive.player.gear),927,596,57,Gold);
         text(TextFormat("%04i tr/min",int(drive.player.rpm)),992,602,23);
         DrawRectangle(994,644,228,9,Color{40,51,65,255});DrawRectangle(994,644,int(228*std::clamp(drive.player.rpm/drive.vehicle.redlineRpm,0.0,1.0)),9,drive.player.rpm>drive.vehicle.upshiftRpm?Gold:Accent);
         text(drive.vehicle.nitroHp>0?TextFormat("Boost %.1f psi   NOS %.1f s",drive.player.boostPsi,drive.player.nitroRemaining):TextFormat("Boost %.1f psi   NOS absent",drive.player.boostPsi),912,669,13,drive.player.nitroActive?Gold:Muted);
@@ -686,7 +688,7 @@ struct App {
     }
     EffectSources effectSources(){
         auto wheels=bodyWheels(profile.car,profile.contentSource==1);double baseY=269+drive.lane*96;
-        EffectSources sources;sources.rearWheel=360+wheels.rear*1.25;sources.frontWheel=360+wheels.front*1.25;sources.wheelY=baseY+(wheels.y+wheels.radius)*1.25;
+        EffectSources sources;sources.tireFrame=configuration.tireFrame;sources.rearWheel=360+wheels.rear*1.25;sources.frontWheel=360+wheels.front*1.25;sources.wheelY=baseY+(wheels.y+wheels.radius)*1.25;
         auto pipe=installedExhaust(profile,configuration.exhaustFrame,configuration.rideOffset);
         sources.outletCount=pipe.count;
         for(int i=0;i<pipe.count;i++){sources.outlets[i]=pipe.outlets[i];sources.outlets[i].x=360+pipe.outlets[i].x*1.25;sources.outlets[i].y=baseY+pipe.outlets[i].y*1.25;}
@@ -700,13 +702,13 @@ struct App {
         if(!confirming&&IsKeyPressed(KEY_ENTER)&&(IsKeyDown(KEY_LEFT_ALT)||IsKeyDown(KEY_RIGHT_ALT))){openOptions();edited.mode=settings.mode==WindowMode::Windowed?WindowMode::Borderless:WindowMode::Windowed;queued=[this]{preview();};}
         if(confirming&&GetTime()>=deadline)revert();
         if(IsKeyPressed(KEY_F3)&&screen!=Screen::Garage&&screen!=Screen::Customization){settings.showFps=!settings.showFps;edited.showFps=settings.showFps;}
-        DriverInput input{IsKeyDown(KEY_Z)||IsKeyDown(KEY_W)||IsKeyDown(KEY_UP),IsKeyDown(KEY_S)||IsKeyDown(KEY_DOWN),profile.automatic,IsKeyDown(KEY_N),IsKeyDown(KEY_L),IsKeyDown(KEY_SPACE)};
+        DriverInput input{IsKeyDown(KEY_Z)||IsKeyDown(KEY_W)||IsKeyDown(KEY_UP),IsKeyDown(KEY_S)||IsKeyDown(KEY_DOWN),profile.automatic,IsKeyDown(KEY_N),IsKeyDown(KEY_L),IsKeyDown(KEY_SPACE),IsKeyDown(KEY_V)};
         if((screen==Screen::Customization||screen==Screen::Garage)&&!options&&!confirming&&!audioPopup&&!powerPopup)garageKeyboard();
         if(screen==Screen::Free&&!paused&&!options&&!confirming){
             if(IsKeyPressed(KEY_LEFT)||IsKeyPressed(KEY_A)||IsKeyPressed(KEY_Q))drive.changeLane(-1);
             if(IsKeyPressed(KEY_RIGHT)||IsKeyPressed(KEY_D))drive.changeLane(1);
-            if(IsKeyPressed(KEY_E)||IsKeyPressed(KEY_LEFT_SHIFT))shift(drive.player,1,drive.vehicle);
-            if(IsKeyPressed(KEY_C))shift(drive.player,-1,drive.vehicle);
+            if(!input.neutral&&(IsKeyPressed(KEY_E)||IsKeyPressed(KEY_LEFT_SHIFT)))shift(drive.player,1,drive.vehicle);
+            if(!input.neutral&&IsKeyPressed(KEY_C))shift(drive.player,-1,drive.vehicle);
             if(IsKeyPressed(KEY_T)){profile.automatic=!profile.automatic;input.automatic=profile.automatic;saveCar();}
             if(args.smoke)input={true,frames>=260&&frames<267,true,frames>=235};
             accumulator+=dt;while(accumulator>=Step){drive.update(input,Step);accumulator-=Step;}
@@ -810,10 +812,10 @@ struct App {
         // Windows' software double buffer can expose the preceding presented
         // frame to TakeScreenshot. Hold each state before capturing it.
         if(frames==293)capture("motion-stationary-a.png");
-        if(frames==294){capture("motion-stationary-b.png");drive.player.speed=100/3.6;drive.player.position=100;}
-        if(frames==297){capture("motion-100-a.png");drive.player.position+=100/3.6*.1;}
-        if(frames==300){capture("motion-100-b.png");drive.player.speed=200/3.6;drive.player.position=100;}
-        if(frames==303){capture("motion-200-a.png");drive.player.position+=200/3.6*.1;}
+        if(frames==294){capture("motion-stationary-b.png");drive.player.speed=100/3.6;drive.player.position=100;drive.player.frontRollDistance=drive.player.rearRollDistance=100;}
+        if(frames==297){capture("motion-100-a.png");drive.player.position+=100/3.6*.1;drive.player.frontRollDistance=drive.player.rearRollDistance=drive.player.position;}
+        if(frames==300){capture("motion-100-b.png");drive.player.speed=200/3.6;drive.player.position=100;drive.player.frontRollDistance=drive.player.rearRollDistance=100;}
+        if(frames==303){capture("motion-200-a.png");drive.player.position+=200/3.6*.1;drive.player.frontRollDistance=drive.player.rearRollDistance=drive.player.position;}
         if(frames==306){capture("motion-200-b.png");paused=true;}
         if(frames==309)capture("motion-paused-a.png");
         if(frames==311)capture("motion-paused-b.png");
@@ -889,7 +891,22 @@ struct App {
         if(frames==449)openTransmission();
         if(frames==452)capture("transmission-origine.png");
         if(frames==453){commitTransmission();auto loaded=loadProfile(profileFile(),191,54);check(loaded.factoryDrive&&effectiveDrive(loaded)==DriveLayout::Rear,"factory drivetrain state round trips from the garage transmission editor");}
-        if(frames==456)quit=true;
+        for(int color=0;color<8;color++){
+            int start=457+color*4;
+            if(frames==start){
+                profile=Profile{};profile.car=20;profile.factoryDrive=false;profile.drive=DriveLayout::Rear;equipPart(profile,PartSlot::Tires,10009+color);beginFree();
+                DriverInput input{true,true,true,true};
+                for(int tick=0;tick<240;tick++){drive.update(input,Step);effects.update(drive.player,drive.vehicle,input,effectSources(),0,Step,false);}
+                check(drive.player.burningOut&&drive.player.speed==0&&drive.player.rearRollDistance>10&&drive.player.frontRollDistance==0&&!effects.particles.empty()&&std::all_of(effects.particles.begin(),effects.particles.end(),[&](const Particle& p){return p.tint==tireSmokeTint(9+color);}),"stationary first-gear burnout renders the equipped Burn Slicks colour at the driven axle");
+            }
+            if(frames==start+2)capture(TextFormat("burnout-%02i.png",color+9));
+        }
+        if(frames==490){beginFree();DriverInput input{true,false,true,true,false,false,true};for(int tick=0;tick<240;tick++)drive.update(input,Step);
+            check(drive.player.neutral&&drive.player.rpm>7000&&drive.player.speed==0&&drive.player.gear==1&&!drive.player.nitroActive,"held neutral displays free engine revs without movement or NOS");}
+        if(frames==492)capture("neutre-maintenu.png");
+        if(frames==494){for(int tick=0;tick<120;tick++)drive.update({true,false,true},Step);check(!drive.player.neutral&&drive.player.speed>0,"releasing neutral reconnects the transmission and moves the car");}
+        if(frames==496)capture("neutre-relache.png");
+        if(frames==497)quit=true;
 
     }
     int run(){
@@ -897,7 +914,7 @@ struct App {
         while(!WindowShouldClose()&&!quit){double dt=args.smoke?(frames>=290?0:1.0/30.0):std::clamp(double(GetFrameTime()),0.0,.1);controls(dt);renderFrame();if(IsKeyPressed(KEY_F12))capture(TextFormat("capture-%06i.png",frames));if(queued){auto action=std::move(queued);queued=nullptr;action();}if(args.smoke)smoke();frames++;}
         if(confirming)revert();
         saveCar();
-        {std::error_code ec;fs::create_directories(args.data,ec);if(!ec){std::ofstream out(args.data/"last-session.txt");out<<"screen="<<int(screen)<<"\ncustom_group="<<customGroup<<"\ncustom_page="<<customPage<<"\ninventory_open="<<inventoryOpen<<"\nnitro_remaining="<<drive.player.nitroRemaining<<"\nnitro_active="<<drive.player.nitroActive<<"\nhandbraking="<<drive.player.handbraking<<"\nrear_roll_m="<<drive.player.rearRollDistance<<"\ntraffic_enabled="<<drive.trafficEnabled<<"\ntraffic_count="<<(drive.trafficEnabled?drive.traffic.size():0)<<"\ndistance_m="<<drive.player.position<<"\nspeed_mps="<<drive.player.speed<<"\ntarget_lane="<<drive.targetLane<<"\ngear="<<drive.player.gear<<"\nengine_part="<<profile.parts[int(PartSlot::Engine)]<<"\ntire_part="<<profile.parts[int(PartSlot::Tires)]<<"\ngear_count="<<drive.vehicle.gearCount<<"\nfinal_drive="<<drive.vehicle.finalDrive<<"\nshift_seconds="<<drive.vehicle.shiftSeconds<<"\nnative_mass_kg="<<drive.vehicle.mass<<"\nnative_hp="<<configuration.boostedHp<<"\nnative_nos_hp="<<configuration.nitroHp<<"\ncurrent_hp="<<drive.player.powerHp<<"\nnative_torque_nm="<<drive.vehicle.torque<<"\ndrive_layout="<<int(drive.vehicle.drive)<<"\naudio_ready="<<audio.ready<<"\naudio_failures="<<audio.failures<<"\nframes="<<frames<<"\nmode="<<modeKey(settings.mode)<<"\nwidth="<<GetScreenWidth()<<"\nheight="<<GetScreenHeight()<<"\n";}}
+        {std::error_code ec;fs::create_directories(args.data,ec);if(!ec){std::ofstream out(args.data/"last-session.txt");out<<"screen="<<int(screen)<<"\ncustom_group="<<customGroup<<"\ncustom_page="<<customPage<<"\ninventory_open="<<inventoryOpen<<"\nnitro_remaining="<<drive.player.nitroRemaining<<"\nnitro_active="<<drive.player.nitroActive<<"\nhandbraking="<<drive.player.handbraking<<"\nneutral="<<drive.player.neutral<<"\nburnout="<<drive.player.burningOut<<"\nrpm="<<drive.player.rpm<<"\nfront_roll_m="<<drive.player.frontRollDistance<<"\nrear_roll_m="<<drive.player.rearRollDistance<<"\ntraffic_enabled="<<drive.trafficEnabled<<"\ntraffic_count="<<(drive.trafficEnabled?drive.traffic.size():0)<<"\ndistance_m="<<drive.player.position<<"\nspeed_mps="<<drive.player.speed<<"\ntarget_lane="<<drive.targetLane<<"\ngear="<<drive.player.gear<<"\nengine_part="<<profile.parts[int(PartSlot::Engine)]<<"\ntire_part="<<profile.parts[int(PartSlot::Tires)]<<"\ngear_count="<<drive.vehicle.gearCount<<"\nfinal_drive="<<drive.vehicle.finalDrive<<"\nshift_seconds="<<drive.vehicle.shiftSeconds<<"\nnative_mass_kg="<<drive.vehicle.mass<<"\nnative_hp="<<configuration.boostedHp<<"\nnative_nos_hp="<<configuration.nitroHp<<"\ncurrent_hp="<<drive.player.powerHp<<"\nnative_torque_nm="<<drive.vehicle.torque<<"\ndrive_layout="<<int(drive.vehicle.drive)<<"\naudio_ready="<<audio.ready<<"\naudio_failures="<<audio.failures<<"\nframes="<<frames<<"\nmode="<<modeKey(settings.mode)<<"\nwidth="<<GetScreenWidth()<<"\nheight="<<GetScreenHeight()<<"\n";}}
         if(args.smoke){fs::create_directories(args.data);std::ofstream out(args.data/"smoke-report.txt");
 #ifdef _WIN32
             out<<"Native Windows rendering smoke test. Physical PC GPU and audio are not established.\n";

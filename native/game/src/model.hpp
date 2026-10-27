@@ -79,12 +79,12 @@ struct Build {
 };
 double engineRedline(const Profile&);
 Build buildVehicle(const Profile&);
-struct DriverInput { bool throttle=false, brake=false, automatic=true,nitro=false,launch=false,handbrake=false; };
+struct DriverInput { bool throttle=false, brake=false, automatic=true,nitro=false,launch=false,handbrake=false,neutral=false; };
 struct CarState {
     double position=0, speed=0, rpm=1000, elapsed=0, finishTime=0, shiftLock=0;
     int gear=1;
-    double powerHp=0,boostPsi=0,nitroRemaining=10,wheelSlip=0; bool nitroActive=false,launching=false,handbraking=false; double rearRollDistance=0;
-    bool finished=false;
+    double powerHp=0,boostPsi=0,nitroRemaining=10,wheelSlip=0; bool nitroActive=false,launching=false,handbraking=false; double rearRollDistance=0,frontRollDistance=0;
+    bool neutral=false,burningOut=false,finished=false;
 };
 constexpr double Step=1.0/120.0, QuarterMile=402.336;
 bool shift(CarState&, int direction, const Vehicle& vehicle=Vehicle{});
