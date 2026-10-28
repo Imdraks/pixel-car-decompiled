@@ -14,6 +14,21 @@
   conserve son chemin existant. Ressources audio inchangées.
 - Rapports : `validation/garage-turbo-0.14.1/`. Écoute sur enceintes non établie.
 
+## Publication Windows vérifiée — 0.14.1
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40681947743) :
+  358 contrôles du cœur, 93 graphiques, 188 sons historiques et 198 fichiers
+  moteur simulés décodés. Les trajectoires et 1528 compositions restent conformes.
+- L’aperçu d’induction est vérifié par les tests du cœur Windows. Le vrai mixeur
+  logiciel Linux joue les 18 montages au ralenti et au rupteur, sans saturation
+  détectée ; les 55 contrôles G/Z incluent le quad équipé et les arrêts du son.
+- Archive publique, CRC, EXE, source compilée, quinze aperçus et 470 ressources
+  vérifiés. Écoute sur enceintes et périphérique audio Windows physique non établis.
+- Rapport : `validation/windows-0.14.1/` et `validation/garage-turbo-0.14.1/`.
+- Source compilée : `bd03ae9e3c3a2846b4cb9c9775dabf39174b0075`.
+- ZIP : 86560031 octets, SHA-256 `3097c43e81799e35dc0bc55b0dfa662ced230b981a3c4a545820cf0c0dbb9b03`.
+- EXE : SHA-256 `f2b0ecc760912f1ca3329f2baa0266ee6e9c08d89b920547e175403c91453173`.
+
 # Validation 0.14.0 — turbos et étagement
 
 - 355 contrôles du cœur Linux/Windows compilés : 72 couples nouveau turbo/moteur,

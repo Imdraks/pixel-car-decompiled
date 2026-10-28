@@ -1,0 +1,95 @@
+Native Windows rendering smoke test. Physical PC GPU and audio are not established.
+PASS free drive advances
+PASS lane input
+PASS borderless backend state
+PASS borderless desktop dimensions
+PASS timeout restores previous mode
+PASS unconfirmed settings are not persisted
+PASS exclusive fullscreen backend state
+PASS fullscreen resolution applied
+PASS bordered window backend state
+PASS window resolution applied
+PASS VSync request applied
+PASS 30 FPS cap limits wall-clock frame rate
+PASS confirmed settings round trip
+PASS garage profile round trip
+PASS free drive resumes after settings
+PASS custom equipment persists
+PASS equipped turbo and NOS affect the active vehicle
+PASS NOS charge is consumed in free drive
+PASS turbo develops boost in free drive
+PASS NOS visual effect is active
+PASS collision emits sparks
+PASS maximum preparation displays compound boost and NOS power
+PASS maximum engine is classified contraband
+PASS power bench matches the driving torque model
+PASS disabling traffic applies to the active free drive
+PASS disabled traffic preference is saved
+PASS disabled traffic cannot trigger hidden collisions
+PASS traffic can be re-enabled
+PASS unconfirmed traffic change is reverted
+PASS new free drive keeps traffic disabled
+PASS exhaust sprite and flame/NOS roots share their visible outlets
+PASS exhaust sprite and flame/NOS roots share their visible outlets
+PASS exhaust sprite and flame/NOS roots share their visible outlets
+PASS exhaust sprite and flame/NOS roots share their visible outlets
+PASS exhaust sprite and flame/NOS roots share their visible outlets
+PASS ten-speed preset reaches the driving model
+PASS handbrake blocks engine drive and NOS
+PASS handbrake slows the vehicle and locks rear-wheel rotation
+PASS rim inventory excludes tyre and effect frames
+PASS source-named composite rim is searchable and previewable
+PASS composed body stays visible across graphics-mode changes
+PASS named rims and all appearance slots persist together
+PASS source-bank kit fitting keeps VFX roots attached to the same exhaust transform
+PASS original-only equipment is identified in the unified catalog
+PASS transferred cage and lighting preferences persist
+PASS stock hatchback source power and factory traction reach the garage model
+PASS stock AWD model changes power, mass and drivetrain in the garage
+PASS source microcar keeps its light chassis and small engine in the garage
+PASS stock V8 model uses its own source engine and rev limit
+PASS factory drivetrain state round trips from the garage transmission editor
+PASS stationary first-gear burnout renders the equipped Burn Slicks colour at the driven axle
+PASS stationary first-gear burnout renders the equipped Burn Slicks colour at the driven axle
+PASS stationary first-gear burnout renders the equipped Burn Slicks colour at the driven axle
+PASS stationary first-gear burnout renders the equipped Burn Slicks colour at the driven axle
+PASS stationary first-gear burnout renders the equipped Burn Slicks colour at the driven axle
+PASS stationary first-gear burnout renders the equipped Burn Slicks colour at the driven axle
+PASS stationary first-gear burnout renders the equipped Burn Slicks colour at the driven axle
+PASS stationary first-gear burnout renders the equipped Burn Slicks colour at the driven axle
+PASS held neutral displays free engine revs without movement or NOS
+PASS releasing neutral reconnects the transmission and moves the car
+PASS garage suspension tuning survives save and reload
+PASS rendered wheelie setup uses actual front contact loss and lifted wheel anchors
+PASS grounded setup keeps both tyres on the contact plane under full preparation
+PASS ABS and traction control toggles apply to live driving and persist
+PASS unconfirmed driving-aid preview changes the live model
+PASS timed-out aid settings restore the prior live state
+PASS ABS regulates the rendered service-braking stop without locked wheels
+PASS disabled ABS renders a stop with locked wheel rotation
+PASS traction-control indicator follows a real wheel-torque reduction
+PASS disabled traction control permits excess-power tyre slip
+PASS source paint mask is active in the PC garage renderer
+PASS source stationary rim material atlas is loaded by the native renderer
+PASS garage front and rear rim choices persist independently
+PASS incompatible cosmetic choice cannot silently equip a missing body variant
+PASS drag preset saves a controlled launch separately from the wheelie preset
+PASS drag launch progresses with both wheels on the ground
+PASS equipped source DRAG PRO rear roller arrests wheelie without changing the garage tuning
+PASS balanced static weight setting preserves independent wheelie tuning
+PASS blue wheelie-to-balanced control persists independently of static axle balance
+PASS handbrake permits free engine revs while locking the rear wheels without NOS
+PASS releasing handbrake with throttle reconnects and launches the vehicle
+PASS rev limiter handbrake release with TC off transmits stored RPM into actual driven-wheel spin
+PASS traction control regulates the same rev-limiter launch
+PASS garage ignition starts the equipped engine
+PASS garage rev limiter uses installed engine redline without moving the vehicle
+PASS garage ignition stops the audition
+PASS PC engine search and provenance are visible independently of recovered content
+PASS F1 PC swap revs to its own 15000 RPM garage limiter
+PASS named car saves the full equipped engine configuration
+PASS saving another car preserves the earlier chassis and engine
+PASS loading a named car restores its chassis, engine and name
+PASS all 18 new turbo assemblies are searchable with PC provenance
+PASS quad turbo assembly persists as one complete exclusive induction upgrade
+cap_30_fps_elapsed_for_30_frames=1.03209
