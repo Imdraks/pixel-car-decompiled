@@ -1,0 +1,39 @@
+{
+  "checks": {
+    "saved_master": true,
+    "saved_engine": true,
+    "saved_turbo": true,
+    "saved_effects": true,
+    "saved_ambience": true,
+    "saved_interface": true,
+    "saved_music": true,
+    "display_and_driving_preserved": true,
+    "cancel_does_not_save_preview": true,
+    "escape_does_not_save_preview": true,
+    "clean_exit_10": true,
+    "levels_survive_restart": true,
+    "reset_all_channels": true,
+    "clean_exit_13": true
+  },
+  "saved_settings": {
+    "version": "1",
+    "mode": "windowed",
+    "width": "960",
+    "height": "540",
+    "fps": "60",
+    "vsync": "0",
+    "quality": "2",
+    "show_fps": "0",
+    "sound": "1",
+    "traffic": "0",
+    "abs": "0",
+    "traction_control": "0",
+    "volume_master": "0.72999999999999998",
+    "volume_engine": "0.23999999999999999",
+    "volume_turbo": "0.60999999999999999",
+    "volume_effects": "0.55000000000000004",
+    "volume_ambience": "0.34999999999999998",
+    "volume_interface": "0.19",
+    "volume_music": "0.46999999999999997"
+  }
+}

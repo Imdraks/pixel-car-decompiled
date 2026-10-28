@@ -24,7 +24,7 @@ def start():
  for _ in range(30):
   before=len(list(captures.glob('*.png')));key('F12')
   if len(list(captures.glob('*.png')))>before:break
- click(280,435)
+ click(280,500)
 def close():
  xdo('keydown','ctrl');key('q');xdo('keyup','ctrl');proc.wait(timeout=15);log.close();check('clean_exit_'+str(len(checks)),proc.returncode==0)
 def equip_search(value):

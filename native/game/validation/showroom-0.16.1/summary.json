@@ -1,0 +1,13 @@
+{
+  "core_checks": 398,
+  "graphics_checks": 108,
+  "actual_input_checks": {
+    "vehicle-garage-input-linux.json": 15,
+    "volumes-input-linux.json": 14,
+    "showroom-input-linux.json": 27,
+    "saved-cars-input-linux.json": 10,
+    "nfs-catalog-input-linux.json": 12
+  },
+  "total_actual_input_checks": 78,
+  "assets_unchanged": 650
+}

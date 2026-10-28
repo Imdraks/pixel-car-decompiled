@@ -1,8 +1,15 @@
-# Pixel Car Racer — Unbound Native 0.16.0
+# Pixel Car Racer — Unbound Native 0.16.1
+
+La version **0.16.1** ajoute un **showroom** et un **garage de huit voitures**.
+**B / GARAGE** ouvre les voitures possédées ; **Tab / SHOWROOM** permet d’ajouter
+librement un modèle. Sélectionnez une voiture pour l’utiliser ou **RETIRER / Suppr**
+pour libérer une place. Sa préparation reste archivée. Les chargements F11
+respectent aussi les huit places ; un garage vide reste vide au redémarrage.
+[Commandes, sauvegarde et migration](SHOWROOM.md).
 
 La version **0.16.0** remplace le choix d’apparence par **239 voitures nommées**,
 classées par catégorie, avec préparation automatique indépendante par modèle.
-**B / CHOISIR UNE VOITURE** : changer de modèle sauvegarde la voiture quittée
+**B / GARAGE**, puis **UTILISER CETTE VOITURE** : changer de modèle sauvegarde la voiture quittée
 et retrouve celle choisie. Les 145 moteurs NFS se montent sur toutes les voitures.
 Les configurations non modifiées reçoivent leur moteur d’origine ; les préparations
 existantes restent intactes, avec sauvegarde avant migration.
@@ -14,7 +21,7 @@ et neuf extensions Contrebande. Classes **Basic, Sport, Pro, Super, Elite,
 Contrebande**, associations origine/swap pour 50 modèles présents, 20 catégories
 avec carburant, freins, embrayage, différentiel, boîtes et composants électriques.
 Cinq nouvelles familles audio sont réellement simulées en WAV/OGG.
-F1 : rechercher NFS ou un donneur ; CETTE AUTO filtre les correspondances.
+F1 : rechercher NFS ou un donneur ; les moteurs restent universels.
 [Contenu, accès, puissance, sons et limites](NFS-CATALOGUE.md).
 
 
@@ -49,7 +56,7 @@ sur la route : **LS, AMG, Huracán, Aventador, V6 F1 et Coyote**. Mettre les deu
 lignes de son sur **AUTO** pour les entendre ; G démarre/arrête et Z accélère
 au garage. Les sons restent des simulations approximatives.
 
-Le bouton **MES VOITURES / F11** permet de nommer, enregistrer et recharger
+Le bouton **CONFIGURATIONS / F11** permet de nommer, enregistrer et recharger
 plusieurs voitures avec leur configuration complète. Une mise à jour conserve
 la configuration précédente en sauvegarde.
 [Détails audio](AUDIO-SIMULATION.md) · [Sauvegardes](SAVED-CARS.md).

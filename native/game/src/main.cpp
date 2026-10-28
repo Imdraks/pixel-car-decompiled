@@ -5,7 +5,7 @@
 #include "game_audio.hpp"
 #include "garage_engine.hpp"
 #include "saved_cars.hpp"
-#include "vehicle_garage.hpp"
+#include "vehicle_inventory.hpp"
 #include "effects.hpp"
 #include "road_scene.hpp"
 #include "chassis_pose.hpp"
@@ -56,6 +56,7 @@ struct App {
     ContentRenderer content;
     GarageEngine garageEngine;
     GameAudio audio; bool powerPopup=false,rarityDescending=false; bool audioPopup=false,previewGas=true;double audioPreviewUntil=0;
+    VehicleInventory ownedVehicles;bool showroom=false;int removeVehiclePending=-1;
     int vehicleCategory=-1,vehiclePage=0,vehicleSelection=0;std::string vehicleSearch;bool vehicleSearchFocused=false;Screen vehicleReturn=Screen::Menu;
     Vector2 mouse{-100,-100};bool volumePage=false;int volumeDragging=-1;
     bool uiEnabled=true,options=false,paused=false,confirming=false,quit=false;
@@ -215,24 +216,68 @@ struct App {
         else notice="Réglages enregistrés.";
     }
     void revert(){apply(previous);confirming=false;edited=settings;notice="Réglages précédents restaurés.";}
-    bool saveCar(){configuration=buildVehicle(profile);std::string error;
+    bool hasActiveVehicle()const{return args.smoke||ownedVehicles.owns(bodyChoiceIndex(profile));}
+    fs::path inventoryFile()const{return args.data/"garage-inventory.ini";}
+    bool saveCar(){configuration=buildVehicle(profile);if(!hasActiveVehicle())return true;std::string error;
         if(!storeVehicleProfile(args.data/"vehicles",profile,error)||!saveProfile(profileFile(),profile,error)){notice="Enregistrement du garage impossible : "+error;return false;}return true;}
     bool activateVehicle(Profile candidate){
+        if(!args.smoke&&!ownedVehicles.owns(bodyChoiceIndex(candidate))){notice="Ajoutez cette voiture depuis le showroom avant de la charger.";return false;}
         if(!saveCar())return false;
         initializeVehicleFactory(candidate);std::string error;
         if(!storeVehicleProfile(args.data/"vehicles",candidate,error)||!saveProfile(profileFile(),candidate,error)){notice="Chargement impossible : "+error;return false;}
         garageEngine.stop();audio.stopEngine();audio.reset();profile=candidate;configuration=buildVehicle(profile);inventoryOpen=false;customSearch.clear();searchFocused=false;powerPopup=false;audioPopup=false;return true;
     }
     bool selectVehicle(int index){if(index==bodyChoiceIndex(profile))return saveCar();Profile next;std::string error;if(!loadVehicleProfile(args.data/"vehicles",index,next,error)){notice=error;return false;}return activateVehicle(next);}
-    void cycleVehicle(int direction){int index=(bodyChoiceIndex(profile)+direction+int(std::size(VehicleCatalog)))%int(std::size(VehicleCatalog));selectVehicle(index);}
+    void cycleVehicle(int direction){
+        if(args.smoke){int index=(bodyChoiceIndex(profile)+direction+int(std::size(VehicleCatalog)))%int(std::size(VehicleCatalog));selectVehicle(index);return;}
+        if(ownedVehicles.cars.empty()){openVehicleBrowser();return;}
+        auto at=std::find(ownedVehicles.cars.begin(),ownedVehicles.cars.end(),bodyChoiceIndex(profile));int index=at==ownedVehicles.cars.end()?0:int(at-ownedVehicles.cars.begin());
+        selectVehicle(ownedVehicles.cars[(index+direction+int(ownedVehicles.cars.size()))%int(ownedVehicles.cars.size())]);
+    }
+    bool takeShowroomVehicle(int id){
+        if(ownedVehicles.owns(id)){notice="Cette voiture est déjà dans votre garage.";return false;}
+        if(!saveCar())return false;
+        Profile candidate;std::string error;if(!loadVehicleProfile(args.data/"vehicles",id,candidate,error)){notice=error;return false;}
+        auto next=ownedVehicles;if(!next.add(id,error)){notice=error;return false;}
+        if(!storeVehicleProfile(args.data/"vehicles",candidate,error)||!storeVehicleInventory(inventoryFile(),next,error)){notice=error;return false;}
+        ownedVehicles=next;notice="VOITURE AJOUTÉE AU GARAGE ("+std::to_string(next.cars.size())+" / 8)";return true;
+    }
+    void removeOwnedVehicle(int id){
+        removeVehiclePending=-1;if(!ownedVehicles.owns(id)||!saveCar())return;
+        auto previousInventory=ownedVehicles;auto next=ownedVehicles;next.remove(id);std::string error;
+        Profile replacement;bool switching=id==bodyChoiceIndex(profile)&&!next.cars.empty();
+        if(switching&&!loadVehicleProfile(args.data/"vehicles",next.cars.front(),replacement,error)){notice=error;return;}
+        if(!storeVehicleInventory(inventoryFile(),next,error)){notice=error;return;}
+        ownedVehicles=next;
+        if(switching&&!activateVehicle(replacement)){
+            std::string rollbackError;if(storeVehicleInventory(inventoryFile(),previousInventory,rollbackError))ownedVehicles=previousInventory;
+            else notice+=" | Restauration de l'inventaire impossible : "+rollbackError;
+            return;
+        }
+        garageEngine.stop();audio.stopEngine();showroom=false;vehicleCategory=-1;vehicleSearch.clear();vehiclePage=0;
+        vehicleSelection=next.cars.empty()?-1:bodyChoiceIndex(profile);
+        notice="VOITURE RETIRÉE — place libérée, préparation archivée.";
+    }
     const char* driveLabel()const{return effectiveDrive(profile)==DriveLayout::Front?"TRACTION":effectiveDrive(profile)==DriveLayout::Rear?"PROPULSION":"4 ROUES MOTRICES";}
-    void beginFree(){garageEngine.stop();audio.stopEngine();powerPopup=false;audioPopup=false;audio.reset();effects=DrivingEffects{};drive=FreeDrive{};drive.setTraffic(settings.traffic);configuration=buildVehicle(profile);drive.vehicle=configuration.vehicle;drive.vehicle.abs=settings.abs;drive.vehicle.tractionControl=settings.tractionControl;accumulator=0;screen=Screen::Free;options=false;paused=false;}
+    void beginFree(){if(!hasActiveVehicle()){openVehicleBrowser();notice="Votre garage est vide. Choisissez une voiture dans le showroom.";return;}garageEngine.stop();audio.stopEngine();powerPopup=false;audioPopup=false;audio.reset();effects=DrivingEffects{};drive=FreeDrive{};drive.setTraffic(settings.traffic);configuration=buildVehicle(profile);drive.vehicle=configuration.vehicle;drive.vehicle.abs=settings.abs;drive.vehicle.tractionControl=settings.tractionControl;accumulator=0;screen=Screen::Free;options=false;paused=false;}
     void init(){
         if(!fs::exists(args.assets/"provenance.json"))throw std::runtime_error("Ressources manquantes. Extrayez entièrement le ZIP, puis lancez PixelCarRacerNative.exe.");
         settings=loadSettings(settingFile());profile=loadProfile(profileFile(),191,54);
-        if(!args.smoke){bool changed=initializeVehicleFactory(profile);std::string error;
-            if(changed&&fs::exists(profileFile())){auto backup=profileFile();backup+=".pre-vehicles-v1.bak";if(!fs::exists(backup)){std::error_code ec;fs::copy_file(profileFile(),backup,ec);if(ec)throw std::runtime_error("Migration protégée impossible : "+ec.message());}}
-            if(!storeVehicleProfile(args.data/"vehicles",profile,error)||!saveProfile(profileFile(),profile,error))throw std::runtime_error("Impossible d'enregistrer la voiture active : "+error);
+        if(!args.smoke){
+            std::string error;
+            if(fs::exists(inventoryFile())){
+                if(!loadVehicleInventory(inventoryFile(),ownedVehicles,error))throw std::runtime_error(error+" Copie de sécurité : garage-inventory.ini.bak");
+                if(!ownedVehicles.cars.empty()&&!ownedVehicles.owns(bodyChoiceIndex(profile)))
+                    if(!loadVehicleProfile(args.data/"vehicles",ownedVehicles.cars.front(),profile,error))throw std::runtime_error(error);
+            }else{
+                ownedVehicles=migrateVehicleInventory(args.data/"vehicles",profile);
+                if(!storeVehicleInventory(inventoryFile(),ownedVehicles,error))throw std::runtime_error(error);
+            }
+            if(hasActiveVehicle()){
+                bool changed=initializeVehicleFactory(profile);
+                if(changed&&fs::exists(profileFile())){auto backup=profileFile();backup+=".pre-vehicles-v1.bak";if(!fs::exists(backup)){std::error_code ec;fs::copy_file(profileFile(),backup,ec);if(ec)throw std::runtime_error("Migration protégée impossible : "+ec.message());}}
+                if(!storeVehicleProfile(args.data/"vehicles",profile,error)||!saveProfile(profileFile(),profile,error))throw std::runtime_error("Impossible d'enregistrer la voiture active : "+error);
+            }
         }
         configuration=buildVehicle(profile);
         if(args.safe){settings=Settings{};settings.width=960;settings.height=540;settings.vsync=false;settings.fps=60;}
@@ -276,20 +321,20 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.16.0",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.16.1",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
-        if(button({89,410,407,53},"GARAGE")){openCustomization();screen=Screen::Garage;}
+        if(button({89,410,407,53},TextFormat("GARAGE  |  %i / 8",int(ownedVehicles.cars.size()))))openVehicleBrowser();
         if(button({89,477,407,53},"CUSTOMISATION"))openCustomization();
         if(button({89,544,407,45},"PARAMÈTRES"))openOptions();
         if(button({89,600,407,38},"QUITTER"))quit=true;
 
         DrawRectangle(608,459,610,8,Accent);
-        car(profile.car,profile.rim,594,247,2.6,0,true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,-1,&profile);
+        if(hasActiveVehicle())car(profile.car,profile.rim,594,247,2.6,0,true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,-1,&profile);
         text("MODE LIBRE",656,511,29);text("Route ouverte • circulation • conduite continue",656,555,18,Muted);
-        if(button({656,590,539,45},"CHOISIR UNE VOITURE [B]",true))openVehicleBrowser();
+        if(button({656,590,539,45},"SHOWROOM — TOUTES LES VOITURES",true))openVehicleBrowser(true);
     }
-    void openCustomization(){garageEngine.stop();audio.stopEngine();screen=Screen::Customization;inventoryOpen=false;searchFocused=false;rimPicker=false;cosmeticPicker=false;customGroup=0;customSlot=PartSlot::Engine;customPreview=profile.parts[0];customPage=0;customSearch.clear();notice.clear();}
+    void openCustomization(){if(!hasActiveVehicle()){openVehicleBrowser();return;}garageEngine.stop();audio.stopEngine();screen=Screen::Customization;inventoryOpen=false;searchFocused=false;rimPicker=false;cosmeticPicker=false;customGroup=0;customSlot=PartSlot::Engine;customPreview=profile.parts[0];customPage=0;customSearch.clear();notice.clear();}
     static std::string lower(std::string value){for(char& c:value)c=char(std::tolower(static_cast<unsigned char>(c)));return value;}
     static Color rarityColor(Rarity rarity){
         static const Color colors[]={{173,185,198,255},{101,216,139,255},{92,175,255,255},{196,129,255,255},{255,192,77,255},{255,104,117,255}};
@@ -464,9 +509,11 @@ struct App {
         if(iconButton({84,502,58,32},original_ui::buttons[37],"Transmission et boîte (1-10 rapports)"))openTransmission();
         if(iconButton({150,502,58,32},original_ui::tools[10],"Banc de puissance"))powerPopup=true;
         if(iconButton({216,502,58,32},original_ui::buttons[40],"Sons du moteur et valve"))audioPopup=true;
-        if(button({18,544,264,27},"CHOISIR VOITURE [B]"))openVehicleBrowser();
+        if(button({18,544,264,27},"MES VOITURES [B]"))openVehicleBrowser();
         if(button({18,574,36,32},"<")){cycleVehicle(-1);}
-        pxText(TextFormat("%03i / %i",bodyChoiceIndex(profile)+1,int(std::size(BodyChoices))),78,582,17);
+        auto garageAt=std::find(ownedVehicles.cars.begin(),ownedVehicles.cars.end(),bodyChoiceIndex(profile));
+        int garagePosition=garageAt==ownedVehicles.cars.end()?0:int(garageAt-ownedVehicles.cars.begin())+1;
+        pxText(TextFormat("%i / %i",garagePosition,int(ownedVehicles.cars.size())),78,582,17);
         if(button({246,574,36,32},">")){cycleVehicle(1);}
         pxText(sourceLabel(BodyChoices[bodyChoiceIndex(profile)].sourceMask),78,606,9,Muted);
         if(button({18,617,120,29},"DÉCOR"))garageStyle=(garageStyle+1)%5;
@@ -589,7 +636,7 @@ struct App {
         if(button({17,8,111,32},"< MENU")){screen=Screen::Menu;inventoryOpen=false;}
         pxText("GARAGE",150,14,26);
         card({570,8,412,32},Color{19,22,27,255});pxText("ORIGINAL + UNBOUND",610,18,18,Accent);
-        if(button({1000,8,205,32},"MES VOITURES F11"))openSavedCars();
+        if(button({1000,8,205,32},"CONFIGURATIONS F11"))openSavedCars();
         if(iconButton({1222,8,36,33},original_ui::buttons[37],"Paramètres PC"))openOptions();
         if(iconButton({1171,65,88,80},original_ui::garageIcons[10],"Prendre la route"))queued=[this]{saveCar();beginFree();};
         pxText("ROUTE",1190,142,13);
@@ -632,20 +679,27 @@ struct App {
     std::vector<int> vehicleChoices()const{
         std::vector<int> choices;for(size_t i=0;i<std::size(VehicleCatalog);i++){
             const auto& v=VehicleCatalog[i];std::string searchable=std::string(v.name)+" "+v.id;
-            if((vehicleCategory<0||v.category==vehicleCategory)&&lower(searchable).find(lower(vehicleSearch))!=std::string::npos)choices.push_back(int(i));
+            if((showroom||ownedVehicles.owns(int(i)))&&(vehicleCategory<0||v.category==vehicleCategory)&&lower(searchable).find(lower(vehicleSearch))!=std::string::npos)choices.push_back(int(i));
         }
         std::stable_sort(choices.begin(),choices.end(),[](int a,int b){const auto& x=VehicleCatalog[a];const auto& y=VehicleCatalog[b];if(x.category!=y.category)return x.category<y.category;return std::string(x.name)<y.name;});return choices;
     }
-    void openVehicleBrowser(){
+    void openVehicleBrowser(bool showAll=false){
         if(!saveCar())return;
-        vehicleReturn=screen==Screen::Menu?Screen::Menu:Screen::Customization;
+        vehicleReturn=(screen==Screen::Menu||!hasActiveVehicle())?Screen::Menu:Screen::Customization;showroom=args.smoke||showAll;removeVehiclePending=-1;
         garageEngine.stop();audio.stopEngine();inventoryOpen=false;searchFocused=false;vehicleSearchFocused=false;
         vehicleCategory=-1;vehicleSearch.clear();vehicleSelection=bodyChoiceIndex(profile);auto choices=vehicleChoices();
         auto found=std::find(choices.begin(),choices.end(),vehicleSelection);vehiclePage=found==choices.end()?0:int(found-choices.begin())/9;
         notice.clear();screen=Screen::Vehicles;
     }
-    void useSelectedVehicle(){if(selectVehicle(vehicleSelection)){openCustomization();notice="VOITURE CHARGÉE : "+std::string(vehicleDefinition(profile).name);}}
+    void useSelectedVehicle(){
+        if(vehicleSelection<0)return;
+        if(showroom&&!ownedVehicles.owns(vehicleSelection)&&!args.smoke){takeShowroomVehicle(vehicleSelection);return;}
+        if(selectVehicle(vehicleSelection)){openCustomization();notice="VOITURE CHARGÉE : "+std::string(vehicleDefinition(profile).name);}
+    }
+    void switchVehicleTab(bool all){showroom=all;vehiclePage=0;vehicleCategory=-1;vehicleSearch.clear();vehicleSearchFocused=false;removeVehiclePending=-1;auto choices=vehicleChoices();vehicleSelection=choices.empty()?-1:choices[0];notice.clear();}
     void vehicleBrowserKeyboard(){
+        if(removeVehiclePending>=0){if(IsKeyPressed(KEY_ENTER))removeOwnedVehicle(removeVehiclePending);else if(IsKeyPressed(KEY_ESCAPE))removeVehiclePending=-1;return;}
+        if(IsKeyPressed(KEY_TAB)&&!vehicleSearchFocused){switchVehicleTab(!showroom);return;}
         bool ctrl=IsKeyDown(KEY_LEFT_CONTROL)||IsKeyDown(KEY_RIGHT_CONTROL);
         if(ctrl&&IsKeyPressed(KEY_F))vehicleSearchFocused=true;
         if(vehicleSearchFocused){
@@ -661,11 +715,16 @@ struct App {
         if(IsKeyPressed(KEY_PAGE_DOWN))d=9;
         if(IsKeyPressed(KEY_PAGE_UP))d=-9;
         if(d){index=std::clamp(index+d,0,int(choices.size())-1);vehicleSelection=choices[index];vehiclePage=index/9;}
+        if(IsKeyPressed(KEY_DELETE)&&!showroom&&ownedVehicles.owns(vehicleSelection))removeVehiclePending=vehicleSelection;
         if(IsKeyPressed(KEY_ENTER))useSelectedVehicle();
     }
     void vehicleBrowserScene(){
-        card({22,26,1236,665},Color{16,22,29,250});text("CHOISIR UNE VOITURE",38,45,29,Accent);
-        text("Chaque voiture retrouve sa préparation. Tous les moteurs NFS sont disponibles sur tous les modèles.",38,88,16,Muted);
+        card({22,26,1236,665},Color{16,22,29,250});text(showroom?"SHOWROOM":"MON GARAGE",38,45,29,Accent);
+        text(TextFormat("%i / 8 PLACES",int(ownedVehicles.cars.size())),390,52,21,ownedVehicles.cars.size()==GarageCapacity?Gold:Accent);
+        bool modal=removeVehiclePending>=0;uiEnabled=uiEnabled&&!modal;
+        if(button({680,40,260,37},"MON GARAGE [TAB]",!showroom))switchVehicleTab(false);
+        if(button({958,40,280,37},"SHOWROOM [TAB]",showroom))switchVehicleTab(true);
+        text(showroom?"Ajoutez librement une voiture. Huit places maximum ; un exemplaire par modèle/variante.":"Choisissez votre voiture active ou retirez-en une pour libérer une place. Préparations indépendantes.",38,88,16,Muted);
         Rectangle search{38,120,740,39};DrawRectangleRec(search,Color{43,43,49,255});DrawRectangleLinesEx(search,vehicleSearchFocused?2:1,vehicleSearchFocused?Accent:Muted);
         text(vehicleSearch.empty()?"Rechercher un modèle, une marque... (Ctrl+F)":vehicleSearch,50,131,17,vehicleSearch.empty()?Muted:WHITE);
         if(uiEnabled&&IsMouseButtonPressed(MOUSE_BUTTON_LEFT))vehicleSearchFocused=hit(search);
@@ -678,22 +737,36 @@ struct App {
             int at=vehiclePage*9+cell;if(at>=int(choices.size()))break;int id=choices[at];const auto& v=VehicleCatalog[id];
             Rectangle r{float(38+(cell%3)*406),float(178+(cell/3)*143),390,132};
             DrawRectangleRec(r,vehicleSelection==id?Color{47,73,68,255}:Color{32,42,51,255});DrawRectangleLinesEx(r,vehicleSelection==id?2:1,vehicleSelection==id?Accent:Muted);
-            auto base=factoryVehicle(id);auto build=buildVehicle(base);car(base.car,base.rim,r.x+4,r.y+29,.53f,0,true,build.tireFrame,build.rideOffset,build.exhaustFrame,-1,&base);
+            auto base=factoryVehicle(id);if(ownedVehicles.owns(id)){Profile saved;std::string error;if(loadVehicleProfile(args.data/"vehicles",id,saved,error))base=saved;}
+            if(id==bodyChoiceIndex(profile)&&hasActiveVehicle())base=profile;
+            auto build=buildVehicle(base);car(base.car,base.rim,r.x+4,r.y+29,.53f,0,true,build.tireFrame,build.rideOffset,build.exhaustFrame,-1,&base);
             std::string name=v.name;auto split=name.size()>25?name.rfind(' ',25):std::string::npos;
             if(split!=std::string::npos){text(name.substr(0,split),r.x+168,r.y+10,13);text(name.substr(split+1,28),r.x+168,r.y+27,13);}else text(name,r.x+168,r.y+15,13);
             text(sourceLabel(v.sourceMask),r.x+168,r.y+47,11,Accent);
-            text(TextFormat("Base : %.0f HP | %.0f kg",build.boostedHp,build.vehicle.mass),r.x+168,r.y+65,12,Muted);
+            text(TextFormat("%.0f HP | %.0f kg",build.boostedHp,build.vehicle.mass),r.x+168,r.y+65,12,Muted);
             text(VehicleCategories[v.category],r.x+168,r.y+83,11,Muted);
-            bool stored=fs::exists(vehicleGarageFile(args.data/"vehicles",base));text(stored?"CONFIGURATION ENREGISTRÉE":"CONFIGURATION D'ORIGINE",r.x+168,r.y+107,10,stored?Gold:Muted);
+            bool owned=ownedVehicles.owns(id);bool active=id==bodyChoiceIndex(profile)&&hasActiveVehicle();
+            text(active?"VOITURE ACTIVE":owned?"DANS VOTRE GARAGE":"DISPONIBLE AU SHOWROOM",r.x+168,r.y+107,10,active?Gold:owned?Accent:Muted);
             if(hit(r)){tooltipText=std::string(v.name)+" | "+v.id+" | "+findPart(v.factoryEngineId)->name;if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){vehicleSelection=id;vehicleSearchFocused=false;audio.click(settings.sound);}}
         }
-        if(choices.empty())text("Aucune voiture ne correspond à cette recherche.",70,270,20,Muted);
-        if(button({38,630,49,40},"<",false,vehiclePage>0))--vehiclePage;
+        if(choices.empty())text(!showroom&&ownedVehicles.cars.empty()?"Garage vide. Ouvrez le SHOWROOM pour prendre une voiture.":"Aucune voiture ne correspond à cette recherche.",70,270,20,Muted);
+        if(button({38,630,49,40},"<",false,vehiclePage>0)){--vehiclePage;vehicleSelection=choices[vehiclePage*9];}
         text(TextFormat("%i / %i | %i voitures",vehiclePage+1,pages,int(choices.size())),105,641,16,Muted);
-        if(button({328,630,49,40},">",false,vehiclePage+1<pages))++vehiclePage;
-        if(button({443,630,291,40},"RETOUR"))screen=vehicleReturn;
-        if(button({800,625,438,49},"UTILISER CETTE VOITURE",true,!choices.empty()))useSelectedVehicle();
+        if(button({328,630,49,40},">",false,vehiclePage+1<pages)){++vehiclePage;vehicleSelection=choices[vehiclePage*9];}
+        if(button({413,630,150,40},"RETOUR"))screen=vehicleReturn;
+        bool selectedOwned=!choices.empty()&&ownedVehicles.owns(vehicleSelection);
+        if(button({585,630,198,40},"RETIRER [SUPPR]",false,!showroom&&selectedOwned))removeVehiclePending=vehicleSelection;
+        bool canTake=selectedOwned||ownedVehicles.cars.size()<GarageCapacity;
+        std::string action=showroom&&!selectedOwned?canTake?"AJOUTER AU GARAGE":"GARAGE PLEIN — 8 / 8":"UTILISER CETTE VOITURE";
+        if(button({800,625,438,49},action,true,!choices.empty()&&canTake))useSelectedVehicle();
         if(!notice.empty())text(notice.substr(0,115),38,674,12,Gold);
+        if(modal){
+            uiEnabled=!options&&!confirming;DrawRectangle(0,0,1280,720,Fade(BLACK,.72f));card({285,230,710,260});
+            text("RETIRER CETTE VOITURE ?",315,256,26,Gold);text(VehicleCatalog[removeVehiclePending].name,315,300,22);
+            text("Sa place sera libérée. Sa préparation reste archivée.",315,344,18,Muted);
+            if(button({315,409,300,48},"ANNULER"))removeVehiclePending=-1;
+            if(button({642,409,320,48},"RETIRER",true))removeOwnedVehicle(removeVehiclePending);
+        }
     }
 
     void openSavedCars(){
@@ -712,13 +785,15 @@ struct App {
     }
     void loadSelectedCar(){
         for(const auto& entry:savedEntries)if(entry.id==savedSelection){
+            int index=bodyChoiceIndex(entry.profile);
+            if(!args.smoke&&!ownedVehicles.owns(index)&&!takeShowroomVehicle(index))return;
             if(!activateVehicle(entry.profile))return;
             openCustomization();notice="VOITURE CHARGÉE : "+profile.savedName;return;
         }
     }
     void savedCarsScene(){
-        card({35,32,1210,650},Color{16,22,29,250});text("MES VOITURES",68,56,31,Accent);
-        text("Enregistrez la voiture équipée ; chargez une sauvegarde pour la retrouver.",68,96,17,Muted);
+        card({35,32,1210,650},Color{16,22,29,250});text("CONFIGURATIONS ENREGISTRÉES",68,56,31,Accent);
+        text("Préparations nommées. Charger une voiture absente nécessite une place libre dans le garage.",68,96,17,Muted);
         Rectangle field{68,132,730,47};DrawRectangleRec(field,Color{43,43,49,255});DrawRectangleLinesEx(field,savedNameFocused?2:1,savedNameFocused?Accent:Muted);
         text(savedName.empty()?"Nom de la voiture...":savedName,82,146,19,savedName.empty()?Muted:WHITE);
         if(uiEnabled&&IsMouseButtonPressed(MOUSE_BUTTON_LEFT))savedNameFocused=hit(field);
@@ -1006,7 +1081,7 @@ struct App {
         if(IsKeyPressed(KEY_B)&&!options&&!confirming&&!searchFocused&&(screen==Screen::Menu||screen==Screen::Garage||screen==Screen::Customization))openVehicleBrowser();
         if(IsKeyPressed(KEY_K)&&(screen==Screen::Free||screen==Screen::Garage||screen==Screen::Customization)&&!searchFocused){profile.headlights=!profile.headlights;saveCar();}
         if(IsKeyPressed(KEY_F10)){if(confirming)revert();Settings safe;safe.width=960;safe.height=540;safe.vsync=false;safe.fps=60;apply(safe);edited=settings;options=true;notice="Affichage de secours. Appliquez vos réglages pour les enregistrer.";}
-        if(IsKeyPressed(KEY_ESCAPE)){if(confirming)revert();else if(options){if(volumePage)cancelVolumes();else options=false;}else if(powerPopup)powerPopup=false;else if(audioPopup){audioPopup=false;audioPreviewUntil=0;}else if(screen==Screen::Vehicles){if(vehicleSearchFocused)vehicleSearchFocused=false;else screen=vehicleReturn;}else if(screen==Screen::Free)paused=!paused;else if(screen==Screen::Garage||screen==Screen::Customization){if(searchFocused)searchFocused=false;else if(inventoryOpen)inventoryOpen=false;else{saveCar();screen=Screen::Menu;}}else if(screen==Screen::Transmission||screen==Screen::Suspension||screen==Screen::Collection){screen=Screen::Customization;}}
+        if(IsKeyPressed(KEY_ESCAPE)){if(confirming)revert();else if(options){if(volumePage)cancelVolumes();else options=false;}else if(powerPopup)powerPopup=false;else if(audioPopup){audioPopup=false;audioPreviewUntil=0;}else if(screen==Screen::Vehicles){if(removeVehiclePending>=0)removeVehiclePending=-1;else if(vehicleSearchFocused)vehicleSearchFocused=false;else screen=vehicleReturn;}else if(screen==Screen::Free)paused=!paused;else if(screen==Screen::Garage||screen==Screen::Customization){if(searchFocused)searchFocused=false;else if(inventoryOpen)inventoryOpen=false;else{saveCar();screen=Screen::Menu;}}else if(screen==Screen::Transmission||screen==Screen::Suspension||screen==Screen::Collection){screen=Screen::Customization;}}
         if(!confirming&&IsKeyPressed(KEY_ENTER)&&(IsKeyDown(KEY_LEFT_ALT)||IsKeyDown(KEY_RIGHT_ALT))){openOptions();edited.mode=settings.mode==WindowMode::Windowed?WindowMode::Borderless:WindowMode::Windowed;queued=[this]{preview();};}
         if(confirming&&GetTime()>=deadline)revert();
         if(IsKeyPressed(KEY_F3)&&screen!=Screen::Garage&&screen!=Screen::Customization){settings.showFps=!settings.showFps;edited.showFps=settings.showFps;}
@@ -1381,7 +1456,15 @@ struct App {
         if(frames==658)capture("voiture-origine.png");
         if(frames==659){openVehicleBrowser();vehicleCategory=7;vehiclePage=0;auto choices=vehicleChoices();vehicleSelection=choices[0];}
         if(frames==661)capture("voitures-a-identifier.png");
-        if(frames==663)quit=true;
+        if(frames==663){profile=factoryVehicle(0);equipPart(profile,PartSlot::Engine,1501);profile.rim=10100;ownedVehicles.cars={0,1,2,3,4,5,6,7};for(int id:ownedVehicles.cars){std::string error;storeVehicleProfile(args.data/"vehicles",factoryVehicle(id),error);}openVehicleBrowser();showroom=false;vehicleSelection=0;vehiclePage=0;check(vehicleChoices().size()==8,"owned garage displays eight independent cars");}
+        if(frames==665)capture("garage-huit-places.png");
+        if(frames==667){showroom=true;vehiclePage=0;vehicleSelection=vehicleChoices()[0];check(!takeShowroomVehicle(8)&&ownedVehicles.cars.size()==8,"showroom rejects a ninth vehicle when garage is full");}
+        if(frames==669)capture("showroom-garage-plein.png");
+        if(frames==671){showroom=false;removeVehiclePending=0;}
+        if(frames==673)capture("retirer-voiture.png");
+        if(frames==675){removeVehiclePending=-1;ownedVehicles.cars.clear();showroom=false;check(vehicleChoices().empty(),"empty garage does not display archived or showroom cars");}
+        if(frames==677)capture("garage-vide.png");
+        if(frames==679)quit=true;
 
     }
     int run(){
@@ -1389,7 +1472,7 @@ struct App {
         while(!WindowShouldClose()&&!quit){double dt=args.smoke?(frames>=290?0:1.0/30.0):std::clamp(double(GetFrameTime()),0.0,.1);controls(dt);renderFrame();if(IsKeyPressed(KEY_F12))capture(TextFormat("capture-%06i.png",frames));if(queued){auto action=std::move(queued);queued=nullptr;action();}if(args.smoke)smoke();frames++;}
         if(confirming)revert();
         saveCar();
-        {std::error_code ec;fs::create_directories(args.data,ec);if(!ec){std::ofstream out(args.data/"last-session.txt");out<<"vehicle_id="<<vehicleKey(profile)<<"\ninduction_audio_level="<<audio.inductionAudioLevel<<"\nsimulated_audio_engine="<<audio.simulatedStatus.engineId<<"\nsimulated_audio_stream_starts="<<audio.simulatedStatus.streamStarts<<"\nsimulated_audio_startups="<<audio.simulatedStatus.startupEvents<<"\nsimulated_audio_shutdowns="<<audio.simulatedStatus.shutdownEvents<<"\nsimulated_audio_gain="<<audio.simulatedStatus.gainSum<<"\ngarage_engine_running="<<garageEngine.running<<"\ngarage_engine_rpm="<<garageEngine.state.rpm<<"\ngarage_engine_limiter="<<garageEngine.limiting<<"\nscreen="<<int(screen)<<"\ncustom_group="<<customGroup<<"\ncustom_page="<<customPage<<"\ninventory_open="<<inventoryOpen<<"\nnitro_remaining="<<drive.player.nitroRemaining<<"\nnitro_active="<<drive.player.nitroActive<<"\nhandbraking="<<drive.player.handbraking<<"\nneutral="<<drive.player.neutral<<"\nlaunch_wheelspin="<<drive.player.launchClutch<<"\nlaunch_slip_seconds="<<drive.player.launchSlipSeconds<<"\nlaunch_slip_distance="<<drive.player.launchSlipDistance<<"\nwheel_slip="<<drive.player.wheelSlip<<"\nburnout="<<drive.player.burningOut<<"\nrpm="<<drive.player.rpm<<"\nabs_enabled="<<drive.vehicle.abs<<"\ntc_enabled="<<drive.vehicle.tractionControl<<"\nabs_active="<<drive.player.absActive<<"\ntc_active="<<drive.player.tcActive<<"\npitch_rad="<<drive.player.pitch<<"\nheave_m="<<drive.player.heave<<"\nwheelie_tune="<<profile.wheelieTune<<"\nwheelie_bar_installed="<<drive.vehicle.wheelieBar<<"\nwheelie_bar_touched="<<drive.player.wheelieBarTouched<<"\nfront_lift_m="<<drive.player.frontLift<<"\npeak_front_lift_m="<<drive.player.peakFrontLift<<"\nrear_lift_m="<<drive.player.rearLift<<"\nfront_load_n="<<drive.player.frontLoad<<"\nrear_load_n="<<drive.player.rearLoad<<"\nfront_roll_m="<<drive.player.frontRollDistance<<"\nrear_roll_m="<<drive.player.rearRollDistance<<"\ntraffic_enabled="<<drive.trafficEnabled<<"\ntraffic_count="<<(drive.trafficEnabled?drive.traffic.size():0)<<"\ndistance_m="<<drive.player.position<<"\nspeed_mps="<<drive.player.speed<<"\ntarget_lane="<<drive.targetLane<<"\ngear="<<drive.player.gear<<"\nfront_rim="<<profile.rim<<"\nrear_rim="<<rearRimId(profile)<<"\nengine_part="<<profile.parts[int(PartSlot::Engine)]<<"\ntire_part="<<profile.parts[int(PartSlot::Tires)]<<"\ngear_count="<<drive.vehicle.gearCount<<"\nfinal_drive="<<drive.vehicle.finalDrive<<"\nshift_seconds="<<drive.vehicle.shiftSeconds<<"\nnative_mass_kg="<<drive.vehicle.mass<<"\nnative_hp="<<configuration.boostedHp<<"\nnative_nos_hp="<<configuration.nitroHp<<"\ncurrent_hp="<<drive.player.powerHp<<"\nnative_torque_nm="<<drive.vehicle.torque<<"\ndrive_layout="<<int(drive.vehicle.drive)<<"\naudio_ready="<<audio.ready<<"\naudio_failures="<<audio.failures<<"\nframes="<<frames<<"\nmode="<<modeKey(settings.mode)<<"\nwidth="<<GetScreenWidth()<<"\nheight="<<GetScreenHeight()<<"\n";}}
+        {std::error_code ec;fs::create_directories(args.data,ec);if(!ec){std::ofstream out(args.data/"last-session.txt");out<<"garage_owned_count="<<ownedVehicles.cars.size()<<"\nshowroom_open="<<showroom<<"\nvehicle_id="<<vehicleKey(profile)<<"\ninduction_audio_level="<<audio.inductionAudioLevel<<"\nsimulated_audio_engine="<<audio.simulatedStatus.engineId<<"\nsimulated_audio_stream_starts="<<audio.simulatedStatus.streamStarts<<"\nsimulated_audio_startups="<<audio.simulatedStatus.startupEvents<<"\nsimulated_audio_shutdowns="<<audio.simulatedStatus.shutdownEvents<<"\nsimulated_audio_gain="<<audio.simulatedStatus.gainSum<<"\ngarage_engine_running="<<garageEngine.running<<"\ngarage_engine_rpm="<<garageEngine.state.rpm<<"\ngarage_engine_limiter="<<garageEngine.limiting<<"\nscreen="<<int(screen)<<"\ncustom_group="<<customGroup<<"\ncustom_page="<<customPage<<"\ninventory_open="<<inventoryOpen<<"\nnitro_remaining="<<drive.player.nitroRemaining<<"\nnitro_active="<<drive.player.nitroActive<<"\nhandbraking="<<drive.player.handbraking<<"\nneutral="<<drive.player.neutral<<"\nlaunch_wheelspin="<<drive.player.launchClutch<<"\nlaunch_slip_seconds="<<drive.player.launchSlipSeconds<<"\nlaunch_slip_distance="<<drive.player.launchSlipDistance<<"\nwheel_slip="<<drive.player.wheelSlip<<"\nburnout="<<drive.player.burningOut<<"\nrpm="<<drive.player.rpm<<"\nabs_enabled="<<drive.vehicle.abs<<"\ntc_enabled="<<drive.vehicle.tractionControl<<"\nabs_active="<<drive.player.absActive<<"\ntc_active="<<drive.player.tcActive<<"\npitch_rad="<<drive.player.pitch<<"\nheave_m="<<drive.player.heave<<"\nwheelie_tune="<<profile.wheelieTune<<"\nwheelie_bar_installed="<<drive.vehicle.wheelieBar<<"\nwheelie_bar_touched="<<drive.player.wheelieBarTouched<<"\nfront_lift_m="<<drive.player.frontLift<<"\npeak_front_lift_m="<<drive.player.peakFrontLift<<"\nrear_lift_m="<<drive.player.rearLift<<"\nfront_load_n="<<drive.player.frontLoad<<"\nrear_load_n="<<drive.player.rearLoad<<"\nfront_roll_m="<<drive.player.frontRollDistance<<"\nrear_roll_m="<<drive.player.rearRollDistance<<"\ntraffic_enabled="<<drive.trafficEnabled<<"\ntraffic_count="<<(drive.trafficEnabled?drive.traffic.size():0)<<"\ndistance_m="<<drive.player.position<<"\nspeed_mps="<<drive.player.speed<<"\ntarget_lane="<<drive.targetLane<<"\ngear="<<drive.player.gear<<"\nfront_rim="<<profile.rim<<"\nrear_rim="<<rearRimId(profile)<<"\nengine_part="<<profile.parts[int(PartSlot::Engine)]<<"\ntire_part="<<profile.parts[int(PartSlot::Tires)]<<"\ngear_count="<<drive.vehicle.gearCount<<"\nfinal_drive="<<drive.vehicle.finalDrive<<"\nshift_seconds="<<drive.vehicle.shiftSeconds<<"\nnative_mass_kg="<<drive.vehicle.mass<<"\nnative_hp="<<configuration.boostedHp<<"\nnative_nos_hp="<<configuration.nitroHp<<"\ncurrent_hp="<<drive.player.powerHp<<"\nnative_torque_nm="<<drive.vehicle.torque<<"\ndrive_layout="<<int(drive.vehicle.drive)<<"\naudio_ready="<<audio.ready<<"\naudio_failures="<<audio.failures<<"\nframes="<<frames<<"\nmode="<<modeKey(settings.mode)<<"\nwidth="<<GetScreenWidth()<<"\nheight="<<GetScreenHeight()<<"\n";}}
         if(args.smoke){fs::create_directories(args.data);std::ofstream out(args.data/"smoke-report.txt");
 #ifdef _WIN32
             out<<"Native Windows rendering smoke test. Physical PC GPU and audio are not established.\n";

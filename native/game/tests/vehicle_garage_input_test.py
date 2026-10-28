@@ -24,13 +24,15 @@ def start():
  for _ in range(30):
   before=len(list(captures.glob('*.png')));key('F12')
   if len(list(captures.glob('*.png')))>before:break
- click(280,435)
+ click(280,500)
 def close():
  xdo('keydown','ctrl');key('q');xdo('keyup','ctrl');proc.wait(timeout=15);log.close();check('clean_exit_'+str(len(checks)),proc.returncode==0)
 def equip_search(value):
  xdo('keydown','ctrl');key('f');xdo('keyup','ctrl');xdo('type','--clearmodifiers','--delay','25',value);time.sleep(.2);key('Return');key('Escape')
 def choose_vehicle(identifier):
- key('b');xdo('keydown','ctrl');key('f');xdo('keyup','ctrl');xdo('type','--clearmodifiers','--delay','60',identifier);time.sleep(.2);key('Return');key('Return')
+ already=identifier in (data/'garage-inventory.ini').read_text()
+ key('b');key('Tab');xdo('keydown','ctrl');key('f');xdo('keyup','ctrl');xdo('type','--clearmodifiers','--delay','60',identifier);time.sleep(.2);key('Return');key('Return')
+ if not already:key('Return')
 (data/'settings.ini').write_text('width=960\nheight=540\nfps=60\nvsync=0\nsound=0\n')
 legacy='version=7\ncar=0\ncontent_source=0\naudio_source=0\n'
 (data/'profile.ini').write_text(legacy)

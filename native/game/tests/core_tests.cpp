@@ -1,7 +1,7 @@
 #include "garage_audio.hpp"
 #include "simulated_engine_mix.hpp"
 #include "saved_cars.hpp"
-#include "vehicle_garage.hpp"
+#include "vehicle_inventory.hpp"
 #include "model.hpp"
 #include "engine_mix.hpp"
 #include "garage_engine.hpp"
@@ -348,6 +348,32 @@ int main(int argc,char**argv){
         expect(!loadVehicleProfile(garage,1,restoredB,error),"a mismatched vehicle identity cannot silently load or overwrite another model");
         auto customFile=root/"vehicle-metadata.ini";saveProfile(customFile,a,error);auto metadata=loadProfile(customFile,191,54);
         expect(metadata.factoryInitialized&&metadata.factoryEngineId==a.factoryEngineId&&vehicleKey(metadata)==vehicleKey(a),"factory migration metadata and stable vehicle identity persist across restart");
+    }
+    {
+        auto inventoryFile=root/"owned/garage-inventory.ini";std::string error;VehicleInventory owned;
+        bool additions=true;for(int id=0;id<8;id++)additions&=owned.add(id,error);
+        expect(additions&&owned.cars.size()==8,"eight showroom acquisitions fill the garage");
+        auto full=owned.cars;expect(!owned.add(8,error)&&owned.cars==full,"a ninth acquisition is rejected without changing the garage");
+        expect(!owned.add(0,error)&&owned.cars==full,"a duplicate vehicle cannot occupy another slot");
+        expect(!owned.add(-1,error)&&!owned.add(239,error)&&owned.cars==full,"invalid showroom identities are rejected");
+        expect(storeVehicleInventory(inventoryFile,owned,error),"owned garage persists atomically");
+        VehicleInventory restored;expect(loadVehicleInventory(inventoryFile,restored,error)&&restored.cars==owned.cars,"all eight garage slots survive a restart");
+        expect(owned.remove(3)&&!owned.owns(3)&&owned.add(8,error)&&owned.cars.size()==8,"removing any vehicle frees exactly one place for another model");
+        expect(!owned.remove(99)&&owned.cars.size()==8,"removing a vehicle not owned leaves the garage unchanged");
+        for(int id:full)owned.remove(id);
+        owned.remove(8);
+        expect(owned.cars.empty()&&storeVehicleInventory(inventoryFile,owned,error)&&loadVehicleInventory(inventoryFile,restored,error)&&restored.cars.empty(),"a deliberately empty garage stays empty after reload");
+        auto backup=inventoryFile;backup+=".bak";expect(loadVehicleInventory(backup,restored,error)&&restored.cars==full,"inventory changes keep a recoverable previous garage");
+        std::ofstream(inventoryFile)<<"version=1\nvehicle=pcr-shared-000\nvehicle=pcr-shared-000\n";
+        auto before=restored.cars;expect(!loadVehicleInventory(inventoryFile,restored,error)&&restored.cars==before,"corrupt or duplicate inventory does not silently reset or partially load the garage");
+        std::ofstream(inventoryFile)<<"version=2\n";expect(!loadVehicleInventory(inventoryFile,restored,error),"unsupported inventory versions are preserved and rejected");
+        auto legacy=root/"legacy-ownership";for(int id=0;id<12;id++)storeVehicleProfile(legacy,factoryVehicle(id),error);
+        auto current=factoryVehicle(11);equipPart(current,PartSlot::Engine,1504);storeVehicleProfile(legacy,current,error);
+        auto migrated=migrateVehicleInventory(legacy,current);
+        expect(migrated.cars.size()==8&&migrated.cars.front()==11,"legacy migration prioritizes the active vehicle and imports no more than eight");
+        int files=0;for(const auto& entry:std::filesystem::directory_iterator(legacy))if(entry.path().extension()==".ini")++files;
+        Profile archived;expect(files==12&&loadVehicleProfile(legacy,11,archived,error)&&archived.parts[0]==1504,"legacy migration preserves every preparation including the ones beyond eight slots");
+        auto invalid=migrated;invalid.cars.push_back(99);expect(!storeVehicleInventory(root/"invalid.ini",invalid,error),"oversized inventories cannot be written by alternate loading paths");
     }
     bool blendValid=true,continuousBlend=true,overrideBlend=true;int mixCases=0;
     for(const auto& pack:SimulatedPacks){

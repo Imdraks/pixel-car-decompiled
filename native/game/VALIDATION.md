@@ -1,3 +1,20 @@
+# Validation 0.16.1 — showroom et garage de huit voitures
+
+- 398 contrôles du cœur : capacité, doublons, identités invalides, libération de
+  place, inventaire vide persistant, copie précédente, fichiers corrompus refusés
+  sans chargement partiel et migration limitée à huit sans supprimer les archives.
+  Les 34655 montages NFS/voiture et 443114 combinaisons précédentes restent testés.
+- 78 manipulations réelles : 27 showroom/inventaire, 15 véhicules indépendants,
+  10 préparations nommées, 12 catalogue NFS et 14 volumes. Ajout, refus du neuvième,
+  annulation/retrait, voiture active et dernière voiture retirables, F11 limité,
+  reprise d’archive, redémarrages et raccourci mode libre avec garage vide vérifiés.
+- 108 contrôles graphiques ; captures du garage plein, showroom plein, confirmation
+  de retrait et garage vide. Contrôles pixels existants conservés.
+- Aucun fichier audio ou graphique source modifié ; les 650 ressources de la
+  version 0.16.0 restent identiques. Aucun nouveau test d’écoute physique.
+- Rapports Linux : `validation/showroom-0.16.1/`. Commandes et limites :
+  [SHOWROOM.md](SHOWROOM.md). La publication est conditionnée aux contrôles Windows.
+
 # Validation 0.16.0 — voitures distinctes
 
 - 383 contrôles du cœur. 239 identifiants de voiture uniques, catégories, moteurs

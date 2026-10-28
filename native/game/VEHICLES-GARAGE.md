@@ -1,6 +1,9 @@
 # Voitures distinctes et garage automatique — 0.16.0
 
-**B** ou **CHOISIR UNE VOITURE** ouvre le catalogue. Les 239 entrées ont un nom,
+Depuis la **0.16.1**, **B / GARAGE** ouvre les voitures possédées (huit maximum),
+et **SHOWROOM / Tab** ouvre tout le catalogue. [Inventaire et commandes](SHOWROOM.md).
+
+Les 239 entrées ont un nom,
 un identifiant stable, une catégorie, un moteur par défaut et leur propre fiche
 mécanique. L’indice du sprite reste un détail du rendu ; il ne sert plus à déplacer
 la préparation d’une voiture à l’autre.
