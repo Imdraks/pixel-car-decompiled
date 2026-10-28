@@ -20,6 +20,30 @@
   non établies. Rapports : `validation/active-audio-0.13.9/` et
   `validation/saved-cars-0.13.9/`.
 
+## Publication Windows vérifiée — 0.13.9
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40671070629) :
+  348 contrôles du cœur, 91 graphiques, 188 sons historiques et 198 fichiers
+  simulés décodés, avec 24 raccords historiques conservés ou améliorés.
+- La collection enregistre deux voitures et recharge la première sous Windows.
+  La copie de sécurité avant mise à jour et tous les champs sérialisés sont
+  vérifiés aussi dans les tests du cœur Windows.
+- Les 1528 compositions et les trajectoires mécaniques restent identiques à
+  Linux à 0,01 près. Les six banques simulées sont incluses et actives en AUTO.
+- Archive publique, CRC, SHA-256, EXE, source compilée, quatorze aperçus et
+  470 ressources vérifiés, avec comparaison de chaque ressource aux fichiers
+  testés. Restauration vide puis réutilisation : 470 ressources à chaque passage. Les 248 ressources précédentes restent identiques.
+- Le mixeur réel logiciel Linux passe les 12 cas moteur/banque à une crête
+  mesurée de 0,254707 ; les réglages manuels indépendants, démarrage, extinction,
+  changements de tours sans redémarrage de flux et mute sont contrôlés.
+  L’écoute sur enceintes et un périphérique audio Windows physique restent
+  non établis. Le décodage et l’interpolation sont vérifiés sous Windows.
+- Rapports : `validation/windows-0.13.9/`, `validation/active-audio-0.13.9/`
+  et `validation/saved-cars-0.13.9/`.
+- Source compilée : `139f3a9f5b6539015cb5e3f0c4f5bd716e92efd3`.
+- ZIP : 86549102 octets, SHA-256 `4d03bc85ef74002eddc822e4bf8f210f759742dbcf07da910f8cadfe43bb23b2`.
+- EXE : SHA-256 `b3ae9dc53e813909e446a87dc7e2d7919339711b77184b8ec22275bd7151f820`.
+
 # Validation 0.13.8 — moteurs PC et export audio
 
 - 339 contrôles du cœur Linux, exécutables Linux/Windows compilés ;
