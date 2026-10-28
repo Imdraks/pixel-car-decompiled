@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <chrono>
 #include <cstdint>
+#include <set>
 namespace pcr {
 void checkOriginalAudio(const std::filesystem::path& assets,const std::filesystem::path& output){
     if(!std::filesystem::create_directory(output))throw std::runtime_error("Le contrôle audio exige un dossier neuf.");
@@ -42,9 +43,9 @@ void checkOriginalAudio(const std::filesystem::path& assets,const std::filesyste
     }
     report<<"PASS: "<<count<<" original sounds decoded without opening an audio device. Physical playback is not established.\n";
     loops<<"],\"engine_bank_cases\":"<<loopCount<<",\"source_files_modified\":false}\n";
-    std::ofstream simulation(output/"simulated-audio-report.txt");int simulatedCount=0;
+    std::ofstream simulation(output/"simulated-audio-report.txt");int simulatedCount=0;std::set<std::filesystem::path> decodedFolders;
     for(const auto& pack:SimulatedPacks){
-        auto folder=(assets/pack.startup).parent_path();
+        auto folder=(assets/pack.startup).parent_path();if(!decodedFolders.insert(folder).second)continue;
         if(!std::filesystem::is_directory(folder))throw std::runtime_error("Missing simulated engine pack");
         for(const auto& entry:std::filesystem::directory_iterator(folder)){
             auto extension=entry.path().extension();if(extension!=".wav"&&extension!=".ogg")continue;
@@ -63,7 +64,7 @@ void checkOriginalAudio(const std::filesystem::path& assets,const std::filesyste
             ++simulatedCount;
         }
     }
-    if(simulatedCount!=198)throw std::runtime_error("Incomplete simulated engine bank");
+    if(simulatedCount!=SimulatedAudioFileCount)throw std::runtime_error("Incomplete simulated engine bank");
     simulation<<"PASS: "<<simulatedCount<<" WAV/OGG simulated files decoded, no saturation, finite samples and bounded loop seams.\n";
 }
 void GameAudio::clearSimulated(){
@@ -119,8 +120,9 @@ void GameAudio::updateSimulated(double rpm,double load,float audible,float cut,b
 void GameAudio::startEngine(const Profile& profile,bool enabled){
     if(!ready||!enabled)return;
     lastEnabled=enabled;selectBank(profile.audioSource);reset();
+    if(auto* e=nfsEngine(audioEngineId(profile));e&&e->electric)return;
     bool autoSound=profile.soundOn<0||profile.soundOff<0;
-    if(autoSound&&loadSimulated(profile.parts[int(PartSlot::Engine)])){
+    if(autoSound&&loadSimulated(audioEngineId(profile))){
         StopSound(simulatedShutdown);StopSound(simulatedStartup);
         SetSoundVolume(simulatedStartup,float(.45*volumes.engine));PlaySound(simulatedStartup);
         starting=true;startupElapsed=0;++simulatedStatus.startupEvents;
@@ -223,15 +225,15 @@ void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarSt
         starting=false;
     }
     auto samples=engineSamples(profile);bool gas=active&&input.throttle&&(!input.brake||car.burningOut||car.neutral||car.handbraking);
-    float audible=enabled&&active?1.f:0.f;
+    float audible=enabled&&active&&!vehicle.electric?1.f:0.f;
     engineMix.update(car.rpm,gas,audible>0,audioDt,samples.on);
     float pitch=float(engineMix.pitch),load=float(engineMix.load);
     float cut=limiter?float(.3+.7*(.5+.5*std::sin(car.elapsed*62.831853))):car.launching?(std::sin(car.elapsed*62.831853)>0?1.f:.25f):1.f;
     float onVolume=audible*.40f*load*cut,offVolume=audible*.32f*(1-load);
     bool autoOn=profile.soundOn<0,autoOff=profile.soundOff<0;
-    int engineId=profile.parts[int(PartSlot::Engine)];
+    int engineId=audioEngineId(profile);
     bool useSimulated=false;
-    if(active&&(autoOn||autoOff))useSimulated=loadSimulated(engineId);
+    if(active&&!vehicle.electric&&(autoOn||autoOff))useSimulated=loadSimulated(engineId);
     else if(simulatedRequested!=engineId||(!autoOn&&!autoOff)){clearSimulated();simulatedRequested=-1;}
     if(useSimulated){if(autoOn)onVolume=0;if(autoOff)offVolume=0;}
     updateSimulated(car.rpm,load,useSimulated?audible:0,cut,autoOn,autoOff);

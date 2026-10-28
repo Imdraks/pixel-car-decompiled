@@ -1,0 +1,24 @@
+{
+  "slug": "nfs_h4",
+  "model": "Boxer four 2.5 EJ25-family approximation",
+  "layout": "H4",
+  "cylinders": 4,
+  "litres": 2.457,
+  "bore_mm": 99.5,
+  "stroke_mm": 79,
+  "redline_rpm": 7500,
+  "rpm_anchors": [
+    1000,
+    2500,
+    4500,
+    7000
+  ],
+  "throttle_layers": [
+    0,
+    30,
+    100
+  ],
+  "exhaust": "mild_exhaust_0",
+  "game_engine_ids": [],
+  "approximation": "Shared physical-family audio for spreadsheet engines; not a recording or an exact per-vehicle geometry. Cam/head/exhaust/firing details inherited from the compatible upstream template."
+}

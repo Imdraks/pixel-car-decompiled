@@ -162,10 +162,10 @@ int main(int argc,char**argv){
     expect(benchmarkText.find("\"sanity_checks_passed\": true")!=std::string::npos,"benchmark scenarios pass their sanity checks");
     bool refused=false;try{writePhysicsBenchmark(benchmark);}catch(const std::exception&){refused=true;}
     expect(refused,"benchmark refuses to replace an existing directory");
-    expect(std::size(PartCatalog)==229,"merged original and Unbound performance entries are included");
+    expect(std::size(PartCatalog)==496,"merged original and Unbound performance entries are included");
     std::array<int,PartSlotCount> counts{};
     for(const auto& part:PartCatalog)++counts[int(part.slot)];
-    expect(counts==std::array<int,PartSlotCount>{31,16,34,10,8,5,21,13,7,48,36},"catalog includes every requested category and supercharger split");
+    expect(counts==std::array<int,PartSlotCount>{176,29,43,19,13,9,26,13,7,53,58,6,6,6,6,9,4,4,4,5},"catalog includes every requested category and supercharger split");
     Profile custom;
     expect(equipPart(custom,PartSlot::Engine,1002),"2JZ can be equipped by stable catalog ID");
     auto jz=buildVehicle(custom);
@@ -202,11 +202,11 @@ int main(int argc,char**argv){
     expect(nitroRun.nitroRemaining==0&&!nitroRun.nitroActive,"NOS runs out without becoming negative");
     bool allPartsStable=true;
     for(const auto& part:PartCatalog){
-        Profile single;allPartsStable&=equipPart(single,part.slot,part.id);auto setup=buildVehicle(single);CarState run;
+        Profile single;if(int(part.slot)>=16)equipPart(single,PartSlot::Engine,20000);allPartsStable&=equipPart(single,part.slot,part.id);auto setup=buildVehicle(single);CarState run;
         for(int i=0;i<120*3;i++)stepCar(run,setup.vehicle,{true,false,true,true},Step,0);
         allPartsStable&=std::isfinite(run.speed)&&std::isfinite(run.rpm)&&run.speed>0&&run.rpm>0&&setup.vehicle.mass>=600;
     }
-    expect(allPartsStable,"all 196 parts build a finite driveable configuration");
+    expect(allPartsStable,"all 496 parts build a finite driveable configuration");
     std::string customError;
     expect(saveProfile(root/"custom.ini",custom,customError),"custom equipment profile saves");
     auto customLoaded=loadProfile(root/"custom.ini",191,54);
@@ -243,7 +243,7 @@ int main(int argc,char**argv){
     auto sounds=engineSamples(soundProfile);
     expect(sounds.on==71&&sounds.off==47,"manual sound profiles match the original native dispatch tables");
     bool replacementAudio=true;int engineAudioCases=0;
-    for(int source=0;source<2;source++)for(const auto& part:PartCatalog)if(part.slot==PartSlot::Engine&&part.sourceMask!=4){
+    for(int source=0;source<2;source++)for(const auto& part:PartCatalog)if(part.slot==PartSlot::Engine&&part.sourceMask<4){
         Profile p;p.audioSource=source;equipPart(p,PartSlot::Engine,part.id);auto selected=engineSamples(p);
         // Independent fixture from the two source engine_hp/e_s/e_s2 chains.
         int on=part.stat==478?71:part.stat==656?79:part.stat==542?20:part.stat>=505?24:21;
@@ -254,6 +254,7 @@ int main(int argc,char**argv){
     bool pcValid=true;int pcCount=0;
     std::ofstream pcReport(root/"pc-engines.csv");pcReport<<"id,name,hp,redline_rpm,litres,inertia,on,off\n";
     for(const auto& e:PcEngines){
+        if(nfsEngine(e.id))continue;
         Profile p;equipPart(p,PartSlot::Engine,e.id);auto b=buildVehicle(p);auto sounds=engineSamples(p);
         const auto* part=findPart(e.id);
         pcValid&=part&&part->sourceMask==4&&std::abs(b.boostedHp-part->stat)<.01&&b.vehicle.redlineRpm==e.redlineRpm;
@@ -287,6 +288,33 @@ int main(int argc,char**argv){
         std::ofstream(garage/"car-0001.ini")<<"car=5\n";
         expect(savedCars(garage).size()==2&&!storeSavedCar(garage,0,named,error),"garage ignores noncanonical filenames and refuses invalid slots");
     }
+    // Workbook records have explicit native calibration, separate from source regressions.
+    expect(std::size(NfsEngines)==145&&std::size(NfsUpgrades)==122,"145 workbook engines, 113 performance parts and nine new Contraband extensions are installed");
+    expect(std::string(rarityLabel(Rarity::Basic))=="BASIC"&&std::string(rarityLabel(Rarity::Sport))=="SPORT"&&std::string(rarityLabel(Rarity::Pro))=="PRO"&&std::string(rarityLabel(Rarity::Super))=="SUPER"&&std::string(rarityLabel(Rarity::Elite))=="ELITE"&&std::string(rarityLabel(Rarity::Contraband))=="CONTREBANDE","class names run Basic through Elite with Contraband highest");
+    bool allNfs=true,nfsUpgrades=true,nfsSounds=true,nfsAssociations=true;int nfsCases=0;
+    std::ofstream nfsReport(root/"nfs-engines.csv");nfsReport<<"id,stock_hp,potential_hp,measured_stock_hp,measured_elite_hp,redline_rpm,electric,simulated_audio\n";
+    for(const auto& e:NfsEngines){
+        Profile p;allNfs&=equipPart(p,PartSlot::Engine,e.id);auto stock=buildVehicle(p);
+        allNfs&=std::abs(stock.boostedHp-e.hp)<.01&&stock.vehicle.redlineRpm==e.redline;
+        allNfs&=int(partRarity(*findPart(e.id)))==e.grade;
+        if(e.electric){for(int kind:{16,17,18})for(const auto& u:NfsUpgrades)if(u.kind==kind&&u.grade==4)equipPart(p,PartSlot(kind),u.id);}
+        else for(int kind:{6,4,11,9,2})for(const auto& u:NfsUpgrades)if(u.kind==kind&&u.grade==4&&(kind!=2||u.variant==1))equipPart(p,findPart(u.id)->slot,u.id);
+        auto elite=buildVehicle(p);allNfs&=std::abs(elite.boostedHp-e.potentialHp)<.02;
+        for(int tick=0;tick<120;tick++){CarState state;stepCar(state,elite.vehicle,{true,false,true},Step,0);allNfs&=std::isfinite(state.speed)&&std::isfinite(state.rpm);}
+        std::string error;allNfs&=saveProfile(root/"nfs-profile.ini",p,error)&&loadProfile(root/"nfs-profile.ini",191,54).parts==p.parts;
+        bool sound=simulatedPack(e.id)!=nullptr;nfsSounds&=e.audioFamily[0]?sound:!sound;
+        nfsReport<<e.id<<','<<e.hp<<','<<e.potentialHp<<','<<stock.boostedHp<<','<<elite.boostedHp<<','<<e.redline<<','<<e.electric<<','<<sound<<'\n';++nfsCases;
+    }
+    expect(allNfs&&nfsCases==145,"all 145 engines retain workbook base power, reach the conservative advertised potential with Elite parts and save their equipment");
+    expect(nfsSounds,"every supported workbook engine is bound to its declared physical family and unsupported layouts retain an explicit fallback");
+    for(const auto& link:NfsCompatibilities)nfsAssociations&=findPart(link.engineId)&&nfsCompatibility(link.body,link.source,link.engineId)>0;
+    expect(nfsAssociations&&nfsFactoryEngine(121,0)>0&&nfsFactoryEngine(121,1)==0&&nfsFactoryEngine(100,0)==0,"spreadsheet compatibility resolves known body generations without inventing identities for Unbound replacements or unknown cars");
+    Profile thermal;equipPart(thermal,PartSlot::Engine,20029);Profile electricDrive;equipPart(electricDrive,PartSlot::Engine,20000);
+    expect(!equipPart(thermal,PartSlot::Overcharge,21054)&&!equipPart(electricDrive,PartSlot::Turbo,16018),"electric and combustion equipment cannot be mixed");
+    equipPart(thermal,PartSlot::Clutch,22013);equipPart(thermal,PartSlot::Brakes,22012);auto chassisParts=buildVehicle(thermal);
+    expect(chassisParts.vehicle.shiftSeconds==.04&&chassisParts.vehicle.brakeDeceleration==17,"clutch and brake categories alter real shift timing and deceleration");
+    for(const auto& u:NfsUpgrades)if(u.kind==15){Profile p;equipPart(p,PartSlot::Gearbox,u.id);auto b=buildVehicle(p);CarState c;for(int tick=0;tick<600;tick++)stepCar(c,b.vehicle,{true,false,true},Step,0);nfsUpgrades&=b.vehicle.gearCount==int(findPart(u.id)->stat)&&c.gear>=1&&c.gear<=b.vehicle.gearCount&&c.speed>0;}
+    expect(nfsUpgrades,"all workbook one- through eight-speed gearboxes and the ten-speed Contraband box drive with valid ratios");
     bool blendValid=true,continuousBlend=true,overrideBlend=true;int mixCases=0;
     for(const auto& pack:SimulatedPacks){
         for(double rpm:{500.0,1000.0,1999.9,2500.0,4000.0,4500.0,6000.0,8200.0,14000.0,17300.0})for(double load:{0.0,.1,.3,.5,.8,1.0}){
@@ -302,7 +330,7 @@ int main(int argc,char**argv){
             blendValid&=std::abs(sum-1)<1e-9;overrideBlend&=std::abs(withoutOn+withoutOff-1)<1e-9;++mixCases;
         }
     }
-    expect(blendValid&&mixCases==360,"six simulated engine packs preserve unity gain across RPM/load anchors and bounded pitches");
+    expect(blendValid&&mixCases==int(std::size(SimulatedPacks))*60,"all simulated engine bindings preserve unity gain across RPM/load anchors and bounded pitches");
     expect(continuousBlend&&overrideBlend,"simulated blend is continuous at RPM anchors and manual on/off overrides mute only the corresponding layers");
     expect(simulatedPack(1008)&&simulatedPack(1501)&&simulatedPack(1502)&&simulatedPack(1503)&&simulatedPack(1504)&&simulatedPack(1505)&&!simulatedPack(1002)&&!simulatedPack(1515),"only the six validated engines use a simulated bank; source engines and W16 retain their original fallback");
     bool turboValid=true;int turboCases=0;std::ofstream turboTrace(root/"pc-turbos.csv");
@@ -455,7 +483,7 @@ int main(int argc,char**argv){
     expect(ultimate.parts[0]!=0&&ultimate.parts[2]==16018&&ultimate.parts[3]==0,"maximum preparation selects a complete engine and exclusive induction");
     expect(ultimate.car==20&&ultimate.rim==8&&ultimate.drive==DriveLayout::All&&ultimate.soundOn==4,"maximum preparation preserves appearance, drive and audio preferences");
     expect(full.boostedHp>4200&&full.nitroHp>4500&&full.nitroHp-full.boostedHp==250,"maximum parts combine into over 4500 rated HP with NOS");
-    Profile legacyMax=ultimate;equipPart(legacyMax,PartSlot::Engine,1014);equipPart(legacyMax,PartSlot::Turbo,3026);auto legacyFull=buildVehicle(legacyMax);
+    Profile legacyMax=ultimate;for(int i=11;i<PartSlotCount;i++)legacyMax.parts[i]=0;equipPart(legacyMax,PartSlot::Engine,1014);equipPart(legacyMax,PartSlot::Turbo,3026);auto legacyFull=buildVehicle(legacyMax);
     double expectedHp=(755+38+100+95)*((engineRedline(legacyMax)+2300)/engineRedline(legacyMax))*(1+35/14.7);
     expect(std::abs(legacyFull.boostedHp-expectedHp)/expectedHp<.0001,"full preparation matches an independently calculated compound power budget");
     Profile coolerOnly;equipPart(coolerOnly,PartSlot::Intercooler,7013);
@@ -471,11 +499,12 @@ int main(int argc,char**argv){
     bool ranking=true;int contra=0;
     for(const auto& part:PartCatalog){
         auto tier=partRarity(part);ranking&=int(tier)>=0&&int(tier)<=5;
-        for(const auto& other:PartCatalog)if(part.slot==other.slot){
+        for(const auto& other:PartCatalog)if(part.slot==other.slot&&nfsGrade(part.id)<0&&nfsGrade(other.id)<0){
             if(partPerformance(part)<partPerformance(other))ranking&=int(tier)<=int(partRarity(other));
             if(tier==Rarity::Contraband)ranking&=partPerformance(part)>=partPerformance(other);
             if(partPerformance(part)==partPerformance(other))ranking&=tier==partRarity(other);
         }
+        if(nfsGrade(part.id)>=0)ranking&=int(tier)==nfsGrade(part.id);
         if(tier==Rarity::Contraband)++contra;
     }
     expect(ranking&&contra>=PartSlotCount,"all rarity tiers follow category performance and only the strongest are contraband");
@@ -488,6 +517,7 @@ int main(int argc,char**argv){
     // Cross every engine, ECU, induction choice and intercooler (including base).
     std::vector<int> engines,ecus{0},induction{0},coolers{0};
     for(const auto& part:PartCatalog){
+        if(nfsGrade(part.id)>=0)continue;
         if(part.slot==PartSlot::Engine)engines.push_back(part.id);
         if(part.slot==PartSlot::Ecu)ecus.push_back(part.id);
         if(part.slot==PartSlot::Turbo||part.slot==PartSlot::Supercharger)induction.push_back(part.id);
@@ -508,7 +538,7 @@ int main(int argc,char**argv){
     expect(combinationsValid&&combinations==int(engines.size()*ecus.size()*induction.size()*coolers.size()),"all engine/ECU/induction/intercooler combinations have consistent finite power");
     // Also cross all independent atmospheric-part choices on each engine.
     std::vector<int> intakes{0},pistons{0},exhausts{0};
-    for(const auto& part:PartCatalog){if(part.slot==PartSlot::Intake)intakes.push_back(part.id);if(part.slot==PartSlot::Pistons)pistons.push_back(part.id);if(part.slot==PartSlot::Exhaust)exhausts.push_back(part.id);}
+    for(const auto& part:PartCatalog){if(nfsGrade(part.id)>=0)continue;if(part.slot==PartSlot::Intake)intakes.push_back(part.id);if(part.slot==PartSlot::Pistons)pistons.push_back(part.id);if(part.slot==PartSlot::Exhaust)exhausts.push_back(part.id);}
     bool supportsValid=true;int supports=0;
     for(int engine:engines)for(int intake:intakes)for(int piston:pistons)for(int exhaust:exhausts){
         Profile trial;equipPart(trial,PartSlot::Engine,engine);equipPart(trial,PartSlot::Intake,intake);equipPart(trial,PartSlot::Pistons,piston);equipPart(trial,PartSlot::Exhaust,exhaust);auto result=buildVehicle(trial);
@@ -619,7 +649,7 @@ int main(int argc,char**argv){
     }
     expect(validRimsPreserved,"all 23 real source rims preserve their IDs across profile loading");
     expect(invalidRimsRepaired,"all 31 tyre/effect legacy rim selections migrate without losing equipment");
-    expect(std::size(RimCatalog)==521&&std::size(CosmeticCatalog)==503&&std::size(PartCatalog)==229,"merged shop includes 1253 equipment choices including distinct source seat variants");
+    expect(std::size(RimCatalog)==521&&std::size(CosmeticCatalog)==503&&std::size(PartCatalog)==496,"merged shop includes 1520 equipment choices including distinct source seat variants");
     bool namedRimsPersist=true,rimImagesValid=true;
     for(const auto& rim:RimCatalog){
         Profile p;p.rim=rim.id;saveProfile(root/"named-rim.ini",p,error);auto loaded=loadProfile(root/"named-rim.ini",191,54);namedRimsPersist&=loaded.rim==rim.id;
@@ -720,7 +750,7 @@ int main(int argc,char**argv){
     for(int tick=0;tick<1200;tick++)stepCar(equilibrium,standard.vehicle,{false,false,true},Step,0);
     expect(std::abs(equilibrium.pitch)<1e-9&&std::abs(equilibrium.heave)<1e-9&&std::abs(equilibrium.frontLoad+equilibrium.rearLoad-standard.vehicle.mass*9.81)<1e-6,"front and rear spring preloads support the resting mass without drift");
     // Pin the historical suspension regression chassis to its LT5 fixture.
-    Profile powerful=chassis;equipBestParts(powerful);equipPart(powerful,PartSlot::Engine,1014);equipPart(powerful,PartSlot::Turbo,3026);auto launchVehicle=buildVehicle(powerful).vehicle;
+    Profile powerful=chassis;equipBestParts(powerful);for(int i=11;i<PartSlotCount;i++)powerful.parts[i]=0;powerful.gearCount=6;powerful.gearRatios=Profile{}.gearRatios;equipPart(powerful,PartSlot::Engine,1014);equipPart(powerful,PartSlot::Turbo,3026);auto launchVehicle=buildVehicle(powerful).vehicle;
     std::array<CarState,2> tcRuns{};std::array<double,2> slipIntegral{};std::array<double,2> minFactors{1,1};
     for(int enabled=0;enabled<2;enabled++){
         auto car=launchVehicle;car.tractionControl=enabled;
@@ -838,6 +868,14 @@ int main(int argc,char**argv){
     Profile barProfile=drag;barProfile.cosmetics[6]=106011;auto barVehicle=buildVehicle(barProfile).vehicle;barVehicle.tractionControl=true;CarState barred;
     for(int tick=0;tick<720;tick++)stepCar(barred,barVehicle,{true,false,true,true},Step,0);
     expect(barred.wheelieBarTouched&&barred.peakFrontLift<.01&&peakLift>.1,"equipping the source rear roller stops the tested high-power wheelie through rear contact");
+
+    {Profile modern;modern.car=20;modern.factoryDrive=false;modern.drive=DriveLayout::Rear;equipBestParts(modern);applySuspensionPreset(modern,SuspensionPreset::Wheelie);
+        auto unbarred=buildVehicle(modern).vehicle;unbarred.tractionControl=true;CarState beforeBar;
+        modern.cosmetics[6]=106011;auto supported=buildVehicle(modern).vehicle;supported.tractionControl=true;CarState afterBar;
+        for(int tick=0;tick<720;tick++){stepCar(beforeBar,unbarred,{true,false,true,true},Step,0);stepCar(afterBar,supported,{true,false,true,true},Step,0);}
+        std::cout<<"Catalogue maximum roller: lift="<<afterBar.peakFrontLift<<" versus "<<beforeBar.peakFrontLift<<" m; contact="<<afterBar.wheelieBarTouched<<'\n';
+        expect(afterBar.wheelieBarTouched&&afterBar.peakFrontLift<.05&&afterBar.peakFrontLift<beforeBar.peakFrontLift*.2,"roller support bounds front lift with the new maximum fuel and ten-speed preparation");
+    }
     barProfile.cosmetics[6]=0;barProfile.cosmetics[4]=104011;
     expect(buildVehicle(barProfile).vehicle.wheelieBar,"full DRAG PRO kit includes rear roller support");
     barProfile.cosmetics[6]=106002;

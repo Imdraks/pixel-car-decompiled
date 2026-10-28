@@ -57,7 +57,7 @@ dyno acceleration/coast sweeps, pre-PCM output headroom and an RPM tracking guar
    data when available; record URLs and accessed details in the description.
    Distinguish mechanical HP from metric PS/ch. If details cannot be verified,
    mark them as estimates. Never silently substitute another model or layout.
-2. Reuse bundled configurations where possible. `generate.py` supports V12, V10,
+2. Reuse bundled configurations where possible. `generate.py` supports a flat-plane V8 (`V8_FLAT`, bundled Ferrari F136), V12, V10,
    V8, V6, I6, I5, I4, H4. Rotary, flat-six, W16 and any unrecognized geometry
    need a compatible reviewed `.mr` adapter; report this limit rather than fake it.
 3. Select or create a JSON description. Required fields: `slug`, `model`, `layout`,
@@ -143,3 +143,17 @@ native release documents actual runtime activation. Never overwrite source banks
 Deliver the audio pack/ZIP, sample counts, validation results, simulation limits,
 and actual integration status. Keep earlier engine-catalog work and user priorities;
 do not discard it while creating this skill.
+
+## Spreadsheet catalogue extension (0.15.0)
+
+The NFS workbook contributes metadata, not audio or recovered NFS physics.
+`native/game/tools/import_nfs_catalog.py` preserves its SHA, row numbers, grades,
+uncertainties and explicit body/model bridges in `nfs-catalog.json`.
+The installer accepts `--catalog` and repeated `--extra-pack`; it binds compatible
+engines to verified shared family banks without editing their original manifests.
+Five additional physical families are in `profiles/nfs-*.json`: I4, I6, H4, road V6
+and flat-plane V8. Use `native/game/tools/generate_nfs_audio.py` for a fresh run.
+The 129 supported workbook engines share eleven validated bank families including
+the previous six. F6/F12/I3/Wankel/W16 retain explicitly approximate historical
+samples; the two electric conversions have no combustion sound. Do not describe
+shared family banks as 129 individually simulated or authentic NFS recordings.

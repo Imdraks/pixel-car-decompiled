@@ -1,0 +1,24 @@
+{
+  "slug": "nfs_v6",
+  "model": "Road V6 3.5 VQ-family approximation",
+  "layout": "V6",
+  "cylinders": 6,
+  "litres": 3.5,
+  "bore_mm": 95.5,
+  "stroke_mm": 81.4,
+  "redline_rpm": 7500,
+  "rpm_anchors": [
+    1000,
+    2500,
+    4500,
+    7000
+  ],
+  "throttle_layers": [
+    0,
+    30,
+    100
+  ],
+  "exhaust": "mild_exhaust_0",
+  "game_engine_ids": [],
+  "approximation": "Shared physical-family audio for spreadsheet engines; not a recording or an exact per-vehicle geometry. Cam/head/exhaust/firing details inherited from the compatible upstream template."
+}

@@ -4,6 +4,7 @@ import argparse,csv,hashlib,json,math,re,shutil,subprocess,sys,wave
 from pathlib import Path
 import numpy as np
 TEMPLATES={
+ 'V8_FLAT':'assets/engines/atg-video-2/08_ferrari_f136_v8.mr',
  'V12':'assets/engines/atg-video-2/12_ferrari_412_t2.mr',
  'V10':'assets/engines/atg-video-2/10_lfa_v10.mr',
  'V8':'assets/engines/atg-video-2/07_gm_ls.mr',

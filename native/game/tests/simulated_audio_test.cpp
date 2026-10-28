@@ -6,6 +6,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <thread>
+#include <set>
 using namespace pcr;
 static std::atomic<unsigned long long> frames{0},energy{0},peakMillion{0},invalid{0};
 static void capture(void* buffer,unsigned count){
@@ -23,7 +24,9 @@ int main(int argc,char** argv){try{
     {
         GameAudio audio;audio.init(std::filesystem::u8path(argv[1]));require(audio.ready,"No real software audio device");AttachAudioMixedProcessor(capture);
         std::this_thread::sleep_for(std::chrono::milliseconds(2200));
+        std::set<std::pair<int,const SimulatedClip*>> visited;
         for(int bank=0;bank<2;bank++)for(const auto& pack:SimulatedPacks){
+            if(!visited.emplace(bank,pack.clips).second)continue;
             Profile p;p.audioSource=bank;equipPart(p,PartSlot::Engine,pack.engineId);
             auto vehicle=buildVehicle(p).vehicle;vehicle.factoryBoostSoundPsi=0;vehicle.boostPsi=0;CarState state;state.rpm=1000;
             auto pump=[&](bool gas,int ticks){for(int tick=0;tick<ticks;tick++){state.elapsed+=.01;audio.update(p,vehicle,state,{gas,false,true},0,true,true);std::this_thread::sleep_for(std::chrono::milliseconds(10));}};
@@ -81,7 +84,7 @@ int main(int argc,char** argv){try{
         audio.update(fallback,v,s,{true,false,true},0,true,true);require(audio.simulatedStatus.engineId==0,"Source engine uses an unrelated simulated pack");
         require(audio.failures==0,"Stream or event load failure");DetachAudioMixedProcessor(capture);
     }
-    require(cases==12&&frames>0&&invalid==0&&peakMillion<1000000,"Invalid or saturated real mixed PCM");
-    report<<"PASS: 12 real simulated engine/bank cases, 18 road/garage turbo audio profiles, fallback, event and manual-priority checks.\nframes="<<frames<<"\npeak="<<peakMillion.load()/1000000.0<<"\nfinite_pcm=1\nphysical_speaker_listening=0\n";
-    std::cout<<"PASS: 12 simulated engine/bank cases, peak "<<peakMillion.load()/1000000.0<<'\n';return 0;
+    require(cases==22&&frames>0&&invalid==0&&peakMillion<1000000,"Invalid or saturated real mixed PCM");
+    report<<"PASS: 22 real simulated engine/bank cases, 18 road/garage turbo audio profiles, fallback, event and manual-priority checks.\nframes="<<frames<<"\npeak="<<peakMillion.load()/1000000.0<<"\nfinite_pcm=1\nphysical_speaker_listening=0\n";
+    std::cout<<"PASS: 22 simulated engine/bank cases, peak "<<peakMillion.load()/1000000.0<<'\n';return 0;
 }catch(const std::exception& e){std::cerr<<"FAIL: "<<e.what()<<'\n';return 1;}}

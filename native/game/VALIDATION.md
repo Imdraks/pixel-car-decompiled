@@ -1,3 +1,29 @@
+# Validation 0.15.0 — catalogue du tableau NFS
+
+- 145 moteurs vérifiés : puissance de base, potentiel conservateur avec pièces
+  Elite, régime, grade, équipement sauvegardé, état physique fini et banque audio.
+- 113 pièces et neuf nouvelles extensions Contrebande ; 496 pièces mécaniques,
+  20 catégories, 623 liens origine/swap sur 50 modèles / 97 couples corps/banque.
+- 370 contrôles du cœur, dont les 443114 combinaisons historiques. La physique
+  stock reste inchangée. La préparation maximale conserve 14000 HP / 14250 NOS.
+  Le roller limite le soulèvement de la nouvelle préparation maximale à 0,01184 m,
+  contre 0,41957 m sans roller ; le scénario historique reste validé séparément.
+- 100 contrôles graphiques, dont les nouvelles catégories et la sauvegarde étendue.
+- 12 manipulations réelles du nouveau catalogue, 10 sauvegardes de voitures,
+  14 curseurs audio : recherche, montage, boîtes/freins/carburant, conversion
+  électrique, équipements incompatibles retirés, deux voitures et redémarrage.
+- 22 cas moteur/banque sur le vrai mixeur logiciel, 18 profils turbo garage/route,
+  volumes indépendants et absence de rechargement des flux lors du réglage.
+  PCM fini, crête 0,379119. Les 358 fichiers simulés et 188 sons sources décodent.
+- Cinq nouvelles simulations physiques (80 WAV + 80 OGG), sans saturation,
+  formats/durées et raccords de boucles contrôlés. Les 470 anciennes ressources
+  sont byte-identiques à la release 0.14.3 ; 650 ressources actives au total.
+- Les sons sont des approximations partagées par famille : 129 moteurs NFS
+  simulés par famille, 14 fallbacks historiques et deux électriques sans combustion.
+  Physique NFS/son constructeur exacts et écoute sur enceintes non établis.
+- Rapports : `validation/nfs-0.15.0/`. Les 29 auxiliaires et six équipements de
+  poursuite ne sont pas implémentés ; quatre liens du classeur restent non résolus.
+
 # Validation 0.14.3 — musique du menu et du garage
 
 Le septième curseur Musique est persistant, borné et indépendant des six autres.

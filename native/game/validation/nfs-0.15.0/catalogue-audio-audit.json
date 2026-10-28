@@ -1,0 +1,115 @@
+{
+  "workbook_sha256": "3ef8e7f16f62f599097887a4071d6ea44cf93f4e1dffe3a18a4df57307ea01df",
+  "engines": 145,
+  "performance_parts": 113,
+  "additional_contraband_parts": 9,
+  "body_models": 50,
+  "body_source_pairs": 97,
+  "body_compatibilities": 623,
+  "unresolved_workbook_compatibilities": [
+    {
+      "sheet_row": 281,
+      "car": "Ferrari 458 Italia (2009)",
+      "family": "V8",
+      "hp": 641,
+      "litres": "4.0"
+    },
+    {
+      "sheet_row": 493,
+      "car": "Lamborghini Hurac\u00e1n (2015)",
+      "family": "V8",
+      "hp": 641,
+      "litres": "4.0"
+    },
+    {
+      "sheet_row": 508,
+      "car": "Lamborghini Hurac\u00e1n Performante (2018)",
+      "family": "V8",
+      "hp": 641,
+      "litres": "4.0"
+    },
+    {
+      "sheet_row": 522,
+      "car": "Lamborghini Urus (2018)",
+      "family": "V8",
+      "hp": 641,
+      "litres": "4.0"
+    }
+  ],
+  "previous_resource_files_unchanged": 470,
+  "active_resource_files": 650,
+  "simulated_audio_files": 358,
+  "packs": [
+    {
+      "slug": "amg_gt63s_2021",
+      "clips": 16,
+      "max_ogg_peak": 0.7905821204185486,
+      "max_ogg_loop_jump": 0.003680678317323327
+    },
+    {
+      "slug": "aventador_svj_v12",
+      "clips": 19,
+      "max_ogg_peak": 0.807030439376831,
+      "max_ogg_loop_jump": 0.001539908000268042
+    },
+    {
+      "slug": "f1_v6",
+      "clips": 16,
+      "max_ogg_peak": 0.7838337421417236,
+      "max_ogg_loop_jump": 0.0011775479651987553
+    },
+    {
+      "slug": "ford_coyote_v8",
+      "clips": 16,
+      "max_ogg_peak": 0.732128381729126,
+      "max_ogg_loop_jump": 0.0012064045295119286
+    },
+    {
+      "slug": "gm_ls_v8",
+      "clips": 16,
+      "max_ogg_peak": 0.7977493405342102,
+      "max_ogg_loop_jump": 0.0014701676554977894
+    },
+    {
+      "slug": "huracan_v10",
+      "clips": 16,
+      "max_ogg_peak": 0.8012102842330933,
+      "max_ogg_loop_jump": 0.0026461512316018343
+    },
+    {
+      "slug": "nfs_h4",
+      "clips": 16,
+      "max_ogg_peak": 0.6201066374778748,
+      "max_ogg_loop_jump": 0.004090328700840473
+    },
+    {
+      "slug": "nfs_i4",
+      "clips": 16,
+      "max_ogg_peak": 0.8067718148231506,
+      "max_ogg_loop_jump": 0.004118341486901045
+    },
+    {
+      "slug": "nfs_i6",
+      "clips": 16,
+      "max_ogg_peak": 0.807074785232544,
+      "max_ogg_loop_jump": 0.0057292720302939415
+    },
+    {
+      "slug": "nfs_v6",
+      "clips": 16,
+      "max_ogg_peak": 0.6174788475036621,
+      "max_ogg_loop_jump": 0.004625410307198763
+    },
+    {
+      "slug": "nfs_v8_flat",
+      "clips": 16,
+      "max_ogg_peak": 0.8036589622497559,
+      "max_ogg_loop_jump": 0.010686524212360382
+    }
+  ],
+  "new_simulations": 5,
+  "new_wav_files": 80,
+  "new_ogg_files": 80,
+  "individually_simulated_workbook_engines": false,
+  "physical_speaker_listening": false
+}

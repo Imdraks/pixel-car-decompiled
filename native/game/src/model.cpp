@@ -56,7 +56,7 @@ static double real(const std::map<std::string,std::string>& v,const std::string&
     try{size_t used=0;double value=std::stod(it->second,&used);return used==it->second.size()&&std::isfinite(value)?value:fallback;}catch(...){return fallback;}
 }
 void sanitizeTransmission(Profile& p){
-    p.gearCount=std::clamp(p.gearCount,4,10);
+    p.gearCount=std::clamp(p.gearCount,1,10);
     if(p.gearboxPreset< -1||p.gearboxPreset>7)p.gearboxPreset=0;
     if(!std::isfinite(p.finalDrive)||p.finalDrive<2||p.finalDrive>6)p.finalDrive=3.9;
     if(!std::isfinite(p.shiftSeconds)||p.shiftSeconds<.04||p.shiftSeconds>.5)p.shiftSeconds=.15;
@@ -123,7 +123,7 @@ bool saveProfile(const std::filesystem::path& file,const Profile& raw,std::strin
     std::ostringstream out;out.imbue(std::locale::classic());
     std::string name=p.savedName.substr(0,48);name.erase(std::remove_if(name.begin(),name.end(),[](unsigned char c){return c<32||c==127;}),name.end());
     out<<"saved_name="<<name<<'\n';
-    out<<"version=6\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
+    out<<"version=7\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
     out<<"ride_height_mm="<<p.rideHeightMm<<"\nspring_stiffness="<<p.springStiffness<<"\ndamping_ratio="<<p.dampingRatio<<"\nfront_bias="<<p.frontBias<<"\nallow_wheelie="<<p.allowWheelie<<'\n';
     out<<"wheelie_tune="<<p.wheelieTune<<'\n';
     out<<"rear_rim="<<p.rearRim<<'\n';
@@ -142,10 +142,11 @@ bool saveProfile(const std::filesystem::path& file,const Profile& raw,std::strin
 // Numeric path derived from Unbound ease_linear disassembly, not generic YYRValue semantics.
 double easeLinear(double t,double b,double c,double d){return (c*t)/d+b;}
 double torqueCurve(const Vehicle& v,double rpm){
+    if(v.electric)return std::min(1.0,v.redlineRpm*.35/std::max(1.0,rpm));
     return v.lowTorqueFraction+(1-v.lowTorqueFraction)*std::exp(-std::pow((rpm/v.curveRpmScale-v.torquePeakRpm)/v.torqueWidthRpm,2));
 }
 double targetBoost(const Vehicle& v,double rpm){
-    if(v.supercharged)return v.boostPsi*std::clamp(rpm/v.redlineRpm,0.0,1.0);
+    if(v.supercharged)return v.boostPsi*std::pow(std::clamp(rpm/v.redlineRpm,0.0,1.0),v.superchargerExponent);
     double primary=std::clamp((rpm-v.turboSpoolStartRpm)/(v.turboFullBoostRpm-v.turboSpoolStartRpm),0.0,1.0);
     double secondary=v.turboSecondaryFullRpm>v.turboSecondaryStartRpm
         ?std::clamp((rpm-v.turboSecondaryStartRpm)/(v.turboSecondaryFullRpm-v.turboSecondaryStartRpm),0.0,1.0):primary;

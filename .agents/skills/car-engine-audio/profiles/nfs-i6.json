@@ -1,0 +1,24 @@
+{
+  "slug": "nfs_i6",
+  "model": "I6 2.6 RB26-family approximation",
+  "layout": "I6",
+  "cylinders": 6,
+  "litres": 2.6,
+  "bore_mm": 86,
+  "stroke_mm": 74.6,
+  "redline_rpm": 8000,
+  "rpm_anchors": [
+    1000,
+    2500,
+    4500,
+    7500
+  ],
+  "throttle_layers": [
+    0,
+    30,
+    100
+  ],
+  "exhaust": "mild_exhaust_0",
+  "game_engine_ids": [],
+  "approximation": "Shared physical-family audio for spreadsheet engines; not a recording or an exact per-vehicle geometry. Cam/head/exhaust/firing details inherited from the compatible upstream template."
+}

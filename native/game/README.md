@@ -1,4 +1,13 @@
-# Pixel Car Racer — Unbound Native 0.14.3
+# Pixel Car Racer — Unbound Native 0.15.0
+
+La version **0.15.0** importe le tableau fourni : **145 moteurs**, **113 pièces**
+et neuf extensions Contrebande. Classes **Basic, Sport, Pro, Super, Elite,
+Contrebande**, associations origine/swap pour 50 modèles présents, 20 catégories
+avec carburant, freins, embrayage, différentiel, boîtes et composants électriques.
+Cinq nouvelles familles audio sont réellement simulées en WAV/OGG.
+F1 : rechercher NFS ou un donneur ; CETTE AUTO filtre les correspondances.
+[Contenu, accès, puissance, sons et limites](NFS-CATALOGUE.md).
+
 
 La version **0.14.3** ajoute le curseur **Musique** dans Paramètres → Volumes
 et active les morceaux du menu et du garage issus des ressources du jeu.

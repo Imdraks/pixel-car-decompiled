@@ -1,8 +1,8 @@
 // Generated from native/evidence/merged/performance.json.
 #pragma once
 namespace pcr {
-enum class PartSlot { Engine, Suspension, Turbo, Supercharger, Ecu, Nos, Intake, Intercooler, Pistons, Exhaust, Tires, Count };
-constexpr int PartSlotCount=11;
+enum class PartSlot { Engine, Suspension, Turbo, Supercharger, Ecu, Nos, Intake, Intercooler, Pistons, Exhaust, Tires, Fuel, Brakes, Clutch, Differential, Gearbox, BatteryCooling, Electrical, MotorComponents, Overcharge, Count };
+constexpr int PartSlotCount=20;
 struct Part { int id; PartSlot slot; const char* name; double stat,weight,value; int subimage; int sourceMask=3,imageSource=-1; };
 inline constexpr Part PartCatalog[] = {
 {1001,PartSlot::Engine,"SR20",250.0,250.0,50000.0,1,3,-1},
@@ -22,6 +22,7 @@ inline constexpr Part PartCatalog[] = {
 {1015,PartSlot::Engine,"Spoon",260.0,210.0,600000.0,15,3,-1},
 {1016,PartSlot::Engine,"2AR",187.0,200.0,350000.0,16,3,-1},
 #include "pc_engine_parts.inc"
+#include "nfs_engine_parts.inc"
 {2001,PartSlot::Suspension,"Vortex Reds",0.0,130.0,500.0,1,3,-1},
 {2002,PartSlot::Suspension,"Vortex R2",0.0,130.0,500.0,2,3,-1},
 {2003,PartSlot::Suspension,"Vortex R3",0.0,130.0,500.0,3,3,-1},

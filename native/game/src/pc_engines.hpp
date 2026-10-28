@@ -1,5 +1,6 @@
 // Native approximations: rated outputs use mechanical HP, not metric PS.
 #pragma once
+#include "nfs_catalog.hpp"
 namespace pcr {
 struct PcEngine {
     int id;double redlineRpm,litres;int cylinders;
@@ -7,6 +8,7 @@ struct PcEngine {
     int soundOn,soundOff;double factoryBoostSoundPsi;bool blower;
 };
 inline constexpr PcEngine PcEngines[]={
+#include "nfs_pc_engines.inc"
 {1501,7000,4,8,4000,3300,0.66,0.29,24,20,18,false},
 {1502,8500,5.2,10,6500,3000,0.4,0.24,73,24,0,false},
 {1503,8500,6.5,12,5500,3200,0.44,0.3,78,24,0,false},
@@ -23,5 +25,5 @@ inline constexpr PcEngine PcEngines[]={
 {1514,6200,6.2,8,4800,3000,0.7,0.35,24,20,11.6,true},
 {1515,6700,8,16,4000,3400,0.72,0.48,24,20,23,false},
 };
-inline const PcEngine* pcEngine(int id){for(const auto& e:PcEngines)if(e.id==id)return &e;return nullptr;}
+inline const PcEngine* pcEngine(int id){if(id>=20000&&id<20145)return &PcEngines[id-20000];for(int i=145;i<160;i++)if(PcEngines[i].id==id)return &PcEngines[i];return nullptr;}
 }

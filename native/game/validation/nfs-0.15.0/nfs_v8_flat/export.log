@@ -1,0 +1,29 @@
+Loaded engine: Flat-plane V8 4.5 F136-family approximation [simulated approximation]
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_startup_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=0
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_rpm_1000_throttle_0_loop_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=30
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_rpm_1000_throttle_30_loop_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=100
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_rpm_1000_throttle_100_loop_3s.wav
+RPM_CHECK target=2500 actual=2500 throttle=0
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_rpm_2500_throttle_0_loop_3s.wav
+RPM_CHECK target=2500 actual=2500 throttle=30
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_rpm_2500_throttle_30_loop_3s.wav
+RPM_CHECK target=2500 actual=2500 throttle=100
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_rpm_2500_throttle_100_loop_3s.wav
+RPM_CHECK target=4500 actual=4500 throttle=0
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_rpm_4500_throttle_0_loop_3s.wav
+RPM_CHECK target=4500 actual=4500 throttle=30
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_rpm_4500_throttle_30_loop_3s.wav
+RPM_CHECK target=4500 actual=4500 throttle=100
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_rpm_4500_throttle_100_loop_3s.wav
+RPM_CHECK target=8500 actual=8500 throttle=0
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_rpm_8500_throttle_0_loop_3s.wav
+RPM_CHECK target=8500 actual=8500 throttle=30
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_rpm_8500_throttle_30_loop_3s.wav
+RPM_CHECK target=8500 actual=8500 throttle=100
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_rpm_8500_throttle_100_loop_3s.wav
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_ignition_off_3s.wav
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_acceleration.wav
+Wrote /workspace/deliverables/engine-audio/nfs-families-v1/nfs_v8_flat/simulation/raw/flat_plane_v8_4_5_f136_family_approximation_simulated_approximation_deceleration.wav

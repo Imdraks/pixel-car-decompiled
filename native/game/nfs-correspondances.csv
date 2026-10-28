@@ -1,0 +1,624 @@
+body,source,game_name,nfs_car,role,engine_id,family,hp,litres,grade,donor,mapping
+2,0,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),origin,20005,F4,300,2.5,Sport,Subaru Impreza WRX STI (2006),explicit_model_generation_bridge; trim/year may differ
+2,0,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+2,0,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),swap,20086,V8,345,4.0,Sport,BMW M3 GTR (2006),explicit_model_generation_bridge; trim/year may differ
+2,0,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),swap,20092,V8,460,6.2,Pro,Chevrolet Corvette Grand Sport (2017),explicit_model_generation_bridge; trim/year may differ
+2,0,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+2,0,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),swap,20012,F6,444,3.0,Pro,Porsche 911 Carrera GTS (2018) ; Porsche 911 Carrera GTS Cabriolet (2018) ; Porsche 911 Targa 4 GTS (2018),explicit_model_generation_bridge; trim/year may differ
+2,0,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+2,1,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),origin,20005,F4,300,2.5,Sport,Subaru Impreza WRX STI (2006),explicit_model_generation_bridge; trim/year may differ
+2,1,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+2,1,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),swap,20086,V8,345,4.0,Sport,BMW M3 GTR (2006),explicit_model_generation_bridge; trim/year may differ
+2,1,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),swap,20092,V8,460,6.2,Pro,Chevrolet Corvette Grand Sport (2017),explicit_model_generation_bridge; trim/year may differ
+2,1,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+2,1,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),swap,20012,F6,444,3.0,Pro,Porsche 911 Carrera GTS (2018) ; Porsche 911 Carrera GTS Cabriolet (2018) ; Porsche 911 Targa 4 GTS (2018),explicit_model_generation_bridge; trim/year may differ
+2,1,2004 Subaru Impreza WRX STi,Subaru Impreza WRX STI (2006),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+53,0,Nissan GT-R R35,Nissan GT-R R35 (2017),origin,20074,V6,562,3.8,Pro,Nissan GT-R R35 (2017),explicit_model_generation_bridge; trim/year may differ
+53,0,Nissan GT-R R35,Nissan GT-R R35 (2017),swap,20131,V12,523,5.7,Sport,Lamborghini Diablo SV (1995),explicit_model_generation_bridge; trim/year may differ
+53,0,Nissan GT-R R35,Nissan GT-R R35 (2017),swap,20057,I6,493,3.0,Sport,BMW M4 GTS (2016),explicit_model_generation_bridge; trim/year may differ
+53,0,Nissan GT-R R35,Nissan GT-R R35 (2017),swap,20102,V8,515,4.0,Pro,Mercedes-AMG GT S (2019) ; Mercedes-AMG GT S Roadster (2019),explicit_model_generation_bridge; trim/year may differ
+53,0,Nissan GT-R R35,Nissan GT-R R35 (2017),swap,20116,V8,661,3.9,Super,Ferrari 488 GTB (2016),explicit_model_generation_bridge; trim/year may differ
+53,0,Nissan GT-R R35,Nissan GT-R R35 (2017),swap,20126,V10,601,5.2,Super,Lamborghini Huracán LP 610-4 Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+53,1,Nissan GT-R R35,Nissan GT-R R35 (2017),origin,20074,V6,562,3.8,Pro,Nissan GT-R R35 (2017),explicit_model_generation_bridge; trim/year may differ
+53,1,Nissan GT-R R35,Nissan GT-R R35 (2017),swap,20131,V12,523,5.7,Sport,Lamborghini Diablo SV (1995),explicit_model_generation_bridge; trim/year may differ
+53,1,Nissan GT-R R35,Nissan GT-R R35 (2017),swap,20057,I6,493,3.0,Sport,BMW M4 GTS (2016),explicit_model_generation_bridge; trim/year may differ
+53,1,Nissan GT-R R35,Nissan GT-R R35 (2017),swap,20102,V8,515,4.0,Pro,Mercedes-AMG GT S (2019) ; Mercedes-AMG GT S Roadster (2019),explicit_model_generation_bridge; trim/year may differ
+53,1,Nissan GT-R R35,Nissan GT-R R35 (2017),swap,20116,V8,661,3.9,Super,Ferrari 488 GTB (2016),explicit_model_generation_bridge; trim/year may differ
+53,1,Nissan GT-R R35,Nissan GT-R R35 (2017),swap,20126,V10,601,5.2,Super,Lamborghini Huracán LP 610-4 Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+3,0,Nissan 350Z,Nissan 350Z (2008),origin,20064,V6,306,3.5,Basic,Nissan 350Z (2008),explicit_model_generation_bridge; trim/year may differ
+3,0,Nissan 350Z,Nissan 350Z (2008),swap,20131,V12,523,5.7,Sport,Lamborghini Diablo SV (1995),explicit_model_generation_bridge; trim/year may differ
+3,0,Nissan 350Z,Nissan 350Z (2008),swap,20054,I6,404,3.0,Sport,BMW M2 Competition (2019),explicit_model_generation_bridge; trim/year may differ
+3,0,Nissan 350Z,Nissan 350Z (2008),swap,20090,V8,435,5.0,Sport,Ford Mustang GT (2015),explicit_model_generation_bridge; trim/year may differ
+3,0,Nissan 350Z,Nissan 350Z (2008),swap,20014,F6,599,3.8,Pro,Porsche 911 Turbo S Exclusive (2018) ; Porsche 911 Turbo S Cabriolet Exclusive (2018),explicit_model_generation_bridge; trim/year may differ
+3,0,Nissan 350Z,Nissan 350Z (2008),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+3,0,Nissan 350Z,Nissan 350Z (2008),swap,20126,V10,601,5.2,Super,Lamborghini Huracán LP 610-4 Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+3,1,Nissan 350Z,Nissan 350Z (2008),origin,20064,V6,306,3.5,Basic,Nissan 350Z (2008),explicit_model_generation_bridge; trim/year may differ
+3,1,Nissan 350Z,Nissan 350Z (2008),swap,20131,V12,523,5.7,Sport,Lamborghini Diablo SV (1995),explicit_model_generation_bridge; trim/year may differ
+3,1,Nissan 350Z,Nissan 350Z (2008),swap,20054,I6,404,3.0,Sport,BMW M2 Competition (2019),explicit_model_generation_bridge; trim/year may differ
+3,1,Nissan 350Z,Nissan 350Z (2008),swap,20090,V8,435,5.0,Sport,Ford Mustang GT (2015),explicit_model_generation_bridge; trim/year may differ
+3,1,Nissan 350Z,Nissan 350Z (2008),swap,20014,F6,599,3.8,Pro,Porsche 911 Turbo S Exclusive (2018) ; Porsche 911 Turbo S Cabriolet Exclusive (2018),explicit_model_generation_bridge; trim/year may differ
+3,1,Nissan 350Z,Nissan 350Z (2008),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+3,1,Nissan 350Z,Nissan 350Z (2008),swap,20126,V10,601,5.2,Super,Lamborghini Huracán LP 610-4 Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+6,0,Nissan Skyline GT-R R34,Nissan Skyline GT-R R34 (1999),origin,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+6,0,Nissan Skyline GT-R R34,Nissan Skyline GT-R R34 (1999),swap,20055,I6,425,3.0,Sport,BMW M4 Coupé (2018) ; BMW M4 Cabriolet (2018),explicit_model_generation_bridge; trim/year may differ
+6,0,Nissan Skyline GT-R R34,Nissan Skyline GT-R R34 (1999),swap,20073,V6,505,2.9,Sport,Alfa Romeo Giulia Quadrifoglio (2016),explicit_model_generation_bridge; trim/year may differ
+6,0,Nissan Skyline GT-R R34,Nissan Skyline GT-R R34 (1999),swap,20063,V6,304,3.8,Pro,Buick Grand National GNX (1987),explicit_model_generation_bridge; trim/year may differ
+6,0,Nissan Skyline GT-R R34,Nissan Skyline GT-R R34 (1999),swap,20101,V8,506,7.0,Pro,Chevrolet Corvette Z06 (2013),explicit_model_generation_bridge; trim/year may differ
+6,1,Nissan Skyline GT-R R34,Nissan Skyline GT-R R34 (1999),origin,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+6,1,Nissan Skyline GT-R R34,Nissan Skyline GT-R R34 (1999),swap,20055,I6,425,3.0,Sport,BMW M4 Coupé (2018) ; BMW M4 Cabriolet (2018),explicit_model_generation_bridge; trim/year may differ
+6,1,Nissan Skyline GT-R R34,Nissan Skyline GT-R R34 (1999),swap,20073,V6,505,2.9,Sport,Alfa Romeo Giulia Quadrifoglio (2016),explicit_model_generation_bridge; trim/year may differ
+6,1,Nissan Skyline GT-R R34,Nissan Skyline GT-R R34 (1999),swap,20063,V6,304,3.8,Pro,Buick Grand National GNX (1987),explicit_model_generation_bridge; trim/year may differ
+6,1,Nissan Skyline GT-R R34,Nissan Skyline GT-R R34 (1999),swap,20101,V8,506,7.0,Pro,Chevrolet Corvette Z06 (2013),explicit_model_generation_bridge; trim/year may differ
+11,0,2002 Honda NSX-R,Honda NSX-R (1992),origin,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+11,0,2002 Honda NSX-R,Honda NSX-R (1992),swap,20048,I6,274,3.5,Basic,BMW M1 (1981),explicit_model_generation_bridge; trim/year may differ
+11,0,2002 Honda NSX-R,Honda NSX-R (1992),swap,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+11,0,2002 Honda NSX-R,Honda NSX-R (1992),swap,20005,F4,300,2.5,Sport,Subaru Impreza WRX STI (2006),explicit_model_generation_bridge; trim/year may differ
+11,1,2002 Honda NSX-R,Honda NSX-R (1992),origin,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+11,1,2002 Honda NSX-R,Honda NSX-R (1992),swap,20048,I6,274,3.5,Basic,BMW M1 (1981),explicit_model_generation_bridge; trim/year may differ
+11,1,2002 Honda NSX-R,Honda NSX-R (1992),swap,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+11,1,2002 Honda NSX-R,Honda NSX-R (1992),swap,20005,F4,300,2.5,Sport,Subaru Impreza WRX STI (2006),explicit_model_generation_bridge; trim/year may differ
+14,0,2005 BMW M3,BMW M3 (2006),origin,20053,I6,338,3.2,Sport,BMW M3 (2006),explicit_model_generation_bridge; trim/year may differ
+14,0,2005 BMW M3,BMW M3 (2006),swap,20131,V12,523,5.7,Sport,Lamborghini Diablo SV (1995),explicit_model_generation_bridge; trim/year may differ
+14,0,2005 BMW M3,BMW M3 (2006),swap,20102,V8,515,4.0,Pro,Mercedes-AMG GT S (2019) ; Mercedes-AMG GT S Roadster (2019),explicit_model_generation_bridge; trim/year may differ
+14,0,2005 BMW M3,BMW M3 (2006),swap,20074,V6,562,3.8,Pro,Nissan GT-R R35 (2017),explicit_model_generation_bridge; trim/year may differ
+14,0,2005 BMW M3,BMW M3 (2006),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+14,0,2005 BMW M3,BMW M3 (2006),swap,20128,V10,631,5.2,Super,Lamborghini Huracán Performante (2018) ; Lamborghini Huracán Performante Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+14,1,2005 BMW M3,BMW M3 (2006),origin,20053,I6,338,3.2,Sport,BMW M3 (2006),explicit_model_generation_bridge; trim/year may differ
+14,1,2005 BMW M3,BMW M3 (2006),swap,20131,V12,523,5.7,Sport,Lamborghini Diablo SV (1995),explicit_model_generation_bridge; trim/year may differ
+14,1,2005 BMW M3,BMW M3 (2006),swap,20102,V8,515,4.0,Pro,Mercedes-AMG GT S (2019) ; Mercedes-AMG GT S Roadster (2019),explicit_model_generation_bridge; trim/year may differ
+14,1,2005 BMW M3,BMW M3 (2006),swap,20074,V6,562,3.8,Pro,Nissan GT-R R35 (2017),explicit_model_generation_bridge; trim/year may differ
+14,1,2005 BMW M3,BMW M3 (2006),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+14,1,2005 BMW M3,BMW M3 (2006),swap,20128,V10,631,5.2,Super,Lamborghini Huracán Performante (2018) ; Lamborghini Huracán Performante Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+15,0,1996 Nissan 180SX,Nissan 180SX Type X (1996),origin,20029,I4,202,2.0,Basic,Nissan 180SX Type X (1996),explicit_model_generation_bridge; trim/year may differ
+15,0,1996 Nissan 180SX,Nissan 180SX Type X (1996),swap,20046,I6,158,2.0,Basic,Nissan Skyline 2000 GT-R (1971),explicit_model_generation_bridge; trim/year may differ
+15,0,1996 Nissan 180SX,Nissan 180SX Type X (1996),swap,20037,I4,247,2.0,Basic,Nissan Silvia S15 (2002),explicit_model_generation_bridge; trim/year may differ
+15,0,1996 Nissan 180SX,Nissan 180SX Type X (1996),swap,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+15,0,1996 Nissan 180SX,Nissan 180SX Type X (1996),swap,20040,I4,306,2.0,Sport,Honda Civic Type R (2015),explicit_model_generation_bridge; trim/year may differ
+15,0,1996 Nissan 180SX,Nissan 180SX Type X (1996),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+15,0,1996 Nissan 180SX,Nissan 180SX Type X (1996),swap,20043,I4,366,2.0,Sport,Mitsubishi Lancer Evolution IX (2007),explicit_model_generation_bridge; trim/year may differ
+15,1,1996 Nissan 180SX,Nissan 180SX Type X (1996),origin,20029,I4,202,2.0,Basic,Nissan 180SX Type X (1996),explicit_model_generation_bridge; trim/year may differ
+15,1,1996 Nissan 180SX,Nissan 180SX Type X (1996),swap,20046,I6,158,2.0,Basic,Nissan Skyline 2000 GT-R (1971),explicit_model_generation_bridge; trim/year may differ
+15,1,1996 Nissan 180SX,Nissan 180SX Type X (1996),swap,20037,I4,247,2.0,Basic,Nissan Silvia S15 (2002),explicit_model_generation_bridge; trim/year may differ
+15,1,1996 Nissan 180SX,Nissan 180SX Type X (1996),swap,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+15,1,1996 Nissan 180SX,Nissan 180SX Type X (1996),swap,20040,I4,306,2.0,Sport,Honda Civic Type R (2015),explicit_model_generation_bridge; trim/year may differ
+15,1,1996 Nissan 180SX,Nissan 180SX Type X (1996),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+15,1,1996 Nissan 180SX,Nissan 180SX Type X (1996),swap,20043,I4,366,2.0,Sport,Mitsubishi Lancer Evolution IX (2007),explicit_model_generation_bridge; trim/year may differ
+16,0,2001 Honda Integra Type R,Honda Integra Type R (1998),origin,20027,I4,197,1.8,Basic,Honda Integra Type R (1998),explicit_model_generation_bridge; trim/year may differ
+16,0,2001 Honda Integra Type R,Honda Integra Type R (1998),swap,20050,I6,280,2.6,Basic,Nissan Skyline GT-R R32 (1993),explicit_model_generation_bridge; trim/year may differ
+16,0,2001 Honda Integra Type R,Honda Integra Type R (1998),swap,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+16,0,2001 Honda Integra Type R,Honda Integra Type R (1998),swap,20036,I4,237,2.0,Sport,Honda S2000 (2009),explicit_model_generation_bridge; trim/year may differ
+16,0,2001 Honda Integra Type R,Honda Integra Type R (1998),swap,20006,F4,305,2.5,Sport,Subaru Impreza WRX STI (2010),explicit_model_generation_bridge; trim/year may differ
+16,0,2001 Honda Integra Type R,Honda Integra Type R (1998),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+16,1,2001 Honda Integra Type R,Honda Integra Type R (1998),origin,20027,I4,197,1.8,Basic,Honda Integra Type R (1998),explicit_model_generation_bridge; trim/year may differ
+16,1,2001 Honda Integra Type R,Honda Integra Type R (1998),swap,20050,I6,280,2.6,Basic,Nissan Skyline GT-R R32 (1993),explicit_model_generation_bridge; trim/year may differ
+16,1,2001 Honda Integra Type R,Honda Integra Type R (1998),swap,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+16,1,2001 Honda Integra Type R,Honda Integra Type R (1998),swap,20036,I4,237,2.0,Sport,Honda S2000 (2009),explicit_model_generation_bridge; trim/year may differ
+16,1,2001 Honda Integra Type R,Honda Integra Type R (1998),swap,20006,F4,305,2.5,Sport,Subaru Impreza WRX STI (2010),explicit_model_generation_bridge; trim/year may differ
+16,1,2001 Honda Integra Type R,Honda Integra Type R (1998),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+19,0,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),origin,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+19,0,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20075,V6 hybride,573,3.5,Sport,Acura NSX (2017),explicit_model_generation_bridge; trim/year may differ
+19,0,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20132,V12,600,5.2,Sport,Aston Martin DB11 (2017),explicit_model_generation_bridge; trim/year may differ
+19,0,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20017,F12,385,4.9,Sport,Ferrari Testarossa Coupé (1984),explicit_model_generation_bridge; trim/year may differ
+19,0,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20013,F6,513,4.0,Pro,Porsche 911 GT3 RS (2019),explicit_model_generation_bridge; trim/year may differ
+19,0,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20118,V8,710,3.9,Pro,Ferrari 488 Pista (2019),explicit_model_generation_bridge; trim/year may differ
+19,0,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20119,V8,720,4.0,Super,Mercedes-AMG GT Black Series (2021),explicit_model_generation_bridge; trim/year may differ
+19,0,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20126,V10,601,5.2,Super,Lamborghini Huracán LP 610-4 Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+19,1,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),origin,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+19,1,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20075,V6 hybride,573,3.5,Sport,Acura NSX (2017),explicit_model_generation_bridge; trim/year may differ
+19,1,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20132,V12,600,5.2,Sport,Aston Martin DB11 (2017),explicit_model_generation_bridge; trim/year may differ
+19,1,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20017,F12,385,4.9,Sport,Ferrari Testarossa Coupé (1984),explicit_model_generation_bridge; trim/year may differ
+19,1,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20013,F6,513,4.0,Pro,Porsche 911 GT3 RS (2019),explicit_model_generation_bridge; trim/year may differ
+19,1,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20118,V8,710,3.9,Pro,Ferrari 488 Pista (2019),explicit_model_generation_bridge; trim/year may differ
+19,1,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20119,V8,720,4.0,Super,Mercedes-AMG GT Black Series (2021),explicit_model_generation_bridge; trim/year may differ
+19,1,2003 Mazda RX-8,Mazda RX-8 Spirit R (2011),swap,20126,V10,601,5.2,Super,Lamborghini Huracán LP 610-4 Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+20,0,Nissan Skyline GT-R R32,Nissan Skyline GT-R R32 (1993),origin,20050,I6,280,2.6,Basic,Nissan Skyline GT-R R32 (1993),explicit_model_generation_bridge; trim/year may differ
+20,0,Nissan Skyline GT-R R32,Nissan Skyline GT-R R32 (1993),swap,20065,V6,308,3.6,Basic,Chevrolet Colorado ZR2 (2017),explicit_model_generation_bridge; trim/year may differ
+20,0,Nissan Skyline GT-R R32,Nissan Skyline GT-R R32 (1993),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+20,0,Nissan Skyline GT-R R32,Nissan Skyline GT-R R32 (1993),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+20,0,Nissan Skyline GT-R R32,Nissan Skyline GT-R R32 (1993),swap,20015,F6,690,3.8,Super,Porsche 911 GT2 RS (2018),explicit_model_generation_bridge; trim/year may differ
+20,1,Nissan Skyline GT-R R32,Nissan Skyline GT-R R32 (1993),origin,20050,I6,280,2.6,Basic,Nissan Skyline GT-R R32 (1993),explicit_model_generation_bridge; trim/year may differ
+20,1,Nissan Skyline GT-R R32,Nissan Skyline GT-R R32 (1993),swap,20065,V6,308,3.6,Basic,Chevrolet Colorado ZR2 (2017),explicit_model_generation_bridge; trim/year may differ
+20,1,Nissan Skyline GT-R R32,Nissan Skyline GT-R R32 (1993),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+20,1,Nissan Skyline GT-R R32,Nissan Skyline GT-R R32 (1993),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+20,1,Nissan Skyline GT-R R32,Nissan Skyline GT-R R32 (1993),swap,20015,F6,690,3.8,Super,Porsche 911 GT2 RS (2018),explicit_model_generation_bridge; trim/year may differ
+24,0,Nissan 370Z,Nissan 370Z Heritage Edition (2019),origin,20066,V6,331,3.7,Sport,Nissan 370Z Heritage Edition (2019),explicit_model_generation_bridge; trim/year may differ
+24,0,Nissan 370Z,Nissan 370Z Heritage Edition (2019),swap,20047,I6,162,3.9,Basic,Chevrolet Bel Air (1955),explicit_model_generation_bridge; trim/year may differ
+24,0,Nissan 370Z,Nissan 370Z Heritage Edition (2019),swap,20131,V12,523,5.7,Sport,Lamborghini Diablo SV (1995),explicit_model_generation_bridge; trim/year may differ
+24,0,Nissan 370Z,Nissan 370Z Heritage Edition (2019),swap,20072,V6,450,3.5,Sport,Ford F-150 Raptor (2017),explicit_model_generation_bridge; trim/year may differ
+24,0,Nissan 370Z,Nissan 370Z Heritage Edition (2019),swap,20074,V6,562,3.8,Pro,Nissan GT-R R35 (2017),explicit_model_generation_bridge; trim/year may differ
+24,0,Nissan 370Z,Nissan 370Z Heritage Edition (2019),swap,20138,V12,754,6.0,Super,Pagani Huayra BC (2017),explicit_model_generation_bridge; trim/year may differ
+24,0,Nissan 370Z,Nissan 370Z Heritage Edition (2019),swap,20126,V10,601,5.2,Super,Lamborghini Huracán LP 610-4 Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+24,1,Nissan 370Z,Nissan 370Z Heritage Edition (2019),origin,20066,V6,331,3.7,Sport,Nissan 370Z Heritage Edition (2019),explicit_model_generation_bridge; trim/year may differ
+24,1,Nissan 370Z,Nissan 370Z Heritage Edition (2019),swap,20047,I6,162,3.9,Basic,Chevrolet Bel Air (1955),explicit_model_generation_bridge; trim/year may differ
+24,1,Nissan 370Z,Nissan 370Z Heritage Edition (2019),swap,20131,V12,523,5.7,Sport,Lamborghini Diablo SV (1995),explicit_model_generation_bridge; trim/year may differ
+24,1,Nissan 370Z,Nissan 370Z Heritage Edition (2019),swap,20072,V6,450,3.5,Sport,Ford F-150 Raptor (2017),explicit_model_generation_bridge; trim/year may differ
+24,1,Nissan 370Z,Nissan 370Z Heritage Edition (2019),swap,20074,V6,562,3.8,Pro,Nissan GT-R R35 (2017),explicit_model_generation_bridge; trim/year may differ
+24,1,Nissan 370Z,Nissan 370Z Heritage Edition (2019),swap,20138,V12,754,6.0,Super,Pagani Huayra BC (2017),explicit_model_generation_bridge; trim/year may differ
+24,1,Nissan 370Z,Nissan 370Z Heritage Edition (2019),swap,20126,V10,601,5.2,Super,Lamborghini Huracán LP 610-4 Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+25,0,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),origin,20037,I4,247,2.0,Basic,Nissan Silvia S15 (2002),explicit_model_generation_bridge; trim/year may differ
+25,0,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+25,0,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),swap,20042,I4,355,2.0,Sport,Mercedes-AMG A 45 (2016),explicit_model_generation_bridge; trim/year may differ
+25,0,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),swap,20070,V6,400,3.0,Pro,Nissan Z Prototype (2020),explicit_model_generation_bridge; trim/year may differ
+25,0,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+25,0,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),swap,20071,V6,400,3.5,Pro,Lotus Emira (2021),explicit_model_generation_bridge; trim/year may differ
+25,0,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),swap,20122,V8 hybride,903,3.8,Super,McLaren P1 (2014),explicit_model_generation_bridge; trim/year may differ
+25,1,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),origin,20037,I4,247,2.0,Basic,Nissan Silvia S15 (2002),explicit_model_generation_bridge; trim/year may differ
+25,1,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+25,1,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),swap,20042,I4,355,2.0,Sport,Mercedes-AMG A 45 (2016),explicit_model_generation_bridge; trim/year may differ
+25,1,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),swap,20070,V6,400,3.0,Pro,Nissan Z Prototype (2020),explicit_model_generation_bridge; trim/year may differ
+25,1,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+25,1,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),swap,20071,V6,400,3.5,Pro,Lotus Emira (2021),explicit_model_generation_bridge; trim/year may differ
+25,1,1999 Nissan Silvia S15,Nissan Silvia S15 (2002),swap,20122,V8 hybride,903,3.8,Super,McLaren P1 (2014),explicit_model_generation_bridge; trim/year may differ
+26,0,2013 Subaru BRZ,Subaru BRZ Premium (2014),origin,20003,F4,197,2.0,Basic,Subaru BRZ Premium (2014),explicit_model_generation_bridge; trim/year may differ
+26,0,2013 Subaru BRZ,Subaru BRZ Premium (2014),swap,20033,I4,217,2.3,Basic,BMW M3 Evolution II (1988),explicit_model_generation_bridge; trim/year may differ
+26,0,2013 Subaru BRZ,Subaru BRZ Premium (2014),swap,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+26,0,2013 Subaru BRZ,Subaru BRZ Premium (2014),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+26,0,2013 Subaru BRZ,Subaru BRZ Premium (2014),swap,20043,I4,366,2.0,Sport,Mitsubishi Lancer Evolution IX (2007),explicit_model_generation_bridge; trim/year may differ
+26,1,2013 Subaru BRZ,Subaru BRZ Premium (2014),origin,20003,F4,197,2.0,Basic,Subaru BRZ Premium (2014),explicit_model_generation_bridge; trim/year may differ
+26,1,2013 Subaru BRZ,Subaru BRZ Premium (2014),swap,20033,I4,217,2.3,Basic,BMW M3 Evolution II (1988),explicit_model_generation_bridge; trim/year may differ
+26,1,2013 Subaru BRZ,Subaru BRZ Premium (2014),swap,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+26,1,2013 Subaru BRZ,Subaru BRZ Premium (2014),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+26,1,2013 Subaru BRZ,Subaru BRZ Premium (2014),swap,20043,I4,366,2.0,Sport,Mitsubishi Lancer Evolution IX (2007),explicit_model_generation_bridge; trim/year may differ
+27,0,2008 Honda S2000,Honda S2000 (2009),origin,20036,I4,237,2.0,Sport,Honda S2000 (2009),explicit_model_generation_bridge; trim/year may differ
+27,0,2008 Honda S2000,Honda S2000 (2009),swap,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+27,0,2008 Honda S2000,Honda S2000 (2009),swap,20057,I6,493,3.0,Sport,BMW M4 GTS (2016),explicit_model_generation_bridge; trim/year may differ
+27,0,2008 Honda S2000,Honda S2000 (2009),swap,20102,V8,515,4.0,Pro,Mercedes-AMG GT S (2019) ; Mercedes-AMG GT S Roadster (2019),explicit_model_generation_bridge; trim/year may differ
+27,0,2008 Honda S2000,Honda S2000 (2009),swap,20092,V8,460,6.2,Pro,Chevrolet Corvette Grand Sport (2017),explicit_model_generation_bridge; trim/year may differ
+27,0,2008 Honda S2000,Honda S2000 (2009),swap,20128,V10,631,5.2,Super,Lamborghini Huracán Performante (2018) ; Lamborghini Huracán Performante Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+27,0,2008 Honda S2000,Honda S2000 (2009),swap,20015,F6,690,3.8,Super,Porsche 911 GT2 RS (2018),explicit_model_generation_bridge; trim/year may differ
+27,1,2008 Honda S2000,Honda S2000 (2009),origin,20036,I4,237,2.0,Sport,Honda S2000 (2009),explicit_model_generation_bridge; trim/year may differ
+27,1,2008 Honda S2000,Honda S2000 (2009),swap,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+27,1,2008 Honda S2000,Honda S2000 (2009),swap,20057,I6,493,3.0,Sport,BMW M4 GTS (2016),explicit_model_generation_bridge; trim/year may differ
+27,1,2008 Honda S2000,Honda S2000 (2009),swap,20102,V8,515,4.0,Pro,Mercedes-AMG GT S (2019) ; Mercedes-AMG GT S Roadster (2019),explicit_model_generation_bridge; trim/year may differ
+27,1,2008 Honda S2000,Honda S2000 (2009),swap,20092,V8,460,6.2,Pro,Chevrolet Corvette Grand Sport (2017),explicit_model_generation_bridge; trim/year may differ
+27,1,2008 Honda S2000,Honda S2000 (2009),swap,20128,V10,631,5.2,Super,Lamborghini Huracán Performante (2018) ; Lamborghini Huracán Performante Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+27,1,2008 Honda S2000,Honda S2000 (2009),swap,20015,F6,690,3.8,Super,Porsche 911 GT2 RS (2018),explicit_model_generation_bridge; trim/year may differ
+28,0,Nissan Silvia S14,Nissan Silvia S14 (1998),origin,20032,I4,217,2.0,Basic,Nissan Silvia S14 (1998),explicit_model_generation_bridge; trim/year may differ
+28,0,Nissan Silvia S14,Nissan Silvia S14 (1998),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+28,0,Nissan Silvia S14,Nissan Silvia S14 (1998),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+28,0,Nissan Silvia S14,Nissan Silvia S14 (1998),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+28,0,Nissan Silvia S14,Nissan Silvia S14 (1998),swap,20054,I6,404,3.0,Sport,BMW M2 Competition (2019),explicit_model_generation_bridge; trim/year may differ
+28,0,Nissan Silvia S14,Nissan Silvia S14 (1998),swap,20012,F6,444,3.0,Pro,Porsche 911 Carrera GTS (2018) ; Porsche 911 Carrera GTS Cabriolet (2018) ; Porsche 911 Targa 4 GTS (2018),explicit_model_generation_bridge; trim/year may differ
+28,1,Nissan Silvia S14,Nissan Silvia S14 (1998),origin,20032,I4,217,2.0,Basic,Nissan Silvia S14 (1998),explicit_model_generation_bridge; trim/year may differ
+28,1,Nissan Silvia S14,Nissan Silvia S14 (1998),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+28,1,Nissan Silvia S14,Nissan Silvia S14 (1998),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+28,1,Nissan Silvia S14,Nissan Silvia S14 (1998),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+28,1,Nissan Silvia S14,Nissan Silvia S14 (1998),swap,20054,I6,404,3.0,Sport,BMW M2 Competition (2019),explicit_model_generation_bridge; trim/year may differ
+28,1,Nissan Silvia S14,Nissan Silvia S14 (1998),swap,20012,F6,444,3.0,Pro,Porsche 911 Carrera GTS (2018) ; Porsche 911 Carrera GTS Cabriolet (2018) ; Porsche 911 Targa 4 GTS (2018),explicit_model_generation_bridge; trim/year may differ
+29,0,Nissan Silvia S14 (variante),Nissan Silvia S14 (1998),origin,20032,I4,217,2.0,Basic,Nissan Silvia S14 (1998),explicit_model_generation_bridge; trim/year may differ
+29,0,Nissan Silvia S14 (variante),Nissan Silvia S14 (1998),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+29,0,Nissan Silvia S14 (variante),Nissan Silvia S14 (1998),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+29,0,Nissan Silvia S14 (variante),Nissan Silvia S14 (1998),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+29,0,Nissan Silvia S14 (variante),Nissan Silvia S14 (1998),swap,20054,I6,404,3.0,Sport,BMW M2 Competition (2019),explicit_model_generation_bridge; trim/year may differ
+29,0,Nissan Silvia S14 (variante),Nissan Silvia S14 (1998),swap,20012,F6,444,3.0,Pro,Porsche 911 Carrera GTS (2018) ; Porsche 911 Carrera GTS Cabriolet (2018) ; Porsche 911 Targa 4 GTS (2018),explicit_model_generation_bridge; trim/year may differ
+29,1,Nissan Silvia S14 (variante),Nissan Silvia S14 (1998),origin,20032,I4,217,2.0,Basic,Nissan Silvia S14 (1998),explicit_model_generation_bridge; trim/year may differ
+29,1,Nissan Silvia S14 (variante),Nissan Silvia S14 (1998),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+29,1,Nissan Silvia S14 (variante),Nissan Silvia S14 (1998),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+29,1,Nissan Silvia S14 (variante),Nissan Silvia S14 (1998),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+29,1,Nissan Silvia S14 (variante),Nissan Silvia S14 (1998),swap,20054,I6,404,3.0,Sport,BMW M2 Competition (2019),explicit_model_generation_bridge; trim/year may differ
+29,1,Nissan Silvia S14 (variante),Nissan Silvia S14 (1998),swap,20012,F6,444,3.0,Pro,Porsche 911 Carrera GTS (2018) ; Porsche 911 Carrera GTS Cabriolet (2018) ; Porsche 911 Targa 4 GTS (2018),explicit_model_generation_bridge; trim/year may differ
+32,0,1997 Mazda MX-5,Mazda MX-5 (1996),origin,20023,I4,128,1.8,Basic,Mazda MX-5 (1996),explicit_model_generation_bridge; trim/year may differ
+32,0,1997 Mazda MX-5,Mazda MX-5 (1996),swap,20045,I6,151,2.4,Basic,Nissan Fairlady 240ZG (1971),explicit_model_generation_bridge; trim/year may differ
+32,0,1997 Mazda MX-5,Mazda MX-5 (1996),swap,20028,I4,200,2.0,Basic,Acura RSX-S (2004),explicit_model_generation_bridge; trim/year may differ
+32,0,1997 Mazda MX-5,Mazda MX-5 (1996),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+32,1,1997 Mazda MX-5,Mazda MX-5 (1996),origin,20023,I4,128,1.8,Basic,Mazda MX-5 (1996),explicit_model_generation_bridge; trim/year may differ
+32,1,1997 Mazda MX-5,Mazda MX-5 (1996),swap,20045,I6,151,2.4,Basic,Nissan Fairlady 240ZG (1971),explicit_model_generation_bridge; trim/year may differ
+32,1,1997 Mazda MX-5,Mazda MX-5 (1996),swap,20028,I4,200,2.0,Basic,Acura RSX-S (2004),explicit_model_generation_bridge; trim/year may differ
+32,1,1997 Mazda MX-5,Mazda MX-5 (1996),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+36,0,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),origin,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+36,0,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20048,I6,274,3.5,Basic,BMW M1 (1981),explicit_model_generation_bridge; trim/year may differ
+36,0,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20022,I4,121,2.2,Basic,Land Rover Defender 110 Double Cab (2015),explicit_model_generation_bridge; trim/year may differ
+36,0,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+36,0,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+36,0,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20043,I4,366,2.0,Sport,Mitsubishi Lancer Evolution IX (2007),explicit_model_generation_bridge; trim/year may differ
+36,0,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20007,F4,360,2.5,Sport,Porsche 718 Cayman GTS (2018),explicit_model_generation_bridge; trim/year may differ
+36,0,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+36,0,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20086,V8,345,4.0,Sport,BMW M3 GTR (2006),explicit_model_generation_bridge; trim/year may differ
+36,0,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20092,V8,460,6.2,Pro,Chevrolet Corvette Grand Sport (2017),explicit_model_generation_bridge; trim/year may differ
+36,0,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20071,V6,400,3.5,Pro,Lotus Emira (2021),explicit_model_generation_bridge; trim/year may differ
+36,0,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+36,1,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),origin,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+36,1,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20048,I6,274,3.5,Basic,BMW M1 (1981),explicit_model_generation_bridge; trim/year may differ
+36,1,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20022,I4,121,2.2,Basic,Land Rover Defender 110 Double Cab (2015),explicit_model_generation_bridge; trim/year may differ
+36,1,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+36,1,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+36,1,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20043,I4,366,2.0,Sport,Mitsubishi Lancer Evolution IX (2007),explicit_model_generation_bridge; trim/year may differ
+36,1,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20007,F4,360,2.5,Sport,Porsche 718 Cayman GTS (2018),explicit_model_generation_bridge; trim/year may differ
+36,1,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+36,1,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20086,V8,345,4.0,Sport,BMW M3 GTR (2006),explicit_model_generation_bridge; trim/year may differ
+36,1,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20092,V8,460,6.2,Pro,Chevrolet Corvette Grand Sport (2017),explicit_model_generation_bridge; trim/year may differ
+36,1,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20071,V6,400,3.5,Pro,Lotus Emira (2021),explicit_model_generation_bridge; trim/year may differ
+36,1,2002 Mazda RX-7,Mazda RX-7 Spirit R (2002),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+38,0,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),origin,20039,I4,291,2.0,Sport,Mitsubishi Lancer Evolution X (2008),explicit_model_generation_bridge; trim/year may differ
+38,0,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),swap,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+38,0,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),swap,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+38,0,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),swap,20005,F4,300,2.5,Sport,Subaru Impreza WRX STI (2006),explicit_model_generation_bridge; trim/year may differ
+38,0,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+38,0,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+38,0,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),swap,20095,V8,471,2.9,Pro,Ferrari F40 (1988),explicit_model_generation_bridge; trim/year may differ
+38,1,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),origin,20039,I4,291,2.0,Sport,Mitsubishi Lancer Evolution X (2008),explicit_model_generation_bridge; trim/year may differ
+38,1,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),swap,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+38,1,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),swap,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+38,1,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),swap,20005,F4,300,2.5,Sport,Subaru Impreza WRX STI (2006),explicit_model_generation_bridge; trim/year may differ
+38,1,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+38,1,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+38,1,2008 Mitsubishi Lancer Evolution X,Mitsubishi Lancer Evolution X (2008),swap,20095,V8,471,2.9,Pro,Ferrari F40 (1988),explicit_model_generation_bridge; trim/year may differ
+42,0,1990 BMW M3,BMW M3 Evolution II (1988),origin,20033,I4,217,2.3,Basic,BMW M3 Evolution II (1988),explicit_model_generation_bridge; trim/year may differ
+42,0,1990 BMW M3,BMW M3 Evolution II (1988),swap,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+42,0,1990 BMW M3,BMW M3 Evolution II (1988),swap,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+42,0,1990 BMW M3,BMW M3 Evolution II (1988),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+42,0,1990 BMW M3,BMW M3 Evolution II (1988),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+42,0,1990 BMW M3,BMW M3 Evolution II (1988),swap,20092,V8,460,6.2,Pro,Chevrolet Corvette Grand Sport (2017),explicit_model_generation_bridge; trim/year may differ
+42,0,1990 BMW M3,BMW M3 Evolution II (1988),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+42,1,1990 BMW M3,BMW M3 Evolution II (1988),origin,20033,I4,217,2.3,Basic,BMW M3 Evolution II (1988),explicit_model_generation_bridge; trim/year may differ
+42,1,1990 BMW M3,BMW M3 Evolution II (1988),swap,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+42,1,1990 BMW M3,BMW M3 Evolution II (1988),swap,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+42,1,1990 BMW M3,BMW M3 Evolution II (1988),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+42,1,1990 BMW M3,BMW M3 Evolution II (1988),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+42,1,1990 BMW M3,BMW M3 Evolution II (1988),swap,20092,V8,460,6.2,Pro,Chevrolet Corvette Grand Sport (2017),explicit_model_generation_bridge; trim/year may differ
+42,1,1990 BMW M3,BMW M3 Evolution II (1988),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+45,0,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),origin,20006,F4,305,2.5,Sport,Subaru Impreza WRX STI (2010),explicit_model_generation_bridge; trim/year may differ
+45,0,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+45,0,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),swap,20086,V8,345,4.0,Sport,BMW M3 GTR (2006),explicit_model_generation_bridge; trim/year may differ
+45,0,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),swap,20092,V8,460,6.2,Pro,Chevrolet Corvette Grand Sport (2017),explicit_model_generation_bridge; trim/year may differ
+45,0,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+45,0,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),swap,20071,V6,400,3.5,Pro,Lotus Emira (2021),explicit_model_generation_bridge; trim/year may differ
+45,0,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+45,1,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),origin,20006,F4,305,2.5,Sport,Subaru Impreza WRX STI (2010),explicit_model_generation_bridge; trim/year may differ
+45,1,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+45,1,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),swap,20086,V8,345,4.0,Sport,BMW M3 GTR (2006),explicit_model_generation_bridge; trim/year may differ
+45,1,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),swap,20092,V8,460,6.2,Pro,Chevrolet Corvette Grand Sport (2017),explicit_model_generation_bridge; trim/year may differ
+45,1,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+45,1,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),swap,20071,V6,400,3.5,Pro,Lotus Emira (2021),explicit_model_generation_bridge; trim/year may differ
+45,1,2008 Subaru Impreza,Subaru Impreza WRX STI (2010),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+60,0,2011 Dodge Charger,Dodge Charger SRT Hellcat (2019),origin,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
+60,0,2011 Dodge Charger,Dodge Charger SRT Hellcat (2019),swap,20084,V8,290,4.9,Basic,Ford Mustang Boss 302 (1969),explicit_model_generation_bridge; trim/year may differ
+60,0,2011 Dodge Charger,Dodge Charger SRT Hellcat (2019),swap,20109,V8,575,5.0,Sport,Land Rover Range Rover Sport SVR (2015),explicit_model_generation_bridge; trim/year may differ
+60,0,2011 Dodge Charger,Dodge Charger SRT Hellcat (2019),swap,20132,V12,600,5.2,Sport,Aston Martin DB11 (2017),explicit_model_generation_bridge; trim/year may differ
+60,1,2011 Dodge Charger,Dodge Charger SRT Hellcat (2019),origin,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
+60,1,2011 Dodge Charger,Dodge Charger SRT Hellcat (2019),swap,20084,V8,290,4.9,Basic,Ford Mustang Boss 302 (1969),explicit_model_generation_bridge; trim/year may differ
+60,1,2011 Dodge Charger,Dodge Charger SRT Hellcat (2019),swap,20109,V8,575,5.0,Sport,Land Rover Range Rover Sport SVR (2015),explicit_model_generation_bridge; trim/year may differ
+60,1,2011 Dodge Charger,Dodge Charger SRT Hellcat (2019),swap,20132,V12,600,5.2,Sport,Aston Martin DB11 (2017),explicit_model_generation_bridge; trim/year may differ
+61,0,2009 Dodge Challenger,Dodge Challenger SRT8 (2014),origin,20094,V8,470,6.4,Sport,Dodge Challenger SRT8 (2014),explicit_model_generation_bridge; trim/year may differ
+61,0,2009 Dodge Challenger,Dodge Challenger SRT8 (2014),swap,20109,V8,575,5.0,Sport,Land Rover Range Rover Sport SVR (2015),explicit_model_generation_bridge; trim/year may differ
+61,0,2009 Dodge Challenger,Dodge Challenger SRT8 (2014),swap,20075,V6 hybride,573,3.5,Sport,Acura NSX (2017),explicit_model_generation_bridge; trim/year may differ
+61,0,2009 Dodge Challenger,Dodge Challenger SRT8 (2014),swap,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
+61,0,2009 Dodge Challenger,Dodge Challenger SRT8 (2014),swap,20118,V8,710,3.9,Pro,Ferrari 488 Pista (2019),explicit_model_generation_bridge; trim/year may differ
+61,0,2009 Dodge Challenger,Dodge Challenger SRT8 (2014),swap,20139,V12,759,6.5,Elite,Lamborghini Aventador SVJ Coupé (2019) ; Lamborghini Aventador SVJ Roadster (2019),explicit_model_generation_bridge; trim/year may differ
+61,1,2009 Dodge Challenger,Dodge Challenger SRT8 (2014),origin,20094,V8,470,6.4,Sport,Dodge Challenger SRT8 (2014),explicit_model_generation_bridge; trim/year may differ
+61,1,2009 Dodge Challenger,Dodge Challenger SRT8 (2014),swap,20109,V8,575,5.0,Sport,Land Rover Range Rover Sport SVR (2015),explicit_model_generation_bridge; trim/year may differ
+61,1,2009 Dodge Challenger,Dodge Challenger SRT8 (2014),swap,20075,V6 hybride,573,3.5,Sport,Acura NSX (2017),explicit_model_generation_bridge; trim/year may differ
+61,1,2009 Dodge Challenger,Dodge Challenger SRT8 (2014),swap,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
+61,1,2009 Dodge Challenger,Dodge Challenger SRT8 (2014),swap,20118,V8,710,3.9,Pro,Ferrari 488 Pista (2019),explicit_model_generation_bridge; trim/year may differ
+61,1,2009 Dodge Challenger,Dodge Challenger SRT8 (2014),swap,20139,V12,759,6.5,Elite,Lamborghini Aventador SVJ Coupé (2019) ; Lamborghini Aventador SVJ Roadster (2019),explicit_model_generation_bridge; trim/year may differ
+62,0,1993 Ford Mustang SVT Cobra,Ford Mustang Foxbody (1990),origin,20083,V8,225,4.9,Basic,Ford Mustang Foxbody (1990),explicit_model_generation_bridge; trim/year may differ
+62,0,1993 Ford Mustang SVT Cobra,Ford Mustang Foxbody (1990),swap,20065,V6,308,3.6,Basic,Chevrolet Colorado ZR2 (2017),explicit_model_generation_bridge; trim/year may differ
+62,0,1993 Ford Mustang SVT Cobra,Ford Mustang Foxbody (1990),swap,20066,V6,331,3.7,Sport,Nissan 370Z Heritage Edition (2019),explicit_model_generation_bridge; trim/year may differ
+62,0,1993 Ford Mustang SVT Cobra,Ford Mustang Foxbody (1990),swap,20054,I6,404,3.0,Sport,BMW M2 Competition (2019),explicit_model_generation_bridge; trim/year may differ
+62,0,1993 Ford Mustang SVT Cobra,Ford Mustang Foxbody (1990),swap,20063,V6,304,3.8,Pro,Buick Grand National GNX (1987),explicit_model_generation_bridge; trim/year may differ
+62,1,1993 Ford Mustang SVT Cobra,Ford Mustang Foxbody (1990),origin,20083,V8,225,4.9,Basic,Ford Mustang Foxbody (1990),explicit_model_generation_bridge; trim/year may differ
+62,1,1993 Ford Mustang SVT Cobra,Ford Mustang Foxbody (1990),swap,20065,V6,308,3.6,Basic,Chevrolet Colorado ZR2 (2017),explicit_model_generation_bridge; trim/year may differ
+62,1,1993 Ford Mustang SVT Cobra,Ford Mustang Foxbody (1990),swap,20066,V6,331,3.7,Sport,Nissan 370Z Heritage Edition (2019),explicit_model_generation_bridge; trim/year may differ
+62,1,1993 Ford Mustang SVT Cobra,Ford Mustang Foxbody (1990),swap,20054,I6,404,3.0,Sport,BMW M2 Competition (2019),explicit_model_generation_bridge; trim/year may differ
+62,1,1993 Ford Mustang SVT Cobra,Ford Mustang Foxbody (1990),swap,20063,V6,304,3.8,Pro,Buick Grand National GNX (1987),explicit_model_generation_bridge; trim/year may differ
+63,0,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),origin,20021,I4,110,1.6,Basic,Volkswagen Golf GTI (1976),explicit_model_generation_bridge; trim/year may differ
+63,0,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),swap,20047,I6,162,3.9,Basic,Chevrolet Bel Air (1955),explicit_model_generation_bridge; trim/year may differ
+63,0,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),swap,20083,V8,225,4.9,Basic,Ford Mustang Foxbody (1990),explicit_model_generation_bridge; trim/year may differ
+63,0,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),swap,20042,I4,355,2.0,Sport,Mercedes-AMG A 45 (2016),explicit_model_generation_bridge; trim/year may differ
+63,0,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),swap,20043,I4,366,2.0,Sport,Mitsubishi Lancer Evolution IX (2007),explicit_model_generation_bridge; trim/year may differ
+66,0,2016 Mazda MX-5,Mazda MX-5 (2015),origin,20024,I4,158,2.0,Basic,Mazda MX-5 (2015),explicit_model_generation_bridge; trim/year may differ
+66,0,2016 Mazda MX-5,Mazda MX-5 (2015),swap,20031,I4,210,2.0,Basic,Mitsubishi Eclipse GSX (1999),explicit_model_generation_bridge; trim/year may differ
+66,0,2016 Mazda MX-5,Mazda MX-5 (2015),swap,20045,I6,151,2.4,Basic,Nissan Fairlady 240ZG (1971),explicit_model_generation_bridge; trim/year may differ
+66,0,2016 Mazda MX-5,Mazda MX-5 (2015),swap,20040,I4,306,2.0,Sport,Honda Civic Type R (2015),explicit_model_generation_bridge; trim/year may differ
+66,0,2016 Mazda MX-5,Mazda MX-5 (2015),swap,20018,I3 hybride,369,1.5,Sport,BMW i8 Coupé (2018) ; BMW i8 Roadster (2018),explicit_model_generation_bridge; trim/year may differ
+66,1,2016 Mazda MX-5,Mazda MX-5 (2015),origin,20024,I4,158,2.0,Basic,Mazda MX-5 (2015),explicit_model_generation_bridge; trim/year may differ
+66,1,2016 Mazda MX-5,Mazda MX-5 (2015),swap,20031,I4,210,2.0,Basic,Mitsubishi Eclipse GSX (1999),explicit_model_generation_bridge; trim/year may differ
+66,1,2016 Mazda MX-5,Mazda MX-5 (2015),swap,20045,I6,151,2.4,Basic,Nissan Fairlady 240ZG (1971),explicit_model_generation_bridge; trim/year may differ
+66,1,2016 Mazda MX-5,Mazda MX-5 (2015),swap,20040,I4,306,2.0,Sport,Honda Civic Type R (2015),explicit_model_generation_bridge; trim/year may differ
+66,1,2016 Mazda MX-5,Mazda MX-5 (2015),swap,20018,I3 hybride,369,1.5,Sport,BMW i8 Coupé (2018) ; BMW i8 Roadster (2018),explicit_model_generation_bridge; trim/year may differ
+67,0,2017 Honda NSX,Acura NSX (2017),origin,20075,V6 hybride,573,3.5,Sport,Acura NSX (2017),explicit_model_generation_bridge; trim/year may differ
+67,0,2017 Honda NSX,Acura NSX (2017),swap,20083,V8,225,4.9,Basic,Ford Mustang Foxbody (1990),explicit_model_generation_bridge; trim/year may differ
+67,0,2017 Honda NSX,Acura NSX (2017),swap,20114,V8,592,4.4,Pro,BMW M5 (2018),explicit_model_generation_bridge; trim/year may differ
+67,0,2017 Honda NSX,Acura NSX (2017),swap,20138,V12,754,6.0,Super,Pagani Huayra BC (2017),explicit_model_generation_bridge; trim/year may differ
+67,0,2017 Honda NSX,Acura NSX (2017),swap,20122,V8 hybride,903,3.8,Super,McLaren P1 (2014),explicit_model_generation_bridge; trim/year may differ
+67,1,2017 Honda NSX,Acura NSX (2017),origin,20075,V6 hybride,573,3.5,Sport,Acura NSX (2017),explicit_model_generation_bridge; trim/year may differ
+67,1,2017 Honda NSX,Acura NSX (2017),swap,20083,V8,225,4.9,Basic,Ford Mustang Foxbody (1990),explicit_model_generation_bridge; trim/year may differ
+67,1,2017 Honda NSX,Acura NSX (2017),swap,20114,V8,592,4.4,Pro,BMW M5 (2018),explicit_model_generation_bridge; trim/year may differ
+67,1,2017 Honda NSX,Acura NSX (2017),swap,20138,V12,754,6.0,Super,Pagani Huayra BC (2017),explicit_model_generation_bridge; trim/year may differ
+67,1,2017 Honda NSX,Acura NSX (2017),swap,20122,V8 hybride,903,3.8,Super,McLaren P1 (2014),explicit_model_generation_bridge; trim/year may differ
+74,0,Volkswagen 'Beetle',Volkswagen Beetle (1963),origin,20002,F4,40,1.2,Basic,Volkswagen Beetle (1963),explicit_model_generation_bridge; trim/year may differ
+74,0,Volkswagen 'Beetle',Volkswagen Beetle (1963),swap,20025,I4,182,1.6,Basic,Honda Civic Type R (2000),explicit_model_generation_bridge; trim/year may differ
+74,0,Volkswagen 'Beetle',Volkswagen Beetle (1963),swap,20032,I4,217,2.0,Basic,Nissan Silvia S14 (1998),explicit_model_generation_bridge; trim/year may differ
+74,0,Volkswagen 'Beetle',Volkswagen Beetle (1963),swap,20037,I4,247,2.0,Basic,Nissan Silvia S15 (2002),explicit_model_generation_bridge; trim/year may differ
+74,0,Volkswagen 'Beetle',Volkswagen Beetle (1963),swap,20003,F4,197,2.0,Basic,Subaru BRZ Premium (2014),explicit_model_generation_bridge; trim/year may differ
+74,0,Volkswagen 'Beetle',Volkswagen Beetle (1963),swap,20034,I4,218,1.8,Sport,Lotus Exige S (2006),explicit_model_generation_bridge; trim/year may differ
+74,0,Volkswagen 'Beetle',Volkswagen Beetle (1963),swap,20035,I4,228,2.0,Sport,MINI JCW Countryman (2017),explicit_model_generation_bridge; trim/year may differ
+74,1,Volkswagen 'Beetle',Volkswagen Beetle (1963),origin,20002,F4,40,1.2,Basic,Volkswagen Beetle (1963),explicit_model_generation_bridge; trim/year may differ
+74,1,Volkswagen 'Beetle',Volkswagen Beetle (1963),swap,20025,I4,182,1.6,Basic,Honda Civic Type R (2000),explicit_model_generation_bridge; trim/year may differ
+74,1,Volkswagen 'Beetle',Volkswagen Beetle (1963),swap,20032,I4,217,2.0,Basic,Nissan Silvia S14 (1998),explicit_model_generation_bridge; trim/year may differ
+74,1,Volkswagen 'Beetle',Volkswagen Beetle (1963),swap,20037,I4,247,2.0,Basic,Nissan Silvia S15 (2002),explicit_model_generation_bridge; trim/year may differ
+74,1,Volkswagen 'Beetle',Volkswagen Beetle (1963),swap,20003,F4,197,2.0,Basic,Subaru BRZ Premium (2014),explicit_model_generation_bridge; trim/year may differ
+74,1,Volkswagen 'Beetle',Volkswagen Beetle (1963),swap,20034,I4,218,1.8,Sport,Lotus Exige S (2006),explicit_model_generation_bridge; trim/year may differ
+74,1,Volkswagen 'Beetle',Volkswagen Beetle (1963),swap,20035,I4,228,2.0,Sport,MINI JCW Countryman (2017),explicit_model_generation_bridge; trim/year may differ
+78,0,1969 Dodge Charger,Dodge Charger R/T (1969),origin,20089,V8,425,7.0,Basic,Dodge Charger R/T (1969),explicit_model_generation_bridge; trim/year may differ
+78,0,1969 Dodge Charger,Dodge Charger R/T (1969),swap,20106,V8,563,5.5,Basic,Mercedes-AMG G 63 (2017),explicit_model_generation_bridge; trim/year may differ
+78,0,1969 Dodge Charger,Dodge Charger R/T (1969),swap,20087,V8,390,7.2,Basic,Plymouth Barracuda (1970),explicit_model_generation_bridge; trim/year may differ
+78,0,1969 Dodge Charger,Dodge Charger R/T (1969),swap,20044,I4 hybride,599,2.0,Pro,Polestar 1 (2020),explicit_model_generation_bridge; trim/year may differ
+78,0,1969 Dodge Charger,Dodge Charger R/T (1969),swap,20121,V8 hybride,874,4.6,Elite,Porsche 918 Spyder (2015),explicit_model_generation_bridge; trim/year may differ
+78,1,1969 Dodge Charger,Dodge Charger R/T (1969),origin,20089,V8,425,7.0,Basic,Dodge Charger R/T (1969),explicit_model_generation_bridge; trim/year may differ
+78,1,1969 Dodge Charger,Dodge Charger R/T (1969),swap,20106,V8,563,5.5,Basic,Mercedes-AMG G 63 (2017),explicit_model_generation_bridge; trim/year may differ
+78,1,1969 Dodge Charger,Dodge Charger R/T (1969),swap,20087,V8,390,7.2,Basic,Plymouth Barracuda (1970),explicit_model_generation_bridge; trim/year may differ
+78,1,1969 Dodge Charger,Dodge Charger R/T (1969),swap,20044,I4 hybride,599,2.0,Pro,Polestar 1 (2020),explicit_model_generation_bridge; trim/year may differ
+78,1,1969 Dodge Charger,Dodge Charger R/T (1969),swap,20121,V8 hybride,874,4.6,Elite,Porsche 918 Spyder (2015),explicit_model_generation_bridge; trim/year may differ
+79,0,2015 BMW M4,BMW M4 Coupé (2018),origin,20055,I6,425,3.0,Sport,BMW M4 Coupé (2018) ; BMW M4 Cabriolet (2018),explicit_model_generation_bridge; trim/year may differ
+79,0,2015 BMW M4,BMW M4 Coupé (2018),swap,20086,V8,345,4.0,Sport,BMW M3 GTR (2006),explicit_model_generation_bridge; trim/year may differ
+79,0,2015 BMW M4,BMW M4 Coupé (2018),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+79,0,2015 BMW M4,BMW M4 Coupé (2018),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+79,0,2015 BMW M4,BMW M4 Coupé (2018),swap,20101,V8,506,7.0,Pro,Chevrolet Corvette Z06 (2013),explicit_model_generation_bridge; trim/year may differ
+79,0,2015 BMW M4,BMW M4 Coupé (2018),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+79,1,2015 BMW M4,BMW M4 Coupé (2018),origin,20055,I6,425,3.0,Sport,BMW M4 Coupé (2018) ; BMW M4 Cabriolet (2018),explicit_model_generation_bridge; trim/year may differ
+79,1,2015 BMW M4,BMW M4 Coupé (2018),swap,20086,V8,345,4.0,Sport,BMW M3 GTR (2006),explicit_model_generation_bridge; trim/year may differ
+79,1,2015 BMW M4,BMW M4 Coupé (2018),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+79,1,2015 BMW M4,BMW M4 Coupé (2018),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+79,1,2015 BMW M4,BMW M4 Coupé (2018),swap,20101,V8,506,7.0,Pro,Chevrolet Corvette Z06 (2013),explicit_model_generation_bridge; trim/year may differ
+79,1,2015 BMW M4,BMW M4 Coupé (2018),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+87,0,1997 Mitsubishi Eclipse,Mitsubishi Eclipse GSX (1999),origin,20031,I4,210,2.0,Basic,Mitsubishi Eclipse GSX (1999),explicit_model_generation_bridge; trim/year may differ
+87,0,1997 Mitsubishi Eclipse,Mitsubishi Eclipse GSX (1999),swap,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+87,0,1997 Mitsubishi Eclipse,Mitsubishi Eclipse GSX (1999),swap,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+87,0,1997 Mitsubishi Eclipse,Mitsubishi Eclipse GSX (1999),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+87,0,1997 Mitsubishi Eclipse,Mitsubishi Eclipse GSX (1999),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+87,1,1997 Mitsubishi Eclipse,Mitsubishi Eclipse GSX (1999),origin,20031,I4,210,2.0,Basic,Mitsubishi Eclipse GSX (1999),explicit_model_generation_bridge; trim/year may differ
+87,1,1997 Mitsubishi Eclipse,Mitsubishi Eclipse GSX (1999),swap,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+87,1,1997 Mitsubishi Eclipse,Mitsubishi Eclipse GSX (1999),swap,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+87,1,1997 Mitsubishi Eclipse,Mitsubishi Eclipse GSX (1999),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+87,1,1997 Mitsubishi Eclipse,Mitsubishi Eclipse GSX (1999),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+90,0,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),origin,20045,I6,151,2.4,Basic,Nissan Fairlady 240ZG (1971),explicit_model_generation_bridge; trim/year may differ
+90,0,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20046,I6,158,2.0,Basic,Nissan Skyline 2000 GT-R (1971),explicit_model_generation_bridge; trim/year may differ
+90,0,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+90,0,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20005,F4,300,2.5,Sport,Subaru Impreza WRX STI (2006),explicit_model_generation_bridge; trim/year may differ
+90,0,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+90,0,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20043,I4,366,2.0,Sport,Mitsubishi Lancer Evolution IX (2007),explicit_model_generation_bridge; trim/year may differ
+90,0,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20073,V6,505,2.9,Sport,Alfa Romeo Giulia Quadrifoglio (2016),explicit_model_generation_bridge; trim/year may differ
+90,0,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20101,V8,506,7.0,Pro,Chevrolet Corvette Z06 (2013),explicit_model_generation_bridge; trim/year may differ
+90,1,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),origin,20045,I6,151,2.4,Basic,Nissan Fairlady 240ZG (1971),explicit_model_generation_bridge; trim/year may differ
+90,1,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20046,I6,158,2.0,Basic,Nissan Skyline 2000 GT-R (1971),explicit_model_generation_bridge; trim/year may differ
+90,1,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+90,1,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20005,F4,300,2.5,Sport,Subaru Impreza WRX STI (2006),explicit_model_generation_bridge; trim/year may differ
+90,1,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20009,F6,300,2.8,Sport,Porsche 911 Carrera RSR (1973),explicit_model_generation_bridge; trim/year may differ
+90,1,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20043,I4,366,2.0,Sport,Mitsubishi Lancer Evolution IX (2007),explicit_model_generation_bridge; trim/year may differ
+90,1,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20073,V6,505,2.9,Sport,Alfa Romeo Giulia Quadrifoglio (2016),explicit_model_generation_bridge; trim/year may differ
+90,1,1970 Datsun 240Z,Nissan Fairlady 240ZG (1971),swap,20101,V8,506,7.0,Pro,Chevrolet Corvette Z06 (2013),explicit_model_generation_bridge; trim/year may differ
+95,0,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),origin,20076,V6,591,3.8,Pro,Nissan GT-R R35 Nismo (2017),explicit_model_generation_bridge; trim/year may differ
+95,0,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20131,V12,523,5.7,Sport,Lamborghini Diablo SV (1995),explicit_model_generation_bridge; trim/year may differ
+95,0,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20066,V6,331,3.7,Sport,Nissan 370Z Heritage Edition (2019),explicit_model_generation_bridge; trim/year may differ
+95,0,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20057,I6,493,3.0,Sport,BMW M4 GTS (2016),explicit_model_generation_bridge; trim/year may differ
+95,0,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20102,V8,515,4.0,Pro,Mercedes-AMG GT S (2019) ; Mercedes-AMG GT S Roadster (2019),explicit_model_generation_bridge; trim/year may differ
+95,0,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20101,V8,506,7.0,Pro,Chevrolet Corvette Z06 (2013),explicit_model_generation_bridge; trim/year may differ
+95,0,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20134,V12,618,6.1,Super,McLaren F1 (1993),explicit_model_generation_bridge; trim/year may differ
+95,0,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20126,V10,601,5.2,Super,Lamborghini Huracán LP 610-4 Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+95,1,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),origin,20076,V6,591,3.8,Pro,Nissan GT-R R35 Nismo (2017),explicit_model_generation_bridge; trim/year may differ
+95,1,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20131,V12,523,5.7,Sport,Lamborghini Diablo SV (1995),explicit_model_generation_bridge; trim/year may differ
+95,1,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20066,V6,331,3.7,Sport,Nissan 370Z Heritage Edition (2019),explicit_model_generation_bridge; trim/year may differ
+95,1,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20057,I6,493,3.0,Sport,BMW M4 GTS (2016),explicit_model_generation_bridge; trim/year may differ
+95,1,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20102,V8,515,4.0,Pro,Mercedes-AMG GT S (2019) ; Mercedes-AMG GT S Roadster (2019),explicit_model_generation_bridge; trim/year may differ
+95,1,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20101,V8,506,7.0,Pro,Chevrolet Corvette Z06 (2013),explicit_model_generation_bridge; trim/year may differ
+95,1,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20134,V12,618,6.1,Super,McLaren F1 (1993),explicit_model_generation_bridge; trim/year may differ
+95,1,Nissan GT-R Nismo R35,Nissan GT-R R35 Nismo (2017),swap,20126,V10,601,5.2,Super,Lamborghini Huracán LP 610-4 Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+102,0,2015 Mercedes-Benz A 45 AMG,Mercedes-AMG A 45 (2016),origin,20042,I4,355,2.0,Sport,Mercedes-AMG A 45 (2016),explicit_model_generation_bridge; trim/year may differ
+102,0,2015 Mercedes-Benz A 45 AMG,Mercedes-AMG A 45 (2016),swap,20086,V8,345,4.0,Sport,BMW M3 GTR (2006),explicit_model_generation_bridge; trim/year may differ
+102,0,2015 Mercedes-Benz A 45 AMG,Mercedes-AMG A 45 (2016),swap,20013,F6,513,4.0,Pro,Porsche 911 GT3 RS (2019),explicit_model_generation_bridge; trim/year may differ
+102,0,2015 Mercedes-Benz A 45 AMG,Mercedes-AMG A 45 (2016),swap,20014,F6,599,3.8,Pro,Porsche 911 Turbo S Exclusive (2018) ; Porsche 911 Turbo S Cabriolet Exclusive (2018),explicit_model_generation_bridge; trim/year may differ
+102,0,2015 Mercedes-Benz A 45 AMG,Mercedes-AMG A 45 (2016),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+102,0,2015 Mercedes-Benz A 45 AMG,Mercedes-AMG A 45 (2016),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+102,1,2015 Mercedes-Benz A 45 AMG,Mercedes-AMG A 45 (2016),origin,20042,I4,355,2.0,Sport,Mercedes-AMG A 45 (2016),explicit_model_generation_bridge; trim/year may differ
+102,1,2015 Mercedes-Benz A 45 AMG,Mercedes-AMG A 45 (2016),swap,20086,V8,345,4.0,Sport,BMW M3 GTR (2006),explicit_model_generation_bridge; trim/year may differ
+102,1,2015 Mercedes-Benz A 45 AMG,Mercedes-AMG A 45 (2016),swap,20013,F6,513,4.0,Pro,Porsche 911 GT3 RS (2019),explicit_model_generation_bridge; trim/year may differ
+102,1,2015 Mercedes-Benz A 45 AMG,Mercedes-AMG A 45 (2016),swap,20014,F6,599,3.8,Pro,Porsche 911 Turbo S Exclusive (2018) ; Porsche 911 Turbo S Cabriolet Exclusive (2018),explicit_model_generation_bridge; trim/year may differ
+102,1,2015 Mercedes-Benz A 45 AMG,Mercedes-AMG A 45 (2016),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+102,1,2015 Mercedes-Benz A 45 AMG,Mercedes-AMG A 45 (2016),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+104,0,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),origin,20112,V8,591,4.0,Pro,Audi RS 6 Avant (2020),explicit_model_generation_bridge; trim/year may differ
+104,0,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),swap,20089,V8,425,7.0,Basic,Dodge Charger R/T (1969),explicit_model_generation_bridge; trim/year may differ
+104,0,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),swap,20100,V8,504,7.0,Sport,Chevrolet Camaro Z28 (2014),explicit_model_generation_bridge; trim/year may differ
+104,0,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),swap,20114,V8,592,4.4,Pro,BMW M5 (2018),explicit_model_generation_bridge; trim/year may differ
+104,0,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),swap,20091,V8,460,5.0,Pro,Ford Mustang GT Cabriolet (2019),explicit_model_generation_bridge; trim/year may differ
+104,0,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),swap,20141,V12,820,7.0,Super,Aston Martin Vulcan (2016),explicit_model_generation_bridge; trim/year may differ
+104,0,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),swap,20140,V12 hybride,803,6.5,Elite,Lamborghini Countach LPI 800-4 (2021),explicit_model_generation_bridge; trim/year may differ
+104,1,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),origin,20112,V8,591,4.0,Pro,Audi RS 6 Avant (2020),explicit_model_generation_bridge; trim/year may differ
+104,1,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),swap,20089,V8,425,7.0,Basic,Dodge Charger R/T (1969),explicit_model_generation_bridge; trim/year may differ
+104,1,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),swap,20100,V8,504,7.0,Sport,Chevrolet Camaro Z28 (2014),explicit_model_generation_bridge; trim/year may differ
+104,1,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),swap,20114,V8,592,4.4,Pro,BMW M5 (2018),explicit_model_generation_bridge; trim/year may differ
+104,1,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),swap,20091,V8,460,5.0,Pro,Ford Mustang GT Cabriolet (2019),explicit_model_generation_bridge; trim/year may differ
+104,1,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),swap,20141,V12,820,7.0,Super,Aston Martin Vulcan (2016),explicit_model_generation_bridge; trim/year may differ
+104,1,2016 Audi RS6 Avant,Audi RS 6 Avant (2020),swap,20140,V12 hybride,803,6.5,Elite,Lamborghini Countach LPI 800-4 (2021),explicit_model_generation_bridge; trim/year may differ
+105,0,2017 Honda Civic Type R,Honda Civic Type R (2015),origin,20040,I4,306,2.0,Sport,Honda Civic Type R (2015),explicit_model_generation_bridge; trim/year may differ
+105,0,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+105,0,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+105,0,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20086,V8,345,4.0,Sport,BMW M3 GTR (2006),explicit_model_generation_bridge; trim/year may differ
+105,0,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20073,V6,505,2.9,Sport,Alfa Romeo Giulia Quadrifoglio (2016),explicit_model_generation_bridge; trim/year may differ
+105,0,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20097,V8,495,6.2,Pro,Chevrolet Corvette Stingray (2020) ; Chevrolet Corvette Stingray Cabriolet (2020),explicit_model_generation_bridge; trim/year may differ
+105,0,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+105,0,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20063,V6,304,3.8,Pro,Buick Grand National GNX (1987),explicit_model_generation_bridge; trim/year may differ
+105,0,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+105,1,2017 Honda Civic Type R,Honda Civic Type R (2015),origin,20040,I4,306,2.0,Sport,Honda Civic Type R (2015),explicit_model_generation_bridge; trim/year may differ
+105,1,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+105,1,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+105,1,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20086,V8,345,4.0,Sport,BMW M3 GTR (2006),explicit_model_generation_bridge; trim/year may differ
+105,1,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20073,V6,505,2.9,Sport,Alfa Romeo Giulia Quadrifoglio (2016),explicit_model_generation_bridge; trim/year may differ
+105,1,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20097,V8,495,6.2,Pro,Chevrolet Corvette Stingray (2020) ; Chevrolet Corvette Stingray Cabriolet (2020),explicit_model_generation_bridge; trim/year may differ
+105,1,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20011,F6,414,4.0,Pro,Porsche 718 Spyder (2019),explicit_model_generation_bridge; trim/year may differ
+105,1,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20063,V6,304,3.8,Pro,Buick Grand National GNX (1987),explicit_model_generation_bridge; trim/year may differ
+105,1,2017 Honda Civic Type R,Honda Civic Type R (2015),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+112,0,2016 Ford Focus RS,Ford Focus RS (2016),origin,20041,I4,350,2.3,Sport,Ford Focus RS (2016),explicit_model_generation_bridge; trim/year may differ
+112,0,2016 Ford Focus RS,Ford Focus RS (2016),swap,20050,I6,280,2.6,Basic,Nissan Skyline GT-R R32 (1993),explicit_model_generation_bridge; trim/year may differ
+112,0,2016 Ford Focus RS,Ford Focus RS (2016),swap,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+112,0,2016 Ford Focus RS,Ford Focus RS (2016),swap,20043,I4,366,2.0,Sport,Mitsubishi Lancer Evolution IX (2007),explicit_model_generation_bridge; trim/year may differ
+112,0,2016 Ford Focus RS,Ford Focus RS (2016),swap,20007,F4,360,2.5,Sport,Porsche 718 Cayman GTS (2018),explicit_model_generation_bridge; trim/year may differ
+112,0,2016 Ford Focus RS,Ford Focus RS (2016),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+112,0,2016 Ford Focus RS,Ford Focus RS (2016),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+112,1,2016 Ford Focus RS,Ford Focus RS (2016),origin,20041,I4,350,2.3,Sport,Ford Focus RS (2016),explicit_model_generation_bridge; trim/year may differ
+112,1,2016 Ford Focus RS,Ford Focus RS (2016),swap,20050,I6,280,2.6,Basic,Nissan Skyline GT-R R32 (1993),explicit_model_generation_bridge; trim/year may differ
+112,1,2016 Ford Focus RS,Ford Focus RS (2016),swap,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+112,1,2016 Ford Focus RS,Ford Focus RS (2016),swap,20043,I4,366,2.0,Sport,Mitsubishi Lancer Evolution IX (2007),explicit_model_generation_bridge; trim/year may differ
+112,1,2016 Ford Focus RS,Ford Focus RS (2016),swap,20007,F4,360,2.5,Sport,Porsche 718 Cayman GTS (2018),explicit_model_generation_bridge; trim/year may differ
+112,1,2016 Ford Focus RS,Ford Focus RS (2016),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+112,1,2016 Ford Focus RS,Ford Focus RS (2016),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+114,0,2015 Dodge Charger SRT Hellcat,Dodge Charger SRT Hellcat (2019),origin,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
+114,0,2015 Dodge Charger SRT Hellcat,Dodge Charger SRT Hellcat (2019),swap,20084,V8,290,4.9,Basic,Ford Mustang Boss 302 (1969),explicit_model_generation_bridge; trim/year may differ
+114,0,2015 Dodge Charger SRT Hellcat,Dodge Charger SRT Hellcat (2019),swap,20109,V8,575,5.0,Sport,Land Rover Range Rover Sport SVR (2015),explicit_model_generation_bridge; trim/year may differ
+114,0,2015 Dodge Charger SRT Hellcat,Dodge Charger SRT Hellcat (2019),swap,20132,V12,600,5.2,Sport,Aston Martin DB11 (2017),explicit_model_generation_bridge; trim/year may differ
+114,1,2015 Dodge Charger SRT Hellcat,Dodge Charger SRT Hellcat (2019),origin,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
+114,1,2015 Dodge Charger SRT Hellcat,Dodge Charger SRT Hellcat (2019),swap,20084,V8,290,4.9,Basic,Ford Mustang Boss 302 (1969),explicit_model_generation_bridge; trim/year may differ
+114,1,2015 Dodge Charger SRT Hellcat,Dodge Charger SRT Hellcat (2019),swap,20109,V8,575,5.0,Sport,Land Rover Range Rover Sport SVR (2015),explicit_model_generation_bridge; trim/year may differ
+114,1,2015 Dodge Charger SRT Hellcat,Dodge Charger SRT Hellcat (2019),swap,20132,V12,600,5.2,Sport,Aston Martin DB11 (2017),explicit_model_generation_bridge; trim/year may differ
+115,0,2015 Jaguar F-Type R Coupé,Jaguar F-Type R Coupé (2016),origin,20111,V8,585,5.0,Sport,Jaguar F-Type R Coupé (2016) ; Jaguar F-Type R Cabriolet (2019),explicit_model_generation_bridge; trim/year may differ
+115,0,2015 Jaguar F-Type R Coupé,Jaguar F-Type R Coupé (2016),swap,20088,V8,414,4.0,Sport,BMW M3 Coupé (2010) ; BMW M3 Cabriolet (2010),explicit_model_generation_bridge; trim/year may differ
+115,0,2015 Jaguar F-Type R Coupé,Jaguar F-Type R Coupé (2016),swap,20090,V8,435,5.0,Sport,Ford Mustang GT (2015),explicit_model_generation_bridge; trim/year may differ
+115,0,2015 Jaguar F-Type R Coupé,Jaguar F-Type R Coupé (2016),swap,20108,V8,570,4.5,Pro,Ferrari 458 Italia (2009) ; Ferrari 458 Spider (2011),explicit_model_generation_bridge; trim/year may differ
+115,0,2015 Jaguar F-Type R Coupé,Jaguar F-Type R Coupé (2016),swap,20119,V8,720,4.0,Super,Mercedes-AMG GT Black Series (2021),explicit_model_generation_bridge; trim/year may differ
+115,0,2015 Jaguar F-Type R Coupé,Jaguar F-Type R Coupé (2016),swap,20137,V12,740,6.5,Super,Lamborghini Aventador LP750-4 SV Roadster (2015),explicit_model_generation_bridge; trim/year may differ
+115,1,2015 Jaguar F-Type R Coupé,Jaguar F-Type R Coupé (2016),origin,20111,V8,585,5.0,Sport,Jaguar F-Type R Coupé (2016) ; Jaguar F-Type R Cabriolet (2019),explicit_model_generation_bridge; trim/year may differ
+115,1,2015 Jaguar F-Type R Coupé,Jaguar F-Type R Coupé (2016),swap,20088,V8,414,4.0,Sport,BMW M3 Coupé (2010) ; BMW M3 Cabriolet (2010),explicit_model_generation_bridge; trim/year may differ
+115,1,2015 Jaguar F-Type R Coupé,Jaguar F-Type R Coupé (2016),swap,20090,V8,435,5.0,Sport,Ford Mustang GT (2015),explicit_model_generation_bridge; trim/year may differ
+115,1,2015 Jaguar F-Type R Coupé,Jaguar F-Type R Coupé (2016),swap,20108,V8,570,4.5,Pro,Ferrari 458 Italia (2009) ; Ferrari 458 Spider (2011),explicit_model_generation_bridge; trim/year may differ
+115,1,2015 Jaguar F-Type R Coupé,Jaguar F-Type R Coupé (2016),swap,20119,V8,720,4.0,Super,Mercedes-AMG GT Black Series (2021),explicit_model_generation_bridge; trim/year may differ
+115,1,2015 Jaguar F-Type R Coupé,Jaguar F-Type R Coupé (2016),swap,20137,V12,740,6.5,Super,Lamborghini Aventador LP750-4 SV Roadster (2015),explicit_model_generation_bridge; trim/year may differ
+120,0,2017 Alfa Romeo Giulia Quadrifoglio,Alfa Romeo Giulia Quadrifoglio (2016),origin,20073,V6,505,2.9,Sport,Alfa Romeo Giulia Quadrifoglio (2016),explicit_model_generation_bridge; trim/year may differ
+120,0,2017 Alfa Romeo Giulia Quadrifoglio,Alfa Romeo Giulia Quadrifoglio (2016),swap,20120,V8,755,6.2,Pro,Chevrolet Corvette ZR1 (2019),explicit_model_generation_bridge; trim/year may differ
+120,0,2017 Alfa Romeo Giulia Quadrifoglio,Alfa Romeo Giulia Quadrifoglio (2016),swap,20128,V10,631,5.2,Super,Lamborghini Huracán Performante (2018) ; Lamborghini Huracán Performante Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+120,0,2017 Alfa Romeo Giulia Quadrifoglio,Alfa Romeo Giulia Quadrifoglio (2016),swap,20116,V8,661,3.9,Super,Ferrari 488 GTB (2016),explicit_model_generation_bridge; trim/year may differ
+120,0,2017 Alfa Romeo Giulia Quadrifoglio,Alfa Romeo Giulia Quadrifoglio (2016),swap,20138,V12,754,6.0,Super,Pagani Huayra BC (2017),explicit_model_generation_bridge; trim/year may differ
+120,1,2017 Alfa Romeo Giulia Quadrifoglio,Alfa Romeo Giulia Quadrifoglio (2016),origin,20073,V6,505,2.9,Sport,Alfa Romeo Giulia Quadrifoglio (2016),explicit_model_generation_bridge; trim/year may differ
+120,1,2017 Alfa Romeo Giulia Quadrifoglio,Alfa Romeo Giulia Quadrifoglio (2016),swap,20120,V8,755,6.2,Pro,Chevrolet Corvette ZR1 (2019),explicit_model_generation_bridge; trim/year may differ
+120,1,2017 Alfa Romeo Giulia Quadrifoglio,Alfa Romeo Giulia Quadrifoglio (2016),swap,20128,V10,631,5.2,Super,Lamborghini Huracán Performante (2018) ; Lamborghini Huracán Performante Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+120,1,2017 Alfa Romeo Giulia Quadrifoglio,Alfa Romeo Giulia Quadrifoglio (2016),swap,20116,V8,661,3.9,Super,Ferrari 488 GTB (2016),explicit_model_generation_bridge; trim/year may differ
+120,1,2017 Alfa Romeo Giulia Quadrifoglio,Alfa Romeo Giulia Quadrifoglio (2016),swap,20138,V12,754,6.0,Super,Pagani Huayra BC (2017),explicit_model_generation_bridge; trim/year may differ
+121,0,2018 BMW M5,BMW M5 (2018),origin,20114,V8,592,4.4,Pro,BMW M5 (2018),explicit_model_generation_bridge; trim/year may differ
+121,0,2018 BMW M5,BMW M5 (2018),swap,20079,V8,200,4.7,Basic,Ford Mustang (1965),explicit_model_generation_bridge; trim/year may differ
+121,0,2018 BMW M5,BMW M5 (2018),swap,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
+121,0,2018 BMW M5,BMW M5 (2018),swap,20120,V8,755,6.2,Pro,Chevrolet Corvette ZR1 (2019),explicit_model_generation_bridge; trim/year may differ
+121,0,2018 BMW M5,BMW M5 (2018),swap,20118,V8,710,3.9,Pro,Ferrari 488 Pista (2019),explicit_model_generation_bridge; trim/year may differ
+121,0,2018 BMW M5,BMW M5 (2018),swap,20136,V12,730,6.5,Super,Lamborghini Aventador S (2016) ; Lamborghini Aventador S Roadster (2017),explicit_model_generation_bridge; trim/year may differ
+148,0,1987 Buick GNX,Buick Grand National GNX (1987),origin,20063,V6,304,3.8,Pro,Buick Grand National GNX (1987),explicit_model_generation_bridge; trim/year may differ
+148,0,1987 Buick GNX,Buick Grand National GNX (1987),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+148,0,1987 Buick GNX,Buick Grand National GNX (1987),swap,20092,V8,460,6.2,Pro,Chevrolet Corvette Grand Sport (2017),explicit_model_generation_bridge; trim/year may differ
+148,0,1987 Buick GNX,Buick Grand National GNX (1987),swap,20010,F6,414,3.8,Pro,Porsche Cayman GT4 (2015),explicit_model_generation_bridge; trim/year may differ
+148,0,1987 Buick GNX,Buick Grand National GNX (1987),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+148,0,1987 Buick GNX,Buick Grand National GNX (1987),swap,20134,V12,618,6.1,Super,McLaren F1 (1993),explicit_model_generation_bridge; trim/year may differ
+148,1,1987 Buick GNX,Buick Grand National GNX (1987),origin,20063,V6,304,3.8,Pro,Buick Grand National GNX (1987),explicit_model_generation_bridge; trim/year may differ
+148,1,1987 Buick GNX,Buick Grand National GNX (1987),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+148,1,1987 Buick GNX,Buick Grand National GNX (1987),swap,20092,V8,460,6.2,Pro,Chevrolet Corvette Grand Sport (2017),explicit_model_generation_bridge; trim/year may differ
+148,1,1987 Buick GNX,Buick Grand National GNX (1987),swap,20010,F6,414,3.8,Pro,Porsche Cayman GT4 (2015),explicit_model_generation_bridge; trim/year may differ
+148,1,1987 Buick GNX,Buick Grand National GNX (1987),swap,20113,V8,592,3.8,Super,McLaren 600LT (2018),explicit_model_generation_bridge; trim/year may differ
+148,1,1987 Buick GNX,Buick Grand National GNX (1987),swap,20134,V12,618,6.1,Super,McLaren F1 (1993),explicit_model_generation_bridge; trim/year may differ
+156,0,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),origin,20120,V8,755,6.2,Pro,Chevrolet Corvette ZR1 (2019),explicit_model_generation_bridge; trim/year may differ
+156,0,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20103,V8,542,4.0,Sport,Porsche Panamera Turbo (2017),explicit_model_generation_bridge; trim/year may differ
+156,0,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20088,V8,414,4.0,Sport,BMW M3 Coupé (2010) ; BMW M3 Cabriolet (2010),explicit_model_generation_bridge; trim/year may differ
+156,0,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20076,V6,591,3.8,Pro,Nissan GT-R R35 Nismo (2017),explicit_model_generation_bridge; trim/year may differ
+156,0,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20108,V8,570,4.5,Pro,Ferrari 458 Italia (2009) ; Ferrari 458 Spider (2011),explicit_model_generation_bridge; trim/year may differ
+156,0,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20116,V8,661,3.9,Super,Ferrari 488 GTB (2016),explicit_model_generation_bridge; trim/year may differ
+156,0,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20138,V12,754,6.0,Super,Pagani Huayra BC (2017),explicit_model_generation_bridge; trim/year may differ
+156,0,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20137,V12,740,6.5,Super,Lamborghini Aventador LP750-4 SV Roadster (2015),explicit_model_generation_bridge; trim/year may differ
+156,1,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),origin,20120,V8,755,6.2,Pro,Chevrolet Corvette ZR1 (2019),explicit_model_generation_bridge; trim/year may differ
+156,1,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20103,V8,542,4.0,Sport,Porsche Panamera Turbo (2017),explicit_model_generation_bridge; trim/year may differ
+156,1,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20088,V8,414,4.0,Sport,BMW M3 Coupé (2010) ; BMW M3 Cabriolet (2010),explicit_model_generation_bridge; trim/year may differ
+156,1,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20076,V6,591,3.8,Pro,Nissan GT-R R35 Nismo (2017),explicit_model_generation_bridge; trim/year may differ
+156,1,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20108,V8,570,4.5,Pro,Ferrari 458 Italia (2009) ; Ferrari 458 Spider (2011),explicit_model_generation_bridge; trim/year may differ
+156,1,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20116,V8,661,3.9,Super,Ferrari 488 GTB (2016),explicit_model_generation_bridge; trim/year may differ
+156,1,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20138,V12,754,6.0,Super,Pagani Huayra BC (2017),explicit_model_generation_bridge; trim/year may differ
+156,1,2019 Chevrolet Corvette ZR1,Chevrolet Corvette ZR1 (2019),swap,20137,V12,740,6.5,Super,Lamborghini Aventador LP750-4 SV Roadster (2015),explicit_model_generation_bridge; trim/year may differ
+164,0,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),origin,20026,I4,192,2.5,Basic,Mercedes-Benz 190E 2.5-16 (1988),explicit_model_generation_bridge; trim/year may differ
+164,0,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+164,0,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20005,F4,300,2.5,Sport,Subaru Impreza WRX STI (2006),explicit_model_generation_bridge; trim/year may differ
+164,0,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20007,F4,360,2.5,Sport,Porsche 718 Cayman GTS (2018),explicit_model_generation_bridge; trim/year may differ
+164,0,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+164,0,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20053,I6,338,3.2,Sport,BMW M3 (2006),explicit_model_generation_bridge; trim/year may differ
+164,0,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20097,V8,495,6.2,Pro,Chevrolet Corvette Stingray (2020) ; Chevrolet Corvette Stingray Cabriolet (2020),explicit_model_generation_bridge; trim/year may differ
+164,0,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20076,V6,591,3.8,Pro,Nissan GT-R R35 Nismo (2017),explicit_model_generation_bridge; trim/year may differ
+164,0,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20095,V8,471,2.9,Pro,Ferrari F40 (1988),explicit_model_generation_bridge; trim/year may differ
+164,0,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20126,V10,601,5.2,Super,Lamborghini Huracán LP 610-4 Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+164,1,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),origin,20026,I4,192,2.5,Basic,Mercedes-Benz 190E 2.5-16 (1988),explicit_model_generation_bridge; trim/year may differ
+164,1,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20059,Wankel,232,1.3,Basic,Mazda RX-8 Spirit R (2011),explicit_model_generation_bridge; trim/year may differ
+164,1,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20005,F4,300,2.5,Sport,Subaru Impreza WRX STI (2006),explicit_model_generation_bridge; trim/year may differ
+164,1,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20007,F4,360,2.5,Sport,Porsche 718 Cayman GTS (2018),explicit_model_generation_bridge; trim/year may differ
+164,1,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
+164,1,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20053,I6,338,3.2,Sport,BMW M3 (2006),explicit_model_generation_bridge; trim/year may differ
+164,1,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20097,V8,495,6.2,Pro,Chevrolet Corvette Stingray (2020) ; Chevrolet Corvette Stingray Cabriolet (2020),explicit_model_generation_bridge; trim/year may differ
+164,1,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20076,V6,591,3.8,Pro,Nissan GT-R R35 Nismo (2017),explicit_model_generation_bridge; trim/year may differ
+164,1,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20095,V8,471,2.9,Pro,Ferrari F40 (1988),explicit_model_generation_bridge; trim/year may differ
+164,1,Mercedes-Benz 190 E,Mercedes-Benz 190E 2.5-16 (1988),swap,20126,V10,601,5.2,Super,Lamborghini Huracán LP 610-4 Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+167,0,1979 BMW M1,BMW M1 (1981),origin,20048,I6,274,3.5,Basic,BMW M1 (1981),explicit_model_generation_bridge; trim/year may differ
+167,0,1979 BMW M1,BMW M1 (1981),swap,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+167,0,1979 BMW M1,BMW M1 (1981),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+167,0,1979 BMW M1,BMW M1 (1981),swap,20007,F4,360,2.5,Sport,Porsche 718 Cayman GTS (2018),explicit_model_generation_bridge; trim/year may differ
+167,0,1979 BMW M1,BMW M1 (1981),swap,20097,V8,495,6.2,Pro,Chevrolet Corvette Stingray (2020) ; Chevrolet Corvette Stingray Cabriolet (2020),explicit_model_generation_bridge; trim/year may differ
+167,0,1979 BMW M1,BMW M1 (1981),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+167,1,1979 BMW M1,BMW M1 (1981),origin,20048,I6,274,3.5,Basic,BMW M1 (1981),explicit_model_generation_bridge; trim/year may differ
+167,1,1979 BMW M1,BMW M1 (1981),swap,20049,I6,276,2.6,Sport,Nissan Skyline GT-R R34 (1999),explicit_model_generation_bridge; trim/year may differ
+167,1,1979 BMW M1,BMW M1 (1981),swap,20062,V6,276,3.0,Sport,Honda NSX-R (1992),explicit_model_generation_bridge; trim/year may differ
+167,1,1979 BMW M1,BMW M1 (1981),swap,20007,F4,360,2.5,Sport,Porsche 718 Cayman GTS (2018),explicit_model_generation_bridge; trim/year may differ
+167,1,1979 BMW M1,BMW M1 (1981),swap,20097,V8,495,6.2,Pro,Chevrolet Corvette Stingray (2020) ; Chevrolet Corvette Stingray Cabriolet (2020),explicit_model_generation_bridge; trim/year may differ
+167,1,1979 BMW M1,BMW M1 (1981),swap,20077,V6,646,3.5,Pro,Ford GT (2017),explicit_model_generation_bridge; trim/year may differ
+183,0,1981 DMC DeLorean,DMC DeLorean (1981),origin,20061,V6,197,2.8,Basic,DMC DeLorean (1981),explicit_model_generation_bridge; trim/year may differ
+183,0,1981 DMC DeLorean,DMC DeLorean (1981),swap,20048,I6,274,3.5,Basic,BMW M1 (1981),explicit_model_generation_bridge; trim/year may differ
+183,0,1981 DMC DeLorean,DMC DeLorean (1981),swap,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+183,0,1981 DMC DeLorean,DMC DeLorean (1981),swap,20109,V8,575,5.0,Sport,Land Rover Range Rover Sport SVR (2015),explicit_model_generation_bridge; trim/year may differ
+183,0,1981 DMC DeLorean,DMC DeLorean (1981),swap,20007,F4,360,2.5,Sport,Porsche 718 Cayman GTS (2018),explicit_model_generation_bridge; trim/year may differ
+183,0,1981 DMC DeLorean,DMC DeLorean (1981),swap,20070,V6,400,3.0,Pro,Nissan Z Prototype (2020),explicit_model_generation_bridge; trim/year may differ
+183,1,1981 DMC DeLorean,DMC DeLorean (1981),origin,20061,V6,197,2.8,Basic,DMC DeLorean (1981),explicit_model_generation_bridge; trim/year may differ
+183,1,1981 DMC DeLorean,DMC DeLorean (1981),swap,20048,I6,274,3.5,Basic,BMW M1 (1981),explicit_model_generation_bridge; trim/year may differ
+183,1,1981 DMC DeLorean,DMC DeLorean (1981),swap,20060,Wankel,276,1.3,Basic,Mazda RX-7 Spirit R (2002),explicit_model_generation_bridge; trim/year may differ
+183,1,1981 DMC DeLorean,DMC DeLorean (1981),swap,20109,V8,575,5.0,Sport,Land Rover Range Rover Sport SVR (2015),explicit_model_generation_bridge; trim/year may differ
+183,1,1981 DMC DeLorean,DMC DeLorean (1981),swap,20007,F4,360,2.5,Sport,Porsche 718 Cayman GTS (2018),explicit_model_generation_bridge; trim/year may differ
+183,1,1981 DMC DeLorean,DMC DeLorean (1981),swap,20070,V6,400,3.0,Pro,Nissan Z Prototype (2020),explicit_model_generation_bridge; trim/year may differ
+184,0,1955 Chevrolet Bel Air,Chevrolet Bel Air (1955),origin,20047,I6,162,3.9,Basic,Chevrolet Bel Air (1955),explicit_model_generation_bridge; trim/year may differ
+184,0,1955 Chevrolet Bel Air,Chevrolet Bel Air (1955),swap,20087,V8,390,7.2,Basic,Plymouth Barracuda (1970),explicit_model_generation_bridge; trim/year may differ
+184,0,1955 Chevrolet Bel Air,Chevrolet Bel Air (1955),swap,20111,V8,585,5.0,Sport,Jaguar F-Type R Coupé (2016) ; Jaguar F-Type R Cabriolet (2019),explicit_model_generation_bridge; trim/year may differ
+184,0,1955 Chevrolet Bel Air,Chevrolet Bel Air (1955),swap,20132,V12,600,5.2,Sport,Aston Martin DB11 (2017),explicit_model_generation_bridge; trim/year may differ
+184,0,1955 Chevrolet Bel Air,Chevrolet Bel Air (1955),swap,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
+184,0,1955 Chevrolet Bel Air,Chevrolet Bel Air (1955),swap,20121,V8 hybride,874,4.6,Elite,Porsche 918 Spyder (2015),explicit_model_generation_bridge; trim/year may differ
+184,1,1955 Chevrolet Bel Air,Chevrolet Bel Air (1955),origin,20047,I6,162,3.9,Basic,Chevrolet Bel Air (1955),explicit_model_generation_bridge; trim/year may differ
+184,1,1955 Chevrolet Bel Air,Chevrolet Bel Air (1955),swap,20087,V8,390,7.2,Basic,Plymouth Barracuda (1970),explicit_model_generation_bridge; trim/year may differ
+184,1,1955 Chevrolet Bel Air,Chevrolet Bel Air (1955),swap,20111,V8,585,5.0,Sport,Jaguar F-Type R Coupé (2016) ; Jaguar F-Type R Cabriolet (2019),explicit_model_generation_bridge; trim/year may differ
+184,1,1955 Chevrolet Bel Air,Chevrolet Bel Air (1955),swap,20132,V12,600,5.2,Sport,Aston Martin DB11 (2017),explicit_model_generation_bridge; trim/year may differ
+184,1,1955 Chevrolet Bel Air,Chevrolet Bel Air (1955),swap,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
+184,1,1955 Chevrolet Bel Air,Chevrolet Bel Air (1955),swap,20121,V8 hybride,874,4.6,Elite,Porsche 918 Spyder (2015),explicit_model_generation_bridge; trim/year may differ
+185,0,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),origin,20080,V8,200,6.6,Basic,Pontiac Firebird (1977),explicit_model_generation_bridge; trim/year may differ
+185,0,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20075,V6 hybride,573,3.5,Sport,Acura NSX (2017),explicit_model_generation_bridge; trim/year may differ
+185,0,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20132,V12,600,5.2,Sport,Aston Martin DB11 (2017),explicit_model_generation_bridge; trim/year may differ
+185,0,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20017,F12,385,4.9,Sport,Ferrari Testarossa Coupé (1984),explicit_model_generation_bridge; trim/year may differ
+185,0,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20099,V8,503,4.0,Sport,Aston Martin DB11 Volante (2018),explicit_model_generation_bridge; trim/year may differ
+185,0,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20044,I4 hybride,599,2.0,Pro,Polestar 1 (2020),explicit_model_generation_bridge; trim/year may differ
+185,0,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20141,V12,820,7.0,Super,Aston Martin Vulcan (2016),explicit_model_generation_bridge; trim/year may differ
+185,0,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20144,W16,1479,8.0,Elite,Bugatti Chiron Sport (2017),explicit_model_generation_bridge; trim/year may differ
+185,0,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20142,V12,949,6.3,Elite,Ferrari LaFerrari (2016),explicit_model_generation_bridge; trim/year may differ
+185,0,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20121,V8 hybride,874,4.6,Elite,Porsche 918 Spyder (2015),explicit_model_generation_bridge; trim/year may differ
+185,1,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),origin,20080,V8,200,6.6,Basic,Pontiac Firebird (1977),explicit_model_generation_bridge; trim/year may differ
+185,1,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20075,V6 hybride,573,3.5,Sport,Acura NSX (2017),explicit_model_generation_bridge; trim/year may differ
+185,1,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20132,V12,600,5.2,Sport,Aston Martin DB11 (2017),explicit_model_generation_bridge; trim/year may differ
+185,1,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20017,F12,385,4.9,Sport,Ferrari Testarossa Coupé (1984),explicit_model_generation_bridge; trim/year may differ
+185,1,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20099,V8,503,4.0,Sport,Aston Martin DB11 Volante (2018),explicit_model_generation_bridge; trim/year may differ
+185,1,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20044,I4 hybride,599,2.0,Pro,Polestar 1 (2020),explicit_model_generation_bridge; trim/year may differ
+185,1,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20141,V12,820,7.0,Super,Aston Martin Vulcan (2016),explicit_model_generation_bridge; trim/year may differ
+185,1,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20144,W16,1479,8.0,Elite,Bugatti Chiron Sport (2017),explicit_model_generation_bridge; trim/year may differ
+185,1,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20142,V12,949,6.3,Elite,Ferrari LaFerrari (2016),explicit_model_generation_bridge; trim/year may differ
+185,1,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20121,V8 hybride,874,4.6,Elite,Porsche 918 Spyder (2015),explicit_model_generation_bridge; trim/year may differ
+187,0,2019 Audi R8,Audi R8 Coupé V10 (2019),origin,20127,V10,612,5.2,Super,Audi R8 Coupé V10 (2019),explicit_model_generation_bridge; trim/year may differ
+187,0,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20084,V8,290,4.9,Basic,Ford Mustang Boss 302 (1969),explicit_model_generation_bridge; trim/year may differ
+187,0,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20088,V8,414,4.0,Sport,BMW M3 Coupé (2010) ; BMW M3 Cabriolet (2010),explicit_model_generation_bridge; trim/year may differ
+187,0,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
+187,0,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20108,V8,570,4.5,Pro,Ferrari 458 Italia (2009) ; Ferrari 458 Spider (2011),explicit_model_generation_bridge; trim/year may differ
+187,0,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20137,V12,740,6.5,Super,Lamborghini Aventador LP750-4 SV Roadster (2015),explicit_model_generation_bridge; trim/year may differ
+189,0,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),origin,20102,V8,515,4.0,Pro,Mercedes-AMG GT S (2019) ; Mercedes-AMG GT S Roadster (2019),explicit_model_generation_bridge; trim/year may differ
+189,0,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20130,V12,449,5.2,Sport,Lamborghini Countach 25th Anniversary (1988),explicit_model_generation_bridge; trim/year may differ
+189,0,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20053,I6,338,3.2,Sport,BMW M3 (2006),explicit_model_generation_bridge; trim/year may differ
+189,0,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20068,V6,350,3.7,Sport,Nissan 370Z Nismo (2015),explicit_model_generation_bridge; trim/year may differ
+189,0,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20090,V8,435,5.0,Sport,Ford Mustang GT (2015),explicit_model_generation_bridge; trim/year may differ
+189,0,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20128,V10,631,5.2,Super,Lamborghini Huracán Performante (2018) ; Lamborghini Huracán Performante Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+189,0,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20015,F6,690,3.8,Super,Porsche 911 GT2 RS (2018),explicit_model_generation_bridge; trim/year may differ
+189,1,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),origin,20102,V8,515,4.0,Pro,Mercedes-AMG GT S (2019) ; Mercedes-AMG GT S Roadster (2019),explicit_model_generation_bridge; trim/year may differ
+189,1,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20130,V12,449,5.2,Sport,Lamborghini Countach 25th Anniversary (1988),explicit_model_generation_bridge; trim/year may differ
+189,1,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20053,I6,338,3.2,Sport,BMW M3 (2006),explicit_model_generation_bridge; trim/year may differ
+189,1,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20068,V6,350,3.7,Sport,Nissan 370Z Nismo (2015),explicit_model_generation_bridge; trim/year may differ
+189,1,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20090,V8,435,5.0,Sport,Ford Mustang GT (2015),explicit_model_generation_bridge; trim/year may differ
+189,1,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20128,V10,631,5.2,Super,Lamborghini Huracán Performante (2018) ; Lamborghini Huracán Performante Spyder (2018),explicit_model_generation_bridge; trim/year may differ
+189,1,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20015,F6,690,3.8,Super,Porsche 911 GT2 RS (2018),explicit_model_generation_bridge; trim/year may differ

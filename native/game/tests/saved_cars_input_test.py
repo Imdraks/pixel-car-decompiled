@@ -12,7 +12,7 @@ def check(name,value):
 def xdo(*args):return subprocess.check_output([str(a.xdotool),*map(str,args)],text=True,stderr=subprocess.DEVNULL).strip()
 def key(k):xdo('keydown',k);time.sleep(.08);xdo('keyup',k);time.sleep(.12)
 def click(x,y):xdo('mousemove','--window',window,round(x*.75),round(y*.75));time.sleep(.05);xdo('mousedown',1);time.sleep(.08);xdo('mouseup',1);time.sleep(.15)
-def name(value):click(300,155);xdo('keydown','ctrl');key('a');xdo('keyup','ctrl');xdo('type','--clearmodifiers','--delay','25',value);time.sleep(.1)
+def name(value):click(300,155);xdo('keydown','ctrl');key('a');xdo('keyup','ctrl');xdo('type','--clearmodifiers','--delay','100',value);time.sleep(.1)
 def start():
  global proc,window,log
  log=(a.output/'application.log').open('a');proc=subprocess.Popen([str(a.game),'--assets-dir',str(a.assets),'--data-dir',str(data),'--capture-dir',str(captures),'--no-audio'],stdout=log,stderr=log)
@@ -28,7 +28,7 @@ def start():
 def close():
  xdo('keydown','ctrl');key('q');xdo('keyup','ctrl');proc.wait(timeout=15);log.close();check('clean_exit_'+str(len(checks)),proc.returncode==0)
 def amg():
- key('F1');xdo('keydown','ctrl');key('f');xdo('keyup','ctrl');xdo('type','--clearmodifiers','AMG');time.sleep(.2);key('Return');key('Escape')
+ key('F1');xdo('keydown','ctrl');key('f');xdo('keyup','ctrl');xdo('type','--clearmodifiers','AMG GT63');time.sleep(.2);key('Return');key('Escape')
  check('amg_equipped_'+str(len(checks)),ini(data/'profile.ini')['part_engine']=='1501')
 (data/'settings.ini').write_text('width=960\nheight=540\nfps=60\nvsync=0\nsound=0\n')
 (data/'profile.ini').write_text('version=6\ncar=20\nrim=10100\nrear_rim=10101\npart_engine=1008\npart_turbo=3026\npart_ecu=4008\npart_nos=5007\ncosmetic_6=106011\ncontent_source=1\naudio_source=1\nroll_cage=1\nheadlights=1\nsound_on=-1\nsound_off=-1\nbov=3\nfactory_drive=0\ndrive=1\ngear_count=10\ngear_1=4.7\ngear_2=2.99\ngear_3=2.15\ngear_4=1.8\ngear_5=1.52\ngear_6=1.28\ngear_7=1\ngear_8=0.85\ngear_9=0.69\ngear_10=0.64\nfinal_drive=3.15\nshift_seconds=0.12\nride_height_mm=-20\nspring_stiffness=1.6\ndamping_ratio=0.9\nfront_bias=-0.1\nallow_wheelie=1\nwheelie_tune=0.2\n')

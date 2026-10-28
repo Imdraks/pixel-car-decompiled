@@ -1,0 +1,24 @@
+{
+  "slug": "nfs_v8_flat",
+  "model": "Flat-plane V8 4.5 F136-family approximation",
+  "layout": "V8_FLAT",
+  "cylinders": 8,
+  "litres": 4.5,
+  "bore_mm": 94,
+  "stroke_mm": 81,
+  "redline_rpm": 9000,
+  "rpm_anchors": [
+    1000,
+    2500,
+    4500,
+    8500
+  ],
+  "throttle_layers": [
+    0,
+    30,
+    100
+  ],
+  "exhaust": "mild_exhaust_0",
+  "game_engine_ids": [],
+  "approximation": "Shared physical flat-plane V8 family. F136 upstream template with estimated cam/head/exhaust. Not an exact Ferrari, McLaren or Koenigsegg recording."
+}
