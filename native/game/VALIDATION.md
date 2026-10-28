@@ -9,6 +9,24 @@
   le fichier sfx_engine4 et conserve le fondu charge/relâchement de 0.13.6.
 - Réglage natif soumis à l’écoute utilisateur, sans équivalence Android revendiquée.
 
+## Publication Windows vérifiée — 0.13.7
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40645316578) : 336 contrôles du cœur, 86 graphiques et 188 sons décodés.
+- Bas régime du LS/V8 conservé, montée plus haute à 8000/9500 tr/min et
+  progression bornée testées sous Windows. Le test du mixeur Linux joue
+  explicitement le LS au garage jusqu’au rupteur dans chaque banque.
+- Les 24 boucles moteur conservent ou réduisent leur jonction sans augmenter
+  leur pic. Les 1528 compositions et mesures physiques concordent avec Linux.
+  Les contrôles pixels des matériaux, effets et défilement passent.
+- Archive publique, CRC, EXE, source compilée, tableau des sons et treize
+  aperçus Windows vérifiés ; restauration vide puis réutilisation : 248 ressources.
+- Rapports : `validation/windows-0.13.7/` et `validation/ls-audio-0.13.7/`.
+  Audio et rendu sur périphériques logiciels ; courbe audio native, perception
+  finale à confirmer à l’écoute utilisateur.
+- Source compilée : `dd6de90acae766cd27ac9bbc69a77db748499ae0`.
+- ZIP : 59490038 octets, SHA-256 `0fc9ac1f4c8f08d36eaece42e7f8284d8ce3dc23e6a2c38e01b0fe0b4c9ca47d`.
+- EXE : SHA-256 `fe24412e4121fb274ddf857b56c0efe14fe7b7e73b0474383f9e981368ac3b70`.
+
 # Validation 0.13.6 — rendu audio moteur
 
 - 333 contrôles du cœur Linux, dont enveloppe de charge, transitions de pitch,

@@ -1,0 +1,8 @@
+{
+  "release": "https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.7-native-preview",
+  "archive": "/workspace/deliverables/v0.13.7-native-preview/PixelCarRacerNative-Windows-x64.zip",
+  "size": 59490038,
+  "sha256": "0fc9ac1f4c8f08d36eaece42e7f8284d8ce3dc23e6a2c38e01b0fe0b4c9ca47d",
+  "exe_sha256": "fe24412e4121fb274ddf857b56c0efe14fe7b7e73b0474383f9e981368ac3b70",
+  "source_commit": "dd6de90acae766cd27ac9bbc69a77db748499ae0"
+}
