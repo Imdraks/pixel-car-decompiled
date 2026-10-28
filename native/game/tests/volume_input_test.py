@@ -14,7 +14,7 @@ def key(k):xdo('keydown',k);time.sleep(.08);xdo('keyup',k);time.sleep(.12)
 def click(x,y):
  xdo('mousemove','--window',window,round(x*.75),round(y*.75));time.sleep(.06);xdo('mousedown',1);time.sleep(.09);xdo('mouseup',1);time.sleep(.14)
 def drag(index,value):
- y=183+index*62;xdo('mousemove','--window',window,round(750*.75),round(y*.75));xdo('mousedown',1);time.sleep(.07)
+ y=174+index*53;xdo('mousemove','--window',window,round(750*.75),round(y*.75));xdo('mousedown',1);time.sleep(.07)
  xdo('mousemove','--window',window,round((540+436*value)*.75),round(y*.75));time.sleep(.15);xdo('mouseup',1);time.sleep(.1)
 def start():
  global proc,window,log
@@ -31,7 +31,7 @@ def start():
 def close():
  xdo('keydown','ctrl');key('q');xdo('keyup','ctrl');proc.wait(timeout=15);log.close();check('clean_exit_'+str(len(checks)),proc.returncode==0)
 (data/'settings.ini').write_text('width=960\nheight=540\nfps=60\nvsync=0\nsound=1\ntraffic=0\nabs=0\ntraction_control=0\n')
-values=[.73,.24,.61,.55,.35,.19];keys=['master','engine','turbo','effects','ambience','interface']
+values=[.73,.24,.61,.55,.35,.19,.47];keys=['master','engine','turbo','effects','ambience','interface','music']
 try:
  start()
  for i,v in enumerate(values):drag(i,v)

@@ -22,7 +22,7 @@ class GameAudio {
     AudioVolumes volumes{};std::map<int,float> shotBaseVolumes;
     float shotChannel(int id)const;
     std::map<int,Sound> shots;
-    Loop on,off,turbo,blower,nos,town;
+    Loop on,off,turbo,blower,nos,town,music;
     EngineMix engineMix;double lastUpdate=0,audioDt=1.0/60;
     int bank=0;
     bool lastGas=false,lastNos=false;int lastGear=1,crashes=0;double lastBoost=0,lastCollision=0,nextLaunchPop=0;
@@ -31,11 +31,14 @@ class GameAudio {
 public:
     struct SimulatedStatus {int engineId=0,streams=0,streamStarts=0,startupEvents=0,shutdownEvents=0;double gainSum=0;bool audible=false;};
     SimulatedStatus simulatedStatus{};
+    struct MusicStatus {int track=-1,bank=0,streamStarts=0;float gain=0,seconds=0;};
+    MusicStatus musicStatus{};
     double inductionAudioLevel=0;
     bool ready=false;int failures=0;
     void init(const std::filesystem::path&);
     void selectBank(int);
     void setVolumes(const AudioVolumes&);
+    void updateMusic(const Profile&,int track,bool enabled);
     void update(const Profile&,const Vehicle&,const CarState&,const DriverInput&,double collision,bool active,bool enabled,bool limiter=false,bool garageAudition=false);
     void startEngine(const Profile& profile,bool enabled);
     void stopEngine(bool shutdown=false);

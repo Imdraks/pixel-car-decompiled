@@ -830,11 +830,11 @@ struct App {
     void volumeSettingsScene(){
         DrawRectangle(0,0,1280,720,Fade(Ink,.85f));card({174,40,932,639});
         text("VOLUMES",211,66,30);text("Réglage à la souris • aperçu immédiat • 0 % pour couper une catégorie",211,112,16,Muted);
-        const char* labels[]={"GÉNÉRAL","MOTEUR","TURBO / COMPRESSEUR","BRUITAGES","AMBIANCE","INTERFACE"};
-        double* values[]={&edited.volumes.master,&edited.volumes.engine,&edited.volumes.turbo,&edited.volumes.effects,&edited.volumes.ambience,&edited.volumes.interface};
+        const char* labels[]={"GÉNÉRAL","MOTEUR","TURBO / COMPRESSEUR","BRUITAGES","AMBIANCE","INTERFACE","MUSIQUE"};
+        double* values[]={&edited.volumes.master,&edited.volumes.engine,&edited.volumes.turbo,&edited.volumes.effects,&edited.volumes.ambience,&edited.volumes.interface,&edited.volumes.music};
         if(!IsMouseButtonDown(MOUSE_BUTTON_LEFT))volumeDragging=-1;
-        for(int i=0;i<6;i++){
-            float y=166+62.f*i;Rectangle track{540,y+9,436,16};
+        for(int i=0;i<7;i++){
+            float y=157+53.f*i;Rectangle track{540,y+9,436,16};
             text(labels[i],212,y+5,i==2?17:20,Muted);
             if(uiEnabled&&IsMouseButtonPressed(MOUSE_BUTTON_LEFT)&&CheckCollisionPointRec(mouse,{track.x-10,track.y-12,track.width+20,track.height+24}))volumeDragging=i;
             if(uiEnabled&&volumeDragging==i)*values[i]=std::round(std::clamp(double((mouse.x-track.x)/track.width),0.0,1.0)*100)/100;
@@ -936,6 +936,7 @@ struct App {
         }else if(garageEngine.running&&(garageAvailable||volumeAudition)){
             audio.update(profile,configuration.vehicle,garageEngine.state,{garageGas,false,true},0,true,settings.sound,garageEngine.limiting,true);
         }else audio.update(profile,drive.vehicle,drive.player,input,drive.collisionCooldown,driving||(volumeAudition&&screen==Screen::Free),settings.sound);
+        audio.updateMusic(profile,screen==Screen::Menu?46:screen==Screen::Free?-1:4,settings.sound);
 
     }
     void renderFrame(){
@@ -1244,9 +1245,9 @@ struct App {
             check(choices.size()==18&&findPart(16013)->sourceMask==4,"all 18 new turbo assemblies are searchable with PC provenance");}
         if(frames==619)capture("turbos-pc.png");
         if(frames==620){auto saved=loadProfile(profileFile(),191,54);check(saved.parts[2]==16013&&buildVehicle(saved).vehicle.turboCount==4,"quad turbo assembly persists as one complete exclusive induction upgrade");}
-        if(frames==622){openOptions();volumePage=true;edited.volumes={.73,.42,.61,.55,.35,.25};}
+        if(frames==622){openOptions();volumePage=true;edited.volumes={.73,.42,.61,.55,.35,.25,.38};}
         if(frames==624)capture("volumes.png");
-        if(frames==625){auto before=settings;saveVolumes();auto stored=loadSettings(settingFile());check(stored.volumes==settings.volumes&&settings.volumes.engine==.42&&settings.width==before.width&&settings.mode==before.mode,"six audio sliders save independently without applying display changes");}
+        if(frames==625){auto before=settings;saveVolumes();auto stored=loadSettings(settingFile());check(stored.volumes==settings.volumes&&settings.volumes.engine==.42&&settings.volumes.music==.38&&settings.width==before.width&&settings.mode==before.mode,"seven audio sliders save independently without applying display changes");}
         if(frames==626){volumePage=true;edited.volumes.master=0;cancelVolumes();check(edited.volumes==settings.volumes&&settings.volumes.master==.73,"cancelling volume preview restores saved levels");}
         if(frames==628)quit=true;
 

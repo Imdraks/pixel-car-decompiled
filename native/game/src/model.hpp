@@ -19,12 +19,12 @@ enum class WindowMode { Windowed, Borderless, Fullscreen };
 enum class DriveLayout { Front, Rear, All };
 enum class Quality { Low, Medium, High };
 struct Resolution { int width, height; bool operator==(const Resolution& r) const {return width==r.width && height==r.height;} };
-struct AudioVolumes {double master=1,engine=1,turbo=1,effects=1,ambience=1,interface=1;};
+struct AudioVolumes {double master=1,engine=1,turbo=1,effects=1,ambience=1,interface=1,music=1;};
 inline AudioVolumes validateVolumes(AudioVolumes v){
     auto clamp=[](double x){return std::isfinite(x)?std::clamp(x,0.0,1.0):1.0;};
-    v.master=clamp(v.master);v.engine=clamp(v.engine);v.turbo=clamp(v.turbo);v.effects=clamp(v.effects);v.ambience=clamp(v.ambience);v.interface=clamp(v.interface);return v;
+    v.master=clamp(v.master);v.engine=clamp(v.engine);v.turbo=clamp(v.turbo);v.effects=clamp(v.effects);v.ambience=clamp(v.ambience);v.interface=clamp(v.interface);v.music=clamp(v.music);return v;
 }
-inline bool operator==(const AudioVolumes& a,const AudioVolumes& b){return a.master==b.master&&a.engine==b.engine&&a.turbo==b.turbo&&a.effects==b.effects&&a.ambience==b.ambience&&a.interface==b.interface;}
+inline bool operator==(const AudioVolumes& a,const AudioVolumes& b){return a.master==b.master&&a.engine==b.engine&&a.turbo==b.turbo&&a.effects==b.effects&&a.ambience==b.ambience&&a.interface==b.interface&&a.music==b.music;}
 struct Settings {
     WindowMode mode=WindowMode::Windowed;
     int width=1280, height=720, fps=120;

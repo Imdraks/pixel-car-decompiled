@@ -1,6 +1,6 @@
-# Volumes — 0.14.2
+# Volumes — 0.14.3
 
-Ouvrez **PARAMÈTRES → VOLUMES...**, près de la ligne Son. Les six curseurs se
+Ouvrez **PARAMÈTRES → VOLUMES...**, près de la ligne Son. Les sept curseurs se
 règlent à la souris de 0 à 100 %. Vous pouvez cliquer dans la barre ou faire
 glisser sa poignée ; le niveau reste borné même en sortant de la barre.
 
@@ -10,6 +10,11 @@ glisser sa poignée ; le niveau reste borné même en sortant de la barre.
 - **Bruitages** : NOS, klaxon, collisions, changements de rapports et retours d’échappement.
 - **Ambiance** : fond sonore du garage/de la ville.
 - **Interface** : clics, installation et autres sons de menus.
+- **Musique** : morceaux du menu et du garage, séparés de l’ambiance.
+
+La musique est coupée en conduite, y compris dans les paramètres ouverts depuis
+la route. Au retour au garage, le morceau reprend sa position. Les morceaux
+proviennent de la banque Original ou Unbound sélectionnée pour le son.
 
 Les changements sont audibles immédiatement. **ENREGISTRER** garde les niveaux,
 **ANNULER** ou Échap revient aux niveaux enregistrés. **TOUT À 100 %** réinitialise

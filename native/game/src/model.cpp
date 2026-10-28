@@ -78,7 +78,7 @@ Settings loadSettings(const std::filesystem::path& file){
     s.vsync=integer(v,"vsync",s.vsync)!=0;s.showFps=integer(v,"show_fps",s.showFps)!=0;s.sound=integer(v,"sound",s.sound)!=0;
     s.traffic=integer(v,"traffic",1)!=0;s.abs=integer(v,"abs",1)!=0;s.tractionControl=integer(v,"traction_control",1)!=0;
     s.volumes.master=real(v,"volume_master",1);s.volumes.engine=real(v,"volume_engine",1);s.volumes.turbo=real(v,"volume_turbo",1);
-    s.volumes.effects=real(v,"volume_effects",1);s.volumes.ambience=real(v,"volume_ambience",1);s.volumes.interface=real(v,"volume_interface",1);
+    s.volumes.effects=real(v,"volume_effects",1);s.volumes.ambience=real(v,"volume_ambience",1);s.volumes.interface=real(v,"volume_interface",1);s.volumes.music=real(v,"volume_music",1);
     return validate(s);
 }
 Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
@@ -115,7 +115,7 @@ bool saveSettings(const std::filesystem::path& file,const Settings& settings,std
     auto s=validate(settings);std::ostringstream out;out.imbue(std::locale::classic());
     out<<"version=1\nmode="<<modeKey(s.mode)<<"\nwidth="<<s.width<<"\nheight="<<s.height<<"\nfps="<<s.fps<<"\nvsync="<<s.vsync<<"\nquality="<<int(s.quality)<<"\nshow_fps="<<s.showFps<<"\nsound="<<s.sound<<"\ntraffic="<<s.traffic<<"\n";
     out<<"abs="<<s.abs<<"\ntraction_control="<<s.tractionControl<<'\n';
-    out<<std::setprecision(17)<<"volume_master="<<s.volumes.master<<"\nvolume_engine="<<s.volumes.engine<<"\nvolume_turbo="<<s.volumes.turbo<<"\nvolume_effects="<<s.volumes.effects<<"\nvolume_ambience="<<s.volumes.ambience<<"\nvolume_interface="<<s.volumes.interface<<'\n';
+    out<<std::setprecision(17)<<"volume_master="<<s.volumes.master<<"\nvolume_engine="<<s.volumes.engine<<"\nvolume_turbo="<<s.volumes.turbo<<"\nvolume_effects="<<s.volumes.effects<<"\nvolume_ambience="<<s.volumes.ambience<<"\nvolume_interface="<<s.volumes.interface<<"\nvolume_music="<<s.volumes.music<<'\n';
     return writeAtomic(file,out.str(),error);
 }
 bool saveProfile(const std::filesystem::path& file,const Profile& raw,std::string& error){

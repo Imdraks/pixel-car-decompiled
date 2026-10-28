@@ -152,9 +152,9 @@ void GameAudio::setVolumes(const AudioVolumes& value){
 }
 void GameAudio::selectBank(int value){
     value=value==1?1:0;if(value==bank)return;
-    for(auto* stream:{&on,&off,&turbo,&blower,&nos,&town})if(stream->id>=0){UnloadMusicStream(stream->music);*stream=Loop{};}
+    for(auto* stream:{&on,&off,&turbo,&blower,&nos,&town,&music})if(stream->id>=0){UnloadMusicStream(stream->music);*stream=Loop{};}
     for(auto& s:shots)UnloadSound(s.second);
-    shots.clear();shotBaseVolumes.clear();bank=value;reset();
+    shots.clear();shotBaseVolumes.clear();bank=value;musicStatus.track=-1;reset();
 }
 void GameAudio::loop(Loop& stream,int id,float volume,float pitch){
     if(stream.id!=id){
@@ -183,10 +183,27 @@ void GameAudio::loop(Loop& stream,int id,float volume,float pitch){
         stream.id=id;stream.music.looping=true;SetMusicVolume(stream.music,0);SetMusicPitch(stream.music,std::clamp(pitch,.25f,3.f));PlayMusicStream(stream.music);
     }
     UpdateMusicStream(stream.music);
-    double group=(&stream==&on||&stream==&off)?volumes.engine:(&stream==&turbo||&stream==&blower)?volumes.turbo:(&stream==&town)?volumes.ambience:volumes.effects;
+    double group=(&stream==&on||&stream==&off)?volumes.engine:(&stream==&turbo||&stream==&blower)?volumes.turbo:(&stream==&town)?volumes.ambience:(&stream==&music)?volumes.music:volumes.effects;
     float target=std::clamp(float(volume*sourceSound(id,bank).volume*group),0.f,1.f);
     stream.gain=target==0?0:stream.gain+(target-stream.gain)*float(1-std::exp(-audioDt/.015));
     SetMusicVolume(stream.music,stream.gain);SetMusicPitch(stream.music,std::clamp(pitch,.25f,3.f));
+}
+void GameAudio::updateMusic(const Profile& profile,int track,bool enabled){
+    if(!ready)return;
+    selectBank(profile.audioSource);
+    if(track<0){
+        if(music.id>=0){SetMusicVolume(music.music,0);PauseMusicStream(music.music);}
+        music.gain=0;musicStatus.track=-1;musicStatus.gain=0;return;
+    }
+    // Stable source indices: title, workshop, map. Keep muted streams running so
+    // sliders/global sound do not restart a song or change engine state.
+    if(track!=46&&track!=4&&track!=5)track=46;
+    bool changed=music.id!=track;
+    if(!changed&&!IsMusicStreamPlaying(music.music))ResumeMusicStream(music.music);
+    loop(music,track,enabled?.18f:0.f,1);
+    if(changed&&music.id==track)++musicStatus.streamStarts;
+    musicStatus.track=music.id;musicStatus.bank=bank;musicStatus.gain=music.gain;
+    musicStatus.seconds=music.id>=0?GetMusicTimePlayed(music.music):0;
 }
 void GameAudio::shot(int id,float volume){
     auto i=shots.find(id);
@@ -247,7 +264,7 @@ void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarSt
 GameAudio::~GameAudio(){
     if(!ready)return;
     clearSimulated();
-    for(auto* stream:{&on,&off,&turbo,&blower,&nos,&town})if(stream->id>=0)UnloadMusicStream(stream->music);
+    for(auto* stream:{&on,&off,&turbo,&blower,&nos,&town,&music})if(stream->id>=0)UnloadMusicStream(stream->music);
     for(auto& s:shots)UnloadSound(s.second);
     CloseAudioDevice();
 }

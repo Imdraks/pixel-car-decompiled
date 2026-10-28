@@ -1,4 +1,11 @@
-# Pixel Car Racer — Unbound Native 0.14.2
+# Pixel Car Racer — Unbound Native 0.14.3
+
+La version **0.14.3** ajoute le curseur **Musique** dans Paramètres → Volumes
+et active les morceaux du menu et du garage issus des ressources du jeu.
+**Aucune musique en conduite**, même dans les paramètres ouverts depuis la route.
+Réglage indépendant, aperçu immédiat, sauvegarde et annulation ; le retour au
+garage reprend le morceau en pause.
+
 
 La version **0.14.2** ajoute **Paramètres → Volumes** : six curseurs pour le
 général, le moteur, le turbo/compresseur, les bruitages, l’ambiance et l’interface.

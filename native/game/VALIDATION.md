@@ -1,3 +1,19 @@
+# Validation 0.14.3 — musique du menu et du garage
+
+Le septième curseur Musique est persistant, borné et indépendant des six autres.
+Les morceaux historiques bgm_title et snd_shop sont lus en boucle dans leur
+banque Original/Unbound. En conduite, la musique est mise en pause et son gain
+est nul, y compris dans les paramètres ; le retour au garage reprend la lecture.
+Les ressources existantes restent intactes.
+
+- 361 contrôles du cœur, dont les sept niveaux et le chargement des anciennes
+  configurations ; 95 contrôles graphiques et 14 manipulations souris réelles.
+- Quatre cas audio réels sur mixeur logiciel Raylib : menu/garage dans chacune
+  des deux banques. Musique seule, volume nul, position conservée pendant le
+  réglage, silence en conduite, reprise, commutateur Son et bruitages indépendants.
+  PCM fini, crête 0,0495, aucune erreur de chargement.
+- Rapports : `validation/music-0.14.3/`. Écoute sur enceintes non établie.
+
 # Validation 0.14.2 — volumes indépendants
 
 - 361 contrôles du cœur : six niveaux persistants, bornage, rejet des valeurs
