@@ -1,0 +1,8 @@
+{
+  "source_bodies_checked": 382,
+  "contact_plane_respected": true,
+  "reference_unbarred_lift_m": 0.277246,
+  "reference_barred_lift_m": 0.00849144,
+  "max_lift_across_barred_bodies_m": 0.094686,
+  "original_bar_physics_recovered": false
+}

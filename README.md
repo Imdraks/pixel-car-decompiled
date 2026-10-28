@@ -1,12 +1,22 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.14.2](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.14.2-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.14.2-native-preview)
+**[Télécharger Windows x64 — version 0.15.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.15.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.15.0-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+La version **0.15.0** importe le tableau fourni : **145 moteurs**, **113 pièces** et
+neuf extensions Contrebande. Classes **Basic → Sport → Pro → Super → Elite →
+Contrebande**, 623 associations pour 50 modèles, 20 catégories mécaniques et
+cinq nouvelles familles audio simulées (80 WAV + 80 OGG). F1 : rechercher NFS
+ou le donneur ; CETTE AUTO filtre les associations du tableau.
+[Contenu, accès, sons et limites](native/game/NFS-CATALOGUE.md).
+
+Les sept curseurs de volume incluent la musique, uniquement dans les menus et
+le garage. La sauvegarde des configurations de voitures reste disponible.
 
 La version **0.14.2** ajoute **Paramètres → Volumes** : six curseurs pour le
 général, le moteur, le turbo/compresseur, les bruitages, l’ambiance et l’interface.

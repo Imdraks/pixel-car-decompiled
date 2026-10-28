@@ -371,7 +371,7 @@ jobs:
                       output=Path(name).name
                       Path(output).write_bytes(data)
           PY_PREVIEW
-          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png Apercu-Ancrages.png Apercu-Provenance.png Apercu-Echappements.png Apercu-Physique.png Apercu-Burnout.png Apercu-Suspension.png Apercu-Wheelie.png Apercu-Materiaux.png Apercu-Capots.png Apercu-Mes-Voitures.png Apercu-Turbos.png Apercu-Volumes.png
+          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png Apercu-Ancrages.png Apercu-Provenance.png Apercu-Echappements.png Apercu-Physique.png Apercu-Burnout.png Apercu-Suspension.png Apercu-Wheelie.png Apercu-Materiaux.png Apercu-Capots.png Apercu-Mes-Voitures.png Apercu-Turbos.png Apercu-Volumes.png Apercu-NFS-Moteurs.png Apercu-NFS-Pieces.png Apercu-NFS-Transmission.png Apercu-NFS-Electrique.png
           shopt -s nullglob
           for audio_pack in *-v1.zip; do
             [ -f "$audio_pack" ] && gh release upload "$RELEASE_TAG" "$audio_pack"

@@ -24,6 +24,20 @@
 - Rapports : `validation/nfs-0.15.0/`. Les 29 auxiliaires et six équipements de
   poursuite ne sont pas implémentés ; quatre liens du classeur restent non résolus.
 
+## Publication Windows vérifiée — 0.15.0
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40714957100) :
+  370 contrôles du cœur, 100 graphiques, 188 sons historiques et 358 fichiers
+  simulés décodés. Les sept niveaux audio passent la sauvegarde et l’annulation.
+- Archive publique, CRC, EXE, source compilée, vingt aperçus et les 650 ressources
+  vérifiés. Les 1528 compositions et les mesures physiques concordent avec Linux.
+- Rapports : `validation/windows-0.15.0/` et `validation/nfs-0.15.0/`.
+  Le contrôle audio des nouveaux moteurs, turbos et volumes est réalisé sur
+  le vrai mixeur logiciel Linux. Écoute sur enceintes non établie.
+- Source compilée : `d49c0ed0e1e82aaf531f2d215cf87a3227b72f5e`.
+- ZIP : 107819558 octets, SHA-256 `6478ffd3b72d85b647ead608c4b2dc98e938d8513787622a6568415709e7e1a0`.
+- EXE : SHA-256 `2a2430c49b9efa34df009b14c611cf18c32b677d4e84675a8a993e0020b4d47e`.
+
 # Validation 0.14.3 — musique du menu et du garage
 
 Le septième curseur Musique est persistant, borné et indépendant des six autres.
