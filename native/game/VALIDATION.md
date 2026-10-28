@@ -13,7 +13,19 @@
 - Aucun fichier audio ou graphique source modifié ; les 650 ressources de la
   version 0.16.0 restent identiques. Aucun nouveau test d’écoute physique.
 - Rapports Linux : `validation/showroom-0.16.1/`. Commandes et limites :
-  [SHOWROOM.md](SHOWROOM.md). La publication est conditionnée aux contrôles Windows.
+  [SHOWROOM.md](SHOWROOM.md). La publication Windows est vérifiée ci-dessous.
+
+## Publication Windows vérifiée — 0.16.1
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40735824720) :
+  398 contrôles du cœur, 108 graphiques, 188 sons historiques et 358 fichiers
+  simulés décodés. Les sept niveaux audio passent la sauvegarde et l’annulation.
+- Archive publique, CRC, EXE, source compilée, vingt-neuf aperçus et 650 ressources
+  vérifiés. Les 1528 compositions et mesures physiques concordent avec Linux.
+- Rapports : `validation/windows-0.16.1/` et `validation/showroom-0.16.1/`.
+- Source compilée : `45166a0b99ed3d7214565468c98321d81f8c260f`.
+- ZIP : 107888835 octets, SHA-256 `e5a98a0d04b9fc17a14a9dc927c01897ef040abbbf5e7f3961d77d5365954d20`.
+- EXE : SHA-256 `8f780a18604f213a1dbe85b56af02f102380ed372c3e1cd1b09bf08bf399aff6`.
 
 # Validation 0.16.0 — voitures distinctes
 
