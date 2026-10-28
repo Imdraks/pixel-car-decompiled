@@ -1,12 +1,16 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.13.6](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.13.6-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.6-native-preview)
+**[Télécharger Windows x64 — version 0.13.7](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.13.7-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.7-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+La version **0.13.7** donne au son du LS/V8 une montée plus marquée dans les
+tours, avec un ralenti conservé. Le réglage s’applique aussi aux LSX, LT5 et Hemi
+qui partagent ce fichier sonore. [Courbe et limites](native/game/AUDIO-MIX.md).
 
 La version **0.13.6** reprend le mixage des moteurs : hauteur moins forcée,
 fondu entre charge et relâchement, gains des ressources et raccord des boucles
@@ -126,7 +130,7 @@ de transmission sont conservées. L’équivalence avec Android n’est pas vali
 
 Le [protocole physique](native/game/PHYSICS.md) et le banc de mesure intégré
 permettent de comparer départ, régime, rapports, reprise et freinage. Les
-333 contrôles du cœur et 86 contrôles graphiques passent sous Linux et Windows ; les mesures
+336 contrôles du cœur et 86 contrôles graphiques passent sous Linux et Windows ; les mesures
 natives Linux/Windows concordent. Le rendu Windows de CI utilise Mesa logiciel.
 Les 188 sons des deux banques sont décodés sous Windows ; le mixage audio logiciel et 160 contrôles
 clavier/souris et 192 416 combinaisons de groupes de pièces passent sous Linux. GPU et haut-parleurs physiques restent à vérifier.

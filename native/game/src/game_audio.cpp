@@ -93,7 +93,7 @@ void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarSt
     if(!enabled)for(auto& sound:shots)StopSound(sound.second);
     auto samples=engineSamples(profile);bool gas=active&&input.throttle&&(!input.brake||car.burningOut||car.neutral||car.handbraking);
     float audible=enabled&&active?1.f:0.f;
-    engineMix.update(car.rpm,gas,audible>0,audioDt);
+    engineMix.update(car.rpm,gas,audible>0,audioDt,samples.on);
     float pitch=float(engineMix.pitch),load=float(engineMix.load);
     float cut=limiter?float(.3+.7*(.5+.5*std::sin(car.elapsed*62.831853))):car.launching?(std::sin(car.elapsed*62.831853)>0?1.f:.25f):1.f;
     float onVolume=audible*.40f*load*cut,offVolume=audible*.32f*(1-load);

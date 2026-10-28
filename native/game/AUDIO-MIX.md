@@ -1,4 +1,18 @@
-# Mixage moteur — 0.13.6
+# Mixage moteur — 0.13.7
+
+## LS et V8 — 0.13.7
+
+Le fichier `sfx_engine4` utilisé par LS, LSX, LT5, Hemi et Hemi 24K reprend
+plus de hauteur dans les tours. Le ralenti et la zone jusqu’à 2500 tr/min
+restent identiques. Au-dessus, une correction progressive s’ajoute à la courbe :
+`0,35 × smoothstep((RPM - 2500) / 6500)`, bornée entre 0 et 0,35.
+À 8000 tr/min, le facteur passe de 1,30 à environ 1,63 ; à 9500, de 1,45 à 1,80.
+Le plafond V8 devient 1,95. La courbe dépend du fichier d’accélération sélectionné,
+avec le même pitch pour la décélération pendant les fondus. Les autres sons
+conservent leur courbe. Une modification du rupteur par l’ECU ne change pas la
+hauteur à régime identique. C’est un réglage natif, pas une formule récupérée d’Android.
+
+## Base du mixage — 0.13.6
 
 La sélection des 16 moteurs reste celle récupérée des deux codes source. Cette
 version corrige le **rendu PC** de ces fichiers ; elle n’ajoute pas d’enregistrements

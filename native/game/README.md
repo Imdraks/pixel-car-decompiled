@@ -1,4 +1,8 @@
-# Pixel Car Racer — Unbound Native 0.13.6
+# Pixel Car Racer — Unbound Native 0.13.7
+
+La version **0.13.7** remonte progressivement le son du LS/V8 dans les hauts
+régimes en conservant le ralenti. La courbe s’applique au fichier sonore partagé
+par LS, LSX, LT5 et Hemi. [AUDIO-MIX.md](AUDIO-MIX.md).
 
 La version **0.13.6** corrige le mixage moteur : fondu charge/relâchement sans
 désaccordage, pitch moins forcé, niveaux relatifs source et raccord des boucles

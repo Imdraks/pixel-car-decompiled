@@ -1,3 +1,14 @@
+# Validation 0.13.7 — montée en régime du son LS/V8
+
+- 336 contrôles du cœur Linux : timbre bas régime conservé, élévation du LS/V8
+  vérifiée à 8000 et 9500 tr/min, progression monotone et plafond respecté
+  jusqu’à 14000 tr/min. Les autres profils gardent la courbe précédente.
+- Le mixeur logiciel couvre les deux banques, profils et moteurs AUTO, et
+  désormais explicitement le LS au garage jusqu’au rupteur, puis son extinction.
+- La courbe audio suit le régime absolu, pas le réglage du rupteur. Elle concerne
+  le fichier sfx_engine4 et conserve le fondu charge/relâchement de 0.13.6.
+- Réglage natif soumis à l’écoute utilisateur, sans équivalence Android revendiquée.
+
 # Validation 0.13.6 — rendu audio moteur
 
 - 333 contrôles du cœur Linux, dont enveloppe de charge, transitions de pitch,

@@ -3,11 +3,22 @@
 #include <cmath>
 #include <vector>
 namespace pcr {
+inline double enginePlaybackPitch(double rpm,int accelerationSample){
+    rpm=std::max(0.0,rpm);
+    double target=.5+rpm/10000.0;
+    if(accelerationSample==24){
+        // sfx_engine4 (LS/Hemi/LT5) needs more upper-register travel while
+        // retaining its low idle. Independent of ECU/redline changes.
+        double high=std::clamp((rpm-2500)/6500.0,0.0,1.0);
+        target+=.35*high*high*(3-2*high);
+    }
+    return std::clamp(target,.5,accelerationSample==24?1.95:1.65);
+}
 // Native playback calibration, not a recovered Android pitch equation.
 struct EngineMix {
     double load=0,pitch=.6;bool ready=false;
-    void update(double rpm,bool throttle,bool audible,double dt){
-        double target=std::clamp(.5+std::max(0.0,rpm)/10000.0,.5,1.65);
+    void update(double rpm,bool throttle,bool audible,double dt,int accelerationSample=21){
+        double target=enginePlaybackPitch(rpm,accelerationSample);
         if(!audible){load=0;pitch=target;ready=false;return;}
         dt=std::clamp(dt,0.0,.1);
         if(!ready){pitch=target;ready=true;}

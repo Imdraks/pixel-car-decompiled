@@ -39,14 +39,15 @@ int main(int argc,char** argv){
                     std::this_thread::sleep_for(std::chrono::milliseconds(10));
                 }
             }
-            GarageEngine garage;garage.toggle(setup.vehicle);audio.startEngine(profile,true);
+            Profile garageProfile=profile;equipPart(garageProfile,PartSlot::Engine,1008);auto garageVehicle=buildVehicle(garageProfile).vehicle;
+            GarageEngine garage;garage.toggle(garageVehicle);audio.startEngine(garageProfile,true);
             for(int tick=0;tick<240;tick++){
-                garage.update(setup.vehicle,true,Step);
-                audio.update(profile,setup.vehicle,garage.state,{true,false,true},0,true,true,garage.limiting);
+                garage.update(garageVehicle,true,Step);
+                audio.update(garageProfile,garageVehicle,garage.state,{true,false,true},0,true,true,garage.limiting);
                 std::this_thread::sleep_for(std::chrono::milliseconds(10));
             }
             if(!garage.limiting)throw std::runtime_error("Garage audition failed to reach limiter");
-            garage.stop();audio.stopEngine();audio.update(profile,setup.vehicle,garage.state,{},0,false,true);
+            garage.stop();audio.stopEngine();audio.update(garageProfile,garageVehicle,garage.state,{},0,false,true);
             state.nitroActive=true;
             for(int tick=0;tick<30;tick++){audio.update(profile,setup.vehicle,state,{true,false,true,true},0,true,true);std::this_thread::sleep_for(std::chrono::milliseconds(10));}
             setup.vehicle.supercharged=true;state.gear=4;
@@ -60,7 +61,7 @@ int main(int argc,char** argv){
         }
         if(frames.load()==0||energy.load()==0)throw std::runtime_error("Original audio did not produce non-silent mixed PCM");
         std::ofstream out(std::filesystem::u8path(argv[2]));
-        out<<"PASS: both banks, 16 engine profile pairs per bank, 16 automatic equipped-engine pairs per bank, turbo, supercharger, NOS, garage starter/idle/rev limiter/shutdown and event sounds mixed through the real Raylib audio backend.\n"
+        out<<"PASS: both banks, 16 engine profile pairs per bank, 16 automatic equipped-engine pairs per bank, turbo, supercharger, NOS, LS garage starter/idle/high-RPM rev limiter/shutdown and event sounds mixed through the real Raylib audio backend.\n"
            <<"stream_decode_failures=0\n"<<"frames="<<frames.load()<<"\nabsolute_pcm_energy_scaled="<<energy.load()<<"\n"
            <<"Software/null audio device only; physical speaker playback and stock-car engine assignment are not established.\n";
         std::cout<<"PASS: non-silent original audio mix, "<<frames.load()<<" frames\n";return 0;

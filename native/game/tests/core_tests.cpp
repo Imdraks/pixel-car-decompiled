@@ -212,6 +212,10 @@ int main(int argc,char**argv){
     auto corruptCustom=loadProfile(root/"custom.ini",191,54);
     expect(corruptCustom.parts[0]==0&&corruptCustom.parts[10]==0&&corruptCustom.parts[2]==0&&corruptCustom.parts[3]==3020,"malformed equipment falls back safely and cannot stack forced induction");
     EngineMix audioEnvelope;audioEnvelope.update(8000,true,true,1.0/60);
+    expect(enginePlaybackPitch(900,24)==enginePlaybackPitch(900,21)&&enginePlaybackPitch(2500,24)==enginePlaybackPitch(2500,21),"LS playback retains its idle and low-RPM timbre");
+    expect(enginePlaybackPitch(8000,24)>1.6&&enginePlaybackPitch(9500,24)>1.79&&enginePlaybackPitch(8000,21)==1.3&&enginePlaybackPitch(8000,71)==1.3,"LS V8 playback reaches a higher register without raising unrelated engine samples");
+    bool v8Progressive=true;double prior=0;for(int rpm=800;rpm<=14000;rpm+=25){double pitch=enginePlaybackPitch(rpm,24);v8Progressive&=pitch>=prior&&pitch<=1.95;prior=pitch;}
+    expect(v8Progressive,"V8 playback climbs progressively through the rev range and remains bounded");
     expect(audioEnvelope.load>0&&audioEnvelope.load<1&&audioEnvelope.pitch<1.4,"engine load fades in and high RPM avoids the old excessive pitch multiplier");
     for(int i=0;i<120;i++)audioEnvelope.update(8000,true,true,1.0/60);
     expect(audioEnvelope.load>.999,"steady throttle selects the load sample without a permanent detuned coast layer");
