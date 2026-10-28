@@ -1,4 +1,10 @@
-# Pixel Car Racer — Unbound Native 0.16.1
+# Pixel Car Racer — Unbound Native 0.16.2
+
+La version **0.16.2** présente le showroom et le garage avec une **grande voiture
+à gauche** et les **menus à droite** : liste de modèles, recherche, catégories,
+pages et actions. La prévisualisation conserve les pièces et réglages de la
+voiture sélectionnée et affiche son moteur, sa puissance, son poids et sa
+transmission. Flèches ou molette pour parcourir la liste ; Entrée pour agir.
 
 La version **0.16.1** ajoute un **showroom** et un **garage de huit voitures**.
 **B / GARAGE** ouvre les voitures possédées ; **Tab / SHOWROOM** permet d’ajouter

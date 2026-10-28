@@ -1,4 +1,11 @@
-# Showroom et garage de huit voitures — 0.16.1
+# Showroom et garage de huit voitures — 0.16.2
+
+La grande prévisualisation se trouve **à gauche**. **À droite** : onglets,
+recherche, catégories, liste des voitures, pages et boutons d’action. Les
+flèches et la molette sur la liste changent la sélection ; Page précédente /
+suivante avance de neuf modèles. La fiche de gauche montre la préparation
+équipée (ou archivée), le moteur, les chevaux, le poids et la transmission.
+Consulter une voiture ne modifie pas la voiture active.
 
 **GARAGE** dans le menu ou **B** depuis la customisation ouvre l’inventaire des
 voitures possédées. Le compteur indique les places occupées sur **8**. Le showroom
@@ -24,8 +31,8 @@ la recherche Ctrl+F et les catégories.
 Les préparations nommées **F11** sont des archives de configuration ; elles ne
 créent pas de places supplémentaires. Lorsqu’une voiture est retirée, sa dernière
 préparation reste archivée : la reprendre dans le showroom restaure cette
-préparation. Les cartes des voitures possédées affichent leur équipement et leur
-puissance actuels, ainsi que l’indication **VOITURE ACTIVE**.
+préparation. La fiche de la voiture sélectionnée affiche son équipement et sa puissance
+actuels, ainsi que son état dans le garage. La liste repère la voiture **ACTIVE**.
 
 ## Sauvegarde et reprise des anciennes versions
 

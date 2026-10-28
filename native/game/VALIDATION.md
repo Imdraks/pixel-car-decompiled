@@ -1,3 +1,20 @@
+# Validation 0.16.2 — showroom avec aperçu à gauche
+
+- 398 contrôles du cœur conservés ; aucun changement mécanique ni de sauvegarde.
+- 111 contrôles graphiques : aperçu sélectionné Civic puis Corvette, dimensions
+  visibles de la carrosserie et consultation sans remplacer la voiture active.
+- Contrôle pixels des deux grands aperçus à gauche : voitures distinctes, taille
+  visible suffisante, liste à droite sans grille de miniatures, garage vide sans
+  voiture fantôme. Les quatre contrôles pixels antérieurs restent exécutés.
+- 27 manipulations réelles de l’inventaire sur la nouvelle interface : huit places,
+  neuvième refusée au clavier/souris, retrait, annulation, archives, redémarrages,
+  limites F11 et raccourci mode libre avec garage vide.
+- Une seule composition de carrosserie par sélection ; les neuf vignettes et les
+  infobulles techniques ont été retirées. Cadrage selon les limites alpha du rendu,
+  avec roues et hauteur de suspension. Aucun fichier de ressources modifié.
+- Rapports : `validation/showroom-0.16.2/`. Publication conditionnée aux contrôles
+  Windows de l’exécutable, de la physique, de l’audio et des captures.
+
 # Validation 0.16.1 — showroom et garage de huit voitures
 
 - 398 contrôles du cœur : capacité, doublons, identités invalides, libération de

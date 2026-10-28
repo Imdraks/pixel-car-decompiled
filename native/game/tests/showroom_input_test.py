@@ -38,7 +38,7 @@ try:
  click(280,435);key('Tab')
  for identifier in keys[1:8]:search(identifier);key('Return')
  check('eight_cars_acquired',set(owned())==set(keys[:8]));check('acquisition_keeps_active_preparation',ini(data/'profile.ini')==original);key('F12')
- search(keys[8]);key('Return');click(1000,650);check('ninth_car_blocked_keyboard_and_mouse',len(owned())==8 and keys[8] not in owned());key('F12')
+ search(keys[8]);key('Return');click(1000,625);check('ninth_car_blocked_keyboard_and_mouse',len(owned())==8 and keys[8] not in owned());key('F12')
  key('Tab');search(keys[1]);key('Delete');key('F12');key('Escape');check('cancel_removal_preserves_inventory',len(owned())==8)
  # A named preparation is an alternate acquisition path, never a capacity bypass.
  imported=dict(original,vehicle_id=keys[8],car='8',part_engine='30008',factory_engine_id='30008',saved_name='Import neuvieme')

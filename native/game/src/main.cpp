@@ -321,7 +321,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.16.1",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.16.2",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},TextFormat("GARAGE  |  %i / 8",int(ownedVehicles.cars.size()))))openVehicleBrowser();
@@ -711,7 +711,7 @@ struct App {
             return;
         }
         auto choices=vehicleChoices();if(choices.empty())return;auto found=std::find(choices.begin(),choices.end(),vehicleSelection);int index=found==choices.end()?0:int(found-choices.begin());
-        int d=IsKeyPressed(KEY_RIGHT)?1:IsKeyPressed(KEY_LEFT)?-1:IsKeyPressed(KEY_DOWN)?3:IsKeyPressed(KEY_UP)?-3:0;
+        int d=(IsKeyPressed(KEY_RIGHT)||IsKeyPressed(KEY_DOWN))?1:(IsKeyPressed(KEY_LEFT)||IsKeyPressed(KEY_UP))?-1:0;
         if(IsKeyPressed(KEY_PAGE_DOWN))d=9;
         if(IsKeyPressed(KEY_PAGE_UP))d=-9;
         if(d){index=std::clamp(index+d,0,int(choices.size())-1);vehicleSelection=choices[index];vehiclePage=index/9;}
@@ -719,47 +719,75 @@ struct App {
         if(IsKeyPressed(KEY_ENTER))useSelectedVehicle();
     }
     void vehicleBrowserScene(){
-        card({22,26,1236,665},Color{16,22,29,250});text(showroom?"SHOWROOM":"MON GARAGE",38,45,29,Accent);
-        text(TextFormat("%i / 8 PLACES",int(ownedVehicles.cars.size())),390,52,21,ownedVehicles.cars.size()==GarageCapacity?Gold:Accent);
+        card({22,26,642,665},Color{16,22,29,250});card({682,26,576,665},Color{16,22,29,250});
+        text(showroom?"SHOWROOM":"MON GARAGE",42,46,28,Accent);
+        text(TextFormat("%i / 8 PLACES",int(ownedVehicles.cars.size())),441,52,21,ownedVehicles.cars.size()==GarageCapacity?Gold:Accent);
         bool modal=removeVehiclePending>=0;uiEnabled=uiEnabled&&!modal;
-        if(button({680,40,260,37},"MON GARAGE [TAB]",!showroom))switchVehicleTab(false);
-        if(button({958,40,280,37},"SHOWROOM [TAB]",showroom))switchVehicleTab(true);
-        text(showroom?"Ajoutez librement une voiture. Huit places maximum ; un exemplaire par modèle/variante.":"Choisissez votre voiture active ou retirez-en une pour libérer une place. Préparations indépendantes.",38,88,16,Muted);
-        Rectangle search{38,120,740,39};DrawRectangleRec(search,Color{43,43,49,255});DrawRectangleLinesEx(search,vehicleSearchFocused?2:1,vehicleSearchFocused?Accent:Muted);
-        text(vehicleSearch.empty()?"Rechercher un modèle, une marque... (Ctrl+F)":vehicleSearch,50,131,17,vehicleSearch.empty()?Muted:WHITE);
+        if(button({700,42,258,35},"MON GARAGE [TAB]",!showroom))switchVehicleTab(false);
+        if(button({974,42,268,35},"SHOWROOM [TAB]",showroom))switchVehicleTab(true);
+        Rectangle search{700,94,542,38};DrawRectangleRec(search,Color{43,43,49,255});DrawRectangleLinesEx(search,vehicleSearchFocused?2:1,vehicleSearchFocused?Accent:Muted);
+        text(vehicleSearch.empty()?"Marque, modèle... (Ctrl+F)":vehicleSearch,712,105,17,vehicleSearch.empty()?Muted:WHITE);
         if(uiEnabled&&IsMouseButtonPressed(MOUSE_BUTTON_LEFT))vehicleSearchFocused=hit(search);
-        int categoryDirection=0;if(button({800,120,40,39},"<"))categoryDirection=-1;if(button({1200,120,40,39},">"))categoryDirection=1;
-        if(categoryDirection){vehicleCategory+=categoryDirection;if(vehicleCategory< -1)vehicleCategory=7;if(vehicleCategory>7)vehicleCategory=-1;vehiclePage=0;}
-        std::string category=vehicleCategory<0?"TOUTES CATÉGORIES":VehicleCategories[vehicleCategory];text(category,851,133,16,Accent);
+        int categoryDirection=0;if(button({700,147,38,33},"<"))categoryDirection=-1;if(button({1204,147,38,33},">"))categoryDirection=1;
+        if(categoryDirection){vehicleCategory+=categoryDirection;if(vehicleCategory< -1)vehicleCategory=7;if(vehicleCategory>7)vehicleCategory=-1;vehiclePage=0;vehicleSelection=-1;}
+        std::string category=vehicleCategory<0?"TOUTES CATÉGORIES":VehicleCategories[vehicleCategory];text(category,752,157,16,Accent);
         auto choices=vehicleChoices();int pages=std::max(1,(int(choices.size())+8)/9);vehiclePage=std::clamp(vehiclePage,0,pages-1);
-        if(!choices.empty()&&std::find(choices.begin(),choices.end(),vehicleSelection)==choices.end())vehicleSelection=choices[0];
-        for(int cell=0;cell<9;cell++){
-            int at=vehiclePage*9+cell;if(at>=int(choices.size()))break;int id=choices[at];const auto& v=VehicleCatalog[id];
-            Rectangle r{float(38+(cell%3)*406),float(178+(cell/3)*143),390,132};
-            DrawRectangleRec(r,vehicleSelection==id?Color{47,73,68,255}:Color{32,42,51,255});DrawRectangleLinesEx(r,vehicleSelection==id?2:1,vehicleSelection==id?Accent:Muted);
-            auto base=factoryVehicle(id);if(ownedVehicles.owns(id)){Profile saved;std::string error;if(loadVehicleProfile(args.data/"vehicles",id,saved,error))base=saved;}
-            if(id==bodyChoiceIndex(profile)&&hasActiveVehicle())base=profile;
-            auto build=buildVehicle(base);car(base.car,base.rim,r.x+4,r.y+29,.53f,0,true,build.tireFrame,build.rideOffset,build.exhaustFrame,-1,&base);
-            std::string name=v.name;auto split=name.size()>25?name.rfind(' ',25):std::string::npos;
-            if(split!=std::string::npos){text(name.substr(0,split),r.x+168,r.y+10,13);text(name.substr(split+1,28),r.x+168,r.y+27,13);}else text(name,r.x+168,r.y+15,13);
-            text(sourceLabel(v.sourceMask),r.x+168,r.y+47,11,Accent);
-            text(TextFormat("%.0f HP | %.0f kg",build.boostedHp,build.vehicle.mass),r.x+168,r.y+65,12,Muted);
-            text(VehicleCategories[v.category],r.x+168,r.y+83,11,Muted);
-            bool owned=ownedVehicles.owns(id);bool active=id==bodyChoiceIndex(profile)&&hasActiveVehicle();
-            text(active?"VOITURE ACTIVE":owned?"DANS VOTRE GARAGE":"DISPONIBLE AU SHOWROOM",r.x+168,r.y+107,10,active?Gold:owned?Accent:Muted);
-            if(hit(r)){tooltipText=std::string(v.name)+" | "+v.id+" | "+findPart(v.factoryEngineId)->name;if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){vehicleSelection=id;vehicleSearchFocused=false;audio.click(settings.sound);}}
+        if(!choices.empty()&&std::find(choices.begin(),choices.end(),vehicleSelection)==choices.end())vehicleSelection=choices[vehiclePage*9];
+        if(uiEnabled&&hit({700,194,542,351})&&!choices.empty()){
+            int wheel=int(GetMouseWheelMove());if(wheel){auto found=std::find(choices.begin(),choices.end(),vehicleSelection);int index=found==choices.end()?0:int(found-choices.begin());index=std::clamp(index-wheel,0,int(choices.size())-1);vehicleSelection=choices[index];vehiclePage=index/9;}
         }
-        if(choices.empty())text(!showroom&&ownedVehicles.cars.empty()?"Garage vide. Ouvrez le SHOWROOM pour prendre une voiture.":"Aucune voiture ne correspond à cette recherche.",70,270,20,Muted);
-        if(button({38,630,49,40},"<",false,vehiclePage>0)){--vehiclePage;vehicleSelection=choices[vehiclePage*9];}
-        text(TextFormat("%i / %i | %i voitures",vehiclePage+1,pages,int(choices.size())),105,641,16,Muted);
-        if(button({328,630,49,40},">",false,vehiclePage+1<pages)){++vehiclePage;vehicleSelection=choices[vehiclePage*9];}
-        if(button({413,630,150,40},"RETOUR"))screen=vehicleReturn;
+        for(int row=0;row<9;row++){
+            int at=vehiclePage*9+row;if(at>=int(choices.size()))break;int id=choices[at];const auto& v=VehicleCatalog[id];
+            Rectangle r{700,float(194+row*39),542,36};bool selected=vehicleSelection==id;
+            DrawRectangleRec(r,selected?Color{43,76,69,255}:Color{30,40,51,255});
+            if(selected)DrawRectangle(int(r.x),int(r.y),4,int(r.height),Accent);
+            float size=17;while(size>11&&MeasureTextEx(font,v.name,size,0).x>420)size-=1;
+            text(v.name,r.x+13,r.y+4,size,selected?WHITE:Color{218,227,233,255});
+            text(sourceLabel(v.sourceMask),r.x+13,r.y+23,10,Muted);
+            bool owned=ownedVehicles.owns(id),active=owned&&id==bodyChoiceIndex(profile);
+            if(owned)text(active?"ACTIVE":"GARAGE",r.x+462,r.y+11,12,active?Gold:Accent);
+            if(hit(r)){DrawRectangleLinesEx(r,1,Accent);if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){vehicleSelection=id;vehicleSearchFocused=false;audio.click(settings.sound);}}
+        }
+        if(choices.empty())text("Aucun modèle dans cette liste.",730,321,19,Muted);
+        if(button({700,554,42,32},"<",false,vehiclePage>0)){--vehiclePage;vehicleSelection=choices[vehiclePage*9];}
+        text(TextFormat("%i / %i  |  %i voitures",vehiclePage+1,pages,int(choices.size())),761,563,16,Muted);
+        if(button({1200,554,42,32},">",false,vehiclePage+1<pages)){++vehiclePage;vehicleSelection=choices[vehiclePage*9];}
         bool selectedOwned=!choices.empty()&&ownedVehicles.owns(vehicleSelection);
-        if(button({585,630,198,40},"RETIRER [SUPPR]",false,!showroom&&selectedOwned))removeVehiclePending=vehicleSelection;
         bool canTake=selectedOwned||ownedVehicles.cars.size()<GarageCapacity;
         std::string action=showroom&&!selectedOwned?canTake?"AJOUTER AU GARAGE":"GARAGE PLEIN — 8 / 8":"UTILISER CETTE VOITURE";
-        if(button({800,625,438,49},action,true,!choices.empty()&&canTake))useSelectedVehicle();
-        if(!notice.empty())text(notice.substr(0,115),38,674,12,Gold);
+        if(button({700,603,542,44},action,true,!choices.empty()&&canTake))useSelectedVehicle();
+        if(button({700,658,258,28},"RETIRER [SUPPR]",false,!showroom&&selectedOwned))removeVehiclePending=vehicleSelection;
+        if(button({974,658,268,28},"RETOUR"))screen=vehicleReturn;
+        // Compose only the selected vehicle: no shared texture is recycled across a grid.
+        if(!choices.empty()){
+            const auto& v=VehicleCatalog[vehicleSelection];auto preview=factoryVehicle(vehicleSelection);std::string error;
+            bool stored=fs::exists(vehicleGarageFile(args.data/"vehicles",preview));
+            if(stored){Profile saved;if(loadVehicleProfile(args.data/"vehicles",vehicleSelection,saved,error))preview=saved;}
+            if(vehicleSelection==bodyChoiceIndex(profile)&&hasActiveVehicle())preview=profile;
+            auto build=buildVehicle(preview);std::string name=v.name;float nameSize=27;while(nameSize>17&&MeasureTextEx(font,name.c_str(),nameSize,0).x>598)nameSize-=1;
+            text(name,42,104,nameSize);text(sourceLabel(v.sourceMask),42,147,16,Accent);
+            text(VehicleCategories[v.category],42,173,15,Muted);
+            crop(art::garages[0],{38,211,610,312},Color{155,166,180,255});DrawRectangle(38,211,610,312,Fade(Ink,.30f));
+            content.compose(preview);auto bounds=content.bodyBounds;auto w=bodyWheels(preview.car,preview.contentSource==1);
+            float minX=std::min(bounds.x-materials::CanvasX,w.rear-w.radius*1.3f),maxX=std::max(bounds.x+bounds.width-materials::CanvasX,w.front+w.radius*1.3f);
+            float minY=bounds.y-materials::CanvasY+float(build.rideOffset),maxY=std::max(bounds.y+bounds.height-materials::CanvasY+float(build.rideOffset),w.y+w.radius*1.3f);
+            float scale=std::min({3.f,566/std::max(1.f,maxX-minX),270/std::max(1.f,maxY-minY)});
+            float x=343-(minX+maxX)*scale/2,y=500-maxY*scale;
+            car(preview.car,preview.rim,x,y,scale,0,true,build.tireFrame,build.rideOffset,build.exhaustFrame,-1,&preview);
+            std::string status=selectedOwned?(vehicleSelection==bodyChoiceIndex(profile)?"VOITURE ACTIVE":"DANS VOTRE GARAGE"):stored?"PRÉPARATION ARCHIVÉE":"DISPONIBLE AU SHOWROOM";
+            text(status,51,225,13,selectedOwned?Accent:Gold);
+            for(int i=0;i<3;i++)card({42.f+i*204,541,190,59},Color{27,37,48,255});
+            text("PUISSANCE",54,550,12,Muted);text(TextFormat("%.0f HP",build.boostedHp),54,571,24,Accent);
+            text("POIDS",258,550,12,Muted);text(TextFormat("%.0f kg",build.vehicle.mass),258,571,24);
+            text("TRANSMISSION",462,550,12,Muted);const char* layout=build.vehicle.drive==DriveLayout::Front?"TRACTION":build.vehicle.drive==DriveLayout::Rear?"PROPULSION":"4 ROUES MOTRICES";text(layout,462,575,15);
+            const auto* engine=findPart(preview.parts[0]);std::string motor=engine?engine->name:"Moteur d'origine";float size=17;while(size>11&&MeasureTextEx(font,motor.c_str(),size,0).x>595)size-=1;
+            text("MOTEUR ÉQUIPÉ",42,615,12,Muted);text(motor,42,638,size);
+            if(!error.empty())notice=error;
+        }else{
+            text("AUCUNE VOITURE SÉLECTIONNÉE",42,120,22,Muted);
+            text(!showroom&&ownedVehicles.cars.empty()?"Garage vide. Ajoutez une voiture depuis le showroom.":"Modifiez la recherche ou la catégorie.",42,338,18,Muted);
+        }
+        if(!notice.empty()){float size=14;while(size>10&&MeasureTextEx(font,notice.c_str(),size,0).x>596)size-=1;text(notice,42,672,size,Gold);}
         if(modal){
             uiEnabled=!options&&!confirming;DrawRectangle(0,0,1280,720,Fade(BLACK,.72f));card({285,230,710,260});
             text("RETIRER CETTE VOITURE ?",315,256,26,Gold);text(VehicleCatalog[removeVehiclePending].name,315,300,22);
@@ -1464,7 +1492,11 @@ struct App {
         if(frames==673)capture("retirer-voiture.png");
         if(frames==675){removeVehiclePending=-1;ownedVehicles.cars.clear();showroom=false;check(vehicleChoices().empty(),"empty garage does not display archived or showroom cars");}
         if(frames==677)capture("garage-vide.png");
-        if(frames==679)quit=true;
+        if(frames==681){openVehicleBrowser(true);showroom=true;vehicleSearch="pcr-shared-000";vehicleSelection=0;vehiclePage=0;}
+        if(frames==683){check(content.key.rfind("0:",0)==0,"large showroom preview follows selected Civic");capture("showroom-preview-civic.png");}
+        if(frames==685){vehicleSearch="pcr-shared-070";vehicleSelection=70;vehiclePage=0;}
+        if(frames==687){check(content.key.rfind("70:",0)==0&&content.bodyBounds.width>100,"large showroom preview switches to the selected Corvette");capture("showroom-preview-corvette.png");}
+        if(frames==689){check(profile.car==0,"browsing showroom previews does not replace the active vehicle");quit=true;}
 
     }
     int run(){

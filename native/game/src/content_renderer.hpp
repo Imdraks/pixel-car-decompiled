@@ -13,7 +13,7 @@ inline const art::Frame& equippedRim(int id,bool original){auto r=findRim(id);re
 inline art::Wheels bodyWheels(int car,bool original){const float* a=original?content_art::originalAnchors[car]:content_art::unboundAnchors[car];return {a[0],a[1],a[2],a[3]};}
 class ContentRenderer {
 public:
-    std::map<int,Image> pixels;Texture2D body{};std::string key;
+    std::map<int,Image> pixels;Texture2D body{};Rectangle bodyBounds{};std::string key;
     Image image(const art::Frame& f)const{
         Image out=GenImageColor(f.canvasW,f.canvasH,BLANK);auto at=pixels.find(f.atlas);
         if(at!=pixels.end())ImageDrawImagePro(&out,at->second,{float(f.x),float(f.y),float(f.w),float(f.h)},{float(f.dx),float(f.dy),float(f.w),float(f.h)},{0,0},0,WHITE);
@@ -85,7 +85,7 @@ public:
     Texture2D compose(const Profile& p){
         std::ostringstream id;id<<p.car<<':'<<p.contentSource<<':'<<p.rollCage<<':'<<p.headlights;for(int c:p.cosmetics)id<<':'<<c;
         if(body.id&&key==id.str())return body;
-        key=id.str();Image im=composeImage(p);
+        key=id.str();Image im=composeImage(p);bodyBounds=GetImageAlphaBorder(im,.01f);
         if(body.id){rlDrawRenderBatchActive();UnloadTexture(body);}
         body=LoadTextureFromImage(im);SetTextureFilter(body,TEXTURE_FILTER_POINT);UnloadImage(im);return body;
     }
