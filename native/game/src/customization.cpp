@@ -72,16 +72,14 @@ void equipBestParts(Profile& profile){
         for(const auto& p:PartCatalog)if(int(p.slot)==slot&&(!best||weakerPart(*best,p)))best=&p;
         if(best)equipPart(profile,PartSlot(slot),best->id);
     }
-    for(const auto& p:PartCatalog)if(p.slot==PartSlot::Engine){
-        Profile alternate=profile;equipPart(alternate,PartSlot::Engine,p.id);
-        if(buildVehicle(alternate).boostedHp>buildVehicle(profile).boostedHp)profile=alternate;
-    }
-    // Compare the best compressor to the turbo using the actual steady-state power.
-    const Part* compressor=nullptr;
-    for(const auto& p:PartCatalog)if(p.slot==PartSlot::Supercharger&&(!compressor||weakerPart(*compressor,p)))compressor=&p;
-    if(compressor){Profile alternate=profile;equipPart(alternate,PartSlot::Supercharger,compressor->id);
-        if(buildVehicle(alternate).boostedHp>buildVehicle(profile).boostedHp)profile=alternate;
-    }
+    // Compare complete engine/induction pairs, including airflow-limited assemblies.
+    Profile best=profile;double bestHp=buildVehicle(best).boostedHp;
+    for(const auto& engine:PartCatalog)if(engine.slot==PartSlot::Engine)
+        for(const auto& induction:PartCatalog)if(induction.slot==PartSlot::Turbo||induction.slot==PartSlot::Supercharger){
+            Profile alternate=profile;equipPart(alternate,PartSlot::Engine,engine.id);equipPart(alternate,induction.slot,induction.id);
+            double hp=buildVehicle(alternate).boostedHp;if(hp>bestHp){best=alternate;bestHp=hp;}
+        }
+    profile=best;
 }
 static double powerPerTorque(const Vehicle& vehicle){return peakPower(vehicle,false).hp*745.699872/vehicle.torque;}
 const char* gearboxPresetName(int preset){
@@ -146,6 +144,18 @@ Build buildVehicle(const Profile& profile){
         // Native charge-temperature calibration: intercooling recovers boost efficiency.
         auto* cooler=chosen(PartSlot::Intercooler);
         v.boostEfficiency=.65+.35*(cooler?std::clamp(cooler->stat/107.0,0.0,1.0):0);
+        if(const auto* t=pcTurbo(boost->id)){
+            v.turboFlowHp=t->capacityHp;v.turboSpoolStartRpm=t->spoolStartRpm;v.turboFullBoostRpm=t->fullBoostRpm;
+            v.turboRiseSeconds=t->riseSeconds;v.turboSecondaryStartRpm=t->secondaryStartRpm;
+            v.turboSecondaryFullRpm=t->secondaryFullRpm;v.turboFirstShare=t->firstShare;
+            v.turboCount=t->count;v.turboSoundPitch=t->soundPitch;v.turboSoundGain=t->soundGain;
+            v.turboAutoValve=t->layout==TurboLayout::Hybrid?1:t->layout==TurboLayout::Electric?2:t->count>=2?3:t->psi>=40?2:0;
+            double litres=pc?pc->litres:enginePart?replacementEngine(enginePart->subimage).litres:stock.litres;
+            double exhaustScale=std::clamp(std::pow(3.0/std::max(.7,litres),.35),.65,1.35);
+            v.turboSpoolStartRpm*=exhaustScale;v.turboFullBoostRpm*=exhaustScale;
+            v.turboSecondaryStartRpm*=exhaustScale;v.turboSecondaryFullRpm*=exhaustScale;
+            v.turboRiseSeconds*=std::clamp(std::pow(3.0/std::max(.7,litres),.25),.7,1.3);
+        }
     }
     v.curveRpmScale=v.redlineRpm/8100.0;
     if(auto* p=chosen(PartSlot::Nos))v.nitroHp=p->stat;

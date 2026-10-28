@@ -161,10 +161,10 @@ int main(int argc,char**argv){
     expect(benchmarkText.find("\"sanity_checks_passed\": true")!=std::string::npos,"benchmark scenarios pass their sanity checks");
     bool refused=false;try{writePhysicsBenchmark(benchmark);}catch(const std::exception&){refused=true;}
     expect(refused,"benchmark refuses to replace an existing directory");
-    expect(std::size(PartCatalog)==211,"merged original and Unbound performance entries are included");
+    expect(std::size(PartCatalog)==229,"merged original and Unbound performance entries are included");
     std::array<int,PartSlotCount> counts{};
     for(const auto& part:PartCatalog)++counts[int(part.slot)];
-    expect(counts==std::array<int,PartSlotCount>{31,16,16,10,8,5,21,13,7,48,36},"catalog includes every requested category and supercharger split");
+    expect(counts==std::array<int,PartSlotCount>{31,16,34,10,8,5,21,13,7,48,36},"catalog includes every requested category and supercharger split");
     Profile custom;
     expect(equipPart(custom,PartSlot::Engine,1002),"2JZ can be equipped by stable catalog ID");
     auto jz=buildVehicle(custom);
@@ -304,6 +304,40 @@ int main(int argc,char**argv){
     expect(blendValid&&mixCases==360,"six simulated engine packs preserve unity gain across RPM/load anchors and bounded pitches");
     expect(continuousBlend&&overrideBlend,"simulated blend is continuous at RPM anchors and manual on/off overrides mute only the corresponding layers");
     expect(simulatedPack(1008)&&simulatedPack(1501)&&simulatedPack(1502)&&simulatedPack(1503)&&simulatedPack(1504)&&simulatedPack(1505)&&!simulatedPack(1002)&&!simulatedPack(1515),"only the six validated engines use a simulated bank; source engines and W16 retain their original fallback");
+    bool turboValid=true;int turboCases=0;std::ofstream turboTrace(root/"pc-turbos.csv");
+    turboTrace<<"id,engine_id,psi,flow_hp,actual_hp,boost_2500,boost_4500,boost_7000\n";
+    for(const auto& t:PcTurbos)for(int id:{1003,1008,1504,1515}){
+        Profile p;equipPart(p,PartSlot::Engine,id);double baseline=buildVehicle(p).boostedHp;
+        equipPart(p,PartSlot::Turbo,t.id);equipPart(p,PartSlot::Intercooler,7013);auto b=buildVehicle(p);
+        turboValid&=b.vehicle.turboCount==t.count&&b.vehicle.turboFlowHp==t.capacityHp&&b.boostedHp<=std::max(baseline,t.capacityHp)+.01&&b.boostedHp>=baseline-.01;
+        turboValid&=targetBoost(b.vehicle,0)==0&&targetBoost(b.vehicle,20000)<=t.psi&&targetBoost(b.vehicle,20000)>.99*t.psi;
+        std::string err;saveProfile(root/"turbo-save.ini",p,err);turboValid&=loadProfile(root/"turbo-save.ini",191,54).parts[2]==t.id;
+        turboTrace<<t.id<<','<<id<<','<<t.psi<<','<<t.capacityHp<<','<<b.boostedHp<<','<<targetBoost(b.vehicle,2500)<<','<<targetBoost(b.vehicle,4500)<<','<<targetBoost(b.vehicle,7000)<<'\n';++turboCases;
+    }
+    expect(turboValid&&turboCases==72,"18 turbo assemblies match four engine families, preserve saves and stay within their airflow and pressure envelope");
+    Profile parallel;equipPart(parallel,PartSlot::Turbo,16010);auto pv=buildVehicle(parallel).vehicle;
+    expect(targetBoost(pv,9000)==48&&pv.turboCount==2,"parallel twin turbos share one manifold pressure instead of doubling boost");
+    Profile quad;equipPart(quad,PartSlot::Turbo,16013);auto qv=buildVehicle(quad).vehicle;
+    expect(targetBoost(qv,3000)>0&&targetBoost(qv,3700)<64*.56&&targetBoost(qv,20000)==64,"quad sequential assembly progressively brings its second pair online");
+    Profile electric;equipPart(electric,PartSlot::Turbo,16004);auto ev=buildVehicle(electric).vehicle;
+    expect(targetBoost(ev,2500)>targetBoost(pv,2500)&&ev.turboRiseSeconds<pv.turboRiseSeconds,"electrically assisted turbo responds at lower RPM with a faster pressure rise");
+    Profile smallTurbo,bigTurbo;equipPart(smallTurbo,PartSlot::Engine,1003);equipPart(bigTurbo,PartSlot::Engine,1515);
+    equipPart(smallTurbo,PartSlot::Turbo,16010);equipPart(bigTurbo,PartSlot::Turbo,16010);
+    auto smallTurboVehicle=buildVehicle(smallTurbo).vehicle,bigTurboVehicle=buildVehicle(bigTurbo).vehicle;
+    expect(bigTurboVehicle.turboFullBoostRpm<smallTurboVehicle.turboFullBoostRpm&&bigTurboVehicle.turboRiseSeconds<smallTurboVehicle.turboRiseSeconds,"larger displacement supplies earlier and faster turbo response for the same assembly");
+    std::ofstream spoolTrace(root/"turbo-response.csv");spoolTrace<<"turbo_id,time_s,rpm,boost_psi,target_psi\n";double slowFraction=0,fastFraction=0;
+    for(int id:{16007,16008}){
+        Profile p;equipPart(p,PartSlot::Engine,1002);equipPart(p,PartSlot::Turbo,id);auto vehicle=buildVehicle(p).vehicle;
+        vehicle.redlineRpm=12000;vehicle.mass=1000000;vehicle.dragArea=0;vehicle.rollingResistance=0;
+        CarState car;car.gear=4;double speed=9000*2*3.141592653589793*vehicle.wheelRadius/(60*vehicle.ratios[3]*vehicle.finalDrive);
+        for(int tick=0;tick<120;tick++){car.speed=speed;stepCar(car,vehicle,{true,false,false},Step,0);
+            spoolTrace<<id<<','<<car.elapsed<<','<<car.rpm<<','<<car.boostPsi<<','<<targetBoost(vehicle,car.rpm)<<'\n';
+            if(tick==23){if(id==16007)slowFraction=car.boostPsi/vehicle.boostPsi;else fastFraction=car.boostPsi/vehicle.boostPsi;}
+        }
+    }
+    expect(fastFraction>slowFraction+.4&&fastFraction<=1,"actual time integration gives electric assistance a faster boost rise than a large single turbo");
+    equipPart(electric,PartSlot::Supercharger,3020);
+    expect(electric.parts[2]==0&&buildVehicle(electric).vehicle.turboFlowHp==0,"fitting a supercharger removes the whole turbo assembly and its airflow parameters");
     Profile swappedSound;equipPart(swappedSound,PartSlot::Engine,1007);swappedSound.soundOn=4;
     auto overrideSound=engineSamples(swappedSound);
     expect(overrideSound.on==47&&overrideSound.off==23,"manual acceleration override preserves the equipped engine's recovered deceleration sound");
@@ -404,10 +438,10 @@ int main(int argc,char**argv){
     expect(staged.speed>0&&!staged.launching,"releasing launch control delivers drive torque");
     Profile ultimate;ultimate.car=20;ultimate.rim=8;ultimate.drive=DriveLayout::All;ultimate.soundOn=4;
     equipBestParts(ultimate);auto full=buildVehicle(ultimate);
-    expect(ultimate.parts[0]!=0&&ultimate.parts[2]==3026&&ultimate.parts[3]==0,"maximum preparation selects a complete engine and exclusive induction");
+    expect(ultimate.parts[0]!=0&&ultimate.parts[2]==16018&&ultimate.parts[3]==0,"maximum preparation selects a complete engine and exclusive induction");
     expect(ultimate.car==20&&ultimate.rim==8&&ultimate.drive==DriveLayout::All&&ultimate.soundOn==4,"maximum preparation preserves appearance, drive and audio preferences");
     expect(full.boostedHp>4200&&full.nitroHp>4500&&full.nitroHp-full.boostedHp==250,"maximum parts combine into over 4500 rated HP with NOS");
-    Profile legacyMax=ultimate;equipPart(legacyMax,PartSlot::Engine,1014);auto legacyFull=buildVehicle(legacyMax);
+    Profile legacyMax=ultimate;equipPart(legacyMax,PartSlot::Engine,1014);equipPart(legacyMax,PartSlot::Turbo,3026);auto legacyFull=buildVehicle(legacyMax);
     double expectedHp=(755+38+100+95)*((engineRedline(legacyMax)+2300)/engineRedline(legacyMax))*(1+35/14.7);
     expect(std::abs(legacyFull.boostedHp-expectedHp)/expectedHp<.0001,"full preparation matches an independently calculated compound power budget");
     Profile coolerOnly;equipPart(coolerOnly,PartSlot::Intercooler,7013);
@@ -571,7 +605,7 @@ int main(int argc,char**argv){
     }
     expect(validRimsPreserved,"all 23 real source rims preserve their IDs across profile loading");
     expect(invalidRimsRepaired,"all 31 tyre/effect legacy rim selections migrate without losing equipment");
-    expect(std::size(RimCatalog)==521&&std::size(CosmeticCatalog)==503&&std::size(PartCatalog)==211,"merged shop includes 1235 equipment choices including distinct source seat variants");
+    expect(std::size(RimCatalog)==521&&std::size(CosmeticCatalog)==503&&std::size(PartCatalog)==229,"merged shop includes 1253 equipment choices including distinct source seat variants");
     bool namedRimsPersist=true,rimImagesValid=true;
     for(const auto& rim:RimCatalog){
         Profile p;p.rim=rim.id;saveProfile(root/"named-rim.ini",p,error);auto loaded=loadProfile(root/"named-rim.ini",191,54);namedRimsPersist&=loaded.rim==rim.id;
@@ -672,7 +706,7 @@ int main(int argc,char**argv){
     for(int tick=0;tick<1200;tick++)stepCar(equilibrium,standard.vehicle,{false,false,true},Step,0);
     expect(std::abs(equilibrium.pitch)<1e-9&&std::abs(equilibrium.heave)<1e-9&&std::abs(equilibrium.frontLoad+equilibrium.rearLoad-standard.vehicle.mass*9.81)<1e-6,"front and rear spring preloads support the resting mass without drift");
     // Pin the historical suspension regression chassis to its LT5 fixture.
-    Profile powerful=chassis;equipBestParts(powerful);equipPart(powerful,PartSlot::Engine,1014);auto launchVehicle=buildVehicle(powerful).vehicle;
+    Profile powerful=chassis;equipBestParts(powerful);equipPart(powerful,PartSlot::Engine,1014);equipPart(powerful,PartSlot::Turbo,3026);auto launchVehicle=buildVehicle(powerful).vehicle;
     std::array<CarState,2> tcRuns{};std::array<double,2> slipIntegral{};std::array<double,2> minFactors{1,1};
     for(int enabled=0;enabled<2;enabled++){
         auto car=launchVehicle;car.tractionControl=enabled;

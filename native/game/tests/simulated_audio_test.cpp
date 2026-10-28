@@ -47,12 +47,20 @@ int main(int argc,char** argv){try{
             p.soundOn=p.soundOff=4;pump(true,12);require(audio.simulatedStatus.engineId==0,"Full manual sound must bypass the simulated bank");
             report<<"PASS engine="<<pack.engineId<<" source_bank="<<bank<<" streams="<<pack.count<<" no_restarts=1 independent_overrides=1 startup_shutdown=1 mute=1\n";++cases;
         }
+        for(const auto& turbo:PcTurbos){
+            Profile p;equipPart(p,PartSlot::Engine,1008);equipPart(p,PartSlot::Turbo,turbo.id);auto vehicle=buildVehicle(p).vehicle;
+            CarState state;state.rpm=6000;auto before=energy.load();
+            for(int tick=0;tick<30;tick++){state.elapsed+=.01;state.boostPsi=turbo.psi*(.2+.8*tick/29.0);audio.update(p,vehicle,state,{true,false,true},0,true,true);std::this_thread::sleep_for(std::chrono::milliseconds(10));}
+            require(energy.load()>before&&vehicle.turboAutoValve>=0&&vehicle.turboAutoValve<=3,"Turbo profile/valve did not produce a valid mix");
+            state.boostPsi=0;audio.update(p,vehicle,state,{false,false,true},0,true,true);std::this_thread::sleep_for(std::chrono::milliseconds(40));
+            report<<"PASS turbo="<<turbo.id<<" count="<<turbo.count<<" pitch="<<vehicle.turboSoundPitch<<" valve="<<vehicle.turboAutoValve<<'\n';
+        }
         // Switching back to an untouched source engine releases all simulated loops.
         Profile fallback;equipPart(fallback,PartSlot::Engine,1002);auto v=buildVehicle(fallback).vehicle;CarState s;s.rpm=4000;
         audio.update(fallback,v,s,{true,false,true},0,true,true);require(audio.simulatedStatus.engineId==0,"Source engine uses an unrelated simulated pack");
         require(audio.failures==0,"Stream or event load failure");DetachAudioMixedProcessor(capture);
     }
     require(cases==12&&frames>0&&invalid==0&&peakMillion<1000000,"Invalid or saturated real mixed PCM");
-    report<<"PASS: 12 real simulated engine/bank cases, fallback, event and manual-priority checks.\nframes="<<frames<<"\npeak="<<peakMillion.load()/1000000.0<<"\nfinite_pcm=1\nphysical_speaker_listening=0\n";
+    report<<"PASS: 12 real simulated engine/bank cases, 18 turbo audio profiles, fallback, event and manual-priority checks.\nframes="<<frames<<"\npeak="<<peakMillion.load()/1000000.0<<"\nfinite_pcm=1\nphysical_speaker_listening=0\n";
     std::cout<<"PASS: 12 simulated engine/bank cases, peak "<<peakMillion.load()/1000000.0<<'\n';return 0;
 }catch(const std::exception& e){std::cerr<<"FAIL: "<<e.what()<<'\n';return 1;}}

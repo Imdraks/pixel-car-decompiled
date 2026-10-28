@@ -38,6 +38,7 @@ inline constexpr Part PartCatalog[] = {
 {2014,PartSlot::Suspension,"VX Slams",0.0,90.0,120000.0,14,3,-1},
 {2015,PartSlot::Suspension,"VX Slams",0.0,90.0,120000.0,15,3,-1},
 {2016,PartSlot::Suspension,"VX BAGS",0.0,90.0,160000.0,16,3,-1},
+#include "pc_turbo_parts.inc"
 {3001,PartSlot::Turbo,"Reddy T58 (24K Gold)",33.0,98.0,1400000.0,1,3,-1},
 {3002,PartSlot::Turbo,"Reddy T1X",31.0,110.0,600000.0,2,3,-1},
 {3003,PartSlot::Turbo,"Reddy T1R",28.0,120.0,250000.0,3,3,-1},

@@ -259,7 +259,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.13.9",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.14.0",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},"GARAGE")){openCustomization();screen=Screen::Garage;}
@@ -532,6 +532,10 @@ struct App {
         if(selected&&hit({759,509,335,45}))tooltipText=TextFormat("%s | statistique %.0f | poids relatif %.0f | valeur catalogue $%.0f",selected->name,selected->stat,selected->weight,selected->value);
         if(selected)if(const auto* e=pcEngine(selected->id)){
             text(TextFormat("%.1f L | %.0f HP | %.0f tr/min | %s",e->litres,selected->stat,e->redlineRpm,simulatedPack(e->id)?"son simule":"son adapte"),761,551,11,Gold);
+        }
+        if(selected)if(const auto* t=pcTurbo(selected->id)){
+            if(hit({759,509,335,45}))tooltipText=TextFormat("%i turbo(s) | plein boost vers %.0f tr/min | montee %.2f s | puissance selon moteur et pieces",t->count,preview.vehicle.turboSecondaryFullRpm>0?preview.vehicle.turboSecondaryFullRpm:preview.vehicle.turboFullBoostRpm,preview.vehicle.turboRiseSeconds);
+            text(TextFormat("%s | %.0f PSI | capacite %.0f HP",turboLayoutName(t->layout),t->psi,t->capacityHp),761,551,10,Gold);
         }
         if(fit.partial)text("Kit partiel : panneaux absents conservés d'origine",761,551,11,Gold);
         bool equipped=equippedChoice()==customPreview;
@@ -1202,7 +1206,12 @@ struct App {
         if(frames==613)capture("mes-voitures.png");
         if(frames==614){savedSelection=1;loadSelectedCar();check(profile.car==20&&profile.parts[0]==1504&&profile.savedName=="F1 Drag","loading a named car restores its chassis, engine and name");}
         if(frames==616)capture("voiture-chargee.png");
-        if(frames==617)quit=true;
+        if(frames==617){profile=Profile{};profile.car=20;equipPart(profile,PartSlot::Engine,1501);equipPart(profile,PartSlot::Turbo,16013);saveCar();openCustomization();chooseGroup(3);customSearch="PC";customPreview=16013;
+            auto choices=garageChoices();auto selected=std::find(choices.begin(),choices.end(),16013);customPage=int(selected-choices.begin())/GaragePageSize;
+            check(choices.size()==18&&findPart(16013)->sourceMask==4,"all 18 new turbo assemblies are searchable with PC provenance");}
+        if(frames==619)capture("turbos-pc.png");
+        if(frames==620){auto saved=loadProfile(profileFile(),191,54);check(saved.parts[2]==16013&&buildVehicle(saved).vehicle.turboCount==4,"quad turbo assembly persists as one complete exclusive induction upgrade");}
+        if(frames==622)quit=true;
 
     }
     int run(){

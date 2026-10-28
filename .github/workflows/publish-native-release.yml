@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.13.9-native-preview
+        default: v0.14.0-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -137,10 +137,11 @@ jobs:
           if ($fitting.source_body_pipe_configurations -ne 18718 -or $fitting.fitted_variants_checked -ne 243334 -or $fitting.recovered_coordinates -ne 4584) { throw 'Source attachment coverage differs' }
           $geometry = Get-Content validation/exhaust-gearbox.json -Raw | ConvertFrom-Json
           if ($geometry.body_pipe_configurations -ne 9359 -or $geometry.gearbox_presets -ne 8 -or $geometry.maximum_gears -ne 10) { throw 'Exhaust or gearbox coverage differs' }
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\pc-turbos.csv" validation/pc-turbos.csv
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\pc-engines.csv" validation/pc-engines.csv
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\power-combinations.json" validation/power-combinations.json
           $power = Get-Content validation/power-combinations.json -Raw | ConvertFrom-Json
-          if ($power.induction_combinations -ne 105462 -or $power.atmospheric_combinations -ne 267344 -or $power.max_without_nos_hp -lt 4200 -or $power.max_with_nos_hp -lt 4500 -or $power.original_game_equivalence_validated) { throw 'Compound power or combination coverage failed' }
+          if ($power.induction_combinations -ne 175770 -or $power.atmospheric_combinations -ne 267344 -or $power.max_without_nos_hp -lt 4200 -or $power.max_with_nos_hp -lt 4500 -or $power.original_game_equivalence_validated) { throw 'Compound power or combination coverage failed' }
           Expand-Archive $zip -DestinationPath "$env:RUNNER_TEMP\pcr-native-app"
           Get-CimInstance Win32_OperatingSystem | Select-Object Caption,Version | Format-List | Out-File validation/windows.txt
       - name: Run and compare native physics measurements on Windows
@@ -353,7 +354,7 @@ jobs:
           import zipfile
           from pathlib import Path
           with zipfile.ZipFile('../validation/Validation-Windows.zip') as archive:
-              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png'),('screens/ancrages-source.png','Apercu-Ancrages.png'),('screens/origines-pieces.png','Apercu-Provenance.png'),('screens/echappements-source-unbound.png','Apercu-Echappements.png'),('screens/fiche-stock-awd.png','Apercu-Physique.png'),('screens/burnout-09.png','Apercu-Burnout.png'),('screens/reglage-wheelie-balanced.png','Apercu-Suspension.png'),('screens/wheelie-drag.png','Apercu-Wheelie.png'),('screens/materiaux-source.png','Apercu-Materiaux.png'),('screens/capots-unbound.png','Apercu-Capots.png'),('screens/mes-voitures.png','Apercu-Mes-Voitures.png')]:
+              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png'),('screens/ancrages-source.png','Apercu-Ancrages.png'),('screens/origines-pieces.png','Apercu-Provenance.png'),('screens/echappements-source-unbound.png','Apercu-Echappements.png'),('screens/fiche-stock-awd.png','Apercu-Physique.png'),('screens/burnout-09.png','Apercu-Burnout.png'),('screens/reglage-wheelie-balanced.png','Apercu-Suspension.png'),('screens/wheelie-drag.png','Apercu-Wheelie.png'),('screens/materiaux-source.png','Apercu-Materiaux.png'),('screens/capots-unbound.png','Apercu-Capots.png'),('screens/mes-voitures.png','Apercu-Mes-Voitures.png'),('screens/turbos-pc.png','Apercu-Turbos.png')]:
                   data=archive.read(source)
                   if not data.startswith(bytes.fromhex('89504e470d0a1a0a')): raise SystemExit('Invalid native UI preview')
                   Path(target).write_bytes(data)
@@ -364,7 +365,7 @@ jobs:
                       output=Path(name).name
                       Path(output).write_bytes(data)
           PY_PREVIEW
-          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png Apercu-Ancrages.png Apercu-Provenance.png Apercu-Echappements.png Apercu-Physique.png Apercu-Burnout.png Apercu-Suspension.png Apercu-Wheelie.png Apercu-Materiaux.png Apercu-Capots.png Apercu-Mes-Voitures.png
+          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png Apercu-Ancrages.png Apercu-Provenance.png Apercu-Echappements.png Apercu-Physique.png Apercu-Burnout.png Apercu-Suspension.png Apercu-Wheelie.png Apercu-Materiaux.png Apercu-Capots.png Apercu-Mes-Voitures.png Apercu-Turbos.png
           shopt -s nullglob
           for audio_pack in *-v1.zip; do
             [ -f "$audio_pack" ] && gh release upload "$RELEASE_TAG" "$audio_pack"

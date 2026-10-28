@@ -1,3 +1,27 @@
+# Validation 0.14.0 — turbos et étagement
+
+- 355 contrôles du cœur Linux/Windows compilés : 72 couples nouveau turbo/moteur,
+  plafonds de pression et de puissance, biturbo sans multiplication des PSI,
+  étagement quad progressif, effet de cylindrée, montée effective dans le temps,
+  exclusivité turbo/compresseur et sauvegarde.
+- 175770 combinaisons moteur/ECU/induction/échangeur et 267344 combinaisons de
+  pièces de support. Préparation maximale : 14000 HP, 14250 avec NOS, selon les
+  calibrations natives fictives du catalogue contrebande.
+- 93 contrôles graphiques Linux : recherche des 18 ajouts, provenance PC et
+  sauvegarde d’un montage quad. Les 10 essais de collection avec clics/touches
+  restent valides après ajout des pièces.
+- Vrai mixeur Raylib sur périphérique logiciel : 18 profils turbo/valve joués
+  avec les 12 cas moteur/banque. Crête mesurée 0,468229, valeurs finies et aucun
+  échec de chargement. Sons turbo adaptés des échantillons du jeu.
+- Les 470 ressources, dont 188 sons historiques et 198 fichiers moteur simulés,
+  restent identiques octet par octet à la release 0.13.9. Les figures de référence
+  des suspensions gardent les pièces historiques pour isoler les régressions.
+- Recherche : sources Garrett, Turbo Technics, BorgWarner et fiche Chiron Bugatti
+  effectivement consultées ; principes repris et limites documentés dans TURBOS.md.
+- Rapports : `validation/turbos-0.14.0/`. Les chiffres de pièces et les courbes
+  sont des calibrations du jeu, sans équivalence constructeur ou thermodynamique
+  complète. Écoute sur enceintes non établie.
+
 # Validation 0.13.9 — audio simulé actif et collection de voitures
 
 - 348 contrôles du cœur : interpolation régime/charge des six banques, somme

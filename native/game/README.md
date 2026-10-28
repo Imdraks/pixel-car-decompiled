@@ -1,4 +1,11 @@
-# Pixel Car Racer — Unbound Native 0.13.9
+# Pixel Car Racer — Unbound Native 0.14.0
+
+La version **0.14.0** ajoute **18 montages turbo PC** : simples, biturbos
+parallèles/séquentiels, hybrides de préparation, assistance électrique et quads.
+Pression, débit, réponse selon la cylindrée, classes et profils sonores varient
+selon la pièce. F4 → TURBOS, rechercher **PC**. Les pièces sont des calibrations
+de jeu inspirées des principes techniques consultés.
+[Catalogue, sources et fonctionnement](TURBOS.md).
 
 La version **0.13.9** active les sons simulés des six moteurs au garage et
 sur la route : **LS, AMG, Huracán, Aventador, V6 F1 et Coyote**. Mettre les deux

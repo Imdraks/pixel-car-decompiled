@@ -9,6 +9,7 @@
 #include "body_choices.hpp"
 #include "stock_vehicles.hpp"
 #include "pc_engines.hpp"
+#include "pc_turbos.hpp"
 #include "vehicle_identities.hpp"
 
 namespace pcr {
@@ -63,6 +64,9 @@ struct Vehicle {
     double curveRpmScale=1,boostEfficiency=.7;
     double torquePeakRpm=5200,torqueWidthRpm=2700,lowTorqueFraction=.62;
     double factoryBoostSoundPsi=0;
+    double turboFlowHp=0,turboSpoolStartRpm=2200,turboFullBoostRpm=4700,turboRiseSeconds=.5;
+    double turboSecondaryStartRpm=0,turboSecondaryFullRpm=0,turboFirstShare=1;
+    int turboCount=1,turboAutoValve=-1;double turboSoundPitch=1,turboSoundGain=0;
     double boostPsi=0,nitroHp=0; bool supercharged=false,twoStep=false;
     bool suspensionDynamics=false,tyreDynamics=false,allowWheelie=false,abs=false,tractionControl=false;
     bool wheelieBar=false;double wheelieBarArm=0,wheelieBarClearance=0;

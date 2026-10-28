@@ -209,7 +209,9 @@ void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarSt
     loop(on,samples.on,onVolume,pitch);
     loop(off,samples.off,offVolume,pitch);
     double audibleBoost=std::max(car.boostPsi,vehicle.factoryBoostSoundPsi*load*std::clamp(car.rpm/5000.0,0.0,1.0));
-    loop(turbo,29,audible*float(std::clamp(audibleBoost/35,0.0,.7))*(vehicle.supercharged?0.f:1.f),float(.65+audibleBoost/30));
+    float turboVolume=vehicle.turboSoundGain>0?float(vehicle.turboSoundGain*std::clamp(audibleBoost/std::max(1.0,vehicle.boostPsi),0.0,1.0)):float(std::clamp(audibleBoost/35,0.0,.7));
+    float turboPitch=vehicle.turboSoundGain>0?float(vehicle.turboSoundPitch*(.7+.6*std::sqrt(std::clamp(audibleBoost/std::max(1.0,vehicle.boostPsi),0.0,1.0)))):float(.65+audibleBoost/30);
+    loop(turbo,29,audible*turboVolume*(vehicle.supercharged?0.f:1.f),turboPitch);
     loop(blower,28,audible*float(std::clamp(audibleBoost/50,0.0,.6))*(vehicle.supercharged?1.f:0.f),pitch);
     if(car.nitroActive&&!lastNos&&nos.id>=0)SeekMusicStream(nos.music,0);
     loop(nos,76,audible*(car.nitroActive?.35f:0.f),1);
@@ -218,7 +220,7 @@ void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarSt
         if(car.launching&&car.elapsed>=nextLaunchPop){shot(43,.12f);nextLaunchPop=car.elapsed+.13;}
         if(car.gear!=lastGear)shot(44,.30f);
         if(((lastGas&&!gas)||car.gear!=lastGear)&&lastBoost>2&&!vehicle.supercharged){
-            static constexpr int valves[]={77,0,17,53};int choice=profile.bov<0?(vehicle.boostPsi>=30?3:0):std::clamp(profile.bov,0,3);shot(valves[choice],.42f);
+            static constexpr int valves[]={77,0,17,53};int choice=profile.bov<0?(vehicle.turboAutoValve>=0?vehicle.turboAutoValve:vehicle.boostPsi>=30?3:0):std::clamp(profile.bov,0,3);shot(valves[choice],.42f);
         }
         if(collision>lastCollision+.5)shot(1+(crashes++%3),.55f);
         if(car.gear!=lastGear&&profile.parts[int(PartSlot::Exhaust)]!=0)shot(43,.25f);

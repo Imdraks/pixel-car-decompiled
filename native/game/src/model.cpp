@@ -142,11 +142,20 @@ double torqueCurve(const Vehicle& v,double rpm){
     return v.lowTorqueFraction+(1-v.lowTorqueFraction)*std::exp(-std::pow((rpm/v.curveRpmScale-v.torquePeakRpm)/v.torqueWidthRpm,2));
 }
 double targetBoost(const Vehicle& v,double rpm){
-    return v.boostPsi*std::clamp((rpm-(v.supercharged?0:2200))/(v.supercharged?v.redlineRpm:2500),0.0,1.0);
+    if(v.supercharged)return v.boostPsi*std::clamp(rpm/v.redlineRpm,0.0,1.0);
+    double primary=std::clamp((rpm-v.turboSpoolStartRpm)/(v.turboFullBoostRpm-v.turboSpoolStartRpm),0.0,1.0);
+    double secondary=v.turboSecondaryFullRpm>v.turboSecondaryStartRpm
+        ?std::clamp((rpm-v.turboSecondaryStartRpm)/(v.turboSecondaryFullRpm-v.turboSecondaryStartRpm),0.0,1.0):primary;
+    return v.boostPsi*(v.turboFirstShare*primary+(1-v.turboFirstShare)*secondary);
 }
 double engineTorque(const Vehicle& v,double rpm,double boost){
     boost=std::clamp(boost,0.0,v.boostPsi);
     double torque=v.torque*torqueCurve(v,rpm)*(1+boost/14.7*v.boostEfficiency);
+    if(v.turboFlowHp>0&&boost>0&&rpm>0){
+        double base=v.torque*torqueCurve(v,rpm);
+        double cap=std::max(base,v.turboFlowHp*745.699872/(rpm*6.283185307179586/60));
+        torque=std::min(torque,cap);
+    }
     return v.supercharged&&boost>0?torque*.94:torque;
 }
 double enginePowerHp(const Vehicle& v,double rpm,double boost,bool nitro){
@@ -288,7 +297,7 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     else s.rpm=target;
     double boostTarget=!s.neutral&&input.throttle&&(!braking||s.launching||s.burningOut)&&s.shiftLock==0
         ?targetBoost(v,s.rpm):0;
-    double boostRate=v.boostPsi*(boostTarget>s.boostPsi?(v.supercharged?10:2):8);
+    double boostRate=v.boostPsi*(boostTarget>s.boostPsi?(v.supercharged?10:1/v.turboRiseSeconds):8);
     s.boostPsi+=std::clamp(boostTarget-s.boostPsi,-boostRate*dt,boostRate*dt);
     double torque=engineTorque(v,s.rpm,s.boostPsi);
     s.nitroActive=!s.neutral&&!s.burningOut&&input.nitro&&input.throttle&&!braking&&s.shiftLock==0&&!s.launching&&s.speed>2&&coupled<v.redlineRpm&&(!launchStep||s.rpm<v.redlineRpm*.995)&&v.nitroHp>0&&s.nitroRemaining>0;

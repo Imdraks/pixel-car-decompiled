@@ -1,0 +1,41 @@
+{
+  "sources": [
+    {
+      "title": "Garrett \u2014 compressor maps",
+      "url": "https://www.garrettmotion.com/knowledge-center-category/oem/expert/",
+      "accessed": "2026-10-28",
+      "retrieved_text_sha256": "19bb84acc7480949ca2e86f684e3d0da23c7507a391499db0057dfb7d9cc593d",
+      "verified_summary": "Pressure ratio, mass flow and compressor efficiency determine matching; the number of turbos is not a power multiplier."
+    },
+    {
+      "title": "Turbo Technics \u2014 hybrid performance turbo",
+      "url": "https://turbotechnics.com/what-is-a-hybrid-performance-turbo/",
+      "accessed": "2026-10-28",
+      "retrieved_text_sha256": "34063cd90220db9b65fad81ceea76d0508eacd81ccb61399e062535544987ea0",
+      "verified_summary": "A preparation hybrid mixes or modifies components. It is not necessarily electric, and larger components involve response/power compromises."
+    },
+    {
+      "title": "Garrett \u2014 E-Turbo",
+      "url": "https://www.garrettmotion.com/emission-reduction/garrett-e-turbo/",
+      "accessed": "2026-10-28",
+      "retrieved_text_sha256": "0fb7646242a1521365d93a0d5ef3df4b3ce595e14d9ed6485a55a518cf7fd95b",
+      "verified_summary": "An integrated electric motor can improve low-speed response. Energy recovery and battery management are additional systems."
+    },
+    {
+      "title": "BorgWarner \u2014 boosting technologies",
+      "url": "https://www.borgwarner.com/technologies/boosting-technologies",
+      "accessed": "2026-10-28",
+      "retrieved_text_sha256": "a9e471f879cb0bef4766c6d8dcbd05324bbff0fd87e936232b7b57131d188eb0",
+      "verified_summary": "Manufacturer describes wastegates, variable geometry and regulated two-stage R2S systems; those are different layouts."
+    },
+    {
+      "title": "Bugatti Chiron technical specifications",
+      "url": "https://bugatti-newsroom.imgix.net/6670487131d99cf64fc74076/211122_BU_Chiron%20ENG-1.pdf",
+      "accessed": "2026-10-28",
+      "retrieved_text_sha256": "72c7c665e3c10095e8196f3ea25bf41270aab7b97614bf93476baf33f4c4685b",
+      "verified_summary": "Technical specification states four turbochargers with Bugatti two-stage turbocharging and water/air intercooling."
+    }
+  ],
+  "application": "Native approximate turbo assemblies, not copies of manufacturer component specifications",
+  "not_verified": "Exact compressor maps, real-world part power limits, or the 3800 RPM stage threshold. Numerical tuning is game calibration."
+}
