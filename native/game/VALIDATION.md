@@ -17,6 +17,24 @@
   `validation/engine-simulation-0.13.8/`. Écoute sur enceintes et fidélité à
   chaque moteur réel non établies ; modèles physiques/audio approximatifs.
 
+## Publication Windows vérifiée — 0.13.8
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40662561584) :
+  339 contrôles du cœur, 88 graphiques, 188 sons décodés et 24 boucles source.
+- Les 15 moteurs PC sont validés aussi sous Windows ; tableau des puissances,
+  régimes et inerties identique à Linux à 0,01 près. Les 1528 compositions de
+  carrosserie et les trajectoires physiques concordent entre plateformes.
+- Téléchargement public vérifié : CRC, SHA-256, EXE et commit source, treize
+  aperçus, six archives audio et les empreintes de leurs 99 WAV + 99 OGG.
+  Les packs contiennent également les WAV bruts et restent non activés.
+  Restauration vide puis réutilisation : 248 ressources à chaque passage.
+- Rapports : `validation/windows-0.13.8/`. Les échantillons simulés ont été
+  contrôlés sous Linux avec FFmpeg ; les tests Windows décodent la banque
+  actuellement utilisée par le jeu. Écoute sur enceintes non établie.
+- Source compilée : `37224e665166292859db4a661b7d2ce25a136075`.
+- ZIP : 109886568 octets, SHA-256 `5743bcf37fb1794f64ba387f3aa2c09c71bf1b9f67374dfa95285dcdd24c6db8`.
+- EXE : SHA-256 `7edbdae82719411367717d736c38bea98ed265516e7cb3f048640774c2f39e00`.
+
 # Validation 0.13.7 — montée en régime du son LS/V8
 
 - 336 contrôles du cœur Linux : timbre bas régime conservé, élévation du LS/V8

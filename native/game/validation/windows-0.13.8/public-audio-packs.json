@@ -1,0 +1,81 @@
+{
+  "verified_public_downloads": true,
+  "wav_sha256_verified": 99,
+  "ogg_sha256_verified": 99,
+  "zip_crc_verified": 6,
+  "runtime_activated": false,
+  "packs": [
+    {
+      "model": "Lamborghini Aventador SVJ",
+      "wav": 19,
+      "ogg": 19,
+      "max_source_peak": 0.345001220703125,
+      "max_ogg_peak": 0.807030439376831,
+      "max_ogg_loop_seam": 0.001539908000268042,
+      "raw_rail_samples": 0,
+      "archive": "aventador-svj-v1.zip",
+      "size": 9213741,
+      "sha256": "925f5c9016d431dd7a45ca1592e5851d3fddb626643922300758f5b4973344f9"
+    },
+    {
+      "model": "GM LS V8",
+      "wav": 16,
+      "ogg": 16,
+      "max_source_peak": 0.4005126953125,
+      "max_ogg_peak": 0.7977493405342102,
+      "max_ogg_loop_seam": 0.0014701676554977894,
+      "raw_rail_samples": 0,
+      "archive": "ls-v8-v1.zip",
+      "size": 8232631,
+      "sha256": "3be5499161ee6d9042208802011b236ec91cbbf2281d9809ba3ea704b2454db2"
+    },
+    {
+      "model": "Mercedes-AMG GT63 S 2021",
+      "wav": 16,
+      "ogg": 16,
+      "max_source_peak": 0.391326904296875,
+      "max_ogg_peak": 0.7905821204185486,
+      "max_ogg_loop_seam": 0.003680678317323327,
+      "raw_rail_samples": 0,
+      "archive": "amg-gt63s-v1.zip",
+      "size": 8238449,
+      "sha256": "45aade69a82a915bc1f841dab6c6d9f086461a8fc6990716c1061c3b2196639a"
+    },
+    {
+      "model": "Lamborghini Huracan EVO",
+      "wav": 16,
+      "ogg": 16,
+      "max_source_peak": 0.34661865234375,
+      "max_ogg_peak": 0.8012102842330933,
+      "max_ogg_loop_seam": 0.0026461512316018343,
+      "raw_rail_samples": 0,
+      "archive": "huracan-v10-v1.zip",
+      "size": 8237885,
+      "sha256": "bddbeef48ee09819c26942356c23e2e730cf3f9a46e9e2d82062ae1243035a81"
+    },
+    {
+      "model": "Ford Mustang GT Coyote 5.0",
+      "wav": 16,
+      "ogg": 16,
+      "max_source_peak": 0.3988037109375,
+      "max_ogg_peak": 0.732128381729126,
+      "max_ogg_loop_seam": 0.0012064045295119286,
+      "raw_rail_samples": 0,
+      "archive": "ford-coyote-v1.zip",
+      "size": 8222122,
+      "sha256": "ea2b60b0bca1b16b404bb8bf6407b0b021694ffa0a02ea99db1b25087acf8714"
+    },
+    {
+      "model": "Generic modern F1 combustion V6",
+      "wav": 16,
+      "ogg": 16,
+      "max_source_peak": 0.37469482421875,
+      "max_ogg_peak": 0.7838337421417236,
+      "max_ogg_loop_seam": 0.0011775479651987553,
+      "raw_rail_samples": 0,
+      "archive": "f1-v6-v1.zip",
+      "size": 8258885,
+      "sha256": "161c4f65a81961fc99316f231f6b6500abebd37c6a213ce4d9b17633402becc2"
+    }
+  ]
+}
