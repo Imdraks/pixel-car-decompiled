@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "mouse_preview_does_not_equip": true,
+    "mouse_footer_equips_carousel_turbo": true,
+    "rim_page_arrow_equips_selected_rim": true,
+    "appearance_category_arrow_and_carousel_equip": true,
+    "clean_exit_4": true,
+    "carousel_equipment_survives_restart": true,
+    "clean_exit_6": true
+  }
+}

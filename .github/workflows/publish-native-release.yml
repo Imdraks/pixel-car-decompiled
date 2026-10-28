@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.16.2-native-preview
+        default: v0.16.3-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -314,30 +314,42 @@ jobs:
             if (($hashes | Select-Object -Unique).Count -ne 12) { throw 'Paint previews reused a body texture' }
             @{ distinct_body_previews=12; crop_sha256=$hashes } | ConvertTo-Json | Out-File validation/customization-pixels.json
           } finally { $image.Dispose() }
-      - name: Verify split showroom previews on Windows
+      - name: Verify cinematic showroom and custom carousels on Windows
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
           Add-Type -AssemblyName System.Drawing
-          $names = @('showroom-preview-civic.png','showroom-preview-corvette.png','garage-vide.png')
-          $images = @($names | ForEach-Object { [System.Drawing.Bitmap]::new((Join-Path $PWD "validation/screens/$_")) })
+          function Count-Blue($image,$box) {
+            $count=0
+            for ($y=[int][math]::Round($box[1]*$image.Height/720); $y -lt [int][math]::Round($box[3]*$image.Height/720); $y++) {
+              for ($x=[int][math]::Round($box[0]*$image.Width/1280); $x -lt [int][math]::Round($box[2]*$image.Width/1280); $x++) {
+                $c=$image.GetPixel($x,$y); if ($c.B -gt 75 -and $c.B -gt $c.R*1.4 -and $c.B -gt $c.G*1.15) { $count++ }
+              }
+            }
+            return $count
+          }
+          $names=@('showroom-preview-civic.png','showroom-preview-corvette.png','garage-vide.png','garage-huit-places.png','custom-carrousel-moteur.png')
+          $images=@($names | ForEach-Object { [System.Drawing.Bitmap]::new((Join-Path $PWD "validation/screens/$_")) })
           try {
-            $blue = @(0,0,0); $changed=0; $right=0
-            $w=$images[0].Width; $h=$images[0].Height
-            for ($y=[int][math]::Round(260*$h/720); $y -lt [int][math]::Round(515*$h/720); $y++) {
-              for ($x=[int][math]::Round(38*$w/1280); $x -lt [int][math]::Round(648*$w/1280); $x++) {
-                for ($i=0; $i -lt 3; $i++) { $c=$images[$i].GetPixel($x,$y); if ($c.B -gt 75 -and $c.B -gt $c.R*1.4 -and $c.B -gt $c.G*1.15) { $blue[$i]++ } }
+            $blue=@(Count-Blue $images[0] @(24,210,940,471); Count-Blue $images[1] @(24,210,940,471); Count-Blue $images[2] @(24,210,940,471))
+            $right=Count-Blue $images[1] @(956,120,1248,465)
+            $carousel=Count-Blue $images[3] @(38,556,1240,623)
+            $custom=Count-Blue $images[4] @(24,210,940,471)
+            $w=$images[0].Width; $h=$images[0].Height; $changed=0
+            for ($y=[int][math]::Round(210*$h/720); $y -lt [int][math]::Round(471*$h/720); $y++) {
+              for ($x=[int][math]::Round(24*$w/1280); $x -lt [int][math]::Round(940*$w/1280); $x++) {
                 $a=$images[0].GetPixel($x,$y); $b=$images[1].GetPixel($x,$y)
                 if ([math]::Abs([int]$a.R-[int]$b.R) -gt 12 -or [math]::Abs([int]$a.G-[int]$b.G) -gt 12 -or [math]::Abs([int]$a.B-[int]$b.B) -gt 12) { $changed++ }
               }
             }
-            for ($y=[int][math]::Round(194*$h/720); $y -lt [int][math]::Round(545*$h/720); $y++) {
-              for ($x=[int][math]::Round(700*$w/1280); $x -lt [int][math]::Round(1242*$w/1280); $x++) {
-                $c=$images[1].GetPixel($x,$y); if ($c.B -gt 75 -and $c.B -gt $c.R*1.4 -and $c.B -gt $c.G*1.15) { $right++ }
-              }
+            $hashes=@()
+            for ($i=0; $i -lt 6; $i++) {
+              $rect=[System.Drawing.Rectangle]::FromLTRB([int][math]::Round((38+$i*202+18)*$w/1280),[int][math]::Round(558*$h/720),[int][math]::Round((38+$i*202+176)*$w/1280),[int][math]::Round(618*$h/720))
+              $crop=$images[3].Clone($rect,$images[3].PixelFormat); $stream=[System.IO.MemoryStream]::new()
+              try { $crop.Save($stream,[System.Drawing.Imaging.ImageFormat]::Png); $hashes += [Convert]::ToHexString([System.Security.Cryptography.SHA256]::HashData($stream.ToArray())) } finally { $crop.Dispose(); $stream.Dispose() }
             }
-            if ($blue[0] -le 1000 -or $blue[1] -le 1000 -or $blue[2] -ge 50 -or $right -ge 100 -or $changed -le 600) { throw "Split showroom rendering failed: left=$blue right=$right changed=$changed" }
-            @{ large_left_preview=$true; distinct_car_pixels=$changed; left_blue_pixels=$blue; right_blue_pixels=$right } | ConvertTo-Json | Out-File validation/showroom-pixels.json
+            if ($blue[0] -le 2500 -or $blue[1] -le 2500 -or $blue[2] -ge 50 -or $right -ge 100 -or $changed -le 1000 -or $carousel -le 500 -or $custom -le 2500 -or ($hashes | Select-Object -Unique).Count -ne 6) { throw "Cinematic carousel rendering failed: cars=$blue right=$right carousel=$carousel custom=$custom" }
+            @{ large_car_pixels=$blue; distinct_car_pixels=$changed; right_stats_blue_pixels=$right; bottom_carousel_pixels=$carousel; custom_car_pixels=$custom; distinct_thumbnail_hashes=$hashes } | ConvertTo-Json | Out-File validation/showroom-pixels.json
           } finally { $images | ForEach-Object { $_.Dispose() } }
       - name: Audit customization on every source body and export contact sheets
         shell: pwsh
@@ -385,7 +397,7 @@ jobs:
           import zipfile
           from pathlib import Path
           with zipfile.ZipFile('../validation/Validation-Windows.zip') as archive:
-              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png'),('screens/ancrages-source.png','Apercu-Ancrages.png'),('screens/origines-pieces.png','Apercu-Provenance.png'),('screens/echappements-source-unbound.png','Apercu-Echappements.png'),('screens/fiche-stock-awd.png','Apercu-Physique.png'),('screens/burnout-09.png','Apercu-Burnout.png'),('screens/reglage-wheelie-balanced.png','Apercu-Suspension.png'),('screens/wheelie-drag.png','Apercu-Wheelie.png'),('screens/materiaux-source.png','Apercu-Materiaux.png'),('screens/capots-unbound.png','Apercu-Capots.png'),('screens/mes-voitures.png','Apercu-Mes-Voitures.png'),('screens/turbos-pc.png','Apercu-Turbos.png'),('screens/volumes.png','Apercu-Volumes.png'),('screens/catalogue-nfs-moteurs.png','Apercu-NFS-Moteurs.png'),('screens/catalogue-nfs-pieces.png','Apercu-NFS-Pieces.png'),('screens/catalogue-nfs-transmission.png','Apercu-NFS-Transmission.png'),('screens/catalogue-nfs-electrique.png','Apercu-NFS-Electrique.png'),('screens/catalogue-voitures.png','Apercu-Voitures.png'),('screens/voitures-muscle-cars.png','Apercu-Categories.png'),('screens/voiture-configuration-propre.png','Apercu-Preparation-Independante.png'),('screens/voiture-origine.png','Apercu-Moteur-Origine.png'),('screens/voitures-a-identifier.png','Apercu-A-Identifier.png'),('screens/garage-huit-places.png','Apercu-Garage-8-Places.png'),('screens/showroom-garage-plein.png','Apercu-Showroom.png'),('screens/retirer-voiture.png','Apercu-Retirer-Voiture.png'),('screens/garage-vide.png','Apercu-Garage-Vide.png'),('screens/showroom-preview-civic.png','Apercu-Showroom-Civic.png'),('screens/showroom-preview-corvette.png','Apercu-Showroom-Corvette.png')]:
+              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png'),('screens/ancrages-source.png','Apercu-Ancrages.png'),('screens/origines-pieces.png','Apercu-Provenance.png'),('screens/echappements-source-unbound.png','Apercu-Echappements.png'),('screens/fiche-stock-awd.png','Apercu-Physique.png'),('screens/burnout-09.png','Apercu-Burnout.png'),('screens/reglage-wheelie-balanced.png','Apercu-Suspension.png'),('screens/wheelie-drag.png','Apercu-Wheelie.png'),('screens/materiaux-source.png','Apercu-Materiaux.png'),('screens/capots-unbound.png','Apercu-Capots.png'),('screens/mes-voitures.png','Apercu-Mes-Voitures.png'),('screens/turbos-pc.png','Apercu-Turbos.png'),('screens/volumes.png','Apercu-Volumes.png'),('screens/catalogue-nfs-moteurs.png','Apercu-NFS-Moteurs.png'),('screens/catalogue-nfs-pieces.png','Apercu-NFS-Pieces.png'),('screens/catalogue-nfs-transmission.png','Apercu-NFS-Transmission.png'),('screens/catalogue-nfs-electrique.png','Apercu-NFS-Electrique.png'),('screens/catalogue-voitures.png','Apercu-Voitures.png'),('screens/voitures-muscle-cars.png','Apercu-Categories.png'),('screens/voiture-configuration-propre.png','Apercu-Preparation-Independante.png'),('screens/voiture-origine.png','Apercu-Moteur-Origine.png'),('screens/voitures-a-identifier.png','Apercu-A-Identifier.png'),('screens/garage-huit-places.png','Apercu-Garage-8-Places.png'),('screens/showroom-garage-plein.png','Apercu-Showroom.png'),('screens/retirer-voiture.png','Apercu-Retirer-Voiture.png'),('screens/garage-vide.png','Apercu-Garage-Vide.png'),('screens/showroom-preview-civic.png','Apercu-Showroom-Civic.png'),('screens/showroom-preview-corvette.png','Apercu-Showroom-Corvette.png'),('screens/custom-carrousel-moteur.png','Apercu-Custom-Moteur.png'),('screens/custom-carrousel-turbo.png','Apercu-Custom-Turbo.png'),('screens/custom-carrousel-style.png','Apercu-Custom-Style.png')]:
                   data=archive.read(source)
                   if not data.startswith(bytes.fromhex('89504e470d0a1a0a')): raise SystemExit('Invalid native UI preview')
                   Path(target).write_bytes(data)
@@ -396,7 +408,7 @@ jobs:
                       output=Path(name).name
                       Path(output).write_bytes(data)
           PY_PREVIEW
-          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png Apercu-Ancrages.png Apercu-Provenance.png Apercu-Echappements.png Apercu-Physique.png Apercu-Burnout.png Apercu-Suspension.png Apercu-Wheelie.png Apercu-Materiaux.png Apercu-Capots.png Apercu-Mes-Voitures.png Apercu-Turbos.png Apercu-Volumes.png Apercu-NFS-Moteurs.png Apercu-NFS-Pieces.png Apercu-NFS-Transmission.png Apercu-NFS-Electrique.png Apercu-Voitures.png Apercu-Categories.png Apercu-Preparation-Independante.png Apercu-Moteur-Origine.png Apercu-A-Identifier.png Apercu-Garage-8-Places.png Apercu-Showroom.png Apercu-Retirer-Voiture.png Apercu-Garage-Vide.png Apercu-Showroom-Civic.png Apercu-Showroom-Corvette.png
+          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png Apercu-Ancrages.png Apercu-Provenance.png Apercu-Echappements.png Apercu-Physique.png Apercu-Burnout.png Apercu-Suspension.png Apercu-Wheelie.png Apercu-Materiaux.png Apercu-Capots.png Apercu-Mes-Voitures.png Apercu-Turbos.png Apercu-Volumes.png Apercu-NFS-Moteurs.png Apercu-NFS-Pieces.png Apercu-NFS-Transmission.png Apercu-NFS-Electrique.png Apercu-Voitures.png Apercu-Categories.png Apercu-Preparation-Independante.png Apercu-Moteur-Origine.png Apercu-A-Identifier.png Apercu-Garage-8-Places.png Apercu-Showroom.png Apercu-Retirer-Voiture.png Apercu-Garage-Vide.png Apercu-Showroom-Civic.png Apercu-Showroom-Corvette.png Apercu-Custom-Moteur.png Apercu-Custom-Turbo.png Apercu-Custom-Style.png
           shopt -s nullglob
           for audio_pack in *-v1.zip; do
             [ -f "$audio_pack" ] && gh release upload "$RELEASE_TAG" "$audio_pack"

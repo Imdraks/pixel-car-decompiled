@@ -1,5 +1,9 @@
 # Garage original adapté au PC — 0.9
 
+**Depuis la 0.16.3** : grande scène, fiche à droite, catégories et pièces en
+carrousels en bas. [Commandes actuelles](CINEMATIC-UI.md). Les descriptions
+ci-dessous documentent la présentation historique et les catalogues initiaux.
+
 Garage et Customisation ouvrent désormais le même atelier : voiture sur le pont,
 statistiques à gauche et six catégories en bas. Le décor, le pont, les icônes,
 les jauges et la police pixel viennent des exports du jeu original 1.2.5 fourni.

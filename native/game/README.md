@@ -1,4 +1,10 @@
-# Pixel Car Racer — Unbound Native 0.16.2
+# Pixel Car Racer — Unbound Native 0.16.3
+
+La version **0.16.3** adopte la présentation inspirée des références pour le
+**showroom et toute la sélection de pièces/apparence** : grande voiture, fiche
+à droite, catégories et carrousels en bas. Tri du showroom, six miniatures
+indépendantes, comparaison des pièces et toutes les commandes de réglage conservées.
+[Commandes et présentation](CINEMATIC-UI.md).
 
 La version **0.16.2** présente le showroom et le garage avec une **grande voiture
 à gauche** et les **menus à droite** : liste de modèles, recherche, catégories,

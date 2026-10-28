@@ -1,3 +1,21 @@
+# Validation 0.16.3 — showroom et customisation avec carrousels
+
+- 398 contrôles du cœur conservés ; aucune modification des formules mécaniques,
+  des huit places ni du format de sauvegarde.
+- 114 contrôles graphiques : showroom, grands modèles distincts, garage vide,
+  sélection moteur, 18 turbos PC et catégories d’apparence.
+- 85 manipulations réelles : 27 inventaire, 15 véhicules distincts, 10 sauvegardes,
+  12 catalogue NFS, 14 volumes et 7 dédiées au nouveau carrousel de customisation.
+  Équipement souris, flèche de page des jantes, accessoire, prévisualisation sans
+  équipement et redémarrage vérifiés.
+- Contrôles pixels : grande voiture, panneau à droite, carrousel visible en bas,
+  six carrosseries distinctes sans réutilisation de texture, modèles sélectionnés
+  différents et absence de voiture fantôme lorsque le garage est vide.
+- Cache de miniatures séparé et borné à 16 textures ; ressources précédentes
+  byte-identiques. Prix/progression et modèles 3D ne sont pas ajoutés.
+- Rapports : `validation/cinematic-0.16.3/`. Publication conditionnée aux contrôles
+  Windows de l’exécutable, des captures, des sons et de la physique.
+
 # Validation 0.16.2 — showroom avec aperçu à gauche
 
 - 398 contrôles du cœur conservés ; aucun changement mécanique ni de sauvegarde.

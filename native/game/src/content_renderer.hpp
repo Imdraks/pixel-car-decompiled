@@ -13,7 +13,7 @@ inline const art::Frame& equippedRim(int id,bool original){auto r=findRim(id);re
 inline art::Wheels bodyWheels(int car,bool original){const float* a=original?content_art::originalAnchors[car]:content_art::unboundAnchors[car];return {a[0],a[1],a[2],a[3]};}
 class ContentRenderer {
 public:
-    std::map<int,Image> pixels;Texture2D body{};Rectangle bodyBounds{};std::string key;
+    std::map<int,Image> pixels;Texture2D body{};Rectangle bodyBounds{};std::string key;std::map<std::string,Texture2D> thumbnails;
     Image image(const art::Frame& f)const{
         Image out=GenImageColor(f.canvasW,f.canvasH,BLANK);auto at=pixels.find(f.atlas);
         if(at!=pixels.end())ImageDrawImagePro(&out,at->second,{float(f.x),float(f.y),float(f.w),float(f.h)},{float(f.dx),float(f.dy),float(f.w),float(f.h)},{0,0},0,WHITE);
@@ -89,7 +89,13 @@ public:
         if(body.id){rlDrawRenderBatchActive();UnloadTexture(body);}
         body=LoadTextureFromImage(im);SetTextureFilter(body,TEXTURE_FILTER_POINT);UnloadImage(im);return body;
     }
-    void clear(){if(body.id)UnloadTexture(body);
+    Texture2D thumbnail(const Profile& p){
+        std::ostringstream id;id<<p.car<<':'<<p.contentSource<<':'<<p.rollCage<<':'<<p.headlights;for(int c:p.cosmetics)id<<':'<<c;
+        auto name=id.str();auto at=thumbnails.find(name);if(at!=thumbnails.end())return at->second;
+        if(thumbnails.size()>=16){rlDrawRenderBatchActive();auto old=thumbnails.begin();UnloadTexture(old->second);thumbnails.erase(old);}
+        Image im=composeImage(p);auto texture=LoadTextureFromImage(im);SetTextureFilter(texture,TEXTURE_FILTER_POINT);UnloadImage(im);thumbnails[name]=texture;return texture;
+    }
+    void clear(){if(body.id)UnloadTexture(body);for(auto& entry:thumbnails)UnloadTexture(entry.second);thumbnails.clear();
         body={};for(auto& entry:pixels)UnloadImage(entry.second);pixels.clear();}
 };
 }

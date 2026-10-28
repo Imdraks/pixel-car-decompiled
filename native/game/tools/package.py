@@ -35,7 +35,7 @@ if args.audio_packs_dir:
             if report.get('passed') is not True:raise RuntimeError('Audio pack validation missing')
         shutil.copy2(pack,destination/pack.name)
 shutil.copytree(game/'licenses',stage/'licenses',dirs_exist_ok=True)
-for name in ['README.md','SHOWROOM.md','VEHICLES-GARAGE.md','NFS-CATALOGUE.md','VOLUMES.md','TURBOS.md','SAVED-CARS.md','PC-ENGINES.md','AUDIO-SIMULATION.md','ENGINE-AUDIO.md','AUDIO-MIX.md','VALIDATION.md','PHYSICS.md','CUSTOMIZATION.md','CUSTOMIZATION-COMPLETE.md','PERFORMANCE.md','TRANSMISSION.md','EXHAUST.md','GARAGE-PC.md','CONTENT.md','ATTACHMENTS.md','VEHICLES.md','SUSPENSION.md','DRAG.md','THIRD-PARTY.txt']:
+for name in ['README.md','CINEMATIC-UI.md','SHOWROOM.md','VEHICLES-GARAGE.md','NFS-CATALOGUE.md','VOLUMES.md','TURBOS.md','SAVED-CARS.md','PC-ENGINES.md','AUDIO-SIMULATION.md','ENGINE-AUDIO.md','AUDIO-MIX.md','VALIDATION.md','PHYSICS.md','CUSTOMIZATION.md','CUSTOMIZATION-COMPLETE.md','PERFORMANCE.md','TRANSMISSION.md','EXHAUST.md','GARAGE-PC.md','CONTENT.md','ATTACHMENTS.md','VEHICLES.md','SUSPENSION.md','DRAG.md','THIRD-PARTY.txt']:
     shutil.copy2(game/name,stage/('LISEZ-MOI.md' if name=='README.md' else name))
 shutil.copy2(game/'vehicles.json',stage/'catalogue-voitures.json')
 shutil.copy2(game/'nfs-catalog.json',stage/'catalogue-NFS.json')

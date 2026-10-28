@@ -1,11 +1,11 @@
-# Showroom et garage de huit voitures — 0.16.2
+# Showroom et garage de huit voitures — 0.16.3
 
-La grande prévisualisation se trouve **à gauche**. **À droite** : onglets,
-recherche, catégories, liste des voitures, pages et boutons d’action. Les
-flèches et la molette sur la liste changent la sélection ; Page précédente /
-suivante avance de neuf modèles. La fiche de gauche montre la préparation
-équipée (ou archivée), le moteur, les chevaux, le poids et la transmission.
-Consulter une voiture ne modifie pas la voiture active.
+La voiture est présentée dans une grande scène, avec la fiche à droite et
+un carrousel de six modèles en bas. Les flèches et la molette changent la
+sélection ; Page précédente/suivante avance de six modèles. Recherche,
+catégories et tri par modèle, catégorie ou puissance d’origine sont disponibles.
+Les préparations équipées/archivées sont visibles dans la fiche. Consulter une
+voiture ne remplace pas la voiture active. [Présentation et commandes](CINEMATIC-UI.md).
 
 **GARAGE** dans le menu ou **B** depuis la customisation ouvre l’inventaire des
 voitures possédées. Le compteur indique les places occupées sur **8**. Le showroom

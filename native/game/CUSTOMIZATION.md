@@ -1,5 +1,9 @@
 # Customisation native 0.8
 
+**Depuis la 0.16.3** : grande scène, fiche à droite, catégories et pièces en
+carrousels en bas. [Commandes actuelles](CINEMATIC-UI.md). Les descriptions
+ci-dessous documentent la présentation historique et les catalogues initiaux.
+
 | Catégorie | Pièces |
 | --- | ---: |
 | Moteurs | 16 |
