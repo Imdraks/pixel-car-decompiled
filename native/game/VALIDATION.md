@@ -15,6 +15,24 @@
   les paramètres. Les ressources audio et les calibrations physiques sont intactes.
 - Rapports : `validation/volumes-0.14.2/`. Écoute sur enceintes non établie.
 
+## Publication Windows vérifiée — 0.14.2
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40685083855) :
+  361 contrôles du cœur, 95 graphiques, 188 sons historiques et 198 fichiers
+  simulés décodés. Les six niveaux audio passent la sauvegarde et l’annulation.
+- Les 1528 compositions, les mesures physiques et les tableaux turbo/moteur
+  concordent entre Linux et Windows. Archive publique, CRC, EXE, source compilée,
+  seize aperçus et les 470 ressources vérifiés.
+- Le vrai mixeur logiciel Linux valide les catégories indépendantes, dont moteur
+  seul, turbo seul, bruitages, interface et silence de toutes les catégories,
+  avec une crête mesurée de 0,382699 et aucun redémarrage de flux. Les 13 essais
+  souris valident la sauvegarde, le redémarrage, la remise à 100 % et l’annulation.
+- Rapports : `validation/windows-0.14.2/` et `validation/volumes-0.14.2/`.
+  Écoute sur enceintes et périphérique audio Windows physique non établis.
+- Source compilée : `c94e41204f87e1b92fb68ce9f4275f0aeb04a050`.
+- ZIP : 86567907 octets, SHA-256 `ffd873de070c54086096b2932dde1d60e04fd281008247c15323f1c46e48c219`.
+- EXE : SHA-256 `71b85393e950bbf91d4f24379c76b473ea267aba919608a1f12989ed8f55d6e5`.
+
 # Validation 0.14.1 — aperçu turbo dans le garage
 
 - 358 contrôles du cœur : son d’induction au ralenti, montée avec les tours et
