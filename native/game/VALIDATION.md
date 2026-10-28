@@ -22,6 +22,20 @@
 - Rapports : `validation/vehicles-0.16.0/`. L’identification complète des versions
   et une physique constructeur exacte ne sont pas établies.
 
+## Publication Windows vérifiée — 0.16.0
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40731385785) :
+  383 contrôles du cœur, 105 graphiques, 188 sons historiques et 358 fichiers
+  simulés décodés. Les sept niveaux audio passent la sauvegarde et l’annulation.
+- Archive publique, CRC, EXE, source compilée, vingt-cinq aperçus et les 650 ressources
+  vérifiés. Les 1528 compositions et les mesures physiques concordent avec Linux.
+- Rapports : `validation/windows-0.16.0/` et `validation/vehicles-0.16.0/`.
+  Le contrôle audio des moteurs d’origine est réalisé sur
+  le vrai mixeur logiciel Linux. Écoute sur enceintes non établie.
+- Source compilée : `d8d1c1cd7862ac8d365298325cb0d6070cbb7873`.
+- ZIP : 107869442 octets, SHA-256 `969d719e3d18e918f5ce173cc42522aa4d0cc21ca03ecfb91a3935590b30bf50`.
+- EXE : SHA-256 `2b5f79018ca0ca38f3c12bcdb35a7ab800b83453bb12b39a7b752018fa52837a`.
+
 # Validation 0.15.0 — catalogue du tableau NFS
 
 - 145 moteurs vérifiés : puissance de base, potentiel conservateur avec pièces

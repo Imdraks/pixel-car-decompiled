@@ -1,0 +1,4 @@
+PASS stationary scene and wheels remain frozen
+PASS paused scene and wheels remain frozen at nonzero speed
+PASS road at 100 km/h moves 100 image pixels in 0.1 seconds
+PASS road at 200 km/h moves 200 image pixels in 0.1 seconds
