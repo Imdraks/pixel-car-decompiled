@@ -4,14 +4,14 @@ import argparse,json,subprocess,time
 from pathlib import Path
 p=argparse.ArgumentParser(description=__doc__)
 for name in ['game','assets','xdotool','output']:p.add_argument('--'+name,type=Path,required=True)
-p.add_argument('--with-audio',action='store_true');a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
+p.add_argument('--engine-id',type=int,default=1002);p.add_argument('--simulated',action='store_true');p.add_argument('--with-audio',action='store_true');a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
 checks={};sessions={}
 def check(name,value):
  checks[name]=bool(value)
  if not value:raise RuntimeError('Failed: '+name)
 def scenario(name,actions):
  root=a.output/name;root.mkdir()
- (root/'profile.ini').write_text('car=20\npart_engine=1002\nsound_on=-1\nsound_off=-1\n')
+ (root/'profile.ini').write_text(f'car=20\npart_engine={a.engine_id}\nsound_on=-1\nsound_off=-1\n')
  (root/'settings.ini').write_text('width=960\nheight=540\nfps=60\nvsync=0\nsound=1\ntraffic=0\n')
  def xdo(*args):return subprocess.check_output([str(a.xdotool),*map(str,args)],text=True,stderr=subprocess.DEVNULL).strip()
  def key(k):xdo('keydown',k);time.sleep(.07);xdo('keyup',k);time.sleep(.1)
@@ -40,6 +40,11 @@ def scenario(name,actions):
    if name!='leave_garage':check(name+'_entered_garage',state['screen'] in {'1','3'})
    check(name+'_no_vehicle_motion',float(state['distance_m'])==0 and float(state['front_roll_m'])==0 and float(state['rear_roll_m'])==0)
    if a.with_audio:check(name+'_audio_backend_valid',state['audio_ready']=='1' and state['audio_failures']=='0')
+   if a.simulated and a.with_audio:
+    if name in {'ignition_idle','held_rev','released_rev','search_running'}:check(name+'_simulated_bank',state['simulated_audio_engine']==str(a.engine_id))
+    if name=='held_rev':check('rev_uses_simulated_loops',float(state['simulated_audio_gain'])>0 and int(state['simulated_audio_stream_starts']) in {12,15})
+    if name=='ignition_off':check('g_plays_simulated_shutdown',state['simulated_audio_shutdowns']=='1')
+    if name in {'ignition_off','leave_garage'}:check(name+'_no_simulated_loop_leak',float(state['simulated_audio_gain'])==0)
    return state
   finally:
    for keyname in held|{'ctrl','q','F12'}:subprocess.run([str(a.xdotool),'keyup',keyname],capture_output=True)
@@ -47,8 +52,8 @@ def scenario(name,actions):
 g=[('g',True,.08),('g',False,.2)]
 s=scenario('off_throttle',[('z',True,1.2)]);check('z_does_not_start_engine',s['garage_engine_running']=='0' and float(s['garage_engine_rpm'])==0)
 s=scenario('ignition_idle',g);check('g_starts_idle',s['garage_engine_running']=='1' and 500<float(s['garage_engine_rpm'])<1500)
-s=scenario('held_rev',g+[('z',True,1.5)]);check('z_reaches_limiter',s['garage_engine_limiter']=='1' and float(s['garage_engine_rpm'])>7000)
-s=scenario('released_rev',g+[('z',True,1.5),('z',False,1.6)]);check('release_returns_to_idle',s['garage_engine_running']=='1' and s['garage_engine_limiter']=='0' and float(s['garage_engine_rpm'])<1500)
+s=scenario('held_rev',g+[('z',True,2.1)]);check('z_reaches_limiter',s['garage_engine_limiter']=='1' and float(s['garage_engine_rpm'])>7000)
+s=scenario('released_rev',g+[('z',True,2.1),('z',False,2.4)]);check('release_returns_to_idle',s['garage_engine_running']=='1' and s['garage_engine_limiter']=='0' and float(s['garage_engine_rpm'])<1500)
 s=scenario('ignition_off',g+[('z',True,1.2)]+g);check('g_stops_even_with_z_held',s['garage_engine_running']=='0' and float(s['garage_engine_rpm'])==0)
 focus=[('ctrl',True,.05),('f',True,.07),('f',False,.1),('ctrl',False,.1)]
 s=scenario('search_off',focus+g+[('z',True,.8)]);check('typing_g_z_does_not_start_engine',s['garage_engine_running']=='0')

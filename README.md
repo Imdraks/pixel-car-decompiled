@@ -1,6 +1,6 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.13.8](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.13.8-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.8-native-preview)
+**[Télécharger Windows x64 — version 0.13.9](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.13.9-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.9-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
@@ -8,12 +8,22 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
 
+La version **0.13.9** active les sons simulés des six moteurs au garage et
+sur la route : **LS, AMG, Huracán, Aventador, V6 F1 et Coyote**. Mettre les deux
+lignes de son sur **AUTO** pour les entendre ; G démarre/arrête et Z accélère
+au garage. Les sons restent des simulations approximatives.
+
+Le bouton **MES VOITURES / F11** permet de nommer, enregistrer et recharger
+plusieurs voitures avec leur configuration complète. Une mise à jour conserve
+la configuration précédente en sauvegarde.
+[Détails audio](native/game/AUDIO-SIMULATION.md) · [Sauvegardes](native/game/SAVED-CARS.md).
+
 La version **0.13.8** ajoute **15 moteurs inspirés de modèles réels** : AMG
 GT63 S, Huracán V10, Aventador V12, V6 F1, Ford Coyote et dix autres.
 31 swaps disponibles, avec courbes de couple, régimes et inerties propres.
 Les ajouts sont marqués **EXTENSION PC** ; sons adaptés des ressources existantes.
 Six packs de sons simulés sont aussi fournis : **99 WAV + 99 OGG**.
-Ils sont préparés pour intégration et ne sont pas encore activés dans le jeu.
+Ces packs, fournis en 0.13.8, sont activés dans le jeu depuis la 0.13.9.
 [Détails des packs et du skill](native/game/AUDIO-SIMULATION.md).
 [Détails et limites](native/game/PC-ENGINES.md).
 

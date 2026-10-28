@@ -60,8 +60,10 @@ chiffre de puissance stock.
 
 ## Audio et visuels
 
-Pas de nouveaux enregistrements constructeur : les 12 échantillons disponibles
-servent de familles sonores adaptées. Un V10/V12/F1 n’est donc pas garanti fidèle
+Depuis la 0.13.9, six moteurs utilisent leurs banques simulées en AUTO : LS,
+AMG, Huracán, Aventador (pack SVJ adapté), V6 F1 et Coyote. Les autres moteurs
+utilisent les 12 échantillons historiques comme familles sonores adaptées.
+Il ne s’agit pas d’enregistrements constructeur. Un V10/V12/F1 n’est donc pas garanti fidèle
 au moteur réel. AUTO choisit une paire propre à la fiche PC ; les choix manuels
 restent prioritaires. Les deux banques Original et Unbound sont utilisables.
 Les icônes moteur sont réutilisées ; elles ne sont pas des illustrations exactes.

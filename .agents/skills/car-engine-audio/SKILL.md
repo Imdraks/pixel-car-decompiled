@@ -129,6 +129,17 @@ Avoid restarting streams every frame. Preserve G/Z, driving/NOS effects, audio-b
 selection, manual overrides and all source archives. Test the real mixer, source
 file hashes, loops, transitions, save/load and Windows build before release.
 
+For the current native runtime (0.13.9+), `native/game/tools/install_simulated_audio.py`
+verifies the six manifests and writes a separate `assets/engine-packs` bank plus
+`simulated_audio_data.hpp`; `simulated_engine_mix.hpp` interpolates RPM/load.
+`GameAudio` selects it for AUTO, retaining independent manual overrides and
+fallback source sounds. It is active for LS, AMG, Huracán, Aventador (SVJ-derived
+approximation), F1 V6 and Coyote. Adding a new engine bank requires extending the
+installer's pack selection, regenerating the header, rebuilding, and running
+`simulated_audio_test.cpp`, real garage keys and Windows decode checks.
+Raw pack metadata still describes its generation-time integration status; the
+native release documents actual runtime activation. Never overwrite source banks.
+
 Deliver the audio pack/ZIP, sample counts, validation results, simulation limits,
 and actual integration status. Keep earlier engine-catalog work and user priorities;
 do not discard it while creating this skill.

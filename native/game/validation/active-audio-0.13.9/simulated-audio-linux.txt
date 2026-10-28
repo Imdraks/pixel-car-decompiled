@@ -1,0 +1,17 @@
+PASS engine=1008 source_bank=0 streams=12 no_restarts=1 independent_overrides=1 startup_shutdown=1 mute=1
+PASS engine=1501 source_bank=0 streams=12 no_restarts=1 independent_overrides=1 startup_shutdown=1 mute=1
+PASS engine=1502 source_bank=0 streams=12 no_restarts=1 independent_overrides=1 startup_shutdown=1 mute=1
+PASS engine=1503 source_bank=0 streams=15 no_restarts=1 independent_overrides=1 startup_shutdown=1 mute=1
+PASS engine=1504 source_bank=0 streams=12 no_restarts=1 independent_overrides=1 startup_shutdown=1 mute=1
+PASS engine=1505 source_bank=0 streams=12 no_restarts=1 independent_overrides=1 startup_shutdown=1 mute=1
+PASS engine=1008 source_bank=1 streams=12 no_restarts=1 independent_overrides=1 startup_shutdown=1 mute=1
+PASS engine=1501 source_bank=1 streams=12 no_restarts=1 independent_overrides=1 startup_shutdown=1 mute=1
+PASS engine=1502 source_bank=1 streams=12 no_restarts=1 independent_overrides=1 startup_shutdown=1 mute=1
+PASS engine=1503 source_bank=1 streams=15 no_restarts=1 independent_overrides=1 startup_shutdown=1 mute=1
+PASS engine=1504 source_bank=1 streams=12 no_restarts=1 independent_overrides=1 startup_shutdown=1 mute=1
+PASS engine=1505 source_bank=1 streams=12 no_restarts=1 independent_overrides=1 startup_shutdown=1 mute=1
+PASS: 12 real simulated engine/bank cases, fallback, event and manual-priority checks.
+frames=983700
+peak=0.254707
+finite_pcm=1
+physical_speaker_listening=0

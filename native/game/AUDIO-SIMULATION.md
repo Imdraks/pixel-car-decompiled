@@ -1,4 +1,4 @@
-# Sons simulés — 0.13.8
+# Sons simulés — 0.13.9
 
 Six packs réellement générés avec le simulateur physique et l’exporteur de
 [Talhasarac](https://github.com/Talhasarac/engine-sim-sound-exporter), révision
@@ -23,18 +23,36 @@ sont encodés puis décodés avec FFmpeg pour contrôle. Les événements durent
 
 ## Disponibilité et intégration
 
-Les ZIP sont fournis séparément dans la release et dans **Audio-Simulation**
-du téléchargement Windows. Ils contiennent les WAV bruts, WAV/OGG traités,
-le script `.mr` adapté, la description JSON, le journal de simulation,
-les empreintes SHA-256, la licence et le plan d’intégration.
+Les six banques sont désormais **actives dans le jeu**, au garage et en conduite :
+LS, AMG GT63 S, Huracán EVO, Aventador, V6 F1 et Ford Coyote. Dans **SONS DU
+MOTEUR**, les lignes accélération et décélération sur **AUTO** utilisent les
+boucles simulées du moteur équipé. Un réglage manuel reste prioritaire pour
+sa ligne ; deux réglages manuels reviennent entièrement aux profils historiques.
+La banque Original/Unbound continue de déterminer ces profils et les effets.
+Le LSX, le LT5 et les autres moteurs gardent leurs associations précédentes.
 
-**Ces packs ne sont pas encore activés dans le mixeur du jeu.** Les 31 swaps
-jouables utilisent encore les familles sonores du jeu. Le plan prévoit une
-banque séparée pour interpoler les régimes et les charges sans changer les IDs
-partagés par les moteurs Original/Unbound ni les choix audio manuels.
-Les dossiers d’intégration sont préparés et validés ; aucun son d’origine
-n’est écrasé. Les 188 fichiers source ont été comparés au ZIP public 0.13.7 :
-identiques octet par octet.
+Le moteur Aventador S du catalogue emploie le pack V12 SVJ comme approximation ;
+les deux variantes ne sont pas présentées comme identiques. G démarre le moteur
+au garage avec son événement simulé ; G l’arrête avec le son d’extinction.
+Maintenir Z fait varier les boucles avec le régime réel du moteur. L’entrée
+sur la route commence directement avec le moteur en marche.
+
+Le mixeur lit les associations compilées depuis les manifestes validés. Il garde
+les 12 ou 15 flux de chaque pack en mémoire, interpole les deux régimes voisins
+et les charges 0/30/100 %, ajuste la hauteur autour de chaque régime d’ancrage et
+lisse volumes/hauteurs en 35 ms. Les flux ne redémarrent pas à chaque changement
+de tours. Le démarrage se fond dans les boucles ; le ralenti, le rupteur, les
+changements de rapports et la décélération suivent la conduite et le garage.
+Le gain total des boucles reste borné à 0,55. Pause et désactivation du son
+rendent les boucles muettes ; changer de moteur libère la banque précédente.
+Si un pack manque, le mixeur reprend les sons historiques de ce moteur.
+
+Les WAV/OGG sont stockés séparément dans `assets/engine-packs` avec les manifestes,
+rapports, descriptions et licences. Les 188 sons d’origine restent intacts.
+Les exports bruts et les scripts complets sont toujours téléchargeables dans
+les six packs de la [release 0.13.8](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.8-native-preview).
+Les sweeps accélération/décélération servent d’aperçus hors jeu ; en conduite,
+le son continu est construit depuis les boucles pour suivre le régime réel.
 
 Le skill réutilisable se trouve dans
 [`.agents/skills/car-engine-audio/SKILL.md`](../../.agents/skills/car-engine-audio/SKILL.md).

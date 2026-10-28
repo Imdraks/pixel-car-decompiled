@@ -1,3 +1,5 @@
+#include "simulated_engine_mix.hpp"
+#include "saved_cars.hpp"
 #include "model.hpp"
 #include "engine_mix.hpp"
 #include "garage_engine.hpp"
@@ -269,6 +271,39 @@ int main(int argc,char**argv){
     expect(buildVehicle(pcFactory).vehicle.factoryBoostSoundPsi>0,"factory turbo sound is available without fitting an aftermarket turbo");
     equipPart(pcFactory,PartSlot::Turbo,3026);
     expect(buildVehicle(pcFactory).vehicle.factoryBoostSoundPsi==0&&!buildVehicle(pcFactory).vehicle.supercharged,"aftermarket induction replaces the factory sound layer without stacking it");
+    {auto garage=root/"saved-cars";std::filesystem::remove_all(garage);Profile named;named.savedName="Drag ZG";named.car=20;named.rim=10100;named.rearRim=10101;
+        named.contentSource=1;named.audioSource=1;named.rollCage=true;named.headlights=true;named.factoryDrive=false;named.drive=DriveLayout::Rear;
+        equipBestParts(named);equipPart(named,PartSlot::Engine,1008);applyGearboxPreset(named,7);applySuspensionPreset(named,SuspensionPreset::Wheelie);
+        named.cosmetics[6]=106011;named.soundOn=5;named.soundOff=4;named.bov=3;named.bestTime=12.345678;
+        std::string error;expect(storeSavedCar(garage,1,named,error),"named garage stores a complete prepared car atomically");
+        auto first=savedCars(garage);expect(first.size()==1&&first[0].profile.savedName==named.savedName&&nextSavedCarId(garage)==2,"named garage lists saved cars and chooses a free slot");
+        saveProfile(root/"garage-expected.ini",named,error);saveProfile(root/"garage-loaded.ini",first[0].profile,error);
+        auto contents=[](const std::filesystem::path& file){std::ifstream in(file,std::ios::binary);return std::string(std::istreambuf_iterator<char>(in),{});};
+        expect(contents(root/"garage-expected.ini")==contents(root/"garage-loaded.ini"),"named car round trip retains every serialized mechanical, appearance, gearing, suspension, audio and record setting");
+        Profile second=named;second.savedName="AMG Route";second.car=21;equipPart(second,PartSlot::Engine,1501);
+        expect(storeSavedCar(garage,2,second,error)&&savedCars(garage).size()==2,"saving another configuration preserves the first car");
+        expect(storeSavedCar(garage,1,second,error)&&loadProfile(garage/"car-1.ini.bak",191,54).parts[0]==1008,"updating a saved car preserves its previous full configuration in a backup");
+        std::ofstream(garage/"car-0001.ini")<<"car=5\n";
+        expect(savedCars(garage).size()==2&&!storeSavedCar(garage,0,named,error),"garage ignores noncanonical filenames and refuses invalid slots");
+    }
+    bool blendValid=true,continuousBlend=true,overrideBlend=true;int mixCases=0;
+    for(const auto& pack:SimulatedPacks){
+        for(double rpm:{500.0,1000.0,1999.9,2500.0,4000.0,4500.0,6000.0,8200.0,14000.0,17300.0})for(double load:{0.0,.1,.3,.5,.8,1.0}){
+            double sum=0,withoutOn=0,withoutOff=0;
+            for(std::size_t i=0;i<pack.count;i++){
+                auto m=simulatedClipMix(pack,i,rpm,load);sum+=m.gain;
+                blendValid&=std::isfinite(m.gain)&&m.gain>=0&&m.gain<=1&&m.pitch>=.5&&m.pitch<=1.75;
+                auto on=simulatedClipMix(pack,i,rpm,load,false,true),off=simulatedClipMix(pack,i,rpm,load,true,false);
+                withoutOn+=on.gain;withoutOff+=off.gain;
+                overrideBlend&=(pack.clips[i].load==0||on.gain==0)&&(pack.clips[i].load!=0||off.gain==0);
+                continuousBlend&=std::abs(m.gain-simulatedClipMix(pack,i,rpm+.001,load).gain)<.00001;
+            }
+            blendValid&=std::abs(sum-1)<1e-9;overrideBlend&=std::abs(withoutOn+withoutOff-1)<1e-9;++mixCases;
+        }
+    }
+    expect(blendValid&&mixCases==360,"six simulated engine packs preserve unity gain across RPM/load anchors and bounded pitches");
+    expect(continuousBlend&&overrideBlend,"simulated blend is continuous at RPM anchors and manual on/off overrides mute only the corresponding layers");
+    expect(simulatedPack(1008)&&simulatedPack(1501)&&simulatedPack(1502)&&simulatedPack(1503)&&simulatedPack(1504)&&simulatedPack(1505)&&!simulatedPack(1002)&&!simulatedPack(1515),"only the six validated engines use a simulated bank; source engines and W16 retain their original fallback");
     Profile swappedSound;equipPart(swappedSound,PartSlot::Engine,1007);swappedSound.soundOn=4;
     auto overrideSound=engineSamples(swappedSound);
     expect(overrideSound.on==47&&overrideSound.off==23,"manual acceleration override preserves the equipped engine's recovered deceleration sound");

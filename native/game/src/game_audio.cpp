@@ -41,6 +41,99 @@ void checkOriginalAudio(const std::filesystem::path& assets,const std::filesyste
     }
     report<<"PASS: "<<count<<" original sounds decoded without opening an audio device. Physical playback is not established.\n";
     loops<<"],\"engine_bank_cases\":"<<loopCount<<",\"source_files_modified\":false}\n";
+    std::ofstream simulation(output/"simulated-audio-report.txt");int simulatedCount=0;
+    for(const auto& pack:SimulatedPacks){
+        auto folder=(assets/pack.startup).parent_path();
+        if(!std::filesystem::is_directory(folder))throw std::runtime_error("Missing simulated engine pack");
+        for(const auto& entry:std::filesystem::directory_iterator(folder)){
+            auto extension=entry.path().extension();if(extension!=".wav"&&extension!=".ogg")continue;
+            Wave wave=LoadWave(entry.path().u8string().c_str());
+            bool valid=IsWaveValid(wave)&&wave.sampleRate==44100&&wave.channels==1&&wave.frameCount>44100&&wave.frameCount<44100*4;
+            double peak=0,seam=0;bool nonSilent=false;
+            if(valid){float* samples=LoadWaveSamples(wave);valid=samples!=nullptr;
+                if(samples){for(unsigned i=0;i<wave.frameCount;i++){valid&=std::isfinite(samples[i]);peak=std::max(peak,double(std::abs(samples[i])));nonSilent|=std::abs(samples[i])>.00001f;}
+                    seam=std::abs(samples[0]-samples[wave.frameCount-1]);UnloadWaveSamples(samples);}
+            }
+            valid&=nonSilent&&peak<.99;
+            if(entry.path().filename().string().find("_rpm_")!=std::string::npos)valid&=seam<=.04;
+            simulation<<(valid?"PASS ":"FAIL ")<<entry.path().filename().string()<<" peak="<<peak<<" seam="<<seam<<'\n';
+            if(IsWaveValid(wave))UnloadWave(wave);
+            if(!valid)throw std::runtime_error("Invalid simulated engine audio");
+            ++simulatedCount;
+        }
+    }
+    if(simulatedCount!=198)throw std::runtime_error("Incomplete simulated engine bank");
+    simulation<<"PASS: "<<simulatedCount<<" WAV/OGG simulated files decoded, no saturation, finite samples and bounded loop seams.\n";
+}
+void GameAudio::clearSimulated(){
+    for(auto& stream:simulatedLoops)if(IsMusicValid(stream.music))UnloadMusicStream(stream.music);
+    simulatedLoops.clear();
+    if(IsSoundValid(simulatedStartup))UnloadSound(simulatedStartup);
+    if(IsSoundValid(simulatedShutdown))UnloadSound(simulatedShutdown);
+    simulatedStartup={};simulatedShutdown={};simulated=nullptr;starting=false;
+    simulatedStatus.engineId=0;simulatedStatus.streams=0;simulatedStatus.gainSum=0;simulatedStatus.audible=false;
+}
+bool GameAudio::loadSimulated(int engineId){
+    if(simulatedRequested==engineId)return simulated!=nullptr;
+    clearSimulated();simulatedRequested=engineId;
+    const auto* pack=simulatedPack(engineId);if(!pack)return false;
+    bool present=std::filesystem::is_regular_file(root/pack->startup)&&std::filesystem::is_regular_file(root/pack->shutdown);
+    for(std::size_t i=0;i<pack->count;i++)present&=std::filesystem::is_regular_file(root/pack->clips[i].file);
+    if(!present){++failures;return false;}
+    for(std::size_t i=0;i<pack->count;i++){
+        Music music=LoadMusicStream((root/pack->clips[i].file).u8string().c_str());
+        if(!IsMusicValid(music)){++failures;clearSimulated();return false;}
+        music.looping=true;SetMusicVolume(music,0);PlayMusicStream(music);
+        simulatedLoops.push_back({music,0,1});++simulatedStatus.streamStarts;
+    }
+    simulatedStartup=LoadSound((root/pack->startup).u8string().c_str());
+    simulatedShutdown=LoadSound((root/pack->shutdown).u8string().c_str());
+    if(!IsSoundValid(simulatedStartup)||!IsSoundValid(simulatedShutdown)){++failures;clearSimulated();return false;}
+    simulated=pack;simulatedStatus.engineId=engineId;simulatedStatus.streams=int(pack->count);return true;
+}
+void GameAudio::muteSimulated(){
+    for(auto& stream:simulatedLoops){stream.gain=0;SetMusicVolume(stream.music,0);}
+    simulatedStatus.gainSum=0;simulatedStatus.audible=false;
+}
+void GameAudio::updateSimulated(double rpm,double load,float audible,float cut,bool autoOn,bool autoOff){
+    if(!simulated)return;
+    double loopFade=1;
+    if(starting){
+        startupElapsed+=audioDt;
+        loopFade=std::max(load,std::clamp((startupElapsed-simulated->startupSeconds+.3)/.3,0.0,1.0));
+        SetSoundVolume(simulatedStartup,float(audible*.45*(1-loopFade)));
+        if(startupElapsed>=simulated->startupSeconds){starting=false;StopSound(simulatedStartup);}
+    }
+    simulatedStatus.gainSum=0;simulatedStatus.audible=audible>0;
+    double smoothing=1-std::exp(-audioDt/.035);
+    for(std::size_t i=0;i<simulatedLoops.size();i++){
+        auto mix=simulatedClipMix(*simulated,i,rpm,load,autoOn,autoOff);auto& stream=simulatedLoops[i];
+        double target=audible*.55*cut*loopFade*mix.gain;
+        stream.gain=audible<=0?0:float(stream.gain+(target-stream.gain)*smoothing);
+        stream.pitch=float(stream.pitch+(mix.pitch-stream.pitch)*smoothing);
+        SetMusicVolume(stream.music,stream.gain);SetMusicPitch(stream.music,stream.pitch);UpdateMusicStream(stream.music);
+        simulatedStatus.gainSum+=stream.gain;
+    }
+}
+void GameAudio::startEngine(const Profile& profile,bool enabled){
+    if(!ready||!enabled)return;
+    lastEnabled=enabled;selectBank(profile.audioSource);reset();
+    bool autoSound=profile.soundOn<0||profile.soundOff<0;
+    if(autoSound&&loadSimulated(profile.parts[int(PartSlot::Engine)])){
+        StopSound(simulatedShutdown);StopSound(simulatedStartup);
+        SetSoundVolume(simulatedStartup,.45f);PlaySound(simulatedStartup);
+        starting=true;startupElapsed=0;++simulatedStatus.startupEvents;
+    }else shot(45,.4f);
+}
+void GameAudio::stopEngine(bool shutdown){
+    if(!ready)return;
+    auto start=shots.find(45);if(start!=shots.end())StopSound(start->second);
+    if(simulated){
+        StopSound(simulatedStartup);starting=false;muteSimulated();
+        if(shutdown&&lastEnabled){SetSoundVolume(simulatedShutdown,.45f);PlaySound(simulatedShutdown);++simulatedStatus.shutdownEvents;}
+        else StopSound(simulatedShutdown);
+    }
+    reset();
 }
 void GameAudio::init(const std::filesystem::path& path){root=path;InitAudioDevice();ready=IsAudioDeviceReady();}
 void GameAudio::selectBank(int value){
@@ -90,13 +183,26 @@ void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarSt
     selectBank(profile.audioSource);
     double now=std::chrono::duration<double>(std::chrono::steady_clock::now().time_since_epoch()).count();
     audioDt=lastUpdate>0?std::clamp(now-lastUpdate,0.0,.1):1.0/60;lastUpdate=now;
-    if(!enabled)for(auto& sound:shots)StopSound(sound.second);
+    lastEnabled=enabled;
+    if(!enabled){
+        for(auto& sound:shots)StopSound(sound.second);
+        if(IsSoundValid(simulatedStartup))StopSound(simulatedStartup);
+        if(IsSoundValid(simulatedShutdown))StopSound(simulatedShutdown);
+        starting=false;
+    }
     auto samples=engineSamples(profile);bool gas=active&&input.throttle&&(!input.brake||car.burningOut||car.neutral||car.handbraking);
     float audible=enabled&&active?1.f:0.f;
     engineMix.update(car.rpm,gas,audible>0,audioDt,samples.on);
     float pitch=float(engineMix.pitch),load=float(engineMix.load);
     float cut=limiter?float(.3+.7*(.5+.5*std::sin(car.elapsed*62.831853))):car.launching?(std::sin(car.elapsed*62.831853)>0?1.f:.25f):1.f;
     float onVolume=audible*.40f*load*cut,offVolume=audible*.32f*(1-load);
+    bool autoOn=profile.soundOn<0,autoOff=profile.soundOff<0;
+    int engineId=profile.parts[int(PartSlot::Engine)];
+    bool useSimulated=false;
+    if(active&&(autoOn||autoOff))useSimulated=loadSimulated(engineId);
+    else if(simulatedRequested!=engineId||(!autoOn&&!autoOff)){clearSimulated();simulatedRequested=-1;}
+    if(useSimulated){if(autoOn)onVolume=0;if(autoOff)offVolume=0;}
+    updateSimulated(car.rpm,load,useSimulated?audible:0,cut,autoOn,autoOff);
     // sfx_engine2e is a byte-identical alias of sfx_engine2 in each source bank.
     auto canonical=[](int id){return id==22?21:id;};
     if(canonical(samples.on)==canonical(samples.off)){onVolume+=offVolume;offVolume=0;}
@@ -121,6 +227,7 @@ void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarSt
 }
 GameAudio::~GameAudio(){
     if(!ready)return;
+    clearSimulated();
     for(auto* stream:{&on,&off,&turbo,&blower,&nos,&town})if(stream->id>=0)UnloadMusicStream(stream->music);
     for(auto& s:shots)UnloadSound(s.second);
     CloseAudioDevice();

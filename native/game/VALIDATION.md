@@ -1,3 +1,25 @@
+# Validation 0.13.9 — audio simulé actif et collection de voitures
+
+- 348 contrôles du cœur : interpolation régime/charge des six banques, somme
+  des gains, transitions aux ancrages, priorité indépendante des profils manuels,
+  sauvegarde complète des voitures nommées et copie de sécurité à la mise à jour.
+- 91 contrôles graphiques Linux, dont enregistrement de deux carrosseries puis
+  rechargement de la première. 10 contrôles supplémentaires avec de vrais clics
+  et touches : nom accentué, plusieurs configurations, restauration de tous les
+  champs, mise à jour avec backup et persistance après redémarrage de l’application.
+- Les 198 WAV/OGG simulés sont décodés et vérifiés par le jeu : 44,1 kHz mono,
+  valeurs finies, non-silence, durées, crêtes <0,99 et raccords de boucles ≤0,04.
+- Mixage Raylib réel sur périphérique logiciel : 12 cas moteur/banque simulés,
+  aucun redémarrage de flux pendant les changements de tours et de charge,
+  événements de démarrage/arrêt, profils manuels partiels et complets, mute et
+  retour à un moteur historique. Les essais G/Z réels couvrent LS et V6 F1 :
+  47 contrôles chacun, dont la banque effectivement sélectionnée et l’arrêt.
+- Les configurations mécaniques, les fichiers source Original/Unbound et les
+  sauvegardes existantes sont préservés. Les packs bruts restent en release 0.13.8.
+- Audio simulé approximatif ; écoute sur enceintes et équivalence constructeur
+  non établies. Rapports : `validation/active-audio-0.13.9/` et
+  `validation/saved-cars-0.13.9/`.
+
 # Validation 0.13.8 — moteurs PC et export audio
 
 - 339 contrôles du cœur Linux, exécutables Linux/Windows compilés ;

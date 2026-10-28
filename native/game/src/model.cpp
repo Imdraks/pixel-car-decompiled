@@ -80,7 +80,7 @@ Settings loadSettings(const std::filesystem::path& file){
     return validate(s);
 }
 Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
-    auto v=readIni(file);Profile p;
+    auto v=readIni(file);Profile p;p.savedName=v["saved_name"].substr(0,48);
     (void)rims;p.rollCage=integer(v,"roll_cage",0)!=0;p.headlights=integer(v,"headlights",0)!=0;p.contentSource=std::clamp(integer(v,"content_source",0),0,1);p.audioSource=std::clamp(integer(v,"audio_source",p.contentSource),0,1);
     for(int slot=0;slot<CosmeticSlotCount;slot++){int id=integer(v,"cosmetic_"+std::to_string(slot),0);auto item=findCosmetic(id);if(item&&item->slot==slot)p.cosmetics[slot]=id;}
     p.car=std::clamp(integer(v,"car",0),0,std::max(0,cars-1));
@@ -118,6 +118,8 @@ bool saveSettings(const std::filesystem::path& file,const Settings& settings,std
 bool saveProfile(const std::filesystem::path& file,const Profile& raw,std::string& error){
     Profile p=raw;sanitizeTransmission(p);sanitizeSuspension(p);
     std::ostringstream out;out.imbue(std::locale::classic());
+    std::string name=p.savedName.substr(0,48);name.erase(std::remove_if(name.begin(),name.end(),[](unsigned char c){return c<32||c==127;}),name.end());
+    out<<"saved_name="<<name<<'\n';
     out<<"version=6\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
     out<<"ride_height_mm="<<p.rideHeightMm<<"\nspring_stiffness="<<p.springStiffness<<"\ndamping_ratio="<<p.dampingRatio<<"\nfront_bias="<<p.frontBias<<"\nallow_wheelie="<<p.allowWheelie<<'\n';
     out<<"wheelie_tune="<<p.wheelieTune<<'\n';
