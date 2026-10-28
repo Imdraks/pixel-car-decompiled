@@ -345,6 +345,13 @@ int main(int argc,char**argv){
         GarageEngine g;g.toggle(v);for(int tick=0;tick<240;tick++)g.update(v,true,Step);
         expect(g.state.boostPsi==0&&g.state.speed==0&&g.state.nitroRemaining==10,"garage induction audition never adds physical boost, motion or NOS consumption");
     }
+    {Settings levels;levels.volumes={.73,.24,.51,.62,.35,.81};std::string error;
+        expect(saveSettings(root/"volumes.ini",levels,error)&&loadSettings(root/"volumes.ini")==levels,"all six independent audio volumes persist without changing display or driving settings");
+        Settings bad;bad.volumes={-1,2,std::numeric_limits<double>::quiet_NaN(),.5,.25,0};auto clean=validate(bad);
+        expect(clean.volumes.master==0&&clean.volumes.engine==1&&clean.volumes.turbo==1&&clean.volumes.effects==.5&&clean.volumes.ambience==.25&&clean.volumes.interface==0,"audio levels clamp to zero through one and reject nonfinite values");
+        std::ofstream(root/"legacy-volumes.ini")<<"width=960\nheight=540\nsound=1\n";
+        expect(loadSettings(root/"legacy-volumes.ini").volumes==AudioVolumes{},"older settings files keep the previous full-volume playback by default");
+    }
     Profile swappedSound;equipPart(swappedSound,PartSlot::Engine,1007);swappedSound.soundOn=4;
     auto overrideSound=engineSamples(swappedSound);
     expect(overrideSound.on==47&&overrideSound.off==23,"manual acceleration override preserves the equipped engine's recovered deceleration sound");

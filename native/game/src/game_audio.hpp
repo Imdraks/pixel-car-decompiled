@@ -19,6 +19,8 @@ class GameAudio {
     void updateSimulated(double rpm,double load,float audible,float cut,bool autoOn,bool autoOff);
     void muteSimulated();
     std::filesystem::path root;
+    AudioVolumes volumes{};std::map<int,float> shotBaseVolumes;
+    float shotChannel(int id)const;
     std::map<int,Sound> shots;
     Loop on,off,turbo,blower,nos,town;
     EngineMix engineMix;double lastUpdate=0,audioDt=1.0/60;
@@ -33,6 +35,7 @@ public:
     bool ready=false;int failures=0;
     void init(const std::filesystem::path&);
     void selectBank(int);
+    void setVolumes(const AudioVolumes&);
     void update(const Profile&,const Vehicle&,const CarState&,const DriverInput&,double collision,bool active,bool enabled,bool limiter=false,bool garageAudition=false);
     void startEngine(const Profile& profile,bool enabled);
     void stopEngine(bool shutdown=false);

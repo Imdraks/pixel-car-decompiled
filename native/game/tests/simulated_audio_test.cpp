@@ -61,6 +61,21 @@ int main(int argc,char** argv){try{
             audio.update(p,vehicle,state,{},0,false,true,false,true);require(audio.inductionAudioLevel==0,"Stopped garage audition leaked induction");
             report<<"PASS turbo="<<turbo.id<<" count="<<turbo.count<<" pitch="<<vehicle.turboSoundPitch<<" valve="<<vehicle.turboAutoValve<<'\n';
         }
+        {Profile p;equipPart(p,PartSlot::Engine,1008);equipPart(p,PartSlot::Turbo,16013);auto vehicle=buildVehicle(p).vehicle;
+            CarState state;state.rpm=6000;state.boostPsi=30;
+            auto pump=[&](int count){for(int i=0;i<count;i++){state.elapsed+=.01;audio.update(p,vehicle,state,{true,false,true},0,true,true);std::this_thread::sleep_for(std::chrono::milliseconds(10));}};
+            AudioVolumes v;v.master=1;v.engine=v.turbo=v.effects=v.ambience=v.interface=0;audio.setVolumes(v);pump(40);
+            auto before=energy.load();pump(20);require(energy.load()==before&&audio.simulatedStatus.gainSum==0,"Zero category volumes did not silence the real mix");
+            auto starts=audio.simulatedStatus.streamStarts;v.engine=.5;audio.setVolumes(v);before=energy.load();pump(35);
+            require(energy.load()>before&&audio.simulatedStatus.gainSum>.1&&audio.simulatedStatus.gainSum<=.27501,"Engine slider did not scale simulated loops independently");
+            v.engine=0;v.turbo=1;audio.setVolumes(v);before=energy.load();pump(35);
+            require(energy.load()>before&&audio.simulatedStatus.gainSum==0,"Turbo slider was not independent from engine mute");
+            v.turbo=0;v.effects=1;audio.setVolumes(v);before=energy.load();audio.horn(true);pump(20);require(energy.load()>before,"Effects slider did not enable horn playback");
+            v.effects=0;v.interface=1;audio.setVolumes(v);before=energy.load();audio.click(true);pump(20);require(energy.load()>before,"Interface slider did not enable click playback");
+            v.master=0;audio.setVolumes(v);require(GetMasterVolume()==0,"General volume did not reach the device master gain");
+            audio.setVolumes(AudioVolumes{});require(GetMasterVolume()==1&&audio.simulatedStatus.streamStarts==starts,"Volume changes restarted engine streams or failed to restore master volume");
+            report<<"PASS independent volumes: category silence, engine scaling, turbo-only, horn, interface and master without stream restarts\n";
+        }
         // Switching back to an untouched source engine releases all simulated loops.
         Profile fallback;equipPart(fallback,PartSlot::Engine,1002);auto v=buildVehicle(fallback).vehicle;CarState s;s.rpm=4000;
         audio.update(fallback,v,s,{true,false,true},0,true,true);require(audio.simulatedStatus.engineId==0,"Source engine uses an unrelated simulated pack");

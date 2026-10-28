@@ -28,14 +28,14 @@ void equipRim(Profile& p,int id,int axle){
 int bodyChoiceIndex(const Profile& p){for(size_t i=0;i<std::size(BodyChoices);i++)if(BodyChoices[i].body==p.car&&(BodyChoices[i].source==p.contentSource||BodyChoices[i].sourceMask==3))return int(i);return 0;}
 void cycleBody(Profile& p,int direction){int index=(bodyChoiceIndex(p)+direction+int(std::size(BodyChoices)))%int(std::size(BodyChoices));p.car=BodyChoices[index].body;p.contentSource=BodyChoices[index].source;}
 
-bool operator==(const Settings&a,const Settings&b){return a.mode==b.mode&&a.width==b.width&&a.height==b.height&&a.fps==b.fps&&a.vsync==b.vsync&&a.showFps==b.showFps&&a.sound==b.sound&&a.traffic==b.traffic&&a.abs==b.abs&&a.tractionControl==b.tractionControl&&a.quality==b.quality;}
+bool operator==(const Settings&a,const Settings&b){return a.mode==b.mode&&a.width==b.width&&a.height==b.height&&a.fps==b.fps&&a.vsync==b.vsync&&a.showFps==b.showFps&&a.sound==b.sound&&a.traffic==b.traffic&&a.abs==b.abs&&a.tractionControl==b.tractionControl&&a.quality==b.quality&&a.volumes==b.volumes;}
 const char* modeKey(WindowMode mode){switch(mode){case WindowMode::Fullscreen:return "fullscreen";case WindowMode::Borderless:return "borderless";default:return "windowed";}}
 Settings validate(Settings s){
     if(s.mode!=WindowMode::Windowed&&s.mode!=WindowMode::Borderless&&s.mode!=WindowMode::Fullscreen)s.mode=WindowMode::Windowed;
     if(s.width<800||s.width>7680||s.height<450||s.height>4320){s.width=1280;s.height=720;}
     if(s.fps!=0&&s.fps!=30&&s.fps!=60&&s.fps!=120&&s.fps!=144&&s.fps!=165&&s.fps!=240)s.fps=120;
     if(s.quality!=Quality::Low&&s.quality!=Quality::Medium&&s.quality!=Quality::High)s.quality=Quality::High;
-    return s;
+    s.volumes=validateVolumes(s.volumes);return s;
 }
 static std::map<std::string,std::string> readIni(const std::filesystem::path& file){
     std::ifstream in(file);std::map<std::string,std::string> values;std::string line;
@@ -77,6 +77,8 @@ Settings loadSettings(const std::filesystem::path& file){
     s.quality=Quality(integer(v,"quality",int(s.quality)));
     s.vsync=integer(v,"vsync",s.vsync)!=0;s.showFps=integer(v,"show_fps",s.showFps)!=0;s.sound=integer(v,"sound",s.sound)!=0;
     s.traffic=integer(v,"traffic",1)!=0;s.abs=integer(v,"abs",1)!=0;s.tractionControl=integer(v,"traction_control",1)!=0;
+    s.volumes.master=real(v,"volume_master",1);s.volumes.engine=real(v,"volume_engine",1);s.volumes.turbo=real(v,"volume_turbo",1);
+    s.volumes.effects=real(v,"volume_effects",1);s.volumes.ambience=real(v,"volume_ambience",1);s.volumes.interface=real(v,"volume_interface",1);
     return validate(s);
 }
 Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
@@ -113,6 +115,7 @@ bool saveSettings(const std::filesystem::path& file,const Settings& settings,std
     auto s=validate(settings);std::ostringstream out;out.imbue(std::locale::classic());
     out<<"version=1\nmode="<<modeKey(s.mode)<<"\nwidth="<<s.width<<"\nheight="<<s.height<<"\nfps="<<s.fps<<"\nvsync="<<s.vsync<<"\nquality="<<int(s.quality)<<"\nshow_fps="<<s.showFps<<"\nsound="<<s.sound<<"\ntraffic="<<s.traffic<<"\n";
     out<<"abs="<<s.abs<<"\ntraction_control="<<s.tractionControl<<'\n';
+    out<<std::setprecision(17)<<"volume_master="<<s.volumes.master<<"\nvolume_engine="<<s.volumes.engine<<"\nvolume_turbo="<<s.volumes.turbo<<"\nvolume_effects="<<s.volumes.effects<<"\nvolume_ambience="<<s.volumes.ambience<<"\nvolume_interface="<<s.volumes.interface<<'\n';
     return writeAtomic(file,out.str(),error);
 }
 bool saveProfile(const std::filesystem::path& file,const Profile& raw,std::string& error){

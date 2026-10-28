@@ -1,4 +1,10 @@
-# Pixel Car Racer — Unbound Native 0.14.1
+# Pixel Car Racer — Unbound Native 0.14.2
+
+La version **0.14.2** ajoute **Paramètres → Volumes** : six curseurs pour le
+général, le moteur, le turbo/compresseur, les bruitages, l’ambiance et l’interface.
+Aperçu immédiat, enregistrement persistant, annulation et retour à 100 %.
+Au garage, le moteur allumé reste écoutable avec Z dans cette page.
+[Réglages et catégories](VOLUMES.md).
 
 La version **0.14.1** fait entendre le turbo équipé dans le menu custom :
 **G** démarre le moteur avec un léger sifflement au ralenti, **Z** le fait monter

@@ -55,7 +55,8 @@ struct App {
     ContentRenderer content;
     GarageEngine garageEngine;
     GameAudio audio; bool powerPopup=false,rarityDescending=false; bool audioPopup=false,previewGas=true;double audioPreviewUntil=0;
-    Vector2 mouse{-100,-100};bool uiEnabled=true,options=false,paused=false,confirming=false,quit=false;
+    Vector2 mouse{-100,-100};bool volumePage=false;int volumeDragging=-1;
+    bool uiEnabled=true,options=false,paused=false,confirming=false,quit=false;
     double deadline=0,accumulator=0;int garageStyle=0;std::string notice;
     std::function<void()> queued;
     int frames=0;bool smokePassed=true,capMeasuring=false;double capStarted=0,capElapsed=0;
@@ -199,7 +200,7 @@ struct App {
         settings=s;drive.setTraffic(s.traffic);drive.vehicle.abs=s.abs;drive.vehicle.tractionControl=s.tractionControl;accumulator=0;
         return true;
     }
-    void openOptions(){edited=settings;options=true;notice.clear();}
+    void openOptions(){edited=settings;options=true;volumePage=false;volumeDragging=-1;notice.clear();}
     void preview(){
         if(confirming)return;
         normalizeResolution(edited);previous=settings;
@@ -235,7 +236,7 @@ struct App {
         for(int i=0;i<content_art::AtlasCount;i++){auto im=LoadImage(asset(TextFormat("content-%02i.png",i)).c_str());if(!im.data)throw std::runtime_error("Contenu manquant : extraire tout le ZIP.");ImageFormat(&im,PIXELFORMAT_UNCOMPRESSED_R8G8B8A8);content.pixels[2000+i]=im;auto t=LoadTextureFromImage(im);SetTextureFilter(t,TEXTURE_FILTER_POINT);atlases[2000+i]=t;}
         for(int i=0;i<rim_finish::AtlasCount;i++){auto texture=LoadTexture(asset(TextFormat("customization-%02i.png",i)).c_str());if(!texture.id)throw std::runtime_error("Matériaux de jantes manquants : extraire tout le ZIP.");SetTextureFilter(texture,TEXTURE_FILTER_POINT);atlases[3000+i]=texture;}
         for(int i=0;i<original_ui::AtlasCount;i++){auto t=LoadTexture(asset(TextFormat("original-ui-%02i.png",i)).c_str());if(!t.id)throw std::runtime_error("Interface d’origine manquante : extraire tout le ZIP.");SetTextureFilter(t,TEXTURE_FILTER_POINT);atlases[1000+i]=t;}
-        if(!apply(settings)){Settings safe;safe.width=960;safe.height=540;if(!apply(safe))throw std::runtime_error("Impossible de créer la surface de rendu.");}
+        if(!apply(settings)){volumePage=false;volumeDragging=-1;Settings safe=settings;safe.mode=WindowMode::Windowed;safe.width=960;safe.height=540;if(!apply(safe))throw std::runtime_error("Impossible de créer la surface de rendu.");}
         edited=settings;
         if(!args.noAudio&&!args.smoke){audio.init(args.assets);audio.selectBank(profile.audioSource);}
         if(args.free)beginFree();
@@ -259,7 +260,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.14.1",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.14.2",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},"GARAGE")){openCustomization();screen=Screen::Garage;}
@@ -820,7 +821,35 @@ struct App {
         float size=value.size()>23?17:20;float w=MeasureTextEx(font,value.c_str(),size,0).x;text(value,862-w/2,y+13,size);
         return d;
     }
+    void cancelVolumes(){edited.volumes=settings.volumes;volumePage=false;volumeDragging=-1;notice.clear();}
+    void saveVolumes(){
+        Settings next=settings;next.volumes=validateVolumes(edited.volumes);std::string error;
+        if(!saveSettings(settingFile(),next,error)){notice="Enregistrement impossible : "+error;return;}
+        settings.volumes=next.volumes;edited.volumes=settings.volumes;volumePage=false;volumeDragging=-1;notice="Volumes enregistrés.";
+    }
+    void volumeSettingsScene(){
+        DrawRectangle(0,0,1280,720,Fade(Ink,.85f));card({174,40,932,639});
+        text("VOLUMES",211,66,30);text("Réglage à la souris • aperçu immédiat • 0 % pour couper une catégorie",211,112,16,Muted);
+        const char* labels[]={"GÉNÉRAL","MOTEUR","TURBO / COMPRESSEUR","BRUITAGES","AMBIANCE","INTERFACE"};
+        double* values[]={&edited.volumes.master,&edited.volumes.engine,&edited.volumes.turbo,&edited.volumes.effects,&edited.volumes.ambience,&edited.volumes.interface};
+        if(!IsMouseButtonDown(MOUSE_BUTTON_LEFT))volumeDragging=-1;
+        for(int i=0;i<6;i++){
+            float y=166+62.f*i;Rectangle track{540,y+9,436,16};
+            text(labels[i],212,y+5,i==2?17:20,Muted);
+            if(uiEnabled&&IsMouseButtonPressed(MOUSE_BUTTON_LEFT)&&CheckCollisionPointRec(mouse,{track.x-10,track.y-12,track.width+20,track.height+24}))volumeDragging=i;
+            if(uiEnabled&&volumeDragging==i)*values[i]=std::round(std::clamp(double((mouse.x-track.x)/track.width),0.0,1.0)*100)/100;
+            DrawRectangleRec(track,Color{44,55,67,255});float fill=float(*values[i])*track.width;
+            DrawRectangle(int(track.x),int(track.y),int(fill),int(track.height),Accent);DrawRectangle(int(track.x+fill)-6,int(track.y)-6,12,int(track.height)+12,WHITE);
+            text(TextFormat("%i %%",int(std::round(*values[i]*100))),1000,y+4,20,Accent);
+        }
+        text("Au garage : démarrez avec G avant d'ouvrir les paramètres, puis maintenez Z pour écouter.",212,555,13,Muted);
+        if(button({212,598,238,49},"ANNULER"))cancelVolumes();
+        if(button({470,598,257,49},"TOUT À 100 %"))edited.volumes=AudioVolumes{};
+        if(button({747,598,320,49},"ENREGISTRER",true))saveVolumes();
+        if(!notice.empty())text(notice,212,656,14,Accent);
+    }
     void settingsScene(){
+        if(volumePage){volumeSettingsScene();return;}
         DrawRectangle(0,0,1280,720,Fade(Ink,.82f));card({174,40,932,639});
         text("PARAMÈTRES",211,66,30);text("AFFICHAGE, SON ET CONDUITE",211,110,15,Accent);
         int d=choice(134,"Mode d'affichage",edited.mode==WindowMode::Windowed?"Fenêtre avec bordure":edited.mode==WindowMode::Borderless?"Fenêtre sans bordure":"Plein écran");
@@ -834,6 +863,7 @@ struct App {
         if(d)edited.quality=Quality((int(edited.quality)+d+3)%3);
         if(choice(394,"Compteur FPS",edited.showFps?"Afficher":"Masquer"))edited.showFps=!edited.showFps;
         if(choice(446,"Son",edited.sound?"Activé":"Désactivé"))edited.sound=!edited.sound;
+        if(button({318,451,300,36},"VOLUMES...")){volumePage=true;volumeDragging=-1;notice.clear();}
         if(choice(498,"Trafic en mode libre",edited.traffic?"Activé":"Désactivé"))edited.traffic=!edited.traffic;
         if(button({212,551,410,30},edited.abs?"ABS : ACTIVÉ":"ABS : DÉSACTIVÉ",edited.abs))edited.abs=!edited.abs;
         if(button({657,551,410,30},edited.tractionControl?"ANTIPATINAGE : ACTIVÉ":"ANTIPATINAGE : DÉSACTIVÉ",edited.tractionControl))edited.tractionControl=!edited.tractionControl;
@@ -872,7 +902,7 @@ struct App {
         if((IsKeyDown(KEY_LEFT_CONTROL)||IsKeyDown(KEY_RIGHT_CONTROL))&&IsKeyPressed(KEY_Q)){quit=true;return;}
         if(IsKeyPressed(KEY_K)&&(screen==Screen::Free||screen==Screen::Garage||screen==Screen::Customization)&&!searchFocused){profile.headlights=!profile.headlights;saveCar();}
         if(IsKeyPressed(KEY_F10)){if(confirming)revert();Settings safe;safe.width=960;safe.height=540;safe.vsync=false;safe.fps=60;apply(safe);edited=settings;options=true;notice="Affichage de secours. Appliquez vos réglages pour les enregistrer.";}
-        if(IsKeyPressed(KEY_ESCAPE)){if(confirming)revert();else if(options)options=false;else if(powerPopup)powerPopup=false;else if(audioPopup){audioPopup=false;audioPreviewUntil=0;}else if(screen==Screen::Free)paused=!paused;else if(screen==Screen::Garage||screen==Screen::Customization){if(searchFocused)searchFocused=false;else if(inventoryOpen)inventoryOpen=false;else{saveCar();screen=Screen::Menu;}}else if(screen==Screen::Transmission||screen==Screen::Suspension||screen==Screen::Collection){screen=Screen::Customization;}}
+        if(IsKeyPressed(KEY_ESCAPE)){if(confirming)revert();else if(options){if(volumePage)cancelVolumes();else options=false;}else if(powerPopup)powerPopup=false;else if(audioPopup){audioPopup=false;audioPreviewUntil=0;}else if(screen==Screen::Free)paused=!paused;else if(screen==Screen::Garage||screen==Screen::Customization){if(searchFocused)searchFocused=false;else if(inventoryOpen)inventoryOpen=false;else{saveCar();screen=Screen::Menu;}}else if(screen==Screen::Transmission||screen==Screen::Suspension||screen==Screen::Collection){screen=Screen::Customization;}}
         if(!confirming&&IsKeyPressed(KEY_ENTER)&&(IsKeyDown(KEY_LEFT_ALT)||IsKeyDown(KEY_RIGHT_ALT))){openOptions();edited.mode=settings.mode==WindowMode::Windowed?WindowMode::Borderless:WindowMode::Windowed;queued=[this]{preview();};}
         if(confirming&&GetTime()>=deadline)revert();
         if(IsKeyPressed(KEY_F3)&&screen!=Screen::Garage&&screen!=Screen::Customization){settings.showFps=!settings.showFps;edited.showFps=settings.showFps;}
@@ -895,14 +925,17 @@ struct App {
         if(!garageScreen&&garageEngine.running){garageEngine.stop();audio.stopEngine();}
         bool garageAvailable=garageScreen&&!options&&!confirming&&!powerPopup&&!audioPopup;
         bool garageGas=garageAvailable&&!searchFocused&&IsKeyDown(KEY_Z);
-        if(garageAvailable)garageEngine.update(configuration.vehicle,garageGas,dt);
+        bool volumeAudition=options&&volumePage&&!confirming;
+        if(garageScreen&&garageEngine.running&&volumeAudition)garageGas=IsKeyDown(KEY_Z);
+        if(garageAvailable||(garageScreen&&volumeAudition))garageEngine.update(configuration.vehicle,garageGas,dt);
+        audio.setVolumes(volumeAudition?edited.volumes:settings.volumes);
         bool driving=screen==Screen::Free&&!paused&&!options&&!confirming;
         if(driving&&IsKeyPressed(KEY_H))audio.horn(settings.sound);
         if(audioPopup&&GetTime()<audioPreviewUntil){CarState preview;preview.rpm=4000;
             audio.update(profile,configuration.vehicle,preview,{previewGas,false,true},0,true,settings.sound,false,true);
-        }else if(garageEngine.running&&garageAvailable){
+        }else if(garageEngine.running&&(garageAvailable||volumeAudition)){
             audio.update(profile,configuration.vehicle,garageEngine.state,{garageGas,false,true},0,true,settings.sound,garageEngine.limiting,true);
-        }else audio.update(profile,drive.vehicle,drive.player,input,drive.collisionCooldown,driving,settings.sound);
+        }else audio.update(profile,drive.vehicle,drive.player,input,drive.collisionCooldown,driving||(volumeAudition&&screen==Screen::Free),settings.sound);
 
     }
     void renderFrame(){
@@ -1211,7 +1244,11 @@ struct App {
             check(choices.size()==18&&findPart(16013)->sourceMask==4,"all 18 new turbo assemblies are searchable with PC provenance");}
         if(frames==619)capture("turbos-pc.png");
         if(frames==620){auto saved=loadProfile(profileFile(),191,54);check(saved.parts[2]==16013&&buildVehicle(saved).vehicle.turboCount==4,"quad turbo assembly persists as one complete exclusive induction upgrade");}
-        if(frames==622)quit=true;
+        if(frames==622){openOptions();volumePage=true;edited.volumes={.73,.42,.61,.55,.35,.25};}
+        if(frames==624)capture("volumes.png");
+        if(frames==625){auto before=settings;saveVolumes();auto stored=loadSettings(settingFile());check(stored.volumes==settings.volumes&&settings.volumes.engine==.42&&settings.width==before.width&&settings.mode==before.mode,"six audio sliders save independently without applying display changes");}
+        if(frames==626){volumePage=true;edited.volumes.master=0;cancelVolumes();check(edited.volumes==settings.volumes&&settings.volumes.master==.73,"cancelling volume preview restores saved levels");}
+        if(frames==628)quit=true;
 
     }
     int run(){

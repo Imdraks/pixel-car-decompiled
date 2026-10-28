@@ -1,3 +1,20 @@
+# Validation 0.14.2 — volumes indépendants
+
+- 361 contrôles du cœur : six niveaux persistants, bornage, rejet des valeurs
+  non finies et compatibilité des anciens fichiers de réglages.
+- 13 contrôles avec vraies manipulations : glissement des six curseurs,
+  sauvegarde, annulation/Échap, persistance après redémarrage, réinitialisation
+  et conservation des options d’affichage et de conduite. Les 10 contrôles de
+  voitures nommées et 95 contrôles graphiques restent valides.
+- Vrai mixeur Raylib sur périphérique logiciel : silence quand toutes les
+  catégories sont nulles, moteur seul à 50 %, turbo seul avec moteur coupé au
+  mixage, klaxon et interface indépendants, réglage du volume général du
+  périphérique et absence de redémarrage des flux. Les 18 profils turbo garage/
+  conduite et 12 cas moteur/banque passent ; crête mesurée 0,382699.
+- Les volumes sont globaux ; l’aperçu ne fait pas avancer la conduite pendant
+  les paramètres. Les ressources audio et les calibrations physiques sont intactes.
+- Rapports : `validation/volumes-0.14.2/`. Écoute sur enceintes non établie.
+
 # Validation 0.14.1 — aperçu turbo dans le garage
 
 - 358 contrôles du cœur : son d’induction au ralenti, montée avec les tours et

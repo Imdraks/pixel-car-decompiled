@@ -1,0 +1,5 @@
+PASS: both banks, 16 engine profile pairs per bank, 31 automatic equipped-engine pairs per bank, turbo, supercharger, NOS, LS garage starter/idle/high-RPM rev limiter/shutdown and event sounds mixed through the real Raylib audio backend.
+stream_decode_failures=0
+frames=1252500
+absolute_pcm_energy_scaled=229020130446
+Software/null audio device only; physical speaker playback and stock-car engine assignment are not established.

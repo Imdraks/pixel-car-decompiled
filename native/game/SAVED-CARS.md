@@ -9,7 +9,7 @@ Chaque sauvegarde conserve la carrosserie, les jantes avant/arrière, l’appare
 tous les accessoires et pièces, le moteur, la transmission et les dix rapports,
 le pont, les suspensions, la répartition des masses, le réglage wheelie, les
 préférences sonores, le record et les autres paramètres propres à la voiture.
-Les options générales, comme l’affichage, le trafic, l’ABS et l’antipatinage,
+Les options générales, comme les volumes, l’affichage, le trafic, l’ABS et l’antipatinage,
 restent des options du jeu.
 
 Sélectionnez une carte puis **CHARGER**, ou Entrée hors du champ du nom, pour

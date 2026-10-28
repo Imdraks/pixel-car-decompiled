@@ -1,5 +1,7 @@
 #pragma once
 #include <filesystem>
+#include <cmath>
+#include <algorithm>
 #include <string>
 #include <vector>
 #include <array>
@@ -17,10 +19,17 @@ enum class WindowMode { Windowed, Borderless, Fullscreen };
 enum class DriveLayout { Front, Rear, All };
 enum class Quality { Low, Medium, High };
 struct Resolution { int width, height; bool operator==(const Resolution& r) const {return width==r.width && height==r.height;} };
+struct AudioVolumes {double master=1,engine=1,turbo=1,effects=1,ambience=1,interface=1;};
+inline AudioVolumes validateVolumes(AudioVolumes v){
+    auto clamp=[](double x){return std::isfinite(x)?std::clamp(x,0.0,1.0):1.0;};
+    v.master=clamp(v.master);v.engine=clamp(v.engine);v.turbo=clamp(v.turbo);v.effects=clamp(v.effects);v.ambience=clamp(v.ambience);v.interface=clamp(v.interface);return v;
+}
+inline bool operator==(const AudioVolumes& a,const AudioVolumes& b){return a.master==b.master&&a.engine==b.engine&&a.turbo==b.turbo&&a.effects==b.effects&&a.ambience==b.ambience&&a.interface==b.interface;}
 struct Settings {
     WindowMode mode=WindowMode::Windowed;
     int width=1280, height=720, fps=120;
     bool vsync=true, showFps=false, sound=true, traffic=true,abs=true,tractionControl=true;
+    AudioVolumes volumes{};
     Quality quality=Quality::High;
 };
 struct Profile { std::string savedName;int car=0, rim=8,rearRim=-1,contentSource=0,audioSource=0;std::array<int,CosmeticSlotCount> cosmetics{};bool rollCage=false,headlights=false,factoryDrive=true; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1;
