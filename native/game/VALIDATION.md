@@ -13,8 +13,23 @@
   différents et absence de voiture fantôme lorsque le garage est vide.
 - Cache de miniatures séparé et borné à 16 textures ; ressources précédentes
   byte-identiques. Prix/progression et modèles 3D ne sont pas ajoutés.
-- Rapports : `validation/cinematic-0.16.3/`. Publication conditionnée aux contrôles
-  Windows de l’exécutable, des captures, des sons et de la physique.
+- Rapports : `validation/cinematic-0.16.3/`. Publication Windows vérifiée ci-dessous.
+
+## Publication Windows vérifiée — 0.16.3
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40747274601) :
+  398 contrôles du cœur, 114 graphiques, 188 sons historiques et 358 fichiers
+  simulés décodés. Sept niveaux audio et paramètres persistants vérifiés.
+- Contrôles pixels Windows des grandes voitures, de la fiche droite, du carrousel,
+  de six miniatures distinctes et de la scène de customisation. Contrôles Python
+  équivalents sur les captures publiques, dont icônes moteur/turbo/style.
+- Archive publique, CRC, EXE, source compilée, trente-quatre aperçus et 650
+  ressources vérifiés ; les 1528 compositions et mesures physiques restent
+  identiques entre Linux et Windows à la tolérance documentée.
+- Rapports : `validation/windows-0.16.3/` et `validation/cinematic-0.16.3/`.
+- Source compilée : `57ac22372cf356a7f5953e96ee94d7356bb610b8`.
+- ZIP : 107888482 octets, SHA-256 `2ede00ecdb0961ded92a5441c4bb2bb18e5c9f16982b149ae36e82f6777ea5e1`.
+- EXE : SHA-256 `e95d351f7bd697e4e9c40a554705a24b41c3ca377ebfa8c7f7438fad627c6297`.
 
 # Validation 0.16.2 — showroom avec aperçu à gauche
 
