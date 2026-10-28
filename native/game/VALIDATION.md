@@ -12,8 +12,21 @@
 - Une seule composition de carrosserie par sélection ; les neuf vignettes et les
   infobulles techniques ont été retirées. Cadrage selon les limites alpha du rendu,
   avec roues et hauteur de suspension. Aucun fichier de ressources modifié.
-- Rapports : `validation/showroom-0.16.2/`. Publication conditionnée aux contrôles
-  Windows de l’exécutable, de la physique, de l’audio et des captures.
+- Rapports : `validation/showroom-0.16.2/`. Publication Windows vérifiée ci-dessous.
+
+## Publication Windows vérifiée — 0.16.2
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40741185029) :
+  398 contrôles du cœur, 111 graphiques, 188 sons historiques et 358 fichiers
+  simulés décodés. Réglages et sept niveaux audio persistants vérifiés.
+- Grands aperçus Civic/Corvette à gauche, liste à droite et garage vide contrôlés
+  par pixels sous Windows et Linux. Archive publique, CRC, EXE, source compilée,
+  trente-et-un aperçus et 650 ressources vérifiés.
+- Les 1528 compositions et mesures physiques concordent avec Linux.
+- Rapports : `validation/windows-0.16.2/` et `validation/showroom-0.16.2/`.
+- Source compilée : `bb351dc26d8c07c0dd132cfd09f6d2a71f801e68`.
+- ZIP : 107892108 octets, SHA-256 `074ea0ddcfb29dcdfc0bb79ea83d9337d045f8a128014d2ccc69244abedb9396`.
+- EXE : SHA-256 `8abf42247957967cd2e10ecbe342eb27d8e28eca3b971a5274984d5a73d6cbc8`.
 
 # Validation 0.16.1 — showroom et garage de huit voitures
 

@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "large_car_preview_on_left": true,
+    "vehicle_list_on_right_has_no_tiny_car_grid": true,
+    "changing_model_changes_actual_car_pixels": true,
+    "empty_owned_garage_has_no_car_preview": true
+  },
+  "changed_car_pixels": 22335,
+  "left_car_blue_pixels": [
+    13599,
+    13061
+  ],
+  "right_list_blue_pixels": 0,
+  "preview_hashes": [
+    "e69d9087ce6dd653242ea799480af7969c6606fb975cbca5c892161e11c0c026",
+    "5665d8730f90726bdf2b746024642a2d8e73be6b53cb54db1959a87da0f18dec"
+  ]
+}

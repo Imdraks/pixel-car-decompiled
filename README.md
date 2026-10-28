@@ -1,12 +1,18 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.16.1](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.16.1-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.16.1-native-preview)
+**[Télécharger Windows x64 — version 0.16.2](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.16.2-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.16.2-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+La version **0.16.2** affiche la **voiture en grand à gauche** et les **menus à
+droite** dans le showroom et le garage : modèles, recherche, catégories, pages
+et actions. La fiche présente la préparation sélectionnée, son moteur, sa
+puissance, son poids et sa transmission. La limite de huit voitures et les
+sauvegardes restent conservées. [Commandes](native/game/SHOWROOM.md).
 
 La version **0.16.1** ajoute un **showroom** et un **garage limité à huit voitures**.
 **B / GARAGE** ouvre les voitures possédées ; **SHOWROOM / Tab** présente tout le

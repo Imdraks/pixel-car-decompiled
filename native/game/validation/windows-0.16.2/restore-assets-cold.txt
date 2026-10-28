@@ -1,0 +1,1 @@
+Verified native release; restored or reused 650 resource files.
