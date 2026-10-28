@@ -139,6 +139,12 @@ jobs:
           if ($geometry.body_pipe_configurations -ne 9359 -or $geometry.gearbox_presets -ne 8 -or $geometry.maximum_gears -ne 10) { throw 'Exhaust or gearbox coverage differs' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\pc-turbos.csv" validation/pc-turbos.csv
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\pc-engines.csv" validation/pc-engines.csv
+          Copy-Item "$env:RUNNER_TEMP\pcr-native-core\nfs-engines.csv" validation/nfs-engines.csv
+          $nfs = Import-Csv validation/nfs-engines.csv
+          if ($nfs.Count -ne 145) { throw 'Expected all 145 spreadsheet engines' }
+          foreach ($engine in $nfs) {
+            if ([Math]::Abs([double]$engine.stock_hp - [double]$engine.measured_stock_hp) -gt 0.02 -or [Math]::Abs([double]$engine.potential_hp - [double]$engine.measured_elite_hp) -gt 0.02) { throw 'Spreadsheet engine power differs' }
+          }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\power-combinations.json" validation/power-combinations.json
           $power = Get-Content validation/power-combinations.json -Raw | ConvertFrom-Json
           if ($power.induction_combinations -ne 175770 -or $power.atmospheric_combinations -ne 267344 -or $power.max_without_nos_hp -lt 4200 -or $power.max_with_nos_hp -lt 4500 -or $power.original_game_equivalence_validated) { throw 'Compound power or combination coverage failed' }
