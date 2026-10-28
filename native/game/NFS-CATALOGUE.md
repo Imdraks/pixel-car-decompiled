@@ -18,7 +18,7 @@ figurent dans `nfs-catalog.json`. Aucune instruction du classeur n’est exécut
   Les ponts entre versions proches sont déclarés ; les modèles inconnus et les
   remplacements visuels du mod restent sans association automatique.
 - Toutes les voitures peuvent recevoir les moteurs en **swap libre PC**.
-  Le bouton **CETTE AUTO** dans F1 filtre les associations du tableau. Rechercher
+  Depuis 0.16.0, aucun filtre de compatibilité ne restreint les swaps. Rechercher
   `NFS`, le nom d’un donneur, la cylindrée ou la puissance. Le survol donne le
   véhicule donneur et la relation au tableau ; aucune nouvelle carrosserie
   n’est créée pour les donneurs absents du jeu.

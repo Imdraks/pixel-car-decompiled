@@ -11,6 +11,7 @@
 namespace pcr {
 int audioEngineId(const Profile& profile){
     int selected=profile.parts[int(PartSlot::Engine)];
+    if(auto* factory=vehicleForStockEngine(selected))return factory->audioEngineId?factory->audioEngineId:selected;
     return selected?selected:nfsFactoryEngine(profile.car,profile.contentSource);
 }
 EngineSamples engineSamples(const Profile& profile){
@@ -29,7 +30,7 @@ EngineSamples engineSamples(const Profile& profile){
     return samples;
 }
 
-const Part* findPart(int id){static const auto index=[](){std::unordered_map<int,const Part*> map;for(const auto& p:PartCatalog)map.emplace(p.id,&p);return map;}();auto it=index.find(id);return it==index.end()?nullptr:it->second;}
+const Part* findPart(int id){static const auto index=[](){std::unordered_map<int,const Part*> map;for(const auto& p:PartCatalog)map.emplace(p.id,&p);for(const auto& p:FactoryEngineCatalog)map.emplace(p.id,&p);return map;}();auto it=index.find(id);return it==index.end()?nullptr:it->second;}
 const char* slotKey(PartSlot slot){
     static const char* keys[]={"engine","suspension","turbo","supercharger","ecu","nos","intake","intercooler","pistons","exhaust","tires","fuel","brakes","clutch","differential","gearbox","battery_cooling","electrical","motor_components","overcharge"};
     int index=int(slot);return index>=0&&index<PartSlotCount?keys[index]:"invalid";
@@ -123,11 +124,12 @@ void applyGearboxPreset(Profile& p,int preset){
 }
 double engineRedline(const Profile& profile){
     const auto* engine=findPart(profile.parts[int(PartSlot::Engine)]);
+    if(engine)if(auto* factory=vehicleForStockEngine(engine->id))return factory->stock.redlineRpm;
     if(engine)if(const auto* e=pcEngine(engine->id))return e->redlineRpm;
-    return engine&&engine->slot==PartSlot::Engine?replacementEngine(engine->subimage).redlineRpm:stockVehicle(profile.car).redlineRpm;
+    return engine&&engine->slot==PartSlot::Engine?replacementEngine(engine->subimage).redlineRpm:vehicleMechanics(profile).redlineRpm;
 }
 Build buildVehicle(const Profile& profile){
-    Build build;auto& v=build.vehicle;const auto& stock=stockVehicle(profile.car);
+    Build build;auto& v=build.vehicle;const auto& stock=vehicleMechanics(profile);
     v.drive=effectiveDrive(profile);v.mass=stock.weightLb*.45359237;
     v.redlineRpm=engineRedline(profile);v.upshiftRpm=v.redlineRpm-1000;
     v.launchRpm=std::min(2800.0,v.redlineRpm*.4);

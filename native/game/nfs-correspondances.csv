@@ -301,11 +301,11 @@ body,source,game_name,nfs_car,role,engine_id,family,hp,litres,grade,donor,mappin
 62,1,1993 Ford Mustang SVT Cobra,Ford Mustang Foxbody (1990),swap,20066,V6,331,3.7,Sport,Nissan 370Z Heritage Edition (2019),explicit_model_generation_bridge; trim/year may differ
 62,1,1993 Ford Mustang SVT Cobra,Ford Mustang Foxbody (1990),swap,20054,I6,404,3.0,Sport,BMW M2 Competition (2019),explicit_model_generation_bridge; trim/year may differ
 62,1,1993 Ford Mustang SVT Cobra,Ford Mustang Foxbody (1990),swap,20063,V6,304,3.8,Pro,Buick Grand National GNX (1987),explicit_model_generation_bridge; trim/year may differ
-63,0,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),origin,20021,I4,110,1.6,Basic,Volkswagen Golf GTI (1976),explicit_model_generation_bridge; trim/year may differ
-63,0,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),swap,20047,I6,162,3.9,Basic,Chevrolet Bel Air (1955),explicit_model_generation_bridge; trim/year may differ
-63,0,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),swap,20083,V8,225,4.9,Basic,Ford Mustang Foxbody (1990),explicit_model_generation_bridge; trim/year may differ
-63,0,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),swap,20042,I4,355,2.0,Sport,Mercedes-AMG A 45 (2016),explicit_model_generation_bridge; trim/year may differ
-63,0,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),swap,20043,I4,366,2.0,Sport,Mitsubishi Lancer Evolution IX (2007),explicit_model_generation_bridge; trim/year may differ
+63,1,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),origin,20021,I4,110,1.6,Basic,Volkswagen Golf GTI (1976),explicit_model_generation_bridge; trim/year may differ
+63,1,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),swap,20047,I6,162,3.9,Basic,Chevrolet Bel Air (1955),explicit_model_generation_bridge; trim/year may differ
+63,1,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),swap,20083,V8,225,4.9,Basic,Ford Mustang Foxbody (1990),explicit_model_generation_bridge; trim/year may differ
+63,1,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),swap,20042,I4,355,2.0,Sport,Mercedes-AMG A 45 (2016),explicit_model_generation_bridge; trim/year may differ
+63,1,1974 Volkswagen Golf,Volkswagen Golf GTI (1976),swap,20043,I4,366,2.0,Sport,Mitsubishi Lancer Evolution IX (2007),explicit_model_generation_bridge; trim/year may differ
 66,0,2016 Mazda MX-5,Mazda MX-5 (2015),origin,20024,I4,158,2.0,Basic,Mazda MX-5 (2015),explicit_model_generation_bridge; trim/year may differ
 66,0,2016 Mazda MX-5,Mazda MX-5 (2015),swap,20031,I4,210,2.0,Basic,Mitsubishi Eclipse GSX (1999),explicit_model_generation_bridge; trim/year may differ
 66,0,2016 Mazda MX-5,Mazda MX-5 (2015),swap,20045,I6,151,2.4,Basic,Nissan Fairlady 240ZG (1971),explicit_model_generation_bridge; trim/year may differ
@@ -492,12 +492,12 @@ body,source,game_name,nfs_car,role,engine_id,family,hp,litres,grade,donor,mappin
 120,1,2017 Alfa Romeo Giulia Quadrifoglio,Alfa Romeo Giulia Quadrifoglio (2016),swap,20128,V10,631,5.2,Super,Lamborghini Huracán Performante (2018) ; Lamborghini Huracán Performante Spyder (2018),explicit_model_generation_bridge; trim/year may differ
 120,1,2017 Alfa Romeo Giulia Quadrifoglio,Alfa Romeo Giulia Quadrifoglio (2016),swap,20116,V8,661,3.9,Super,Ferrari 488 GTB (2016),explicit_model_generation_bridge; trim/year may differ
 120,1,2017 Alfa Romeo Giulia Quadrifoglio,Alfa Romeo Giulia Quadrifoglio (2016),swap,20138,V12,754,6.0,Super,Pagani Huayra BC (2017),explicit_model_generation_bridge; trim/year may differ
-121,0,2018 BMW M5,BMW M5 (2018),origin,20114,V8,592,4.4,Pro,BMW M5 (2018),explicit_model_generation_bridge; trim/year may differ
-121,0,2018 BMW M5,BMW M5 (2018),swap,20079,V8,200,4.7,Basic,Ford Mustang (1965),explicit_model_generation_bridge; trim/year may differ
-121,0,2018 BMW M5,BMW M5 (2018),swap,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
-121,0,2018 BMW M5,BMW M5 (2018),swap,20120,V8,755,6.2,Pro,Chevrolet Corvette ZR1 (2019),explicit_model_generation_bridge; trim/year may differ
-121,0,2018 BMW M5,BMW M5 (2018),swap,20118,V8,710,3.9,Pro,Ferrari 488 Pista (2019),explicit_model_generation_bridge; trim/year may differ
-121,0,2018 BMW M5,BMW M5 (2018),swap,20136,V12,730,6.5,Super,Lamborghini Aventador S (2016) ; Lamborghini Aventador S Roadster (2017),explicit_model_generation_bridge; trim/year may differ
+121,1,2018 BMW M5,BMW M5 (2018),origin,20114,V8,592,4.4,Pro,BMW M5 (2018),explicit_model_generation_bridge; trim/year may differ
+121,1,2018 BMW M5,BMW M5 (2018),swap,20079,V8,200,4.7,Basic,Ford Mustang (1965),explicit_model_generation_bridge; trim/year may differ
+121,1,2018 BMW M5,BMW M5 (2018),swap,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
+121,1,2018 BMW M5,BMW M5 (2018),swap,20120,V8,755,6.2,Pro,Chevrolet Corvette ZR1 (2019),explicit_model_generation_bridge; trim/year may differ
+121,1,2018 BMW M5,BMW M5 (2018),swap,20118,V8,710,3.9,Pro,Ferrari 488 Pista (2019),explicit_model_generation_bridge; trim/year may differ
+121,1,2018 BMW M5,BMW M5 (2018),swap,20136,V12,730,6.5,Super,Lamborghini Aventador S (2016) ; Lamborghini Aventador S Roadster (2017),explicit_model_generation_bridge; trim/year may differ
 148,0,1987 Buick GNX,Buick Grand National GNX (1987),origin,20063,V6,304,3.8,Pro,Buick Grand National GNX (1987),explicit_model_generation_bridge; trim/year may differ
 148,0,1987 Buick GNX,Buick Grand National GNX (1987),swap,20052,I6,335,3.0,Sport,BMW Z4 M40i (2019),explicit_model_generation_bridge; trim/year may differ
 148,0,1987 Buick GNX,Buick Grand National GNX (1987),swap,20092,V8,460,6.2,Pro,Chevrolet Corvette Grand Sport (2017),explicit_model_generation_bridge; trim/year may differ
@@ -602,12 +602,12 @@ body,source,game_name,nfs_car,role,engine_id,family,hp,litres,grade,donor,mappin
 185,1,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20144,W16,1479,8.0,Elite,Bugatti Chiron Sport (2017),explicit_model_generation_bridge; trim/year may differ
 185,1,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20142,V12,949,6.3,Elite,Ferrari LaFerrari (2016),explicit_model_generation_bridge; trim/year may differ
 185,1,1977 Pontiac Firebird Trans Am,Pontiac Firebird (1977),swap,20121,V8 hybride,874,4.6,Elite,Porsche 918 Spyder (2015),explicit_model_generation_bridge; trim/year may differ
-187,0,2019 Audi R8,Audi R8 Coupé V10 (2019),origin,20127,V10,612,5.2,Super,Audi R8 Coupé V10 (2019),explicit_model_generation_bridge; trim/year may differ
-187,0,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20084,V8,290,4.9,Basic,Ford Mustang Boss 302 (1969),explicit_model_generation_bridge; trim/year may differ
-187,0,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20088,V8,414,4.0,Sport,BMW M3 Coupé (2010) ; BMW M3 Cabriolet (2010),explicit_model_generation_bridge; trim/year may differ
-187,0,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
-187,0,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20108,V8,570,4.5,Pro,Ferrari 458 Italia (2009) ; Ferrari 458 Spider (2011),explicit_model_generation_bridge; trim/year may differ
-187,0,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20137,V12,740,6.5,Super,Lamborghini Aventador LP750-4 SV Roadster (2015),explicit_model_generation_bridge; trim/year may differ
+187,1,2019 Audi R8,Audi R8 Coupé V10 (2019),origin,20127,V10,612,5.2,Super,Audi R8 Coupé V10 (2019),explicit_model_generation_bridge; trim/year may differ
+187,1,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20084,V8,290,4.9,Basic,Ford Mustang Boss 302 (1969),explicit_model_generation_bridge; trim/year may differ
+187,1,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20088,V8,414,4.0,Sport,BMW M3 Coupé (2010) ; BMW M3 Cabriolet (2010),explicit_model_generation_bridge; trim/year may differ
+187,1,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20117,V8,707,6.2,Pro,Dodge Charger SRT Hellcat (2019),explicit_model_generation_bridge; trim/year may differ
+187,1,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20108,V8,570,4.5,Pro,Ferrari 458 Italia (2009) ; Ferrari 458 Spider (2011),explicit_model_generation_bridge; trim/year may differ
+187,1,2019 Audi R8,Audi R8 Coupé V10 (2019),swap,20137,V12,740,6.5,Super,Lamborghini Aventador LP750-4 SV Roadster (2015),explicit_model_generation_bridge; trim/year may differ
 189,0,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),origin,20102,V8,515,4.0,Pro,Mercedes-AMG GT S (2019) ; Mercedes-AMG GT S Roadster (2019),explicit_model_generation_bridge; trim/year may differ
 189,0,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20130,V12,449,5.2,Sport,Lamborghini Countach 25th Anniversary (1988),explicit_model_generation_bridge; trim/year may differ
 189,0,2020 Mercedes-AMG GT S,Mercedes-AMG GT S (2019),swap,20053,I6,338,3.2,Sport,BMW M3 (2006),explicit_model_generation_bridge; trim/year may differ

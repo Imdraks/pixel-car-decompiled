@@ -1,0 +1,18 @@
+PASS pcr-shared-000 bank=0 installed=30000 audio=1003 simulated=0
+PASS pcr-unbound-063 bank=0 installed=20008 audio=20008 simulated=0
+PASS recovered Porsche block uses F6 audio in bank 0
+PASS pcr-shared-094 bank=0 installed=30094 audio=1502 simulated=1502
+PASS pcr-unbound-121 bank=0 installed=30121 audio=30121 simulated=0
+PASS pcr-original-063 bank=0 installed=20021 audio=20021 simulated=20021
+PASS pcr-original-121 bank=0 installed=20114 audio=20114 simulated=20114
+PASS pcr-shared-000 bank=1 installed=30000 audio=1003 simulated=0
+PASS pcr-unbound-063 bank=1 installed=20008 audio=20008 simulated=0
+PASS recovered Porsche block uses F6 audio in bank 1
+PASS pcr-shared-094 bank=1 installed=30094 audio=1502 simulated=1502
+PASS pcr-unbound-121 bank=1 installed=30121 audio=30121 simulated=0
+PASS pcr-original-063 bank=1 installed=20021 audio=20021 simulated=20021
+PASS pcr-original-121 bank=1 installed=20114 audio=20114 simulated=20114
+cases=14
+peak=0.345376
+finite_pcm=1
+physical_speaker_listening=0

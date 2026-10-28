@@ -1,4 +1,13 @@
-# Pixel Car Racer — Unbound Native 0.15.0
+# Pixel Car Racer — Unbound Native 0.16.0
+
+La version **0.16.0** remplace le choix d’apparence par **239 voitures nommées**,
+classées par catégorie, avec préparation automatique indépendante par modèle.
+**B / CHOISIR UNE VOITURE** : changer de modèle sauvegarde la voiture quittée
+et retrouve celle choisie. Les 145 moteurs NFS se montent sur toutes les voitures.
+Les configurations non modifiées reçoivent leur moteur d’origine ; les préparations
+existantes restent intactes, avec sauvegarde avant migration.
+[Catalogue, moteurs par défaut, migration et limites](VEHICLES-GARAGE.md).
+
 
 La version **0.15.0** importe le tableau fourni : **145 moteurs**, **113 pièces**
 et neuf extensions Contrebande. Classes **Basic, Sport, Pro, Super, Elite,

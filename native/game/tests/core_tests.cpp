@@ -1,6 +1,7 @@
 #include "garage_audio.hpp"
 #include "simulated_engine_mix.hpp"
 #include "saved_cars.hpp"
+#include "vehicle_garage.hpp"
 #include "model.hpp"
 #include "engine_mix.hpp"
 #include "garage_engine.hpp"
@@ -22,6 +23,7 @@
 #include <fstream>
 #include <iostream>
 #include <stdexcept>
+#include <set>
 using namespace pcr;
 static int checks=0;
 static void expect(bool value,const char* message){++checks;if(!value)throw std::runtime_error(message);}
@@ -308,13 +310,45 @@ int main(int argc,char**argv){
     expect(allNfs&&nfsCases==145,"all 145 engines retain workbook base power, reach the conservative advertised potential with Elite parts and save their equipment");
     expect(nfsSounds,"every supported workbook engine is bound to its declared physical family and unsupported layouts retain an explicit fallback");
     for(const auto& link:NfsCompatibilities)nfsAssociations&=findPart(link.engineId)&&nfsCompatibility(link.body,link.source,link.engineId)>0;
-    expect(nfsAssociations&&nfsFactoryEngine(121,0)>0&&nfsFactoryEngine(121,1)==0&&nfsFactoryEngine(100,0)==0,"spreadsheet compatibility resolves known body generations without inventing identities for Unbound replacements or unknown cars");
+    expect(nfsAssociations&&nfsFactoryEngine(121,1)>0&&nfsFactoryEngine(121,0)==0&&nfsFactoryEngine(100,0)==0,"spreadsheet compatibility resolves known body generations without inventing identities for Unbound replacements or unknown cars");
     Profile thermal;equipPart(thermal,PartSlot::Engine,20029);Profile electricDrive;equipPart(electricDrive,PartSlot::Engine,20000);
     expect(!equipPart(thermal,PartSlot::Overcharge,21054)&&!equipPart(electricDrive,PartSlot::Turbo,16018),"electric and combustion equipment cannot be mixed");
     equipPart(thermal,PartSlot::Clutch,22013);equipPart(thermal,PartSlot::Brakes,22012);auto chassisParts=buildVehicle(thermal);
     expect(chassisParts.vehicle.shiftSeconds==.04&&chassisParts.vehicle.brakeDeceleration==17,"clutch and brake categories alter real shift timing and deceleration");
     for(const auto& u:NfsUpgrades)if(u.kind==15){Profile p;equipPart(p,PartSlot::Gearbox,u.id);auto b=buildVehicle(p);CarState c;for(int tick=0;tick<600;tick++)stepCar(c,b.vehicle,{true,false,true},Step,0);nfsUpgrades&=b.vehicle.gearCount==int(findPart(u.id)->stat)&&c.gear>=1&&c.gear<=b.vehicle.gearCount&&c.speed>0;}
     expect(nfsUpgrades,"all workbook one- through eight-speed gearboxes and the ten-speed Contraband box drive with valid ratios");
+    {
+        bool definitions=true,universal=true;std::set<std::string> identities;std::array<int,8> categoryCounts{};
+        for(size_t i=0;i<std::size(VehicleCatalog);i++){
+            auto p=factoryVehicle(int(i));const auto& entry=vehicleDefinition(p);auto built=buildVehicle(p);categoryCounts[entry.category]++;
+            definitions&=bodyChoiceIndex(p)==int(i)&&identities.insert(vehicleKey(p)).second&&p.parts[0]==entry.factoryEngineId;
+            double hp=entry.nfsReference?findPart(entry.factoryEngineId)->stat:entry.stock.hp;
+            definitions&=std::abs(built.boostedHp-hp)<.02&&built.vehicle.mass>0&&std::isfinite(built.vehicle.redlineRpm);
+            for(const auto& engine:NfsEngines){Profile swap=p;universal&=equipPart(swap,PartSlot::Engine,engine.id)&&swap.parts[0]==engine.id;}
+        }
+        expect(definitions&&identities.size()==239&&std::all_of(categoryCounts.begin(),categoryCounts.end(),[](int n){return n>0;}),"239 named vehicles have unique stable identities, categories and factory engines");
+        expect(universal,"all 145 NFS engines can be fitted to all 239 vehicles without donor restrictions");
+        Profile old;old.car=121;old.contentSource=1;old.audioSource=1;old.savedName="Original M5";
+        expect(initializeVehicleFactory(old)&&old.parts[0]==nfsFactoryEngine(121,1)&&old.parts[0]>0&&old.savedName=="Original M5","untouched legacy Original BMW receives its declared engine without changing its name");
+        Profile porsche,golf;porsche.car=golf.car=63;porsche.contentSource=0;golf.contentSource=1;
+        expect(effectiveDrive(porsche)==DriveLayout::Rear&&effectiveDrive(golf)==DriveLayout::Front&&vehicleMechanics(porsche).hp==281&&vehicleDefinition(porsche).provisionalPhysics,"the Unbound 911 has explicit provisional F6/rear-drive mechanics separate from the Original Golf");
+        Profile alternate;alternate.car=121;alternate.contentSource=0;initializeVehicleFactory(alternate);
+        expect(vehicleDefinition(alternate).category==7&&vehicleForStockEngine(alternate.parts[0]),"unidentified Unbound hypercar keeps its recovered engine instead of the Original BMW engine");
+        Profile modified;modified.car=121;modified.parts[0]=1504;modified.rim=10100;modified.gearCount=10;modified.springStiffness=2;auto original=modified;
+        initializeVehicleFactory(modified);
+        expect(modified.parts==original.parts&&modified.rim==original.rim&&modified.gearCount==original.gearCount&&modified.springStiffness==original.springStiffness&&modified.factoryEngineId==-1,"legacy customized engine, wheels, transmission and suspension remain untouched");
+        auto removed=factoryVehicle(0);equipPart(removed,PartSlot::Engine,0);initializeVehicleFactory(removed);
+        expect(removed.parts[0]==0,"an intentional engine removal is not undone by factory migration");
+        auto garage=root/"per-vehicle";std::string error;auto a=factoryVehicle(0);auto b=factoryVehicle(1);equipPart(a,PartSlot::Engine,1501);equipPart(a,PartSlot::Turbo,16013);a.rim=10100;a.savedName="Civic AMG";
+        expect(storeVehicleProfile(garage,a,error)&&storeVehicleProfile(garage,b,error),"different models store independent complete configurations");
+        Profile restoredA,restoredB;expect(loadVehicleProfile(garage,0,restoredA,error)&&loadVehicleProfile(garage,1,restoredB,error)&&restoredA.parts==a.parts&&restoredA.rim==a.rim&&restoredB.parts==b.parts,"switching back restores the previous model without transferring its engine or rims");
+        equipPart(a,PartSlot::Engine,1504);expect(storeVehicleProfile(garage,a,error),"updated per-vehicle preparation saves atomically");auto backup=vehicleGarageFile(garage,a);backup+=".bak";
+        storeVehicleProfile(garage,a,error);expect(loadProfile(backup,191,54).parts[0]==1501,"unchanged autosaves preserve the previous preparation backup");
+        auto file=vehicleGarageFile(garage,b);std::ofstream(file)<<"vehicle_id=wrong\ncar=0\n";
+        expect(!loadVehicleProfile(garage,1,restoredB,error),"a mismatched vehicle identity cannot silently load or overwrite another model");
+        auto customFile=root/"vehicle-metadata.ini";saveProfile(customFile,a,error);auto metadata=loadProfile(customFile,191,54);
+        expect(metadata.factoryInitialized&&metadata.factoryEngineId==a.factoryEngineId&&vehicleKey(metadata)==vehicleKey(a),"factory migration metadata and stable vehicle identity persist across restart");
+    }
     bool blendValid=true,continuousBlend=true,overrideBlend=true;int mixCases=0;
     for(const auto& pack:SimulatedPacks){
         for(double rpm:{500.0,1000.0,1999.9,2500.0,4000.0,4500.0,6000.0,8200.0,14000.0,17300.0})for(double load:{0.0,.1,.3,.5,.8,1.0}){
@@ -711,7 +745,7 @@ int main(int argc,char**argv){
     bool everyStockValid=true;std::array<int,3> stockLayouts{};int stockCount=0;
     std::ofstream stockTelemetry(root/"stock-vehicle-physics.csv");stockTelemetry<<"body,mass_kg,stock_hp,redline_rpm,layout,grip_native,speed_after_10s_kmh,seconds_100_0,metres_100_0\n";
     for(int body=0;body<191;body++){
-        Profile p;p.car=body;auto b=buildVehicle(p);const auto& raw=stockVehicle(body);CarState launch,stop;stop.speed=100/3.6;double brakeTime=0,brakeStart=stop.position;
+        Profile p;p.car=body;p.contentSource=1;auto b=buildVehicle(p);const auto& raw=stockVehicle(body);CarState launch,stop;stop.speed=100/3.6;double brakeTime=0,brakeStart=stop.position;
         for(int tick=0;tick<1200;tick++){stepCar(launch,b.vehicle,{true,false,true},Step,0);if(stop.speed>0){stepCar(stop,b.vehicle,{false,true,true},Step,0);brakeTime+=Step;}}
         everyStockValid&=std::isfinite(launch.speed)&&launch.speed>0&&stop.speed==0&&std::abs(b.baseHp-raw.hp)<1e-7&&std::abs(b.vehicle.mass-raw.weightLb*.45359237)<1e-7;
         ++stockLayouts[int(b.vehicle.drive)];++stockCount;

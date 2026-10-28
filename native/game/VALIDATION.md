@@ -1,3 +1,27 @@
+# Validation 0.16.0 — voitures distinctes
+
+- 383 contrôles du cœur. 239 identifiants de voiture uniques, catégories, moteurs
+  par défaut et fiches mécaniques propres. 34655 montages moteur NFS/voiture
+  possibles, sans restriction de donneur. Les 443114 combinaisons précédentes
+  restent contrôlées et les 191 fiches récupérées sont vérifiées dans Original.
+- Migration protégée des configurations vierges, maintien des moteurs/pièces/
+  réglages déjà modifiés, suppression volontaire non annulée au redémarrage,
+  caches séparés, sauvegarde atomique et conservation des backups utiles.
+- 51 manipulations réelles : 15 garage indépendant/migration, 12 catalogue NFS,
+  10 voitures nommées, 14 volumes. Les changements de modèle, retour, redémarrage,
+  restauration nommée et fichiers de chaque voiture ont été vérifiés.
+- 105 contrôles graphiques, dont le catalogue, ses catégories et l’isolation des
+  préparations ; aucune réutilisation de la préparation sur le modèle suivant.
+- 14 cas audio sur le vrai mixeur logiciel : moteurs récupérés et NFS, Golf
+  Original/911 Unbound, BMW Original/hypercar Unbound et V10 BMW, deux banques.
+  Ambiance/effets coupés pendant la mesure ; PCM fini et crête 0,345376.
+- 650 ressources de la release 0.15.0 conservées byte-identiques. Sons historiques
+  ou familles simulées approximatifs ; écoute sur enceintes non établie.
+- Convention Original/Unbound corrigée pour les attributions. La 911 a une base
+  F6/propulsion provisoire ; sept voitures restent explicitement à identifier.
+- Rapports : `validation/vehicles-0.16.0/`. L’identification complète des versions
+  et une physique constructeur exacte ne sont pas établies.
+
 # Validation 0.15.0 — catalogue du tableau NFS
 
 - 145 moteurs vérifiés : puissance de base, potentiel conservateur avec pièces

@@ -77,7 +77,7 @@ identities=json.loads((G.parent/'evidence/merged/vehicle-identities.json').read_
 for body,car in bridges.items():
  assert any(r['car']==car for r in compat),car
  for bank in [0,1]:
-  if bank and body in replaced:continue
+  if bank==0 and body in replaced:continue
   rel=[r for r in compat if r['car']==car]
   for row in rel:matches.append({**row,'body':body,'source':bank,'table_source':row['source'],'mapping':'explicit_model_generation_bridge; trim/year may differ','game_name':identities['records'][body]['name']})
 header=['// Generated from the supplied workbook. Grades/prices are data; physics/RPM/audio are native approximations.','#pragma once','namespace pcr {','struct NfsEngine {int id;const char* family;const char* donor;double hp,potentialHp,litres;int grade;double redline;bool electric,hybrid;const char* audioFamily;};','inline constexpr NfsEngine NfsEngines[]={',*meta,'};','inline const NfsEngine* nfsEngine(int id){return id>=20000&&id<20145?&NfsEngines[id-20000]:nullptr;}','struct NfsUpgrade {int id,grade,kind,variant;double strength;};','inline constexpr NfsUpgrade NfsUpgrades[]={',*umeta,'};','inline const NfsUpgrade* nfsUpgrade(int id){if(id>=21000&&id<21113)return &NfsUpgrades[id-21000];if(id>=22011&&id<=22019)return &NfsUpgrades[113+id-22011];return nullptr;}','inline int nfsGrade(int id){if(auto e=nfsEngine(id))return e->grade;if(auto p=nfsUpgrade(id))return p->grade;return -1;}','struct NfsCompatibility {int body,source,engineId;bool origin;};','inline constexpr NfsCompatibility NfsCompatibilities[]={']
@@ -89,7 +89,7 @@ report={'workbook_name':a.workbook.name,'workbook_sha256':hashlib.sha256(a.workb
 print(json.dumps({'engines':len(engines),'parts':len(upgrades),'new_contraband':9,'car_models':len(bridges),'body_source_pairs':len({(r['body'],r['source']) for r in matches}),'compatible_links':len(matches),'unresolved_compatibilities':len(unresolved)},indent=2))
 
 with (G/'nfs-correspondances.csv').open('w') as f:
- writer=csv.writer(f);writer.writerow(['body','source','game_name','nfs_car','role','engine_id','family','hp','litres','grade','donor','mapping'])
+ writer=csv.writer(f,lineterminator="\n");writer.writerow(['body','source','game_name','nfs_car','role','engine_id','family','hp','litres','grade','donor','mapping'])
  by_id={e['id']:e for e in engines}
  for row in matches:
   e=by_id[row['engine_id']];writer.writerow([row['body'],row['source'],row['game_name'],row['car'],'origin' if row['origin'] else 'swap',e['id'],e['family'],e['hp'],e['litres'],e['grade'],e['donor'],row['mapping']])
