@@ -30,7 +30,8 @@ inline bool storeSavedCar(const std::filesystem::path& root,int id,const Profile
     if(id<1||id>9999){error="Garage plein.";return false;}
     auto file=savedCarFile(root,id);std::error_code ec;
     if(std::filesystem::exists(file)){
-        std::filesystem::copy_file(file,file.string()+".bak",std::filesystem::copy_options::overwrite_existing,ec);
+        auto backup=file;backup+=".bak";
+        std::filesystem::copy_file(file,backup,std::filesystem::copy_options::overwrite_existing,ec);
         if(ec){error="Sauvegarde de securite impossible : "+ec.message();return false;}
     }
     return saveProfile(file,profile,error);
