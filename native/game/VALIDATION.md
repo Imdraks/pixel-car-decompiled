@@ -14,6 +14,20 @@ Les ressources existantes restent intactes.
   PCM fini, crête 0,0495, aucune erreur de chargement.
 - Rapports : `validation/music-0.14.3/`. Écoute sur enceintes non établie.
 
+## Publication Windows vérifiée — 0.14.3
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40687376846) :
+  361 contrôles du cœur, 95 graphiques, 188 sons historiques et 198 fichiers
+  simulés décodés. Les sept niveaux audio passent la sauvegarde et l’annulation.
+- Archive publique, CRC, EXE, source compilée, seize aperçus et les 470 ressources
+  vérifiés. Les 1528 compositions et les mesures physiques concordent avec Linux.
+- Rapports : `validation/windows-0.14.3/` et `validation/music-0.14.3/`.
+  Le contrôle des catégories musique et de la pause en conduite est réalisé sur
+  le vrai mixeur logiciel Linux. Écoute sur enceintes non établie.
+- Source compilée : `68c4ce61fe52898370beca3c41d2d017128ef2b2`.
+- ZIP : 86569724 octets, SHA-256 `2581f0b921e697acd16ecbffb7ce90b4771872d3f6225935017f74388a9bccce`.
+- EXE : SHA-256 `962a881293a0bf4daeaa3134091b15a52c9cc4ea1a8f105564f2ce6e95aa6950`.
+
 # Validation 0.14.2 — volumes indépendants
 
 - 361 contrôles du cœur : six niveaux persistants, bornage, rejet des valeurs
