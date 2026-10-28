@@ -1,0 +1,29 @@
+Loaded engine: Lamborghini Huracan EVO [simulated approximation]
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_startup_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=0
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_rpm_1000_throttle_0_loop_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=30
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_rpm_1000_throttle_30_loop_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=100
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_rpm_1000_throttle_100_loop_3s.wav
+RPM_CHECK target=3000 actual=3000 throttle=0
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_rpm_3000_throttle_0_loop_3s.wav
+RPM_CHECK target=3000 actual=3000 throttle=30
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_rpm_3000_throttle_30_loop_3s.wav
+RPM_CHECK target=3000 actual=3000 throttle=100
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_rpm_3000_throttle_100_loop_3s.wav
+RPM_CHECK target=5000 actual=5000 throttle=0
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_rpm_5000_throttle_0_loop_3s.wav
+RPM_CHECK target=5000 actual=5000 throttle=30
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_rpm_5000_throttle_30_loop_3s.wav
+RPM_CHECK target=5000 actual=5000 throttle=100
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_rpm_5000_throttle_100_loop_3s.wav
+RPM_CHECK target=8000 actual=8000 throttle=0
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_rpm_8000_throttle_0_loop_3s.wav
+RPM_CHECK target=8000 actual=8000 throttle=30
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_rpm_8000_throttle_30_loop_3s.wav
+RPM_CHECK target=8000 actual=8000 throttle=100
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_rpm_8000_throttle_100_loop_3s.wav
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_ignition_off_3s.wav
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_acceleration.wav
+Wrote /workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw/lamborghini_huracan_evo_simulated_approximation_deceleration.wav

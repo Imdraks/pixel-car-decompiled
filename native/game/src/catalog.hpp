@@ -21,6 +21,7 @@ inline constexpr Part PartCatalog[] = {
 {1014,PartSlot::Engine,"LT5",755.0,300.0,6000000.0,14,3,-1},
 {1015,PartSlot::Engine,"Spoon",260.0,210.0,600000.0,15,3,-1},
 {1016,PartSlot::Engine,"2AR",187.0,200.0,350000.0,16,3,-1},
+#include "pc_engine_parts.inc"
 {2001,PartSlot::Suspension,"Vortex Reds",0.0,130.0,500.0,1,3,-1},
 {2002,PartSlot::Suspension,"Vortex R2",0.0,130.0,500.0,2,3,-1},
 {2003,PartSlot::Suspension,"Vortex R3",0.0,130.0,500.0,3,3,-1},

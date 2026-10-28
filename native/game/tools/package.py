@@ -12,6 +12,7 @@ import zipfile
 
 game=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--audio-packs-dir',type=Path,help='Optional validated standalone simulation ZIPs, copied without changing game audio')
 parser.add_argument('--output',type=Path,default=Path('/workspace/deliverables/PixelCarRacerNative-Windows-x64.zip'))
 args=parser.parse_args()
 work=tempfile.TemporaryDirectory(dir=game/'build',prefix='native-distribution-')
@@ -20,9 +21,18 @@ exe=game/'build/windows/PixelCarRacerNative.exe'
 if not exe.exists():raise SystemExit('Build the Windows executable first')
 shutil.copy2(exe,stage/exe.name)
 shutil.copytree(game/'assets',stage/'assets',dirs_exist_ok=True)
+if args.audio_packs_dir:
+    destination=stage/'Audio-Simulation';destination.mkdir()
+    for pack in sorted(args.audio_packs_dir.glob('*.zip')):
+        with zipfile.ZipFile(pack) as archive:
+            if archive.testzip() is not None:raise RuntimeError('Audio archive CRC failed')
+            report=json.loads(archive.read('validation.json'))
+            if report.get('passed') is not True:raise RuntimeError('Audio pack validation missing')
+        shutil.copy2(pack,destination/pack.name)
 shutil.copytree(game/'licenses',stage/'licenses',dirs_exist_ok=True)
-for name in ['README.md','ENGINE-AUDIO.md','AUDIO-MIX.md','VALIDATION.md','PHYSICS.md','CUSTOMIZATION.md','CUSTOMIZATION-COMPLETE.md','PERFORMANCE.md','TRANSMISSION.md','EXHAUST.md','GARAGE-PC.md','CONTENT.md','ATTACHMENTS.md','VEHICLES.md','SUSPENSION.md','DRAG.md','THIRD-PARTY.txt']:
+for name in ['README.md','PC-ENGINES.md','AUDIO-SIMULATION.md','ENGINE-AUDIO.md','AUDIO-MIX.md','VALIDATION.md','PHYSICS.md','CUSTOMIZATION.md','CUSTOMIZATION-COMPLETE.md','PERFORMANCE.md','TRANSMISSION.md','EXHAUST.md','GARAGE-PC.md','CONTENT.md','ATTACHMENTS.md','VEHICLES.md','SUSPENSION.md','DRAG.md','THIRD-PARTY.txt']:
     shutil.copy2(game/name,stage/('LISEZ-MOI.md' if name=='README.md' else name))
+shutil.copy2(game/'pc-engines.json',stage/'moteurs-extension-pc.json')
 shutil.copy2(game.parent/'evidence/merged/catalog.json',stage/'catalogue-pieces.json')
 shutil.copy2(game.parent/'evidence/merged/engine-audio-assignments.json',stage/'associations-moteurs-sons.json')
 shutil.copy2(game.parent/'evidence/merged/customization-render.json',stage/'personnalisation-source.json')

@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "model": "Generic modern F1 combustion V6",
+  "sample_rate": 44100,
+  "channels": 1,
+  "simulated": true,
+  "manufacturer_recording": false,
+  "game_engine_ids": [
+    1504
+  ],
+  "clips": [
+    {
+      "wav": "f1_v6_startup.wav",
+      "ogg": "f1_v6_startup.ogg",
+      "type": "startup",
+      "rpm": 0,
+      "load": null,
+      "loop": false,
+      "duration_s": 3.0
+    },
+    {
+      "wav": "f1_v6_rpm_loop_rpm_2000_load_0.wav",
+      "ogg": "f1_v6_rpm_loop_rpm_2000_load_0.ogg",
+      "type": "rpm_loop",
+      "rpm": 2000,
+      "load": 0.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "f1_v6_rpm_loop_rpm_2000_load_30.wav",
+      "ogg": "f1_v6_rpm_loop_rpm_2000_load_30.ogg",
+      "type": "rpm_loop",
+      "rpm": 2000,
+      "load": 0.3,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "f1_v6_rpm_loop_rpm_2000_load_100.wav",
+      "ogg": "f1_v6_rpm_loop_rpm_2000_load_100.ogg",
+      "type": "rpm_loop",
+      "rpm": 2000,
+      "load": 1.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "f1_v6_rpm_loop_rpm_5000_load_0.wav",
+      "ogg": "f1_v6_rpm_loop_rpm_5000_load_0.ogg",
+      "type": "rpm_loop",
+      "rpm": 5000,
+      "load": 0.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "f1_v6_rpm_loop_rpm_5000_load_30.wav",
+      "ogg": "f1_v6_rpm_loop_rpm_5000_load_30.ogg",
+      "type": "rpm_loop",
+      "rpm": 5000,
+      "load": 0.3,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "f1_v6_rpm_loop_rpm_5000_load_100.wav",
+      "ogg": "f1_v6_rpm_loop_rpm_5000_load_100.ogg",
+      "type": "rpm_loop",
+      "rpm": 5000,
+      "load": 1.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "f1_v6_rpm_loop_rpm_9000_load_0.wav",
+      "ogg": "f1_v6_rpm_loop_rpm_9000_load_0.ogg",
+      "type": "rpm_loop",
+      "rpm": 9000,
+      "load": 0.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "f1_v6_rpm_loop_rpm_9000_load_30.wav",
+      "ogg": "f1_v6_rpm_loop_rpm_9000_load_30.ogg",
+      "type": "rpm_loop",
+      "rpm": 9000,
+      "load": 0.3,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "f1_v6_rpm_loop_rpm_9000_load_100.wav",
+      "ogg": "f1_v6_rpm_loop_rpm_9000_load_100.ogg",
+      "type": "rpm_loop",
+      "rpm": 9000,
+      "load": 1.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "f1_v6_rpm_loop_rpm_14000_load_0.wav",
+      "ogg": "f1_v6_rpm_loop_rpm_14000_load_0.ogg",
+      "type": "rpm_loop",
+      "rpm": 14000,
+      "load": 0.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "f1_v6_rpm_loop_rpm_14000_load_30.wav",
+      "ogg": "f1_v6_rpm_loop_rpm_14000_load_30.ogg",
+      "type": "rpm_loop",
+      "rpm": 14000,
+      "load": 0.3,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "f1_v6_rpm_loop_rpm_14000_load_100.wav",
+      "ogg": "f1_v6_rpm_loop_rpm_14000_load_100.ogg",
+      "type": "rpm_loop",
+      "rpm": 14000,
+      "load": 1.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "f1_v6_ignition_off.wav",
+      "ogg": "f1_v6_ignition_off.ogg",
+      "type": "ignition_off",
+      "rpm": 1000,
+      "load": null,
+      "loop": false,
+      "duration_s": 3.0
+    },
+    {
+      "wav": "f1_v6_acceleration.wav",
+      "ogg": "f1_v6_acceleration.ogg",
+      "type": "acceleration",
+      "rpm": 0,
+      "load": 1.0,
+      "loop": false,
+      "duration_s": 3.0
+    },
+    {
+      "wav": "f1_v6_deceleration.wav",
+      "ogg": "f1_v6_deceleration.ogg",
+      "type": "deceleration",
+      "rpm": 0,
+      "load": 0.0,
+      "loop": false,
+      "duration_s": 3.0
+    }
+  ]
+}

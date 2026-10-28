@@ -15,3 +15,5 @@ Le binaire Windows est construit avec Zig et peut inclure du code d'exécution
 LLVM libc++, libc++abi, libunwind et MinGW-w64. Leurs licences sont incluses.
 Le compilateur Zig, les SDK d'analyse, Mesa de test et les APK ne sont pas
 distribués dans le paquet natif.
+
+Optional Audio-Simulation packs: Engine Sim / Engine Sim Exporter by Ange Yaghi and Talhasarac, MIT. Each pack includes ENGINE-SIM-LICENSE.txt and source provenance. Simulated vehicle approximations, not manufacturer recordings.

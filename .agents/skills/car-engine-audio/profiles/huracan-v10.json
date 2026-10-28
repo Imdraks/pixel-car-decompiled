@@ -1,0 +1,27 @@
+{
+  "slug": "huracan_v10",
+  "model": "Lamborghini Huracan EVO",
+  "layout": "V10",
+  "cylinders": 10,
+  "litres": 5.204,
+  "bore_mm": 84.5,
+  "stroke_mm": 92.8,
+  "redline_rpm": 8500,
+  "rpm_anchors": [
+    1000,
+    3000,
+    5000,
+    8000
+  ],
+  "throttle_layers": [
+    0,
+    30,
+    100
+  ],
+  "exhaust": "minimal_muffling_01",
+  "turbo": false,
+  "game_engine_ids": [
+    1502
+  ],
+  "approximation": "Displacement/redline adaptation of bundled V10 configuration; inherited crank geometry, heads/cams, intake and exhaust are approximations. Turbo pressure/whine and hybrid systems are not simulated by this adapter."
+}

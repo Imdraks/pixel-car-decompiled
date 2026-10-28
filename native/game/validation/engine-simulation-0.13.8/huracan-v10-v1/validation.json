@@ -1,0 +1,596 @@
+{
+  "passed": true,
+  "provenance": {
+    "template": "assets/engines/atg-video-2/10_lfa_v10.mr",
+    "template_sha256": "c446c4644bae13c5763c20721d60ec37d36725d7da2b8646fb720cf3bb267491",
+    "adapted_sha256": "b9527f192935e7360c9fe935b9e5f0c055fccf1e35a1c5d307c9e68cdc0ee2b9",
+    "notes": []
+  },
+  "exporter_source": {
+    "upstream": "https://github.com/Talhasarac/engine-sim-sound-exporter",
+    "revision": "a548360a33c6ddcc28265ac08b71b8a5f514ed3c",
+    "dependencies": {
+      "csv-io": "2112c55e1e831c8f7a1b91de23722b7926ad3d00",
+      "piranha": "432f0b122bb1663b686c553c7e7269300afac3bc",
+      "simple-2d-constraint-solver": "e009f4ff1c9c4c5874e865e893cdb62e208fb2b3"
+    },
+    "archive_sha256": {
+      "exporter": "e5f2f4a5ce708f6da3dbd574ae038464bfcde68c668f2c4b02c00bd2b9ee7054",
+      "csv-io": "92586044c317c8f83adf2a3761a58a3cb79ab776894ea2cc0da84d1dec669933",
+      "piranha": "7611b49d566a8423f9f7e85a130f12a37513438d561c7fe689a4910a985b1f16",
+      "simple-2d-constraint-solver": "4ff2aaa07c76e0cfb040219c56d6b90a154e5a79a30ccba9cb58066aeaf91365"
+    }
+  },
+  "commands": [
+    [
+      "/workspace/native-runtime/engine-audio-exporter/build/engine-sim-exporter",
+      "--script",
+      "/workspace/deliverables/engine-audio/huracan-v10-v1/simulation/main.mr",
+      "--out",
+      "/workspace/deliverables/engine-audio/huracan-v10-v1/simulation/raw",
+      "--rpm",
+      "1000,3000,5000,8000",
+      "--throttle",
+      "0,30,100",
+      "--duration",
+      "3.0",
+      "--warmup",
+      "3.0",
+      "--loop-crossfade",
+      "30"
+    ]
+  ],
+  "turbo_generated": false,
+  "backfire_generated": false,
+  "limits": [
+    "Simulation approximates a physical engine; not an authentic vehicle recording.",
+    "No turbo compressor, turbine or backfire source added.",
+    "Numerical loop/peak checks do not replace listening."
+  ],
+  "files": [
+    {
+      "wav": "huracan_v10_startup.wav",
+      "ogg": "huracan_v10_startup.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.34661865234375,
+        "rms": 0.11490798882408447,
+        "dc": 0.0003310264535501701,
+        "seam_jump": 0.03497314453125,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.362548828125,
+        "rms": 0.11999632211251732,
+        "dc": 6.415473090277778e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3626560866832733,
+        "rms": 0.12037177383899689,
+        "dc": 1.502206487202784e-06,
+        "seam_jump": 0.00026948199956677854,
+        "rail_samples": 0
+      },
+      "gain": 1.045007556558754,
+      "wav_sha256": "d37a60e6d7c65a4a075525287800e9c660244a67a738e7306c9369b5570677f5",
+      "ogg_sha256": "43109c64f48157be901a0d857c2b90f0343153525e23c71e6531dc8199cac2e4"
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_1000_load_0.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_1000_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.327056884765625,
+        "rms": 0.11897690336874304,
+        "dc": -0.0032597652097948555,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3338623046875,
+        "rms": 0.11999629347560377,
+        "dc": -1.5691585670814342e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.32463330030441284,
+        "rms": 0.11981069296598434,
+        "dc": 0.0002723539946600795,
+        "seam_jump": 0.0006861368310637772,
+        "rail_samples": 0
+      },
+      "gain": 1.0107923931740346,
+      "wav_sha256": "6aa4d9a16075dee49ca693a0679eb3bea2ae6a672c3f18d42eae2fd90ccd717f",
+      "ogg_sha256": "4dc1c12c4dbb2de36ebc20128501dd1a6f8ea2be059b7bc04488adfc3577efcf"
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_1000_load_30.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_1000_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.280853271484375,
+        "rms": 0.13395529780860024,
+        "dc": 0.0037065536256820435,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.255279541015625,
+        "rms": 0.11999634149009068,
+        "dc": 1.4464610198737183e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.25407490134239197,
+        "rms": 0.12016148865222931,
+        "dc": 7.279436431417707e-06,
+        "seam_jump": 0.0005056073423475027,
+        "rail_samples": 0
+      },
+      "gain": 0.8971559158673199,
+      "wav_sha256": "e597fa63a5af4ca4f55be00dc7d45e4bb14c15faa1d9b07cfdfc1c979c0eab0c",
+      "ogg_sha256": "4f7bea55b297036eeeca7e728e68b422fad675f4fb879f6f6ac3a4f336ebe8aa"
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_1000_load_100.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_1000_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.2884521484375,
+        "rms": 0.13280468712929533,
+        "dc": 0.004142676574753165,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.26483154296875,
+        "rms": 0.11999632579922535,
+        "dc": -2.6487385428357652e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.2668720483779907,
+        "rms": 0.1203172579407692,
+        "dc": 0.0001169187089544721,
+        "seam_jump": 5.924587821937166e-05,
+        "rail_samples": 0
+      },
+      "gain": 0.9051139863800713,
+      "wav_sha256": "55627f198aea154de9c598085bcf2f7951379c1ec0b1514324e6d6ca148a0bd3",
+      "ogg_sha256": "2ffdc3875a44f213201d3e40519addd20820bccd512eb59363514c48a253d6da"
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_3000_load_0.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_3000_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.318878173828125,
+        "rms": 0.12698069362179876,
+        "dc": -0.0003112213988242867,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.30181884765625,
+        "rms": 0.11999635498428061,
+        "dc": 4.956132788939088e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.30095964670181274,
+        "rms": 0.12029919028282166,
+        "dc": 6.26974506303668e-05,
+        "seam_jump": 0.0018385121366009116,
+        "rail_samples": 0
+      },
+      "gain": 0.9474941077879043,
+      "wav_sha256": "6763c762bb789e2efab4a6a1df6f0c4d9fc72ef0bb720b8c367e0581733ac61c",
+      "ogg_sha256": "a13dbd33bb5fd5561ab8c91b1082053e51dc5ec6caa2a6124073aae3caeef148"
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_3000_load_30.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_3000_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.31317138671875,
+        "rms": 0.14040821259673816,
+        "dc": -0.0012322439826625094,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.26953125,
+        "rms": 0.11999631444582722,
+        "dc": -8.812507843695839e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.2689701020717621,
+        "rms": 0.12061340361833572,
+        "dc": 3.504321284708567e-05,
+        "seam_jump": 0.0002984647289849818,
+        "rail_samples": 0
+      },
+      "gain": 0.8573093303170262,
+      "wav_sha256": "abbb59704cb3ddcab8f364675bf597ec98f6f78e41dd7cfd5ac2a7861d915204",
+      "ogg_sha256": "9b5b77d9a4d7fa33756343439902c6bb5da8e4e27b2b5dcbec9a2b57f912f4b0"
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_3000_load_100.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_3000_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.317901611328125,
+        "rms": 0.14205059995737776,
+        "dc": -0.0004638420445218018,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.269805908203125,
+        "rms": 0.11999633087381717,
+        "dc": -5.179579328574864e-07,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.27290186285972595,
+        "rms": 0.12059185653924942,
+        "dc": 5.3477455367101356e-05,
+        "seam_jump": 0.00041842268547043204,
+        "rail_samples": 0
+      },
+      "gain": 0.8475276402779373,
+      "wav_sha256": "6297c29e87d02bc1b117eb4f8563102fc13b1a815cac099d36a4b7135e498f90",
+      "ogg_sha256": "e01e16663f8478baa69fd70c277b73cfa68c4d21095b62a8126d26781842cc1d"
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_5000_load_0.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_5000_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.282257080078125,
+        "rms": 0.14268354578266432,
+        "dc": 0.00020936811682138132,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.237823486328125,
+        "rms": 0.11999636044276533,
+        "dc": -1.0741976868433962e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.23842255771160126,
+        "rms": 0.12040527164936066,
+        "dc": -6.602887879125774e-06,
+        "seam_jump": 0.001486905850470066,
+        "rail_samples": 0
+      },
+      "gain": 0.843242210481499,
+      "wav_sha256": "f5da046175385c7147787bbd8f2c3cf8532095b8007191e9ea7734bc2fbd87fd",
+      "ogg_sha256": "616be03d3c11b2081811faaee8567b693f983ea5a5f253c3f897ee48b576161a"
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_5000_load_30.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_5000_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.276611328125,
+        "rms": 0.1493064146703897,
+        "dc": 9.257483103918651e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.222900390625,
+        "rms": 0.11999633710175059,
+        "dc": 6.616021369090565e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.22331112623214722,
+        "rms": 0.1206018477678299,
+        "dc": 2.9263304895721376e-05,
+        "seam_jump": 0.002029458759352565,
+        "rail_samples": 0
+      },
+      "gain": 0.806104184216894,
+      "wav_sha256": "4febfaa93d1a1faf357852db281e373a6672d3f905900bcdbd02b21bcda30bc8",
+      "ogg_sha256": "d1f1bc942f2924a88be40f5b18fceb3200970483ca2655160e4235a4066efc25"
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_5000_load_100.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_5000_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.29833984375,
+        "rms": 0.1415798440781206,
+        "dc": 0.0002824241540149046,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.2532958984375,
+        "rms": 0.11999631388582213,
+        "dc": 9.500555426119662e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.2509755790233612,
+        "rms": 0.1205609068274498,
+        "dc": 8.675188837514725e-06,
+        "seam_jump": 0.0008065038127824664,
+        "rail_samples": 0
+      },
+      "gain": 0.8498494542378423,
+      "wav_sha256": "02e7478dc34c24a96234e2d0849e78b817de6952a7fd1feb7d81c868947a07ac",
+      "ogg_sha256": "3b9ea833fa446934688251e48a6d7a6c17d4b8676697a40cc7b869cc539f3064"
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_8000_load_0.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_8000_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.292266845703125,
+        "rms": 0.118447019178665,
+        "dc": -1.0047733828774565e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.296295166015625,
+        "rms": 0.11999633123033483,
+        "dc": -3.866394034114768e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.30314451456069946,
+        "rms": 0.12027581036090851,
+        "dc": 1.1236566024308559e-06,
+        "seam_jump": 0.0026461512316018343,
+        "rail_samples": 0
+      },
+      "gain": 1.0138108088047513,
+      "wav_sha256": "416af06205b9aa361978cb08653a28fd770edd4ecf234cf1e70d321e3746b132",
+      "ogg_sha256": "1549e5b1a174feca587c4167faff67509c4566c2f665bf45d2b23a74ed07700b"
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_8000_load_30.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_8000_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.301239013671875,
+        "rms": 0.12260069067828164,
+        "dc": -0.0006560430433023904,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.29443359375,
+        "rms": 0.11999632081040734,
+        "dc": -1.2959433299835085e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.2954321801662445,
+        "rms": 0.12039755284786224,
+        "dc": 3.225014006602578e-05,
+        "seam_jump": 0.00070594233693555,
+        "rail_samples": 0
+      },
+      "gain": 0.979523974210782,
+      "wav_sha256": "ededaaaa52fa4a32951108be8ffd8749b0c6c09d81c030e1ac0e666d06fcfbfb",
+      "ogg_sha256": "e45c15230ed38003c490d41cd99a23dd0417ddf07310379116dd938f2eecc239"
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_8000_load_100.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_8000_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.329315185546875,
+        "rms": 0.12296082773335767,
+        "dc": -0.0001293970686147723,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3214111328125,
+        "rms": 0.11999634007299755,
+        "dc": 2.2310869033184263e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3222508430480957,
+        "rms": 0.12025243788957596,
+        "dc": 2.4628525352454744e-05,
+        "seam_jump": 0.0014540039701387286,
+        "rail_samples": 0
+      },
+      "gain": 0.9763947969524158,
+      "wav_sha256": "31c218283ced621907d820aa95fbe1e5bdb6cda3235a7fbdcb41b43b61592d21",
+      "ogg_sha256": "ff6caff25c42e8bc5b80a8d5cf076269d05c3158e0c05eae75cd8e406b016272"
+    },
+    {
+      "wav": "huracan_v10_ignition_off.wav",
+      "ogg": "huracan_v10_ignition_off.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.2979736328125,
+        "rms": 0.042703426451304115,
+        "dc": -0.0002522419693788974,
+        "seam_jump": 0.006622314453125,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.79998779296875,
+        "rms": 0.11366875860054468,
+        "dc": 6.0615799053996596e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.8012102842330933,
+        "rms": 0.11336221545934677,
+        "dc": 1.3585108717961702e-05,
+        "seam_jump": 0.00015798566164448857,
+        "rail_samples": 0
+      },
+      "gain": 2.687075986493512,
+      "wav_sha256": "4fb26e9fa683557a165ea3749994724b184b9628e78e57c0f7e97b54cf568de8",
+      "ogg_sha256": "86c56427a2b6deb49ef6d632c7dc83b8e161ded5d441b705cb4d31f19f6985b8"
+    },
+    {
+      "wav": "huracan_v10_acceleration.wav",
+      "ogg": "huracan_v10_acceleration.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.322418212890625,
+        "rms": 0.13504380277907152,
+        "dc": -0.00047591182740457295,
+        "seam_jump": 0.061309814453125,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.286956787109375,
+        "rms": 0.11999630240894855,
+        "dc": -1.2050175973167044e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.28517088294029236,
+        "rms": 0.12043771147727966,
+        "dc": -6.2215030993684195e-06,
+        "seam_jump": 0.0003981329791713506,
+        "rail_samples": 0
+      },
+      "gain": 0.8896295102057005,
+      "wav_sha256": "54ba0f13eca1e580dc65476e4302323c80986327480bfe3dfed855313bf3fc3f",
+      "ogg_sha256": "202a360dadea3147fdb19b187284d0b175a3d15b84b5f77efa6be553f56f107d"
+    },
+    {
+      "wav": "huracan_v10_deceleration.wav",
+      "ogg": "huracan_v10_deceleration.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.33782958984375,
+        "rms": 0.12580669716603482,
+        "dc": 0.00046508189321735636,
+        "seam_jump": 0.073944091796875,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.32293701171875,
+        "rms": 0.119996344550533,
+        "dc": 5.2255874137849585e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3316452205181122,
+        "rms": 0.12027405947446823,
+        "dc": 1.5050862202770077e-05,
+        "seam_jump": 0.00011549345799721777,
+        "rail_samples": 0
+      },
+      "gain": 0.9546720785441541,
+      "wav_sha256": "6db2a5996b076855e3d532cbce6bddffa2955443bbf78cb7b9885405ee1dd1a5",
+      "ogg_sha256": "ffd368153b824b9279104676eeff6dff519a482d14116352d24967fe603051b7"
+    }
+  ]
+}

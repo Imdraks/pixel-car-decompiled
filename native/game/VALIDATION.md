@@ -1,3 +1,22 @@
+# Validation 0.13.8 — moteurs PC et export audio
+
+- 339 contrôles du cœur Linux, exécutables Linux/Windows compilés ;
+  105462 combinaisons moteur/ECU/induction/intercooler et 267344 combinaisons
+  moteur/admission/pistons/échappement vérifiées. 15 ajouts, 31 swaps au total.
+- 88 contrôles graphiques Linux, recherche AMG/provenance PC et rupteur V6 F1
+  à 15000 tr/min compris. Les régressions suspension gardent le châssis LT5
+  historique ; les nouveaux moteurs ont leurs propres essais de roulage.
+- Mixeur Raylib réel sur périphérique logiciel : 31 moteurs AUTO par banque,
+  profils manuels et événements. Aucun échec de chargement sonore.
+- Six simulations exportées et traitées : 99 WAV + 99 OGG, sans saturation
+  source ni crête de sortie ≥0,99, chaque OGG redécodé et mesuré. Les 188 sons
+  du jeu sont identiques au téléchargement 0.13.7. Les packs restent non activés.
+- Bootstrap du simulateur reconstruit dans un dossier vierge ; les données
+  d’export sont conservées avec empreintes, descriptions, scripts et journaux.
+- Rapports : `validation/pc-engines-0.13.8/` et
+  `validation/engine-simulation-0.13.8/`. Écoute sur enceintes et fidélité à
+  chaque moteur réel non établies ; modèles physiques/audio approximatifs.
+
 # Validation 0.13.7 — montée en régime du son LS/V8
 
 - 336 contrôles du cœur Linux : timbre bas régime conservé, élévation du LS/V8

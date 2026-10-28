@@ -8,6 +8,7 @@
 #include "content_catalog.hpp"
 #include "body_choices.hpp"
 #include "stock_vehicles.hpp"
+#include "pc_engines.hpp"
 #include "vehicle_identities.hpp"
 
 namespace pcr {
@@ -60,6 +61,8 @@ struct Vehicle {
     DriveLayout drive=DriveLayout::Rear;
     double drivenWeightFraction=.52, wheelbase=2.6, centreOfGravityHeight=.50;
     double curveRpmScale=1,boostEfficiency=.7;
+    double torquePeakRpm=5200,torqueWidthRpm=2700,lowTorqueFraction=.62;
+    double factoryBoostSoundPsi=0;
     double boostPsi=0,nitroHp=0; bool supercharged=false,twoStep=false;
     bool suspensionDynamics=false,tyreDynamics=false,allowWheelie=false,abs=false,tractionControl=false;
     bool wheelieBar=false;double wheelieBarArm=0,wheelieBarClearance=0;

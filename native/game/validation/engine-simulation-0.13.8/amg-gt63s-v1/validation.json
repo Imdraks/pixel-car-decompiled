@@ -1,0 +1,596 @@
+{
+  "passed": true,
+  "provenance": {
+    "template": "assets/engines/atg-video-2/07_gm_ls.mr",
+    "template_sha256": "bbef3ac6280243833393367736eafda6281fd772e5183910cc0464c423fcb1df",
+    "adapted_sha256": "6d6acb569a4018c2e7e1953839c02195af1a27b5338f971cb4e64a19be15cd49",
+    "notes": []
+  },
+  "exporter_source": {
+    "upstream": "https://github.com/Talhasarac/engine-sim-sound-exporter",
+    "revision": "a548360a33c6ddcc28265ac08b71b8a5f514ed3c",
+    "dependencies": {
+      "csv-io": "2112c55e1e831c8f7a1b91de23722b7926ad3d00",
+      "piranha": "432f0b122bb1663b686c553c7e7269300afac3bc",
+      "simple-2d-constraint-solver": "e009f4ff1c9c4c5874e865e893cdb62e208fb2b3"
+    },
+    "archive_sha256": {
+      "exporter": "e5f2f4a5ce708f6da3dbd574ae038464bfcde68c668f2c4b02c00bd2b9ee7054",
+      "csv-io": "92586044c317c8f83adf2a3761a58a3cb79ab776894ea2cc0da84d1dec669933",
+      "piranha": "7611b49d566a8423f9f7e85a130f12a37513438d561c7fe689a4910a985b1f16",
+      "simple-2d-constraint-solver": "4ff2aaa07c76e0cfb040219c56d6b90a154e5a79a30ccba9cb58066aeaf91365"
+    }
+  },
+  "commands": [
+    [
+      "/workspace/native-runtime/engine-audio-exporter/build/engine-sim-exporter",
+      "--script",
+      "/workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/main.mr",
+      "--out",
+      "/workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw",
+      "--rpm",
+      "1000,2500,4500,6500",
+      "--throttle",
+      "0,30,100",
+      "--duration",
+      "3.0",
+      "--warmup",
+      "3.0",
+      "--loop-crossfade",
+      "30"
+    ]
+  ],
+  "turbo_generated": false,
+  "backfire_generated": false,
+  "limits": [
+    "Simulation approximates a physical engine; not an authentic vehicle recording.",
+    "No turbo compressor, turbine or backfire source added.",
+    "Numerical loop/peak checks do not replace listening."
+  ],
+  "files": [
+    {
+      "wav": "amg_gt63s_2021_startup.wav",
+      "ogg": "amg_gt63s_2021_startup.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3741455078125,
+        "rms": 0.09023953708636745,
+        "dc": 9.796673118031935e-05,
+        "seam_jump": 0.139495849609375,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.497833251953125,
+        "rms": 0.11999636406504986,
+        "dc": -5.332779541938303e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.4819636940956116,
+        "rms": 0.11950555443763733,
+        "dc": -9.687031706562266e-06,
+        "seam_jump": 0.00017965050938073546,
+        "rail_samples": 0
+      },
+      "gain": 1.330977370220439,
+      "wav_sha256": "e53ed3bfc41edf5ad36e63a067f59f15beb21dc6c0b5e507ab6130cae2fbf152",
+      "ogg_sha256": "d3847022880f0dac0091c49949b2e8f97bc9656f560c78e35b875deb4eb8ced5"
+    },
+    {
+      "wav": "amg_gt63s_2021_rpm_loop_rpm_1000_load_0.wav",
+      "ogg": "amg_gt63s_2021_rpm_loop_rpm_1000_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.337371826171875,
+        "rms": 0.10967077348991597,
+        "dc": 0.0027494596335713105,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3717041015625,
+        "rms": 0.1199963662441087,
+        "dc": -2.33868608163313e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3832058310508728,
+        "rms": 0.11963014304637909,
+        "dc": 0.00015818249084986746,
+        "seam_jump": 1.7565995221957564e-05,
+        "rail_samples": 0
+      },
+      "gain": 1.0962105725613682,
+      "wav_sha256": "3df355e88156d2b18bc0a1ef00d46a427f324e2ad3fb5bab7d1ee517e8ab447a",
+      "ogg_sha256": "d9bb099aa2e0e8738ffd71ae1ae50057ee46953c4502958c610b90e055abc9d7"
+    },
+    {
+      "wav": "amg_gt63s_2021_rpm_loop_rpm_1000_load_30.wav",
+      "ogg": "amg_gt63s_2021_rpm_loop_rpm_1000_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.349884033203125,
+        "rms": 0.11147273817657859,
+        "dc": -0.0021489798040526973,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.37957763671875,
+        "rms": 0.11999633539435907,
+        "dc": -1.6144536737604693e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.37073203921318054,
+        "rms": 0.11958116292953491,
+        "dc": -0.0002842420944944024,
+        "seam_jump": 0.0004141177050769329,
+        "rail_samples": 0
+      },
+      "gain": 1.0783044466379381,
+      "wav_sha256": "73a27c1657f1dbc9cd64bea1e2367a21f323cb7bca63001c3cd5e61d44da5ff7",
+      "ogg_sha256": "7c663deb26e74f88d2cca6666bd40cf9172ae36294bd5e3126d3b651a4d9cd26"
+    },
+    {
+      "wav": "amg_gt63s_2021_rpm_loop_rpm_1000_load_100.wav",
+      "ogg": "amg_gt63s_2021_rpm_loop_rpm_1000_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.334686279296875,
+        "rms": 0.11114577358964858,
+        "dc": -0.0019995255589214853,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.364715576171875,
+        "rms": 0.11999634405347402,
+        "dc": -1.3676139823213237e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.362093448638916,
+        "rms": 0.11966489255428314,
+        "dc": -4.4215110392542556e-05,
+        "seam_jump": 0.0017307647503912449,
+        "rail_samples": 0
+      },
+      "gain": 1.0833200731660193,
+      "wav_sha256": "afbdb049a874a6f34c509383e37ff8b00fbbf511a9d297af083f90f6966b283b",
+      "ogg_sha256": "ec886beac90aafc46187bee75a83f460d0e96da74165031a45b03d313effac5f"
+    },
+    {
+      "wav": "amg_gt63s_2021_rpm_loop_rpm_2500_load_0.wav",
+      "ogg": "amg_gt63s_2021_rpm_loop_rpm_2500_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.35113525390625,
+        "rms": 0.1164685294494941,
+        "dc": 0.0012703522028386007,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.363616943359375,
+        "rms": 0.11999632533035708,
+        "dc": 5.165832356897585e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3538140654563904,
+        "rms": 0.12003467977046967,
+        "dc": -7.329476648010314e-05,
+        "seam_jump": 0.0009307197760790586,
+        "rail_samples": 0
+      },
+      "gain": 1.0318625331500444,
+      "wav_sha256": "949b9367d33cf384f05cd985b62e249c08c1a1399280b3d7f698728394a857c0",
+      "ogg_sha256": "c3894abd1908b96dd0805b7a37206feb056d776ae318a90945d57448076c8e53"
+    },
+    {
+      "wav": "amg_gt63s_2021_rpm_loop_rpm_2500_load_30.wav",
+      "ogg": "amg_gt63s_2021_rpm_loop_rpm_2500_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.332183837890625,
+        "rms": 0.11089458165170085,
+        "dc": -0.0020785153389697893,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.357452392578125,
+        "rms": 0.11999633272164703,
+        "dc": 2.3391287807210427e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.35065245628356934,
+        "rms": 0.11988426744937897,
+        "dc": 4.3030831875512376e-05,
+        "seam_jump": 0.0005610078806057572,
+        "rail_samples": 0
+      },
+      "gain": 1.0828650631081198,
+      "wav_sha256": "aa53f66108ed77a0bf5f813cadf7fc8762d1af491205884ab86302558c6fe774",
+      "ogg_sha256": "fe28508139e3f50e225ccbeebfc5590661d2300313b7a51594dd447408c27251"
+    },
+    {
+      "wav": "amg_gt63s_2021_rpm_loop_rpm_2500_load_100.wav",
+      "ogg": "amg_gt63s_2021_rpm_loop_rpm_2500_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.337005615234375,
+        "rms": 0.10787311905442577,
+        "dc": -0.001968208249554162,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.373046875,
+        "rms": 0.11999636432131972,
+        "dc": 7.803153923255609e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.36569744348526,
+        "rms": 0.11971116065979004,
+        "dc": 4.137880023336038e-05,
+        "seam_jump": 0.00012766433064825833,
+        "rail_samples": 0
+      },
+      "gain": 1.113439676700104,
+      "wav_sha256": "7d68d832abfe478d5d9a66b49b1fadf9e86ce33f3890312d378e9f49ae2ac33c",
+      "ogg_sha256": "16eb1eafad416640ec19be9b66f0270008b6c1f2e7be0c5b6efaaff87062214e"
+    },
+    {
+      "wav": "amg_gt63s_2021_rpm_loop_rpm_4500_load_0.wav",
+      "ogg": "amg_gt63s_2021_rpm_loop_rpm_4500_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.349334716796875,
+        "rms": 0.10808955459087484,
+        "dc": 0.0004653298629564673,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.38739013671875,
+        "rms": 0.11999635162312533,
+        "dc": 1.6083257863856822e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3842581808567047,
+        "rms": 0.11977885663509369,
+        "dc": 8.576655818615109e-05,
+        "seam_jump": 0.000801686430349946,
+        "rail_samples": 0
+      },
+      "gain": 1.110420111917581,
+      "wav_sha256": "9dd6ac4ffe148c3eebee9bc52ed3dc427581009cd63189ae047c7201316807cb",
+      "ogg_sha256": "c5307e745f040793bdd50bd2ad41da4c4910ea9150aadf6a481bf7a129505562"
+    },
+    {
+      "wav": "amg_gt63s_2021_rpm_loop_rpm_4500_load_30.wav",
+      "ogg": "amg_gt63s_2021_rpm_loop_rpm_4500_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.349761962890625,
+        "rms": 0.10815067147592107,
+        "dc": -0.00109665620534238,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.389556884765625,
+        "rms": 0.1199963434489377,
+        "dc": 2.068196938918665e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.40062177181243896,
+        "rms": 0.11968743056058884,
+        "dc": 3.550879773683846e-05,
+        "seam_jump": 0.003680678317323327,
+        "rail_samples": 0
+      },
+      "gain": 1.1103178128939328,
+      "wav_sha256": "54012b82153f70ac75d0c3d640925c6515865aad65e47a5d34a660418e060377",
+      "ogg_sha256": "2f23bff52d51ac58aaee1acc310efc4efceb05612391e9f243ecc2a0b9d946da"
+    },
+    {
+      "wav": "amg_gt63s_2021_rpm_loop_rpm_4500_load_100.wav",
+      "ogg": "amg_gt63s_2021_rpm_loop_rpm_4500_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.334869384765625,
+        "rms": 0.10951475903216341,
+        "dc": -0.0009507826432439295,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3662109375,
+        "rms": 0.1199963316566272,
+        "dc": -4.371676793086763e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.35894501209259033,
+        "rms": 0.11973115056753159,
+        "dc": -1.817028532968834e-05,
+        "seam_jump": 0.0007764643523842096,
+        "rail_samples": 0
+      },
+      "gain": 1.0967468052069735,
+      "wav_sha256": "5c16d7c8b45b02d38f08acccc97ed8162e296c183eae2822a3c0b20bf1283a48",
+      "ogg_sha256": "e19406f6c7ebfd46142d2067135b90cae8deb950102c891209c8bc3ded6c9e5b"
+    },
+    {
+      "wav": "amg_gt63s_2021_rpm_loop_rpm_6500_load_0.wav",
+      "ogg": "amg_gt63s_2021_rpm_loop_rpm_6500_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.36627197265625,
+        "rms": 0.11182526736892025,
+        "dc": 0.0015359813087561414,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.394805908203125,
+        "rms": 0.11999637384889779,
+        "dc": 5.4731121238127686e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3869420886039734,
+        "rms": 0.1202315241098404,
+        "dc": 4.132854155614041e-05,
+        "seam_jump": 0.0013803981710225344,
+        "rail_samples": 0
+      },
+      "gain": 1.073463141846405,
+      "wav_sha256": "81bd31591d3f5d3bbc5f46ab858c70c4fc9e2fa6eb774fd41d3f5ad849657fff",
+      "ogg_sha256": "de65396a12db11fd65ffcf538b998cc06c52f5dbfee0e8880ef05fae44b589a5"
+    },
+    {
+      "wav": "amg_gt63s_2021_rpm_loop_rpm_6500_load_30.wav",
+      "ogg": "amg_gt63s_2021_rpm_loop_rpm_6500_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.341064453125,
+        "rms": 0.10381318311495047,
+        "dc": -0.0007327512710813492,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.395233154296875,
+        "rms": 0.11999629242948646,
+        "dc": 1.9872063057826947e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.40891504287719727,
+        "rms": 0.11968614161014557,
+        "dc": 1.4197855307429563e-05,
+        "seam_jump": 0.0005497956299223006,
+        "rail_samples": 0
+      },
+      "gain": 1.1564129341093137,
+      "wav_sha256": "d119b45ba9d226fde630151e89557de055d4f658953afa2b4541d462bb0902f9",
+      "ogg_sha256": "d2fbe9c5648fc66ff12848692826fc29922c635a920ca44a8bc150bbd348a4a6"
+    },
+    {
+      "wav": "amg_gt63s_2021_rpm_loop_rpm_6500_load_100.wav",
+      "ogg": "amg_gt63s_2021_rpm_loop_rpm_6500_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.354217529296875,
+        "rms": 0.10374736470594724,
+        "dc": -0.001159787224894298,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.41143798828125,
+        "rms": 0.11999635751744278,
+        "dc": -1.0182778020544638e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.4094078838825226,
+        "rms": 0.11971916258335114,
+        "dc": 6.768844468751922e-05,
+        "seam_jump": 0.0009392858482897282,
+        "rail_samples": 0
+      },
+      "gain": 1.1578055100112608,
+      "wav_sha256": "4322c0f84cf39742a3a1dfcd271c0008725ce5ee1d41de563c01abb232ec2d23",
+      "ogg_sha256": "91cb1deb4ffdc7cde9e730c2bb7ee997d6cf23880e83aef79fd2d9cbca62dabb"
+    },
+    {
+      "wav": "amg_gt63s_2021_ignition_off.wav",
+      "ogg": "amg_gt63s_2021_ignition_off.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.391326904296875,
+        "rms": 0.05909144164310715,
+        "dc": 4.0927693777163644e-05,
+        "seam_jump": 0.038665771484375,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.79541015625,
+        "rms": 0.11999633682552928,
+        "dc": -2.5862205776407785e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.7905821204185486,
+        "rms": 0.11971215158700943,
+        "dc": 6.827616289228899e-06,
+        "seam_jump": 0.0005554076051339507,
+        "rail_samples": 0
+      },
+      "gain": 2.0324159030100293,
+      "wav_sha256": "25e9aae9629e186bc18e4edc51b3ec001d5cb6dd41b1fb58108c2b36f7cf630d",
+      "ogg_sha256": "f7289671c43e4419d8e02917b61a6c5f8cff1396adb8797fdc8f09c5af03dc11"
+    },
+    {
+      "wav": "amg_gt63s_2021_acceleration.wav",
+      "ogg": "amg_gt63s_2021_acceleration.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.346527099609375,
+        "rms": 0.11058537042288767,
+        "dc": -0.0012409775922087585,
+        "seam_jump": 0.022125244140625,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.375518798828125,
+        "rms": 0.11999633616482502,
+        "dc": -7.870213515093537e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.38172122836112976,
+        "rms": 0.12028136104345322,
+        "dc": 5.916010195505805e-06,
+        "seam_jump": 0.0005608132341876626,
+        "rail_samples": 0
+      },
+      "gain": 1.0859484446902252,
+      "wav_sha256": "a884a156d63576f1e057466c1d005cba32bd20e9315a32660814a3da687d162a",
+      "ogg_sha256": "a9d7f91d60fca5eab192d370b0eadf7d3138a9c961da1d636fdfd13c2e6d22ce"
+    },
+    {
+      "wav": "amg_gt63s_2021_deceleration.wav",
+      "ogg": "amg_gt63s_2021_deceleration.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.35552978515625,
+        "rms": 0.11008856495507675,
+        "dc": -0.00026046118588494424,
+        "seam_jump": 0.04364013671875,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3875732421875,
+        "rms": 0.11999629463278702,
+        "dc": -4.98522976899093e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3815394937992096,
+        "rms": 0.1203082799911499,
+        "dc": -8.033383346628398e-05,
+        "seam_jump": 0.0005827300483360887,
+        "rail_samples": 0
+      },
+      "gain": 1.0909646835105706,
+      "wav_sha256": "ee2a5c8767a049afe639a0d00398bf966b7814521f1706b81e34d96bfb713bd8",
+      "ogg_sha256": "b09c04dafa3fd17ca8c6476006c42f3fa6bc62d17a187ae50b5954f52a933e0b"
+    }
+  ]
+}

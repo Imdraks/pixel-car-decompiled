@@ -1,0 +1,29 @@
+Loaded engine: GM LS V8 [simulated approximation]
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_startup_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=0
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_rpm_1000_throttle_0_loop_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=30
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_rpm_1000_throttle_30_loop_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=100
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_rpm_1000_throttle_100_loop_3s.wav
+RPM_CHECK target=2500 actual=2500 throttle=0
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_rpm_2500_throttle_0_loop_3s.wav
+RPM_CHECK target=2500 actual=2500 throttle=30
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_rpm_2500_throttle_30_loop_3s.wav
+RPM_CHECK target=2500 actual=2500 throttle=100
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_rpm_2500_throttle_100_loop_3s.wav
+RPM_CHECK target=4500 actual=4500 throttle=0
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_rpm_4500_throttle_0_loop_3s.wav
+RPM_CHECK target=4500 actual=4500 throttle=30
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_rpm_4500_throttle_30_loop_3s.wav
+RPM_CHECK target=4500 actual=4500 throttle=100
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_rpm_4500_throttle_100_loop_3s.wav
+RPM_CHECK target=7000 actual=7000 throttle=0
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_rpm_7000_throttle_0_loop_3s.wav
+RPM_CHECK target=7000 actual=7000 throttle=30
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_rpm_7000_throttle_30_loop_3s.wav
+RPM_CHECK target=7000 actual=7000 throttle=100
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_rpm_7000_throttle_100_loop_3s.wav
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_ignition_off_3s.wav
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_acceleration.wav
+Wrote /workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw/gm_ls_v8_simulated_approximation_deceleration.wav

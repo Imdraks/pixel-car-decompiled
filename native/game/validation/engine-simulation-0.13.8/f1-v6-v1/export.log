@@ -1,0 +1,29 @@
+Loaded engine: Generic modern F1 combustion V6 [simulated approximation]
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_startup_3s.wav
+RPM_CHECK target=2000 actual=2000 throttle=0
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_rpm_2000_throttle_0_loop_3s.wav
+RPM_CHECK target=2000 actual=2000 throttle=30
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_rpm_2000_throttle_30_loop_3s.wav
+RPM_CHECK target=2000 actual=2000 throttle=100
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_rpm_2000_throttle_100_loop_3s.wav
+RPM_CHECK target=5000 actual=5000 throttle=0
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_rpm_5000_throttle_0_loop_3s.wav
+RPM_CHECK target=5000 actual=5000 throttle=30
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_rpm_5000_throttle_30_loop_3s.wav
+RPM_CHECK target=5000 actual=5000 throttle=100
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_rpm_5000_throttle_100_loop_3s.wav
+RPM_CHECK target=9000 actual=9000 throttle=0
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_rpm_9000_throttle_0_loop_3s.wav
+RPM_CHECK target=9000 actual=9000 throttle=30
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_rpm_9000_throttle_30_loop_3s.wav
+RPM_CHECK target=9000 actual=9000 throttle=100
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_rpm_9000_throttle_100_loop_3s.wav
+RPM_CHECK target=14000 actual=14000 throttle=0
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_rpm_14000_throttle_0_loop_3s.wav
+RPM_CHECK target=14000 actual=14000 throttle=30
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_rpm_14000_throttle_30_loop_3s.wav
+RPM_CHECK target=14000 actual=14000 throttle=100
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_rpm_14000_throttle_100_loop_3s.wav
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_ignition_off_3s.wav
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_acceleration.wav
+Wrote /workspace/deliverables/engine-audio/f1-v6-v1/simulation/raw/generic_modern_f1_combustion_v6_simulated_approximation_deceleration.wav

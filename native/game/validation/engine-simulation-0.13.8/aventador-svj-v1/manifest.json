@@ -1,0 +1,184 @@
+{
+  "schema": 1,
+  "model": "Lamborghini Aventador SVJ",
+  "sample_rate": 44100,
+  "channels": 1,
+  "simulated": true,
+  "manufacturer_recording": false,
+  "game_engine_ids": [
+    1503
+  ],
+  "clips": [
+    {
+      "wav": "aventador_svj_v12_startup.wav",
+      "ogg": "aventador_svj_v12_startup.ogg",
+      "type": "startup",
+      "rpm": 0,
+      "load": null,
+      "loop": false,
+      "duration_s": 3.0
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_1000_load_0.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_1000_load_0.ogg",
+      "type": "rpm_loop",
+      "rpm": 1000,
+      "load": 0.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_1000_load_30.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_1000_load_30.ogg",
+      "type": "rpm_loop",
+      "rpm": 1000,
+      "load": 0.3,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_1000_load_100.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_1000_load_100.ogg",
+      "type": "rpm_loop",
+      "rpm": 1000,
+      "load": 1.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_2500_load_0.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_2500_load_0.ogg",
+      "type": "rpm_loop",
+      "rpm": 2500,
+      "load": 0.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_2500_load_30.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_2500_load_30.ogg",
+      "type": "rpm_loop",
+      "rpm": 2500,
+      "load": 0.3,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_2500_load_100.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_2500_load_100.ogg",
+      "type": "rpm_loop",
+      "rpm": 2500,
+      "load": 1.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_4000_load_0.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_4000_load_0.ogg",
+      "type": "rpm_loop",
+      "rpm": 4000,
+      "load": 0.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_4000_load_30.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_4000_load_30.ogg",
+      "type": "rpm_loop",
+      "rpm": 4000,
+      "load": 0.3,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_4000_load_100.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_4000_load_100.ogg",
+      "type": "rpm_loop",
+      "rpm": 4000,
+      "load": 1.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_6000_load_0.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_6000_load_0.ogg",
+      "type": "rpm_loop",
+      "rpm": 6000,
+      "load": 0.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_6000_load_30.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_6000_load_30.ogg",
+      "type": "rpm_loop",
+      "rpm": 6000,
+      "load": 0.3,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_6000_load_100.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_6000_load_100.ogg",
+      "type": "rpm_loop",
+      "rpm": 6000,
+      "load": 1.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_8200_load_0.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_8200_load_0.ogg",
+      "type": "rpm_loop",
+      "rpm": 8200,
+      "load": 0.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_8200_load_30.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_8200_load_30.ogg",
+      "type": "rpm_loop",
+      "rpm": 8200,
+      "load": 0.3,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_8200_load_100.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_8200_load_100.ogg",
+      "type": "rpm_loop",
+      "rpm": 8200,
+      "load": 1.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "aventador_svj_v12_ignition_off.wav",
+      "ogg": "aventador_svj_v12_ignition_off.ogg",
+      "type": "ignition_off",
+      "rpm": 1000,
+      "load": null,
+      "loop": false,
+      "duration_s": 3.0
+    },
+    {
+      "wav": "aventador_svj_v12_acceleration.wav",
+      "ogg": "aventador_svj_v12_acceleration.ogg",
+      "type": "acceleration",
+      "rpm": 0,
+      "load": 1.0,
+      "loop": false,
+      "duration_s": 3.0
+    },
+    {
+      "wav": "aventador_svj_v12_deceleration.wav",
+      "ogg": "aventador_svj_v12_deceleration.ogg",
+      "type": "deceleration",
+      "rpm": 0,
+      "load": 0.0,
+      "loop": false,
+      "duration_s": 3.0
+    }
+  ]
+}

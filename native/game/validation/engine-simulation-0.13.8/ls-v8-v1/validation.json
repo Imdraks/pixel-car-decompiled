@@ -1,0 +1,596 @@
+{
+  "passed": true,
+  "provenance": {
+    "template": "assets/engines/atg-video-2/07_gm_ls.mr",
+    "template_sha256": "bbef3ac6280243833393367736eafda6281fd772e5183910cc0464c423fcb1df",
+    "adapted_sha256": "b89ee7e9ec1d6f74fee8b75f4fdd01c69e9db5d11a87a46a14986abb105472a0",
+    "notes": []
+  },
+  "exporter_source": {
+    "upstream": "https://github.com/Talhasarac/engine-sim-sound-exporter",
+    "revision": "a548360a33c6ddcc28265ac08b71b8a5f514ed3c",
+    "dependencies": {
+      "csv-io": "2112c55e1e831c8f7a1b91de23722b7926ad3d00",
+      "piranha": "432f0b122bb1663b686c553c7e7269300afac3bc",
+      "simple-2d-constraint-solver": "e009f4ff1c9c4c5874e865e893cdb62e208fb2b3"
+    },
+    "archive_sha256": {
+      "exporter": "e5f2f4a5ce708f6da3dbd574ae038464bfcde68c668f2c4b02c00bd2b9ee7054",
+      "csv-io": "92586044c317c8f83adf2a3761a58a3cb79ab776894ea2cc0da84d1dec669933",
+      "piranha": "7611b49d566a8423f9f7e85a130f12a37513438d561c7fe689a4910a985b1f16",
+      "simple-2d-constraint-solver": "4ff2aaa07c76e0cfb040219c56d6b90a154e5a79a30ccba9cb58066aeaf91365"
+    }
+  },
+  "commands": [
+    [
+      "/workspace/native-runtime/engine-audio-exporter/build/engine-sim-exporter",
+      "--script",
+      "/workspace/deliverables/engine-audio/ls-v8-v1/simulation/main.mr",
+      "--out",
+      "/workspace/deliverables/engine-audio/ls-v8-v1/simulation/raw",
+      "--rpm",
+      "1000,2500,4500,7000",
+      "--throttle",
+      "0,30,100",
+      "--duration",
+      "3.0",
+      "--warmup",
+      "3.0",
+      "--loop-crossfade",
+      "30"
+    ]
+  ],
+  "turbo_generated": false,
+  "backfire_generated": false,
+  "limits": [
+    "Simulation approximates a physical engine; not an authentic vehicle recording.",
+    "No turbo compressor, turbine or backfire source added.",
+    "Numerical loop/peak checks do not replace listening."
+  ],
+  "files": [
+    {
+      "wav": "gm_ls_v8_startup.wav",
+      "ogg": "gm_ls_v8_startup.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.4005126953125,
+        "rms": 0.10385824317699392,
+        "dc": 0.0002651587707565665,
+        "seam_jump": 0.16400146484375,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.463226318359375,
+        "rms": 0.11999633308625114,
+        "dc": -3.750017530883881e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.4584802985191345,
+        "rms": 0.11976157128810883,
+        "dc": -0.0001233103103004396,
+        "seam_jump": 0.0009066016646102071,
+        "rail_samples": 0
+      },
+      "gain": 1.1558389324854805,
+      "wav_sha256": "c74c2dcca132dc3f333f9b20534147d2df791acfe282d0ca04b77b10f70e4829",
+      "ogg_sha256": "6ffaf6aaf5ecadf7cd60a3553417a51e320c56f3a77e4814fdb752935de4737c"
+    },
+    {
+      "wav": "gm_ls_v8_rpm_loop_rpm_1000_load_0.wav",
+      "ogg": "gm_ls_v8_rpm_loop_rpm_1000_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.35614013671875,
+        "rms": 0.11060676465487129,
+        "dc": 0.00022280161793450018,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.387115478515625,
+        "rms": 0.11999636877057462,
+        "dc": -5.7798093919280676e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.37119922041893005,
+        "rms": 0.11956173181533813,
+        "dc": 6.472499808296561e-05,
+        "seam_jump": 0.0008421360398642719,
+        "rail_samples": 0
+      },
+      "gain": 1.0862990996455784,
+      "wav_sha256": "d797da81de23703b78b0fd591bd3d26ae519e40ff1420c81ba13a5fd9d0c2eae",
+      "ogg_sha256": "9b02da676f5f64082659b8ca95b1bd7f2272c094f271d4cc9a64319550c2dea7"
+    },
+    {
+      "wav": "gm_ls_v8_rpm_loop_rpm_1000_load_30.wav",
+      "ogg": "gm_ls_v8_rpm_loop_rpm_1000_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.361541748046875,
+        "rms": 0.11013819991968003,
+        "dc": -2.0173433956916098e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.394195556640625,
+        "rms": 0.11999634890691925,
+        "dc": 2.1717885254901626e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.38701480627059937,
+        "rms": 0.11961417645215988,
+        "dc": 7.788477523718029e-05,
+        "seam_jump": 7.514476601500064e-05,
+        "rail_samples": 0
+      },
+      "gain": 1.0903900828624833,
+      "wav_sha256": "929cf1bcbb7230b95100bdb53a9f9d7f254355569de6a6c07e19657476470b60",
+      "ogg_sha256": "ad0379290bd61373c5c454587a949da33a2982277fb0325b71b1c91f81c52d74"
+    },
+    {
+      "wav": "gm_ls_v8_rpm_loop_rpm_1000_load_100.wav",
+      "ogg": "gm_ls_v8_rpm_loop_rpm_1000_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3787841796875,
+        "rms": 0.11143424758007285,
+        "dc": -0.0004993831435569019,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.408447265625,
+        "rms": 0.11999635062328798,
+        "dc": 3.2907687200686955e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.4029279351234436,
+        "rms": 0.11959395557641983,
+        "dc": 0.00020665160263888538,
+        "seam_jump": 0.0006353361532092094,
+        "rail_samples": 0
+      },
+      "gain": 1.0797389107814654,
+      "wav_sha256": "8fa124b13ef68333ad62e5316db1a2abdc5e2d3f0c9038b6d36cac7b5908e934",
+      "ogg_sha256": "d2a2330ced6ffe55554a9de37d9c7e72424290bf257da843018fa25d951d3bec"
+    },
+    {
+      "wav": "gm_ls_v8_rpm_loop_rpm_2500_load_0.wav",
+      "ogg": "gm_ls_v8_rpm_loop_rpm_2500_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.376953125,
+        "rms": 0.11691933977472416,
+        "dc": 0.0004174001957553855,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.387420654296875,
+        "rms": 0.11999635154973597,
+        "dc": 3.334735729483993e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3783775568008423,
+        "rms": 0.11994104832410812,
+        "dc": 4.032276410725899e-05,
+        "seam_jump": 0.0007231588824652135,
+        "rail_samples": 0
+      },
+      "gain": 1.0266421016091838,
+      "wav_sha256": "8eb7fd630933493eac158517dff4e306f8f7f282d74a1646318f9bffeaacaa20",
+      "ogg_sha256": "b1565c0539d8e270e4d1dac512c7ea432e940141fdecf34a5a45981a0c93cf12"
+    },
+    {
+      "wav": "gm_ls_v8_rpm_loop_rpm_2500_load_30.wav",
+      "ogg": "gm_ls_v8_rpm_loop_rpm_2500_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.354522705078125,
+        "rms": 0.11217001640507747,
+        "dc": -0.00154767302428784,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.381072998046875,
+        "rms": 0.11999633607035895,
+        "dc": 4.6301664605236034e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.38233667612075806,
+        "rms": 0.11987084895372391,
+        "dc": 3.375486267032102e-05,
+        "seam_jump": 0.0004868485848419368,
+        "rail_samples": 0
+      },
+      "gain": 1.070251256094287,
+      "wav_sha256": "0ce90fad3016dbaa0550ca50bf67014107de61765a246f13ee038636e4431623",
+      "ogg_sha256": "c020665d01461fda27587d587dda4abb16f5d971d1efe3f9a0cfd488f13dddf7"
+    },
+    {
+      "wav": "gm_ls_v8_rpm_loop_rpm_2500_load_100.wav",
+      "ogg": "gm_ls_v8_rpm_loop_rpm_2500_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3323974609375,
+        "rms": 0.11687142360665027,
+        "dc": -0.0014013113654750096,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.339996337890625,
+        "rms": 0.11999635339599521,
+        "dc": 1.9629743557074905e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.34490108489990234,
+        "rms": 0.11993703246116638,
+        "dc": 0.00012759272067341954,
+        "seam_jump": 0.0014701676554977894,
+        "rail_samples": 0
+      },
+      "gain": 1.027193370240251,
+      "wav_sha256": "1e87e0e88f4a06c217fc0f829cda68d57176dc69897defe7b1b2bf2c4dab07c3",
+      "ogg_sha256": "a9ea0c08e113f58624044f24545b05332dce4a45a9aeab11a9ee12e95c6c0931"
+    },
+    {
+      "wav": "gm_ls_v8_rpm_loop_rpm_4500_load_0.wav",
+      "ogg": "gm_ls_v8_rpm_loop_rpm_4500_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.351959228515625,
+        "rms": 0.11455028414752287,
+        "dc": -0.00038264268109587587,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.369232177734375,
+        "rms": 0.1199963495161072,
+        "dc": -5.117135457227223e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.37727874517440796,
+        "rms": 0.1199367567896843,
+        "dc": -0.00011368284322088584,
+        "seam_jump": 0.0002579313004389405,
+        "rail_samples": 0
+      },
+      "gain": 1.0479360756202216,
+      "wav_sha256": "bc8c16622847ebce5d5e5e91b7a17fee0cf41b6a4e52549cd64f0bd21179b60c",
+      "ogg_sha256": "38c5b62562c06aaefcb136a1e3da06f7c8d204c4c29ef187fa3d5edc57f0d88d"
+    },
+    {
+      "wav": "gm_ls_v8_rpm_loop_rpm_4500_load_30.wav",
+      "ogg": "gm_ls_v8_rpm_loop_rpm_4500_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.36920166015625,
+        "rms": 0.10852891541288173,
+        "dc": 0.00017879679269711357,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.40875244140625,
+        "rms": 0.11999634880511634,
+        "dc": 5.208494569001141e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.4019239544868469,
+        "rms": 0.11950933933258057,
+        "dc": 0.00010372406541137025,
+        "seam_jump": 0.0013921891804784536,
+        "rail_samples": 0
+      },
+      "gain": 1.1066556797525338,
+      "wav_sha256": "cc2b84976cfcb0cb87d36290043d5e2599c0eecf8fba619100ef7e8ed152a633",
+      "ogg_sha256": "403138288b16cca5c610c8a5c48bd8cf70a972b0d928976f6efcb6285fdaa193"
+    },
+    {
+      "wav": "gm_ls_v8_rpm_loop_rpm_4500_load_100.wav",
+      "ogg": "gm_ls_v8_rpm_loop_rpm_4500_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.32080078125,
+        "rms": 0.11133495348149296,
+        "dc": -0.0012489550670528628,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.34735107421875,
+        "rms": 0.11999636224295239,
+        "dc": -2.8003280305177628e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3401574194431305,
+        "rms": 0.11980398744344711,
+        "dc": -7.11284956196323e-05,
+        "seam_jump": 0.0006366349407471716,
+        "rail_samples": 0
+      },
+      "gain": 1.078577348313243,
+      "wav_sha256": "40771120fc5771f5d147c8b913ff7d5928203941f738de115c468869b8a01514",
+      "ogg_sha256": "5985f2ecc0b01904968ad484645a02860240537acfe72084a2be71717df96d48"
+    },
+    {
+      "wav": "gm_ls_v8_rpm_loop_rpm_7000_load_0.wav",
+      "ogg": "gm_ls_v8_rpm_loop_rpm_7000_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.328277587890625,
+        "rms": 0.1219800780338544,
+        "dc": -0.000959420986276455,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.30908203125,
+        "rms": 0.11999639796267098,
+        "dc": 1.1941691396676515e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3112936019897461,
+        "rms": 0.12040923535823822,
+        "dc": 3.031282903975807e-05,
+        "seam_jump": 8.362917287740856e-05,
+        "rail_samples": 0
+      },
+      "gain": 0.9858847795564457,
+      "wav_sha256": "aa535009ba79cdaeb4f9ad6f9ad9fb8136a7e0381383cd0e02013516de424b04",
+      "ogg_sha256": "de9d08d7606361967c0a7a2cf2e59b5324f680dda0699cce6aa579e0ae46cad1"
+    },
+    {
+      "wav": "gm_ls_v8_rpm_loop_rpm_7000_load_30.wav",
+      "ogg": "gm_ls_v8_rpm_loop_rpm_7000_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.30413818359375,
+        "rms": 0.12538026303729616,
+        "dc": 0.00018224622477029006,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.291778564453125,
+        "rms": 0.11999631685760297,
+        "dc": 5.321010037186873e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.288021981716156,
+        "rms": 0.12034955620765686,
+        "dc": 7.721775546087883e-06,
+        "seam_jump": 0.0003992608981207013,
+        "rail_samples": 0
+      },
+      "gain": 0.9588035587233579,
+      "wav_sha256": "6c0691545706bfbcbb57b6ce1176c4b4485b2380967893b35051573236a57e29",
+      "ogg_sha256": "7ca4737cdf8d672938a48084ba20be61cde427fa42cacae540566ace565923ad"
+    },
+    {
+      "wav": "gm_ls_v8_rpm_loop_rpm_7000_load_100.wav",
+      "ogg": "gm_ls_v8_rpm_loop_rpm_7000_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.299896240234375,
+        "rms": 0.12933392429620658,
+        "dc": -0.0005438991324611442,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.278228759765625,
+        "rms": 0.11999634206630233,
+        "dc": -2.6189146042816677e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.2797929346561432,
+        "rms": 0.12041141837835312,
+        "dc": -2.1967882275930606e-05,
+        "seam_jump": 0.0002904417924582958,
+        "rail_samples": 0
+      },
+      "gain": 0.9294308713793148,
+      "wav_sha256": "09d3087179eca8fa2cdf398ace78a069bc2787ed13aeceeaac160da6d4a3c50b",
+      "ogg_sha256": "2235cf94debf1e4c9e0125ae107d59b07a74e01072de715ad4d5c44e8fa709d4"
+    },
+    {
+      "wav": "gm_ls_v8_ignition_off.wav",
+      "ogg": "gm_ls_v8_ignition_off.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.362945556640625,
+        "rms": 0.051047438001512555,
+        "dc": -0.00010822921833664021,
+        "seam_jump": 0.260986328125,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.79998779296875,
+        "rms": 0.11191458018359486,
+        "dc": 0.00015619533132263323,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.7977493405342102,
+        "rms": 0.11186941713094711,
+        "dc": 0.00016972646699286997,
+        "seam_jump": 0.0006083065527491271,
+        "rail_samples": 0
+      },
+      "gain": 2.203530251329709,
+      "wav_sha256": "db20b536dc27dc037b2a1cdc99c2d896e770fea9cdd560ca55e5071eb6f15193",
+      "ogg_sha256": "1ac8fef4f49b46db3dad079737260c85faf4618761f417224ca16458362eee80"
+    },
+    {
+      "wav": "gm_ls_v8_acceleration.wav",
+      "ogg": "gm_ls_v8_acceleration.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3739013671875,
+        "rms": 0.11130473144713031,
+        "dc": -0.0008830338504759543,
+        "seam_jump": 0.23162841796875,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.402740478515625,
+        "rms": 0.11999632998617679,
+        "dc": -1.5324299207530233e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.40075746178627014,
+        "rms": 0.12027736753225327,
+        "dc": -3.5473829484544694e-05,
+        "seam_jump": 0.0006730232271365821,
+        "rail_samples": 0
+      },
+      "gain": 1.0796820262572,
+      "wav_sha256": "b08fe300e5c52931182aafc397eb945a782fa437ccc73cac696dbaa35146c77c",
+      "ogg_sha256": "a5ccfd9f252bb39cb430d9dcb11ef0376723b005a045856a50cd3187196947a3"
+    },
+    {
+      "wav": "gm_ls_v8_deceleration.wav",
+      "ogg": "gm_ls_v8_deceleration.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.343017578125,
+        "rms": 0.11448837294711338,
+        "dc": -3.0183337983630953e-05,
+        "seam_jump": 0.03680419921875,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.360015869140625,
+        "rms": 0.11999637735917829,
+        "dc": 0.00010862827661446522,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3591083586215973,
+        "rms": 0.12027353048324585,
+        "dc": 0.0001046758916345425,
+        "seam_jump": 0.00020941720867995173,
+        "rail_samples": 0
+      },
+      "gain": 1.0496824110885417,
+      "wav_sha256": "539313371a7664c6199acbe3ee37fbbb9d2583e1e9b73a23919d0475f95d08e4",
+      "ogg_sha256": "c5be3d45e3b78735ceb9c2862924a19cf78da2d417eae6959caf50b3326c5e16"
+    }
+  ]
+}

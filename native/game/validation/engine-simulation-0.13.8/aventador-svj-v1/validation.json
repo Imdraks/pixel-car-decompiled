@@ -1,0 +1,700 @@
+{
+  "passed": true,
+  "provenance": {
+    "template": "assets/engines/atg-video-2/12_ferrari_412_t2.mr",
+    "template_sha256": "677e1d526c5259e519e08975e6b18d39489eab223786714cf2c5de2b47062bdd",
+    "adapted_sha256": "5378d3ed28de9162cc1d7d370aa02ea9094edd73543f0a603af13132146c4cd0",
+    "notes": [
+      "V12 bank, crank TDC, cam/ignition offsets adapted from 75 to 60 degrees; road-sized moving masses and valve lift estimated."
+    ]
+  },
+  "exporter_source": {
+    "upstream": "https://github.com/Talhasarac/engine-sim-sound-exporter",
+    "revision": "a548360a33c6ddcc28265ac08b71b8a5f514ed3c",
+    "dependencies": {
+      "csv-io": "2112c55e1e831c8f7a1b91de23722b7926ad3d00",
+      "piranha": "432f0b122bb1663b686c553c7e7269300afac3bc",
+      "simple-2d-constraint-solver": "e009f4ff1c9c4c5874e865e893cdb62e208fb2b3"
+    },
+    "archive_sha256": {
+      "exporter": "e5f2f4a5ce708f6da3dbd574ae038464bfcde68c668f2c4b02c00bd2b9ee7054",
+      "csv-io": "92586044c317c8f83adf2a3761a58a3cb79ab776894ea2cc0da84d1dec669933",
+      "piranha": "7611b49d566a8423f9f7e85a130f12a37513438d561c7fe689a4910a985b1f16",
+      "simple-2d-constraint-solver": "4ff2aaa07c76e0cfb040219c56d6b90a154e5a79a30ccba9cb58066aeaf91365"
+    }
+  },
+  "commands": [
+    [
+      "/workspace/native-runtime/engine-audio-exporter/build/engine-sim-exporter",
+      "--script",
+      "/workspace/deliverables/engine-audio/aventador-svj-v1/simulation/main.mr",
+      "--out",
+      "/workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw",
+      "--rpm",
+      "1000,2500,4000,6000,8200",
+      "--throttle",
+      "0,30,100",
+      "--duration",
+      "3.0",
+      "--warmup",
+      "3.0",
+      "--loop-crossfade",
+      "30"
+    ]
+  ],
+  "turbo_generated": false,
+  "backfire_generated": false,
+  "limits": [
+    "Simulation approximates a physical engine; not an authentic vehicle recording.",
+    "No turbo compressor, turbine or backfire source added.",
+    "Numerical loop/peak checks do not replace listening."
+  ],
+  "files": [
+    {
+      "wav": "aventador_svj_v12_startup.wav",
+      "ogg": "aventador_svj_v12_startup.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.041656494140625,
+        "rms": 0.0033502024217648635,
+        "dc": -2.537364772297808e-08,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.79998779296875,
+        "rms": 0.06433770749180424,
+        "dc": -3.716086043792517e-07,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.7654749155044556,
+        "rms": 0.06340166181325912,
+        "dc": -5.306882030708948e-06,
+        "seam_jump": 7.070462965108604e-11,
+        "rail_samples": 0
+      },
+      "gain": 19.204700342583806,
+      "wav_sha256": "8f0c4e37bf4673284847e930722b16da0887cd8593e3cb7a7ebb9fd82671dff6",
+      "ogg_sha256": "537a1955c75e72da42ec12fb2ea47ba76717e6d5a739dd87a7584ce05b11af21"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_1000_load_0.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_1000_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.237213134765625,
+        "rms": 0.056227752464778936,
+        "dc": 7.007740162037037e-07,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.50604248046875,
+        "rms": 0.11999641511269131,
+        "dc": 2.3346318899859326e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.49802446365356445,
+        "rms": 0.12000549584627151,
+        "dc": -6.094568561820779e-06,
+        "seam_jump": 0.0005132717778906226,
+        "rail_samples": 0
+      },
+      "gain": 2.1333916435415765,
+      "wav_sha256": "0042f4ee6a9e9ebc3eb9e08c9c1d800ed4ccf08cf32d6d42a093992ed568576b",
+      "ogg_sha256": "7121f3fd028989492b46d785f1fb423e11d2293a553c52edfdc5c6cf5498740b"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_1000_load_30.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_1000_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.32232666015625,
+        "rms": 0.12687547426904022,
+        "dc": 0.0007819662288743622,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.30511474609375,
+        "rms": 0.1199963282296371,
+        "dc": 2.382932690472373e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3132247030735016,
+        "rms": 0.11983751505613327,
+        "dc": 5.7629884395282716e-05,
+        "seam_jump": 0.0002075711963698268,
+        "rail_samples": 0
+      },
+      "gain": 0.9457570353583132,
+      "wav_sha256": "47ec767e86e31ed2907e8cfc79bcaa88d285cdc550323f3e3a530707567cb383",
+      "ogg_sha256": "14b9701d326387568630334565f3f407515492c136dafa1b12f908cc8d558fa6"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_1000_load_100.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_1000_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.306732177734375,
+        "rms": 0.1310803971463745,
+        "dc": 0.0008455761183596703,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.282196044921875,
+        "rms": 0.11999635660862368,
+        "dc": 5.067669659141013e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.28330326080322266,
+        "rms": 0.1201164498925209,
+        "dc": 6.650217255810276e-05,
+        "seam_jump": 0.0014445730485022068,
+        "rail_samples": 0
+      },
+      "gain": 0.9174867720306451,
+      "wav_sha256": "8ae950d11c850b2d5538cb93047c697faae7d3938b1240a752667e0ba693e301",
+      "ogg_sha256": "e09455a2f59edc70910f49b034245e47b1af462d9ac65f1f318944aaf0e4298c"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_2500_load_0.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_2500_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.317352294921875,
+        "rms": 0.1317748104854827,
+        "dc": 0.00160917782369024,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.29095458984375,
+        "rms": 0.11999637254898503,
+        "dc": 2.6016260399010897e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.29366397857666016,
+        "rms": 0.12016895413398743,
+        "dc": 2.4637907699798234e-05,
+        "seam_jump": 0.0008237521396949887,
+        "rail_samples": 0
+      },
+      "gain": 0.9122442994203268,
+      "wav_sha256": "1f197685cf18f091c7c9e515b14fc0190a10699b31c652d8feabd1d1b22398de",
+      "ogg_sha256": "32f4287b8aa2f789c58f1ada467bb707b0cffb113f5e9b379fef23e2b8c98486"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_2500_load_30.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_2500_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.32275390625,
+        "rms": 0.13067302319841193,
+        "dc": -0.0033996247560439106,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.30035400390625,
+        "rms": 0.11999634391748001,
+        "dc": -3.039525337702421e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3161434531211853,
+        "rms": 0.12008991092443466,
+        "dc": 9.318003139924258e-05,
+        "seam_jump": 0.001539908000268042,
+        "rail_samples": 0
+      },
+      "gain": 0.9209295222755931,
+      "wav_sha256": "8dcbd67c7d95640211907c3221fa59984b4ce24cdf8d59a28219dc53a8570d6b",
+      "ogg_sha256": "dd311f5818d0de113f8268bbdfca67d580488cd68f03f2a8505df852a32d27f2"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_2500_load_100.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_2500_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3135986328125,
+        "rms": 0.13785819638075536,
+        "dc": -0.00338517861571712,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.27655029296875,
+        "rms": 0.11999636379120983,
+        "dc": -2.4912774672509295e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.27587249875068665,
+        "rms": 0.12033864855766296,
+        "dc": -9.527384827379137e-05,
+        "seam_jump": 0.0006881640292704105,
+        "rail_samples": 0
+      },
+      "gain": 0.8725128156353221,
+      "wav_sha256": "465633776257f21caecdf10f06f273e07bb383aa680e61f303356f0b9cc2a4cc",
+      "ogg_sha256": "8b51d522113faacb151d8af66dee3e70e7f49b089f1d6f897891faa76c8c875c"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_4000_load_0.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_4000_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.30743408203125,
+        "rms": 0.1309074733743602,
+        "dc": -0.000909740306712963,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.282928466796875,
+        "rms": 0.1199963147048381,
+        "dc": 1.9380900069764156e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.28371405601501465,
+        "rms": 0.12036475539207458,
+        "dc": -0.00010194856440648437,
+        "seam_jump": 0.0001165255525847897,
+        "rail_samples": 0
+      },
+      "gain": 0.9176080245834916,
+      "wav_sha256": "c8a39536a0b3c7ce956b8aa3b7f6f69430d7a6be8ba2979487e3d71624160e91",
+      "ogg_sha256": "f4ae562e9862628bbd4847757c90c1a18e24aa1edd84ffbd0372ed31a06609ba"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_4000_load_30.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_4000_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.317230224609375,
+        "rms": 0.12442965502322724,
+        "dc": -0.003159911140562996,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.309356689453125,
+        "rms": 0.11999633498936949,
+        "dc": -2.9817181568018622e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3084084391593933,
+        "rms": 0.12014755606651306,
+        "dc": -0.0001120635643019341,
+        "seam_jump": 6.231619045138359e-05,
+        "rail_samples": 0
+      },
+      "gain": 0.9655812095616887,
+      "wav_sha256": "85c042242bfb9c5fca177b8eb0071e3f4cc9db2bd912e9a2dd8bd07d36a8468e",
+      "ogg_sha256": "22294f1dfabbdba7c1140e80b6e67f7b6a6e5b43dbda65380c928f0f8f40eb69"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_4000_load_100.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_4000_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.317230224609375,
+        "rms": 0.12886425319645223,
+        "dc": -0.00274089625813433,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.293060302734375,
+        "rms": 0.11999638581935919,
+        "dc": 5.131791127032322e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.28898823261260986,
+        "rms": 0.12023546546697617,
+        "dc": 2.421899262117222e-05,
+        "seam_jump": 0.00043785574962385,
+        "rail_samples": 0
+      },
+      "gain": 0.9318589995918118,
+      "wav_sha256": "7943430f34c2f313018394293aea6206516036c91724ce7768c2028f96a70ab4",
+      "ogg_sha256": "408fde86ab14ac0b30078effaaea59e1c9b05fa07d100a7da2ca9831a8c735b3"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_6000_load_0.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_6000_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.31719970703125,
+        "rms": 0.12475915748777405,
+        "dc": -0.0016060439475269275,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3038330078125,
+        "rms": 0.11999639026624304,
+        "dc": -2.342763573232323e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3043840825557709,
+        "rms": 0.12013692408800125,
+        "dc": -3.6694469599751756e-05,
+        "seam_jump": 3.7633697502315044e-05,
+        "rail_samples": 0
+      },
+      "gain": 0.9627325792963051,
+      "wav_sha256": "56b2235f6cc9538ca65d6bb02fb0188c49d4c28a4edfd3c68ab9b5347c4fcbc2",
+      "ogg_sha256": "aeb9462849736be0ce1cf6400daa931c6ad19d4fd3edbe81c1281991f01fc9e1"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_6000_load_30.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_6000_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.320098876953125,
+        "rms": 0.13590383828765376,
+        "dc": -0.00017816245150403912,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.28277587890625,
+        "rms": 0.1199963595106584,
+        "dc": -2.661437016673252e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.28292116522789,
+        "rms": 0.12040263414382935,
+        "dc": 3.2667230698280036e-05,
+        "seam_jump": 3.1734700314700603e-05,
+        "rail_samples": 0
+      },
+      "gain": 0.8839602336210008,
+      "wav_sha256": "1608fe7e019358cd980419cf996f7b743417f56ee23d8ed098bab7f3eedaebcc",
+      "ogg_sha256": "19edbc5c4ecc3d7aebd1695de7a9f03971e7fd334da369b83f900af4ce1fb1ac"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_6000_load_100.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_6000_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3382568359375,
+        "rms": 0.12588295390818016,
+        "dc": 0.0010949402547477324,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.32403564453125,
+        "rms": 0.11999628108254415,
+        "dc": -2.373938909002153e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.32881882786750793,
+        "rms": 0.12034720927476883,
+        "dc": -8.046846778597683e-05,
+        "seam_jump": 0.00029302819166332483,
+        "rail_samples": 0
+      },
+      "gain": 0.9549222231358357,
+      "wav_sha256": "997ab78ccb65353770170a772e0118c41e6f4813a55b128412e0fa6fba6d24d4",
+      "ogg_sha256": "c53c89de53158ad80c74b9cdd5ef1579af4fa082482be029aac3dd7413bbede4"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_8200_load_0.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_8200_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.303009033203125,
+        "rms": 0.1232268949830484,
+        "dc": -0.002183048308841766,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.293426513671875,
+        "rms": 0.11999637004115539,
+        "dc": 4.116402519025287e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.2905992865562439,
+        "rms": 0.12036053091287613,
+        "dc": -1.403514306730358e-05,
+        "seam_jump": 0.00044786068610846996,
+        "rail_samples": 0
+      },
+      "gain": 0.9754327270423508,
+      "wav_sha256": "95a1303d69c8fbf7a0a3a327921707e6ba5deaf2b52c15159fbde1194d04da42",
+      "ogg_sha256": "a190c9d431369c42afeea551e5fbeb424fe114e97f030c28e710767a775cb47e"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_8200_load_30.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_8200_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.272216796875,
+        "rms": 0.15992373064246931,
+        "dc": -0.0003098549125596419,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.204498291015625,
+        "rms": 0.11999630368537985,
+        "dc": -1.2053065167214472e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.2068350464105606,
+        "rms": 0.12083973735570908,
+        "dc": -1.1465547686384525e-05,
+        "seam_jump": 0.0006227860576473176,
+        "rail_samples": 0
+      },
+      "gain": 0.7520822355048359,
+      "wav_sha256": "acc99ecfbbc73c54898c9143188a809889e24bf617f3034388778ed73f3f42e0",
+      "ogg_sha256": "4334206811148f311ea61494ad4604bd3092488393167193ea7e4f252a5303ce"
+    },
+    {
+      "wav": "aventador_svj_v12_rpm_loop_rpm_8200_load_100.wav",
+      "ogg": "aventador_svj_v12_rpm_loop_rpm_8200_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.297454833984375,
+        "rms": 0.14478061204694448,
+        "dc": -0.0002472115283830546,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.24688720703125,
+        "rms": 0.11999634860269565,
+        "dc": 2.310912538854627e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.24670608341693878,
+        "rms": 0.12067203223705292,
+        "dc": 2.3258031433215365e-05,
+        "seam_jump": 0.00118046416901052,
+        "rail_samples": 0
+      },
+      "gain": 0.8306760165057654,
+      "wav_sha256": "963f1f2f3bd7037937c8adc15f372e758c7494fa4f6dff7b8f1551071a722baf",
+      "ogg_sha256": "0b170c88f12e8f9c0963bf84061974dfe2461b0e2f0ef5a200b21d81688f381e"
+    },
+    {
+      "wav": "aventador_svj_v12_ignition_off.wav",
+      "ogg": "aventador_svj_v12_ignition_off.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.19329833984375,
+        "rms": 0.009492141985346656,
+        "dc": 1.2243938373960695e-05,
+        "seam_jump": 0.011871337890625,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.79998779296875,
+        "rms": 0.03816954869721664,
+        "dc": -9.737252648455215e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.807030439376831,
+        "rms": 0.037994012236595154,
+        "dc": -9.945667261490598e-05,
+        "seam_jump": 0.0010103668319061399,
+        "rail_samples": 0
+      },
+      "gain": 4.138418002511762,
+      "wav_sha256": "7bae91c01739614210ca6173860b33ab09229b16a6d9952ae7fe8bf1cef34765",
+      "ogg_sha256": "151e66b4c3f4e6fe034de0c999d65e3c7192c51468918b1a16a0b9441b45c89e"
+    },
+    {
+      "wav": "aventador_svj_v12_acceleration.wav",
+      "ogg": "aventador_svj_v12_acceleration.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.32305908203125,
+        "rms": 0.13554507222398357,
+        "dc": -0.0007929140351887283,
+        "seam_jump": 0.03125,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.28558349609375,
+        "rms": 0.1199963512800655,
+        "dc": -3.8722954459561604e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.281979501247406,
+        "rms": 0.12046068906784058,
+        "dc": -6.458215648308396e-05,
+        "seam_jump": 0.00035354230203665793,
+        "rail_samples": 0
+      },
+      "gain": 0.8862254276841244,
+      "wav_sha256": "6b793379e9ebd4ee3fa461e850e63ee2cdb257c465c43532df1a4b7ea8e8936c",
+      "ogg_sha256": "eaf0c7c1dbf53da057bdfe32eb5a76925ea64bdc019bb2c6e4d34a7965085d97"
+    },
+    {
+      "wav": "aventador_svj_v12_deceleration.wav",
+      "ogg": "aventador_svj_v12_deceleration.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.345001220703125,
+        "rms": 0.11833636207351812,
+        "dc": -0.0016500114043013039,
+        "seam_jump": 0.001800537109375,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3519287109375,
+        "rms": 0.11999633356650467,
+        "dc": -1.8648247059240364e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3568645119667053,
+        "rms": 0.1203690692782402,
+        "dc": -3.4621014492586255e-05,
+        "seam_jump": 0.002695493632927537,
+        "rail_samples": 0
+      },
+      "gain": 1.0152312610309626,
+      "wav_sha256": "64ef9e20641b57cd495003eb4f4e71ef33ead2f4a50704b69659f5b9a5e90245",
+      "ogg_sha256": "9afbabcee24e64a22753641c718556c8fa0d204a09e140b5545f1a1ca678e6bf"
+    }
+  ]
+}

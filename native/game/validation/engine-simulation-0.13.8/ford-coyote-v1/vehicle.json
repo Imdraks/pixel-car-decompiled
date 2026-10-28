@@ -1,0 +1,27 @@
+{
+  "slug": "ford_coyote_v8",
+  "model": "Ford Mustang GT Coyote 5.0",
+  "layout": "V8",
+  "cylinders": 8,
+  "litres": 5.035,
+  "bore_mm": 93,
+  "stroke_mm": 92.7,
+  "redline_rpm": 7500,
+  "rpm_anchors": [
+    1000,
+    2500,
+    4500,
+    7000
+  ],
+  "throttle_layers": [
+    0,
+    30,
+    100
+  ],
+  "exhaust": "minimal_muffling_01",
+  "turbo": false,
+  "game_engine_ids": [
+    1505
+  ],
+  "approximation": "Displacement/redline adaptation of bundled V8 configuration; inherited crank geometry, heads/cams, intake and exhaust are approximations. Turbo pressure/whine and hybrid systems are not simulated by this adapter."
+}

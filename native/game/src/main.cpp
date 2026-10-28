@@ -257,7 +257,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.13.7",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.13.8",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},"GARAGE")){openCustomization();screen=Screen::Garage;}
@@ -321,7 +321,7 @@ struct App {
         inventoryOpen=true;searchFocused=false;searchSelectedAll=false;customSearch.clear();customPage=0;customPreview=profile.cosmetics[cosmeticSlot];
         auto choices=garageChoices();auto found=std::find(choices.begin(),choices.end(),customPreview);if(found!=choices.end())customPage=int(found-choices.begin())/GaragePageSize;
     }
-    static const char* sourceLabel(int mask){return mask==1?"ORIGINAL":mask==2?"UNBOUND":"ORIGINAL + UNBOUND";}
+    static const char* sourceLabel(int mask){return mask==4?"EXTENSION PC":mask==1?"ORIGINAL":mask==2?"UNBOUND":"ORIGINAL + UNBOUND";}
     int choiceSource(int id)const{
         if(rimPicker||!id)return 3;
         if(cosmeticPicker){auto c=findCosmetic(id);return c?c->sourceMask:3;}
@@ -422,7 +422,12 @@ struct App {
         card({17,77,266,95},Color{20,20,23,245});
         pxText("CAR",28,94,21);pxRight(TextFormat("%03i",preview.car+1),270,94,23);
         const Part* engine=findPart(preview.parts[int(PartSlot::Engine)]);
-        pxText("MOTEUR",28,139,16);pxRight(engine?engine->name:"ORIGINE",270,137,19);
+        pxText("MOTEUR",28,139,16);
+        std::string engineLabel=engine?engine->name:"ORIGINE";
+        if(engine&&pcEngine(engine->id)){auto separator=engineLabel.find(" - ");if(separator!=std::string::npos)engineLabel=engineLabel.substr(separator+3);}
+        float engineSize=19;while(engineSize>10&&pxWidth(engineLabel,engineSize)>138)engineSize-=1;
+        pxRight(engineLabel,270,137,engineSize);
+        if(engine&&hit({17,125,266,47}))tooltipText=engine->name;
         const auto& v=build.vehicle;double maxKmh=v.redlineRpm*6.283185307179586*v.wheelRadius/(60*v.ratios[v.gearCount-1]*v.finalDrive)*3.6;
         pxText("VIT. THÉO.",28,190,13,Accent);pxRight(TextFormat("%.0f KM/H",maxKmh),274,188,20);statBar(221,maxKmh/800);
         pxText("PUISSANCE",28,273,16,Accent);pxRight(TextFormat("%.0f HP",build.boostedHp),274,270,22);statBar(304,build.boostedHp/5000,v.nitroHp/5000);
@@ -522,6 +527,9 @@ struct App {
         const auto* visual=cosmeticPicker?findCosmetic(customPreview):nullptr;
         text(!fit.supported?"Indisponible sur cette carrosserie":visual?TextFormat("Poids : %+.1f kg • aucun gain de puissance",visual->weight*.45359237):rimPicker?"Style visuel • aucun gain de puissance":TextFormat("Gain : %+.0f HP  |  avec NOS : %+.0f HP",preview.boostedHp-configuration.boostedHp,preview.nitroHp-configuration.nitroHp),761,537,13,Muted);
         if(selected&&hit({759,509,335,45}))tooltipText=TextFormat("%s | statistique %.0f | poids relatif %.0f | valeur catalogue $%.0f",selected->name,selected->stat,selected->weight,selected->value);
+        if(selected)if(const auto* e=pcEngine(selected->id)){
+            text(TextFormat("%.1f L | %.0f HP | %.0f tr/min | son adapte",e->litres,selected->stat,e->redlineRpm),761,551,11,Gold);
+        }
         if(fit.partial)text("Kit partiel : panneaux absents conservés d'origine",761,551,11,Gold);
         bool equipped=equippedChoice()==customPreview;
         if(button({1102,512,145,43},equipped?"ÉQUIPÉ":customPreview||rimPicker?"ÉQUIPER":"RETIRER",true,!equipped&&!choices.empty()&&fit.supported))equipGarageChoice();
@@ -538,7 +546,7 @@ struct App {
         if(button({17,8,111,32},"< MENU")){screen=Screen::Menu;inventoryOpen=false;}
         pxText("GARAGE",150,14,26);
         card({570,8,412,32},Color{19,22,27,255});pxText("ORIGINAL + UNBOUND",610,18,18,Accent);
-        pxText("1220 ÉQUIPEMENTS",1000,18,13);
+        pxText(TextFormat("%i ÉQUIPEMENTS",int(std::size(PartCatalog)+std::size(CosmeticCatalog)+std::size(RimCatalog))),1000,18,13);
         if(iconButton({1222,8,36,33},original_ui::buttons[37],"Paramètres PC"))openOptions();
         if(iconButton({1171,65,88,80},original_ui::garageIcons[10],"Prendre la route"))queued=[this]{saveCar();beginFree();};
         pxText("ROUTE",1190,142,13);
@@ -558,7 +566,7 @@ struct App {
         if(audioPopup){
             DrawRectangle(0,0,1280,720,Fade(BLACK,.75f));card({263,141,754,457});
             text("SONS DU MOTEUR",305,172,29,Accent);
-            text("Profils sonores d'origine • choix indépendant du moteur",305,219,17,Muted);
+            text("Sons du jeu • adaptations PC pour les nouveaux moteurs",305,219,17,Muted);
             if(button({748,164,224,32},profile.audioSource==1?"SONS : ORIGINAL":"SONS : UNBOUND")){profile.audioSource=1-profile.audioSource;audio.selectBank(profile.audioSource);saveCar();}
             auto soundRow=[&](float y,const char* label,int& value,int maximum){
                 text(label,306,y+12,19);std::string name=value<0?"AUTO":"PROFIL "+std::to_string(value+1);
@@ -1110,7 +1118,14 @@ struct App {
         if(frames==598){for(int tick=0;tick<240;tick++)garageEngine.update(configuration.vehicle,true,Step);check(garageEngine.limiting&&garageEngine.state.speed==0&&garageEngine.state.rpm<=configuration.vehicle.redlineRpm,"garage rev limiter uses installed engine redline without moving the vehicle");}
         if(frames==600)capture("garage-moteur-rupteur.png");
         if(frames==601){garageEngine.stop();check(!garageEngine.running&&garageEngine.state.rpm==0,"garage ignition stops the audition");}
-        if(frames==603)quit=true;
+        if(frames==603){profile=Profile{};profile.car=20;equipPart(profile,PartSlot::Engine,1501);saveCar();chooseGroup(0);customSearch="AMG";customPreview=1501;
+            check(garageChoices()==std::vector<int>{1501}&&sourceLabel(choiceSource(1501))==std::string("EXTENSION PC"),"PC engine search and provenance are visible independently of recovered content");}
+        if(frames==605)capture("moteurs-extension-pc.png");
+        if(frames==606){equipPart(profile,PartSlot::Engine,1504);saveCar();inventoryOpen=false;garageEngine.toggle(configuration.vehicle);
+            for(int tick=0;tick<480;tick++)garageEngine.update(configuration.vehicle,true,Step);
+            check(garageEngine.limiting&&garageEngine.state.rpm>14500&&configuration.vehicle.redlineRpm==15000,"F1 PC swap revs to its own 15000 RPM garage limiter");}
+        if(frames==608)capture("moteur-f1-rupteur.png");
+        if(frames==609){garageEngine.stop();quit=true;}
 
     }
     int run(){

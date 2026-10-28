@@ -1,12 +1,21 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.13.7](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.13.7-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.7-native-preview)
+**[Télécharger Windows x64 — version 0.13.8](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.13.8-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.13.8-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+La version **0.13.8** ajoute **15 moteurs inspirés de modèles réels** : AMG
+GT63 S, Huracán V10, Aventador V12, V6 F1, Ford Coyote et dix autres.
+31 swaps disponibles, avec courbes de couple, régimes et inerties propres.
+Les ajouts sont marqués **EXTENSION PC** ; sons adaptés des ressources existantes.
+Six packs de sons simulés sont aussi fournis : **99 WAV + 99 OGG**.
+Ils sont préparés pour intégration et ne sont pas encore activés dans le jeu.
+[Détails des packs et du skill](native/game/AUDIO-SIMULATION.md).
+[Détails et limites](native/game/PC-ENGINES.md).
 
 La version **0.13.7** donne au son du LS/V8 une montée plus marquée dans les
 tours, avec un ralenti conservé. Le réglage s’applique aussi aux LSX, LT5 et Hemi

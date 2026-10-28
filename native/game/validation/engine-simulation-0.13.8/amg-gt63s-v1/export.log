@@ -1,0 +1,29 @@
+Loaded engine: Mercedes-AMG GT63 S 2021 [simulated approximation]
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_startup_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=0
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_rpm_1000_throttle_0_loop_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=30
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_rpm_1000_throttle_30_loop_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=100
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_rpm_1000_throttle_100_loop_3s.wav
+RPM_CHECK target=2500 actual=2500 throttle=0
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_rpm_2500_throttle_0_loop_3s.wav
+RPM_CHECK target=2500 actual=2500 throttle=30
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_rpm_2500_throttle_30_loop_3s.wav
+RPM_CHECK target=2500 actual=2500 throttle=100
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_rpm_2500_throttle_100_loop_3s.wav
+RPM_CHECK target=4500 actual=4500 throttle=0
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_rpm_4500_throttle_0_loop_3s.wav
+RPM_CHECK target=4500 actual=4500 throttle=30
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_rpm_4500_throttle_30_loop_3s.wav
+RPM_CHECK target=4500 actual=4500 throttle=100
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_rpm_4500_throttle_100_loop_3s.wav
+RPM_CHECK target=6500 actual=6500 throttle=0
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_rpm_6500_throttle_0_loop_3s.wav
+RPM_CHECK target=6500 actual=6500 throttle=30
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_rpm_6500_throttle_30_loop_3s.wav
+RPM_CHECK target=6500 actual=6500 throttle=100
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_rpm_6500_throttle_100_loop_3s.wav
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_ignition_off_3s.wav
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_acceleration.wav
+Wrote /workspace/deliverables/engine-audio/amg-gt63s-v1/simulation/raw/mercedes_amg_gt63_s_2021_simulated_approximation_deceleration.wav

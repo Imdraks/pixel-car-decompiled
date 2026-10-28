@@ -1,0 +1,27 @@
+{
+  "slug": "amg_gt63s_2021",
+  "model": "Mercedes-AMG GT63 S 2021",
+  "layout": "V8",
+  "cylinders": 8,
+  "litres": 4.0,
+  "bore_mm": 83,
+  "stroke_mm": 92,
+  "redline_rpm": 7000,
+  "rpm_anchors": [
+    1000,
+    2500,
+    4500,
+    6500
+  ],
+  "throttle_layers": [
+    0,
+    30,
+    100
+  ],
+  "exhaust": "minimal_muffling_01",
+  "turbo": true,
+  "game_engine_ids": [
+    1501
+  ],
+  "approximation": "Displacement/redline adaptation of bundled V8 configuration; inherited crank geometry, heads/cams, intake and exhaust are approximations. Turbo pressure/whine and hybrid systems are not simulated by this adapter."
+}

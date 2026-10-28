@@ -1,4 +1,13 @@
-# Pixel Car Racer — Unbound Native 0.13.7
+# Pixel Car Racer — Unbound Native 0.13.8
+
+La version **0.13.8** ajoute **15 moteurs inspirés de modèles réels** : AMG
+GT63 S, Huracán V10, Aventador V12, V6 F1, Ford Coyote et dix autres.
+31 swaps disponibles, avec courbes de couple, régimes et inerties propres.
+Les ajouts sont marqués **EXTENSION PC** ; sons adaptés des ressources existantes.
+Six packs de sons simulés sont aussi fournis : **99 WAV + 99 OGG**.
+Ils sont préparés pour intégration et ne sont pas encore activés dans le jeu.
+[Détails des packs et du skill](AUDIO-SIMULATION.md).
+[Détails et limites](PC-ENGINES.md).
 
 La version **0.13.7** remonte progressivement le son du LS/V8 dans les hauts
 régimes en conservant le ralenti. La courbe s’applique au fichier sonore partagé

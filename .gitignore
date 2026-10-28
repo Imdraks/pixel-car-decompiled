@@ -3,3 +3,5 @@ pc/build/
 pc/*.exe
 native/game/assets/
 native/game/build/
+
+**/__pycache__/

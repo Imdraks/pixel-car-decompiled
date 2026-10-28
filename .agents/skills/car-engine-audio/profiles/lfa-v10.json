@@ -1,0 +1,27 @@
+{
+  "slug": "lfa_v10",
+  "model": "Lexus LFA V10",
+  "layout": "V10",
+  "cylinders": 10,
+  "litres": 4.805,
+  "bore_mm": 88,
+  "stroke_mm": 79,
+  "redline_rpm": 9000,
+  "rpm_anchors": [
+    1000,
+    3000,
+    5000,
+    8500
+  ],
+  "throttle_layers": [
+    0,
+    30,
+    100
+  ],
+  "exhaust": "minimal_muffling_01",
+  "turbo": false,
+  "game_engine_ids": [
+    1507
+  ],
+  "approximation": "Displacement/redline adaptation of bundled V10 configuration; inherited crank geometry, heads/cams, intake and exhaust are approximations. Turbo pressure/whine and hybrid systems are not simulated by this adapter."
+}

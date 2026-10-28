@@ -1,0 +1,596 @@
+{
+  "passed": true,
+  "provenance": {
+    "template": "assets/engines/atg-video-2/07_gm_ls.mr",
+    "template_sha256": "bbef3ac6280243833393367736eafda6281fd772e5183910cc0464c423fcb1df",
+    "adapted_sha256": "79394e50a8ce5f9e736f4034d82e282e4bd5c02d745582f727abe0eb206e2d6a",
+    "notes": []
+  },
+  "exporter_source": {
+    "upstream": "https://github.com/Talhasarac/engine-sim-sound-exporter",
+    "revision": "a548360a33c6ddcc28265ac08b71b8a5f514ed3c",
+    "dependencies": {
+      "csv-io": "2112c55e1e831c8f7a1b91de23722b7926ad3d00",
+      "piranha": "432f0b122bb1663b686c553c7e7269300afac3bc",
+      "simple-2d-constraint-solver": "e009f4ff1c9c4c5874e865e893cdb62e208fb2b3"
+    },
+    "archive_sha256": {
+      "exporter": "e5f2f4a5ce708f6da3dbd574ae038464bfcde68c668f2c4b02c00bd2b9ee7054",
+      "csv-io": "92586044c317c8f83adf2a3761a58a3cb79ab776894ea2cc0da84d1dec669933",
+      "piranha": "7611b49d566a8423f9f7e85a130f12a37513438d561c7fe689a4910a985b1f16",
+      "simple-2d-constraint-solver": "4ff2aaa07c76e0cfb040219c56d6b90a154e5a79a30ccba9cb58066aeaf91365"
+    }
+  },
+  "commands": [
+    [
+      "/workspace/native-runtime/engine-audio-exporter/build/engine-sim-exporter",
+      "--script",
+      "/workspace/deliverables/engine-audio/ford-coyote-v1/simulation/main.mr",
+      "--out",
+      "/workspace/deliverables/engine-audio/ford-coyote-v1/simulation/raw",
+      "--rpm",
+      "1000,2500,4500,7000",
+      "--throttle",
+      "0,30,100",
+      "--duration",
+      "3.0",
+      "--warmup",
+      "3.0",
+      "--loop-crossfade",
+      "30"
+    ]
+  ],
+  "turbo_generated": false,
+  "backfire_generated": false,
+  "limits": [
+    "Simulation approximates a physical engine; not an authentic vehicle recording.",
+    "No turbo compressor, turbine or backfire source added.",
+    "Numerical loop/peak checks do not replace listening."
+  ],
+  "files": [
+    {
+      "wav": "ford_coyote_v8_startup.wav",
+      "ogg": "ford_coyote_v8_startup.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3988037109375,
+        "rms": 0.09845333082672923,
+        "dc": 0.0001711288763552296,
+        "seam_jump": 0.1026611328125,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.4862060546875,
+        "rms": 0.11999636839381293,
+        "dc": 7.226391804551681e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.4817105829715729,
+        "rms": 0.11967826634645462,
+        "dc": 0.00024909645435400307,
+        "seam_jump": 0.00028462373302318156,
+        "rail_samples": 0
+      },
+      "gain": 1.2197201639673299,
+      "wav_sha256": "d8c7ddb2c9d25f7f5b71022ae468d6936dabed4e168e2c5bf962f7e56e4a610d",
+      "ogg_sha256": "9ccca2fd0a466573a68de24616f62183b9bb13bcd9e4eba6fcf84154089599a7"
+    },
+    {
+      "wav": "ford_coyote_v8_rpm_loop_rpm_1000_load_0.wav",
+      "ogg": "ford_coyote_v8_rpm_loop_rpm_1000_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.391510009765625,
+        "rms": 0.1106160747939547,
+        "dc": 0.0006246599931205121,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.42559814453125,
+        "rms": 0.11999630873419594,
+        "dc": 3.620113541523512e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.4230387806892395,
+        "rms": 0.11963722854852676,
+        "dc": 6.267890421440825e-05,
+        "seam_jump": 0.0012064045295119286,
+        "rail_samples": 0
+      },
+      "gain": 1.085406054356632,
+      "wav_sha256": "977b5c7564ba41245b1eb5043996ddaa2ffd350eee14182e40a24350568a0f03",
+      "ogg_sha256": "16121b6de7a9d417619aff10ec00b46945f824583d2573c168792e9a231f198a"
+    },
+    {
+      "wav": "ford_coyote_v8_rpm_loop_rpm_1000_load_30.wav",
+      "ogg": "ford_coyote_v8_rpm_loop_rpm_1000_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.348724365234375,
+        "rms": 0.11147562759001295,
+        "dc": -0.001249927569769227,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.36944580078125,
+        "rms": 0.11999635033278228,
+        "dc": 3.8339139010331966e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.35842570662498474,
+        "rms": 0.1196422353386879,
+        "dc": -5.6006439990596846e-05,
+        "seam_jump": 9.919865988194942e-05,
+        "rail_samples": 0
+      },
+      "gain": 1.0777800423660782,
+      "wav_sha256": "7af93d3f65a95a3fc9d2b4fad7a75bf06ec0bde4c972842e538cb7a5a78f8a40",
+      "ogg_sha256": "b48e781400a47948dc40ecb0bbef6cc8dc34fae68b233f306d353fb379a209e0"
+    },
+    {
+      "wav": "ford_coyote_v8_rpm_loop_rpm_1000_load_100.wav",
+      "ogg": "ford_coyote_v8_rpm_loop_rpm_1000_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.360504150390625,
+        "rms": 0.11125192886931141,
+        "dc": -0.0012352302303299792,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.391143798828125,
+        "rms": 0.1199963552711124,
+        "dc": -6.006215025467258e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.37286338210105896,
+        "rms": 0.11961450427770615,
+        "dc": -5.8396261010784656e-05,
+        "seam_jump": 0.00027996301651000977,
+        "rail_samples": 0
+      },
+      "gain": 1.0813274287879227,
+      "wav_sha256": "e18d541766f8e4dbfaab1c0d9ecc6184c5a5d058ef7d1a2ce65b725425a2ac71",
+      "ogg_sha256": "cb548311146940201ca92bdb0595bcf1a78b32704738fff4bb4766410c0efdef"
+    },
+    {
+      "wav": "ford_coyote_v8_rpm_loop_rpm_2500_load_0.wav",
+      "ogg": "ford_coyote_v8_rpm_loop_rpm_2500_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.361419677734375,
+        "rms": 0.1176765634148874,
+        "dc": 0.0011971635306683437,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3697509765625,
+        "rms": 0.11999630957801084,
+        "dc": -1.3726467719523275e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3617788851261139,
+        "rms": 0.11987422406673431,
+        "dc": -4.503312811721116e-05,
+        "seam_jump": 0.0010226952144876122,
+        "rail_samples": 0
+      },
+      "gain": 1.0197028392984664,
+      "wav_sha256": "e8ac073db50121b3745deae19232114bb339fa4cc7eeca77ebc91e767e50f590",
+      "ogg_sha256": "a9fd149421142cbd0198891bb40553cd8354bb1e48a98bc905b665ce75decc85"
+    },
+    {
+      "wav": "ford_coyote_v8_rpm_loop_rpm_2500_load_30.wav",
+      "ogg": "ford_coyote_v8_rpm_loop_rpm_2500_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.35638427734375,
+        "rms": 0.10975477155308543,
+        "dc": -0.0019843622670422337,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.392120361328125,
+        "rms": 0.11999629370409749,
+        "dc": 2.8867242525166633e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.37463170289993286,
+        "rms": 0.1199391558766365,
+        "dc": 2.482538366166409e-05,
+        "seam_jump": 0.0002944116131402552,
+        "rail_samples": 0
+      },
+      "gain": 1.0941939144214712,
+      "wav_sha256": "1b024f5e86c17f8e3d07219c2dbd4bb69c086bea791201d17850e32e7daf08cf",
+      "ogg_sha256": "5ce2444847ec8ed9b0beb81518c8f278d8f35b35f421caa76d607f2974b40652"
+    },
+    {
+      "wav": "ford_coyote_v8_rpm_loop_rpm_2500_load_100.wav",
+      "ogg": "ford_coyote_v8_rpm_loop_rpm_2500_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.35211181640625,
+        "rms": 0.11197430724895036,
+        "dc": -0.0018119739350818452,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.379486083984375,
+        "rms": 0.11999634032866036,
+        "dc": 1.1113611102760409e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.36818593740463257,
+        "rms": 0.11985693871974945,
+        "dc": -3.156399543513544e-05,
+        "seam_jump": 6.393995136022568e-05,
+        "rail_samples": 0
+      },
+      "gain": 1.0722781814145292,
+      "wav_sha256": "4dfa72ccbf669f3bec904215c6c708ffd1c88e49573571b75cdc701118f2ae43",
+      "ogg_sha256": "464a71e604aef37052a57c114037757a0bc6ee47b769695bc11d24f395b944ce"
+    },
+    {
+      "wav": "ford_coyote_v8_rpm_loop_rpm_4500_load_0.wav",
+      "ogg": "ford_coyote_v8_rpm_loop_rpm_4500_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.348358154296875,
+        "rms": 0.10950226506668714,
+        "dc": 9.130430329683957e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.381805419921875,
+        "rms": 0.11999636661775141,
+        "dc": 3.5752378339803936e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.363079309463501,
+        "rms": 0.11991915851831436,
+        "dc": 3.379246663826052e-06,
+        "seam_jump": 0.00024255161406472325,
+        "rail_samples": 0
+      },
+      "gain": 1.0963094231373869,
+      "wav_sha256": "6cea79c3f80b7f178bc6a45be28315109ef81d689953bffd6c6230b2c1d59b20",
+      "ogg_sha256": "6a75696c655922d6d8f900610d25e052ce9293c2c6a752de661e0a521bb0dee1"
+    },
+    {
+      "wav": "ford_coyote_v8_rpm_loop_rpm_4500_load_30.wav",
+      "ogg": "ford_coyote_v8_rpm_loop_rpm_4500_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.36077880859375,
+        "rms": 0.10840114149731148,
+        "dc": -0.0007116869914198319,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.400299072265625,
+        "rms": 0.11999636860012292,
+        "dc": -4.837908832514487e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.39020422101020813,
+        "rms": 0.1197035163640976,
+        "dc": -4.4612072088057175e-05,
+        "seam_jump": 0.0001665610761847347,
+        "rail_samples": 0
+      },
+      "gain": 1.1073815664860558,
+      "wav_sha256": "e43505ddaf8410da620ba5ebe06395e757d351e4f137859ad60555fb90cb39b4",
+      "ogg_sha256": "9f09ae1d0eacb6aad66cf6a0f78548bde1de0f1dff1a55f910236ddad723995a"
+    },
+    {
+      "wav": "ford_coyote_v8_rpm_loop_rpm_4500_load_100.wav",
+      "ogg": "ford_coyote_v8_rpm_loop_rpm_4500_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.339111328125,
+        "rms": 0.10896671629155832,
+        "dc": -0.0010220117778013983,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.374298095703125,
+        "rms": 0.11999629429251625,
+        "dc": 4.3666906033597504e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.3715946674346924,
+        "rms": 0.11961967498064041,
+        "dc": -2.1505547920241952e-05,
+        "seam_jump": 0.0007236357778310776,
+        "rail_samples": 0
+      },
+      "gain": 1.10199155244551,
+      "wav_sha256": "d205212460b2ecb5bd37aa53e6a6575ec2f98653cbd71c1229e4ba15a6a60dc9",
+      "ogg_sha256": "3f2689cb834304446e9570a1c7531a5327f69580cc8bb964c9c330c998127b73"
+    },
+    {
+      "wav": "ford_coyote_v8_rpm_loop_rpm_7000_load_0.wav",
+      "ogg": "ford_coyote_v8_rpm_loop_rpm_7000_load_0.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.322296142578125,
+        "rms": 0.11976462429069121,
+        "dc": -0.0013846231173676067,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.324859619140625,
+        "rms": 0.11999636715040932,
+        "dc": -6.515132576950534e-06,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.32818305492401123,
+        "rms": 0.12034014612436295,
+        "dc": 1.748479189700447e-05,
+        "seam_jump": 0.0004930537543259561,
+        "rail_samples": 0
+      },
+      "gain": 1.0037193728619958,
+      "wav_sha256": "3b53d4244ec6f897a7a79b1bcaebbd18d1616e5f495b934b99602a02903c2979",
+      "ogg_sha256": "38cbfee446ace590bbb8359a69ec04db3bb4d3bb22959b55aa00a2c4b77397ae"
+    },
+    {
+      "wav": "ford_coyote_v8_rpm_loop_rpm_7000_load_30.wav",
+      "ogg": "ford_coyote_v8_rpm_loop_rpm_7000_load_30.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.312896728515625,
+        "rms": 0.1263798491737323,
+        "dc": -0.0006174822495187311,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.297027587890625,
+        "rms": 0.11999636844460387,
+        "dc": 1.56741107068178e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.2934381365776062,
+        "rms": 0.12033651769161224,
+        "dc": -1.7668629880063236e-05,
+        "seam_jump": 0.0004562579852063209,
+        "rail_samples": 0
+      },
+      "gain": 0.9511647713575234,
+      "wav_sha256": "2e89b6773d6f0dffe5a6ca2e5af07447dcaa221b58a95b5563a620c4b32fa67a",
+      "ogg_sha256": "4a3daf2aba59a58934b70c20dc38ef46b9984791b5ff558af153c8a4655572cb"
+    },
+    {
+      "wav": "ford_coyote_v8_rpm_loop_rpm_7000_load_100.wav",
+      "ogg": "ford_coyote_v8_rpm_loop_rpm_7000_load_100.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.308502197265625,
+        "rms": 0.12609759689306937,
+        "dc": -0.0005622463557905801,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.293548583984375,
+        "rms": 0.11999637530912935,
+        "dc": 9.529680366113898e-08,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 130977,
+        "duration_s": 2.97,
+        "peak": 0.302503377199173,
+        "rms": 0.12024194747209549,
+        "dc": 2.0567471437971108e-05,
+        "seam_jump": 1.731313568598125e-05,
+        "rail_samples": 0
+      },
+      "gain": 0.9533101202723716,
+      "wav_sha256": "6d7f63d7e87391ff1367233813af5a59e553c77de806bcd71294e2050685d51a",
+      "ogg_sha256": "ee34de9ee45019c26335b2dbe2bc7197a26b222f4964dcd0277313d7010040f6"
+    },
+    {
+      "wav": "ford_coyote_v8_ignition_off.wav",
+      "ogg": "ford_coyote_v8_ignition_off.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.32232666015625,
+        "rms": 0.053302116139898256,
+        "dc": -5.7588722880645315e-05,
+        "seam_jump": 0.1566162109375,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.728302001953125,
+        "rms": 0.11999637513930073,
+        "dc": -0.00020047695998972505,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.732128381729126,
+        "rms": 0.12012264132499695,
+        "dc": -0.00040492237894795835,
+        "seam_jump": 0.0009366131853312254,
+        "rail_samples": 0
+      },
+      "gain": 2.260013180819511,
+      "wav_sha256": "11a75ef1d8b90efc05f5c0e4f1c8b39fc94578029538fe92b4e1633f7129ff80",
+      "ogg_sha256": "eb5a39c3c359d532f0f73673ac7f9f1aca871f399ea8a87ff5754ff83b1e3a46"
+    },
+    {
+      "wav": "ford_coyote_v8_acceleration.wav",
+      "ogg": "ford_coyote_v8_acceleration.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.3856201171875,
+        "rms": 0.11063095044435102,
+        "dc": -0.00033515728339947087,
+        "seam_jump": 0.06817626953125,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.419219970703125,
+        "rms": 0.11999636480198793,
+        "dc": -2.5348504744779856e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.4195433259010315,
+        "rms": 0.12032434344291687,
+        "dc": -1.0744874998636078e-06,
+        "seam_jump": 0.001099942484870553,
+        "rail_samples": 0
+      },
+      "gain": 1.0862364845364416,
+      "wav_sha256": "c9be2a4af6b6ae0873a7c5db4aea8ccd6213a9987d02d6b1735ae39dec13cd43",
+      "ogg_sha256": "150e8c8a1d074f0c950fd49ef0644680987bd61edd6053cf014330d8085032e7"
+    },
+    {
+      "wav": "ford_coyote_v8_deceleration.wav",
+      "ogg": "ford_coyote_v8_deceleration.ogg",
+      "raw": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.37518310546875,
+        "rms": 0.1127288951347008,
+        "dc": 0.00014683245531285432,
+        "seam_jump": 0.041534423828125,
+        "rail_samples": 0
+      },
+      "wav_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.400177001953125,
+        "rms": 0.11999635937758517,
+        "dc": 6.004143193735828e-05,
+        "seam_jump": 0.0,
+        "rail_samples": 0
+      },
+      "ogg_metrics": {
+        "frames": 132300,
+        "duration_s": 3.0,
+        "peak": 0.4026792645454407,
+        "rms": 0.12032151222229004,
+        "dc": 4.969587462255731e-05,
+        "seam_jump": 0.00027123867766931653,
+        "rail_samples": 0
+      },
+      "gain": 1.0662115253065465,
+      "wav_sha256": "aa3deba5e9323f5bf1ad66ebac58b8d96092be0fc8734358ca0c12da6e375228",
+      "ogg_sha256": "6fa99e29dab1c34bc12f7c9505bcf586cffadc9bf079de8d3cf264ff3e67acba"
+    }
+  ]
+}

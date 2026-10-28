@@ -1,0 +1,35 @@
+Loaded engine: Lamborghini Aventador SVJ [simulated approximation]
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_startup_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=0
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_1000_throttle_0_loop_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=30
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_1000_throttle_30_loop_3s.wav
+RPM_CHECK target=1000 actual=1000 throttle=100
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_1000_throttle_100_loop_3s.wav
+RPM_CHECK target=2500 actual=2500 throttle=0
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_2500_throttle_0_loop_3s.wav
+RPM_CHECK target=2500 actual=2500 throttle=30
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_2500_throttle_30_loop_3s.wav
+RPM_CHECK target=2500 actual=2500 throttle=100
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_2500_throttle_100_loop_3s.wav
+RPM_CHECK target=4000 actual=4000 throttle=0
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_4000_throttle_0_loop_3s.wav
+RPM_CHECK target=4000 actual=4000 throttle=30
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_4000_throttle_30_loop_3s.wav
+RPM_CHECK target=4000 actual=4000 throttle=100
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_4000_throttle_100_loop_3s.wav
+RPM_CHECK target=6000 actual=6000 throttle=0
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_6000_throttle_0_loop_3s.wav
+RPM_CHECK target=6000 actual=6000 throttle=30
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_6000_throttle_30_loop_3s.wav
+RPM_CHECK target=6000 actual=6000 throttle=100
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_6000_throttle_100_loop_3s.wav
+RPM_CHECK target=8200 actual=8200 throttle=0
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_8200_throttle_0_loop_3s.wav
+RPM_CHECK target=8200 actual=8200 throttle=30
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_8200_throttle_30_loop_3s.wav
+RPM_CHECK target=8200 actual=8200 throttle=100
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_rpm_8200_throttle_100_loop_3s.wav
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_ignition_off_3s.wav
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_acceleration.wav
+Wrote /workspace/deliverables/engine-audio/aventador-svj-v1/simulation/raw/lamborghini_aventador_svj_simulated_approximation_deceleration.wav

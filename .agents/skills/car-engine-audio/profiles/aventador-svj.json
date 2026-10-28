@@ -1,0 +1,7 @@
+{
+  "slug": "aventador_svj_v12", "model": "Lamborghini Aventador SVJ", "layout": "V12", "cylinders": 12,
+  "litres": 6.498, "bore_mm": 95.0, "stroke_mm": 76.4, "redline_rpm": 8700,
+  "rpm_anchors": [1000, 2500, 4000, 6000, 8200], "throttle_layers": [0, 30, 100],
+  "exhaust": "minimal_muffling_01", "turbo": false, "game_engine_ids": [1503],
+  "approximation": "60-degree V12 adapted from bundled Ferrari 412 T2; road displacement and redline, inherited estimated heads/cams/intake/exhaust. Not a manufacturer-validated SVJ model. Game slot is currently Aventador S."
+}

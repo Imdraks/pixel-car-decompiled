@@ -12,7 +12,9 @@ EngineSamples engineSamples(const Profile& profile){
     EngineSamples samples;const Part* engine=findPart(profile.parts[int(PartSlot::Engine)]);
     // Recovered engine_hp -> e_s/e_s2 -> sample dispatch, checked in both banks.
     // Stock-car selection remains a native fallback. Explicit PC overrides win.
-    if(engine){
+    if(engine&&pcEngine(engine->id)){
+        const auto& e=*pcEngine(engine->id);samples.on=e.soundOn;samples.off=e.soundOff;
+    }else if(engine){
         int frame=std::clamp(engine->subimage,0,16);
         samples.on=ReplacementEngineSamples[frame][0];
         samples.off=ReplacementEngineSamples[frame][1];
@@ -70,6 +72,10 @@ void equipBestParts(Profile& profile){
         for(const auto& p:PartCatalog)if(int(p.slot)==slot&&(!best||weakerPart(*best,p)))best=&p;
         if(best)equipPart(profile,PartSlot(slot),best->id);
     }
+    for(const auto& p:PartCatalog)if(p.slot==PartSlot::Engine){
+        Profile alternate=profile;equipPart(alternate,PartSlot::Engine,p.id);
+        if(buildVehicle(alternate).boostedHp>buildVehicle(profile).boostedHp)profile=alternate;
+    }
     // Compare the best compressor to the turbo using the actual steady-state power.
     const Part* compressor=nullptr;
     for(const auto& p:PartCatalog)if(p.slot==PartSlot::Supercharger&&(!compressor||weakerPart(*compressor,p)))compressor=&p;
@@ -97,6 +103,7 @@ void applyGearboxPreset(Profile& p,int preset){
 }
 double engineRedline(const Profile& profile){
     const auto* engine=findPart(profile.parts[int(PartSlot::Engine)]);
+    if(engine)if(const auto* e=pcEngine(engine->id))return e->redlineRpm;
     return engine&&engine->slot==PartSlot::Engine?replacementEngine(engine->subimage).redlineRpm:stockVehicle(profile.car).redlineRpm;
 }
 Build buildVehicle(const Profile& profile){
@@ -112,6 +119,15 @@ Build buildVehicle(const Profile& profile){
     v.drivenWeightFraction=v.drive==DriveLayout::Front?.60:.52;
     auto chosen=[&](PartSlot slot){const auto* p=findPart(profile.parts[int(slot)]);return p&&p->slot==slot?p:nullptr;};
     double stockPowerPerTorque=powerPerTorque(v);
+    const auto* enginePart=chosen(PartSlot::Engine);
+    const auto* pc=enginePart?pcEngine(enginePart->id):nullptr;
+    if(pc){
+        v.torquePeakRpm=pc->torquePeakRpm*8100/pc->redlineRpm;
+        v.torqueWidthRpm=pc->torqueWidthRpm*8100/pc->redlineRpm;
+        v.lowTorqueFraction=pc->lowTorqueFraction;v.engineInertia=pc->inertia;
+        v.factoryBoostSoundPsi=pc->factoryBoostSoundPsi;v.supercharged=pc->blower;
+        stockPowerPerTorque=powerPerTorque(v);
+    }
     double targetHp=stock.hp,addedHp=0,massDelta=0;
     if(auto* p=chosen(PartSlot::Engine)){targetHp=p->stat;massDelta+=p->weight-250;}
     for(PartSlot slot:{PartSlot::Intake,PartSlot::Pistons,PartSlot::Exhaust}){
@@ -126,7 +142,7 @@ Build buildVehicle(const Profile& profile){
     if(auto* p=chosen(PartSlot::Ecu)){v.twoStep=std::string(p->name).find("2STEP")!=std::string::npos;v.redlineRpm+=p->stat;v.upshiftRpm+=p->stat;massDelta+=p->weight;}
     const Part* boost=chosen(PartSlot::Turbo);
     if(auto* p=chosen(PartSlot::Supercharger)){boost=p;v.supercharged=true;}
-    if(boost){v.boostPsi=boost->stat;massDelta+=boost->weight;
+    if(boost){v.factoryBoostSoundPsi=0;v.supercharged=boost->slot==PartSlot::Supercharger;v.boostPsi=boost->stat;massDelta+=boost->weight;
         // Native charge-temperature calibration: intercooling recovers boost efficiency.
         auto* cooler=chosen(PartSlot::Intercooler);
         v.boostEfficiency=.65+.35*(cooler?std::clamp(cooler->stat/107.0,0.0,1.0):0);

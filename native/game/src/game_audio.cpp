@@ -102,8 +102,9 @@ void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarSt
     if(canonical(samples.on)==canonical(samples.off)){onVolume+=offVolume;offVolume=0;}
     loop(on,samples.on,onVolume,pitch);
     loop(off,samples.off,offVolume,pitch);
-    loop(turbo,29,audible*float(std::clamp(car.boostPsi/35,0.0,.7))*(vehicle.supercharged?0.f:1.f),float(.65+car.boostPsi/30));
-    loop(blower,28,audible*float(std::clamp(car.boostPsi/50,0.0,.6))*(vehicle.supercharged?1.f:0.f),pitch);
+    double audibleBoost=std::max(car.boostPsi,vehicle.factoryBoostSoundPsi*load*std::clamp(car.rpm/5000.0,0.0,1.0));
+    loop(turbo,29,audible*float(std::clamp(audibleBoost/35,0.0,.7))*(vehicle.supercharged?0.f:1.f),float(.65+audibleBoost/30));
+    loop(blower,28,audible*float(std::clamp(audibleBoost/50,0.0,.6))*(vehicle.supercharged?1.f:0.f),pitch);
     if(car.nitroActive&&!lastNos&&nos.id>=0)SeekMusicStream(nos.music,0);
     loop(nos,76,audible*(car.nitroActive?.35f:0.f),1);
     loop(town,58,enabled?(active?.025f:.12f):0.f,1);
@@ -116,7 +117,7 @@ void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarSt
         if(collision>lastCollision+.5)shot(1+(crashes++%3),.55f);
         if(car.gear!=lastGear&&profile.parts[int(PartSlot::Exhaust)]!=0)shot(43,.25f);
     }
-    lastGear=car.gear;lastGas=gas;lastNos=car.nitroActive;lastBoost=car.boostPsi;lastCollision=collision;
+    lastGear=car.gear;lastGas=gas;lastNos=car.nitroActive;lastBoost=audibleBoost;lastCollision=collision;
 }
 GameAudio::~GameAudio(){
     if(!ready)return;

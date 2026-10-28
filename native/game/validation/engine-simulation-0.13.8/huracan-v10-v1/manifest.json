@@ -1,0 +1,157 @@
+{
+  "schema": 1,
+  "model": "Lamborghini Huracan EVO",
+  "sample_rate": 44100,
+  "channels": 1,
+  "simulated": true,
+  "manufacturer_recording": false,
+  "game_engine_ids": [
+    1502
+  ],
+  "clips": [
+    {
+      "wav": "huracan_v10_startup.wav",
+      "ogg": "huracan_v10_startup.ogg",
+      "type": "startup",
+      "rpm": 0,
+      "load": null,
+      "loop": false,
+      "duration_s": 3.0
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_1000_load_0.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_1000_load_0.ogg",
+      "type": "rpm_loop",
+      "rpm": 1000,
+      "load": 0.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_1000_load_30.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_1000_load_30.ogg",
+      "type": "rpm_loop",
+      "rpm": 1000,
+      "load": 0.3,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_1000_load_100.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_1000_load_100.ogg",
+      "type": "rpm_loop",
+      "rpm": 1000,
+      "load": 1.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_3000_load_0.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_3000_load_0.ogg",
+      "type": "rpm_loop",
+      "rpm": 3000,
+      "load": 0.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_3000_load_30.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_3000_load_30.ogg",
+      "type": "rpm_loop",
+      "rpm": 3000,
+      "load": 0.3,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_3000_load_100.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_3000_load_100.ogg",
+      "type": "rpm_loop",
+      "rpm": 3000,
+      "load": 1.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_5000_load_0.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_5000_load_0.ogg",
+      "type": "rpm_loop",
+      "rpm": 5000,
+      "load": 0.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_5000_load_30.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_5000_load_30.ogg",
+      "type": "rpm_loop",
+      "rpm": 5000,
+      "load": 0.3,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_5000_load_100.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_5000_load_100.ogg",
+      "type": "rpm_loop",
+      "rpm": 5000,
+      "load": 1.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_8000_load_0.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_8000_load_0.ogg",
+      "type": "rpm_loop",
+      "rpm": 8000,
+      "load": 0.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_8000_load_30.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_8000_load_30.ogg",
+      "type": "rpm_loop",
+      "rpm": 8000,
+      "load": 0.3,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "huracan_v10_rpm_loop_rpm_8000_load_100.wav",
+      "ogg": "huracan_v10_rpm_loop_rpm_8000_load_100.ogg",
+      "type": "rpm_loop",
+      "rpm": 8000,
+      "load": 1.0,
+      "loop": true,
+      "duration_s": 2.97
+    },
+    {
+      "wav": "huracan_v10_ignition_off.wav",
+      "ogg": "huracan_v10_ignition_off.ogg",
+      "type": "ignition_off",
+      "rpm": 1000,
+      "load": null,
+      "loop": false,
+      "duration_s": 3.0
+    },
+    {
+      "wav": "huracan_v10_acceleration.wav",
+      "ogg": "huracan_v10_acceleration.ogg",
+      "type": "acceleration",
+      "rpm": 0,
+      "load": 1.0,
+      "loop": false,
+      "duration_s": 3.0
+    },
+    {
+      "wav": "huracan_v10_deceleration.wav",
+      "ogg": "huracan_v10_deceleration.ogg",
+      "type": "deceleration",
+      "rpm": 0,
+      "load": 0.0,
+      "loop": false,
+      "duration_s": 3.0
+    }
+  ]
+}

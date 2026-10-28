@@ -1,0 +1,15 @@
+{
+  "upstream": "https://github.com/Talhasarac/engine-sim-sound-exporter",
+  "revision": "a548360a33c6ddcc28265ac08b71b8a5f514ed3c",
+  "dependencies": {
+    "csv-io": "2112c55e1e831c8f7a1b91de23722b7926ad3d00",
+    "piranha": "432f0b122bb1663b686c553c7e7269300afac3bc",
+    "simple-2d-constraint-solver": "e009f4ff1c9c4c5874e865e893cdb62e208fb2b3"
+  },
+  "archive_sha256": {
+    "exporter": "e5f2f4a5ce708f6da3dbd574ae038464bfcde68c668f2c4b02c00bd2b9ee7054",
+    "csv-io": "92586044c317c8f83adf2a3761a58a3cb79ab776894ea2cc0da84d1dec669933",
+    "piranha": "7611b49d566a8423f9f7e85a130f12a37513438d561c7fe689a4910a985b1f16",
+    "simple-2d-constraint-solver": "4ff2aaa07c76e0cfb040219c56d6b90a154e5a79a30ccba9cb58066aeaf91365"
+  }
+}

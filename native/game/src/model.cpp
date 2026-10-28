@@ -137,7 +137,7 @@ bool saveProfile(const std::filesystem::path& file,const Profile& raw,std::strin
 // Numeric path derived from Unbound ease_linear disassembly, not generic YYRValue semantics.
 double easeLinear(double t,double b,double c,double d){return (c*t)/d+b;}
 double torqueCurve(const Vehicle& v,double rpm){
-    return .62+.38*std::exp(-std::pow((rpm/v.curveRpmScale-5200)/2700,2));
+    return v.lowTorqueFraction+(1-v.lowTorqueFraction)*std::exp(-std::pow((rpm/v.curveRpmScale-v.torquePeakRpm)/v.torqueWidthRpm,2));
 }
 double targetBoost(const Vehicle& v,double rpm){
     return v.boostPsi*std::clamp((rpm-(v.supercharged?0:2200))/(v.supercharged?v.redlineRpm:2500),0.0,1.0);

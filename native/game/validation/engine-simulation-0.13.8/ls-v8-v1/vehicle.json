@@ -1,0 +1,27 @@
+{
+  "slug": "gm_ls_v8",
+  "model": "GM LS V8",
+  "layout": "V8",
+  "cylinders": 8,
+  "litres": 7.0,
+  "redline_rpm": 7500,
+  "rpm_anchors": [
+    1000,
+    2500,
+    4500,
+    7000
+  ],
+  "throttle_layers": [
+    0,
+    30,
+    100
+  ],
+  "exhaust": "minimal_muffling_01",
+  "turbo": false,
+  "game_engine_ids": [
+    1008
+  ],
+  "approximation": "7.0 L cross-plane LS-family approximation adapted from bundled GM LS; heads, cams, exhaust and moving masses are inherited estimates.",
+  "bore_mm": 104.8,
+  "stroke_mm": 101.6
+}
