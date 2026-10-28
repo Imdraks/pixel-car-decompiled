@@ -22,6 +22,23 @@
   sont des calibrations du jeu, sans équivalence constructeur ou thermodynamique
   complète. Écoute sur enceintes non établie.
 
+## Publication Windows vérifiée — 0.14.0
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40677821611) :
+  355 contrôles du cœur, 93 graphiques, 188 sons historiques et 198 fichiers
+  moteur simulés décodés. Les montages quad et les sauvegardes passent sous Windows.
+- Les 72 associations turbo/moteur et les autres trajectoires comparées concordent
+  entre Linux et Windows à 0,01 près ; 1528 compositions sont identiques.
+- Archive publique, CRC, EXE, commit source, quinze aperçus et 470 ressources
+  vérifiés. Les ressources sont identiques à celles testées localement.
+- Rapport : `validation/windows-0.14.0/`. Les profils turbo sont des adaptations
+  des sons du jeu ; le mixeur réel Linux contrôle leur lecture avec une crête
+  mesurée de 0,468229. Écoute sur enceintes et périphérique audio Windows physique
+  non établis. Les valeurs des pièces restent des calibrations natives fictives.
+- Source compilée : `dd9050f4b56d825f5b51669d02a0fd49566cff52`.
+- ZIP : 86558676 octets, SHA-256 `d5c6b68607e77d9968abf999e84a3a6f529273949bc8c560859c3d18d6bb4e94`.
+- EXE : SHA-256 `c2e9c79889f788d36e1b3867daf7764dccec29e2e6c34951d18663b3f661be71`.
+
 # Validation 0.13.9 — audio simulé actif et collection de voitures
 
 - 348 contrôles du cœur : interpolation régime/charge des six banques, somme
