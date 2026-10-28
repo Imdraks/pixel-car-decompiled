@@ -1,4 +1,5 @@
 #include "game_audio.hpp"
+#include "garage_audio.hpp"
 #include "original_audio.hpp"
 #include "base_audio.hpp"
 #include <algorithm>
@@ -178,7 +179,7 @@ void GameAudio::shot(int id,float volume){
     if(i==shots.end()){Sound sound=LoadSound((root/sourceSound(id,bank).file).u8string().c_str());if(!IsSoundValid(sound)){++failures;return;}i=shots.emplace(id,sound).first;}
     SetSoundVolume(i->second,volume);PlaySound(i->second);
 }
-void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarState& car,const DriverInput& input,double collision,bool active,bool enabled,bool limiter){
+void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarState& car,const DriverInput& input,double collision,bool active,bool enabled,bool limiter,bool garageAudition){
     if(!ready)return;
     selectBank(profile.audioSource);
     double now=std::chrono::duration<double>(std::chrono::steady_clock::now().time_since_epoch()).count();
@@ -209,6 +210,8 @@ void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarSt
     loop(on,samples.on,onVolume,pitch);
     loop(off,samples.off,offVolume,pitch);
     double audibleBoost=std::max(car.boostPsi,vehicle.factoryBoostSoundPsi*load*std::clamp(car.rpm/5000.0,0.0,1.0));
+    if(garageAudition)audibleBoost=garageInductionAudio(vehicle,car.rpm,load);
+    inductionAudioLevel=audible>0?audibleBoost:0;
     float turboVolume=vehicle.turboSoundGain>0?float(vehicle.turboSoundGain*std::clamp(audibleBoost/std::max(1.0,vehicle.boostPsi),0.0,1.0)):float(std::clamp(audibleBoost/35,0.0,.7));
     float turboPitch=vehicle.turboSoundGain>0?float(vehicle.turboSoundPitch*(.7+.6*std::sqrt(std::clamp(audibleBoost/std::max(1.0,vehicle.boostPsi),0.0,1.0)))):float(.65+audibleBoost/30);
     loop(turbo,29,audible*turboVolume*(vehicle.supercharged?0.f:1.f),turboPitch);

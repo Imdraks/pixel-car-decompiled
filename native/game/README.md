@@ -1,4 +1,10 @@
-# Pixel Car Racer — Unbound Native 0.14.0
+# Pixel Car Racer — Unbound Native 0.14.1
+
+La version **0.14.1** fait entendre le turbo équipé dans le menu custom :
+**G** démarre le moteur avec un léger sifflement au ralenti, **Z** le fait monter
+avec le régime et le relâchement déclenche la valve. Les profils des nouveaux
+montages sont conservés. L’aperçu sonore du garage n’ajoute pas de pression
+à la physique de conduite.
 
 La version **0.14.0** ajoute **18 montages turbo PC** : simples, biturbos
 parallèles/séquentiels, hybrides de préparation, assistance électrique et quads.

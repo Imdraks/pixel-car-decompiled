@@ -4,14 +4,14 @@ import argparse,json,subprocess,time
 from pathlib import Path
 p=argparse.ArgumentParser(description=__doc__)
 for name in ['game','assets','xdotool','output']:p.add_argument('--'+name,type=Path,required=True)
-p.add_argument('--engine-id',type=int,default=1002);p.add_argument('--simulated',action='store_true');p.add_argument('--with-audio',action='store_true');a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
+p.add_argument('--turbo-id',type=int,default=0);p.add_argument('--engine-id',type=int,default=1002);p.add_argument('--simulated',action='store_true');p.add_argument('--with-audio',action='store_true');a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
 checks={};sessions={}
 def check(name,value):
  checks[name]=bool(value)
  if not value:raise RuntimeError('Failed: '+name)
 def scenario(name,actions):
  root=a.output/name;root.mkdir()
- (root/'profile.ini').write_text(f'car=20\npart_engine={a.engine_id}\nsound_on=-1\nsound_off=-1\n')
+ (root/'profile.ini').write_text(f'car=20\npart_engine={a.engine_id}\npart_turbo={a.turbo_id}\nsound_on=-1\nsound_off=-1\n')
  (root/'settings.ini').write_text('width=960\nheight=540\nfps=60\nvsync=0\nsound=1\ntraffic=0\n')
  def xdo(*args):return subprocess.check_output([str(a.xdotool),*map(str,args)],text=True,stderr=subprocess.DEVNULL).strip()
  def key(k):xdo('keydown',k);time.sleep(.07);xdo('keyup',k);time.sleep(.1)
@@ -45,6 +45,9 @@ def scenario(name,actions):
     if name=='held_rev':check('rev_uses_simulated_loops',float(state['simulated_audio_gain'])>0 and int(state['simulated_audio_stream_starts']) in {12,15})
     if name=='ignition_off':check('g_plays_simulated_shutdown',state['simulated_audio_shutdowns']=='1')
     if name in {'ignition_off','leave_garage'}:check(name+'_no_simulated_loop_leak',float(state['simulated_audio_gain'])==0)
+   if a.turbo_id and a.with_audio:
+    if name in {'ignition_idle','held_rev','released_rev','search_running'}:check(name+'_garage_turbo_audible',float(state['induction_audio_level'])>0)
+    if name in {'off_throttle','ignition_off','search_off','leave_garage'}:check(name+'_garage_turbo_stopped',float(state['induction_audio_level'])==0)
    return state
   finally:
    for keyname in held|{'ctrl','q','F12'}:subprocess.run([str(a.xdotool),'keyup',keyname],capture_output=True)

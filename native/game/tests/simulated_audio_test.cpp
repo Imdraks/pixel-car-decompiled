@@ -53,6 +53,12 @@ int main(int argc,char** argv){try{
             for(int tick=0;tick<30;tick++){state.elapsed+=.01;state.boostPsi=turbo.psi*(.2+.8*tick/29.0);audio.update(p,vehicle,state,{true,false,true},0,true,true);std::this_thread::sleep_for(std::chrono::milliseconds(10));}
             require(energy.load()>before&&vehicle.turboAutoValve>=0&&vehicle.turboAutoValve<=3,"Turbo profile/valve did not produce a valid mix");
             state.boostPsi=0;audio.update(p,vehicle,state,{false,false,true},0,true,true);std::this_thread::sleep_for(std::chrono::milliseconds(40));
+            state.boostPsi=0;state.rpm=vehicle.idleRpm;
+            for(int tick=0;tick<15;tick++){audio.update(p,vehicle,state,{},0,true,true,false,true);std::this_thread::sleep_for(std::chrono::milliseconds(10));}
+            double idleLevel=audio.inductionAudioLevel;require(idleLevel>0,"Garage turbo is silent at idle");state.rpm=vehicle.redlineRpm;
+            for(int tick=0;tick<20;tick++){audio.update(p,vehicle,state,{true,false,true},0,true,true,true,true);std::this_thread::sleep_for(std::chrono::milliseconds(10));}
+            require(audio.inductionAudioLevel>idleLevel&&state.boostPsi==0&&state.speed==0,"Garage revving must raise only audible induction");
+            audio.update(p,vehicle,state,{},0,false,true,false,true);require(audio.inductionAudioLevel==0,"Stopped garage audition leaked induction");
             report<<"PASS turbo="<<turbo.id<<" count="<<turbo.count<<" pitch="<<vehicle.turboSoundPitch<<" valve="<<vehicle.turboAutoValve<<'\n';
         }
         // Switching back to an untouched source engine releases all simulated loops.
@@ -61,6 +67,6 @@ int main(int argc,char** argv){try{
         require(audio.failures==0,"Stream or event load failure");DetachAudioMixedProcessor(capture);
     }
     require(cases==12&&frames>0&&invalid==0&&peakMillion<1000000,"Invalid or saturated real mixed PCM");
-    report<<"PASS: 12 real simulated engine/bank cases, 18 turbo audio profiles, fallback, event and manual-priority checks.\nframes="<<frames<<"\npeak="<<peakMillion.load()/1000000.0<<"\nfinite_pcm=1\nphysical_speaker_listening=0\n";
+    report<<"PASS: 12 real simulated engine/bank cases, 18 road/garage turbo audio profiles, fallback, event and manual-priority checks.\nframes="<<frames<<"\npeak="<<peakMillion.load()/1000000.0<<"\nfinite_pcm=1\nphysical_speaker_listening=0\n";
     std::cout<<"PASS: 12 simulated engine/bank cases, peak "<<peakMillion.load()/1000000.0<<'\n';return 0;
 }catch(const std::exception& e){std::cerr<<"FAIL: "<<e.what()<<'\n';return 1;}}

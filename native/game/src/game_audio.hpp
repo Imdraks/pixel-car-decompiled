@@ -29,10 +29,11 @@ class GameAudio {
 public:
     struct SimulatedStatus {int engineId=0,streams=0,streamStarts=0,startupEvents=0,shutdownEvents=0;double gainSum=0;bool audible=false;};
     SimulatedStatus simulatedStatus{};
+    double inductionAudioLevel=0;
     bool ready=false;int failures=0;
     void init(const std::filesystem::path&);
     void selectBank(int);
-    void update(const Profile&,const Vehicle&,const CarState&,const DriverInput&,double collision,bool active,bool enabled,bool limiter=false);
+    void update(const Profile&,const Vehicle&,const CarState&,const DriverInput&,double collision,bool active,bool enabled,bool limiter=false,bool garageAudition=false);
     void startEngine(const Profile& profile,bool enabled);
     void stopEngine(bool shutdown=false);
     void click(bool enabled){if(ready&&enabled)shot(37,.4f);}

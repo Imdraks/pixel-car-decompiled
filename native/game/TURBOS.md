@@ -111,3 +111,9 @@ le compresseur. Les 31 moteurs sont croisés avec ECU, induction et échangeurs 
 175770 combinaisons. Les 267344 combinaisons de pièces de support restent
 contrôlées. Les fichiers `pc-turbos.csv` et `turbo-response.csv` consignent les
 résultats. Les profils sonores sont joués par le vrai mixeur logiciel Raylib.
+
+Depuis la 0.14.1, G permet aussi d’entendre le turbo au ralenti dans le garage ;
+maintenir Z renforce le sifflement et relâcher Z joue la valve. L’aperçu utilise
+le montage équipé et fonctionne également pour les turbos historiques ou
+d’usine. Le niveau de pression équivalent est réservé à l’audio du garage :
+la voiture reste immobile, sans boost physique ni consommation de NOS.

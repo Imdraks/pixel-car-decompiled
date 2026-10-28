@@ -1,3 +1,19 @@
+# Validation 0.14.1 — aperçu turbo dans le garage
+
+- 358 contrôles du cœur : son d’induction au ralenti, montée avec les tours et
+  la charge, silence moteur arrêté ou atmosphérique, et absence de boost physique,
+  mouvement ou consommation de NOS dans l’aperçu stationnaire.
+- 55 contrôles avec vraies touches sur le LS + quad : G démarre/coupe, Z accélère,
+  retour au ralenti, focus de recherche, sortie du garage, niveaux d’induction
+  positifs pendant l’audition et nuls moteur arrêté ou hors du garage.
+- Mixeur logiciel Raylib réel : les 18 profils turbo sont lus en conduite puis
+  en aperçu garage au ralenti et au rupteur. Aucun chargement échoué ou PCM
+  non fini ; crête mesurée 0,394777. Les 12 cas moteur/banque restent valides.
+- 93 contrôles graphiques Linux. L’aperçu est activé uniquement dans le garage
+  et les boutons d’écoute du menu sons ; le calcul de suralimentation en conduite
+  conserve son chemin existant. Ressources audio inchangées.
+- Rapports : `validation/garage-turbo-0.14.1/`. Écoute sur enceintes non établie.
+
 # Validation 0.14.0 — turbos et étagement
 
 - 355 contrôles du cœur Linux/Windows compilés : 72 couples nouveau turbo/moteur,

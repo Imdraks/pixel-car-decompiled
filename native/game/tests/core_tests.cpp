@@ -1,3 +1,4 @@
+#include "garage_audio.hpp"
 #include "simulated_engine_mix.hpp"
 #include "saved_cars.hpp"
 #include "model.hpp"
@@ -338,6 +339,12 @@ int main(int argc,char**argv){
     expect(fastFraction>slowFraction+.4&&fastFraction<=1,"actual time integration gives electric assistance a faster boost rise than a large single turbo");
     equipPart(electric,PartSlot::Supercharger,3020);
     expect(electric.parts[2]==0&&buildVehicle(electric).vehicle.turboFlowHp==0,"fitting a supercharger removes the whole turbo assembly and its airflow parameters");
+    {Profile p;equipPart(p,PartSlot::Turbo,16013);auto v=buildVehicle(p).vehicle;
+        expect(garageInductionAudio(v,v.idleRpm,0)>0&&garageInductionAudio(v,v.redlineRpm,1)>garageInductionAudio(v,v.idleRpm,0),"garage turbo audition is audible at idle and grows with RPM and throttle");
+        expect(garageInductionAudio(v,0,1)==0&&garageInductionAudio(Vehicle{},8000,1)==0,"stopped and atmospheric garage engines have no induction sound");
+        GarageEngine g;g.toggle(v);for(int tick=0;tick<240;tick++)g.update(v,true,Step);
+        expect(g.state.boostPsi==0&&g.state.speed==0&&g.state.nitroRemaining==10,"garage induction audition never adds physical boost, motion or NOS consumption");
+    }
     Profile swappedSound;equipPart(swappedSound,PartSlot::Engine,1007);swappedSound.soundOn=4;
     auto overrideSound=engineSamples(swappedSound);
     expect(overrideSound.on==47&&overrideSound.off==23,"manual acceleration override preserves the equipped engine's recovered deceleration sound");
