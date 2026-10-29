@@ -1,3 +1,11 @@
+# Validation 0.17.1 — menus, provenances et styles de jantes
+
+- **415 contrôles du cœur**, 508 586 combinaisons de pièces ; résolution des anciens identifiants de pièces, équivalence physique des véhicules masqués et couverture des six catégories de jantes.
+- **94 contrôles avec entrées clavier/souris réelles sous Linux** : 25 isolation des menus, 12 provenance/migration, 17 filtres de jantes, 40 navigation hiérarchique.
+- **136 contrôles graphiques** ; huit groupes de vérification des pixels. Nouveaux aperçus des menus isolés, des trois provenances et des six catégories de jantes.
+- Les 673 fichiers de ressources existants sont conservés. Aucun changement de physique, de mixage ou de fichier audio dans cette version.
+- Publication Windows conditionnée aux tests du cœur, graphiques, audio et rendu ; preuves de publication ajoutées après téléchargement et vérification.
+
 # Validation 0.17.0 — Original, Unbound et Underground
 
 - 409 contrôles du cœur ; 508 586 combinaisons vérifiées pour la préparation maximale.

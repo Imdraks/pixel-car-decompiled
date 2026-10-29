@@ -1,0 +1,5233 @@
+{
+  "method": "Native visual curation; recovered source shop rows do not encode these six style categories. Original recipe IDs and source wheel families remain intact.",
+  "categories": [
+    "OFFROAD",
+    "TUNER",
+    "MUSCLE",
+    "DRAG",
+    "LUXURY",
+    "HYPER"
+  ],
+  "base_recipe_counts": {
+    "TUNER": 324,
+    "MUSCLE": 42,
+    "DRAG": 30,
+    "HYPER": 68,
+    "OFFROAD": 7,
+    "LUXURY": 50
+  },
+  "variants_inherit_base_style": true,
+  "physics_changed": false,
+  "rims": [
+    {
+      "source_id": 100,
+      "name": "Four Racing",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 33,
+      "spoke": 11
+    },
+    {
+      "source_id": 101,
+      "name": "Sleepers",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 45,
+      "spoke": 66
+    },
+    {
+      "source_id": 102,
+      "name": "Welds",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 50,
+      "spoke": 71
+    },
+    {
+      "source_id": 103,
+      "name": "LMS",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 50,
+      "spoke": 73
+    },
+    {
+      "source_id": 104,
+      "name": "LMS",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 50,
+      "spoke": 74
+    },
+    {
+      "source_id": 105,
+      "name": "LMS",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 50,
+      "spoke": 75
+    },
+    {
+      "source_id": 106,
+      "name": "LMS",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 50,
+      "spoke": 76
+    },
+    {
+      "source_id": 107,
+      "name": "LMS",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 50,
+      "spoke": 77
+    },
+    {
+      "source_id": 108,
+      "name": "Delta1 Drag",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 14,
+      "lip": 82,
+      "spoke": 124
+    },
+    {
+      "source_id": 109,
+      "name": "Drag Steelie",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 8,
+      "lip": 83,
+      "spoke": 2
+    },
+    {
+      "source_id": 110,
+      "name": "Drag Steelie",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 8,
+      "lip": 84,
+      "spoke": 2
+    },
+    {
+      "source_id": 111,
+      "name": "Drag Steelie",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 8,
+      "lip": 85,
+      "spoke": 2
+    },
+    {
+      "source_id": 112,
+      "name": "Drag Steelie",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 8,
+      "lip": 86,
+      "spoke": 2
+    },
+    {
+      "source_id": 113,
+      "name": "Drag Steelie",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 8,
+      "lip": 87,
+      "spoke": 2
+    },
+    {
+      "source_id": 114,
+      "name": "Drag Steelie",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 8,
+      "lip": 88,
+      "spoke": 2
+    },
+    {
+      "source_id": 115,
+      "name": "ARC3",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 123,
+      "spoke": 173
+    },
+    {
+      "source_id": 116,
+      "name": "ET",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 10,
+      "lip": 124,
+      "spoke": 174
+    },
+    {
+      "source_id": 117,
+      "name": "ET",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 10,
+      "lip": 125,
+      "spoke": 175
+    },
+    {
+      "source_id": 118,
+      "name": "ETPRO",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 126,
+      "spoke": 176
+    },
+    {
+      "source_id": 119,
+      "name": "ETPRO",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 127,
+      "spoke": 177
+    },
+    {
+      "source_id": 120,
+      "name": "VN501s",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 139,
+      "spoke": 189
+    },
+    {
+      "source_id": 121,
+      "name": "VN501",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 140,
+      "spoke": 190
+    },
+    {
+      "source_id": 122,
+      "name": "Rot Steel A1",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 4,
+      "lip": 241,
+      "spoke": 317
+    },
+    {
+      "source_id": 123,
+      "name": "Rot Steel B1",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 4,
+      "lip": 242,
+      "spoke": 318
+    },
+    {
+      "source_id": 124,
+      "name": "Rot Steel C1",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 4,
+      "lip": 243,
+      "spoke": 319
+    },
+    {
+      "source_id": 125,
+      "name": "Rot Steel D1",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 4,
+      "lip": 244,
+      "spoke": 320
+    },
+    {
+      "source_id": 126,
+      "name": "VN427 Alloy S",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 3,
+      "lip": 246,
+      "spoke": 322
+    },
+    {
+      "source_id": 127,
+      "name": "VN427 Black S",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 3,
+      "lip": 249,
+      "spoke": 322
+    },
+    {
+      "source_id": 128,
+      "name": "VN427 Gray S",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 3,
+      "lip": 254,
+      "spoke": 322
+    },
+    {
+      "source_id": 129,
+      "name": "Alum Star A",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 257,
+      "spoke": 323
+    },
+    {
+      "source_id": 130,
+      "name": "Alum Star B",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 258,
+      "spoke": 324
+    },
+    {
+      "source_id": 131,
+      "name": "Alum Star C",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 259,
+      "spoke": 325
+    },
+    {
+      "source_id": 132,
+      "name": "Alum Star D",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 260,
+      "spoke": 326
+    },
+    {
+      "source_id": 133,
+      "name": "Alum Star E",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 261,
+      "spoke": 327
+    },
+    {
+      "source_id": 134,
+      "name": "Magnum 1 A",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 278,
+      "spoke": 344
+    },
+    {
+      "source_id": 135,
+      "name": "Magnum 1 B",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 279,
+      "spoke": 345
+    },
+    {
+      "source_id": 136,
+      "name": "Magnum 3 A",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 280,
+      "spoke": 346
+    },
+    {
+      "source_id": 137,
+      "name": "Magnum 3 B",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 281,
+      "spoke": 347
+    },
+    {
+      "source_id": 138,
+      "name": "Magnum 3 C",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 282,
+      "spoke": 348
+    },
+    {
+      "source_id": 139,
+      "name": "Magnum 3 D",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 283,
+      "spoke": 349
+    },
+    {
+      "source_id": 140,
+      "name": "Magnum 3 E",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 284,
+      "spoke": 350
+    },
+    {
+      "source_id": 141,
+      "name": "Race Star A",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 285,
+      "spoke": 351
+    },
+    {
+      "source_id": 142,
+      "name": "Race Star B",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 286,
+      "spoke": 352
+    },
+    {
+      "source_id": 143,
+      "name": "Race Star C",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 287,
+      "spoke": 353
+    },
+    {
+      "source_id": 144,
+      "name": "Race Star D",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 288,
+      "spoke": 354
+    },
+    {
+      "source_id": 145,
+      "name": "Race Star E",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 289,
+      "spoke": 355
+    },
+    {
+      "source_id": 1001,
+      "name": "VX Advent (Gold)",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 15,
+      "lip": 0,
+      "spoke": 0
+    },
+    {
+      "source_id": 1002,
+      "name": "VX Advent (Silver)",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 15,
+      "lip": 1,
+      "spoke": 1
+    },
+    {
+      "source_id": 1003,
+      "name": "TE38 Teals",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 3,
+      "spoke": 4
+    },
+    {
+      "source_id": 1004,
+      "name": "TE38 Kawaii",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 23,
+      "spoke": 41
+    },
+    {
+      "source_id": 1005,
+      "name": "TE38 Golds",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 24,
+      "spoke": 42
+    },
+    {
+      "source_id": 1006,
+      "name": "TE38 Copper",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 25,
+      "spoke": 43
+    },
+    {
+      "source_id": 1007,
+      "name": "BBX LM",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 10,
+      "lip": 32,
+      "spoke": 50
+    },
+    {
+      "source_id": 1008,
+      "name": "TE38 White",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 35,
+      "spoke": 10
+    },
+    {
+      "source_id": 1009,
+      "name": "BBX SR",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 14,
+      "lip": 36,
+      "spoke": 57
+    },
+    {
+      "source_id": 1010,
+      "name": "BBX SR Teal",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 14,
+      "lip": 43,
+      "spoke": 58
+    },
+    {
+      "source_id": 1011,
+      "name": "BBX Concept",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 11,
+      "lip": 36,
+      "spoke": 59
+    },
+    {
+      "source_id": 1012,
+      "name": "SSM MK1 17",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 12,
+      "lip": 41,
+      "spoke": 60
+    },
+    {
+      "source_id": 1013,
+      "name": "SSM MK1 Gold 17",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 12,
+      "lip": 42,
+      "spoke": 62
+    },
+    {
+      "source_id": 1014,
+      "name": "BBX SR Red",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 14,
+      "lip": 26,
+      "spoke": 45
+    },
+    {
+      "source_id": 1015,
+      "name": "BBX SR Orange",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 14,
+      "lip": 27,
+      "spoke": 40
+    },
+    {
+      "source_id": 1016,
+      "name": "Worx Equip 1",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 40,
+      "spoke": 11
+    },
+    {
+      "source_id": 1017,
+      "name": "AV F232",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 43,
+      "spoke": 37
+    },
+    {
+      "source_id": 1018,
+      "name": "15fiftytwo",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 35,
+      "spoke": 39
+    },
+    {
+      "source_id": 1019,
+      "name": "15fiftytwo Gold",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 24,
+      "spoke": 16
+    },
+    {
+      "source_id": 1020,
+      "name": "Watanabe Red",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 26,
+      "spoke": 25
+    },
+    {
+      "source_id": 1021,
+      "name": "BBX Turbo Fan",
+      "style": "OFFROAD",
+      "style_id": 1,
+      "reason": "Rally/offroad-inspired wheel or ventilated rally disc",
+      "spoke_count": 24,
+      "lip": 2,
+      "spoke": 15
+    },
+    {
+      "source_id": 1022,
+      "name": "Worx Equip 17",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 40,
+      "spoke": 63
+    },
+    {
+      "source_id": 1023,
+      "name": "Watanabe Silver",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 36,
+      "spoke": 69
+    },
+    {
+      "source_id": 1024,
+      "name": "Watanabe Bronze",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 49,
+      "spoke": 70
+    },
+    {
+      "source_id": 1025,
+      "name": "Series R Gold",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 15,
+      "lip": 0,
+      "spoke": 78
+    },
+    {
+      "source_id": 1026,
+      "name": "Series R",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 15,
+      "lip": 1,
+      "spoke": 79
+    },
+    {
+      "source_id": 1027,
+      "name": "Turbo Fan x Block",
+      "style": "OFFROAD",
+      "style_id": 1,
+      "reason": "Rally/offroad-inspired wheel or ventilated rally disc",
+      "spoke_count": 24,
+      "lip": 56,
+      "spoke": 15
+    },
+    {
+      "source_id": 1028,
+      "name": "Watanabe Blk",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 45,
+      "spoke": 80
+    },
+    {
+      "source_id": 1029,
+      "name": "Worx Equip 2",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 89,
+      "spoke": 128
+    },
+    {
+      "source_id": 1030,
+      "name": "C1 Vent",
+      "style": "OFFROAD",
+      "style_id": 1,
+      "reason": "Rally/offroad-inspired wheel or ventilated rally disc",
+      "spoke_count": 2,
+      "lip": 90,
+      "spoke": 129
+    },
+    {
+      "source_id": 1031,
+      "name": "HR STREET",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 90,
+      "spoke": 130
+    },
+    {
+      "source_id": 1032,
+      "name": "IMPULSE V",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 1,
+      "lip": 90,
+      "spoke": 131
+    },
+    {
+      "source_id": 1033,
+      "name": "SAKURA GOLD",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 90,
+      "spoke": 132
+    },
+    {
+      "source_id": 1034,
+      "name": "SAKURA RED",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 90,
+      "spoke": 133
+    },
+    {
+      "source_id": 1035,
+      "name": "SSM MK2",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 90,
+      "spoke": 134
+    },
+    {
+      "source_id": 1036,
+      "name": "SSM MK3",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 90,
+      "spoke": 135
+    },
+    {
+      "source_id": 1037,
+      "name": "SSM MK3",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 90,
+      "spoke": 136
+    },
+    {
+      "source_id": 1038,
+      "name": "Worx Equip XL",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 4,
+      "lip": 90,
+      "spoke": 137
+    },
+    {
+      "source_id": 1039,
+      "name": "XR-6",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 90,
+      "spoke": 138
+    },
+    {
+      "source_id": 1040,
+      "name": "USA RACING ALLOY",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 99,
+      "spoke": 147
+    },
+    {
+      "source_id": 1041,
+      "name": "USA RACING GM",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 101,
+      "spoke": 149
+    },
+    {
+      "source_id": 1042,
+      "name": "USA RACING CHROME",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 103,
+      "spoke": 151
+    },
+    {
+      "source_id": 1043,
+      "name": "AMLO",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 105,
+      "spoke": 155
+    },
+    {
+      "source_id": 1044,
+      "name": "AMLO",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 106,
+      "spoke": 156
+    },
+    {
+      "source_id": 1045,
+      "name": "AMLO",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 107,
+      "spoke": 157
+    },
+    {
+      "source_id": 1046,
+      "name": "AMLO",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 108,
+      "spoke": 158
+    },
+    {
+      "source_id": 1047,
+      "name": "AMLO",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 109,
+      "spoke": 159
+    },
+    {
+      "source_id": 1048,
+      "name": "AMLO",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 110,
+      "spoke": 160
+    },
+    {
+      "source_id": 1049,
+      "name": "AMLO",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 111,
+      "spoke": 161
+    },
+    {
+      "source_id": 1050,
+      "name": "AMLO",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 112,
+      "spoke": 162
+    },
+    {
+      "source_id": 1051,
+      "name": "AR883",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 113,
+      "spoke": 163
+    },
+    {
+      "source_id": 1052,
+      "name": "AR916",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 6,
+      "lip": 114,
+      "spoke": 164
+    },
+    {
+      "source_id": 1053,
+      "name": "AR916",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 115,
+      "spoke": 165
+    },
+    {
+      "source_id": 1054,
+      "name": "AR916",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 116,
+      "spoke": 166
+    },
+    {
+      "source_id": 1055,
+      "name": "AR916",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 117,
+      "spoke": 167
+    },
+    {
+      "source_id": 1056,
+      "name": "AR916",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 6,
+      "lip": 118,
+      "spoke": 168
+    },
+    {
+      "source_id": 1057,
+      "name": "AR916",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 6,
+      "lip": 119,
+      "spoke": 169
+    },
+    {
+      "source_id": 1059,
+      "name": "AR916TRON",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 6,
+      "lip": 120,
+      "spoke": 170
+    },
+    {
+      "source_id": 1060,
+      "name": "AR921",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 121,
+      "spoke": 171
+    },
+    {
+      "source_id": 1061,
+      "name": "AR921",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 122,
+      "spoke": 172
+    },
+    {
+      "source_id": 1062,
+      "name": "VF100",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 128,
+      "spoke": 178
+    },
+    {
+      "source_id": 1063,
+      "name": "VF100",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 129,
+      "spoke": 179
+    },
+    {
+      "source_id": 1064,
+      "name": "VF493",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 130,
+      "spoke": 180
+    },
+    {
+      "source_id": 1065,
+      "name": "VF493",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 131,
+      "spoke": 181
+    },
+    {
+      "source_id": 1066,
+      "name": "VF493",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 132,
+      "spoke": 182
+    },
+    {
+      "source_id": 1067,
+      "name": "VN471",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 133,
+      "spoke": 183
+    },
+    {
+      "source_id": 1068,
+      "name": "VN471",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 134,
+      "spoke": 184
+    },
+    {
+      "source_id": 1069,
+      "name": "VN471",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 135,
+      "spoke": 185
+    },
+    {
+      "source_id": 1070,
+      "name": "VN471",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 136,
+      "spoke": 186
+    },
+    {
+      "source_id": 1071,
+      "name": "VN501",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 137,
+      "spoke": 187
+    },
+    {
+      "source_id": 1072,
+      "name": "VN501",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 138,
+      "spoke": 188
+    },
+    {
+      "source_id": 1073,
+      "name": "Carbon",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 141,
+      "spoke": 191
+    },
+    {
+      "source_id": 1074,
+      "name": "Carbon",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 141,
+      "spoke": 192
+    },
+    {
+      "source_id": 1075,
+      "name": "Carbon",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 142,
+      "spoke": 193
+    },
+    {
+      "source_id": 1076,
+      "name": "Carbon",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 143,
+      "spoke": 194
+    },
+    {
+      "source_id": 1077,
+      "name": "SPRINT HART",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 16,
+      "lip": 144,
+      "spoke": 196
+    },
+    {
+      "source_id": 1078,
+      "name": "22B OEM",
+      "style": "OFFROAD",
+      "style_id": 1,
+      "reason": "Rally/offroad-inspired wheel or ventilated rally disc",
+      "spoke_count": 5,
+      "lip": 145,
+      "spoke": 197
+    },
+    {
+      "source_id": 1079,
+      "name": "Advant RGII",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 146,
+      "spoke": 198
+    },
+    {
+      "source_id": 1080,
+      "name": "Advant RGII",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 147,
+      "spoke": 199
+    },
+    {
+      "source_id": 1081,
+      "name": "Advant RGII",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 148,
+      "spoke": 200
+    },
+    {
+      "source_id": 1082,
+      "name": "Advant RGII",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 149,
+      "spoke": 201
+    },
+    {
+      "source_id": 1083,
+      "name": "Advant RGII",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 150,
+      "spoke": 202
+    },
+    {
+      "source_id": 1084,
+      "name": "Advant RGII",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 151,
+      "spoke": 203
+    },
+    {
+      "source_id": 1085,
+      "name": "Advant RGII",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 152,
+      "spoke": 204
+    },
+    {
+      "source_id": 1086,
+      "name": "Advant RGII",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 153,
+      "spoke": 205
+    },
+    {
+      "source_id": 1087,
+      "name": "AG",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 154,
+      "spoke": 206
+    },
+    {
+      "source_id": 1088,
+      "name": "AG",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 155,
+      "spoke": 207
+    },
+    {
+      "source_id": 1089,
+      "name": "Autostrada",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 156,
+      "spoke": 208
+    },
+    {
+      "source_id": 1090,
+      "name": "BBX RE-MG",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 10,
+      "lip": 157,
+      "spoke": 209
+    },
+    {
+      "source_id": 1091,
+      "name": "BBX RE-MG",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 10,
+      "lip": 158,
+      "spoke": 210
+    },
+    {
+      "source_id": 1092,
+      "name": "Cosmis",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 159,
+      "spoke": 211
+    },
+    {
+      "source_id": 1093,
+      "name": "Regamaster Evo",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 160,
+      "spoke": 212
+    },
+    {
+      "source_id": 1094,
+      "name": "Genki BBR",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 161,
+      "spoke": 213
+    },
+    {
+      "source_id": 1095,
+      "name": "Genki NT03",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 12,
+      "lip": 162,
+      "spoke": 214
+    },
+    {
+      "source_id": 1096,
+      "name": "15fiftytwo Outlaw",
+      "style": "OFFROAD",
+      "style_id": 1,
+      "reason": "Rally/offroad-inspired wheel or ventilated rally disc",
+      "spoke_count": 5,
+      "lip": 163,
+      "spoke": 215
+    },
+    {
+      "source_id": 1097,
+      "name": "KF007",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 164,
+      "spoke": 216
+    },
+    {
+      "source_id": 1098,
+      "name": "KF007",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 165,
+      "spoke": 217
+    },
+    {
+      "source_id": 1099,
+      "name": "KF007",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 166,
+      "spoke": 218
+    },
+    {
+      "source_id": 1100,
+      "name": "KF007",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 167,
+      "spoke": 219
+    },
+    {
+      "source_id": 1101,
+      "name": "KF007",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 168,
+      "spoke": 220
+    },
+    {
+      "source_id": 1102,
+      "name": "KF007",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 169,
+      "spoke": 221
+    },
+    {
+      "source_id": 1103,
+      "name": "KF007",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 170,
+      "spoke": 222
+    },
+    {
+      "source_id": 1104,
+      "name": "KF007",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 171,
+      "spoke": 223
+    },
+    {
+      "source_id": 1105,
+      "name": "MS-02",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 172,
+      "spoke": 224
+    },
+    {
+      "source_id": 1106,
+      "name": "MS-02",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 173,
+      "spoke": 225
+    },
+    {
+      "source_id": 1107,
+      "name": "VIP MODULAR",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 18,
+      "lip": 174,
+      "spoke": 226
+    },
+    {
+      "source_id": 1108,
+      "name": "VIP MODULAR",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 17,
+      "lip": 175,
+      "spoke": 227
+    },
+    {
+      "source_id": 1109,
+      "name": "VIP MODULAR",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 17,
+      "lip": 176,
+      "spoke": 228
+    },
+    {
+      "source_id": 1110,
+      "name": "Volx CE28N",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 10,
+      "lip": 177,
+      "spoke": 229
+    },
+    {
+      "source_id": 1111,
+      "name": "Volx CE28N",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 10,
+      "lip": 178,
+      "spoke": 230
+    },
+    {
+      "source_id": 1112,
+      "name": "Volx CE28N",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 10,
+      "lip": 179,
+      "spoke": 231
+    },
+    {
+      "source_id": 1113,
+      "name": "Volx CE28N",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 10,
+      "lip": 180,
+      "spoke": 232
+    },
+    {
+      "source_id": 1114,
+      "name": "Volx RE30",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 177,
+      "spoke": 233
+    },
+    {
+      "source_id": 1115,
+      "name": "Volx RE30",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 178,
+      "spoke": 234
+    },
+    {
+      "source_id": 1116,
+      "name": "Volx RE30",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 179,
+      "spoke": 235
+    },
+    {
+      "source_id": 1117,
+      "name": "Volx RE30",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 180,
+      "spoke": 236
+    },
+    {
+      "source_id": 1118,
+      "name": "Volx SE37K",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 178,
+      "spoke": 237
+    },
+    {
+      "source_id": 1119,
+      "name": "Volx TE37V",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 181,
+      "spoke": 238
+    },
+    {
+      "source_id": 1120,
+      "name": "Volx TE37V",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 182,
+      "spoke": 239
+    },
+    {
+      "source_id": 1121,
+      "name": "Volx TE37V",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 183,
+      "spoke": 240
+    },
+    {
+      "source_id": 1122,
+      "name": "Watanabe R-Type",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 184,
+      "spoke": 241
+    },
+    {
+      "source_id": 1123,
+      "name": "Watanabe R-Type",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 185,
+      "spoke": 242
+    },
+    {
+      "source_id": 1124,
+      "name": "Watanabe R-Type",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 186,
+      "spoke": 243
+    },
+    {
+      "source_id": 1125,
+      "name": "Watanabe R-Type",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 187,
+      "spoke": 244
+    },
+    {
+      "source_id": 1126,
+      "name": "Watanabe R-Type",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 188,
+      "spoke": 245
+    },
+    {
+      "source_id": 1127,
+      "name": "Watanabe R-Type",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 189,
+      "spoke": 245
+    },
+    {
+      "source_id": 1128,
+      "name": "Worx Equip CR01",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 190,
+      "spoke": 246
+    },
+    {
+      "source_id": 1129,
+      "name": "Worx Equip 03",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 191,
+      "spoke": 248
+    },
+    {
+      "source_id": 1130,
+      "name": "Worx Equip 03",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 191,
+      "spoke": 249
+    },
+    {
+      "source_id": 1131,
+      "name": "Worx Equip 03",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 192,
+      "spoke": 248
+    },
+    {
+      "source_id": 1132,
+      "name": "Worx Equip 03",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 192,
+      "spoke": 249
+    },
+    {
+      "source_id": 1133,
+      "name": "TE36SL A",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 296,
+      "spoke": 362
+    },
+    {
+      "source_id": 1134,
+      "name": "TE36SL B",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 297,
+      "spoke": 362
+    },
+    {
+      "source_id": 1135,
+      "name": "TE36SL C",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 298,
+      "spoke": 362
+    },
+    {
+      "source_id": 1136,
+      "name": "TE36SL D",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 299,
+      "spoke": 362
+    },
+    {
+      "source_id": 1137,
+      "name": "TE36SL E",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 300,
+      "spoke": 362
+    },
+    {
+      "source_id": 1138,
+      "name": "TE36SL F",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 301,
+      "spoke": 363
+    },
+    {
+      "source_id": 1139,
+      "name": "TE36SL G",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 302,
+      "spoke": 364
+    },
+    {
+      "source_id": 1140,
+      "name": "TE36SL H",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 303,
+      "spoke": 365
+    },
+    {
+      "source_id": 1141,
+      "name": "Revolfe",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 91,
+      "spoke": 366
+    },
+    {
+      "source_id": 1142,
+      "name": "Revolfe",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 92,
+      "spoke": 367
+    },
+    {
+      "source_id": 1143,
+      "name": "Revolfe",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 93,
+      "spoke": 368
+    },
+    {
+      "source_id": 1144,
+      "name": "Revolfe",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 94,
+      "spoke": 369
+    },
+    {
+      "source_id": 1145,
+      "name": "Revolfe",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 304,
+      "spoke": 370
+    },
+    {
+      "source_id": 1146,
+      "name": "Revolfe",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 305,
+      "spoke": 371
+    },
+    {
+      "source_id": 1147,
+      "name": "Revolfe",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 306,
+      "spoke": 372
+    },
+    {
+      "source_id": 1148,
+      "name": "Revolfe",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 307,
+      "spoke": 373
+    },
+    {
+      "source_id": 1149,
+      "name": "Revolfe",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 304,
+      "spoke": 374
+    },
+    {
+      "source_id": 1150,
+      "name": "Revolfe",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 305,
+      "spoke": 375
+    },
+    {
+      "source_id": 1151,
+      "name": "Revolfe",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 306,
+      "spoke": 376
+    },
+    {
+      "source_id": 1152,
+      "name": "Revolfe",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 307,
+      "spoke": 377
+    },
+    {
+      "source_id": 1153,
+      "name": "BBX SR Black",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 14,
+      "lip": 308,
+      "spoke": 378
+    },
+    {
+      "source_id": 1154,
+      "name": "SF Unicorn",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 2,
+      "lip": 310,
+      "spoke": 379
+    },
+    {
+      "source_id": 1155,
+      "name": "SF Glass V2 (Blue)",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 2,
+      "lip": 311,
+      "spoke": 379
+    },
+    {
+      "source_id": 1156,
+      "name": "SF Glass V2 (Red)",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 2,
+      "lip": 312,
+      "spoke": 379
+    },
+    {
+      "source_id": 1600,
+      "name": "A3A Blue",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 90,
+      "spoke": 266
+    },
+    {
+      "source_id": 1601,
+      "name": "A3A Red",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 90,
+      "spoke": 267
+    },
+    {
+      "source_id": 1602,
+      "name": "A3A Super",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 90,
+      "spoke": 268
+    },
+    {
+      "source_id": 1603,
+      "name": "A3C",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 1,
+      "lip": 90,
+      "spoke": 269
+    },
+    {
+      "source_id": 1604,
+      "name": "A3D",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 90,
+      "spoke": 270
+    },
+    {
+      "source_id": 1605,
+      "name": "A3E",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 1,
+      "lip": 90,
+      "spoke": 271
+    },
+    {
+      "source_id": 1606,
+      "name": "AC Curve",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 1,
+      "lip": 90,
+      "spoke": 272
+    },
+    {
+      "source_id": 1607,
+      "name": "AC Wave",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 1,
+      "lip": 90,
+      "spoke": 273
+    },
+    {
+      "source_id": 1608,
+      "name": "Hero 1",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 90,
+      "spoke": 274
+    },
+    {
+      "source_id": 1609,
+      "name": "Hero 1-R",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 90,
+      "spoke": 275
+    },
+    {
+      "source_id": 1610,
+      "name": "Impulse V V2",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 90,
+      "spoke": 276
+    },
+    {
+      "source_id": 1611,
+      "name": "Meteor",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 90,
+      "spoke": 277
+    },
+    {
+      "source_id": 1612,
+      "name": "Sakura Blossom",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 90,
+      "spoke": 278
+    },
+    {
+      "source_id": 1613,
+      "name": "Shadow",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 90,
+      "spoke": 279
+    },
+    {
+      "source_id": 1614,
+      "name": "Shark Gold",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 90,
+      "spoke": 280
+    },
+    {
+      "source_id": 1615,
+      "name": "Shark Red",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 90,
+      "spoke": 281
+    },
+    {
+      "source_id": 1616,
+      "name": "Wata4 Black",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 1,
+      "lip": 90,
+      "spoke": 282
+    },
+    {
+      "source_id": 1617,
+      "name": "Wata4 Gold",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 1,
+      "lip": 90,
+      "spoke": 283
+    },
+    {
+      "source_id": 1618,
+      "name": "Wata4 Gray",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 1,
+      "lip": 90,
+      "spoke": 284
+    },
+    {
+      "source_id": 1619,
+      "name": "XR-5",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 90,
+      "spoke": 285
+    },
+    {
+      "source_id": 1620,
+      "name": "Fifteen52 Turbo-R",
+      "style": "OFFROAD",
+      "style_id": 1,
+      "reason": "Rally/offroad-inspired wheel or ventilated rally disc",
+      "spoke_count": 5,
+      "lip": 238,
+      "spoke": 314
+    },
+    {
+      "source_id": 1621,
+      "name": "Fifteen52 Turbo4",
+      "style": "OFFROAD",
+      "style_id": 1,
+      "reason": "Rally/offroad-inspired wheel or ventilated rally disc",
+      "spoke_count": 5,
+      "lip": 239,
+      "spoke": 316
+    },
+    {
+      "source_id": 1622,
+      "name": "Flakes (Limited)",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 240,
+      "spoke": 315
+    },
+    {
+      "source_id": 1623,
+      "name": "VN427 Alloy",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 3,
+      "lip": 245,
+      "spoke": 321
+    },
+    {
+      "source_id": 1624,
+      "name": "VN427 Black",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 3,
+      "lip": 247,
+      "spoke": 321
+    },
+    {
+      "source_id": 1625,
+      "name": "VN427 Black C",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 3,
+      "lip": 248,
+      "spoke": 321
+    },
+    {
+      "source_id": 1626,
+      "name": "VN427 Blie",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 3,
+      "lip": 250,
+      "spoke": 321
+    },
+    {
+      "source_id": 1627,
+      "name": "VN427 Gold",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 3,
+      "lip": 251,
+      "spoke": 321
+    },
+    {
+      "source_id": 1628,
+      "name": "VN427 Gold T",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 3,
+      "lip": 252,
+      "spoke": 321
+    },
+    {
+      "source_id": 1629,
+      "name": "VN427 Gray",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 3,
+      "lip": 253,
+      "spoke": 321
+    },
+    {
+      "source_id": 1630,
+      "name": "VN427 Red",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 3,
+      "lip": 255,
+      "spoke": 321
+    },
+    {
+      "source_id": 1631,
+      "name": "VN427 White",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 3,
+      "lip": 256,
+      "spoke": 321
+    },
+    {
+      "source_id": 1632,
+      "name": "Bristol A",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 262,
+      "spoke": 328
+    },
+    {
+      "source_id": 1633,
+      "name": "Bristol B",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 263,
+      "spoke": 329
+    },
+    {
+      "source_id": 1634,
+      "name": "F148 A",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 264,
+      "spoke": 330
+    },
+    {
+      "source_id": 1635,
+      "name": "F148 B",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 265,
+      "spoke": 331
+    },
+    {
+      "source_id": 1636,
+      "name": "F148 C",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 266,
+      "spoke": 332
+    },
+    {
+      "source_id": 1637,
+      "name": "Intergram A",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 267,
+      "spoke": 333
+    },
+    {
+      "source_id": 1638,
+      "name": "Intergram B",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 268,
+      "spoke": 334
+    },
+    {
+      "source_id": 1639,
+      "name": "Intergram C",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 269,
+      "spoke": 335
+    },
+    {
+      "source_id": 1640,
+      "name": "M77 A",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 270,
+      "spoke": 336
+    },
+    {
+      "source_id": 1641,
+      "name": "M77 B",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 271,
+      "spoke": 337
+    },
+    {
+      "source_id": 1642,
+      "name": "M77 C",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 272,
+      "spoke": 338
+    },
+    {
+      "source_id": 1643,
+      "name": "M77 D",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 273,
+      "spoke": 339
+    },
+    {
+      "source_id": 1644,
+      "name": "M77 E",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 274,
+      "spoke": 340
+    },
+    {
+      "source_id": 1645,
+      "name": "M77 F",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 275,
+      "spoke": 341
+    },
+    {
+      "source_id": 1646,
+      "name": "M77 G",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 276,
+      "spoke": 342
+    },
+    {
+      "source_id": 1647,
+      "name": "M77 H",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 277,
+      "spoke": 343
+    },
+    {
+      "source_id": 1648,
+      "name": "Sebring A",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 290,
+      "spoke": 356
+    },
+    {
+      "source_id": 1649,
+      "name": "Sebring B",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 291,
+      "spoke": 357
+    },
+    {
+      "source_id": 1650,
+      "name": "Sebring C",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 292,
+      "spoke": 358
+    },
+    {
+      "source_id": 1651,
+      "name": "Valencia A",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 293,
+      "spoke": 359
+    },
+    {
+      "source_id": 1652,
+      "name": "Valencia B",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 294,
+      "spoke": 360
+    },
+    {
+      "source_id": 1653,
+      "name": "Valencia C",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 295,
+      "spoke": 361
+    },
+    {
+      "source_id": 2001,
+      "name": "VX Concave",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 6,
+      "lip": 9,
+      "spoke": 26
+    },
+    {
+      "source_id": 2002,
+      "name": "Worx VIP",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 5,
+      "lip": 9,
+      "spoke": 6
+    },
+    {
+      "source_id": 2003,
+      "name": "VX Eleven",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 11,
+      "lip": 21,
+      "spoke": 38
+    },
+    {
+      "source_id": 2004,
+      "name": "BBX RG-r",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 11,
+      "spoke": 33
+    },
+    {
+      "source_id": 2005,
+      "name": "BBX RG-r2",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 16,
+      "spoke": 34
+    },
+    {
+      "source_id": 2006,
+      "name": "PR Evox (Gold)",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 16,
+      "spoke": 32
+    },
+    {
+      "source_id": 2007,
+      "name": "BBX F1 24K",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 8,
+      "lip": 12,
+      "spoke": 34
+    },
+    {
+      "source_id": 2008,
+      "name": "Voss Concepts.T",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 20,
+      "spoke": 63
+    },
+    {
+      "source_id": 2009,
+      "name": "Worx Equip 5",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 39,
+      "spoke": 63
+    },
+    {
+      "source_id": 2010,
+      "name": "Worx Kiwami",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 15,
+      "spoke": 8
+    },
+    {
+      "source_id": 2011,
+      "name": "Genki FPF1",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 32,
+      "spoke": 53
+    },
+    {
+      "source_id": 2012,
+      "name": "BBX LM Deep",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 10,
+      "lip": 31,
+      "spoke": 50
+    },
+    {
+      "source_id": 2013,
+      "name": "BLK Bullet",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 29,
+      "spoke": 46
+    },
+    {
+      "source_id": 2014,
+      "name": "Fans",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 18,
+      "lip": 32,
+      "spoke": 49
+    },
+    {
+      "source_id": 2015,
+      "name": "BBX FIR",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 19,
+      "spoke": 54
+    },
+    {
+      "source_id": 2016,
+      "name": "SSM SP1",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 16,
+      "spoke": 55
+    },
+    {
+      "source_id": 2017,
+      "name": "SSM SP1 Silver",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 31,
+      "spoke": 56
+    },
+    {
+      "source_id": 2018,
+      "name": "SSM MK1 18",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 12,
+      "lip": 37,
+      "spoke": 60
+    },
+    {
+      "source_id": 2019,
+      "name": "Riverside",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 31,
+      "spoke": 61
+    },
+    {
+      "source_id": 2020,
+      "name": "SSM MK1 Gold 18",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 12,
+      "lip": 38,
+      "spoke": 62
+    },
+    {
+      "source_id": 2021,
+      "name": "Rays",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 29,
+      "spoke": 47
+    },
+    {
+      "source_id": 2022,
+      "name": "SSM SP1 Gold",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 28,
+      "spoke": 55
+    },
+    {
+      "source_id": 2023,
+      "name": "Advent Supers",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 3,
+      "lip": 19,
+      "spoke": 12
+    },
+    {
+      "source_id": 2024,
+      "name": "Advent Super Reds",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 3,
+      "lip": 19,
+      "spoke": 14
+    },
+    {
+      "source_id": 2025,
+      "name": "Reflex",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 10,
+      "lip": 44,
+      "spoke": 24
+    },
+    {
+      "source_id": 2026,
+      "name": "AV Form",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 10,
+      "lip": 18,
+      "spoke": 17
+    },
+    {
+      "source_id": 2027,
+      "name": "Advent Super RBs",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 3,
+      "lip": 17,
+      "spoke": 13
+    },
+    {
+      "source_id": 2028,
+      "name": "Advent Super Blk",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 3,
+      "lip": 19,
+      "spoke": 13
+    },
+    {
+      "source_id": 2029,
+      "name": "Voss Concepts.R",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 17,
+      "spoke": 63
+    },
+    {
+      "source_id": 2030,
+      "name": "AV Form G",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 10,
+      "lip": 16,
+      "spoke": 18
+    },
+    {
+      "source_id": 2031,
+      "name": "AV Form Clips",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 10,
+      "lip": 30,
+      "spoke": 17
+    },
+    {
+      "source_id": 2032,
+      "name": "AV Form Copper",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 10,
+      "lip": 34,
+      "spoke": 19
+    },
+    {
+      "source_id": 2033,
+      "name": "Volx GTC",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 11,
+      "spoke": 35
+    },
+    {
+      "source_id": 2034,
+      "name": "Genki Cr",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 10,
+      "lip": 37,
+      "spoke": 36
+    },
+    {
+      "source_id": 2035,
+      "name": "Roti TMB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 18,
+      "spoke": 20
+    },
+    {
+      "source_id": 2036,
+      "name": "Roti TMB Gold",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 16,
+      "spoke": 21
+    },
+    {
+      "source_id": 2037,
+      "name": "SSM SP1 Black",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 62,
+      "spoke": 22
+    },
+    {
+      "source_id": 2038,
+      "name": "Worx Chameleon",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 4,
+      "spoke": 51
+    },
+    {
+      "source_id": 2039,
+      "name": "SSM SP1 Blue Chrome",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 5,
+      "spoke": 51
+    },
+    {
+      "source_id": 2040,
+      "name": "SSM SP1 Neon",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 6,
+      "spoke": 9
+    },
+    {
+      "source_id": 2041,
+      "name": "SSM SP1 Skies",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 10,
+      "spoke": 7
+    },
+    {
+      "source_id": 2042,
+      "name": "VIP",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 10,
+      "lip": 11,
+      "spoke": 27
+    },
+    {
+      "source_id": 2043,
+      "name": "Watanabe TypeR Gold",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 16,
+      "spoke": 30
+    },
+    {
+      "source_id": 2044,
+      "name": "TE38 LE",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 8,
+      "spoke": 52
+    },
+    {
+      "source_id": 2045,
+      "name": "XRR SSP Black",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 31,
+      "spoke": 28
+    },
+    {
+      "source_id": 2046,
+      "name": "Forged Red",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 17,
+      "spoke": 5
+    },
+    {
+      "source_id": 2047,
+      "name": "BBX SR Teal",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 11,
+      "lip": 14,
+      "spoke": 59
+    },
+    {
+      "source_id": 2048,
+      "name": "BBX SR Gold",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 11,
+      "lip": 28,
+      "spoke": 3
+    },
+    {
+      "source_id": 2049,
+      "name": "BBX SR SG",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 11,
+      "lip": 16,
+      "spoke": 3
+    },
+    {
+      "source_id": 2050,
+      "name": "Worx Equip 5 YB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 13,
+      "spoke": 48
+    },
+    {
+      "source_id": 2051,
+      "name": "Steelies",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 47,
+      "spoke": 2
+    },
+    {
+      "source_id": 2052,
+      "name": "AV Form BLK",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 10,
+      "lip": 48,
+      "spoke": 68
+    },
+    {
+      "source_id": 2053,
+      "name": "Worx SP1 Deep",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 16,
+      "spoke": 72
+    },
+    {
+      "source_id": 2054,
+      "name": "Gold Steelies",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 54,
+      "spoke": 2
+    },
+    {
+      "source_id": 2055,
+      "name": "Teal Steelies",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 55,
+      "spoke": 2
+    },
+    {
+      "source_id": 2056,
+      "name": "Stance",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 12,
+      "lip": 28,
+      "spoke": 37
+    },
+    {
+      "source_id": 2057,
+      "name": "Diamond Glass",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 1,
+      "lip": 57,
+      "spoke": 65
+    },
+    {
+      "source_id": 2058,
+      "name": "Stance Golds",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 12,
+      "lip": 28,
+      "spoke": 81
+    },
+    {
+      "source_id": 2059,
+      "name": "Stance",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 12,
+      "lip": 17,
+      "spoke": 82
+    },
+    {
+      "source_id": 2060,
+      "name": "Stance",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 12,
+      "lip": 46,
+      "spoke": 83
+    },
+    {
+      "source_id": 2061,
+      "name": "Genki NT",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 12,
+      "lip": 58,
+      "spoke": 84
+    },
+    {
+      "source_id": 2062,
+      "name": "Rev Five",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 39,
+      "spoke": 85
+    },
+    {
+      "source_id": 2063,
+      "name": "Pink Steelies",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 59,
+      "spoke": 2
+    },
+    {
+      "source_id": 2064,
+      "name": "Blue Steelies",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 60,
+      "spoke": 2
+    },
+    {
+      "source_id": 2065,
+      "name": "White Steelies",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 61,
+      "spoke": 2
+    },
+    {
+      "source_id": 2066,
+      "name": "Worx Kiwami",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 53,
+      "spoke": 86
+    },
+    {
+      "source_id": 2067,
+      "name": "VSP Type2",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 64,
+      "spoke": 87
+    },
+    {
+      "source_id": 2068,
+      "name": "Cosmos XT Teal",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 65,
+      "spoke": 88
+    },
+    {
+      "source_id": 2069,
+      "name": "Cosmos XT Purple",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 66,
+      "spoke": 89
+    },
+    {
+      "source_id": 2070,
+      "name": "Cosmos XT Yellow",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 13,
+      "spoke": 90
+    },
+    {
+      "source_id": 2071,
+      "name": "Cosmos XT Green",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 6,
+      "spoke": 91
+    },
+    {
+      "source_id": 2072,
+      "name": "Worx Equip 5 BB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 65,
+      "spoke": 48
+    },
+    {
+      "source_id": 2073,
+      "name": "Worx Equip 5 PB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 66,
+      "spoke": 48
+    },
+    {
+      "source_id": 2074,
+      "name": "SL Dub Ghost",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 5,
+      "lip": 67,
+      "spoke": 92
+    },
+    {
+      "source_id": 2075,
+      "name": "SL Dub Dolphins",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 5,
+      "lip": 68,
+      "spoke": 93
+    },
+    {
+      "source_id": 2076,
+      "name": "SL Dub Bloodshot",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 5,
+      "lip": 69,
+      "spoke": 94
+    },
+    {
+      "source_id": 2077,
+      "name": "SL Dub BGold",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 5,
+      "lip": 70,
+      "spoke": 95
+    },
+    {
+      "source_id": 2078,
+      "name": "SL Dub Blackout",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 5,
+      "lip": 71,
+      "spoke": 96
+    },
+    {
+      "source_id": 2079,
+      "name": "SL Gens TW",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 6,
+      "lip": 3,
+      "spoke": 92
+    },
+    {
+      "source_id": 2080,
+      "name": "SL Gens Teal",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 6,
+      "lip": 3,
+      "spoke": 93
+    },
+    {
+      "source_id": 2081,
+      "name": "TE38 ST",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 43,
+      "spoke": 23
+    },
+    {
+      "source_id": 2082,
+      "name": "TE38 BTS",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 43,
+      "spoke": 22
+    },
+    {
+      "source_id": 2083,
+      "name": "TE38 SB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 35,
+      "spoke": 22
+    },
+    {
+      "source_id": 2084,
+      "name": "TE38 TG",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 24,
+      "spoke": 4
+    },
+    {
+      "source_id": 2085,
+      "name": "AV Sport RBS",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 12,
+      "lip": 26,
+      "spoke": 68
+    },
+    {
+      "source_id": 2086,
+      "name": "SSM Axis SR",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 26,
+      "spoke": 63
+    },
+    {
+      "source_id": 2087,
+      "name": "SL VIP 8R",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 8,
+      "lip": 26,
+      "spoke": 63
+    },
+    {
+      "source_id": 2088,
+      "name": "SL VIP 9S",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 9,
+      "lip": 32,
+      "spoke": 63
+    },
+    {
+      "source_id": 2089,
+      "name": "Weld Pros",
+      "style": "DRAG",
+      "style_id": 4,
+      "reason": "Drag-racing wheel family, light centres and drag steelies",
+      "spoke_count": 5,
+      "lip": 36,
+      "spoke": 6
+    },
+    {
+      "source_id": 2090,
+      "name": "SL Gens SD",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 7,
+      "lip": 63,
+      "spoke": 92
+    },
+    {
+      "source_id": 2091,
+      "name": "SL Gens AS",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 7,
+      "lip": 63,
+      "spoke": 93
+    },
+    {
+      "source_id": 2092,
+      "name": "SL Gens RS",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 7,
+      "lip": 63,
+      "spoke": 94
+    },
+    {
+      "source_id": 2093,
+      "name": "SL Gens GS",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 7,
+      "lip": 63,
+      "spoke": 95
+    },
+    {
+      "source_id": 2094,
+      "name": "SL Gens SB",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 7,
+      "lip": 63,
+      "spoke": 96
+    },
+    {
+      "source_id": 2095,
+      "name": "SL Gens Sil",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 7,
+      "lip": 9,
+      "spoke": 92
+    },
+    {
+      "source_id": 2096,
+      "name": "SL Ratz SG",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 15,
+      "lip": 63,
+      "spoke": 24
+    },
+    {
+      "source_id": 2097,
+      "name": "SL Ratz BG",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 15,
+      "lip": 65,
+      "spoke": 24
+    },
+    {
+      "source_id": 2098,
+      "name": "SL Ratz GG",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 15,
+      "lip": 3,
+      "spoke": 24
+    },
+    {
+      "source_id": 2099,
+      "name": "AV Form SG",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 10,
+      "lip": 9,
+      "spoke": 17
+    },
+    {
+      "source_id": 2100,
+      "name": "SL VIP HR3",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 10,
+      "lip": 9,
+      "spoke": 39
+    },
+    {
+      "source_id": 2101,
+      "name": "SL Dub Fire",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 6,
+      "lip": 8,
+      "spoke": 94
+    },
+    {
+      "source_id": 2102,
+      "name": "RACING HEART GW",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 12,
+      "spoke": 92
+    },
+    {
+      "source_id": 2103,
+      "name": "RACING HEART RW",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 17,
+      "spoke": 92
+    },
+    {
+      "source_id": 2104,
+      "name": "RACING HEART RW-1",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 17,
+      "spoke": 92
+    },
+    {
+      "source_id": 2105,
+      "name": "RACING HEART PW",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 66,
+      "spoke": 92
+    },
+    {
+      "source_id": 2106,
+      "name": "RACING HEART",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 44,
+      "spoke": 92
+    },
+    {
+      "source_id": 2107,
+      "name": "BASELINE SA",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 44,
+      "spoke": 93
+    },
+    {
+      "source_id": 2108,
+      "name": "BASELINE SR",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 44,
+      "spoke": 94
+    },
+    {
+      "source_id": 2109,
+      "name": "BASELINE SB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 44,
+      "spoke": 96
+    },
+    {
+      "source_id": 2110,
+      "name": "BASELINE SG",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 44,
+      "spoke": 95
+    },
+    {
+      "source_id": 2111,
+      "name": "RACING HEART B",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 45,
+      "spoke": 96
+    },
+    {
+      "source_id": 2112,
+      "name": "WORX KIWAMI B",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 45,
+      "spoke": 86
+    },
+    {
+      "source_id": 2113,
+      "name": "WORX VELOCITY B",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 14,
+      "lip": 7,
+      "spoke": 96
+    },
+    {
+      "source_id": 2114,
+      "name": "WORX VELOCITY G",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 15,
+      "lip": 12,
+      "spoke": 95
+    },
+    {
+      "source_id": 2115,
+      "name": "VX MODULAR SP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 13,
+      "lip": 11,
+      "spoke": 97
+    },
+    {
+      "source_id": 2116,
+      "name": "VX MODULAR G",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 13,
+      "lip": 12,
+      "spoke": 0
+    },
+    {
+      "source_id": 2117,
+      "name": "VX MODULAR SG",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 13,
+      "lip": 11,
+      "spoke": 0
+    },
+    {
+      "source_id": 2118,
+      "name": "VX MODULAR S",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 13,
+      "lip": 11,
+      "spoke": 1
+    },
+    {
+      "source_id": 2119,
+      "name": "VX MODULAR GS",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 13,
+      "lip": 12,
+      "spoke": 1
+    },
+    {
+      "source_id": 2120,
+      "name": "SSR FORUMS",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 9,
+      "spoke": 10
+    },
+    {
+      "source_id": 2121,
+      "name": "VX FORCE OB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 34,
+      "spoke": 68
+    },
+    {
+      "source_id": 2122,
+      "name": "VX FORCE B",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 22,
+      "spoke": 68
+    },
+    {
+      "source_id": 2123,
+      "name": "VX FORCE MB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 49,
+      "spoke": 68
+    },
+    {
+      "source_id": 2124,
+      "name": "VX FORCE PB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 66,
+      "spoke": 68
+    },
+    {
+      "source_id": 2125,
+      "name": "VX FORCE CB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 65,
+      "spoke": 68
+    },
+    {
+      "source_id": 2126,
+      "name": "VX FORCE BB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 5,
+      "spoke": 68
+    },
+    {
+      "source_id": 2127,
+      "name": "VX FORCE GB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 6,
+      "spoke": 68
+    },
+    {
+      "source_id": 2128,
+      "name": "VX FORCE YB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 13,
+      "spoke": 68
+    },
+    {
+      "source_id": 2129,
+      "name": "VX FORCE RB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 17,
+      "spoke": 68
+    },
+    {
+      "source_id": 2130,
+      "name": "VX FORCE TB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 20,
+      "spoke": 68
+    },
+    {
+      "source_id": 2131,
+      "name": "VX FORCE HPB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 23,
+      "spoke": 68
+    },
+    {
+      "source_id": 2132,
+      "name": "VX TRI X",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 9,
+      "spoke": 38
+    },
+    {
+      "source_id": 2133,
+      "name": "VX TRI S",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 9,
+      "spoke": 85
+    },
+    {
+      "source_id": 2134,
+      "name": "VX TRI R",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 3,
+      "lip": 9,
+      "spoke": 92
+    },
+    {
+      "source_id": 2135,
+      "name": "VX LUDES",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 4,
+      "lip": 9,
+      "spoke": 12
+    },
+    {
+      "source_id": 2136,
+      "name": "RACING HEART SS",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 9,
+      "spoke": 92
+    },
+    {
+      "source_id": 2138,
+      "name": "Cosmos XT PB",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 23,
+      "spoke": 88
+    },
+    {
+      "source_id": 2139,
+      "name": "COSMOS ZT CANDY",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 10,
+      "spoke": 94
+    },
+    {
+      "source_id": 2140,
+      "name": "COSMOS ZT C",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 10,
+      "spoke": 93
+    },
+    {
+      "source_id": 2141,
+      "name": "COSMOS ZT Y",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 13,
+      "spoke": 95
+    },
+    {
+      "source_id": 2142,
+      "name": "COSMOS ZT R",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 17,
+      "spoke": 94
+    },
+    {
+      "source_id": 2143,
+      "name": "COSMOS ZT B",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 45,
+      "spoke": 96
+    },
+    {
+      "source_id": 2144,
+      "name": "COSMOS XT PP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 23,
+      "spoke": 89
+    },
+    {
+      "source_id": 2145,
+      "name": "15fiftytwo FORMULA",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 76,
+      "spoke": 110
+    },
+    {
+      "source_id": 2146,
+      "name": "iWerks Spiral WT",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 15,
+      "spoke": 123
+    },
+    {
+      "source_id": 2147,
+      "name": "iWerks Spiral MT",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 9,
+      "spoke": 123
+    },
+    {
+      "source_id": 2148,
+      "name": "336Racing",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 91,
+      "spoke": 139
+    },
+    {
+      "source_id": 2149,
+      "name": "336Racing",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 92,
+      "spoke": 140
+    },
+    {
+      "source_id": 2150,
+      "name": "336Racing",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 93,
+      "spoke": 141
+    },
+    {
+      "source_id": 2151,
+      "name": "336Racing",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 94,
+      "spoke": 142
+    },
+    {
+      "source_id": 2152,
+      "name": "AV Mod",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 95,
+      "spoke": 143
+    },
+    {
+      "source_id": 2153,
+      "name": "AV Mod",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 96,
+      "spoke": 144
+    },
+    {
+      "source_id": 2154,
+      "name": "VX MODULAR",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 17,
+      "lip": 97,
+      "spoke": 145
+    },
+    {
+      "source_id": 2155,
+      "name": "USA RACING ALLOY",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 98,
+      "spoke": 146
+    },
+    {
+      "source_id": 2156,
+      "name": "USA RACING Black",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 100,
+      "spoke": 148
+    },
+    {
+      "source_id": 2157,
+      "name": "USA RACING GM",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 5,
+      "lip": 102,
+      "spoke": 150
+    },
+    {
+      "source_id": 2158,
+      "name": "USA RACING AR9",
+      "style": "MUSCLE",
+      "style_id": 3,
+      "reason": "American classic/muscle wheel family",
+      "spoke_count": 6,
+      "lip": 104,
+      "spoke": 152
+    },
+    {
+      "source_id": 2159,
+      "name": "Valentines",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 1,
+      "lip": 23,
+      "spoke": 153
+    },
+    {
+      "source_id": 2160,
+      "name": "Valentines",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 1,
+      "lip": 17,
+      "spoke": 154
+    },
+    {
+      "source_id": 2162,
+      "name": "Spider",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 194,
+      "spoke": 251
+    },
+    {
+      "source_id": 2163,
+      "name": "Spider",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 195,
+      "spoke": 252
+    },
+    {
+      "source_id": 2164,
+      "name": "Spider",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 196,
+      "spoke": 253
+    },
+    {
+      "source_id": 2165,
+      "name": "Spider",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 197,
+      "spoke": 254
+    },
+    {
+      "source_id": 2166,
+      "name": "Spider SE",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 198,
+      "spoke": 255
+    },
+    {
+      "source_id": 2167,
+      "name": "Spider SE",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 199,
+      "spoke": 256
+    },
+    {
+      "source_id": 2168,
+      "name": "Spider SE",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 200,
+      "spoke": 257
+    },
+    {
+      "source_id": 2169,
+      "name": "Spider SE",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 201,
+      "spoke": 258
+    },
+    {
+      "source_id": 2170,
+      "name": "Spider SE",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 202,
+      "spoke": 259
+    },
+    {
+      "source_id": 2171,
+      "name": "Spider SE",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 203,
+      "spoke": 260
+    },
+    {
+      "source_id": 2172,
+      "name": "Spider SE",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 204,
+      "spoke": 261
+    },
+    {
+      "source_id": 2173,
+      "name": "HCI MD1",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 10,
+      "lip": 205,
+      "spoke": 262
+    },
+    {
+      "source_id": 2174,
+      "name": "HCI MD1",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 10,
+      "lip": 206,
+      "spoke": 263
+    },
+    {
+      "source_id": 2175,
+      "name": "HCI MD1",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 10,
+      "lip": 207,
+      "spoke": 264
+    },
+    {
+      "source_id": 2176,
+      "name": "HCI MD1",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 10,
+      "lip": 208,
+      "spoke": 265
+    },
+    {
+      "source_id": 2177,
+      "name": "Advant GT Black",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 210,
+      "spoke": 286
+    },
+    {
+      "source_id": 2178,
+      "name": "Advant GT Blue",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 211,
+      "spoke": 287
+    },
+    {
+      "source_id": 2179,
+      "name": "Advant GT Gold",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 212,
+      "spoke": 288
+    },
+    {
+      "source_id": 2180,
+      "name": "Advant GT Gun Metal",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 213,
+      "spoke": 289
+    },
+    {
+      "source_id": 2181,
+      "name": "Advant GT Red",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 214,
+      "spoke": 290
+    },
+    {
+      "source_id": 2182,
+      "name": "Advant GT Silver",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 215,
+      "spoke": 291
+    },
+    {
+      "source_id": 2183,
+      "name": "Advant GT White",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 216,
+      "spoke": 292
+    },
+    {
+      "source_id": 2184,
+      "name": "RS7 Silver",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 7,
+      "lip": 217,
+      "spoke": 293
+    },
+    {
+      "source_id": 2185,
+      "name": "RS7 Black",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 7,
+      "lip": 218,
+      "spoke": 294
+    },
+    {
+      "source_id": 2186,
+      "name": "RS7 Yellow",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 7,
+      "lip": 219,
+      "spoke": 295
+    },
+    {
+      "source_id": 2187,
+      "name": "RS7 Red",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 7,
+      "lip": 220,
+      "spoke": 296
+    },
+    {
+      "source_id": 2188,
+      "name": "RS7 Bronze",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 7,
+      "lip": 221,
+      "spoke": 297
+    },
+    {
+      "source_id": 2189,
+      "name": "RS13 Silver",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 222,
+      "spoke": 298
+    },
+    {
+      "source_id": 2190,
+      "name": "RS13 Black",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 223,
+      "spoke": 299
+    },
+    {
+      "source_id": 2191,
+      "name": "RS16A",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 224,
+      "spoke": 300
+    },
+    {
+      "source_id": 2192,
+      "name": "RS16B",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 225,
+      "spoke": 301
+    },
+    {
+      "source_id": 2193,
+      "name": "RS16C",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 226,
+      "spoke": 302
+    },
+    {
+      "source_id": 2194,
+      "name": "RS16D",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 227,
+      "spoke": 303
+    },
+    {
+      "source_id": 2195,
+      "name": "RS16E",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 228,
+      "spoke": 304
+    },
+    {
+      "source_id": 2196,
+      "name": "S107A",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 229,
+      "spoke": 305
+    },
+    {
+      "source_id": 2197,
+      "name": "S107B",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 230,
+      "spoke": 306
+    },
+    {
+      "source_id": 2198,
+      "name": "S107C",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 231,
+      "spoke": 307
+    },
+    {
+      "source_id": 2199,
+      "name": "S107D",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 232,
+      "spoke": 308
+    },
+    {
+      "source_id": 2200,
+      "name": "S107E",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 233,
+      "spoke": 309
+    },
+    {
+      "source_id": 2201,
+      "name": "S107F",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 234,
+      "spoke": 310
+    },
+    {
+      "source_id": 2202,
+      "name": "S107G",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 235,
+      "spoke": 311
+    },
+    {
+      "source_id": 2203,
+      "name": "S107H",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 236,
+      "spoke": 312
+    },
+    {
+      "source_id": 2204,
+      "name": "S107I",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 237,
+      "spoke": 313
+    },
+    {
+      "source_id": 2205,
+      "name": "TE38 LE BLACK",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 313,
+      "spoke": 52
+    },
+    {
+      "source_id": 2206,
+      "name": "KF007",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 314,
+      "spoke": 380
+    },
+    {
+      "source_id": 2207,
+      "name": "Bladez 21 B",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 8,
+      "lip": 315,
+      "spoke": 381
+    },
+    {
+      "source_id": 2208,
+      "name": "Bladez 21 O",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 8,
+      "lip": 316,
+      "spoke": 382
+    },
+    {
+      "source_id": 2209,
+      "name": "Bladez 21 R",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 8,
+      "lip": 317,
+      "spoke": 383
+    },
+    {
+      "source_id": 2210,
+      "name": "Bladez 21 G",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 8,
+      "lip": 318,
+      "spoke": 384
+    },
+    {
+      "source_id": 2211,
+      "name": "Bladez 21 W",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 8,
+      "lip": 319,
+      "spoke": 385
+    },
+    {
+      "source_id": 2212,
+      "name": "WVS KF",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 5,
+      "lip": 320,
+      "spoke": 386
+    },
+    {
+      "source_id": 2213,
+      "name": "WVS KF",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 5,
+      "lip": 321,
+      "spoke": 387
+    },
+    {
+      "source_id": 2214,
+      "name": "WVS KF",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 5,
+      "lip": 322,
+      "spoke": 388
+    },
+    {
+      "source_id": 2215,
+      "name": "Bazreia",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 6,
+      "lip": 324,
+      "spoke": 389
+    },
+    {
+      "source_id": 2216,
+      "name": "Equip 5",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 323,
+      "spoke": 390
+    },
+    {
+      "source_id": 2217,
+      "name": "LXZ",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 5,
+      "lip": 323,
+      "spoke": 391
+    },
+    {
+      "source_id": 2218,
+      "name": "Minerva",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 5,
+      "lip": 323,
+      "spoke": 392
+    },
+    {
+      "source_id": 2219,
+      "name": "SL",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 323,
+      "spoke": 393
+    },
+    {
+      "source_id": 2220,
+      "name": "WAFFE",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 8,
+      "lip": 323,
+      "spoke": 394
+    },
+    {
+      "source_id": 2221,
+      "name": "336Racing MESH",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 16,
+      "lip": 91,
+      "spoke": 395
+    },
+    {
+      "source_id": 2222,
+      "name": "336Racing MESH",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 16,
+      "lip": 92,
+      "spoke": 396
+    },
+    {
+      "source_id": 2223,
+      "name": "336Racing MESH",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 16,
+      "lip": 93,
+      "spoke": 397
+    },
+    {
+      "source_id": 2224,
+      "name": "336Racing MESH",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 16,
+      "lip": 94,
+      "spoke": 398
+    },
+    {
+      "source_id": 2225,
+      "name": "336Racing MESH",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 16,
+      "lip": 304,
+      "spoke": 399
+    },
+    {
+      "source_id": 2226,
+      "name": "336Racing MESH",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 16,
+      "lip": 305,
+      "spoke": 400
+    },
+    {
+      "source_id": 2227,
+      "name": "336Racing MESH",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 16,
+      "lip": 306,
+      "spoke": 401
+    },
+    {
+      "source_id": 2228,
+      "name": "336Racing MESH",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 16,
+      "lip": 307,
+      "spoke": 402
+    },
+    {
+      "source_id": 3001,
+      "name": "VX Tens",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 10,
+      "lip": 21,
+      "spoke": 64
+    },
+    {
+      "source_id": 3002,
+      "name": "Bullets",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 5,
+      "lip": 51,
+      "spoke": 46
+    },
+    {
+      "source_id": 3003,
+      "name": "BBX LM 19",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 8,
+      "lip": 52,
+      "spoke": 33
+    },
+    {
+      "source_id": 4000,
+      "name": "TE38 Kawaii DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 72,
+      "spoke": 99
+    },
+    {
+      "source_id": 4001,
+      "name": "TE38 Teals DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 73,
+      "spoke": 100
+    },
+    {
+      "source_id": 4002,
+      "name": "SSM Deep",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 74,
+      "spoke": 101
+    },
+    {
+      "source_id": 4003,
+      "name": "BASELINE SG DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 74,
+      "spoke": 95
+    },
+    {
+      "source_id": 4004,
+      "name": "BASELINE SB DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 74,
+      "spoke": 96
+    },
+    {
+      "source_id": 4005,
+      "name": "AV F232G DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 5,
+      "lip": 75,
+      "spoke": 81
+    },
+    {
+      "source_id": 4006,
+      "name": "BASELINE G DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 7,
+      "lip": 75,
+      "spoke": 95
+    },
+    {
+      "source_id": 4007,
+      "name": "TE38 Gold DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 75,
+      "spoke": 102
+    },
+    {
+      "source_id": 4008,
+      "name": "Riverside DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 74,
+      "spoke": 103
+    },
+    {
+      "source_id": 4009,
+      "name": "TE38 SG DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 74,
+      "spoke": 102
+    },
+    {
+      "source_id": 4010,
+      "name": "SSM Deep",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 74,
+      "spoke": 104
+    },
+    {
+      "source_id": 4011,
+      "name": "SSM Deep",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 74,
+      "spoke": 105
+    },
+    {
+      "source_id": 4012,
+      "name": "SSM Deep",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 74,
+      "spoke": 106
+    },
+    {
+      "source_id": 4013,
+      "name": "SSM Deep",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 74,
+      "spoke": 107
+    },
+    {
+      "source_id": 4014,
+      "name": "BBX RG-R DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 74,
+      "spoke": 108
+    },
+    {
+      "source_id": 4015,
+      "name": "BBX F1 DEEP",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 9,
+      "lip": 75,
+      "spoke": 109
+    },
+    {
+      "source_id": 4016,
+      "name": "Forged Deep",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 74,
+      "spoke": 112
+    },
+    {
+      "source_id": 4017,
+      "name": "15fiftytwo Deep",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 9,
+      "lip": 75,
+      "spoke": 111
+    },
+    {
+      "source_id": 4018,
+      "name": "Forged Deep",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 73,
+      "spoke": 113
+    },
+    {
+      "source_id": 4019,
+      "name": "Forged Deep",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 72,
+      "spoke": 114
+    },
+    {
+      "source_id": 4020,
+      "name": "Forged Deep",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 77,
+      "spoke": 115
+    },
+    {
+      "source_id": 4021,
+      "name": "Forged Deep",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 78,
+      "spoke": 116
+    },
+    {
+      "source_id": 4022,
+      "name": "Forged Deep",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 75,
+      "spoke": 117
+    },
+    {
+      "source_id": 4023,
+      "name": "Forged Deep",
+      "style": "HYPER",
+      "style_id": 6,
+      "reason": "Modern forged, aero or lightweight supercar/hypercar-inspired design",
+      "spoke_count": 5,
+      "lip": 79,
+      "spoke": 118
+    },
+    {
+      "source_id": 4024,
+      "name": "TE38 LB DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 77,
+      "spoke": 119
+    },
+    {
+      "source_id": 4025,
+      "name": "TE38 NG DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 80,
+      "spoke": 120
+    },
+    {
+      "source_id": 4026,
+      "name": "TE38 R DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 78,
+      "spoke": 121
+    },
+    {
+      "source_id": 4027,
+      "name": "TE38 CP DEEP",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 6,
+      "lip": 81,
+      "spoke": 122
+    },
+    {
+      "source_id": 4028,
+      "name": "Voss DEEP",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 10,
+      "lip": 74,
+      "spoke": 125
+    },
+    {
+      "source_id": 4029,
+      "name": "Voss DEEP",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 10,
+      "lip": 75,
+      "spoke": 126
+    },
+    {
+      "source_id": 4030,
+      "name": "Voss DEEP",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 10,
+      "lip": 81,
+      "spoke": 127
+    },
+    {
+      "source_id": 4031,
+      "name": "Valentines",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 1,
+      "lip": 72,
+      "spoke": 153
+    },
+    {
+      "source_id": 4032,
+      "name": "Valentines",
+      "style": "TUNER",
+      "style_id": 2,
+      "reason": "Japanese/European street and track spoke family",
+      "spoke_count": 1,
+      "lip": 78,
+      "spoke": 154
+    },
+    {
+      "source_id": 4033,
+      "name": "HCI MD1 DEEP",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 10,
+      "lip": 209,
+      "spoke": 262
+    },
+    {
+      "source_id": 4034,
+      "name": "HCI MD1 DEEP",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 10,
+      "lip": 209,
+      "spoke": 263
+    },
+    {
+      "source_id": 4035,
+      "name": "HCI MD1 DEEP",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 10,
+      "lip": 209,
+      "spoke": 264
+    },
+    {
+      "source_id": 4036,
+      "name": "HCI MD1 DEEP",
+      "style": "LUXURY",
+      "style_id": 5,
+      "reason": "VIP/luxury, large polished face or deep-dish luxury design",
+      "spoke_count": 10,
+      "lip": 209,
+      "spoke": 265
+    }
+  ]
+}

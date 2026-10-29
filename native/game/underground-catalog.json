@@ -24,958 +24,1149 @@
   "body_variants": [
     {
       "body": 0,
-      "name": "1992 Honda Civic (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1992 Honda Civic",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 1,
       "name": "1997 Honda Civic (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 2,
       "name": "2004 Subaru Impreza WRX STi (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 3,
       "name": "Nissan 350Z (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 4,
-      "name": "2006 Scion xB (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2006 Scion xB",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 5,
-      "name": "2002 Honda Civic (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2002 Honda Civic",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 6,
       "name": "Nissan Skyline GT-R R34 (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 7,
-      "name": "Underground — véhicule 008 à identifier",
-      "status": "unresolved"
+      "name": "Ford GT40 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 8,
-      "name": "2000 Nissan 300ZX (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2000 Nissan 300ZX",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 9,
-      "name": "Underground — véhicule 010 à identifier",
-      "status": "unresolved"
+      "name": "Toyota Sprinter Trueno AE86 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 10,
-      "name": "Underground — véhicule 011 à identifier",
-      "status": "unresolved"
+      "name": "1981 Datsun 280ZX (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 11,
-      "name": "Underground — véhicule 012 à identifier",
-      "status": "unresolved"
+      "name": "2002 Honda NSX-R (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 12,
-      "name": "1990 Honda CR-X (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1990 Honda CR-X",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 13,
-      "name": "Underground — véhicule 014 à identifier",
-      "status": "unresolved"
+      "name": "Mazda MX-5 (variante)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 14,
       "name": "2005 BMW M3 (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 15,
-      "name": "Underground — véhicule 016 à identifier",
-      "status": "unresolved"
+      "name": "1996 Nissan 180SX (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 16,
       "name": "2001 Honda Integra Type R (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 17,
-      "name": "2008 Hyundai Genesis Coupé (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2008 Hyundai Genesis Coupé",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 18,
-      "name": "2005 Infiniti G35 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2005 Infiniti G35",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 19,
       "name": "2003 Mazda RX-8 (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 20,
       "name": "Nissan Skyline GT-R R32 (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 21,
-      "name": "2003 Honda Accord (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2003 Honda Accord",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 22,
-      "name": "Underground — véhicule 023 à identifier",
-      "status": "unresolved"
+      "name": "Kart Underground — véhicule spécial",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 23,
-      "name": "1980 Datsun 720 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1980 Datsun 720",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 24,
       "name": "Nissan 370Z (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 25,
       "name": "1999 Nissan Silvia S15 (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 26,
-      "name": "Underground — véhicule 027 à identifier",
-      "status": "unresolved"
+      "name": "2013 Subaru BRZ — cabriolet (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 27,
-      "name": "Underground — véhicule 028 à identifier",
-      "status": "unresolved"
+      "name": "2008 Honda S2000 — cabriolet (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 28,
       "name": "Nissan Silvia S14 (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 29,
       "name": "Nissan Silvia S14 (variante) (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 30,
       "name": "2001 Mitsubishi Lancer Evolution VII (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 31,
-      "name": "Nissan Silvia S13 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Nissan Silvia S13",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 32,
-      "name": "Underground — véhicule 033 à identifier",
-      "status": "unresolved"
+      "name": "1997 Mazda MX-5 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 33,
-      "name": "Underground — véhicule 034 à identifier",
-      "status": "unresolved"
+      "name": "1988 Mazda RX-7 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 34,
-      "name": "Toyota Supra (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Toyota Supra",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 35,
-      "name": "1980 Datsun 510 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1980 Datsun 510",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 36,
-      "name": "Underground — véhicule 037 à identifier",
-      "status": "unresolved"
+      "name": "2002 Mazda RX-7 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 37,
-      "name": "1997 Toyota Aristo (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1997 Toyota Aristo",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 38,
       "name": "2008 Mitsubishi Lancer Evolution X (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 39,
-      "name": "1995 Honda Civic (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1995 Honda Civic",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 40,
-      "name": "Volkswagen Golf (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Volkswagen Golf",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 41,
-      "name": "Underground — véhicule 042 à identifier",
-      "status": "unresolved"
+      "name": "Mazda MX-5 — cabriolet (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 42,
       "name": "1990 BMW M3 (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 43,
-      "name": "2008 BMW 3 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2008 BMW 3",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 44,
       "name": "2004 Toyota Crown Athlete (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 45,
       "name": "2008 Subaru Impreza (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 46,
-      "name": "1973 Mazda RX-3 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1973 Mazda RX-3",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 47,
-      "name": "Underground — véhicule 048 à identifier",
-      "status": "unresolved"
+      "name": "Fourgon Underground 048 à identifier",
+      "status": "unresolved",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 48,
-      "name": "1965 Austin Mini Cooper (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1965 Austin Mini Cooper",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 49,
-      "name": "Porsche 911 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Porsche 911",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 50,
-      "name": "1995 BMW M3 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1995 BMW M3",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 51,
-      "name": "1998 Toyota Altezza (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1998 Toyota Altezza",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 52,
-      "name": "1969 Chevrolet Camaro (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1969 Chevrolet Camaro",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 53,
-      "name": "Underground — véhicule 054 à identifier",
-      "status": "unresolved"
+      "name": "Nissan GT-R R35 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 54,
-      "name": "2004 Subaru Impreza Sports Wagon WRX (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2004 Subaru Impreza Sports Wagon WRX",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 55,
-      "name": "1989 Honda Civic (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1989 Honda Civic",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 56,
-      "name": "Underground — véhicule 057 à identifier",
-      "status": "unresolved"
+      "name": "Toyota Corolla Levin AE86 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 57,
-      "name": "Underground — véhicule 058 à identifier",
-      "status": "unresolved"
+      "name": "Nissan Skyline GT-R R33 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 58,
-      "name": "2006 Honda Civic (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2006 Honda Civic",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 59,
-      "name": "Toyota MR2 (variante) (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Toyota MR2 (variante)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 60,
       "name": "2011 Dodge Charger (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 61,
       "name": "2009 Dodge Challenger (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 62,
       "name": "1993 Ford Mustang SVT Cobra (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 63,
       "name": "1974 Volkswagen Golf (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 64,
-      "name": "Nissan Stagea (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Nissan Stagea",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 65,
-      "name": "2016 Abarth 595 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2016 Abarth 595",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 66,
       "name": "2016 Mazda MX-5 (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 67,
-      "name": "Underground — véhicule 068 à identifier",
-      "status": "unresolved"
+      "name": "2017 Honda NSX (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 68,
-      "name": "Underground — véhicule 069 à identifier",
-      "status": "unresolved"
+      "name": "1969 Ford Mustang Boss 429 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 69,
-      "name": "2011 Toyota Prius (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2011 Toyota Prius",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 70,
       "name": "2006 Chevrolet Corvette (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 71,
-      "name": "2016 Chevrolet Camaro SS (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2016 Chevrolet Camaro SS",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 72,
-      "name": "2014 Volkswagen Golf R (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2014 Volkswagen Golf R",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 73,
-      "name": "Volkswagen Corrado (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Volkswagen Corrado",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 74,
       "name": "Volkswagen 'Beetle' (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 75,
       "name": "2010 Ford Mustang (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 76,
-      "name": "Underground — véhicule 077 à identifier",
-      "status": "unresolved"
+      "name": "1983 Nissan Skyline (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 77,
-      "name": "1998 Mitsubishi Lancer Evolution V (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1998 Mitsubishi Lancer Evolution V",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 78,
       "name": "1969 Dodge Charger (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 79,
       "name": "2015 BMW M4 (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 80,
-      "name": "2015 Lexus RC F (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2015 Lexus RC F",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 81,
-      "name": "2011 Cadillac CTS-V Sport Wagon (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2011 Cadillac CTS-V Sport Wagon",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 82,
-      "name": "2001 Honda Fit (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2001 Honda Fit",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 83,
-      "name": "1998 Subaru Impreza 22B-STi (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1998 Subaru Impreza 22B-STi",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 84,
-      "name": "1999 Honda Integra (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1999 Honda Integra",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 85,
-      "name": "2016 Audi RS7 Sportback (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2016 Audi RS7 Sportback",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 86,
-      "name": "Eagle Talon (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Eagle Talon",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 87,
       "name": "1997 Mitsubishi Eclipse (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 88,
-      "name": "Underground — véhicule 089 à identifier",
-      "status": "unresolved"
+      "name": "1971 Chevrolet Corvette (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 89,
-      "name": "1970 Dodge Challenger (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1970 Dodge Challenger",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 90,
-      "name": "Underground — véhicule 091 à identifier",
-      "status": "unresolved"
+      "name": "1970 Datsun 240Z (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 91,
-      "name": "Lotus Elise (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Lotus Elise",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 92,
-      "name": "2014 Lexus IS (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2014 Lexus IS",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 93,
-      "name": "Volkswagen Karmann Ghia (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Volkswagen Karmann Ghia",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 94,
-      "name": "2010 BMW M5 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2010 BMW M5",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 95,
-      "name": "Underground — véhicule 096 à identifier",
-      "status": "unresolved"
+      "name": "Nissan GT-R Nismo R35 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 96,
-      "name": "Underground — véhicule 097 à identifier",
-      "status": "unresolved"
+      "name": "2012 Aston Martin V8 Vantage S (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 97,
-      "name": "2012 Mercedes-Benz C 63 AMG Black Series (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2012 Mercedes-Benz C 63 AMG Black Series",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 98,
-      "name": "2000 Chevrolet Camaro SS (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2000 Chevrolet Camaro SS",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 99,
-      "name": "1974 BMW 3.0 CSL (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1974 BMW 3.0 CSL",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 100,
-      "name": "Underground — véhicule 101 à identifier",
-      "status": "unresolved"
+      "name": "Modèle 101 à identifier (Underground)",
+      "status": "unresolved",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 101,
-      "name": "Underground — véhicule 102 à identifier",
-      "status": "unresolved"
+      "name": "Prototype Underground 102 à identifier",
+      "status": "unresolved",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 102,
       "name": "2015 Mercedes-Benz A 45 AMG (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 103,
-      "name": "2014 Scion tC (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2014 Scion tC",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 104,
       "name": "2016 Audi RS6 Avant (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 105,
       "name": "2017 Honda Civic Type R (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 106,
-      "name": "1997 Volvo 850 R (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1997 Volvo 850 R",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 107,
-      "name": "1978 Datsun 260Z (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1978 Datsun 260Z",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 108,
-      "name": "2014 Ford Fiesta ST (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2014 Ford Fiesta ST",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 109,
-      "name": "2018 Subaru WRX STi (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2018 Subaru WRX STi",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 110,
-      "name": "2015 BMW 1 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2015 BMW 1",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 111,
-      "name": "2017 Chevrolet Cruze (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2017 Chevrolet Cruze",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 112,
       "name": "2016 Ford Focus RS (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 113,
-      "name": "2010 Mazda Mazdaspeed 3 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2010 Mazda Mazdaspeed 3",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 114,
       "name": "2015 Dodge Charger SRT Hellcat (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 115,
       "name": "2015 Jaguar F-Type R Coupé (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 116,
-      "name": "Nissan Sileighty (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Nissan Sileighty",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 117,
-      "name": "Nissan Onevia (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Nissan Onevia",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 118,
-      "name": "2016 Cadillac ATS-V (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2016 Cadillac ATS-V",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 119,
-      "name": "Toyota Chaser (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Toyota Chaser",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 120,
-      "name": "Underground — véhicule 121 à identifier",
-      "status": "unresolved"
+      "name": "Compacte Underground 121 à identifier",
+      "status": "unresolved",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 121,
       "name": "2018 BMW M5 (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 122,
-      "name": "BMW M5 (variante) (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "BMW M5 (variante)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 123,
       "name": "2014 HSV Maloo (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 124,
-      "name": "1973 Ford Falcon (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1973 Ford Falcon",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 125,
       "name": "2017 HSV GTS-R (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 126,
-      "name": "Underground — véhicule 127 à identifier",
-      "status": "unresolved"
+      "name": "1972 Ford Falcon",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 127,
-      "name": "1970 Toyota Celica (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1970 Toyota Celica",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 128,
-      "name": "1981 Toyota Celica XX (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1981 Toyota Celica XX",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 129,
-      "name": "1978 Toyota Corona Mark II (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1978 Toyota Corona Mark II",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 130,
-      "name": "1970 Mitsubishi Colt Galant GTO (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1970 Mitsubishi Colt Galant GTO",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 131,
-      "name": "1967 Toyota 2000GT (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1967 Toyota 2000GT",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 132,
-      "name": "Underground — véhicule 133 à identifier",
-      "status": "unresolved"
+      "name": "1972 Nissan Laurel",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 133,
-      "name": "Underground — véhicule 134 à identifier",
-      "status": "unresolved"
+      "name": "1978 Mazda RX-7 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 134,
-      "name": "1969 Subaru R-2 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1969 Subaru R-2",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 135,
-      "name": "Underground — véhicule 136 à identifier",
-      "status": "unresolved"
+      "name": "Peugeot 206",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 136,
-      "name": "Underground — véhicule 137 à identifier",
-      "status": "unresolved"
+      "name": "2003 Renault Clio V6 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 137,
-      "name": "Underground — véhicule 138 à identifier",
-      "status": "unresolved"
+      "name": "1980 Renault 5 Turbo",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 138,
-      "name": "Underground — véhicule 139 à identifier",
-      "status": "unresolved"
+      "name": "1983 Audi Sport quattro",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 139,
-      "name": "Underground — véhicule 140 à identifier",
-      "status": "unresolved"
+      "name": "1991 Lancia Delta HF Integrale Evoluzione",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 140,
-      "name": "Underground — véhicule 141 à identifier",
-      "status": "unresolved"
+      "name": "Peugeot 205 GTI",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 141,
-      "name": "Underground — véhicule 142 à identifier",
-      "status": "unresolved"
+      "name": "2017 Abarth 124 Spider",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 142,
       "name": "1975 Lancia Stratos (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 143,
-      "name": "Underground — véhicule 144 à identifier",
-      "status": "unresolved"
+      "name": "1973 Alpine A110",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 144,
-      "name": "2011 Citroën DS3 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2011 Citroën DS3",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 145,
-      "name": "1970 Chevrolet Chevelle (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1970 Chevrolet Chevelle",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 146,
-      "name": "2005 Chevrolet Cobalt (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2005 Chevrolet Cobalt",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 147,
-      "name": "Underground — véhicule 148 à identifier",
-      "status": "unresolved"
+      "name": "Ford Escort",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 148,
-      "name": "Underground — véhicule 149 à identifier",
-      "status": "unresolved"
+      "name": "1987 Buick GNX — conversion break (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 149,
-      "name": "Underground — véhicule 150 à identifier",
-      "status": "unresolved"
+      "name": "2006 Pontiac GTO",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 150,
-      "name": "1965 Pontiac GTO (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1965 Pontiac GTO",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 151,
-      "name": "Underground — véhicule 152 à identifier",
-      "status": "unresolved"
+      "name": "1990 Chevrolet Camaro IROC-Z",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 152,
-      "name": "Underground — véhicule 153 à identifier",
-      "status": "unresolved"
+      "name": "1968 Ford Mustang — cabriolet (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 153,
-      "name": "Underground — véhicule 154 à identifier",
-      "status": "unresolved"
+      "name": "Modèle 154 à identifier",
+      "status": "unresolved",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 154,
-      "name": "Underground — véhicule 155 à identifier",
-      "status": "unresolved"
+      "name": "1974 Ford Pinto",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 155,
-      "name": "Underground — véhicule 156 à identifier",
-      "status": "unresolved"
+      "name": "1998 Dodge Viper GTS-R — cabriolet (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 156,
-      "name": "Underground — véhicule 157 à identifier",
-      "status": "unresolved"
+      "name": "2019 Chevrolet Corvette ZR1 — cabriolet (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 157,
-      "name": "2013 Mercedes-Benz CLA 45 AMG (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2013 Mercedes-Benz CLA 45 AMG",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 158,
-      "name": "Underground — véhicule 159 à identifier",
-      "status": "unresolved"
+      "name": "2018 Alpine A110",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 159,
-      "name": "Underground — véhicule 160 à identifier",
-      "status": "unresolved"
+      "name": "2014 Alfa Romeo 4C",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 160,
-      "name": "Underground — véhicule 161 à identifier",
-      "status": "unresolved"
+      "name": "1995 Toyota Celica",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 161,
-      "name": "Underground — véhicule 162 à identifier",
-      "status": "unresolved"
+      "name": "1997 Toyota MR2",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 162,
-      "name": "Toyota Soarer (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "Toyota Soarer",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 163,
-      "name": "Underground — véhicule 164 à identifier",
-      "status": "unresolved"
+      "name": "1997 Mitsubishi FTO",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 164,
-      "name": "Underground — véhicule 165 à identifier",
-      "status": "unresolved"
+      "name": "Mercedes-Benz 190 E — conversion pick-up (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 165,
-      "name": "Underground — véhicule 166 à identifier",
-      "status": "unresolved"
+      "name": "1992 Alfa Romeo 155",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 166,
-      "name": "2006 Audi RS4 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2006 Audi RS4",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 167,
-      "name": "Underground — véhicule 168 à identifier",
-      "status": "unresolved"
+      "name": "BMW M3 E36 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 168,
-      "name": "Underground — véhicule 169 à identifier",
-      "status": "unresolved"
+      "name": "1992 Autozam AZ-1",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 169,
-      "name": "1995 Suzuki Cappuccino (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1995 Suzuki Cappuccino",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 170,
-      "name": "1964 Chevrolet Impala (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1964 Chevrolet Impala",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 171,
-      "name": "1996 Chevrolet Impala (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1996 Chevrolet Impala",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 172,
       "name": "1985 Cadillac Fleetwood (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 173,
-      "name": "1949 Mercury Eight (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1949 Mercury Eight",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 174,
-      "name": "1956 Ford F-100 (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "1956 Ford F-100",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 175,
       "name": "2016 Ford Shelby GT350R (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 176,
       "name": "2009 Lexus IS-F (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 177,
-      "name": "Underground — véhicule 178 à identifier",
-      "status": "unresolved"
+      "name": "2018 Lexus LC 500 — cabriolet (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 178,
-      "name": "2013 Mazda Atenza (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2013 Mazda Atenza",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 179,
-      "name": "Underground — véhicule 180 à identifier",
-      "status": "unresolved"
+      "name": "2010 Daihatsu Move Custom (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 180,
       "name": "2018 Toyota Alphard (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 181,
-      "name": "2018 Kia Stinger (Underground)",
-      "status": "shared_original_silhouette"
+      "name": "2018 Kia Stinger",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 182,
       "name": "1932 Ford Hot Rod (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 183,
-      "name": "Underground — véhicule 184 à identifier",
-      "status": "unresolved"
+      "name": "Ferrari F40 (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 184,
       "name": "1955 Chevrolet Bel Air (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 185,
-      "name": "Underground — véhicule 186 à identifier",
-      "status": "unresolved"
+      "name": "1977 Pontiac Firebird Trans Am (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 186,
-      "name": "Underground — véhicule 187 à identifier",
-      "status": "unresolved"
+      "name": "2005 Ford GT",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 187,
-      "name": "Underground — véhicule 188 à identifier",
-      "status": "unresolved"
+      "name": "Supercar Underground 188 à identifier",
+      "status": "unresolved",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 188,
-      "name": "Underground — véhicule 189 à identifier",
-      "status": "unresolved"
+      "name": "Supercar Underground 189 à identifier",
+      "status": "unresolved",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 189,
       "name": "2020 Mercedes-AMG GT S (Underground)",
-      "status": "shared_original_silhouette"
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     },
     {
       "body": 190,
-      "name": "Underground — véhicule 191 à identifier",
-      "status": "unresolved"
+      "name": "2019 Toyota GR Supra (Underground)",
+      "status": "visually_reviewed_family",
+      "identification_basis": "Original/Unbound/Underground side-by-side sprite comparison; no new model names in the identical 1185 source strings."
     }
   ],
   "total_vehicles": 430,
@@ -5822,5 +6013,321 @@
       "verified": true
     }
   ],
-  "audio_shared_count": 75
+  "audio_shared_count": 75,
+  "reviewed_aliases": {
+    "cosmetics": {
+      "600001": 100001,
+      "600002": 100002,
+      "600003": 100003,
+      "600004": 100004,
+      "600005": 100005,
+      "600006": 100006,
+      "600007": 100007,
+      "600008": 100008,
+      "600009": 100009,
+      "600010": 100010,
+      "600011": 100011,
+      "600012": 100012,
+      "600013": 100013,
+      "600014": 100014,
+      "600015": 100015,
+      "600016": 100016,
+      "600017": 100017,
+      "600018": 100018,
+      "600019": 100019,
+      "600020": 100020,
+      "600021": 100021,
+      "600022": 100022,
+      "600023": 100023,
+      "600024": 100024,
+      "600025": 100025,
+      "600026": 100026,
+      "600027": 100027,
+      "600028": 100028,
+      "600029": 100029,
+      "600030": 100030,
+      "600031": 100031,
+      "600032": 100032,
+      "600033": 100033,
+      "600034": 100034,
+      "600035": 100035,
+      "600036": 100036,
+      "600037": 100037,
+      "600038": 100038,
+      "600039": 100039,
+      "600040": 100040,
+      "600041": 100041,
+      "600042": 100042,
+      "600043": 100043,
+      "600044": 100044,
+      "600045": 100045,
+      "600046": 100046,
+      "600047": 100047,
+      "600048": 100048,
+      "600049": 100049,
+      "600050": 100050,
+      "600051": 100051,
+      "600052": 100052,
+      "600053": 100053,
+      "600054": 100054,
+      "600055": 100055,
+      "600056": 100056,
+      "600057": 100057,
+      "600058": 100058,
+      "600059": 100059,
+      "600060": 100060,
+      "600061": 100061,
+      "600062": 100062,
+      "600063": 100063,
+      "600064": 100064,
+      "600065": 100065,
+      "600066": 100066,
+      "600067": 100067,
+      "600068": 100068,
+      "600069": 100069,
+      "600070": 100070,
+      "600071": 100071,
+      "600072": 100072,
+      "600073": 100073,
+      "600074": 100074,
+      "600075": 100075,
+      "600076": 100076,
+      "600077": 100077,
+      "600078": 100078,
+      "600079": 100079,
+      "600080": 100080,
+      "600081": 100081,
+      "600082": 100082,
+      "600083": 100083,
+      "600084": 100084,
+      "600085": 100085,
+      "600086": 100086,
+      "600087": 100087,
+      "600088": 100088,
+      "600089": 100089,
+      "600090": 100090,
+      "600091": 100091,
+      "600092": 100092,
+      "600093": 100093,
+      "600094": 100094,
+      "600095": 100095,
+      "600096": 100096,
+      "600097": 100097,
+      "600098": 100098,
+      "600099": 100099,
+      "600100": 100100,
+      "600101": 100101,
+      "600102": 100102,
+      "600103": 100103,
+      "600104": 100104,
+      "600105": 100105,
+      "600106": 100106,
+      "600107": 100107,
+      "600108": 100108,
+      "608023": 108023,
+      "603020": 103020,
+      "603030": 103030,
+      "603032": 103032,
+      "601044": 101044,
+      "601049": 101049,
+      "601051": 101051,
+      "601119": 101119,
+      "601172": 101172,
+      "601178": 101178
+    },
+    "rims": {
+      "200109": 10109,
+      "200110": 10110,
+      "200111": 10111,
+      "200112": 10112,
+      "200113": 10113,
+      "200114": 10114,
+      "200117": 10117,
+      "200118": 10118,
+      "200119": 10119,
+      "200120": 10120,
+      "200121": 10121,
+      "200122": 10122,
+      "200123": 10123,
+      "200124": 10124,
+      "200125": 10125,
+      "200129": 10129,
+      "200130": 10130,
+      "200131": 10131,
+      "200132": 10132,
+      "200133": 10133,
+      "200134": 10134,
+      "200135": 10135,
+      "200136": 10136,
+      "200137": 10137,
+      "200138": 10138,
+      "200139": 10139,
+      "200140": 10140,
+      "200141": 10141,
+      "200142": 10142,
+      "200143": 10143,
+      "200144": 10144,
+      "200145": 10145,
+      "201040": 11040,
+      "201041": 11041,
+      "201622": 11622,
+      "202209": 12209,
+      "202210": 12210
+    },
+    "parts": {
+      "69026": 9026,
+      "69027": 9027,
+      "69028": 9028,
+      "69034": 9034,
+      "69037": 9037,
+      "69038": 9038,
+      "69049": 9049,
+      "70021": 10021
+    },
+    "vehicles": {
+      "239": 0,
+      "243": 4,
+      "244": 5,
+      "247": 8,
+      "10": 193,
+      "11": 194,
+      "251": 12,
+      "252": 13,
+      "256": 17,
+      "257": 18,
+      "260": 21,
+      "22": 195,
+      "262": 23,
+      "270": 31,
+      "273": 34,
+      "274": 35,
+      "276": 37,
+      "278": 39,
+      "279": 40,
+      "282": 43,
+      "285": 46,
+      "47": 196,
+      "48": 197,
+      "287": 197,
+      "288": 49,
+      "289": 50,
+      "290": 51,
+      "52": 198,
+      "291": 198,
+      "54": 199,
+      "293": 199,
+      "294": 55,
+      "56": 200,
+      "297": 58,
+      "59": 201,
+      "298": 201,
+      "303": 64,
+      "304": 65,
+      "308": 69,
+      "310": 71,
+      "311": 72,
+      "312": 73,
+      "74": 204,
+      "76": 206,
+      "316": 77,
+      "78": 207,
+      "319": 80,
+      "320": 81,
+      "321": 82,
+      "322": 83,
+      "323": 84,
+      "325": 86,
+      "88": 209,
+      "89": 210,
+      "328": 210,
+      "90": 211,
+      "330": 91,
+      "331": 92,
+      "93": 212,
+      "332": 212,
+      "333": 94,
+      "336": 97,
+      "337": 98,
+      "99": 213,
+      "338": 213,
+      "342": 103,
+      "345": 106,
+      "107": 214,
+      "346": 214,
+      "347": 108,
+      "348": 109,
+      "349": 110,
+      "350": 111,
+      "352": 113,
+      "355": 116,
+      "117": 215,
+      "356": 215,
+      "357": 118,
+      "358": 119,
+      "361": 122,
+      "124": 217,
+      "363": 217,
+      "126": 218,
+      "365": 218,
+      "366": 127,
+      "128": 219,
+      "367": 219,
+      "129": 220,
+      "368": 220,
+      "130": 221,
+      "369": 221,
+      "370": 131,
+      "132": 222,
+      "371": 222,
+      "133": 223,
+      "134": 224,
+      "373": 224,
+      "374": 135,
+      "376": 137,
+      "377": 138,
+      "378": 139,
+      "379": 140,
+      "141": 225,
+      "380": 225,
+      "142": 226,
+      "382": 143,
+      "383": 144,
+      "145": 227,
+      "384": 227,
+      "385": 146,
+      "386": 147,
+      "388": 149,
+      "150": 228,
+      "389": 228,
+      "390": 151,
+      "152": 229,
+      "392": 153,
+      "154": 230,
+      "393": 230,
+      "396": 157,
+      "397": 158,
+      "398": 159,
+      "399": 160,
+      "161": 232,
+      "400": 232,
+      "401": 162,
+      "402": 163,
+      "404": 165,
+      "405": 166,
+      "407": 168,
+      "408": 169,
+      "409": 170,
+      "410": 171,
+      "412": 173,
+      "413": 174,
+      "417": 178,
+      "181": 234,
+      "420": 234,
+      "182": 235,
+      "184": 236,
+      "324": 208,
+      "425": 237
+    }
+  },
+  "visual_review_policy": "Ignore RGB in fully transparent pixels only. Keep every difference in visible RGBA or mechanical values. Existing IDs retained for saved equipment."
 }

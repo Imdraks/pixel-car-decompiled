@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "legacy_duplicate_paint_canonicalized": true,
+    "legacy_duplicate_rim_canonicalized": true,
+    "legacy_duplicate_exhaust_canonicalized": true,
+    "shared_engine_has_only_original_badge": true,
+    "spreadsheet_engine_has_only_unbound_badge": true,
+    "native_engine_creation_is_labelled_honestly": true,
+    "no_invented_underground_v12": true,
+    "only_real_underground_rim_variants_remain": true,
+    "duplicate_rim_not_offered": true,
+    "canonical_paint_keeps_original_provenance": true,
+    "identical_palette_has_no_fake_variants": true,
+    "clean_exit_11": true
+  }
+}

@@ -94,6 +94,9 @@ Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
     p.bov=integer(v,"bov",-1);if(p.bov< -1||p.bov>3)p.bov=-1;
     for(int slot=0;slot<PartSlotCount;slot++)equipPart(p,PartSlot(slot),integer(v,std::string("part_")+slotKey(PartSlot(slot)),0));
     if(integer(v,"version",1)<2&&p.contentSource==1){if(p.cosmetics[9])p.cosmetics[9]+=200000;if(p.parts[9]==9030||p.parts[9]==9031)p.parts[9]+=200000;}
+    for(auto& id:p.parts){id=canonicalPartId(id);}
+    for(auto& id:p.cosmetics){id=canonicalCosmeticId(id);}
+    p.rim=canonicalRimId(p.rim);if(p.rearRim>=0)p.rearRim=canonicalRimId(p.rearRim);
     try {size_t used=0;p.bestTime=std::stod(v["best_time"],&used);if(used!=v["best_time"].size()||!std::isfinite(p.bestTime)||p.bestTime<0||p.bestTime>120)p.bestTime=0;}catch(...){p.bestTime=0;}
     p.gearboxPreset=integer(v,"gearbox_preset",0);
     p.gearCount=integer(v,"gear_count",6);p.finalDrive=real(v,"final_drive",3.9);p.shiftSeconds=real(v,"shift_seconds",.15);

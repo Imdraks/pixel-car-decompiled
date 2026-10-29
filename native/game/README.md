@@ -1,4 +1,8 @@
-# Pixel Car Racer — Original / Unbound / Underground Native 0.17.0
+# Pixel Car Racer — Original / Unbound / Underground Native 0.17.1
+
+La **0.17.1** isole chaque menu de customisation : Moteur / ECU ne donne plus accès aux autres familles, même par raccourci. **Retour / Échap** retrouve le parent. Les jantes ont six filtres de style : **Offroad, Tuner, Muscle, Drag, Luxury, Hyper** (clic ou touches 1–6 ; 0 pour Toutes).
+
+Les fiches ont une provenance unique et les copies identiques sont masquées, sans supprimer les anciennes préparations : **1 663 équipements**, **530 jantes**, **287 choix au showroom**. Les vraies variantes Underground restent distinctes. [Revue du contenu](REVUE-CONTENU.md) · [Catégories de jantes](CLASSIFICATION-JANTES.md).
 
 La version **0.17.0** ajoute Underground : **430 variantes de véhicules** et
 **1 826 choix d’équipement**, avec décors et banque audio propres. Les moteurs

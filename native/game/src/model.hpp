@@ -1,4 +1,5 @@
 #pragma once
+#include "catalog_review.hpp"
 #include <filesystem>
 #include <cmath>
 #include <algorithm>
@@ -7,6 +8,7 @@
 #include <array>
 #include "catalog.hpp"
 #include "rims.hpp"
+#include "rim_styles.hpp"
 #include "content_catalog.hpp"
 #include "body_choices.hpp"
 #include "stock_vehicles.hpp"

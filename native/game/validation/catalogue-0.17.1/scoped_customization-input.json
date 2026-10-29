@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "engine_editor_scoped_to_parts_parent": true,
+    "blocked_cross_category_F1": true,
+    "blocked_cross_category_F2": true,
+    "blocked_cross_category_F3": true,
+    "blocked_cross_category_F4": true,
+    "blocked_cross_category_F5": true,
+    "blocked_cross_category_F6": true,
+    "blocked_cross_category_F7": true,
+    "blocked_cross_category_F8": true,
+    "blocked_cross_category_F9": true,
+    "blocked_cross_category_F11": true,
+    "blocked_cross_category_b": true,
+    "blocked_cross_category_k": true,
+    "old_category_buttons_are_inactive": true,
+    "tab_selects_local_ecu": true,
+    "tab_wraps_back_to_engine": true,
+    "global_max_preparation_absent": true,
+    "return_button_restores_exact_parts_parent": true,
+    "wheel_editor_keeps_tires_in_its_family": true,
+    "nos_editor_tab_cannot_escape_family": true,
+    "paint_catalogue_has_own_scope": true,
+    "cosmetic_arrows_and_shortcuts_cannot_change_slot": true,
+    "top_return_restores_paint_parent": true,
+    "wraps_require_parent_selection": true,
+    "clean_exit_24": true
+  }
+}

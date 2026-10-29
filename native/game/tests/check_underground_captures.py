@@ -12,6 +12,6 @@ for page in range(4):
   x=j%6*213;y=j//6*89
   pixels=im.crop((round((x+2)*sx),round((y+19)*sy),round((x+211)*sx),round((y+87)*sy)))
   blue=sum(b>65 and b>r*1.35 and b>g*1.1 for r,g,b in pixels.getdata());assert blue>=8,(body,blue);cells.append({'body':body,'blue_pixels':blue})
-state=dict(line.split('=',1) for line in (a.captures/'custom-underground.png.state').read_text().splitlines() if '=' in line);assert state['vehicle_id']=='pcr-underground-000' and state['screen']=='8'
+state=dict(line.split('=',1) for line in (a.captures/'custom-underground.png.state').read_text().splitlines() if '=' in line);assert state['vehicle_id']=='pcr-underground-007' and state['screen']=='8'
 for name in ['underground-peinture.png','underground-jantes.png']:assert Image.open(a.captures/name).width>=960
 result={'passed':True,'visible_body_cells':len(cells),'cells':cells,'customization_identity':state['vehicle_id']};a.report.write_text(json.dumps(result,indent=2)+'\n');print('PASS: all 191 Underground bodies and editor captures are visible.')

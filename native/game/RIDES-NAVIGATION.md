@@ -1,3 +1,9 @@
+# Menus isolés — 0.17.1
+
+Une feuille n’affiche que sa propre famille. **Moteur / ECU** contient ces deux onglets ; électrique, roues, NOS, châssis, suralimentation et boîtes se choisissent dans leur parent. L’éditeur d’apparence reste sur l’élément sélectionné ; Effets → fumée ouvre uniquement les pneus. Les raccourcis globaux F1–F9, F11, B et K ne permettent plus de changer de rubrique depuis une feuille. **Tab** parcourt seulement les onglets locaux. **Retour / Échap** retrouve le parent et sa sélection. **G / Z** et les paramètres restent disponibles.
+
+Les commandes de préparation globale et de configurations se retrouvent en revenant au niveau prévu. Les roues possèdent les [six filtres de jantes](CLASSIFICATION-JANTES.md).
+
 # Accueil et sous-menus de customisation — 0.16.4
 
 **CUSTOMISATION** dans le menu principal ouvre d’abord l’accueil **VOITURES**,

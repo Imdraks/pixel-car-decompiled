@@ -6470,7 +6470,7 @@
     },
     {
       "id": "pcr-underground-000",
-      "name": "1992 Honda Civic (Underground)",
+      "name": "1992 Honda Civic",
       "category": "COMPACTES",
       "body_asset": 0,
       "source": 2,
@@ -6578,7 +6578,7 @@
     },
     {
       "id": "pcr-underground-004",
-      "name": "2006 Scion xB (Underground)",
+      "name": "2006 Scion xB",
       "category": "COMPACTES",
       "body_asset": 4,
       "source": 2,
@@ -6605,7 +6605,7 @@
     },
     {
       "id": "pcr-underground-005",
-      "name": "2002 Honda Civic (Underground)",
+      "name": "2002 Honda Civic",
       "category": "COMPACTES",
       "body_asset": 5,
       "source": 2,
@@ -6659,8 +6659,8 @@
     },
     {
       "id": "pcr-underground-007",
-      "name": "Underground — véhicule 008 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Ford GT40 (Underground)",
+      "category": "GT / SUPERCARS",
       "body_asset": 7,
       "source": 2,
       "source_mask": 16,
@@ -6681,12 +6681,12 @@
       "recovered_hp": 390.0,
       "recovered_litres": 4.6,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1008,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-008",
-      "name": "2000 Nissan 300ZX (Underground)",
+      "name": "2000 Nissan 300ZX",
       "category": "SPORTIVES",
       "body_asset": 8,
       "source": 2,
@@ -6713,8 +6713,8 @@
     },
     {
       "id": "pcr-underground-009",
-      "name": "Underground — véhicule 010 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Toyota Sprinter Trueno AE86 (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 9,
       "source": 2,
       "source_mask": 16,
@@ -6735,13 +6735,13 @@
       "recovered_hp": 190.0,
       "recovered_litres": 1.6,
       "recovered_redline_rpm": 8200.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-010",
-      "name": "Underground — véhicule 011 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1981 Datsun 280ZX (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 10,
       "source": 2,
       "source_mask": 16,
@@ -6762,13 +6762,13 @@
       "recovered_hp": 135.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-011",
-      "name": "Underground — véhicule 012 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2002 Honda NSX-R (Underground)",
+      "category": "GT / SUPERCARS",
       "body_asset": 11,
       "source": 2,
       "source_mask": 16,
@@ -6789,12 +6789,12 @@
       "recovered_hp": 290.0,
       "recovered_litres": 3.0,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 20064,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-012",
-      "name": "1990 Honda CR-X (Underground)",
+      "name": "1990 Honda CR-X",
       "category": "COMPACTES",
       "body_asset": 12,
       "source": 2,
@@ -6821,8 +6821,8 @@
     },
     {
       "id": "pcr-underground-013",
-      "name": "Underground — véhicule 014 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Mazda MX-5 (variante)",
+      "category": "SPORTIVES",
       "body_asset": 13,
       "source": 2,
       "source_mask": 16,
@@ -6843,8 +6843,8 @@
       "recovered_hp": 99.0,
       "recovered_litres": 1.6,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-014",
@@ -6875,8 +6875,8 @@
     },
     {
       "id": "pcr-underground-015",
-      "name": "Underground — véhicule 016 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1996 Nissan 180SX (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 15,
       "source": 2,
       "source_mask": 16,
@@ -6897,8 +6897,8 @@
       "recovered_hp": 250.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1001,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-016",
@@ -6929,7 +6929,7 @@
     },
     {
       "id": "pcr-underground-017",
-      "name": "2008 Hyundai Genesis Coupé (Underground)",
+      "name": "2008 Hyundai Genesis Coupé",
       "category": "SPORTIVES",
       "body_asset": 17,
       "source": 2,
@@ -6956,7 +6956,7 @@
     },
     {
       "id": "pcr-underground-018",
-      "name": "2005 Infiniti G35 (Underground)",
+      "name": "2005 Infiniti G35",
       "category": "BERLINES / BREAKS",
       "body_asset": 18,
       "source": 2,
@@ -7037,7 +7037,7 @@
     },
     {
       "id": "pcr-underground-021",
-      "name": "2003 Honda Accord (Underground)",
+      "name": "2003 Honda Accord",
       "category": "BERLINES / BREAKS",
       "body_asset": 21,
       "source": 2,
@@ -7064,8 +7064,8 @@
     },
     {
       "id": "pcr-underground-022",
-      "name": "Underground — véhicule 023 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Kart Underground — véhicule spécial",
+      "category": "COMPACTES",
       "body_asset": 22,
       "source": 2,
       "source_mask": 16,
@@ -7086,12 +7086,12 @@
       "recovered_hp": 50.0,
       "recovered_litres": 0.8,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-023",
-      "name": "1980 Datsun 720 (Underground)",
+      "name": "1980 Datsun 720",
       "category": "UTILITAIRES",
       "body_asset": 23,
       "source": 2,
@@ -7172,8 +7172,8 @@
     },
     {
       "id": "pcr-underground-026",
-      "name": "Underground — véhicule 027 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2013 Subaru BRZ — cabriolet (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 26,
       "source": 2,
       "source_mask": 16,
@@ -7194,13 +7194,13 @@
       "recovered_hp": 197.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 20005,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-027",
-      "name": "Underground — véhicule 028 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2008 Honda S2000 — cabriolet (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 27,
       "source": 2,
       "source_mask": 16,
@@ -7221,8 +7221,8 @@
       "recovered_hp": 280.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-028",
@@ -7307,7 +7307,7 @@
     },
     {
       "id": "pcr-underground-031",
-      "name": "Nissan Silvia S13 (Underground)",
+      "name": "Nissan Silvia S13",
       "category": "SPORTIVES",
       "body_asset": 31,
       "source": 2,
@@ -7334,8 +7334,8 @@
     },
     {
       "id": "pcr-underground-032",
-      "name": "Underground — véhicule 033 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1997 Mazda MX-5 (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 32,
       "source": 2,
       "source_mask": 16,
@@ -7356,13 +7356,13 @@
       "recovered_hp": 200.0,
       "recovered_litres": 1.6,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-033",
-      "name": "Underground — véhicule 034 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1988 Mazda RX-7 (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 33,
       "source": 2,
       "source_mask": 16,
@@ -7383,12 +7383,12 @@
       "recovered_hp": 280.0,
       "recovered_litres": 1.3,
       "recovered_redline_rpm": 8200.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1513,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-034",
-      "name": "Toyota Supra (Underground)",
+      "name": "Toyota Supra",
       "category": "SPORTIVES",
       "body_asset": 34,
       "source": 2,
@@ -7415,7 +7415,7 @@
     },
     {
       "id": "pcr-underground-035",
-      "name": "1980 Datsun 510 (Underground)",
+      "name": "1980 Datsun 510",
       "category": "SPORTIVES",
       "body_asset": 35,
       "source": 2,
@@ -7442,8 +7442,8 @@
     },
     {
       "id": "pcr-underground-036",
-      "name": "Underground — véhicule 037 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2002 Mazda RX-7 (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 36,
       "source": 2,
       "source_mask": 16,
@@ -7464,12 +7464,12 @@
       "recovered_hp": 276.0,
       "recovered_litres": 1.3,
       "recovered_redline_rpm": 8200.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1513,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-037",
-      "name": "1997 Toyota Aristo (Underground)",
+      "name": "1997 Toyota Aristo",
       "category": "BERLINES / BREAKS",
       "body_asset": 37,
       "source": 2,
@@ -7523,7 +7523,7 @@
     },
     {
       "id": "pcr-underground-039",
-      "name": "1995 Honda Civic (Underground)",
+      "name": "1995 Honda Civic",
       "category": "COMPACTES",
       "body_asset": 39,
       "source": 2,
@@ -7550,7 +7550,7 @@
     },
     {
       "id": "pcr-underground-040",
-      "name": "Volkswagen Golf (Underground)",
+      "name": "Volkswagen Golf",
       "category": "COMPACTES",
       "body_asset": 40,
       "source": 2,
@@ -7577,8 +7577,8 @@
     },
     {
       "id": "pcr-underground-041",
-      "name": "Underground — véhicule 042 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Mazda MX-5 — cabriolet (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 41,
       "source": 2,
       "source_mask": 16,
@@ -7599,8 +7599,8 @@
       "recovered_hp": 170.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-042",
@@ -7631,7 +7631,7 @@
     },
     {
       "id": "pcr-underground-043",
-      "name": "2008 BMW 3 (Underground)",
+      "name": "2008 BMW 3",
       "category": "BERLINES / BREAKS",
       "body_asset": 43,
       "source": 2,
@@ -7712,7 +7712,7 @@
     },
     {
       "id": "pcr-underground-046",
-      "name": "1973 Mazda RX-3 (Underground)",
+      "name": "1973 Mazda RX-3",
       "category": "CLASSIQUES",
       "body_asset": 46,
       "source": 2,
@@ -7739,7 +7739,7 @@
     },
     {
       "id": "pcr-underground-047",
-      "name": "Underground — véhicule 048 à identifier",
+      "name": "Fourgon Underground 048 à identifier",
       "category": "À IDENTIFIER",
       "body_asset": 47,
       "source": 2,
@@ -7766,7 +7766,7 @@
     },
     {
       "id": "pcr-underground-048",
-      "name": "1965 Austin Mini Cooper (Underground)",
+      "name": "1965 Austin Mini Cooper",
       "category": "COMPACTES",
       "body_asset": 48,
       "source": 2,
@@ -7793,7 +7793,7 @@
     },
     {
       "id": "pcr-underground-049",
-      "name": "Porsche 911 (Underground)",
+      "name": "Porsche 911",
       "category": "GT / SUPERCARS",
       "body_asset": 49,
       "source": 2,
@@ -7820,7 +7820,7 @@
     },
     {
       "id": "pcr-underground-050",
-      "name": "1995 BMW M3 (Underground)",
+      "name": "1995 BMW M3",
       "category": "SPORTIVES",
       "body_asset": 50,
       "source": 2,
@@ -7847,7 +7847,7 @@
     },
     {
       "id": "pcr-underground-051",
-      "name": "1998 Toyota Altezza (Underground)",
+      "name": "1998 Toyota Altezza",
       "category": "BERLINES / BREAKS",
       "body_asset": 51,
       "source": 2,
@@ -7874,7 +7874,7 @@
     },
     {
       "id": "pcr-underground-052",
-      "name": "1969 Chevrolet Camaro (Underground)",
+      "name": "1969 Chevrolet Camaro",
       "category": "MUSCLE CARS",
       "body_asset": 52,
       "source": 2,
@@ -7901,8 +7901,8 @@
     },
     {
       "id": "pcr-underground-053",
-      "name": "Underground — véhicule 054 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Nissan GT-R R35 (Underground)",
+      "category": "GT / SUPERCARS",
       "body_asset": 53,
       "source": 2,
       "source_mask": 16,
@@ -7923,12 +7923,12 @@
       "recovered_hp": 478.0,
       "recovered_litres": 3.8,
       "recovered_redline_rpm": 7900.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1007,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-054",
-      "name": "2004 Subaru Impreza Sports Wagon WRX (Underground)",
+      "name": "2004 Subaru Impreza Sports Wagon WRX",
       "category": "BERLINES / BREAKS",
       "body_asset": 54,
       "source": 2,
@@ -7955,7 +7955,7 @@
     },
     {
       "id": "pcr-underground-055",
-      "name": "1989 Honda Civic (Underground)",
+      "name": "1989 Honda Civic",
       "category": "COMPACTES",
       "body_asset": 55,
       "source": 2,
@@ -7982,8 +7982,8 @@
     },
     {
       "id": "pcr-underground-056",
-      "name": "Underground — véhicule 057 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Toyota Corolla Levin AE86 (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 56,
       "source": 2,
       "source_mask": 16,
@@ -8004,13 +8004,13 @@
       "recovered_hp": 128.0,
       "recovered_litres": 1.6,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-057",
-      "name": "Underground — véhicule 058 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Nissan Skyline GT-R R33 (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 57,
       "source": 2,
       "source_mask": 16,
@@ -8031,12 +8031,12 @@
       "recovered_hp": 305.0,
       "recovered_litres": 2.6,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1005,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-058",
-      "name": "2006 Honda Civic (Underground)",
+      "name": "2006 Honda Civic",
       "category": "COMPACTES",
       "body_asset": 58,
       "source": 2,
@@ -8063,7 +8063,7 @@
     },
     {
       "id": "pcr-underground-059",
-      "name": "Toyota MR2 (variante) (Underground)",
+      "name": "Toyota MR2 (variante)",
       "category": "SPORTIVES",
       "body_asset": 59,
       "source": 2,
@@ -8198,7 +8198,7 @@
     },
     {
       "id": "pcr-underground-064",
-      "name": "Nissan Stagea (Underground)",
+      "name": "Nissan Stagea",
       "category": "BERLINES / BREAKS",
       "body_asset": 64,
       "source": 2,
@@ -8225,7 +8225,7 @@
     },
     {
       "id": "pcr-underground-065",
-      "name": "2016 Abarth 595 (Underground)",
+      "name": "2016 Abarth 595",
       "category": "COMPACTES",
       "body_asset": 65,
       "source": 2,
@@ -8279,8 +8279,8 @@
     },
     {
       "id": "pcr-underground-067",
-      "name": "Underground — véhicule 068 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2017 Honda NSX (Underground)",
+      "category": "GT / SUPERCARS",
       "body_asset": 67,
       "source": 2,
       "source_mask": 16,
@@ -8301,13 +8301,13 @@
       "recovered_hp": 540.0,
       "recovered_litres": 3.5,
       "recovered_redline_rpm": 7200.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 20064,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-068",
-      "name": "Underground — véhicule 069 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1969 Ford Mustang Boss 429 (Underground)",
+      "category": "MUSCLE CARS",
       "body_asset": 68,
       "source": 2,
       "source_mask": 16,
@@ -8328,12 +8328,12 @@
       "recovered_hp": 375.0,
       "recovered_litres": 7.0,
       "recovered_redline_rpm": 7900.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1505,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-069",
-      "name": "2011 Toyota Prius (Underground)",
+      "name": "2011 Toyota Prius",
       "category": "COMPACTES",
       "body_asset": 69,
       "source": 2,
@@ -8387,7 +8387,7 @@
     },
     {
       "id": "pcr-underground-071",
-      "name": "2016 Chevrolet Camaro SS (Underground)",
+      "name": "2016 Chevrolet Camaro SS",
       "category": "MUSCLE CARS",
       "body_asset": 71,
       "source": 2,
@@ -8414,7 +8414,7 @@
     },
     {
       "id": "pcr-underground-072",
-      "name": "2014 Volkswagen Golf R (Underground)",
+      "name": "2014 Volkswagen Golf R",
       "category": "COMPACTES",
       "body_asset": 72,
       "source": 2,
@@ -8441,7 +8441,7 @@
     },
     {
       "id": "pcr-underground-073",
-      "name": "Volkswagen Corrado (Underground)",
+      "name": "Volkswagen Corrado",
       "category": "COMPACTES",
       "body_asset": 73,
       "source": 2,
@@ -8522,8 +8522,8 @@
     },
     {
       "id": "pcr-underground-076",
-      "name": "Underground — véhicule 077 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1983 Nissan Skyline (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 76,
       "source": 2,
       "source_mask": 16,
@@ -8544,12 +8544,12 @@
       "recovered_hp": 187.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 7800.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1005,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-077",
-      "name": "1998 Mitsubishi Lancer Evolution V (Underground)",
+      "name": "1998 Mitsubishi Lancer Evolution V",
       "category": "SPORTIVES",
       "body_asset": 77,
       "source": 2,
@@ -8630,7 +8630,7 @@
     },
     {
       "id": "pcr-underground-080",
-      "name": "2015 Lexus RC F (Underground)",
+      "name": "2015 Lexus RC F",
       "category": "BERLINES / BREAKS",
       "body_asset": 80,
       "source": 2,
@@ -8657,7 +8657,7 @@
     },
     {
       "id": "pcr-underground-081",
-      "name": "2011 Cadillac CTS-V Sport Wagon (Underground)",
+      "name": "2011 Cadillac CTS-V Sport Wagon",
       "category": "BERLINES / BREAKS",
       "body_asset": 81,
       "source": 2,
@@ -8684,7 +8684,7 @@
     },
     {
       "id": "pcr-underground-082",
-      "name": "2001 Honda Fit (Underground)",
+      "name": "2001 Honda Fit",
       "category": "COMPACTES",
       "body_asset": 82,
       "source": 2,
@@ -8711,7 +8711,7 @@
     },
     {
       "id": "pcr-underground-083",
-      "name": "1998 Subaru Impreza 22B-STi (Underground)",
+      "name": "1998 Subaru Impreza 22B-STi",
       "category": "SPORTIVES",
       "body_asset": 83,
       "source": 2,
@@ -8738,7 +8738,7 @@
     },
     {
       "id": "pcr-underground-084",
-      "name": "1999 Honda Integra (Underground)",
+      "name": "1999 Honda Integra",
       "category": "COMPACTES",
       "body_asset": 84,
       "source": 2,
@@ -8765,7 +8765,7 @@
     },
     {
       "id": "pcr-underground-085",
-      "name": "2016 Audi RS7 Sportback (Underground)",
+      "name": "2016 Audi RS7 Sportback",
       "category": "BERLINES / BREAKS",
       "body_asset": 85,
       "source": 2,
@@ -8792,7 +8792,7 @@
     },
     {
       "id": "pcr-underground-086",
-      "name": "Eagle Talon (Underground)",
+      "name": "Eagle Talon",
       "category": "SPORTIVES",
       "body_asset": 86,
       "source": 2,
@@ -8846,8 +8846,8 @@
     },
     {
       "id": "pcr-underground-088",
-      "name": "Underground — véhicule 089 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1971 Chevrolet Corvette (Underground)",
+      "category": "GT / SUPERCARS",
       "body_asset": 88,
       "source": 2,
       "source_mask": 16,
@@ -8868,12 +8868,12 @@
       "recovered_hp": 360.0,
       "recovered_litres": 5.4,
       "recovered_redline_rpm": 7700.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1008,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-089",
-      "name": "1970 Dodge Challenger (Underground)",
+      "name": "1970 Dodge Challenger",
       "category": "MUSCLE CARS",
       "body_asset": 89,
       "source": 2,
@@ -8900,8 +8900,8 @@
     },
     {
       "id": "pcr-underground-090",
-      "name": "Underground — véhicule 091 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1970 Datsun 240Z (Underground)",
+      "category": "CLASSIQUES",
       "body_asset": 90,
       "source": 2,
       "source_mask": 16,
@@ -8922,12 +8922,12 @@
       "recovered_hp": 160.0,
       "recovered_litres": 4.0,
       "recovered_redline_rpm": 7700.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1008,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-091",
-      "name": "Lotus Elise (Underground)",
+      "name": "Lotus Elise",
       "category": "SPORTIVES",
       "body_asset": 91,
       "source": 2,
@@ -8954,7 +8954,7 @@
     },
     {
       "id": "pcr-underground-092",
-      "name": "2014 Lexus IS (Underground)",
+      "name": "2014 Lexus IS",
       "category": "BERLINES / BREAKS",
       "body_asset": 92,
       "source": 2,
@@ -8981,7 +8981,7 @@
     },
     {
       "id": "pcr-underground-093",
-      "name": "Volkswagen Karmann Ghia (Underground)",
+      "name": "Volkswagen Karmann Ghia",
       "category": "SPORTIVES",
       "body_asset": 93,
       "source": 2,
@@ -9008,7 +9008,7 @@
     },
     {
       "id": "pcr-underground-094",
-      "name": "2010 BMW M5 (Underground)",
+      "name": "2010 BMW M5",
       "category": "BERLINES / BREAKS",
       "body_asset": 94,
       "source": 2,
@@ -9035,8 +9035,8 @@
     },
     {
       "id": "pcr-underground-095",
-      "name": "Underground — véhicule 096 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Nissan GT-R Nismo R35 (Underground)",
+      "category": "GT / SUPERCARS",
       "body_asset": 95,
       "source": 2,
       "source_mask": 16,
@@ -9057,13 +9057,13 @@
       "recovered_hp": 600.0,
       "recovered_litres": 3.8,
       "recovered_redline_rpm": 7900.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1007,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-096",
-      "name": "Underground — véhicule 097 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2012 Aston Martin V8 Vantage S (Underground)",
+      "category": "GT / SUPERCARS",
       "body_asset": 96,
       "source": 2,
       "source_mask": 16,
@@ -9084,12 +9084,12 @@
       "recovered_hp": 430.0,
       "recovered_litres": 4.7,
       "recovered_redline_rpm": 7800.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1008,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-097",
-      "name": "2012 Mercedes-Benz C 63 AMG Black Series (Underground)",
+      "name": "2012 Mercedes-Benz C 63 AMG Black Series",
       "category": "BERLINES / BREAKS",
       "body_asset": 97,
       "source": 2,
@@ -9116,7 +9116,7 @@
     },
     {
       "id": "pcr-underground-098",
-      "name": "2000 Chevrolet Camaro SS (Underground)",
+      "name": "2000 Chevrolet Camaro SS",
       "category": "MUSCLE CARS",
       "body_asset": 98,
       "source": 2,
@@ -9143,7 +9143,7 @@
     },
     {
       "id": "pcr-underground-099",
-      "name": "1974 BMW 3.0 CSL (Underground)",
+      "name": "1974 BMW 3.0 CSL",
       "category": "BERLINES / BREAKS",
       "body_asset": 99,
       "source": 2,
@@ -9170,7 +9170,7 @@
     },
     {
       "id": "pcr-underground-100",
-      "name": "Underground — véhicule 101 à identifier",
+      "name": "Modèle 101 à identifier (Underground)",
       "category": "À IDENTIFIER",
       "body_asset": 100,
       "source": 2,
@@ -9197,7 +9197,7 @@
     },
     {
       "id": "pcr-underground-101",
-      "name": "Underground — véhicule 102 à identifier",
+      "name": "Prototype Underground 102 à identifier",
       "category": "À IDENTIFIER",
       "body_asset": 101,
       "source": 2,
@@ -9251,7 +9251,7 @@
     },
     {
       "id": "pcr-underground-103",
-      "name": "2014 Scion tC (Underground)",
+      "name": "2014 Scion tC",
       "category": "SPORTIVES",
       "body_asset": 103,
       "source": 2,
@@ -9332,7 +9332,7 @@
     },
     {
       "id": "pcr-underground-106",
-      "name": "1997 Volvo 850 R (Underground)",
+      "name": "1997 Volvo 850 R",
       "category": "BERLINES / BREAKS",
       "body_asset": 106,
       "source": 2,
@@ -9359,7 +9359,7 @@
     },
     {
       "id": "pcr-underground-107",
-      "name": "1978 Datsun 260Z (Underground)",
+      "name": "1978 Datsun 260Z",
       "category": "CLASSIQUES",
       "body_asset": 107,
       "source": 2,
@@ -9386,7 +9386,7 @@
     },
     {
       "id": "pcr-underground-108",
-      "name": "2014 Ford Fiesta ST (Underground)",
+      "name": "2014 Ford Fiesta ST",
       "category": "COMPACTES",
       "body_asset": 108,
       "source": 2,
@@ -9413,7 +9413,7 @@
     },
     {
       "id": "pcr-underground-109",
-      "name": "2018 Subaru WRX STi (Underground)",
+      "name": "2018 Subaru WRX STi",
       "category": "SPORTIVES",
       "body_asset": 109,
       "source": 2,
@@ -9440,7 +9440,7 @@
     },
     {
       "id": "pcr-underground-110",
-      "name": "2015 BMW 1 (Underground)",
+      "name": "2015 BMW 1",
       "category": "COMPACTES",
       "body_asset": 110,
       "source": 2,
@@ -9467,7 +9467,7 @@
     },
     {
       "id": "pcr-underground-111",
-      "name": "2017 Chevrolet Cruze (Underground)",
+      "name": "2017 Chevrolet Cruze",
       "category": "COMPACTES",
       "body_asset": 111,
       "source": 2,
@@ -9521,7 +9521,7 @@
     },
     {
       "id": "pcr-underground-113",
-      "name": "2010 Mazda Mazdaspeed 3 (Underground)",
+      "name": "2010 Mazda Mazdaspeed 3",
       "category": "COMPACTES",
       "body_asset": 113,
       "source": 2,
@@ -9602,7 +9602,7 @@
     },
     {
       "id": "pcr-underground-116",
-      "name": "Nissan Sileighty (Underground)",
+      "name": "Nissan Sileighty",
       "category": "SPORTIVES",
       "body_asset": 116,
       "source": 2,
@@ -9629,7 +9629,7 @@
     },
     {
       "id": "pcr-underground-117",
-      "name": "Nissan Onevia (Underground)",
+      "name": "Nissan Onevia",
       "category": "SPORTIVES",
       "body_asset": 117,
       "source": 2,
@@ -9656,7 +9656,7 @@
     },
     {
       "id": "pcr-underground-118",
-      "name": "2016 Cadillac ATS-V (Underground)",
+      "name": "2016 Cadillac ATS-V",
       "category": "BERLINES / BREAKS",
       "body_asset": 118,
       "source": 2,
@@ -9683,7 +9683,7 @@
     },
     {
       "id": "pcr-underground-119",
-      "name": "Toyota Chaser (Underground)",
+      "name": "Toyota Chaser",
       "category": "BERLINES / BREAKS",
       "body_asset": 119,
       "source": 2,
@@ -9710,7 +9710,7 @@
     },
     {
       "id": "pcr-underground-120",
-      "name": "Underground — véhicule 121 à identifier",
+      "name": "Compacte Underground 121 à identifier",
       "category": "À IDENTIFIER",
       "body_asset": 120,
       "source": 2,
@@ -9764,7 +9764,7 @@
     },
     {
       "id": "pcr-underground-122",
-      "name": "BMW M5 (variante) (Underground)",
+      "name": "BMW M5 (variante)",
       "category": "BERLINES / BREAKS",
       "body_asset": 122,
       "source": 2,
@@ -9818,7 +9818,7 @@
     },
     {
       "id": "pcr-underground-124",
-      "name": "1973 Ford Falcon (Underground)",
+      "name": "1973 Ford Falcon",
       "category": "MUSCLE CARS",
       "body_asset": 124,
       "source": 2,
@@ -9872,8 +9872,8 @@
     },
     {
       "id": "pcr-underground-126",
-      "name": "Underground — véhicule 127 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1972 Ford Falcon",
+      "category": "MUSCLE CARS",
       "body_asset": 126,
       "source": 2,
       "source_mask": 16,
@@ -9894,12 +9894,12 @@
       "recovered_hp": 155.0,
       "recovered_litres": 4.1,
       "recovered_redline_rpm": 7800.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1008,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-127",
-      "name": "1970 Toyota Celica (Underground)",
+      "name": "1970 Toyota Celica",
       "category": "CLASSIQUES",
       "body_asset": 127,
       "source": 2,
@@ -9926,7 +9926,7 @@
     },
     {
       "id": "pcr-underground-128",
-      "name": "1981 Toyota Celica XX (Underground)",
+      "name": "1981 Toyota Celica XX",
       "category": "SPORTIVES",
       "body_asset": 128,
       "source": 2,
@@ -9953,7 +9953,7 @@
     },
     {
       "id": "pcr-underground-129",
-      "name": "1978 Toyota Corona Mark II (Underground)",
+      "name": "1978 Toyota Corona Mark II",
       "category": "BERLINES / BREAKS",
       "body_asset": 129,
       "source": 2,
@@ -9980,7 +9980,7 @@
     },
     {
       "id": "pcr-underground-130",
-      "name": "1970 Mitsubishi Colt Galant GTO (Underground)",
+      "name": "1970 Mitsubishi Colt Galant GTO",
       "category": "CLASSIQUES",
       "body_asset": 130,
       "source": 2,
@@ -10007,7 +10007,7 @@
     },
     {
       "id": "pcr-underground-131",
-      "name": "1967 Toyota 2000GT (Underground)",
+      "name": "1967 Toyota 2000GT",
       "category": "CLASSIQUES",
       "body_asset": 131,
       "source": 2,
@@ -10034,8 +10034,8 @@
     },
     {
       "id": "pcr-underground-132",
-      "name": "Underground — véhicule 133 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1972 Nissan Laurel",
+      "category": "BERLINES / BREAKS",
       "body_asset": 132,
       "source": 2,
       "source_mask": 16,
@@ -10056,13 +10056,13 @@
       "recovered_hp": 110.0,
       "recovered_litres": 2.6,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1002,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-133",
-      "name": "Underground — véhicule 134 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1978 Mazda RX-7 (Underground)",
+      "category": "CLASSIQUES",
       "body_asset": 133,
       "source": 2,
       "source_mask": 16,
@@ -10083,12 +10083,12 @@
       "recovered_hp": 165.0,
       "recovered_litres": 1.2,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1513,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-134",
-      "name": "1969 Subaru R-2 (Underground)",
+      "name": "1969 Subaru R-2",
       "category": "CLASSIQUES",
       "body_asset": 134,
       "source": 2,
@@ -10115,8 +10115,8 @@
     },
     {
       "id": "pcr-underground-135",
-      "name": "Underground — véhicule 136 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Peugeot 206",
+      "category": "COMPACTES",
       "body_asset": 135,
       "source": 2,
       "source_mask": 16,
@@ -10137,13 +10137,13 @@
       "recovered_hp": 138.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-136",
-      "name": "Underground — véhicule 137 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2003 Renault Clio V6 (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 136,
       "source": 2,
       "source_mask": 16,
@@ -10164,13 +10164,13 @@
       "recovered_hp": 255.0,
       "recovered_litres": 3.0,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 20064,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-137",
-      "name": "Underground — véhicule 138 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1980 Renault 5 Turbo",
+      "category": "COMPACTES",
       "body_asset": 137,
       "source": 2,
       "source_mask": 16,
@@ -10191,13 +10191,13 @@
       "recovered_hp": 160.0,
       "recovered_litres": 1.4,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-138",
-      "name": "Underground — véhicule 139 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1983 Audi Sport quattro",
+      "category": "BERLINES / BREAKS",
       "body_asset": 138,
       "source": 2,
       "source_mask": 16,
@@ -10218,13 +10218,13 @@
       "recovered_hp": 200.0,
       "recovered_litres": 2.1,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-139",
-      "name": "Underground — véhicule 140 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1991 Lancia Delta HF Integrale Evoluzione",
+      "category": "COMPACTES",
       "body_asset": 139,
       "source": 2,
       "source_mask": 16,
@@ -10245,13 +10245,13 @@
       "recovered_hp": 215.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-140",
-      "name": "Underground — véhicule 141 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Peugeot 205 GTI",
+      "category": "COMPACTES",
       "body_asset": 140,
       "source": 2,
       "source_mask": 16,
@@ -10272,13 +10272,13 @@
       "recovered_hp": 130.0,
       "recovered_litres": 1.9,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-141",
-      "name": "Underground — véhicule 142 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2017 Abarth 124 Spider",
+      "category": "BERLINES / BREAKS",
       "body_asset": 141,
       "source": 2,
       "source_mask": 16,
@@ -10299,8 +10299,8 @@
       "recovered_hp": 165.0,
       "recovered_litres": 1.4,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-142",
@@ -10331,8 +10331,8 @@
     },
     {
       "id": "pcr-underground-143",
-      "name": "Underground — véhicule 144 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1973 Alpine A110",
+      "category": "CLASSIQUES",
       "body_asset": 143,
       "source": 2,
       "source_mask": 16,
@@ -10353,12 +10353,12 @@
       "recovered_hp": 129.0,
       "recovered_litres": 1.6,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-144",
-      "name": "2011 Citroën DS3 (Underground)",
+      "name": "2011 Citroën DS3",
       "category": "COMPACTES",
       "body_asset": 144,
       "source": 2,
@@ -10385,7 +10385,7 @@
     },
     {
       "id": "pcr-underground-145",
-      "name": "1970 Chevrolet Chevelle (Underground)",
+      "name": "1970 Chevrolet Chevelle",
       "category": "MUSCLE CARS",
       "body_asset": 145,
       "source": 2,
@@ -10412,7 +10412,7 @@
     },
     {
       "id": "pcr-underground-146",
-      "name": "2005 Chevrolet Cobalt (Underground)",
+      "name": "2005 Chevrolet Cobalt",
       "category": "COMPACTES",
       "body_asset": 146,
       "source": 2,
@@ -10439,8 +10439,8 @@
     },
     {
       "id": "pcr-underground-147",
-      "name": "Underground — véhicule 148 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Ford Escort",
+      "category": "COMPACTES",
       "body_asset": 147,
       "source": 2,
       "source_mask": 16,
@@ -10461,13 +10461,13 @@
       "recovered_hp": 100.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 7300.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-148",
-      "name": "Underground — véhicule 149 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1987 Buick GNX — conversion break (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 148,
       "source": 2,
       "source_mask": 16,
@@ -10488,13 +10488,13 @@
       "recovered_hp": 300.0,
       "recovered_litres": 3.8,
       "recovered_redline_rpm": 7200.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1002,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-149",
-      "name": "Underground — véhicule 150 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2006 Pontiac GTO",
+      "category": "MUSCLE CARS",
       "body_asset": 149,
       "source": 2,
       "source_mask": 16,
@@ -10515,12 +10515,12 @@
       "recovered_hp": 350.0,
       "recovered_litres": 5.7,
       "recovered_redline_rpm": 7000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1008,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-150",
-      "name": "1965 Pontiac GTO (Underground)",
+      "name": "1965 Pontiac GTO",
       "category": "MUSCLE CARS",
       "body_asset": 150,
       "source": 2,
@@ -10547,8 +10547,8 @@
     },
     {
       "id": "pcr-underground-151",
-      "name": "Underground — véhicule 152 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1990 Chevrolet Camaro IROC-Z",
+      "category": "MUSCLE CARS",
       "body_asset": 151,
       "source": 2,
       "source_mask": 16,
@@ -10569,13 +10569,13 @@
       "recovered_hp": 190.0,
       "recovered_litres": 5.0,
       "recovered_redline_rpm": 7000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1008,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-152",
-      "name": "Underground — véhicule 153 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1968 Ford Mustang — cabriolet (Underground)",
+      "category": "MUSCLE CARS",
       "body_asset": 152,
       "source": 2,
       "source_mask": 16,
@@ -10596,12 +10596,12 @@
       "recovered_hp": 320.0,
       "recovered_litres": 6.4,
       "recovered_redline_rpm": 7000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1505,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-153",
-      "name": "Underground — véhicule 154 à identifier",
+      "name": "Modèle 154 à identifier",
       "category": "À IDENTIFIER",
       "body_asset": 153,
       "source": 2,
@@ -10628,8 +10628,8 @@
     },
     {
       "id": "pcr-underground-154",
-      "name": "Underground — véhicule 155 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1974 Ford Pinto",
+      "category": "COMPACTES",
       "body_asset": 154,
       "source": 2,
       "source_mask": 16,
@@ -10650,13 +10650,13 @@
       "recovered_hp": 88.0,
       "recovered_litres": 2.3,
       "recovered_redline_rpm": 7700.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-155",
-      "name": "Underground — véhicule 156 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1998 Dodge Viper GTS-R — cabriolet (Underground)",
+      "category": "GT / SUPERCARS",
       "body_asset": 155,
       "source": 2,
       "source_mask": 16,
@@ -10677,13 +10677,13 @@
       "recovered_hp": 450.0,
       "recovered_litres": 8.0,
       "recovered_redline_rpm": 7700.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1506,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-156",
-      "name": "Underground — véhicule 157 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2019 Chevrolet Corvette ZR1 — cabriolet (Underground)",
+      "category": "GT / SUPERCARS",
       "body_asset": 156,
       "source": 2,
       "source_mask": 16,
@@ -10704,12 +10704,12 @@
       "recovered_hp": 755.0,
       "recovered_litres": 6.2,
       "recovered_redline_rpm": 7000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1008,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-157",
-      "name": "2013 Mercedes-Benz CLA 45 AMG (Underground)",
+      "name": "2013 Mercedes-Benz CLA 45 AMG",
       "category": "COMPACTES",
       "body_asset": 157,
       "source": 2,
@@ -10736,8 +10736,8 @@
     },
     {
       "id": "pcr-underground-158",
-      "name": "Underground — véhicule 159 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2018 Alpine A110",
+      "category": "SPORTIVES",
       "body_asset": 158,
       "source": 2,
       "source_mask": 16,
@@ -10758,13 +10758,13 @@
       "recovered_hp": 249.0,
       "recovered_litres": 1.8,
       "recovered_redline_rpm": 7000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-159",
-      "name": "Underground — véhicule 160 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2014 Alfa Romeo 4C",
+      "category": "SPORTIVES",
       "body_asset": 159,
       "source": 2,
       "source_mask": 16,
@@ -10785,13 +10785,13 @@
       "recovered_hp": 237.0,
       "recovered_litres": 1.75,
       "recovered_redline_rpm": 7000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-160",
-      "name": "Underground — véhicule 161 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1995 Toyota Celica",
+      "category": "COMPACTES",
       "body_asset": 160,
       "source": 2,
       "source_mask": 16,
@@ -10812,13 +10812,13 @@
       "recovered_hp": 252.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 7000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-161",
-      "name": "Underground — véhicule 162 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1997 Toyota MR2",
+      "category": "SPORTIVES",
       "body_asset": 161,
       "source": 2,
       "source_mask": 16,
@@ -10839,12 +10839,12 @@
       "recovered_hp": 245.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 7000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-162",
-      "name": "Toyota Soarer (Underground)",
+      "name": "Toyota Soarer",
       "category": "SPORTIVES",
       "body_asset": 162,
       "source": 2,
@@ -10871,8 +10871,8 @@
     },
     {
       "id": "pcr-underground-163",
-      "name": "Underground — véhicule 164 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1997 Mitsubishi FTO",
+      "category": "SPORTIVES",
       "body_asset": 163,
       "source": 2,
       "source_mask": 16,
@@ -10893,13 +10893,13 @@
       "recovered_hp": 200.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 7000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-164",
-      "name": "Underground — véhicule 165 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Mercedes-Benz 190 E — conversion pick-up (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 164,
       "source": 2,
       "source_mask": 16,
@@ -10920,13 +10920,13 @@
       "recovered_hp": 202.0,
       "recovered_litres": 2.5,
       "recovered_redline_rpm": 7200.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-165",
-      "name": "Underground — véhicule 166 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1992 Alfa Romeo 155",
+      "category": "BERLINES / BREAKS",
       "body_asset": 165,
       "source": 2,
       "source_mask": 16,
@@ -10947,12 +10947,12 @@
       "recovered_hp": 164.0,
       "recovered_litres": 2.5,
       "recovered_redline_rpm": 7000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-166",
-      "name": "2006 Audi RS4 (Underground)",
+      "name": "2006 Audi RS4",
       "category": "BERLINES / BREAKS",
       "body_asset": 166,
       "source": 2,
@@ -10979,8 +10979,8 @@
     },
     {
       "id": "pcr-underground-167",
-      "name": "Underground — véhicule 168 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "BMW M3 E36 (Underground)",
+      "category": "BERLINES / BREAKS",
       "body_asset": 167,
       "source": 2,
       "source_mask": 16,
@@ -11001,13 +11001,13 @@
       "recovered_hp": 277.0,
       "recovered_litres": 3.5,
       "recovered_redline_rpm": 7000.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1002,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-168",
-      "name": "Underground — véhicule 169 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1992 Autozam AZ-1",
+      "category": "COMPACTES",
       "body_asset": 168,
       "source": 2,
       "source_mask": 16,
@@ -11028,12 +11028,12 @@
       "recovered_hp": 64.0,
       "recovered_litres": 0.7,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-169",
-      "name": "1995 Suzuki Cappuccino (Underground)",
+      "name": "1995 Suzuki Cappuccino",
       "category": "COMPACTES",
       "body_asset": 169,
       "source": 2,
@@ -11060,7 +11060,7 @@
     },
     {
       "id": "pcr-underground-170",
-      "name": "1964 Chevrolet Impala (Underground)",
+      "name": "1964 Chevrolet Impala",
       "category": "BERLINES / BREAKS",
       "body_asset": 170,
       "source": 2,
@@ -11087,7 +11087,7 @@
     },
     {
       "id": "pcr-underground-171",
-      "name": "1996 Chevrolet Impala (Underground)",
+      "name": "1996 Chevrolet Impala",
       "category": "BERLINES / BREAKS",
       "body_asset": 171,
       "source": 2,
@@ -11141,7 +11141,7 @@
     },
     {
       "id": "pcr-underground-173",
-      "name": "1949 Mercury Eight (Underground)",
+      "name": "1949 Mercury Eight",
       "category": "CLASSIQUES",
       "body_asset": 173,
       "source": 2,
@@ -11168,7 +11168,7 @@
     },
     {
       "id": "pcr-underground-174",
-      "name": "1956 Ford F-100 (Underground)",
+      "name": "1956 Ford F-100",
       "category": "UTILITAIRES",
       "body_asset": 174,
       "source": 2,
@@ -11249,8 +11249,8 @@
     },
     {
       "id": "pcr-underground-177",
-      "name": "Underground — véhicule 178 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2018 Lexus LC 500 — cabriolet (Underground)",
+      "category": "GT / SUPERCARS",
       "body_asset": 177,
       "source": 2,
       "source_mask": 16,
@@ -11271,12 +11271,12 @@
       "recovered_hp": 471.0,
       "recovered_litres": 5.0,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1008,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-178",
-      "name": "2013 Mazda Atenza (Underground)",
+      "name": "2013 Mazda Atenza",
       "category": "BERLINES / BREAKS",
       "body_asset": 178,
       "source": 2,
@@ -11303,8 +11303,8 @@
     },
     {
       "id": "pcr-underground-179",
-      "name": "Underground — véhicule 180 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2010 Daihatsu Move Custom (Underground)",
+      "category": "COMPACTES",
       "body_asset": 179,
       "source": 2,
       "source_mask": 16,
@@ -11325,8 +11325,8 @@
       "recovered_hp": 52.0,
       "recovered_litres": 0.6,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1003,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-180",
@@ -11357,7 +11357,7 @@
     },
     {
       "id": "pcr-underground-181",
-      "name": "2018 Kia Stinger (Underground)",
+      "name": "2018 Kia Stinger",
       "category": "BERLINES / BREAKS",
       "body_asset": 181,
       "source": 2,
@@ -11411,8 +11411,8 @@
     },
     {
       "id": "pcr-underground-183",
-      "name": "Underground — véhicule 184 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "Ferrari F40 (Underground)",
+      "category": "GT / SUPERCARS",
       "body_asset": 183,
       "source": 2,
       "source_mask": 16,
@@ -11433,8 +11433,8 @@
       "recovered_hp": 130.0,
       "recovered_litres": 2.8,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1002,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-184",
@@ -11465,8 +11465,8 @@
     },
     {
       "id": "pcr-underground-185",
-      "name": "Underground — véhicule 186 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "1977 Pontiac Firebird Trans Am (Underground)",
+      "category": "MUSCLE CARS",
       "body_asset": 185,
       "source": 2,
       "source_mask": 16,
@@ -11487,13 +11487,13 @@
       "recovered_hp": 220.0,
       "recovered_litres": 6.6,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1008,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-186",
-      "name": "Underground — véhicule 187 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2005 Ford GT",
+      "category": "GT / SUPERCARS",
       "body_asset": 186,
       "source": 2,
       "source_mask": 16,
@@ -11514,12 +11514,12 @@
       "recovered_hp": 550.0,
       "recovered_litres": 5.4,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1008,
+      "identity_uncertain": false
     },
     {
       "id": "pcr-underground-187",
-      "name": "Underground — véhicule 188 à identifier",
+      "name": "Supercar Underground 188 à identifier",
       "category": "À IDENTIFIER",
       "body_asset": 187,
       "source": 2,
@@ -11546,7 +11546,7 @@
     },
     {
       "id": "pcr-underground-188",
-      "name": "Underground — véhicule 189 à identifier",
+      "name": "Supercar Underground 189 à identifier",
       "category": "À IDENTIFIER",
       "body_asset": 188,
       "source": 2,
@@ -11600,8 +11600,8 @@
     },
     {
       "id": "pcr-underground-190",
-      "name": "Underground — véhicule 191 à identifier",
-      "category": "À IDENTIFIER",
+      "name": "2019 Toyota GR Supra (Underground)",
+      "category": "SPORTIVES",
       "body_asset": 190,
       "source": 2,
       "source_mask": 16,
@@ -11622,8 +11622,8 @@
       "recovered_hp": 335.0,
       "recovered_litres": 3.0,
       "recovered_redline_rpm": 7500.0,
-      "fallback_audio_engine_id": 0,
-      "identity_uncertain": true
+      "fallback_audio_engine_id": 1002,
+      "identity_uncertain": false
     }
   ],
   "limits": [

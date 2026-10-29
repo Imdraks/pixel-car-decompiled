@@ -20,6 +20,7 @@
 #include "attachment_placement.hpp"
 #include <cmath>
 #include <algorithm>
+#include <numeric>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -730,12 +731,13 @@ int main(int argc,char**argv){
     expect(std::size(RimCatalog)==567&&std::size(CosmeticCatalog)==735&&std::size(PartCatalog)==524,"merged shop includes 1520 equipment choices including distinct source seat variants");
     bool namedRimsPersist=true,rimImagesValid=true;
     for(const auto& rim:RimCatalog){
-        Profile p;p.rim=rim.id;saveProfile(root/"named-rim.ini",p,error);auto loaded=loadProfile(root/"named-rim.ini",191,54);namedRimsPersist&=loaded.rim==rim.id;
+        Profile p;p.rim=rim.id;saveProfile(root/"named-rim.ini",p,error);auto loaded=loadProfile(root/"named-rim.ini",191,54);namedRimsPersist&=loaded.rim==canonicalRimId(rim.id);
         for(auto frames:{content_art::unboundRims,content_art::originalRims}){auto f=frames[rim.image];rimImagesValid&=f.atlas>=2000&&f.atlas<2000+content_art::AtlasCount&&f.canvasW==62&&f.canvasH==62&&f.w>0&&f.h>0&&f.x+f.w<=2048&&f.y+f.h<=2048;}
     }
     expect(namedRimsPersist,"all 521 source-named composite rims survive profile reload without legacy clamping");
     expect(rimImagesValid,"both source banks provide valid nonempty composed frames for all 521 rims");
     Profile outfit;outfit.contentSource=1;for(const auto& c:CosmeticCatalog)outfit.cosmetics[c.slot]=c.id;saveProfile(root/"outfit.ini",outfit,error);auto outfitLoaded=loadProfile(root/"outfit.ini",191,54);
+    for(auto& id:outfit.cosmetics){id=canonicalCosmeticId(id);}
     expect(outfitLoaded.cosmetics==outfit.cosmetics&&outfitLoaded.contentSource==1,"all sixteen appearance slots and original source selection persist");
     {std::ofstream out(root/"bad-outfit.ini");out<<"content_source=7\ncosmetic_0=102001\ncosmetic_1=999999\n";}
     auto badOutfit=loadProfile(root/"bad-outfit.ini",191,54);expect(badOutfit.contentSource==2&&badOutfit.cosmetics[0]==0&&badOutfit.cosmetics[1]==0,"malformed appearance and wrong-slot IDs cannot corrupt the outfit");
@@ -752,6 +754,27 @@ int main(int argc,char**argv){
         bool sounds=std::size(UndergroundSounds)==94;for(int id=0;id<94;id++)sounds&=std::string(sourceSound(id,2).name)==OriginalSounds[id].name;
         expect(sounds&&std::string(sourceSound(20,2).file).find("audio-underground/")==0,"all Underground sound IDs preserve the shared compiled dispatch and select their own samples");
         expect(std::string(vehicleIdentity(85,false).name)=="Lamborghini Huracán"&&std::string(vehicleIdentity(187,false).name)=="Lamborghini Gallardo","confirmed Unbound Lamborghini identities survive the Underground import");
+    }
+    {
+        bool valid=true;int partAliases=0,cosmeticAliases=0,rimAliases=0,vehicleAliases=0,showroom=0;
+        for(const auto& p:PartCatalog){auto id=canonicalPartId(p.id);if(id!=p.id){auto target=findPart(id);valid&=target&&target->slot==p.slot&&target->stat==p.stat&&target->weight==p.weight&&canonicalPartId(id)==id;++partAliases;}}
+        for(const auto& c:CosmeticCatalog){auto id=canonicalCosmeticId(c.id);if(id!=c.id){auto target=findCosmetic(id);valid&=target&&target->slot==c.slot&&target->weight==c.weight&&canonicalCosmeticId(id)==id;++cosmeticAliases;}}
+        for(const auto& r:RimCatalog){auto id=canonicalRimId(r.id);if(id!=r.id){valid&=findRim(id)&&canonicalRimId(id)==id;++rimAliases;}}
+        for(size_t i=0;i<std::size(VehicleCatalog);i++){int id=canonicalVehicleIndex(int(i));valid&=id>=0&&id<int(std::size(VehicleCatalog))&&canonicalVehicleIndex(id)==id;vehicleAliases+=id!=int(i);showroom+=reviewedShowroomVehicle(int(i));}
+        expect(valid&&partAliases==8&&cosmeticAliases==118&&rimAliases==37&&vehicleAliases==142&&showroom==287,"reviewed aliases retain valid stable IDs and hide only duplicate shop entries");
+        bool samePhysics=true;
+        for(size_t i=0;i<std::size(VehicleCatalog);i++){int target=canonicalVehicleIndex(int(i));if(target==int(i))continue;auto a=buildVehicle(factoryVehicle(int(i))),b=buildVehicle(factoryVehicle(target));samePhysics&=a.boostedHp==b.boostedHp&&a.vehicle.mass==b.vehicle.mass&&a.vehicle.redlineRpm==b.vehicle.redlineRpm&&a.vehicle.drive==b.vehicle.drive&&a.vehicle.engineInertia==b.vehicle.engineInertia;}
+        expect(samePhysics,"hidden duplicate vehicles retain the same factory power, mass, revs, drive and inertia as their canonical model");
+        expect(std::string(catalogOriginLabel(19))=="ORIGINAL"&&std::string(catalogOriginLabel(8))=="UNBOUND"&&std::string(catalogOriginLabel(16))=="UNDERGROUND"&&std::string(catalogOriginLabel(4))=="CRÉATION PC","each displayed item has exactly one primary provenance");
+        Profile legacy;legacy.rim=200109;legacy.cosmetics[0]=600001;legacy.parts[9]=69026;saveProfile(root/"reviewed-legacy.ini",legacy,error);auto loaded=loadProfile(root/"reviewed-legacy.ini",191,54);
+        expect(loaded.rim==canonicalRimId(legacy.rim)&&loaded.cosmetics[0]==100001&&loaded.parts[9]==canonicalPartId(legacy.parts[9]),"saved duplicate equipment resolves to equivalent canonical parts on load");
+    }
+    {
+        std::array<int,7> styles{};bool inherited=true;
+        for(const auto& rim:RimCatalog){auto style=rimStyleOf(rim.id);inherited&=int(style)>=1&&int(style)<=6;if(canonicalRimId(rim.id)==rim.id)++styles[int(style)];if(rim.imageSource==2)inherited&=style==rimStyleOf(10000+rim.sourceId);}
+        expect(inherited&&std::all_of(styles.begin()+1,styles.end(),[](int n){return n>0;})&&std::accumulate(styles.begin(),styles.end(),0)==530,"all visible wheels belong to one of six populated visual categories and variants inherit their family");
+        auto namedStyle=[](const std::string& name){for(const auto& r:RimCatalog)if(name==r.name)return rimStyleOf(r.id);return RimStyle::All;};
+        expect(namedStyle("22B OEM")==RimStyle::Offroad&&namedStyle("TE38 White")==RimStyle::Tuner&&namedStyle("USA RACING ALLOY")==RimStyle::Muscle&&namedStyle("Drag Steelie")==RimStyle::Drag&&namedStyle("VIP MODULAR")==RimStyle::Luxury&&namedStyle("Carbon")==RimStyle::Hyper,"rally, tuner, muscle, drag, VIP and lightweight supercar reference families use their reviewed style");
     }
     bool audioBanksValid=std::size(BaseGameSounds)==94;for(int id=0;id<94;id++)audioBanksValid&=std::string(BaseGameSounds[id].name)==OriginalSounds[id].name&&std::string(BaseGameSounds[id].file).find("audio-original/")==0;
     expect(audioBanksValid,"both 94-sample banks preserve stable names, IDs and separate resource paths");

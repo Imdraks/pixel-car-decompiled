@@ -1,12 +1,14 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.17.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.17.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.17.0-native-preview)
+**[Télécharger Windows x64 — version 0.17.1](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.17.1-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.17.1-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+La **0.17.1** isole les menus de customisation et classe les jantes en **Offroad, Tuner, Muscle, Drag, Luxury et Hyper**. Une seule provenance par fiche ; les copies identiques sont masquées et les vraies variantes conservées. **1 663 équipements**, **530 jantes**, **287 choix au showroom**, avec compatibilité des anciennes préparations. [Revue](native/game/REVUE-CONTENU.md) · [Filtres](native/game/CLASSIFICATION-JANTES.md).
 
 La **0.17.0** réunit **Original, Unbound et Underground** : 430 variantes de
 voitures, 1 826 choix d’équipement, décors et banque audio Underground. Les

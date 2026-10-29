@@ -16,7 +16,7 @@ utility={23,47,123,174,180}
 categories=['COMPACTES','BERLINES / BREAKS','SPORTIVES','MUSCLE CARS','GT / SUPERCARS','UTILITAIRES','CLASSIQUES','À IDENTIFIER']
 def category(body,name):
  if 'identifier' in name or 'confirmer' in name:return 7
- if name.startswith(('Porsche 911','Lamborghini ')):return 4
+ if name.startswith(('Porsche 911','Lamborghini ','Ford GT40','Ferrari F40')):return 4
  if body in utility:return 5
  if body in muscle:return 3
  if body in compact:return 0

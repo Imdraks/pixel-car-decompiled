@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "all_reviewed_rims_available": true,
+    "filter_Offroad": true,
+    "filter_Tuner": true,
+    "filter_Muscle": true,
+    "filter_Drag": true,
+    "filter_Luxury": true,
+    "filter_Hyper": true,
+    "six_disjoint_categories_cover_visible_rims": true,
+    "mouse_selects_luxury": true,
+    "equip_from_filtered_category": true,
+    "tire_tab_does_not_inherit_rim_style_filter": true,
+    "return_to_rims_retains_category": true,
+    "all_button_restores_every_visible_rim": true,
+    "back_returns_to_wheel_parent": true,
+    "clean_exit_14": true,
+    "selected_rim_survives_restart": true,
+    "clean_exit_16": true
+  },
+  "category_counts": {
+    "Offroad": 8,
+    "Tuner": 329,
+    "Muscle": 42,
+    "Drag": 30,
+    "Luxury": 51,
+    "Hyper": 70
+  }
+}
