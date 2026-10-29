@@ -1,0 +1,25 @@
+{
+  "capture_states_compared": [
+    "moteur-menu-isole",
+    "provenance-original",
+    "provenance-unbound",
+    "provenance-underground",
+    "jantes-style-offroad",
+    "jantes-style-tuner",
+    "jantes-style-muscle",
+    "jantes-style-drag",
+    "jantes-style-luxury",
+    "jantes-style-hyper",
+    "physique-patinage",
+    "physique-virage",
+    "fond-menu-4x3",
+    "fond-menu-large",
+    "menu",
+    "garage-huit-places",
+    "custom-accueil",
+    "mode-libre-final"
+  ],
+  "count": 18,
+  "numeric_tolerance": 0.01,
+  "passed": true
+}

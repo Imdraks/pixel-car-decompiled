@@ -1,0 +1,14 @@
+{
+  "checks_passed": 24,
+  "vehicles_checked": 430,
+  "rolling_spin_rpm": 8423.031963,
+  "gentle_rpm": 3412.37463,
+  "tc_rolling_distance_m": 20.74357243,
+  "turning_distance_m": 9.368653867,
+  "straight_distance_m": 9.676635058,
+  "low_grip_lane": 0.9565703125,
+  "road_grip_lane": 0.7285123816,
+  "independent_axle_abs": true,
+  "physics_reconstructed_native": true,
+  "full_android_dynamics_equivalence": false
+}

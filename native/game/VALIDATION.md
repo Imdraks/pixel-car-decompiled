@@ -4,7 +4,12 @@
 - **141 contrôles graphiques**, huit groupes de pixels ; **51 contrôles clavier/souris** : conduite, curseur unique, fonds après redimensionnement, absence de bandes noires intégrées en écran large et routage de la musique.
 - Cadrage calculé depuis les pixels visibles des quinze images Original, Unbound et Underground ; les 673 ressources source restent identiques ; deux versions OGG du morceau fourni et leur manifeste portent le total à 676.
 - Musique fournie : deux clips stéréo 44,1 kHz de 170,109388 secondes, crêtes décodées 0,623 / 0,829, jonctions à zéro. Neuf scénarios de lecture PCM sur trois banques : fichier normal et variante résonnante, niveau réduit, volumes indépendants, continuité, coupure générale et absence de musique en conduite ; crête du mélange capturé 0,121. Fichier source préservé. Preuves : `validation/music-0.18.1/`.
-- Publication Windows conditionnée aux tests précédents et à la comparaison des pixels des marges avec les rectangles utiles, plus un contrôle de contenu visible sur les côtés du fond large. Preuves de téléchargement ajoutées après publication.
+- [Validation Windows réussie](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40893936516) : 447 contrôles du cœur, 141 graphiques, 282 associations audio, 358 WAV/OGG simulés et deux nouvelles musiques décodées. Le routage des quatre contextes musicaux est également vérifié.
+- Dix-huit états de captures concordent entre Linux et Windows ; 1 528 compositions et onze tableaux physiques concordent dans la tolérance de 0,01. Les pixels des marges correspondent aux rectangles utiles et les côtés du fond large contiennent bien le décor.
+- ZIP public téléchargé : CRC, source/EXE, 676 ressources, 63 pièces jointes dont 60 aperçus vérifiés. Restauration à froid puis réutilisation des 676 ressources testées. Preuves : `validation/windows-0.18.1/`.
+- Source compilée : `dfdc258c62d53033e2108952072401b19927b2f3`.
+- ZIP : 147685077 octets, SHA-256 `4fa48f51ae34bb3fb146a18473b4d928a2e21fb8486843afc69205affe434497`.
+- EXE : SHA-256 `59ba9d5c641a5451f70f539763a45cb831e48adf39c7c564c2447834c58bdbcc`.
 
 # Validation 0.18.0 — conduite, curseur wheelie unique et fonds de menus
 
