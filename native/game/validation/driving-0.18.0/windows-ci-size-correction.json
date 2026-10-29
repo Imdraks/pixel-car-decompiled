@@ -1,0 +1,13 @@
+{
+  "fond-menu-4x3": {
+    "width": 1028,
+    "height": 749
+  },
+  "fond-menu-large": {
+    "width": 1028,
+    "height": 700
+  },
+  "failed_run": 40877361041,
+  "cause": "The Windows CI desktop clamped requested 1600x700 to 1028x700; screenshots immediately after resize were blank.",
+  "correction": "Use desktop-supported 800x600 and 960x450 diagnostic windows; allow ten rendered frames before capture. Production driving and menu render code unchanged by this test correction."
+}

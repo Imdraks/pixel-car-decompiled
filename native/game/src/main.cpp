@@ -1792,12 +1792,12 @@ struct App {
         if(frames==792)capture("physique-patinage.png");
         if(frames==793){settings.tractionControl=true;beginFree();drive.player.speed=25;drive.player.gear=3;drive.changeLane(1);for(int t=0;t<60;t++)drive.update({true,false,false},Step);check(drive.lane>1&&drive.lane<2&&drive.lateralSpeed>0,"lane changes use progressive lateral motion");check(drive.player.tcActive&&!drive.player.launchClutch,"TC regulates torque in a rolling lane change");}
         if(frames==794)capture("physique-virage.png");
-        if(frames==795){openRidesHome();SetWindowSize(1200,900);}
-        if(frames==796){capture("fond-menu-4x3.png");check(screen==Screen::Rides&&std::abs(double(GetScreenWidth())/GetScreenHeight()-16.0/9)>.03,"menu backdrop renders in a tall window");}
-        if(frames==797){openSuspension();SetWindowSize(1600,700);}
-        if(frames==798){capture("fond-menu-large.png");check(screen==Screen::Suspension&&double(GetScreenWidth())/GetScreenHeight()>1.9,"suspension backdrop renders in a wide window");}
-        if(frames==799)SetWindowSize(960,540);
-        if(frames==800)quit=true;
+        if(frames==795){openRidesHome();SetWindowSize(800,600);}
+        if(frames==805){capture("fond-menu-4x3.png");check(screen==Screen::Rides&&std::abs(double(GetScreenWidth())/GetScreenHeight()-16.0/9)>.03,"menu backdrop renders in a tall window");}
+        if(frames==806){openSuspension();SetWindowSize(960,450);}
+        if(frames==816){capture("fond-menu-large.png");check(screen==Screen::Suspension&&double(GetScreenWidth())/GetScreenHeight()>1.9,"suspension backdrop renders in a wide window");}
+        if(frames==817)SetWindowSize(960,540);
+        if(frames==820)quit=true;
     }
     int run(){
         init();
