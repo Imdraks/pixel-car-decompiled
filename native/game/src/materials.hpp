@@ -6,17 +6,17 @@
 namespace pcr::materials {
 struct Rgba {unsigned char r,g,b,a;};
 inline Rgba unpack(unsigned color){return {static_cast<unsigned char>(color>>24),static_cast<unsigned char>(color>>16),static_cast<unsigned char>(color>>8),static_cast<unsigned char>(color)};}
-inline int paintRow(Rgba color,bool original){
-    const auto& palette=original?originalPaint:unboundPaint;
+inline int paintRow(Rgba color,int original){
+    const auto& palette=original==2?undergroundPaint:original==1?originalPaint:unboundPaint;
     for(int row=0;row<11;row++){
         auto c=unpack(palette[0][row]);int r=int(color.r)-c.r,g=int(color.g)-c.g,b=int(color.b)-c.b,a=int(color.a)-c.a;
         // Source shader: Euclidean RGBA distance <= 0.004 in [0,1].
         if(r*r+g*g+b*b+a*a<=1)return row;
     }return -1;
 }
-inline Rgba paintPixel(Rgba color,int paint,bool original){
+inline Rgba paintPixel(Rgba color,int paint,int original,int paintSource=-1){
     int row=paintRow(color,original);if(row<0||paint<=0||paint>108)return color;
-    return unpack((original?originalPaint:unboundPaint)[paint-1][row]);
+    int bank=paintSource<0?original:paintSource;return unpack((bank==2?undergroundPaint:bank==1?originalPaint:unboundPaint)[paint-1][row]);
 }
 inline bool glassPixel(Rgba c){return c.a>0&&c.a<255&&std::max({c.r,c.g,c.b})<40;}
 inline Rgba glassTint(Rgba c,int tint){

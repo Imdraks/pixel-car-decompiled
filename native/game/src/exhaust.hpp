@@ -10,10 +10,10 @@
 namespace pcr {
 using Outlet=art::Outlet;
 struct ExhaustPlacement { double x=0,y=0;int frame=0,count=1;bool front=false;std::array<Outlet,3> outlets{}; };
-inline ExhaustPlacement placeExhaust(int body,int pipe,double rideOffset=0,bool original=false,int /*rearKit*/=0,int frontKit=0){
+inline ExhaustPlacement placeExhaust(int body,int pipe,double rideOffset=0,int original=0,int /*rearKit*/=0,int frontKit=0){
     body=std::clamp(body,0,int(std::size(art::bodyExhaustMounts))-1);
     pipe=std::clamp(pipe,0,int(std::size(art::pipeLayouts))-1);
-    const auto& anchor=attachments::anchors(body,original);const auto& layout=art::pipeLayouts[pipe];
+    const auto& anchor=attachments::anchors(body,original==1);const auto& layout=art::pipeLayouts[pipe];
     const int type=attachments::exhaustTypes[pipe];
     ExhaustPlacement p;p.frame=pipe;p.count=layout.count;
     // Source Draw_0 draws types 2/3 before the body at part_exhaust_x/y,

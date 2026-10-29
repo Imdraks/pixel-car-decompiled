@@ -3058,8 +3058,9 @@
     },
     {
       "body": 85,
-      "name": "Lamborghini Unbound (modèle à confirmer)",
-      "status": "probable"
+      "name": "Lamborghini Huracán",
+      "status": "user_confirmed",
+      "identification_basis": "Model confirmed by the user from the extracted Unbound sprite; year and trim unspecified."
     },
     {
       "body": 121,
@@ -3073,8 +3074,9 @@
     },
     {
       "body": 187,
-      "name": "Lamborghini Unbound (modèle à confirmer)",
-      "status": "probable"
+      "name": "Lamborghini Gallardo",
+      "status": "user_confirmed",
+      "identification_basis": "Model confirmed by the user from the extracted Unbound sprite; year and trim unspecified."
     }
   ],
   "limitations": [

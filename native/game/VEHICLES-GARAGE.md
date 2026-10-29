@@ -48,7 +48,7 @@ redémarrages suivants. Nom de sauvegarde et record sont conservés.
   Version et finition de cette 911 restent à confirmer.
 - Les 180 autres entrées ont un bloc propre issu de leurs caractéristiques
   récupérées (puissance, cylindrée, régime). Aucun code moteur inconnu n’est
-  inventé. Les sept modèles encore non identifiés restent signalés comme tels.
+  inventé. Les cinq modèles encore non identifiés restent signalés comme tels.
 
 Les moteurs retirés volontairement ou modifiés ne sont pas réinstallés au
 redémarrage. **REMETTRE BASE** rééquipe le moteur par défaut tout en conservant

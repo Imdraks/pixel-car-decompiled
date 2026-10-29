@@ -224,10 +224,10 @@ jusqu’à une éventuelle calibration distincte d’après des données réelle
 | --- | --- | --- |
 | 064 | Porsche 911 Unbound (variante) | 1974 Volkswagen Golf |
 | 076 | Hypercar Unbound à identifier | 2010 Ford Mustang |
-| 086 | Lamborghini Unbound (modèle à confirmer) | 2016 Audi RS7 Sportback |
+| 086 | Lamborghini Huracán | 2016 Audi RS7 Sportback |
 | 122 | Hypercar Unbound à identifier | 2018 BMW M5 |
 | 187 | Hypercar Unbound à identifier | 2005 Ford GT |
-| 188 | Lamborghini Unbound (modèle à confirmer) | 2019 Audi R8 |
+| 188 | Lamborghini Gallardo | 2019 Audi R8 |
 
 ## Moteurs interchangeables
 

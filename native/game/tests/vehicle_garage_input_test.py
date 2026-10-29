@@ -41,7 +41,7 @@ try:
  check('immutable_pre_migration_backup', (data/'profile.ini.pre-vehicles-v1.bak').read_text()==legacy)
  key('F1');equip_search('AMG GT63');key('F8');first_config=ini(data/'profile.ini');check('first_vehicle_customized',first_config['part_engine']=='1501' and first_config['roll_cage']=='1')
  choose_vehicle('pcr-shared-001');b=ini(data/'profile.ini');check('different_vehicle_keeps_factory_not_previous_tune',b['vehicle_id']=='pcr-shared-001' and b['part_engine']=='30001' and b['roll_cage']=='0')
- key('F1');equip_search('NFS I6 2.6L 276');check('nfs_engine_universal_on_other_model',ini(data/'profile.ini')['part_engine']=='20049')
+ key('F1');equip_search('Unbound I6 2.6L 276');check('nfs_engine_universal_on_other_model',ini(data/'profile.ini')['part_engine']=='20049')
  choose_vehicle('pcr-shared-000');check('first_preparation_restored',ini(data/'profile.ini')==first_config)
  key('F11');name('Independent A');key('Return');named=ini(data/'cars/car-1.ini');key('Escape');choose_vehicle('pcr-shared-001');second=ini(data/'profile.ini');check('second_preparation_restored',second['part_engine']=='20049' and second['roll_cage']=='0');key('F12');close()
  start();check('active_vehicle_survives_restart',ini(data/'profile.ini')==second);choose_vehicle('pcr-shared-000');check('other_vehicle_survives_restart',ini(data/'profile.ini')==named)

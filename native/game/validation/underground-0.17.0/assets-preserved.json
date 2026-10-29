@@ -1,0 +1,30 @@
+{
+  "old_resources_unchanged": 649,
+  "old_index_extended": "assets/provenance.json",
+  "new_files": [
+    "assets/audio-underground/bgm_title.ogg",
+    "assets/audio-underground/sfx_bov5.ogg",
+    "assets/audio-underground/sfx_engine.wav",
+    "assets/audio-underground/sfx_engine2.wav",
+    "assets/audio-underground/sfx_engine2e.wav",
+    "assets/audio-underground/sfx_engine3.wav",
+    "assets/audio-underground/sfx_engine4.wav",
+    "assets/audio-underground/sfx_engine5.wav",
+    "assets/audio-underground/sfx_engine8.wav",
+    "assets/audio-underground/sfx_engine_7.wav",
+    "assets/audio-underground/sfx_lose.wav",
+    "assets/audio-underground/sfx_win.wav",
+    "assets/audio-underground/snd_buy.wav",
+    "assets/audio-underground/snd_logo.ogg",
+    "assets/audio-underground/snd_nos.wav",
+    "assets/audio-underground/snd_police_siren.wav",
+    "assets/audio-underground/snd_pop.wav",
+    "assets/audio-underground/snd_shop.ogg",
+    "assets/audio-underground/snd_town.ogg",
+    "assets/content-06.png",
+    "assets/content-07.png",
+    "assets/content-08.png",
+    "assets/content-09.png"
+  ],
+  "active_resource_files": 673
+}

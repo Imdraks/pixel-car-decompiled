@@ -14,7 +14,7 @@ void checkOriginalAudio(const std::filesystem::path& assets,const std::filesyste
     if(!std::filesystem::create_directory(output))throw std::runtime_error("Le contrôle audio exige un dossier neuf.");
     std::ofstream report(output/"audio-report.txt"),loops(output/"engine-loop-report.json");int count=0,loopCount=0;
     loops<<"{\"loops\":[";
-    for(int bank=0;bank<2;bank++)for(int id=0;id<94;id++){
+    for(int bank=0;bank<3;bank++)for(int id=0;id<94;id++){
         const auto& source=sourceSound(id,bank);
         auto path=(assets/source.file).u8string();Wave wave=LoadWave(path.c_str());
         bool valid=IsWaveValid(wave)&&wave.frameCount>0&&wave.sampleRate>0;
@@ -36,7 +36,7 @@ void checkOriginalAudio(const std::filesystem::path& assets,const std::filesyste
             }
             valid=nonSilent;
         }
-        report<<(valid?"PASS ":"FAIL ")<<(bank==1?"original/":"unbound/")<<source.name<<" frames="<<wave.frameCount<<" sample_rate="<<wave.sampleRate<<'\n';
+        report<<(valid?"PASS ":"FAIL ")<<(bank==2?"underground/":bank==1?"original/":"unbound/")<<source.name<<" frames="<<wave.frameCount<<" sample_rate="<<wave.sampleRate<<'\n';
         if(IsWaveValid(wave))UnloadWave(wave);
         if(!valid)throw std::runtime_error(std::string("Son original illisible : ")+source.name);
         ++count;
@@ -153,7 +153,7 @@ void GameAudio::setVolumes(const AudioVolumes& value){
     if(IsSoundValid(simulatedShutdown))SetSoundVolume(simulatedShutdown,float(.45*volumes.engine));
 }
 void GameAudio::selectBank(int value){
-    value=value==1?1:0;if(value==bank)return;
+    value=std::clamp(value,0,2);if(value==bank)return;
     for(auto* stream:{&on,&off,&turbo,&blower,&nos,&town,&music})if(stream->id>=0){UnloadMusicStream(stream->music);*stream=Loop{};}
     for(auto& s:shots)UnloadSound(s.second);
     shots.clear();shotBaseVolumes.clear();bank=value;musicStatus.track=-1;reset();

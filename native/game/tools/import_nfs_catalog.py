@@ -35,7 +35,7 @@ for index,r in enumerate(rows('145 moteurs')):
  on,off={'F4':(23,21),'F6':(47,20),'F12':(78,24),'I3':(21,20),'I4':(21,20),'I6':(71,23),'V6':(47,20),'V8':(24,20),'V10':(73,24),'V12':(78,24),'Wankel':(80,20),'W16':(24,20)}.get(family,(20,20))
  litres=num(litres);g=grades.index(grade);weight=150+cylinders*13 if not electric else (1200 if hp<1000 else 1500)
  row={'id':id,'sheet_row':index+2,'family':layout,'hp':hp,'litres':litres,'grade':grade,'potential_raw':potential,'potential_hp':maximum,'potential_ambiguous':len(maxima)!=1,'price':price,'donor':donor,'source':url,'donor_status':r[11],'redline_rpm':rpm,'redline_is_estimate':True,'audio_family':slug or ('silent_electric' if electric else 'legacy_approximation'),'audio_exact_vehicle':False}
- engines.append(row);name=f"NFS {layout} {litres:g}L {hp} HP" if not electric else f"NFS Electrique {hp} HP"
+ engines.append(row);name=f"Unbound {layout} {litres:g}L {hp} HP" if not electric else f"Unbound Electrique {hp} HP"
  parts.append('{'+f'{id},PartSlot::Engine,{q(name)},{hp},{weight},{num(price)},{max(1,min(cylinders,16))},8,-1'+'},')
  peak={'F4':.64,'F6':.72,'F12':.69,'I3':.62,'I4':.72,'I6':.64,'Wankel':.78,'V6':.65,'V8':.60 if hp<400 else .67,'V10':.76,'V12':.72,'W16':.60}.get(family,.65)
  low={'I4':.42,'I6':.52,'V6':.52,'V8':.65,'V10':.38,'V12':.40,'Wankel':.30}.get(family,.5)
@@ -58,7 +58,7 @@ for index,r in enumerate(rows('Pièces perf')):
  stat={'Intake':5+27*strength,'Ecu':300*strength,'Fuel':strength,'Exhaust':10+80*strength,'Nos':25+175*strength,'Turbo':0 if vi==0 else 8+26*strength,'Supercharger':8+26*strength,'Suspension':strength,'Brakes':13+3*strength,'Tires':120+200*strength,'Clutch':.15-.10*strength,'Differential':strength,'Gearbox':int(re.search(r'\d+',variant)[0]) if kind=='Boîte' else 0,'BatteryCooling':strength,'Electrical':strength,'MotorComponents':strength,'Overcharge':30+220*strength}[slot]
  sub={'Engine':1,'Intake':2,'Ecu':1,'Exhaust':1,'Nos':1,'Turbo':2,'Supercharger':1,'Suspension':1,'Tires':1}.get(slot,0)
  weight={'Suspension':130-30*strength,'Intake':10,'Exhaust':80,'Turbo':45,'Supercharger':60}.get(slot,0)
- name=f'NFS {kind} {variant} {grade}'
+ name=f'Unbound {kind} {variant} {grade}'
  parts.append('{'+f'{id},PartSlot::{slot},{q(name)},{stat},{weight},{num(price)},{sub},8,-1'+'},')
  upgrades.append({'id':id,'sheet_row':index+2,'family':family,'kind':kind,'variant':variant,'grade':grade,'price':price,'effect':effect,'note':note,'source':url,'slot':slot,'strength':strength,'native_stat':stat})
  umeta.append('{'+f'{id},{g},{slotno},{vi},{strength}'+'},')

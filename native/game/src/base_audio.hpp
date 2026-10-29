@@ -1,6 +1,7 @@
 // Verified original 1.2.5 samples; stable names/indices match the Unbound bank.
 #pragma once
 #include "original_audio.hpp"
+#include "underground_audio.hpp"
 namespace pcr {
 inline constexpr OriginalSound BaseGameSounds[]={
 {"sfx_bov2","audio-original/sfx_bov2.ogg",0.94000000f},
@@ -98,5 +99,5 @@ inline constexpr OriginalSound BaseGameSounds[]={
 {"snd_rewardStop","audio-original/snd_rewardStop.wav",0.47000000f},
 {"snd_rewardWin","audio-original/snd_rewardWin.wav",1.00000000f},
 };
-inline const OriginalSound& sourceSound(int id,int source){return source==1?BaseGameSounds[id]:OriginalSounds[id];}
+inline const OriginalSound& sourceSound(int id,int source){return source==2?UndergroundSounds[id]:source==1?BaseGameSounds[id]:OriginalSounds[id];}
 }

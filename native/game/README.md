@@ -1,4 +1,10 @@
-# Pixel Car Racer — Unbound Native 0.16.5
+# Pixel Car Racer — Original / Unbound / Underground Native 0.17.0
+
+La version **0.17.0** ajoute Underground : **430 variantes de véhicules** et
+**1 826 choix d’équipement**, avec décors et banque audio propres. Les moteurs
+et pièces du tableau NFS sont étiquetés **Unbound**. Les variantes mécaniques
+conservent le même équilibre ; les sauvegardes et le garage à huit places sont
+préservés. [Contenu, limites et reproduction](UNDERGROUND.md).
 
 La version **0.16.5** corrige le pot arrière qui recouvrait la roue : les
 éléments arrière sont dessinés derrière les roues et la carrosserie. Les

@@ -116,7 +116,7 @@ struct App {
         for(float x=start-w;x<1280;x+=w)crop(f,{x,y,w,height},tint);
     }
     void car(int index,int rim,float x,float y,float scale,double wheelAngle,bool shadow=true,int tireFrame=0,double rideOffset=0,int exhaustFrame=-1,double rearAngle=-1,const Profile* outfit=nullptr,const CarState* motion=nullptr,bool thumbnail=false,bool showExhaust=true){
-        index=(index+191)%191;rim=validRimFrame(rim);bool original=(outfit?outfit->contentSource:profile.contentSource)==1;auto w=bodyWheels(index,original);tireFrame=std::clamp(tireFrame,0,int(std::size(art::tires))-1);
+        index=(index+191)%191;rim=validRimFrame(rim);int original=(outfit?outfit->contentSource:profile.contentSource);auto w=bodyWheels(index,original);tireFrame=std::clamp(tireFrame,0,int(std::size(art::tires))-1);
         ChassisPose pose=chassisPose(w.rear,w.front,w.y,drive.vehicle,motion?*motion:CarState{},rideOffset);
         if(shadow&&settings.quality!=Quality::Low)DrawEllipse(int(x+110*scale),int(y+(w.y+w.radius)*scale),int(87*scale),int(6*scale),Fade(BLACK,.35f));
         // Draw the body last: opaque fenders and skirts must cover the tyres.
@@ -124,7 +124,7 @@ struct App {
         auto pipe=outfit?installedExhaust(*outfit,exhaustFrame,rideOffset):placeExhaust(index,exhaustFrame,rideOffset,original);
         auto beginBody=[&](){if(motion){rlPushMatrix();rlTranslatef(x+float(pose.pivotX)*scale,y+float(pose.pivotY-pose.heave*pose.pixelsPerMetre)*scale,0);rlRotatef(float(-pose.pitch*180/3.141592653589793),0,0,1);rlTranslatef(-x-float(pose.pivotX)*scale,-y-float(pose.pivotY)*scale,0);}};
         auto endBody=[&](){if(motion)rlPopMatrix();};
-        auto drawPipe=[&](){if(showExhaust)frame(content_art::Exhausts(original)[pipe.frame],x+float(pipe.x)*scale,y+float(pipe.y)*scale,scale);};
+        auto drawPipe=[&](){if(showExhaust)frame(content_art::Exhausts(outfit&&findPart(outfit->parts[9])&&findPart(outfit->parts[9])->imageSource>=0?findPart(outfit->parts[9])->imageSource:original)[pipe.frame],x+float(pipe.x)*scale,y+float(pipe.y)*scale,scale);};
         // Rear hardware belongs behind the near wheels as well as the body.
         // Use the body transform before drawing the independently moving wheels.
         if(!pipe.front){beginBody();drawPipe();endBody();}
@@ -144,15 +144,15 @@ struct App {
             DrawCircleV(center,w.radius*.78f*scale,Color{12,13,18,255});
             float wheelScale=scale*(w.radius/25.f);
             double angle=cx==w.rear&&rearAngle>=0?rearAngle:wheelAngle;
-            centered(content_art::Tires(original)[tireFrame],wheelScale,31,31,float(angle));
-            if(outfit){int brake=cosmeticSubimage(*outfit,8);if(brake)centered(content_art::Brakes(original)[brake],wheelScale,31,31,0);}
+            centered(content_art::Tires(outfit&&findPart(outfit->parts[10])&&findPart(outfit->parts[10])->imageSource>=0?findPart(outfit->parts[10])->imageSource:original)[tireFrame],wheelScale,31,31,float(angle));
+            if(outfit){int brake=cosmeticSubimage(*outfit,8);if(brake)centered(content_art::Brakes(findCosmetic(outfit->cosmetics[8])->imageSource>=0?findCosmetic(outfit->cosmetics[8])->imageSource:original)[std::min(brake,23)],wheelScale,31,31,0);}
             centered(equippedRim(outfit&&cx==w.rear&&outfit->rearRim>=0?outfit->rearRim:rim,original),wheelScale,31,31,float(angle));
             int selectedRim=outfit&&cx==w.rear&&outfit->rearRim>=0?outfit->rearRim:rim;
             if(auto finish=rim_finish::finish(selectedRim)){
                 if(finish->shine){BeginBlendMode(BLEND_ADDITIVE);centered(rim_finish::shine(original,finish->shine),wheelScale,31,31,0);EndBlendMode();}
                 centered(rim_finish::shadow(original,finish->shadow),wheelScale,25,25,0);
             }
-            if(outfit){int lugs=cosmeticSubimage(*outfit,11);if(lugs)for(int bolt=0;bolt<5;bolt++)centered(content_art::Lugs(original)[lugs],wheelScale,1,5,float(angle+bolt*72));}
+            if(outfit){int lugs=cosmeticSubimage(*outfit,11);if(lugs)for(int bolt=0;bolt<5;bolt++)centered(content_art::Lugs(findCosmetic(outfit->cosmetics[11])->imageSource>=0?findCosmetic(outfit->cosmetics[11])->imageSource:original)[lugs],wheelScale,1,5,float(angle+bolt*72));}
         }
         beginBody();
         if(outfit){auto texture=thumbnail?content.thumbnail(*outfit):content.compose(*outfit);DrawTexturePro(texture,{0,0,float(materials::CanvasW),float(materials::CanvasH)},{x-materials::CanvasX*scale,y+(float(rideOffset)-materials::CanvasY)*scale,materials::CanvasW*scale,materials::CanvasH*scale},{0,0},0,WHITE);}
@@ -312,10 +312,10 @@ struct App {
     }
     void background(bool driving){
         ClearBackground(Ink);
-        if(!driving){crop(art::garages[0],{0,0,1280,720},Color{145,154,172,255});DrawRectangle(0,0,1280,720,Fade(Ink,.74f));return;}
-        double pos=drive.player.position;crop(art::sky[0],{0,0,1280,340});
-        tiled(art::mountains[0],130,160,scene::layerTravel(pos,scene::Mountains),Color{150,167,190,255});
-        if(settings.quality!=Quality::Low)tiled(art::cityFar[0],150,160,scene::layerTravel(pos,scene::City),Color{152,171,193,220});
+        if(!driving){crop(profile.contentSource==2?content_art::undergroundGarageScenery[0]:art::garages[0],{0,0,1280,720},Color{145,154,172,255});DrawRectangle(0,0,1280,720,Fade(Ink,.74f));return;}
+        double pos=drive.player.position;crop(profile.contentSource==2?content_art::undergroundSceneSky[0]:art::sky[0],{0,0,1280,340});
+        tiled(profile.contentSource==2?content_art::undergroundSceneMountains[0]:art::mountains[0],130,160,scene::layerTravel(pos,scene::Mountains),Color{150,167,190,255});
+        if(settings.quality!=Quality::Low)tiled(profile.contentSource==2?content_art::undergroundSceneCity[0]:art::cityFar[0],150,160,scene::layerTravel(pos,scene::City),Color{152,171,193,220});
         tiled(art::trees[0],252,75,scene::layerTravel(pos,scene::Trees),Color{104,132,130,255});
         DrawRectangle(0,318,1280,312,Color{45,49,59,255});
         DrawRectangle(0,322,1280,5,Color{230,222,176,255});DrawRectangle(0,615,1280,4,Color{230,222,176,255});
@@ -328,8 +328,8 @@ struct App {
     }
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
-        text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.16.5",91,231,17,Muted);
+        text("PIXEL CAR",88,94,52);text("RACER",88,152,66,Accent);
+        text("NATIF WINDOWS  /  0.17.0",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},TextFormat("GARAGE  |  %i / 8",int(ownedVehicles.cars.size()))))openVehicleBrowser();
@@ -405,9 +405,9 @@ struct App {
         inventoryOpen=true;searchFocused=false;searchSelectedAll=false;customSearch.clear();customPage=0;customPreview=profile.cosmetics[cosmeticSlot];
         auto choices=garageChoices();auto found=std::find(choices.begin(),choices.end(),customPreview);if(found!=choices.end())customPage=int(found-choices.begin())/GaragePageSize;
     }
-    static const char* sourceLabel(int mask){return mask==8?"CATALOGUE NFS":mask==4?"EXTENSION PC":mask==1?"ORIGINAL":mask==2?"UNBOUND":"ORIGINAL + UNBOUND";}
+    static const char* sourceLabel(int mask){return mask==16?"UNDERGROUND":mask==19?"ORIGINAL + UNBOUND + UNDERGROUND":mask==17?"ORIGINAL + UNDERGROUND":mask==18?"UNBOUND + UNDERGROUND":mask==1?"ORIGINAL":mask==3?"ORIGINAL + UNBOUND":"UNBOUND";}
     int choiceSource(int id)const{
-        if(rimPicker||!id)return 3;
+        if(rimPicker){auto r=findRim(id);return r?r->sourceMask:3;}if(!id)return 3;
         if(cosmeticPicker){auto c=findCosmetic(id);return c?c->sourceMask:3;}
         auto p=findPart(id);return p?p->sourceMask:3;
     }
@@ -421,14 +421,14 @@ struct App {
         std::vector<int> choices;
         if(cosmeticPicker){
             if(customSearch.empty())choices.push_back(0);
-            for(const auto& c:CosmeticCatalog)if(c.slot==cosmeticSlot&&lower(c.name).find(lower(customSearch))!=std::string::npos)choices.push_back(c.id);
+            for(const auto& c:CosmeticCatalog)if(c.slot==cosmeticSlot&&lower(std::string(c.name)+" "+sourceLabel(c.sourceMask)).find(lower(customSearch))!=std::string::npos)choices.push_back(c.id);
             std::stable_sort(choices.begin(),choices.end(),[this](int a,int b){if(!a||!b)return !a&&b;auto x=findCosmetic(a),y=findCosmetic(b);return rarityDescending?std::string(x->name)>y->name:std::string(x->name)<y->name;});
         }
-        else if(rimPicker){for(int i:RimFrames)if(lower(choiceName(i)).find(lower(customSearch))!=std::string::npos)choices.push_back(i);if(rarityDescending)std::reverse(choices.begin(),choices.end());}
+        else if(rimPicker){for(int i:RimFrames)if(lower(choiceName(i)+" "+sourceLabel(choiceSource(i))).find(lower(customSearch))!=std::string::npos)choices.push_back(i);if(rarityDescending)std::reverse(choices.begin(),choices.end());}
         else{
             if(customSearch.empty()||lower("configuration de base").find(lower(customSearch))!=std::string::npos)choices.push_back(0);
             for(const auto& part:PartCatalog)if(part.slot==customSlot){
-                std::string searchable=part.name;if(auto* e=nfsEngine(part.id))searchable+=" "+std::string(e->donor)+" "+rarityLabel(Rarity(e->grade));
+                std::string searchable=std::string(part.name)+" "+sourceLabel(part.sourceMask);if(auto* e=nfsEngine(part.id))searchable+=" "+std::string(e->donor)+" "+rarityLabel(Rarity(e->grade));
                 bool compatible=true;
                 if(compatible&&lower(searchable).find(lower(customSearch))!=std::string::npos)choices.push_back(part.id);
             }
@@ -492,7 +492,7 @@ struct App {
         float scale=std::min(box.width/62,box.height/62);
         float x=box.x+(box.width-62*scale)/2,y=box.y+(box.height-62*scale)/2;
         // Source frames are cropped differently; preserve their common canvas.
-        for(const auto* f:{&content_art::Tires(profile.contentSource==1)[tire],&equippedRim(rim,profile.contentSource==1)})
+        for(const auto* f:{&content_art::Tires(profile.contentSource)[tire],&equippedRim(rim,profile.contentSource)})
             crop(*f,{x+f->dx*scale,y+f->dy*scale,f->w*scale,f->h*scale});
     }
     bool iconButton(Rectangle r,const art::Frame& image,const std::string& tip,bool selected=false){
@@ -545,7 +545,7 @@ struct App {
     }
     void garageVehicle(const Profile& preview,const Build& build){
         float scale=inventoryOpen?2.45f:3.8f,x=inventoryOpen?270.f:350.f,y=inventoryOpen?335.f:265.f;
-        auto wheels=bodyWheels(preview.car,preview.contentSource==1);float left=x+wheels.rear*scale,right=x+wheels.front*scale;
+        auto wheels=bodyWheels(preview.car,preview.contentSource);float left=x+wheels.rear*scale,right=x+wheels.front*scale;
         float sy=2.6f,sx=(right-left)/96,base=y+(wheels.y+wheels.radius)*scale;
         auto lift=[&](int index){const auto& f=original_ui::lifts[index];DrawTexturePro(atlases.at(f.atlas),{float(f.x),float(f.y),float(f.w),float(f.h)},
             {left-1.5f*sx+f.dx*sx,base-100*sy+f.dy*sy,f.w*sx,f.h*sy},{0,0},0,WHITE);};
@@ -572,7 +572,7 @@ struct App {
         default:return original_ui::garageIcons[35];}
     }
     const art::Frame& cosmeticIcon(int id)const{
-        const auto* c=findCosmetic(id);bool original=c&&c->imageSource>=0?c->imageSource==1:profile.contentSource==1;int n=c?c->subimage:0;
+        const auto* c=findCosmetic(id);int original=c&&c->imageSource>=0?c->imageSource:profile.contentSource;int n=c?c->subimage:0;
         switch(cosmeticSlot){
         case 0:return content_art::sp_paint(original)[n];case 1:return content_art::sp_decals(original)[n];case 2:return content_art::sp_spoiler(original)[n];case 3:return content_art::Racks(original)[n];
         case 4:case 5:case 6:case 7:return content_art::sp_bodykit_box(original)[n];case 8:return content_art::sp_rotor(original)[n];case 9:return content_art::Seats(original)[n];case 10:return content_art::sp_towhook(original)[n];case 11:return content_art::sp_lugnuts(original)[n];case 15:return content_art::sp_bulbs(original)[n];default:return content_art::sp_lighttint(original)[n];}
@@ -621,7 +621,7 @@ struct App {
     }
     void customizationScene(){
         bool originalUi=uiEnabled;uiEnabled=originalUi&&!audioPopup&&!powerPopup;
-        crop(original_ui::garages[garageStyle%5],{0,0,1280,720},Color{118,122,133,255});DrawRectangle(0,0,1280,720,Fade(Ink,.45f));
+        crop(profile.contentSource==2?content_art::undergroundGarageScenery[garageStyle%5]:original_ui::garages[garageStyle%5],{0,0,1280,720},Color{118,122,133,255});DrawRectangle(0,0,1280,720,Fade(Ink,.45f));
         DrawRectangle(0,0,1280,111,Color{9,13,19,230});DrawRectangle(0,491,1280,229,Color{9,13,19,242});
         pxText(cosmeticPicker?"PERSONNALISATION / STYLE":"PERFORMANCE / PIÈCES",38,30,24);
         if(button({650,25,166,33},"VOITURES [B]"))openVehicleBrowser();
@@ -654,7 +654,7 @@ struct App {
         if(button({38,668,144,36},"PRÉPA MAX",true)){equipBestParts(profile);saveCar();chooseGroup(0);rarityDescending=true;customPage=0;notice="PRÉPA MAX ENREGISTRÉE";}
         if(button({198,668,144,36},"BASE")){profile.parts.fill(0);equipPart(profile,PartSlot::Engine,vehicleDefinition(profile).factoryEngineId);profile.factoryInitialized=true;profile.factoryEngineId=profile.parts[0];profile.soundOn=profile.soundOff=profile.bov=-1;saveCar();if(inventoryOpen)chooseGroup(customGroup);notice="PIÈCES D'ORIGINE";}
         Profile preview=garagePreviewProfile();auto shown=buildVehicle(preview);
-        content.compose(preview);auto bounds=content.bodyBounds;auto w=bodyWheels(preview.car,preview.contentSource==1);
+        content.compose(preview);auto bounds=content.bodyBounds;auto w=bodyWheels(preview.car,preview.contentSource);
         float minX=std::min(bounds.x-materials::CanvasX,w.rear-w.radius*1.3f),maxX=std::max(bounds.x+bounds.width-materials::CanvasX,w.front+w.radius*1.3f);
         float minY=bounds.y-materials::CanvasY+float(shown.rideOffset),maxY=std::max(bounds.y+bounds.height-materials::CanvasY+float(shown.rideOffset),w.y+w.radius*1.3f);
         float scale=std::min({4.4f,842/std::max(1.f,maxX-minX),270/std::max(1.f,maxY-minY)});
@@ -690,7 +690,7 @@ struct App {
             DrawRectangle(0,0,1280,720,Fade(BLACK,.75f));card({263,141,754,457});
             text("SONS DU MOTEUR",305,172,29,Accent);
             text("Sons du jeu • adaptations PC pour les nouveaux moteurs",305,219,17,Muted);
-            if(button({748,164,224,32},profile.audioSource==1?"SONS : ORIGINAL":"SONS : UNBOUND")){profile.audioSource=1-profile.audioSource;audio.selectBank(profile.audioSource);saveCar();}
+            if(button({748,164,224,32},profile.audioSource==2?"SONS : UNDERGROUND":profile.audioSource==1?"SONS : ORIGINAL":"SONS : UNBOUND")){profile.audioSource=(profile.audioSource+1)%3;audio.selectBank(profile.audioSource);saveCar();}
             auto soundRow=[&](float y,const char* label,int& value,int maximum){
                 text(label,306,y+12,19);std::string name=value<0?"AUTO":"PROFIL "+std::to_string(value+1);
                 if(button({607,y,43,41},"<")){value=value<0?maximum:value-1;saveCar();}
@@ -748,10 +748,10 @@ struct App {
         if(IsKeyPressed(KEY_ENTER))activateRidesEntry();
     }
     void ridesBackdrop(const Profile& preview,const std::string& title,bool drawVehicle=true){
-        crop(art::garages[0],{0,0,1280,720},Color{112,120,132,255});DrawRectangle(0,0,1280,720,Fade(Ink,.35f));
+        crop(profile.contentSource==2?content_art::undergroundGarageScenery[0]:art::garages[0],{0,0,1280,720},Color{112,120,132,255});DrawRectangle(0,0,1280,720,Fade(Ink,.35f));
         text(title,48,125,92,Fade(WHITE,.17f));
         if(!drawVehicle)return;
-        auto shown=buildVehicle(preview);content.compose(preview);auto bounds=content.bodyBounds;auto w=bodyWheels(preview.car,preview.contentSource==1);
+        auto shown=buildVehicle(preview);content.compose(preview);auto bounds=content.bodyBounds;auto w=bodyWheels(preview.car,preview.contentSource);
         float minX=std::min(bounds.x-materials::CanvasX,w.rear-w.radius*1.3f),maxX=std::max(bounds.x+bounds.width-materials::CanvasX,w.front+w.radius*1.3f);
         float minY=bounds.y-materials::CanvasY+float(shown.rideOffset),maxY=std::max(bounds.y+bounds.height-materials::CanvasY+float(shown.rideOffset),w.y+w.radius*1.3f);
         float scale=std::min({4.7f,790/std::max(1.f,maxX-minX),330/std::max(1.f,maxY-minY)});
@@ -810,7 +810,7 @@ struct App {
 
     std::vector<int> vehicleChoices()const{
         std::vector<int> choices;for(size_t i=0;i<std::size(VehicleCatalog);i++){
-            const auto& v=VehicleCatalog[i];std::string searchable=std::string(v.name)+" "+v.id;
+            const auto& v=VehicleCatalog[i];std::string searchable=std::string(v.name)+" "+v.id+" "+sourceLabel(v.sourceMask);
             if((showroom||ownedVehicles.owns(int(i)))&&(vehicleCategory<0||v.category==vehicleCategory)&&lower(searchable).find(lower(vehicleSearch))!=std::string::npos)choices.push_back(int(i));
         }
         std::stable_sort(choices.begin(),choices.end(),[this](int a,int b){const auto& x=VehicleCatalog[a];const auto& y=VehicleCatalog[b];if(vehicleSort==1&&x.category!=y.category)return x.category<y.category;if(vehicleSort==2){double ah=findPart(x.factoryEngineId)->stat,bh=findPart(y.factoryEngineId)->stat;if(ah!=bh)return ah>bh;}return std::string(x.name)<y.name;});return choices;
@@ -857,7 +857,7 @@ struct App {
         return preview;
     }
     void vehicleBrowserScene(){
-        crop(art::garages[0],{0,0,1280,720},Color{108,116,129,255});DrawRectangle(0,0,1280,720,Fade(Ink,.47f));
+        crop(profile.contentSource==2?content_art::undergroundGarageScenery[0]:art::garages[0],{0,0,1280,720},Color{108,116,129,255});DrawRectangle(0,0,1280,720,Fade(Ink,.47f));
         DrawRectangle(0,0,1280,112,Color{9,13,19,225});DrawRectangle(0,491,1280,229,Color{9,13,19,242});
         pxText("VOITURES / "+std::string(showroom?"SHOWROOM":"MON GARAGE"),38,30,24);
         bool modal=removeVehiclePending>=0;uiEnabled=uiEnabled&&!modal;
@@ -902,7 +902,7 @@ struct App {
         if(!choices.empty()){
             const auto& v=VehicleCatalog[vehicleSelection];auto preview=browserVehicle(vehicleSelection);auto build=buildVehicle(preview);
             // One large live preview, separate persistent textures for the carousel.
-            content.compose(preview);auto bounds=content.bodyBounds;auto w=bodyWheels(preview.car,preview.contentSource==1);
+            content.compose(preview);auto bounds=content.bodyBounds;auto w=bodyWheels(preview.car,preview.contentSource);
             float minX=std::min(bounds.x-materials::CanvasX,w.rear-w.radius*1.3f),maxX=std::max(bounds.x+bounds.width-materials::CanvasX,w.front+w.radius*1.3f);
             float minY=bounds.y-materials::CanvasY+float(build.rideOffset),maxY=std::max(bounds.y+bounds.height-materials::CanvasY+float(build.rideOffset),w.y+w.radius*1.3f);
             float scale=std::min({4.4f,842/std::max(1.f,maxX-minX),300/std::max(1.f,maxY-minY)});
@@ -939,7 +939,7 @@ struct App {
     void openSavedCars(){
         collectionReturn=screen;
         garageEngine.stop();audio.stopEngine();audioPopup=false;powerPopup=false;audioPreviewUntil=0;
-        savedEntries=savedCars(args.data/"cars");savedName=profile.savedName.empty()?vehicleIdentity(profile.car,profile.contentSource==1).name:profile.savedName;
+        savedEntries=savedCars(args.data/"cars");savedName=profile.savedName.empty()?vehicleIdentity(profile.car,profile.contentSource).name:profile.savedName;
         savedNameFocused=false;savedSelection=0;savedPage=0;notice.clear();screen=Screen::Collection;
     }
     void storeCurrentCar(bool update){
@@ -974,7 +974,7 @@ struct App {
             auto name=entry.profile.savedName.empty()?"Voiture "+std::to_string(entry.id):entry.profile.savedName;
             text(name.substr(0,38),r.x+16,r.y+10,21);auto build=buildVehicle(entry.profile);
             const auto* engine=findPart(entry.profile.parts[0]);
-            text(std::string(vehicleIdentity(entry.profile.car,entry.profile.contentSource==1).name).substr(0,47),r.x+16,r.y+38,16,Muted);
+            text(std::string(vehicleIdentity(entry.profile.car,entry.profile.contentSource).name).substr(0,47),r.x+16,r.y+38,16,Muted);
             text(TextFormat("%.0f HP | %i rapports | %s",build.boostedHp,entry.profile.gearCount,engine?engine->name:"Moteur stock"),r.x+16,r.y+63,13,Accent);
             if(hit(r)&&IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){savedSelection=entry.id;savedName=entry.profile.savedName;savedNameFocused=false;}
         }
@@ -1018,7 +1018,7 @@ struct App {
         return changed;
     }
     void suspensionScene(){
-        crop(original_ui::garages[garageStyle%5],{0,0,1280,720});
+        crop(profile.contentSource==2?content_art::undergroundGarageScenery[garageStyle%5]:original_ui::garages[garageStyle%5],{0,0,1280,720});
         auto preview=buildVehicle(suspensionDraft);
         car(suspensionDraft.car,suspensionDraft.rim,150,245,2.5,0,true,preview.tireFrame,preview.rideOffset,preview.exhaustFrame,-1,&suspensionDraft);
         card({34,18,1212,81});text("RÉGLAGES SUSPENSION",57,34,28,Accent);
@@ -1065,7 +1065,7 @@ struct App {
         if(!notice.empty())text(notice,57,619,16,Accent);
     }
     void transmissionScene(){
-        crop(original_ui::garages[garageStyle%5],{0,0,1280,720});car(profile.car,profile.rim,365,310,2.3,0,true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,-1,&profile);
+        crop(profile.contentSource==2?content_art::undergroundGarageScenery[garageStyle%5]:original_ui::garages[garageStyle%5],{0,0,1280,720});car(profile.car,profile.rim,365,310,2.3,0,true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,-1,&profile);
         DrawRectangle(0,0,1280,720,Fade(Ink,.88f));text("TRANSMISSION / BOÎTE",34,25,29,Accent);
         text(notice.empty()?"Boîtes inspirées du réel • enregistrer pour appliquer":notice,34,69,16,Muted);
         if(button({1030,23,217,48},"RETOUR")){screen=tuningReturn;}
@@ -1228,7 +1228,7 @@ struct App {
         text("Échap : rétablir     F10 : affichage de secours",369,451,16,Muted);
     }
     EffectSources effectSources(){
-        auto wheels=bodyWheels(profile.car,profile.contentSource==1);double baseY=269+drive.lane*96;
+        auto wheels=bodyWheels(profile.car,profile.contentSource);double baseY=269+drive.lane*96;
         EffectSources sources;sources.tireFrame=configuration.tireFrame;sources.rearWheel=360+wheels.rear*1.25;sources.frontWheel=360+wheels.front*1.25;sources.wheelY=baseY+(wheels.y+wheels.radius)*1.25;
         auto pose=chassisPose(wheels.rear,wheels.front,wheels.y,drive.vehicle,drive.player,configuration.rideOffset);
         auto rear=pose.wheel(false),front=pose.wheel(true);
@@ -1318,17 +1318,29 @@ struct App {
         if(args.smoke&&frames>=552&&frames<=557)hoodContactSheet();
         if(args.smoke&&frames>=558&&frames<=560)materialsContactSheet();
         if(args.smoke&&frames>=738&&frames<=740)exhaustWheelSheet();
+        if(args.smoke&&frames>=742&&frames<=749)undergroundSheet();
         EndMode2D();EndTextureMode();
         BeginDrawing();ClearBackground(BLACK);DrawTexturePro(render.texture,{0,0,float(render.texture.width),-float(render.texture.height)},output,{0,0},0,WHITE);EndDrawing();
     }
     // Diagnostic-only contact sheets use the same car() renderer as garage/free drive.
+    void undergroundSheet(){
+        rlDrawRenderBatchActive();DrawRectangle(0,0,1280,720,Color{44,46,53,255});
+        int page=std::clamp((frames-742)/2,0,3);
+        for(int j=0;j<48;j++){
+            int body=page*48+j;if(body>=191)break;
+            Profile sample;sample.car=body;sample.contentSource=2;
+            float x=float(j%6)*213,y=float(j/6)*89;
+            text(TextFormat("UNDERGROUND %03i",body+1),x+8,y+4,11,Accent);
+            car(body,8,x+8,y+22,.88f,0,0,0,0,0,false,&sample);
+        }
+    }
     void exhaustWheelSheet(){
         rlDrawRenderBatchActive();DrawRectangle(0,0,1280,720,Color{39,43,51,255});
         text("POT ARRIÈRE / OCCLUSION PAR LES ROUES",20,12,20,WHITE);
         std::ofstream roi;if(!args.capture.empty()){fs::create_directories(args.capture);roi.open(args.capture/"exhaust-wheel-occlusion.json");roi<<"[";}
         const int bodies[]={0,0,6,20},sources[]={0,1,0,1},pipes[]={0,7,33,35};const double rides[]={0,-6,6,0};
         for(int row=0;row<4;row++){
-            Profile sample;sample.car=bodies[row];sample.contentSource=sources[row];auto w=bodyWheels(sample.car,sample.contentSource==1);
+            Profile sample;sample.car=bodies[row];sample.contentSource=sources[row];auto w=bodyWheels(sample.car,sample.contentSource);
             CarState motion;motion.pitch=.12;motion.heave=.015;motion.frontLift=.28;const CarState* moving=row==3?&motion:nullptr;
             float y=70+row*156.f,scale=1.9f;auto pose=chassisPose(w.rear,w.front,w.y,drive.vehicle,moving?motion:CarState{},rides[row]);auto hub=moving?pose.wheel(false):ChassisPoint{w.rear,w.y};
             text(TextFormat("%s | %s | POT %02i",sources[row]?"ORIGINAL":"UNBOUND",row==3?"CABRAGE":row==1?"ABAISSÉE":row==2?"REHAUSSÉE":"ORIGINE",pipes[row]),24,y-19,13,WHITE);
@@ -1478,7 +1490,7 @@ struct App {
         if(frames==374)capture("jantes-originales-nommees.png");
         if(frames==375){profile.contentSource=0;audio.selectBank(0);saveCar();}
         if(frames==378)capture("contenu-unbound.png");
-        if(frames==379){for(const auto& c:CosmeticCatalog)if(!profile.cosmetics[c.slot])profile.cosmetics[c.slot]=c.id;profile.contentSource=1;saveCar();inventoryOpen=false;}
+        if(frames==379){for(const auto& c:CosmeticCatalog)if(c.imageSource!=2&&!profile.cosmetics[c.slot])profile.cosmetics[c.slot]=c.id;profile.contentSource=1;saveCar();inventoryOpen=false;}
         if(frames==382)capture("garage-complet.png");
         if(frames==383)chooseCosmetic(1);
         if(frames==386)capture("livrees-original-unbound.png");
@@ -1609,7 +1621,7 @@ struct App {
         if(frames==600)capture("garage-moteur-rupteur.png");
         if(frames==601){garageEngine.stop();check(!garageEngine.running&&garageEngine.state.rpm==0,"garage ignition stops the audition");}
         if(frames==603){profile=Profile{};profile.car=20;equipPart(profile,PartSlot::Engine,1501);saveCar();chooseGroup(0);customSearch="AMG GT63";customPreview=1501;
-            check(garageChoices()==std::vector<int>{1501}&&sourceLabel(choiceSource(1501))==std::string("EXTENSION PC"),"PC engine search and provenance are visible independently of recovered content");}
+            check(garageChoices()==std::vector<int>{1501}&&sourceLabel(choiceSource(1501))==std::string("UNBOUND"),"PC engine search and provenance are visible independently of recovered content");}
         if(frames==605)capture("moteurs-extension-pc.png");
         if(frames==606){equipPart(profile,PartSlot::Engine,1504);saveCar();inventoryOpen=false;garageEngine.toggle(configuration.vehicle);
             for(int tick=0;tick<480;tick++)garageEngine.update(configuration.vehicle,true,Step);
@@ -1644,7 +1656,7 @@ struct App {
             check(buildVehicle(profile).vehicle.electric&&!partCompatibleWithPowertrain(profile,PartSlot::Turbo,16018),"electric engines expose electric components and reject combustion induction");}
         if(frames==639)capture("catalogue-nfs-electrique.png");
         if(frames==640){saveCar();check(loadProfile(profileFile(),191,54).parts==profile.parts,"expanded equipment categories survive profile save and reload");}
-        if(frames==643){openVehicleBrowser();vehiclePage=0;auto choices=vehicleChoices();vehicleSelection=choices[0];check(choices.size()==239,"vehicle browser exposes 239 independent named vehicles");}
+        if(frames==643){openVehicleBrowser();vehiclePage=0;auto choices=vehicleChoices();vehicleSelection=choices[0];check(choices.size()==std::size(VehicleCatalog),"vehicle browser exposes all independent vehicles");}
         if(frames==645)capture("catalogue-voitures.png");
         if(frames==646){vehicleCategory=3;vehiclePage=0;auto choices=vehicleChoices();vehicleSelection=choices[0];check(!choices.empty()&&std::all_of(choices.begin(),choices.end(),[](int id){return VehicleCatalog[id].category==3;}),"vehicle categories filter complete named models");}
         if(frames==648)capture("voitures-muscle-cars.png");
@@ -1691,7 +1703,19 @@ struct App {
         if(frames==731){check(ridesPage==RidesMenu::Parts&&ridesEntries(ridesPage).size()==8,"performance parts remain grouped in eight mechanical families");}
         if(frames==733){hideRidesUi=true;}
         if(frames==735){check(hideRidesUi&&screen==Screen::Rides,"photo view hides navigation without leaving customization");capture("custom-photo.png");}
-        if(frames==740){capture("exhaust-wheel-occlusion.png");check(!installedExhaust(profile,0,0).front&&!installedExhaust(profile,33,0).front,"stock and rear stack exhausts retain rear-layer classification");quit=true;}
+        if(frames==740){capture("exhaust-wheel-occlusion.png");check(!installedExhaust(profile,0,0).front&&!installedExhaust(profile,33,0).front,"stock and rear stack exhausts retain rear-layer classification");}
+        if(frames==743||frames==745||frames==747||frames==749)capture(TextFormat("underground-voitures-%i.png",(frames-743)/2+1));
+        if(frames==750){
+            profile=factoryVehicle(239);ownedVehicles.cars.clear();std::string error;ownedVehicles.add(239,error);saveCar();openRidesHome();
+            check(profile.contentSource==2&&vehicleKey(profile)=="pcr-underground-000","Underground selection resolves to its own profile and factory engine");
+            check(sourceLabel(8)==std::string("UNBOUND")&&sourceLabel(16)==std::string("UNDERGROUND"),"Unbound workbook and Underground source labels stay distinct");
+        }
+        if(frames==752)capture("custom-underground.png");
+        if(frames==753){openWorkshop();chooseCosmetic(0);customPreview=600001;}
+        if(frames==755)capture("underground-peinture.png");
+        if(frames==756){chooseGroup(1);customPreview=200025;}
+        if(frames==758){capture("underground-jantes.png");quit=true;}
+
 
     }
     int run(){

@@ -25,7 +25,7 @@ void equipRim(Profile& p,int id,int axle){
     if(axle==1&&p.rearRim<0)p.rearRim=p.rim;
     p.rim=id;if(axle==0)p.rearRim=-1;
 }
-int bodyChoiceIndex(const Profile& p){for(size_t i=0;i<std::size(BodyChoices);i++)if(BodyChoices[i].body==p.car&&(BodyChoices[i].source==p.contentSource||BodyChoices[i].sourceMask==3))return int(i);for(size_t i=0;i<std::size(BodyChoices);i++)if(BodyChoices[i].body==p.car)return int(i);return 0;}
+int bodyChoiceIndex(const Profile& p){for(size_t i=0;i<std::size(BodyChoices);i++)if(BodyChoices[i].body==p.car&&(BodyChoices[i].source==p.contentSource))return int(i);for(size_t i=0;i<std::size(BodyChoices);i++)if(BodyChoices[i].body==p.car&&(BodyChoices[i].sourceMask&(p.contentSource==2?16:p.contentSource==1?1:2)))return int(i);for(size_t i=0;i<std::size(BodyChoices);i++)if(BodyChoices[i].body==p.car)return int(i);return 0;}
 void cycleBody(Profile& p,int direction){int index=(bodyChoiceIndex(p)+direction+int(std::size(BodyChoices)))%int(std::size(BodyChoices));p.car=BodyChoices[index].body;p.contentSource=BodyChoices[index].source;}
 
 bool operator==(const Settings&a,const Settings&b){return a.mode==b.mode&&a.width==b.width&&a.height==b.height&&a.fps==b.fps&&a.vsync==b.vsync&&a.showFps==b.showFps&&a.sound==b.sound&&a.traffic==b.traffic&&a.abs==b.abs&&a.tractionControl==b.tractionControl&&a.quality==b.quality&&a.volumes==b.volumes;}
@@ -83,7 +83,7 @@ Settings loadSettings(const std::filesystem::path& file){
 }
 Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
     auto v=readIni(file);Profile p;p.savedName=v["saved_name"].substr(0,48);
-    (void)rims;p.rollCage=integer(v,"roll_cage",0)!=0;p.headlights=integer(v,"headlights",0)!=0;p.contentSource=std::clamp(integer(v,"content_source",0),0,1);p.audioSource=std::clamp(integer(v,"audio_source",p.contentSource),0,1);
+    (void)rims;p.rollCage=integer(v,"roll_cage",0)!=0;p.headlights=integer(v,"headlights",0)!=0;p.contentSource=std::clamp(integer(v,"content_source",0),0,2);p.audioSource=std::clamp(integer(v,"audio_source",p.contentSource),0,2);
     for(int slot=0;slot<CosmeticSlotCount;slot++){int id=integer(v,"cosmetic_"+std::to_string(slot),0);auto item=findCosmetic(id);if(item&&item->slot==slot)p.cosmetics[slot]=id;}
     p.car=std::clamp(integer(v,"car",0),0,std::max(0,cars-1));
     p.rim=validRimFrame(integer(v,"rim",8));p.rearRim=integer(v,"rear_rim",-1);if(p.rearRim!=-1&&!isRimFrame(p.rearRim))p.rearRim=-1;p.automatic=integer(v,"automatic",1)!=0;

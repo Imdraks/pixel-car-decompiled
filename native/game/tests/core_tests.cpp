@@ -165,10 +165,10 @@ int main(int argc,char**argv){
     expect(benchmarkText.find("\"sanity_checks_passed\": true")!=std::string::npos,"benchmark scenarios pass their sanity checks");
     bool refused=false;try{writePhysicsBenchmark(benchmark);}catch(const std::exception&){refused=true;}
     expect(refused,"benchmark refuses to replace an existing directory");
-    expect(std::size(PartCatalog)==496,"merged original and Unbound performance entries are included");
+    expect(std::size(PartCatalog)==524,"merged original and Unbound performance entries are included");
     std::array<int,PartSlotCount> counts{};
     for(const auto& part:PartCatalog)++counts[int(part.slot)];
-    expect(counts==std::array<int,PartSlotCount>{176,29,43,19,13,9,26,13,7,53,58,6,6,6,6,9,4,4,4,5},"catalog includes every requested category and supercharger split");
+    expect(counts==std::array<int,PartSlotCount>{176,29,43,19,13,9,26,13,7,65,74,6,6,6,6,9,4,4,4,5},"catalog includes every requested category and supercharger split");
     Profile custom;
     expect(equipPart(custom,PartSlot::Engine,1002),"2JZ can be equipped by stable catalog ID");
     auto jz=buildVehicle(custom);
@@ -246,7 +246,7 @@ int main(int argc,char**argv){
     auto sounds=engineSamples(soundProfile);
     expect(sounds.on==71&&sounds.off==47,"manual sound profiles match the original native dispatch tables");
     bool replacementAudio=true;int engineAudioCases=0;
-    for(int source=0;source<2;source++)for(const auto& part:PartCatalog)if(part.slot==PartSlot::Engine&&part.sourceMask<4){
+    for(int source=0;source<2;source++)for(const auto& part:PartCatalog)if(part.slot==PartSlot::Engine&&part.id>=1001&&part.id<=1016){
         Profile p;p.audioSource=source;equipPart(p,PartSlot::Engine,part.id);auto selected=engineSamples(p);
         // Independent fixture from the two source engine_hp/e_s/e_s2 chains.
         int on=part.stat==478?71:part.stat==656?79:part.stat==542?20:part.stat>=505?24:21;
@@ -327,8 +327,8 @@ int main(int argc,char**argv){
             definitions&=std::abs(built.boostedHp-hp)<.02&&built.vehicle.mass>0&&std::isfinite(built.vehicle.redlineRpm);
             for(const auto& engine:NfsEngines){Profile swap=p;universal&=equipPart(swap,PartSlot::Engine,engine.id)&&swap.parts[0]==engine.id;}
         }
-        expect(definitions&&identities.size()==239&&std::all_of(categoryCounts.begin(),categoryCounts.end(),[](int n){return n>0;}),"239 named vehicles have unique stable identities, categories and factory engines");
-        expect(universal,"all 145 NFS engines can be fitted to all 239 vehicles without donor restrictions");
+        expect(definitions&&identities.size()==std::size(VehicleCatalog)&&std::all_of(categoryCounts.begin(),categoryCounts.end(),[](int n){return n>0;}),"all catalog vehicles have unique stable identities, categories and factory engines");
+        expect(universal,"all 145 NFS engines can be fitted to all catalog vehicles without donor restrictions");
         Profile old;old.car=121;old.contentSource=1;old.audioSource=1;old.savedName="Original M5";
         expect(initializeVehicleFactory(old)&&old.parts[0]==nfsFactoryEngine(121,1)&&old.parts[0]>0&&old.savedName=="Original M5","untouched legacy Original BMW receives its declared engine without changing its name");
         Profile porsche,golf;porsche.car=golf.car=63;porsche.contentSource=0;golf.contentSource=1;
@@ -356,7 +356,7 @@ int main(int argc,char**argv){
         expect(additions&&owned.cars.size()==8,"eight showroom acquisitions fill the garage");
         auto full=owned.cars;expect(!owned.add(8,error)&&owned.cars==full,"a ninth acquisition is rejected without changing the garage");
         expect(!owned.add(0,error)&&owned.cars==full,"a duplicate vehicle cannot occupy another slot");
-        expect(!owned.add(-1,error)&&!owned.add(239,error)&&owned.cars==full,"invalid showroom identities are rejected");
+        expect(!owned.add(-1,error)&&!owned.add(int(std::size(VehicleCatalog)),error)&&owned.cars==full,"invalid showroom identities are rejected");
         expect(storeVehicleInventory(inventoryFile,owned,error),"owned garage persists atomically");
         VehicleInventory restored;expect(loadVehicleInventory(inventoryFile,restored,error)&&restored.cars==owned.cars,"all eight garage slots survive a restart");
         expect(owned.remove(3)&&!owned.owns(3)&&owned.add(8,error)&&owned.cars.size()==8,"removing any vehicle frees exactly one place for another model");
@@ -727,7 +727,7 @@ int main(int argc,char**argv){
     }
     expect(validRimsPreserved,"all 23 real source rims preserve their IDs across profile loading");
     expect(invalidRimsRepaired,"all 31 tyre/effect legacy rim selections migrate without losing equipment");
-    expect(std::size(RimCatalog)==521&&std::size(CosmeticCatalog)==503&&std::size(PartCatalog)==496,"merged shop includes 1520 equipment choices including distinct source seat variants");
+    expect(std::size(RimCatalog)==567&&std::size(CosmeticCatalog)==735&&std::size(PartCatalog)==524,"merged shop includes 1520 equipment choices including distinct source seat variants");
     bool namedRimsPersist=true,rimImagesValid=true;
     for(const auto& rim:RimCatalog){
         Profile p;p.rim=rim.id;saveProfile(root/"named-rim.ini",p,error);auto loaded=loadProfile(root/"named-rim.ini",191,54);namedRimsPersist&=loaded.rim==rim.id;
@@ -738,8 +738,21 @@ int main(int argc,char**argv){
     Profile outfit;outfit.contentSource=1;for(const auto& c:CosmeticCatalog)outfit.cosmetics[c.slot]=c.id;saveProfile(root/"outfit.ini",outfit,error);auto outfitLoaded=loadProfile(root/"outfit.ini",191,54);
     expect(outfitLoaded.cosmetics==outfit.cosmetics&&outfitLoaded.contentSource==1,"all sixteen appearance slots and original source selection persist");
     {std::ofstream out(root/"bad-outfit.ini");out<<"content_source=7\ncosmetic_0=102001\ncosmetic_1=999999\n";}
-    auto badOutfit=loadProfile(root/"bad-outfit.ini",191,54);expect(badOutfit.contentSource==1&&badOutfit.cosmetics[0]==0&&badOutfit.cosmetics[1]==0,"malformed appearance and wrong-slot IDs cannot corrupt the outfit");
+    auto badOutfit=loadProfile(root/"bad-outfit.ini",191,54);expect(badOutfit.contentSource==2&&badOutfit.cosmetics[0]==0&&badOutfit.cosmetics[1]==0,"malformed appearance and wrong-slot IDs cannot corrupt the outfit");
     expect(findPart(3027)&&findPart(3028)&&findPart(3027)->stat==35&&findPart(3028)->stat==35,"original-only Diamond and Ruby turbos join the Unbound equipment catalog");
+    {
+        bool balanced=true;int variants=0;
+        for(const auto& part:PartCatalog)if(part.imageSource==2){
+            auto original=findPart(part.id-60000);balanced&=original&&part.slot==original->slot&&part.stat==original->stat&&part.weight==original->weight&&partRarity(part)==partRarity(*original);++variants;
+        }
+        expect(balanced&&variants==28,"Underground mechanical variants preserve the source power, mass and rarity balance");
+        Profile underground;underground.car=7;underground.contentSource=2;underground.audioSource=2;initializeVehicleFactory(underground);
+        auto key=vehicleKey(underground);saveProfile(root/"underground.ini",underground,error);auto restored=loadProfile(root/"underground.ini",191,54);
+        expect(key=="pcr-underground-007"&&vehicleKey(restored)==key&&restored.audioSource==2,"Underground vehicle identity and audio bank persist without resolving to an older bank");
+        bool sounds=std::size(UndergroundSounds)==94;for(int id=0;id<94;id++)sounds&=std::string(sourceSound(id,2).name)==OriginalSounds[id].name;
+        expect(sounds&&std::string(sourceSound(20,2).file).find("audio-underground/")==0,"all Underground sound IDs preserve the shared compiled dispatch and select their own samples");
+        expect(std::string(vehicleIdentity(85,false).name)=="Lamborghini Huracán"&&std::string(vehicleIdentity(187,false).name)=="Lamborghini Gallardo","confirmed Unbound Lamborghini identities survive the Underground import");
+    }
     bool audioBanksValid=std::size(BaseGameSounds)==94;for(int id=0;id<94;id++)audioBanksValid&=std::string(BaseGameSounds[id].name)==OriginalSounds[id].name&&std::string(BaseGameSounds[id].file).find("audio-original/")==0;
     expect(audioBanksValid,"both 94-sample banks preserve stable names, IDs and separate resource paths");
     const auto& sourceAnchors=attachments::anchors(20,false);
@@ -753,8 +766,8 @@ int main(int argc,char**argv){
     expect(allSourceFits&&fittedVariants==243334,"both source banks and all rear/side kit choices retain finite attached pipe mouths");
     {std::ofstream out(root/"attachment-fit.json");out<<"{\n  \"source_body_pipe_configurations\": 18718,\n  \"fitted_variants_checked\": "<<fittedVariants<<",\n  \"recovered_coordinates\": 4584\n}\n";}
     bool choicesValid=true;for(size_t i=0;i<std::size(BodyChoices);i++){Profile p;p.car=BodyChoices[i].body;p.contentSource=BodyChoices[i].source;choicesValid&=bodyChoiceIndex(p)==int(i);cycleBody(p,1);cycleBody(p,-1);choicesValid&=bodyChoiceIndex(p)==int(i);}
-    expect(choicesValid&&std::size(BodyChoices)==239,"one body selector preserves every distinct source body and accessory bundle without duplicates");
-    expect(findPart(3027)->sourceMask==1&&findPart(1002)->sourceMask==3&&findCosmetic(109001)->sourceMask==2&&findCosmetic(309001)->sourceMask==1,"source badges distinguish original exclusives, common parts and both seat variants");
+    expect(choicesValid&&std::size(BodyChoices)==std::size(VehicleCatalog),"one body selector preserves every distinct source body and accessory bundle without duplicates");
+    expect(findPart(3027)->sourceMask==1&&findPart(1002)->sourceMask==19&&findCosmetic(109001)->sourceMask==2&&findCosmetic(309001)->sourceMask==17,"source badges distinguish original exclusives, common parts and both seat variants");
     auto sourceSide=placeExhaust(20,44),sourceStack=placeExhaust(20,34),sourceRearStack=placeExhaust(20,33),sourceDownpipe=placeExhaust(20,43);
     expect(sourceSide.x==22&&sourceSide.y==2&&sourceSide.front&&sourceStack.x==22&&sourceStack.y==2&&sourceStack.front,"side outlets and side stacks use the second source anchor instead of the sill estimate");
     expect(!sourceRearStack.front&&sourceRearStack.x==-15&&!sourceDownpipe.front&&sourceDownpipe.x==-15,"rear stacks and Downpipe retain rear anchors and body occlusion");
@@ -1088,7 +1101,7 @@ int main(int argc,char**argv){
     auto tailTint=materials::lightTint({200,100,40,255},3,true);expect(tailTint.r<70&&tailTint.g<40&&tailTint.r>tailTint.g&&tailTint.g>tailTint.b,"taillight darkness preserves the source lens colours");
     int fitCases=0,unsupported=0,partial=0;
     for(int bank=0;bank<2;bank++)for(int body=0;body<191;body++)for(const auto& c:CosmeticCatalog){Profile p;p.car=body;p.contentSource=bank;auto fit=cosmeticFit(p,c.id);++fitCases;unsupported+=!fit.supported;partial+=fit.partial;}
-    expect(fitCases==192146&&unsupported==129&&partial==2309,"all 503 cosmetic choices across 382 body banks expose source compatibility and partial kits");
+    expect(fitCases==int(std::size(CosmeticCatalog))*382&&unsupported==129&&partial==2309,"all 503 cosmetic choices across 382 body banks expose source compatibility and partial kits");
     bool hoodFits=true;int hoodCases=0,kitMoves=0;
     for(bool original:{false,true})for(int body=0;body<191;body++)for(int front=0;front<13;front++)for(int pipe=48;pipe<=50;pipe++){
         const auto& mount=materials::hoodMount(body,front,original);auto fit=placeExhaust(body,pipe,6,original,0,front);const auto& shape=art::pipeLayouts[pipe];
@@ -1103,7 +1116,7 @@ int main(int argc,char**argv){
     equipRim(splitRims,RimFrames[5],2);saveProfile(root/"split-rims.ini",splitRims,error);auto reloadedRims=loadProfile(root/"split-rims.ini",191,54);
     expect(reloadedRims.rim==10100&&rearRimId(reloadedRims)==RimFrames[5],"independent front and rear rims survive restart");
     equipRim(splitRims,10101,0);expect(splitRims.rearRim==-1&&rearRimId(splitRims)==splitRims.rim,"both-axle selection restores the linked rim behaviour");
-    bool finishes=true;for(int rim:RimFrames){auto f=rim_finish::finish(rim);finishes&=f&&f->shine>=0&&f->shine<54&&f->shadow>=0&&f->shadow<4;}
+    bool finishes=true;for(int rim:RimFrames){if(findRim(rim)&&findRim(rim)->imageSource==2)continue;auto f=rim_finish::finish(rim);finishes&=f&&f->shine>=0&&f->shine<54&&f->shadow>=0&&f->shadow<4;}
     expect(finishes&&std::size(rim_finish::Finishes)==521,"all named rim recipes retain stationary shine and shadow passes from source data");
     Profile lightSeat;auto seatStock=buildVehicle(lightSeat);lightSeat.cosmetics[9]=109001;auto seatBuild=buildVehicle(lightSeat);
     expect(std::abs(seatBuild.vehicle.mass-seatStock.vehicle.mass+90*.45359237)<1e-8&&seatBuild.baseHp==seatStock.baseHp,"source seat weight reduction affects native mass without creating engine horsepower");

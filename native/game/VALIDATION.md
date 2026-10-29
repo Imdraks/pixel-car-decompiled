@@ -1,3 +1,22 @@
+# Validation 0.17.0 — Original, Unbound et Underground
+
+- 409 contrôles du cœur ; 508 586 combinaisons vérifiées pour la préparation maximale.
+- 126 contrôles graphiques et les sept groupes précédents de vérification des pixels.
+  Les quatre nouvelles planches montrent les 191 variantes Underground.
+- 134 contrôles par entrées clavier/souris réelles : 125 régressions et neuf contrôles
+  Underground (acquisition, moteur Unbound universel, peinture, jantes, redémarrage,
+  retour à la voiture précédente et restauration de sa préparation).
+- 649 anciennes ressources identiques octet pour octet ; index de provenance étendu,
+  23 nouveaux fichiers et 673 ressources actives. Les 358 WAV/OGG simulés précédents
+  sont conservés. Les 19 sons différents sont décodés, 16 copies atténuées, toutes
+  les crêtes des copies vérifiées < 0,99. Les 75 autres sons sont partagés.
+- Ancrages capot : 2 483 variantes de carrosserie/kit Underground ajustées ; les
+  règles de dessin arrière protègent toujours roues et carrosserie.
+- Preuves Linux : `validation/underground-0.17.0/`, `underground-audio.json` et
+  `underground-hoods.json`. Les contrôles Windows de publication couvrent également
+  les 282 associations audio et les quatre nouvelles planches.
+- Les limites d'identification et d'import sont décrites dans [UNDERGROUND.md](UNDERGROUND.md).
+
 # Validation 0.16.5 — pot arrière derrière les roues
 
 - 405 contrôles du cœur et 124 graphiques ; aucune modification des ancrages,

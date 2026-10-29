@@ -9,8 +9,8 @@
 #include <map>
 #include <sstream>
 namespace pcr {
-inline const art::Frame& equippedRim(int id,bool original){auto r=findRim(id);return r?content_art::Rims(original)[r->image]:art::rims[validRimFrame(id)];}
-inline art::Wheels bodyWheels(int car,bool original){const float* a=original?content_art::originalAnchors[car]:content_art::unboundAnchors[car];return {a[0],a[1],a[2],a[3]};}
+inline const art::Frame& equippedRim(int id,int original){auto r=findRim(id);return r?content_art::Rims(r->imageSource>=0?r->imageSource:original)[r->image]:art::rims[validRimFrame(id)];}
+inline art::Wheels bodyWheels(int car,int original){const float* a=original==2?content_art::undergroundAnchors[car]:original==1?content_art::originalAnchors[car]:content_art::unboundAnchors[car];return {a[0],a[1],a[2],a[3]};}
 class ContentRenderer {
 public:
     std::map<int,Image> pixels;Texture2D body{};Rectangle bodyBounds{};std::string key;std::map<std::string,Texture2D> thumbnails;
@@ -22,11 +22,11 @@ public:
     static void overlay(Image& dest,const Image& src,float x=0,float y=0,float scale=1,Color color=WHITE){ImageDrawImagePro(&dest,src,{0,0,float(src.width),float(src.height)},{x,y,src.width*scale,src.height*scale},{0,0},0,color);}
     void overlayFrame(Image& dest,const art::Frame& f,float x=0,float y=0,float scale=1,Color color=WHITE){Image im=image(f);overlay(dest,im,x,y,scale,color);UnloadImage(im);}
     void materialize(Image& im,const Profile& p,bool wrapEnabled=true,bool glassEnabled=true){
-        bool original=p.contentSource==1;int paint=cosmeticSubimage(p,0),wrap=wrapEnabled?cosmeticSubimage(p,1):0,tint=cosmeticSubimage(p,12);
-        Image decal{};if(wrap)decal=image(content_art::Wraps(original)[wrap]);auto wp=static_cast<Color*>(decal.data);auto px=static_cast<Color*>(im.data);
+        int original=p.contentSource;int paint=cosmeticSubimage(p,0),wrap=wrapEnabled?cosmeticSubimage(p,1):0,tint=cosmeticSubimage(p,12);
+        Image decal{};if(wrap){auto c=findCosmetic(p.cosmetics[1]);decal=image(content_art::Wraps(c&&c->imageSource>=0?c->imageSource:original)[wrap]);}auto wp=static_cast<Color*>(decal.data);auto px=static_cast<Color*>(im.data);
         for(int y=0;y<im.height;y++)for(int x=0;x<im.width;x++){
             auto& c=px[y*im.width+x];materials::Rgba source{c.r,c.g,c.b,c.a};int row=materials::paintRow(source,original);
-            auto result=materials::paintPixel(source,paint,original);
+            auto result=materials::paintPixel(source,paint,original,findCosmetic(p.cosmetics[0])&&findCosmetic(p.cosmetics[0])->imageSource>=0?findCosmetic(p.cosmetics[0])->imageSource:original);
             if(row>=0&&wp&&x<decal.width&&y<decal.height){
                 auto over=wp[y*decal.width+x];double alpha=over.a/255.,gray=(source.r+source.g+source.b)/255.;
                 result.r=static_cast<unsigned char>(std::clamp(result.r*(1-alpha)+over.r*gray*alpha,0.,255.));
@@ -39,7 +39,7 @@ public:
         if(decal.data)UnloadImage(decal);
     }
     Image composeImage(const Profile& p){
-        bool original=p.contentSource==1;const auto& anchor=attachments::anchors(p.car,original);
+        int original=p.contentSource;const auto& anchor=attachments::anchors(p.car,original==1);
         Image im=image(content_art::Cars(original)[p.car]);int kit=cosmeticSubimage(p,4);
         for(int side=0;side<3;side++){
             int part=cosmeticSubimage(p,5+side);if(!part)part=kit;if(!part)continue;
@@ -52,7 +52,7 @@ public:
         materialize(im,p);
         Image interior=GenImageColor(220,70,BLANK);
         if(p.rollCage)overlayFrame(interior,content_art::Rollcages(original)[p.car]);
-        int seat=cosmeticSubimage(p,9);const auto* seatItem=findCosmetic(p.cosmetics[9]);bool originalSeat=seatItem&&seatItem->imageSource>=0?seatItem->imageSource==1:original;
+        int seat=cosmeticSubimage(p,9);const auto* seatItem=findCosmetic(p.cosmetics[9]);int originalSeat=seatItem&&seatItem->imageSource>=0?seatItem->imageSource:original;
         if(seat)overlayFrame(interior,content_art::Seats(originalSeat)[seat],62+anchor.seatX-16,58+anchor.seatY-16);
         overlay(interior,im);UnloadImage(im);im=interior;
         int head=cosmeticSubimage(p,13),tail=cosmeticSubimage(p,14),bulb=cosmeticSubimage(p,15);
@@ -78,8 +78,8 @@ public:
         if(auto frames=spoilerFrames(original,spoiler)){Image layer=image(frames[p.car]);materialize(layer,p,true,false);overlay(im,layer);UnloadImage(layer);}
         Image expanded=GenImageColor(materials::CanvasW,materials::CanvasH,BLANK);
         overlay(expanded,im,materials::CanvasX,materials::CanvasY);UnloadImage(im);im=expanded;
-        int rack=cosmeticSubimage(p,3);if(rack)overlayFrame(im,content_art::Racks(original)[rack],materials::CanvasX+62+anchor.roofX-60,materials::CanvasY+58+anchor.roofY-45);
-        int hook=cosmeticSubimage(p,10);if(hook)overlayFrame(im,content_art::Hooks(original)[hook],materials::CanvasX+62+anchor.hookX-12,materials::CanvasY+58+anchor.hookY-13);
+        int rack=cosmeticSubimage(p,3);if(rack)overlayFrame(im,content_art::Racks(findCosmetic(p.cosmetics[3])->imageSource>=0?findCosmetic(p.cosmetics[3])->imageSource:original)[rack],materials::CanvasX+62+anchor.roofX-60,materials::CanvasY+58+anchor.roofY-45);
+        int hook=cosmeticSubimage(p,10);if(hook)overlayFrame(im,content_art::Hooks(findCosmetic(p.cosmetics[10])->imageSource>=0?findCosmetic(p.cosmetics[10])->imageSource:original)[hook],materials::CanvasX+62+anchor.hookX-12,materials::CanvasY+58+anchor.hookY-13);
         return im;
     }
     Texture2D compose(const Profile& p){

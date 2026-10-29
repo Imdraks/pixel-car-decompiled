@@ -177,9 +177,9 @@ jobs:
           $p = Start-Process $exe -ArgumentList "--check-audio-dir `"$out`"" -Wait -PassThru -RedirectStandardOutput validation/audio-stdout.txt -RedirectStandardError validation/audio-stderr.txt
           if ($p.ExitCode -ne 0) { throw 'Original audio decoder validation failed' }
           $report = Get-Content "$out/audio-report.txt"
-          if (($report | Select-String '^PASS [^:]').Count -ne 188 -or ($report | Select-String '^FAIL ')) { throw 'Expected 188 valid original and Unbound sound samples' }
+          if (($report | Select-String '^PASS [^:]').Count -ne 282 -or ($report | Select-String '^FAIL ')) { throw 'Expected 282 valid Original, Unbound and Underground sound associations' }
           $engineLoops = Get-Content "$out/engine-loop-report.json" -Raw | ConvertFrom-Json
-          if ($engineLoops.engine_bank_cases -ne 24 -or $engineLoops.source_files_modified) { throw 'Engine loop coverage failed' }
+          if ($engineLoops.engine_bank_cases -ne 36 -or $engineLoops.source_files_modified) { throw 'Engine loop coverage failed' }
           foreach ($loop in $engineLoops.loops) { if ($loop.seam_after -gt $loop.seam_before + 0.00001 -or $loop.peak_after -gt $loop.peak_before + 0.00001) { throw 'Engine loop seam or peak worsened' } }
           Copy-Item "$out/engine-loop-report.json" validation/engine-loop-report.json
           $simulation = Get-Content "$out/simulated-audio-report.txt"
@@ -399,6 +399,32 @@ jobs:
             if ($results.Count -ne 4 -or $visible -le 4) { throw 'Missing rear exhaust or wheel cases' }
             @{cases=$results;visible_exhaust_pixels=$visible} | ConvertTo-Json -Depth 4 | Out-File validation/exhaust-wheel-pixels.json
           } finally { $image.Dispose() }
+      - name: Verify Underground customization identity and complete body sheets
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $state = @{}
+          Get-Content validation/screens/custom-underground.png.state | ForEach-Object { $kv = $_ -split '=',2; if ($kv.Length -eq 2) { $state[$kv[0]]=$kv[1] } }
+          if ($state['vehicle_id'] -ne 'pcr-underground-000' -or $state['screen'] -ne '8') { throw 'Underground customization resolves to the wrong source' }
+          Add-Type -AssemblyName System.Drawing
+          $cells=0
+          for ($page=0; $page -lt 4; $page++) {
+            $im=[System.Drawing.Bitmap]::new((Join-Path $PWD "validation/screens/underground-voitures-$($page+1).png"))
+            try {
+              for ($j=0; $j -lt 48; $j++) {
+                if ($page*48+$j -ge 191) { break }
+                $left=($j%6)*213; $top=[math]::Floor($j/6)*89; $blue=0
+                for ($y=[int](($top+19)*$im.Height/720); $y -lt [int](($top+87)*$im.Height/720); $y+=2) {
+                  for ($x=[int](($left+2)*$im.Width/1280); $x -lt [int](($left+211)*$im.Width/1280); $x+=2) {
+                    $c=$im.GetPixel($x,$y); if ($c.B -gt 65 -and $c.B -gt $c.R*1.35 -and $c.B -gt $c.G*1.1) { $blue++ }
+                  }
+                }
+                if ($blue -lt 2) { throw "Missing Underground body $($page*48+$j)" }; $cells++
+              }
+            } finally { $im.Dispose() }
+          }
+          if ($cells -ne 191) { throw 'Incomplete Underground body coverage' }
+          @{visible_body_cells=$cells;identity=$state['vehicle_id']} | ConvertTo-Json | Out-File validation/underground-pixels.json
       - name: Audit customization on every source body and export contact sheets
         shell: pwsh
         run: |
@@ -445,7 +471,7 @@ jobs:
           import zipfile
           from pathlib import Path
           with zipfile.ZipFile('../validation/Validation-Windows.zip') as archive:
-              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png'),('screens/ancrages-source.png','Apercu-Ancrages.png'),('screens/origines-pieces.png','Apercu-Provenance.png'),('screens/echappements-source-unbound.png','Apercu-Echappements.png'),('screens/fiche-stock-awd.png','Apercu-Physique.png'),('screens/burnout-09.png','Apercu-Burnout.png'),('screens/reglage-wheelie-balanced.png','Apercu-Suspension.png'),('screens/wheelie-drag.png','Apercu-Wheelie.png'),('screens/materiaux-source.png','Apercu-Materiaux.png'),('screens/capots-unbound.png','Apercu-Capots.png'),('screens/mes-voitures.png','Apercu-Mes-Voitures.png'),('screens/turbos-pc.png','Apercu-Turbos.png'),('screens/volumes.png','Apercu-Volumes.png'),('screens/catalogue-nfs-moteurs.png','Apercu-NFS-Moteurs.png'),('screens/catalogue-nfs-pieces.png','Apercu-NFS-Pieces.png'),('screens/catalogue-nfs-transmission.png','Apercu-NFS-Transmission.png'),('screens/catalogue-nfs-electrique.png','Apercu-NFS-Electrique.png'),('screens/catalogue-voitures.png','Apercu-Voitures.png'),('screens/voitures-muscle-cars.png','Apercu-Categories.png'),('screens/voiture-configuration-propre.png','Apercu-Preparation-Independante.png'),('screens/voiture-origine.png','Apercu-Moteur-Origine.png'),('screens/voitures-a-identifier.png','Apercu-A-Identifier.png'),('screens/garage-huit-places.png','Apercu-Garage-8-Places.png'),('screens/showroom-garage-plein.png','Apercu-Showroom.png'),('screens/retirer-voiture.png','Apercu-Retirer-Voiture.png'),('screens/garage-vide.png','Apercu-Garage-Vide.png'),('screens/showroom-preview-civic.png','Apercu-Showroom-Civic.png'),('screens/showroom-preview-corvette.png','Apercu-Showroom-Corvette.png'),('screens/custom-carrousel-moteur.png','Apercu-Custom-Moteur.png'),('screens/custom-carrousel-turbo.png','Apercu-Custom-Turbo.png'),('screens/custom-carrousel-style.png','Apercu-Custom-Style.png'),('screens/custom-accueil.png', 'Apercu-Custom-Accueil.png'),('screens/custom-menu-style.png', 'Apercu-Menu-Style.png'),('screens/custom-menu-carrosserie.png', 'Apercu-Menu-Carrosserie.png'),('screens/custom-menu-elements.png', 'Apercu-Menu-Elements.png'),('screens/custom-menu-peinture.png', 'Apercu-Menu-Peinture.png'),('screens/custom-menu-performance.png', 'Apercu-Menu-Performance.png'),('screens/custom-posture.png', 'Apercu-Posture.png'),('screens/exhaust-wheel-occlusion.png','Apercu-Pot-Roue.png')]:
+              for source, target in [('screens/garage-pc-original.png','Apercu-Garage-PC.png'),('screens/inventaire-pc-original.png','Apercu-Inventaire-PC.png'),('screens/garage-complet.png','Apercu-Contenu.png'),('screens/jantes-originales-nommees.png','Apercu-Jantes.png'),('screens/ancrages-source.png','Apercu-Ancrages.png'),('screens/origines-pieces.png','Apercu-Provenance.png'),('screens/echappements-source-unbound.png','Apercu-Echappements.png'),('screens/fiche-stock-awd.png','Apercu-Physique.png'),('screens/burnout-09.png','Apercu-Burnout.png'),('screens/reglage-wheelie-balanced.png','Apercu-Suspension.png'),('screens/wheelie-drag.png','Apercu-Wheelie.png'),('screens/materiaux-source.png','Apercu-Materiaux.png'),('screens/capots-unbound.png','Apercu-Capots.png'),('screens/mes-voitures.png','Apercu-Mes-Voitures.png'),('screens/turbos-pc.png','Apercu-Turbos.png'),('screens/volumes.png','Apercu-Volumes.png'),('screens/catalogue-nfs-moteurs.png','Apercu-NFS-Moteurs.png'),('screens/catalogue-nfs-pieces.png','Apercu-NFS-Pieces.png'),('screens/catalogue-nfs-transmission.png','Apercu-NFS-Transmission.png'),('screens/catalogue-nfs-electrique.png','Apercu-NFS-Electrique.png'),('screens/catalogue-voitures.png','Apercu-Voitures.png'),('screens/voitures-muscle-cars.png','Apercu-Categories.png'),('screens/voiture-configuration-propre.png','Apercu-Preparation-Independante.png'),('screens/voiture-origine.png','Apercu-Moteur-Origine.png'),('screens/voitures-a-identifier.png','Apercu-A-Identifier.png'),('screens/garage-huit-places.png','Apercu-Garage-8-Places.png'),('screens/showroom-garage-plein.png','Apercu-Showroom.png'),('screens/retirer-voiture.png','Apercu-Retirer-Voiture.png'),('screens/garage-vide.png','Apercu-Garage-Vide.png'),('screens/showroom-preview-civic.png','Apercu-Showroom-Civic.png'),('screens/showroom-preview-corvette.png','Apercu-Showroom-Corvette.png'),('screens/custom-carrousel-moteur.png','Apercu-Custom-Moteur.png'),('screens/custom-carrousel-turbo.png','Apercu-Custom-Turbo.png'),('screens/custom-carrousel-style.png','Apercu-Custom-Style.png'),('screens/custom-accueil.png', 'Apercu-Custom-Accueil.png'),('screens/custom-menu-style.png', 'Apercu-Menu-Style.png'),('screens/custom-menu-carrosserie.png', 'Apercu-Menu-Carrosserie.png'),('screens/custom-menu-elements.png', 'Apercu-Menu-Elements.png'),('screens/custom-menu-peinture.png', 'Apercu-Menu-Peinture.png'),('screens/custom-menu-performance.png', 'Apercu-Menu-Performance.png'),('screens/custom-posture.png', 'Apercu-Posture.png'),('screens/exhaust-wheel-occlusion.png','Apercu-Pot-Roue.png'),('screens/custom-underground.png','Apercu-Underground.png'),('screens/underground-voitures-1.png','Apercu-Underground-Voitures.png'),('screens/underground-peinture.png','Apercu-Underground-Peinture.png'),('screens/underground-jantes.png','Apercu-Underground-Jantes.png')]:
                   data=archive.read(source)
                   if not data.startswith(bytes.fromhex('89504e470d0a1a0a')): raise SystemExit('Invalid native UI preview')
                   Path(target).write_bytes(data)
@@ -456,7 +482,7 @@ jobs:
                       output=Path(name).name
                       Path(output).write_bytes(data)
           PY_PREVIEW
-          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png Apercu-Ancrages.png Apercu-Provenance.png Apercu-Echappements.png Apercu-Physique.png Apercu-Burnout.png Apercu-Suspension.png Apercu-Wheelie.png Apercu-Materiaux.png Apercu-Capots.png Apercu-Mes-Voitures.png Apercu-Turbos.png Apercu-Volumes.png Apercu-NFS-Moteurs.png Apercu-NFS-Pieces.png Apercu-NFS-Transmission.png Apercu-NFS-Electrique.png Apercu-Voitures.png Apercu-Categories.png Apercu-Preparation-Independante.png Apercu-Moteur-Origine.png Apercu-A-Identifier.png Apercu-Garage-8-Places.png Apercu-Showroom.png Apercu-Retirer-Voiture.png Apercu-Garage-Vide.png Apercu-Showroom-Civic.png Apercu-Showroom-Corvette.png Apercu-Custom-Moteur.png Apercu-Custom-Turbo.png Apercu-Custom-Style.png Apercu-Custom-Accueil.png Apercu-Menu-Style.png Apercu-Menu-Carrosserie.png Apercu-Menu-Elements.png Apercu-Menu-Peinture.png Apercu-Menu-Performance.png Apercu-Posture.png Apercu-Pot-Roue.png
+          gh release upload "$RELEASE_TAG" PixelCarRacerNative-Windows-x64.zip PixelCarRacerNative-Windows-x64.zip.sha256 ../validation/Validation-Windows.zip Apercu-Garage-PC.png Apercu-Inventaire-PC.png Apercu-Contenu.png Apercu-Jantes.png Apercu-Ancrages.png Apercu-Provenance.png Apercu-Echappements.png Apercu-Physique.png Apercu-Burnout.png Apercu-Suspension.png Apercu-Wheelie.png Apercu-Materiaux.png Apercu-Capots.png Apercu-Mes-Voitures.png Apercu-Turbos.png Apercu-Volumes.png Apercu-NFS-Moteurs.png Apercu-NFS-Pieces.png Apercu-NFS-Transmission.png Apercu-NFS-Electrique.png Apercu-Voitures.png Apercu-Categories.png Apercu-Preparation-Independante.png Apercu-Moteur-Origine.png Apercu-A-Identifier.png Apercu-Garage-8-Places.png Apercu-Showroom.png Apercu-Retirer-Voiture.png Apercu-Garage-Vide.png Apercu-Showroom-Civic.png Apercu-Showroom-Corvette.png Apercu-Custom-Moteur.png Apercu-Custom-Turbo.png Apercu-Custom-Style.png Apercu-Custom-Accueil.png Apercu-Menu-Style.png Apercu-Menu-Carrosserie.png Apercu-Menu-Elements.png Apercu-Menu-Peinture.png Apercu-Menu-Performance.png Apercu-Posture.png Apercu-Pot-Roue.png Apercu-Underground.png Apercu-Underground-Voitures.png Apercu-Underground-Peinture.png Apercu-Underground-Jantes.png
           shopt -s nullglob
           for audio_pack in *-v1.zip; do
             [ -f "$audio_pack" ] && gh release upload "$RELEASE_TAG" "$audio_pack"
