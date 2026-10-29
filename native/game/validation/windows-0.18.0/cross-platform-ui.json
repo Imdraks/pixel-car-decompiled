@@ -1,0 +1,33 @@
+{
+  "capture_states_agree_within_tolerance": 14,
+  "numeric_tolerance": 0.01,
+  "maximum_capture_differences": {
+    "moteur-menu-isole": 0,
+    "provenance-original": 0,
+    "provenance-unbound": 0,
+    "provenance-underground": 0,
+    "jantes-style-offroad": 0,
+    "jantes-style-tuner": 0,
+    "jantes-style-muscle": 0,
+    "jantes-style-drag": 0,
+    "jantes-style-luxury": 0,
+    "jantes-style-hyper": 0,
+    "physique-patinage": 0,
+    "physique-virage": 0,
+    "fond-menu-4x3": 0,
+    "fond-menu-large": 0
+  },
+  "menu_backgrounds": {
+    "fond-menu-4x3": {
+      "source_pixel_matches": 1,
+      "width": 800,
+      "height": 600
+    },
+    "fond-menu-large": {
+      "source_pixel_matches": 1,
+      "width": 960,
+      "height": 450
+    }
+  },
+  "windows_smoke_checks_passed": 141
+}

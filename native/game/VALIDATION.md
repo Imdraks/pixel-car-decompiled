@@ -5,7 +5,13 @@
 - **39 contrôles par entrées clavier/souris réelles sous Linux** : 13 conduite, 12 curseur wheelie unique et 14 fonds/navigation après redimensionnement. Les pixels des marges des neuf captures de menus concordent avec les décors sources, y compris leurs zones noires intrinsèques.
 - Le bouton wheelie n’agit plus ; le curseur enregistré est prioritaire sur l’ancien indicateur, tout en conservant la lecture des fichiers anciens sans curseur.
 - Les 673 ressources et les 358 fichiers audio simulés sont conservés. Aucun contenu supplémentaire n’est requis pour ces changements.
-- La validation Windows de publication contrôle les nouvelles mesures, le patinage, la direction progressive, le curseur et le cadrage réel des fonds. Les preuves de téléchargement sont ajoutées après publication.
+- [Validation Windows réussie](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40882005262) : 440 contrôles du cœur, 141 graphiques, 282 associations audio et 358 WAV/OGG simulés.
+- 14 états de captures identiques entre Linux et Windows ; 1 528 compositions et onze tableaux physiques concordent dans la tolérance de 0,01. Les pixels des marges correspondent aux sources ; les bordures noires intégrées aux images sources seront recadrées en 0.18.1.
+- ZIP public, CRC, EXE, 63 pièces jointes dont 60 aperçus et 673 ressources téléchargés et vérifiés. Restauration à froid puis réutilisation des ressources testées.
+- Preuves : `validation/windows-0.18.0/` et `validation/driving-0.18.0/`.
+- Source compilée : `a3ab6777a96d275cb506d25e3bd404d590878c7c`.
+- ZIP : 142116561 octets, SHA-256 `97d7f6c6d42555d53e0d7c56c89fd578d20e3b37f355ce5354c1153d7255790d`.
+- EXE : SHA-256 `116eaf975406d8af623cadffea93ac27f7be8bc0e3f720114fe0d7d272e22127`.
 - Mesures : `driving-physics.csv` / `driving-physics.json`. Ce modèle natif ne prétend pas reproduire intégralement les équations Android ou des fiches constructeur.
 
 # Validation 0.17.1 — menus, provenances et styles de jantes
