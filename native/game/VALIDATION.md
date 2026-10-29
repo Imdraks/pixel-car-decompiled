@@ -11,8 +11,23 @@
   `validation/exhaust-wheel-0.16.5/`.
 - Contrôles pixels des menus, carrousels, peinture, fumée, mouvement et flammes
   maintenus. Les 650 ressources sont byte-identiques à la 0.16.4.
-- Publication conditionnée à la validation Windows et au même test d’occlusion
-  sur les captures réelles de l’exécutable Windows.
+- Publication Windows et contrôle d’occlusion vérifiés ci-dessous.
+
+## Publication Windows vérifiée — 0.16.5
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40836981119) :
+  405 contrôles du cœur, 124 graphiques, 188 sons historiques et 358 fichiers
+  simulés décodés. Paramètres, sept volumes et navigation conservés.
+- Comparaison GPU Windows de quatre roues avec/sans pot arrière : zéro pixel
+  intérieur recouvert ; sortie visible hors des roues. Même contrôle Python
+  exécuté sur les captures publiques, ainsi que les contrôles pixels antérieurs.
+- Archive publique, CRC, EXE, source compilée, quarante-deux aperçus et 650
+  ressources vérifiés. Les 1528 compositions et mesures physiques concordent
+  avec Linux à la tolérance documentée.
+- Rapports : `validation/windows-0.16.5/` et `validation/exhaust-wheel-0.16.5/`.
+- Source compilée : `6b1f7ff38c54d02545ef1be27990a41e2b18c718`.
+- ZIP : 107903486 octets, SHA-256 `aa80d05b4e7a76420872a7a02d0117e4bc9a19837b555d28ab6abd093a4e756b`.
+- EXE : SHA-256 `1f76b5368b7cf255c38285650b142921e46f272cee99ed431eb28b803309babb`.
 
 # Validation 0.16.4 — accueil et arborescence de customisation
 
