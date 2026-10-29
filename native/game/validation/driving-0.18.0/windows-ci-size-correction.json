@@ -9,5 +9,8 @@
   },
   "failed_run": 40877361041,
   "cause": "The Windows CI desktop clamped requested 1600x700 to 1028x700; screenshots immediately after resize were blank.",
-  "correction": "Use desktop-supported 800x600 and 960x450 diagnostic windows; allow ten rendered frames before capture. Production driving and menu render code unchanged by this test correction."
+  "additional_windows_finding": "After resize the Windows screen presentation retained a clipped or scaled viewport. The actual GLFW framebuffer viewport and window-coordinate projection are now set explicitly before drawing the full-window backdrop and UI.",
+  "initial_test_correction": "Use desktop-supported 800x600 and 960x450 diagnostic windows; allow ten rendered frames before capture. Production driving and menu render code unchanged by this test correction.",
+  "correction": "Use supported diagnostic window sizes, allow resize settling, and explicitly reset the screen viewport/projection to the actual GLFW framebuffer before presentation.",
+  "validation_script_correction": "Parenthesize PowerShell subtraction in array elements and avoid the automatic Error variable."
 }

@@ -38,6 +38,7 @@ struct GLFWwindow;
 struct GLFWmonitor;
 extern "C" GLFWwindow* glfwGetCurrentContext(void);
 extern "C" GLFWmonitor* glfwGetWindowMonitor(GLFWwindow*);
+extern "C" void glfwGetFramebufferSize(GLFWwindow*,int*,int*);
 extern "C" void glfwSetWindowMonitor(GLFWwindow*,GLFWmonitor*,int,int,int,int,int);
 constexpr Color Ink{10,15,23,255}, Panel{18,27,39,245}, Muted{153,173,190,255}, Accent{75,230,190,255}, Gold{255,191,88,255};
 struct Args {
@@ -1378,7 +1379,17 @@ struct App {
         if(args.smoke&&frames>=738&&frames<=740)exhaustWheelSheet();
         if(args.smoke&&frames>=742&&frames<=749)undergroundSheet();
         EndMode2D();EndTextureMode();
-        BeginDrawing();ClearBackground(BLACK);if(screen!=Screen::Free&&menuBackdropFrame)drawMenuBackdrop(*menuBackdropFrame,{0,0,sw,sh},menuBackdropTint,menuBackdropShade);DrawTexturePro(render.texture,{0,0,float(render.texture.width),-float(render.texture.height)},output,{0,0},0,WHITE);EndDrawing();
+        BeginDrawing();
+        // Raylib's Windows resize path can retain a letterboxed screen viewport.
+        // Present against the actual GLFW framebuffer, with window-coordinate
+        // projection, so background pixels reach every edge (also with HiDPI).
+        rlDrawRenderBatchActive();int framebufferWidth=0,framebufferHeight=0;
+        glfwGetFramebufferSize(glfwGetCurrentContext(),&framebufferWidth,&framebufferHeight);
+        rlViewport(0,0,framebufferWidth,framebufferHeight);rlDisableScissorTest();
+        rlMatrixMode(RL_PROJECTION);rlLoadIdentity();rlOrtho(0,sw,sh,0,0,1);
+        rlMatrixMode(RL_MODELVIEW);rlLoadIdentity();ClearBackground(BLACK);
+        if(screen!=Screen::Free&&menuBackdropFrame)drawMenuBackdrop(*menuBackdropFrame,{0,0,sw,sh},menuBackdropTint,menuBackdropShade);
+        DrawTexturePro(render.texture,{0,0,float(render.texture.width),-float(render.texture.height)},output,{0,0},0,WHITE);EndDrawing();
     }
     // Diagnostic-only contact sheets use the same car() renderer as garage/free drive.
     void undergroundSheet(){
