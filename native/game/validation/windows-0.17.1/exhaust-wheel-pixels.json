@@ -1,0 +1,25 @@
+{
+  "cases": [
+    {
+      "wheel_pixels": 520,
+      "row": 0,
+      "changed_wheel_pixels": 0
+    },
+    {
+      "wheel_pixels": 520,
+      "row": 1,
+      "changed_wheel_pixels": 0
+    },
+    {
+      "wheel_pixels": 520,
+      "row": 2,
+      "changed_wheel_pixels": 0
+    },
+    {
+      "wheel_pixels": 516,
+      "row": 3,
+      "changed_wheel_pixels": 0
+    }
+  ],
+  "visible_exhaust_pixels": 1403
+}

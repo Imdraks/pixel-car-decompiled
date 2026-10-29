@@ -1,0 +1,17 @@
+{
+  "exact_capture_states_agree": 10,
+  "visible_rim_categories": {
+    "single_origin": true,
+    "scoped_engine_tabs": 2,
+    "visible_rims": 530,
+    "categories": {
+      "drag": 30,
+      "tuner": 329,
+      "muscle": 42,
+      "offroad": 8,
+      "hyper": 70,
+      "luxury": 51
+    }
+  },
+  "windows_smoke_checks_passed": 136
+}

@@ -4,7 +4,13 @@
 - **94 contrôles avec entrées clavier/souris réelles sous Linux** : 25 isolation des menus, 12 provenance/migration, 17 filtres de jantes, 40 navigation hiérarchique.
 - **136 contrôles graphiques** ; huit groupes de vérification des pixels. Nouveaux aperçus des menus isolés, des trois provenances et des six catégories de jantes.
 - Les 673 fichiers de ressources existants sont conservés. Aucun changement de physique, de mixage ou de fichier audio dans cette version.
-- Publication Windows conditionnée aux tests du cœur, graphiques, audio et rendu ; preuves de publication ajoutées après téléchargement et vérification.
+- [Publication Windows réussie](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40868968985) : 415 contrôles du cœur et 136 graphiques, trois provenances et six catégories confirmées ; 282 associations audio et 358 WAV/OGG simulés vérifiés.
+- Dix états de menus/filtres et 1 528 compositions de carrosseries concordent entre Windows et Linux ; dix tableaux physiques dans la tolérance de 0,01. Cela ne prouve pas l’équivalence physique avec Android.
+- ZIP public téléchargé : CRC et SHA-256 valides, source/EXE, 59 pièces jointes dont 56 aperçus et les 673 ressources vérifiés. Restauration à froid puis réutilisation des ressources testées.
+- Preuves : `validation/windows-0.17.1/` et `validation/catalogue-0.17.1/`.
+- Source compilée : `740b3ac7d66a3a1ea0d21704b72944ab0e82841a`.
+- ZIP : 142110680 octets, SHA-256 `06e7fb5cfeed80b02918c3c2bfa579dbef191bb207e43357d15f45e053904cec`.
+- EXE : SHA-256 `dba05b31f251a9bf3e1b3c2616aa0c7cf599f1285d50cf3d7da7aeab1082bab0`.
 
 # Validation 0.17.0 — Original, Unbound et Underground
 

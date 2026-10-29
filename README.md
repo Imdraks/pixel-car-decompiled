@@ -8,7 +8,7 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
 
-La **0.17.1** isole les menus de customisation et classe les jantes en **Offroad, Tuner, Muscle, Drag, Luxury et Hyper**. Une seule provenance par fiche ; les copies identiques sont masquées et les vraies variantes conservées. **1 663 équipements**, **530 jantes**, **287 choix au showroom**, avec compatibilité des anciennes préparations. [Revue](native/game/REVUE-CONTENU.md) · [Filtres](native/game/CLASSIFICATION-JANTES.md).
+La **0.17.1** isole les menus de customisation et classe les jantes en **Offroad, Tuner, Muscle, Drag, Luxury et Hyper**. Une seule provenance par fiche ; les copies identiques sont masquées et les vraies variantes conservées. **1 663 équipements**, **530 jantes**, **287 choix au showroom**, avec compatibilité des anciennes préparations. [Revue](native/game/REVUE-CONTENU.md) · [Filtres](native/game/CLASSIFICATION-JANTES.md). Validation Windows réussie : **415 contrôles du cœur et 136 graphiques** ; **94 essais clavier/souris** sous Linux.
 
 La **0.17.0** réunit **Original, Unbound et Underground** : 430 variantes de
 voitures, 1 826 choix d’équipement, décors et banque audio Underground. Les

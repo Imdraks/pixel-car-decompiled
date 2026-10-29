@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "large_central_car_preview": true,
+    "compact_stats_panel_on_right": true,
+    "distinct_selected_models": true,
+    "empty_garage_has_no_car": true,
+    "visible_bottom_carousel": true,
+    "six_thumbnails_keep_their_own_body_texture": true,
+    "large_preview_in_all_custom_categories": true,
+    "part_icons_visible_in_bottom_carousel": true
+  },
+  "changed_car_pixels": 46954,
+  "large_car_blue_pixels": [
+    29619,
+    28264
+  ],
+  "right_panel_blue_pixels": 0,
+  "carousel_blue_pixels": 4008,
+  "thumbnail_hashes": [
+    "a89955d517672d7fa9235fee23c23afdafd6801aa4d9a405b3539b1286fa619c",
+    "b39c77b0b5d2cb78fc6fd857bdae9588c69d4440730032372cc8fffc01981c4d",
+    "c75036348e9eb2382e6ceab83183d278d2780229ee8ec385c71494c94d231c8b",
+    "ed2a969c0fc4baf8a3952f2fbd3438a1c897f8dbad5f8563a2c4c4d39e014467",
+    "5c00b334069bec68384971e111e347425f9d7b60f95dc0a4ecb3842af563bfe7",
+    "4e1fe431d5152e011f5fa9e1d88da80a35926e4e43e153fe61b2530de339366b"
+  ]
+}
