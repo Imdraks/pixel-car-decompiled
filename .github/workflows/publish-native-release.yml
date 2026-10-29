@@ -92,7 +92,7 @@ jobs:
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\attachment-fit.json" validation/attachment-fit.json
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\customization-render.json" validation/customization-render.json
           $cosmetics = Get-Content validation/customization-render.json -Raw | ConvertFrom-Json
-          if ($cosmetics.palette_shades_checked -ne 2376 -or $cosmetics.cosmetic_cases_checked -ne 192146 -or $cosmetics.hood_body_kit_pipe_cases -ne 14898 -or $cosmetics.rim_finish_recipes -ne 521 -or $cosmetics.hood_coordinates_recovered_from_android) { throw 'Customization source coverage differs' }
+          if ($cosmetics.palette_shades_checked -ne 2376 -or $cosmetics.cosmetic_cases_checked -ne 280770 -or $cosmetics.hood_body_kit_pipe_cases -ne 14898 -or $cosmetics.rim_finish_recipes -ne 521 -or $cosmetics.hood_coordinates_recovered_from_android) { throw 'Customization source coverage differs' }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\engine-audio-assignments.json" validation/engine-audio-assignments.json
           $engineAudio = Get-Content validation/engine-audio-assignments.json -Raw | ConvertFrom-Json
           if ($engineAudio.equipped_engine_bank_cases -ne 32 -or -not $engineAudio.source_sample_selection_verified -or $engineAudio.stock_selection_recovered) { throw 'Equipped engine audio selection failed' }
@@ -147,7 +147,7 @@ jobs:
           }
           Copy-Item "$env:RUNNER_TEMP\pcr-native-core\power-combinations.json" validation/power-combinations.json
           $power = Get-Content validation/power-combinations.json -Raw | ConvertFrom-Json
-          if ($power.induction_combinations -ne 175770 -or $power.atmospheric_combinations -ne 267344 -or $power.max_without_nos_hp -lt 4200 -or $power.max_with_nos_hp -lt 4500 -or $power.original_game_equivalence_validated) { throw 'Compound power or combination coverage failed' }
+          if ($power.induction_combinations -ne 175770 -or $power.atmospheric_combinations -ne 332816 -or $power.max_without_nos_hp -lt 4200 -or $power.max_with_nos_hp -lt 4500 -or $power.original_game_equivalence_validated) { throw 'Compound power or combination coverage failed' }
           Expand-Archive $zip -DestinationPath "$env:RUNNER_TEMP\pcr-native-app"
           Get-CimInstance Win32_OperatingSystem | Select-Object Caption,Version | Format-List | Out-File validation/windows.txt
       - name: Run and compare native physics measurements on Windows
@@ -435,7 +435,7 @@ jobs:
           $p = Start-Process $exe -ArgumentList "--assets-dir `"$assets`" --check-customization-dir `"$out`"" -Wait -PassThru -RedirectStandardOutput validation/customization-stdout.txt -RedirectStandardError validation/customization-stderr.txt
           if ($p.ExitCode -ne 0) { throw 'Customization body render audit failed' }
           $report = Get-Content "$out/customization-audit.json" -Raw | ConvertFrom-Json
-          if ($report.body_banks_checked -ne 382 -or $report.cosmetic_cases_checked -ne 192146 -or $report.full_body_renders -ne 1528 -or $report.generic_mounts_checked -ne 27122 -or $report.hood_cases_checked -ne 14898 -or $report.android_full_render_equivalence) { throw 'Customization rendering coverage differs' }
+          if ($report.body_banks_checked -ne 382 -or $report.cosmetic_cases_checked -ne 280770 -or $report.full_body_renders -ne 1528 -or $report.generic_mounts_checked -ne 27122 -or $report.hood_cases_checked -ne 14898 -or $report.android_full_render_equivalence) { throw 'Customization rendering coverage differs' }
       - name: Collect Windows validation
         if: always()
         shell: pwsh

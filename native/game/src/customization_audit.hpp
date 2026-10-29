@@ -70,7 +70,7 @@ inline void checkCustomization(const std::filesystem::path& assets,const std::fi
                 if(body%24==23||body==190){auto name="cars-"+std::string(original?"original-":"unbound-")+std::to_string(page)+".png";if(!ExportImage(sheet,(output/name).u8string().c_str()))throw std::runtime_error("Export du contact impossible.");UnloadImage(sheet);}
             }
         }
-        if(cases!=192146||renders!=1528||mounts!=27122||hoodCases!=14898)throw std::runtime_error("Couverture de personnalisation incomplète.");
+        if(cases!=int(std::size(CosmeticCatalog))*382||renders!=1528||mounts!=27122||hoodCases!=14898)throw std::runtime_error("Couverture de personnalisation incomplète.");
         std::ofstream report(output/"customization-audit.json");report<<"{\n  \"body_banks_checked\": 382,\n  \"cosmetic_cases_checked\": "<<cases<<",\n  \"unsupported_choices\": "<<unsupported<<",\n  \"partial_choices\": "<<partial<<",\n  \"generic_mounts_checked\": "<<mounts<<",\n  \"full_body_renders\": "<<renders<<",\n  \"hood_cases_checked\": "<<hoodCases<<",\n  \"hood_fallback_cases\": "<<hoodFallbacks<<",\n  \"android_full_render_equivalence\": false\n}\n";
         renderer.clear();
     }catch(...){renderer.clear();throw;}
