@@ -1,0 +1,16 @@
+{
+  "reference": "v0.16.4 native customization home",
+  "fixed": "v0.16.5 native customization home",
+  "same_capture_resolution": [
+    960,
+    540
+  ],
+  "rear_wheel_roi": {
+    "center": [
+      450,
+      357
+    ],
+    "radius": 25
+  },
+  "changed_pixels_in_reported_wheel": 66
+}

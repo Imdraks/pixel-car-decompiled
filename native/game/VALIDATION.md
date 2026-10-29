@@ -1,3 +1,19 @@
+# Validation 0.16.5 — pot arrière derrière les roues
+
+- 405 contrôles du cœur et 124 graphiques ; aucune modification des ancrages,
+  bouches de particules, formules, sauvegardes ou ressources.
+- Comparaison GPU avec/sans dessin du pot arrière : quatre régions circulaires
+  à l’intérieur des roues, Original/Unbound, hauteur normale/abaissée/rehaussée
+  et cabrage. Zéro pixel de roue changé ; 1403 pixels de sortie restent visibles
+  hors des roues sur la capture Linux.
+- L’aperçu précédent 0.16.4 et le correctif ont 66 pixels différents dans la zone
+  signalée de la roue arrière de la Civic. Mesure et test dédiés conservés dans
+  `validation/exhaust-wheel-0.16.5/`.
+- Contrôles pixels des menus, carrousels, peinture, fumée, mouvement et flammes
+  maintenus. Les 650 ressources sont byte-identiques à la 0.16.4.
+- Publication conditionnée à la validation Windows et au même test d’occlusion
+  sur les captures réelles de l’exécutable Windows.
+
 # Validation 0.16.4 — accueil et arborescence de customisation
 
 - 405 contrôles du cœur, dont sept sur les destinations, absence de cycles,

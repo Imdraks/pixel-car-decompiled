@@ -1,5 +1,21 @@
 # Pots et points d’émission natifs — 0.9.1
 
+## Correction 0.16.5
+
+Un pot arrière pouvait se superposer au pneu ou aux rayons : il était dessiné
+après les roues, avant la carrosserie. Le rendu applique maintenant l’ordre
+**pot arrière → roues → carrosserie**. Les pots de premier plan conservent leur
+couche prévue. Les ancrages source et les bouches de particules ne sont pas déplacés.
+Le pot suit le même mouvement de caisse pendant le cabrage ; la suspension et
+les roues gardent leurs transformations propres.
+
+Un contrôle GPU compare les pixels à l’intérieur de la roue avec et sans le
+pot arrière, sur quatre cas Original/Unbound, hauteur d’origine, abaissée,
+rehaussée et cabrage. Ils doivent être identiques, tandis que la sortie du pot
+reste visible à l’extérieur. Le correctif concerne toutes les vues utilisant
+le rendu de voiture : accueil, showroom, pièces, miniatures et conduite.
+
+
 Les 48 échappements équipables et le pot de base utilisent leurs images Unbound
 originales. Ils apparaissent au garage, au menu et en conduite. Leur placement
 et les points d'émission partagent la fonction `placeExhaust` : changer de

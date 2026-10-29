@@ -1,4 +1,9 @@
-# Pixel Car Racer — Unbound Native 0.16.4
+# Pixel Car Racer — Unbound Native 0.16.5
+
+La version **0.16.5** corrige le pot arrière qui recouvrait la roue : les
+éléments arrière sont dessinés derrière les roues et la carrosserie. Les
+ancrages et sorties des particules restent conservés ; aperçus, garage et
+conduite utilisent le même rendu corrigé. [Détails](EXHAUST.md).
 
 La version **0.16.4** ouvre la customisation sur un véritable accueil
 **Style / Performance / Acheter et vendre / Toutes mes voitures**, puis ses

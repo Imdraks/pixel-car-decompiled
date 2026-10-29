@@ -115,12 +115,19 @@ struct App {
         float w=height*f.w/f.h;float start=-float(std::fmod(offset,w));
         for(float x=start-w;x<1280;x+=w)crop(f,{x,y,w,height},tint);
     }
-    void car(int index,int rim,float x,float y,float scale,double wheelAngle,bool shadow=true,int tireFrame=0,double rideOffset=0,int exhaustFrame=-1,double rearAngle=-1,const Profile* outfit=nullptr,const CarState* motion=nullptr,bool thumbnail=false){
+    void car(int index,int rim,float x,float y,float scale,double wheelAngle,bool shadow=true,int tireFrame=0,double rideOffset=0,int exhaustFrame=-1,double rearAngle=-1,const Profile* outfit=nullptr,const CarState* motion=nullptr,bool thumbnail=false,bool showExhaust=true){
         index=(index+191)%191;rim=validRimFrame(rim);bool original=(outfit?outfit->contentSource:profile.contentSource)==1;auto w=bodyWheels(index,original);tireFrame=std::clamp(tireFrame,0,int(std::size(art::tires))-1);
         ChassisPose pose=chassisPose(w.rear,w.front,w.y,drive.vehicle,motion?*motion:CarState{},rideOffset);
         if(shadow&&settings.quality!=Quality::Low)DrawEllipse(int(x+110*scale),int(y+(w.y+w.radius)*scale),int(87*scale),int(6*scale),Fade(BLACK,.35f));
         // Draw the body last: opaque fenders and skirts must cover the tyres.
         // All cropped wheel sprites use their original 62x62 canvas and origin.
+        auto pipe=outfit?installedExhaust(*outfit,exhaustFrame,rideOffset):placeExhaust(index,exhaustFrame,rideOffset,original);
+        auto beginBody=[&](){if(motion){rlPushMatrix();rlTranslatef(x+float(pose.pivotX)*scale,y+float(pose.pivotY-pose.heave*pose.pixelsPerMetre)*scale,0);rlRotatef(float(-pose.pitch*180/3.141592653589793),0,0,1);rlTranslatef(-x-float(pose.pivotX)*scale,-y-float(pose.pivotY)*scale,0);}};
+        auto endBody=[&](){if(motion)rlPopMatrix();};
+        auto drawPipe=[&](){if(showExhaust)frame(content_art::Exhausts(original)[pipe.frame],x+float(pipe.x)*scale,y+float(pipe.y)*scale,scale);};
+        // Rear hardware belongs behind the near wheels as well as the body.
+        // Use the body transform before drawing the independently moving wheels.
+        if(!pipe.front){beginBody();drawPipe();endBody();}
         if(w.radius>0)for(float cx:{w.rear,w.front}){
             auto local=motion?pose.wheel(cx==w.front):ChassisPoint{cx,w.y};
             Vector2 center{x+float(local.x)*scale,y+float(local.y)*scale};
@@ -147,14 +154,11 @@ struct App {
             }
             if(outfit){int lugs=cosmeticSubimage(*outfit,11);if(lugs)for(int bolt=0;bolt<5;bolt++)centered(content_art::Lugs(original)[lugs],wheelScale,1,5,float(angle+bolt*72));}
         }
-        if(motion){rlPushMatrix();rlTranslatef(x+float(pose.pivotX)*scale,y+float(pose.pivotY-pose.heave*pose.pixelsPerMetre)*scale,0);rlRotatef(float(-pose.pitch*180/3.141592653589793),0,0,1);rlTranslatef(-x-float(pose.pivotX)*scale,-y-float(pose.pivotY)*scale,0);}
-        auto pipe=outfit?installedExhaust(*outfit,exhaustFrame,rideOffset):placeExhaust(index,exhaustFrame,rideOffset,original);
-        auto drawPipe=[&](){frame(content_art::Exhausts(original)[pipe.frame],x+float(pipe.x)*scale,y+float(pipe.y)*scale,scale);};
-        if(!pipe.front)drawPipe();
+        beginBody();
         if(outfit){auto texture=thumbnail?content.thumbnail(*outfit):content.compose(*outfit);DrawTexturePro(texture,{0,0,float(materials::CanvasW),float(materials::CanvasH)},{x-materials::CanvasX*scale,y+(float(rideOffset)-materials::CanvasY)*scale,materials::CanvasW*scale,materials::CanvasH*scale},{0,0},0,WHITE);}
         else frame(content_art::Cars(original)[index],x,y+float(rideOffset)*scale,scale);
         if(pipe.front)drawPipe();
-        if(motion)rlPopMatrix();
+        endBody();
     }
     std::vector<Resolution> resolutions(WindowMode mode){
         std::vector<Resolution> values;
@@ -325,7 +329,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("UNBOUND",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.16.4",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.16.5",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},TextFormat("GARAGE  |  %i / 8",int(ownedVehicles.cars.size()))))openVehicleBrowser();
@@ -1313,10 +1317,27 @@ struct App {
         if(args.smoke&&frames>=420&&frames<=431)exhaustContactSheet();
         if(args.smoke&&frames>=552&&frames<=557)hoodContactSheet();
         if(args.smoke&&frames>=558&&frames<=560)materialsContactSheet();
+        if(args.smoke&&frames>=738&&frames<=740)exhaustWheelSheet();
         EndMode2D();EndTextureMode();
         BeginDrawing();ClearBackground(BLACK);DrawTexturePro(render.texture,{0,0,float(render.texture.width),-float(render.texture.height)},output,{0,0},0,WHITE);EndDrawing();
     }
     // Diagnostic-only contact sheets use the same car() renderer as garage/free drive.
+    void exhaustWheelSheet(){
+        rlDrawRenderBatchActive();DrawRectangle(0,0,1280,720,Color{39,43,51,255});
+        text("POT ARRIÈRE / OCCLUSION PAR LES ROUES",20,12,20,WHITE);
+        std::ofstream roi;if(!args.capture.empty()){fs::create_directories(args.capture);roi.open(args.capture/"exhaust-wheel-occlusion.json");roi<<"[";}
+        const int bodies[]={0,0,6,20},sources[]={0,1,0,1},pipes[]={0,7,33,35};const double rides[]={0,-6,6,0};
+        for(int row=0;row<4;row++){
+            Profile sample;sample.car=bodies[row];sample.contentSource=sources[row];auto w=bodyWheels(sample.car,sample.contentSource==1);
+            CarState motion;motion.pitch=.12;motion.heave=.015;motion.frontLift=.28;const CarState* moving=row==3?&motion:nullptr;
+            float y=70+row*156.f,scale=1.9f;auto pose=chassisPose(w.rear,w.front,w.y,drive.vehicle,moving?motion:CarState{},rides[row]);auto hub=moving?pose.wheel(false):ChassisPoint{w.rear,w.y};
+            text(TextFormat("%s | %s | POT %02i",sources[row]?"ORIGINAL":"UNBOUND",row==3?"CABRAGE":row==1?"ABAISSÉE":row==2?"REHAUSSÉE":"ORIGINE",pipes[row]),24,y-19,13,WHITE);
+            car(sample.car,8,70,y,scale,0,false,0,rides[row],pipes[row],-1,&sample,moving,false,true);
+            car(sample.car,8,710,y,scale,0,false,0,rides[row],pipes[row],-1,&sample,moving,false,false);
+            if(roi){if(row)roi<<",";roi<<"{\"left_x\":"<<70+hub.x*scale<<",\"right_x\":"<<710+hub.x*scale<<",\"y\":"<<y+hub.y*scale<<",\"radius\":"<<w.radius*scale*.72<<",\"row\":"<<row<<"}";}
+        }
+        if(roi)roi<<"]\n";
+    }
     void exhaustContactSheet(){
         const int pipes[]={7,33,34,40,41,42,43,44,45,46,47,39};
         const int page=std::clamp((frames-420)/3,0,3);
@@ -1669,7 +1690,8 @@ struct App {
         if(frames==729){ridesSelection=1;activateRidesEntry();}
         if(frames==731){check(ridesPage==RidesMenu::Parts&&ridesEntries(ridesPage).size()==8,"performance parts remain grouped in eight mechanical families");}
         if(frames==733){hideRidesUi=true;}
-        if(frames==735){check(hideRidesUi&&screen==Screen::Rides,"photo view hides navigation without leaving customization");capture("custom-photo.png");quit=true;}
+        if(frames==735){check(hideRidesUi&&screen==Screen::Rides,"photo view hides navigation without leaving customization");capture("custom-photo.png");}
+        if(frames==740){capture("exhaust-wheel-occlusion.png");check(!installedExhaust(profile,0,0).front&&!installedExhaust(profile,33,0).front,"stock and rear stack exhausts retain rear-layer classification");quit=true;}
 
     }
     int run(){
