@@ -10,6 +10,7 @@
 #include "art.hpp"
 #include "effects.hpp"
 #include "road_scene.hpp"
+#include "menu_background.hpp"
 #include "chassis_pose.hpp"
 #include "materials.hpp"
 #include "cosmetic_geometry.hpp"
@@ -29,6 +30,7 @@
 using namespace pcr;
 static int checks=0;
 static void expect(bool value,const char* message){++checks;if(!value)throw std::runtime_error(message);}
+#include "driving_physics_tests.hpp"
 static CarState simulated(int framesPerSecond,bool endless){
     CarState car;Vehicle v;double accumulator=0;
     for(int frame=0;frame<framesPerSecond*70&&!car.finished;frame++){
@@ -53,6 +55,13 @@ int main(int argc,char**argv){
         motionStable&=std::abs(scene::layerTravel(position)-4000)<1e-7;
     }
     expect(motionStable,"distance-driven scenery is independent of frame rate");
+    bool backgroundsCover=true;
+    for(auto size:std::array<std::array<double,2>,5>{{{1280,720},{1200,900},{2560,1080},{1920,1200},{900,1200}}}){
+        auto c=menuBackgroundCrop(940,480,size[0],size[1]);
+        backgroundsCover&=c.x>=0&&c.y>=0&&c.x+c.width<=940+1e-9&&c.y+c.height<=480+1e-9&&std::abs(c.width/c.height-size[0]/size[1])<1e-9;
+        backgroundsCover&=std::abs(c.x*2+c.width-940)<1e-9&&std::abs(c.y*2+c.height-480)<1e-9;
+    }
+    expect(backgroundsCover,"menu backdrops cover wide tall and standard displays with a centred aspect-preserving source crop");
     // Manually checked against the supplied alpha cutouts for the reported body.
     const auto& reportedWheels=art::wheelPositions[20];
     expect(reportedWheels.rear==62&&reportedWheels.front==160&&reportedWheels.y==58&&reportedWheels.radius==12.5f,
@@ -196,7 +205,7 @@ int main(int argc,char**argv){
     expect(tireBuild.vehicle.grip>1.5&&tireBuild.tireFrame==17,"tires change adhesion and select the matching original tire image");
     equipPart(custom,PartSlot::Suspension,2015);auto lowered=buildVehicle(custom);
     expect(lowered.rideOffset==6&&lowered.vehicle.centreOfGravityHeight<.5,"suspension changes visible ride height and native weight transfer");
-    Profile nitroProfile;equipPart(nitroProfile,PartSlot::Nos,5007);auto nitroBuild=buildVehicle(nitroProfile);
+    Profile nitroProfile;equipPart(nitroProfile,PartSlot::Nos,5007);auto nitroBuild=buildVehicle(nitroProfile);nitroBuild.vehicle.tractionControl=true; // Isolate NOS output from uncontrolled wheelspin/limiter cuts.
     CarState nitroRun,plainRun;nitroRun.speed=plainRun.speed=40;nitroRun.gear=plainRun.gear=4;
     for(int i=0;i<120*2;i++){stepCar(nitroRun,nitroBuild.vehicle,{true,false,false,true},Step,0);stepCar(plainRun,nitroBuild.vehicle,{true,false,false,false},Step,0);}
     expect(nitroRun.speed>plainRun.speed&&std::abs(nitroRun.nitroRemaining-8)<1e-6,"NOS adds power only when activated and consumes its charge");
@@ -848,7 +857,7 @@ int main(int argc,char**argv){
     auto standard=buildVehicle(chassis);Profile raised=chassis;raised.rideHeightMm=120;auto tall=buildVehicle(raised);
     expect(std::abs(tall.rideOffset-standard.rideOffset+4.608)<1e-8&&std::abs(tall.vehicle.centreOfGravityHeight-standard.vehicle.centreOfGravityHeight-.12)<1e-8,"120 mm ride adjustment moves the body and physical centre of gravity consistently");
     expect(tall.vehicle.mass==standard.vehicle.mass&&tall.baseHp==standard.baseHp,"chassis tuning cannot invent mass or horsepower");
-    raised.springStiffness=.7;raised.dampingRatio=.35;raised.frontBias=-.12;raised.allowWheelie=true;
+    raised.springStiffness=.7;raised.dampingRatio=.35;raised.frontBias=-.12;raised.wheelieTune=0;raised.allowWheelie=true;
     saveProfile(root/"suspension.ini",raised,error);auto persistedChassis=loadProfile(root/"suspension.ini",191,54);
     expect(persistedChassis.rideHeightMm==120&&persistedChassis.springStiffness==.7&&persistedChassis.dampingRatio==.35&&persistedChassis.frontBias==-.12&&persistedChassis.allowWheelie,"all suspension, mass balance and wheelie adjustments survive restart");
     {std::ofstream out(root/"invalid-suspension.ini");out<<"ride_height_mm=10000\nspring_stiffness=nan\ndamping_ratio=-10\nfront_bias=2\n";}
@@ -920,7 +929,7 @@ int main(int argc,char**argv){
     expect(std::count_if(airborne.particles.begin(),airborne.particles.end(),[](const Particle& p){return p.kind==EffectKind::Smoke;})==1&&std::all_of(airborne.particles.begin(),airborne.particles.end(),[&](const Particle& p){return p.kind!=EffectKind::Smoke||p.x==points.rearWheel;}),"airborne front tyre cannot emit ground-contact skid smoke");
     bool stableChassis=true;int chassisCases=0;
     for(double height:{-60.,120.})for(double spring:{.4,3.})for(double damper:{.25,1.5})for(double bias:{-.15,.15})for(bool lift:{false,true})for(bool tc:{false,true}){
-        Profile p=powerful;p.rideHeightMm=height;p.springStiffness=spring;p.dampingRatio=damper;p.frontBias=bias;p.allowWheelie=lift;
+        Profile p=powerful;p.rideHeightMm=height;p.springStiffness=spring;p.dampingRatio=damper;p.frontBias=bias;p.wheelieTune=lift?0:1;p.allowWheelie=lift;
         auto car=buildVehicle(p).vehicle;car.tractionControl=tc;car.abs=true;CarState body;
         for(int tick=0;tick<960;tick++){
             stepCar(body,car,tick<480?DriverInput{true,false,true,true}:DriverInput{false,true,true},Step,0);
@@ -1007,7 +1016,7 @@ int main(int argc,char**argv){
     }
     Profile tuned=drag;tuned.wheelieTune=.37;saveProfile(root/"wheelie-tune.ini",tuned,error);
     auto savedTune=loadProfile(root/"wheelie-tune.ini",191,54);
-    expect(savedTune.wheelieTune==.37&&savedTune.allowWheelie&&savedTune.frontBias==tuned.frontBias,"wheelie tune saves independently of mass balance and lift permission");
+    expect(savedTune.wheelieTune==.37&&savedTune.allowWheelie&&savedTune.frontBias==tuned.frontBias,"wheelie slider saves independently of static mass balance");
     {std::ofstream out(root/"legacy-wheelie.ini");out<<"version=5\nallow_wheelie=1\n";}
     expect(loadProfile(root/"legacy-wheelie.ini",191,54).wheelieTune==0&&loadProfile(root/"old-chassis.ini",191,54).wheelieTune==1,"legacy wheelie preparations remain free while grounded saves receive balanced tuning");
     tuned.wheelieTune=10;sanitizeSuspension(tuned);expect(tuned.wheelieTune==1,"wheelie tuning is constrained to the supported range");
@@ -1148,6 +1157,7 @@ int main(int argc,char**argv){
     expect(loadedFlags.rollCage&&loadedFlags.headlights&&loadedFlags.audioSource==1&&loadedFlags.contentSource==0,"cage, headlights and independent audio source survive reload");
     {std::ofstream out(root/"legacy-seat.ini");out<<"version=1\ncontent_source=1\ncosmetic_9=109001\npart_engine=1002\n";}
     auto legacySeat=loadProfile(root/"legacy-seat.ini",191,54);expect(legacySeat.cosmetics[9]==309001&&legacySeat.audioSource==1&&legacySeat.parts[0]==1002,"legacy original bank seats and sound migrate without changing the installed engine");
+    checkDrivingPhysics(root);
     expect(easeLinear(0,5,10,2)==5&&easeLinear(2,5,10,2)==15,"reconstructed numeric easing endpoints");
     std::cout<<"PASS: "<<checks<<" checks; quarter mile "<<reference.finishTime<<" s; endless distance "<<simulated(60,true).position<<" m\n";
     return 0;

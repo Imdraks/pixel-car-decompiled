@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "handling_menu_open_0": true,
+    "former_enable_button_has_no_action": true,
+    "slider_alone_enables_draft_wheelie": true,
+    "draft_does_not_change_saved_vehicle": true,
+    "saving_slider_enables_physics_without_switch": true,
+    "balanced_endpoint_disables_lift_without_separate_toggle": true,
+    "wheelie_label_selects_free_endpoint": true,
+    "cancel_preserves_balanced_saved_setup": true,
+    "intermediate_position_is_saved": true,
+    "clean_exit_9": true,
+    "single_slider_setting_survives_restart": true,
+    "clean_exit_11": true
+  }
+}

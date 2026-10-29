@@ -8,7 +8,7 @@ inline const VehicleDefinition& vehicleDefinition(const Profile& p){return Vehic
 inline std::string vehicleKey(const Profile& p){return vehicleDefinition(p).id;}
 inline bool untouchedVehicleConfiguration(const Profile& p){
     Profile d;d.parts[0]=p.factoryInitialized?p.factoryEngineId:0;
-    return p.parts==d.parts&&p.cosmetics==d.cosmetics&&p.rim==d.rim&&p.rearRim==d.rearRim&&p.factoryDrive==d.factoryDrive&&p.automatic==d.automatic&&p.drive==d.drive&&p.rollCage==d.rollCage&&p.headlights==d.headlights&&p.soundOn==d.soundOn&&p.soundOff==d.soundOff&&p.bov==d.bov&&p.gearboxPreset==d.gearboxPreset&&p.gearCount==d.gearCount&&p.gearRatios==d.gearRatios&&p.finalDrive==d.finalDrive&&p.shiftSeconds==d.shiftSeconds&&p.rideHeightMm==d.rideHeightMm&&p.springStiffness==d.springStiffness&&p.dampingRatio==d.dampingRatio&&p.frontBias==d.frontBias&&p.allowWheelie==d.allowWheelie&&p.wheelieTune==d.wheelieTune;
+    return p.parts==d.parts&&p.cosmetics==d.cosmetics&&p.rim==d.rim&&p.rearRim==d.rearRim&&p.factoryDrive==d.factoryDrive&&p.automatic==d.automatic&&p.drive==d.drive&&p.rollCage==d.rollCage&&p.headlights==d.headlights&&p.soundOn==d.soundOn&&p.soundOff==d.soundOff&&p.bov==d.bov&&p.gearboxPreset==d.gearboxPreset&&p.gearCount==d.gearCount&&p.gearRatios==d.gearRatios&&p.finalDrive==d.finalDrive&&p.shiftSeconds==d.shiftSeconds&&p.rideHeightMm==d.rideHeightMm&&p.springStiffness==d.springStiffness&&p.dampingRatio==d.dampingRatio&&p.frontBias==d.frontBias&&p.wheelieTune==d.wheelieTune;
 }
 inline bool initializeVehicleFactory(Profile& p){
     if(p.factoryInitialized&&p.factoryEngineId<0)return false;

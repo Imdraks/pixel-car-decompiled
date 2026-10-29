@@ -1,3 +1,7 @@
+# Réglage du cabrage — 0.18.0
+
+Le curseur **Wheelie → Balanced** est le seul contrôle qui autorise et limite le cabrage. Le bouton d’activation séparé est supprimé ; un ancien indicateur d’activation ne peut plus contredire une valeur de curseur enregistrée. Les préréglages placent le curseur et règlent le châssis. [Conduite, patinage et freinage actuels](PHYSICS-0180.md).
+
 # Drag, réglage Wheelie → Balanced et roues — 0.13.2
 
 ## Puissance du moteur et cabrage

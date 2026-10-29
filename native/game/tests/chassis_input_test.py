@@ -77,9 +77,9 @@ try:
     start(); click(280, 435); click(75, 670); key('F9')
     click(150, 578)  # Route preset, then independent plus buttons.
     for y in [188, 274, 360, 446]: click(1205, y)
-    click(990, 514); click(630, 667)
+    click(276, 477); click(630, 667)
     saved = ini('profile.ini')
-    check('independent_suspension_controls_save', float(saved['ride_height_mm']) == 5 and float(saved['spring_stiffness']) == 1.1 and float(saved['damping_ratio']) == .7 and float(saved['front_bias']) == .01 and saved['allow_wheelie'] == '1')
+    check('suspension_controls_and_single_wheelie_slider_save', float(saved['ride_height_mm']) == 5 and float(saved['spring_stiffness']) == 1.1 and float(saved['damping_ratio']) == .7 and float(saved['front_bias']) == .01 and saved['allow_wheelie'] == '1')
     click(610, 578); click(1010, 667)  # Wheelie preset and save + drive.
     saved = ini('profile.ini')
     check('wheelie_preset_persists', float(saved['ride_height_mm']) == 120 and float(saved['spring_stiffness']) == .5 and float(saved['damping_ratio']) == .3 and float(saved['front_bias']) == -.15 and saved['allow_wheelie'] == '1')

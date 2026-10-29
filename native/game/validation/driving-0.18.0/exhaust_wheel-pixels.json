@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "rear_exhaust_never_covers_wheel_interiors": true,
+    "rear_exhaust_still_visible_outside_wheels": true
+  },
+  "cases": [
+    {
+      "row": 0,
+      "wheel_pixels": 520,
+      "changed_wheel_pixels": 0
+    },
+    {
+      "row": 1,
+      "wheel_pixels": 520,
+      "changed_wheel_pixels": 0
+    },
+    {
+      "row": 2,
+      "wheel_pixels": 520,
+      "changed_wheel_pixels": 0
+    },
+    {
+      "row": 3,
+      "wheel_pixels": 516,
+      "changed_wheel_pixels": 0
+    }
+  ],
+  "visible_exhaust_pixels_outside_wheel": 1566
+}

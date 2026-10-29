@@ -67,7 +67,7 @@ void sanitizeTransmission(Profile& p){
 void sanitizeSuspension(Profile& p){
     auto bounded=[](double& x,double lo,double hi,double fallback){x=std::isfinite(x)?std::clamp(x,lo,hi):fallback;};
     bounded(p.rideHeightMm,-60,120,0);bounded(p.springStiffness,.4,3,1);
-    bounded(p.wheelieTune,0,1,1);bounded(p.dampingRatio,.25,1.5,.65);bounded(p.frontBias,-.15,.15,0);
+    bounded(p.wheelieTune,0,1,1);p.allowWheelie=p.wheelieTune<1;bounded(p.dampingRatio,.25,1.5,.65);bounded(p.frontBias,-.15,.15,0);
 }
 Settings loadSettings(const std::filesystem::path& file){
     auto v=readIni(file);Settings s;
@@ -264,10 +264,10 @@ bool shift(CarState& car,int direction,const Vehicle& vehicle){
 void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,double finishDistance){
     if(s.finished||dt<=0||!std::isfinite(dt))return;
     if(v.suspensionDynamics&&!s.suspensionReady){s.suspensionReady=true;suspensionLoads(s,v);}
-    s.tcActive=false;s.absActive=false;s.frontLocked=false;s.rearLocked=input.handbrake;s.brakeSlip=0;
+    s.tcActive=false;s.absActive=false;s.frontLocked=false;s.rearLocked=input.handbrake;s.brakeSlip=0;s.frontBrakeSlip=0;s.rearBrakeSlip=0;
     s.gear=std::clamp(s.gear,1,v.gearCount);
     s.shiftLock=std::max(0.0,s.shiftLock-dt);
-    bool wasDisconnected=s.neutral||s.handbraking;
+    bool wasDisconnected=s.neutral||s.handbraking,wasBurnout=s.burningOut;
     bool braking=input.brake||input.handbrake;s.handbraking=input.handbrake;
     s.neutral=input.neutral;bool freeRev=s.neutral||s.handbraking;
     if(wasDisconnected&&!freeRev){
@@ -279,6 +279,7 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     }
     if(freeRev||braking||!input.throttle||v.tractionControl){s.launchClutch=false;s.launchWheelOmega=-1;}
     s.burningOut=!s.neutral&&!input.handbrake&&input.brake&&input.throttle&&s.gear==1&&s.speed<3&&s.shiftLock==0;
+    if(wasBurnout&&!s.burningOut&&!freeRev&&!braking&&input.throttle&&v.tyreDynamics&&!v.tractionControl){s.launchClutch=true;s.launchWheelOmega=-1;}
     s.launching=!s.neutral&&v.twoStep&&input.launch&&input.throttle&&!braking&&s.speed<3;
     double coupled=wheelRpm(s,v,s.gear);
     if(input.automatic&&!freeRev&&!s.burningOut&&s.shiftLock==0){
@@ -315,13 +316,26 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     bool delivering=!s.neutral&&input.throttle&&!braking&&!s.launching&&s.shiftLock==0&&coupled<v.redlineRpm;
     s.powerHp=(delivering||s.burningOut)?enginePowerHp(v,s.rpm,s.boostPsi,false)+nitroFraction*v.nitroHp:0;
     double tractionLimit=v.suspensionDynamics?v.grip*(v.drive==DriveLayout::Front?s.frontLoad:v.drive==DriveLayout::Rear?s.rearLoad:s.frontLoad+s.rearLoad):drivenGrip(v,true);
+    double lateralUse=v.tyreDynamics?std::clamp(std::abs(s.lateralAcceleration)/std::max(.1,v.grip*9.81),0.0,1.0):0;
+    double longitudinalGrip=std::sqrt(std::max(0.0,1-lateralUse*lateralUse));
+    tractionLimit*=longitudinalGrip;
     double wheelForce=!s.neutral&&input.throttle&&!braking&&!s.launching&&s.shiftLock==0&&coupled<v.redlineRpm
         ?torque*ratio*v.efficiency/v.wheelRadius:0;
     wheelForce+=nitroFraction*v.nitroHp*745.699872*v.efficiency/std::max(10.0,launchStep?s.launchWheelOmega*v.wheelRadius:s.speed);
+    if(v.tyreDynamics&&!v.tractionControl&&delivering&&!launchStep&&wheelForce>tractionLimit*1.02){
+        // Wheelspin can start in any gear, not just after releasing neutral.
+        // Match clutch angular momentum instead of inventing wheel travel from
+        // demanded torque while leaving engine RPM tied to road speed.
+        double engineOmega=s.rpm*2*3.141592653589793/60,roadOmega=s.speed/v.wheelRadius;
+        s.launchClutch=true;launchStep=true;
+        s.launchWheelOmega=(v.engineInertia*ratio*engineOmega+v.drivenWheelInertia*roadOmega)/(v.engineInertia*ratio*ratio+v.drivenWheelInertia);
+    }
     if(launchStep&&s.rpm>=v.redlineRpm*.995){wheelForce=0;s.powerHp=0;}
     if(v.tyreDynamics&&v.tractionControl&&delivering){
         double factor=std::min(1.0,.98*tractionLimit/std::max(1.0,wheelForce));
-        s.tractionFactor+=std::clamp(factor-s.tractionFactor,-30*dt,2*dt);
+        // Fast torque cut, progressive reapplication. Delaying a known adhesion
+        // limit produced fictitious spin while wheel RPM remained road-coupled.
+        s.tractionFactor=std::min(factor,s.tractionFactor+2*dt);
         s.tcActive=s.tractionFactor<.98;
         wheelForce*=s.tractionFactor;s.powerHp*=s.tractionFactor;
     }else s.tractionFactor=1;
@@ -333,15 +347,37 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     if(input.brake)wheelForce-=v.mass*v.brakeDeceleration;
     double rearFraction=v.drive==DriveLayout::Front?1-v.drivenWeightFraction:v.drivenWeightFraction;
     double handbrakeLimit=v.suspensionDynamics?v.grip*s.rearLoad:v.mass*9.81*v.grip*rearFraction/(1+v.grip*v.centreOfGravityHeight/v.wheelbase);
+    handbrakeLimit*=longitudinalGrip;
     if(input.handbrake&&!input.brake)wheelForce-=handbrakeLimit;
-    double totalGrip=v.suspensionDynamics?v.grip*(s.frontLoad+s.rearLoad):v.mass*9.81*v.grip;
-    double brakingLimit=input.brake?totalGrip:input.handbrake?handbrakeLimit:drivenGrip(v,false);
+    double totalGrip=(v.suspensionDynamics?v.grip*(s.frontLoad+s.rearLoad):v.mass*9.81*v.grip)*longitudinalGrip;
+    double overrunGrip=v.tyreDynamics&&v.suspensionDynamics
+        ?v.grip*(v.drive==DriveLayout::Front?s.frontLoad:v.drive==DriveLayout::Rear?s.rearLoad:s.frontLoad+s.rearLoad)*longitudinalGrip
+        :drivenGrip(v,false)*longitudinalGrip;
+    double brakingLimit=input.brake?totalGrip:input.handbrake?handbrakeLimit:overrunGrip;
     s.wheelSlip=std::clamp((driveDemand-tractionLimit)/std::max(1.0,tractionLimit),0.0,2.0);
     if(launchStep)s.wheelSlip=std::clamp((s.launchWheelOmega*v.wheelRadius-s.speed)/std::max(2.0,s.speed),0.0,2.0);
     if(v.tyreDynamics){
-        if(input.brake&&!s.burningOut&&s.speed>1&&-wheelForce>totalGrip){
-            if(v.abs){s.absActive=true;s.brakeSlip=.12+.03*std::sin(s.elapsed*50);wheelForce=-totalGrip*.96;}
-            else{s.frontLocked=true;s.rearLocked=true;s.brakeSlip=1;wheelForce=-totalGrip*.72;}
+        if(input.brake&&!s.burningOut){
+            double frontGrip=(v.suspensionDynamics?s.frontLoad:v.mass*9.81*v.frontWeightFraction)*v.grip*longitudinalGrip;
+            double rearGrip=(v.suspensionDynamics?s.rearLoad:v.mass*9.81*(1-v.frontWeightFraction))*v.grip*longitudinalGrip;
+            double service=v.mass*v.brakeDeceleration,engine=std::max(0.0,-wheelForce-service);
+            double engineFront=v.drive==DriveLayout::Front?1:v.drive==DriveLayout::Rear?0:v.frontWeightFraction;
+            auto axleBrake=[&](double demand,double grip,bool rear){
+                bool locked=rear&&input.handbrake;
+                double slip=0,force=std::min(demand,grip);
+                if(locked){slip=1;force=grip*.72;}
+                else if(demand>grip&&s.speed>1){
+                    if(v.abs){s.absActive=true;slip=.12;force=grip*.96;}
+                    else{locked=true;slip=1;force=grip*.72;}
+                }
+                if(rear){s.rearLocked=locked;s.rearBrakeSlip=slip;}else{s.frontLocked=locked;s.frontBrakeSlip=slip;}
+                return force;
+            };
+            // Fixed native road-car hydraulic bias; actual axle loads decide
+            // which tyres lock first. ABS regulates each axle independently.
+            wheelForce=-axleBrake(service*.68+engine*engineFront,frontGrip,false)
+                       -axleBrake(service*.32+engine*(1-engineFront),rearGrip,true);
+            s.brakeSlip=std::max(s.frontBrakeSlip,s.rearBrakeSlip);
         }
         if(delivering&&!v.tractionControl&&s.wheelSlip>.03)tractionLimit*=.78+.22/(1+4*s.wheelSlip*s.wheelSlip);
     }
@@ -349,17 +385,23 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     double force=std::clamp(wheelForce,-brakingLimit,tractionLimit);
     double launchTravel=-1;
     if(launchStep){
-        double oldOmega=s.launchWheelOmega;
-        // Positive wheel slip supplies tyre force while excess axle torque
-        // accelerates the wheels/engine, instead of instantly dropping RPM.
-        force=tractionLimit*std::clamp(s.wheelSlip/.10,0.0,1.0);
         double inertia=v.drivenWheelInertia+v.engineInertia*ratio*ratio;
-        s.launchWheelOmega=std::clamp(oldOmega+(wheelForce-force)*v.wheelRadius/inertia*dt,0.0,v.redlineRpm*2*3.141592653589793/(60*ratio));
-        launchTravel=(oldOmega+s.launchWheelOmega)*.5*v.wheelRadius*dt;
+        double stiffness=tractionLimit*v.wheelRadius*v.wheelRadius/(inertia*.10*std::max(2.0,s.speed));
+        int slices=std::clamp(int(std::ceil(dt*std::max(960.0,stiffness*2))),1,128);
+        double sub=dt/slices,impulse=0,road=s.speed;launchTravel=0;
+        for(int n=0;n<slices;n++){
+            double old=s.launchWheelOmega;
+            double slip=(old*v.wheelRadius-road)/std::max(2.0,road);
+            double tyre=tractionLimit*std::clamp(slip/.10,0.0,1.0);
+            s.launchWheelOmega=std::clamp(old+(wheelForce-tyre)*v.wheelRadius/inertia*sub,0.0,v.redlineRpm*2*3.141592653589793/(60*ratio));
+            impulse+=tyre*sub;road+=tyre/v.mass*sub;
+            launchTravel+=(old+s.launchWheelOmega)*.5*v.wheelRadius*sub;
+        }
+        force=impulse/dt;
         if(s.wheelSlip>.1)s.launchSlipSeconds+=dt;
         if(s.launchWheelOmega*v.wheelRadius<=s.speed*1.03+.2){s.launchClutch=false;s.launchWheelOmega=-1;}
     }
-    double resistance=.5*1.225*v.dragArea*s.speed*s.speed+v.mass*9.81*v.rollingResistance;
+    double resistance=.5*1.225*v.dragArea*s.speed*s.speed+v.mass*9.81*v.rollingResistance+std::max(0.0,s.corneringDrag);
     double previous=s.position,oldSpeed=s.speed;
     s.speed=std::max(0.0,s.speed+(force-resistance)/v.mass*dt);
     // Integrate the stopping fraction so hard braking never moves backwards.
@@ -371,8 +413,9 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     if(launchTravel>=0){spun=std::max(traveled,launchTravel);s.launchSlipDistance+=std::max(0.0,spun-traveled);}
     double rolling=traveled*(1-s.brakeSlip);
     if(!s.burningOut&&!delivering)spun=rolling;
-    if(!s.frontLocked)s.frontRollDistance+=v.drive!=DriveLayout::Rear&&!s.neutral?std::max(rolling,spun):rolling;
-    if(!s.rearLocked)s.rearRollDistance+=v.drive!=DriveLayout::Front&&!s.neutral?std::max(rolling,spun):rolling;
+    double frontRolling=traveled*(1-s.frontBrakeSlip),rearRolling=traveled*(1-s.rearBrakeSlip);
+    if(!s.frontLocked)s.frontRollDistance+=v.drive!=DriveLayout::Rear&&!s.neutral?std::max(frontRolling,spun):frontRolling;
+    if(!s.rearLocked)s.rearRollDistance+=v.drive!=DriveLayout::Front&&!s.neutral?std::max(rearRolling,spun):rearRolling;
     updateSuspension(s,v,oldSpeed==0&&s.speed==0?0:force,dt);
     s.elapsed+=dt;
     if(finishDistance>0&&s.position>=finishDistance){double fraction=(finishDistance-previous)/(s.position-previous);s.finishTime=s.elapsed-dt+fraction*dt;s.position=finishDistance;s.finished=true;}
@@ -389,8 +432,25 @@ void FreeDrive::setTraffic(bool enabled){
 }
 void FreeDrive::changeLane(int d){targetLane=std::clamp(targetLane+d,0,2);}
 void FreeDrive::update(const DriverInput& input,double dt){
+    if(dt<=0||!std::isfinite(dt))return;
     time+=dt;collisionCooldown=std::max(0.0,collisionCooldown-dt);
-    lane+=std::clamp(targetLane-lane,-dt*3,dt*3);
+    if(vehicle.tyreDynamics){
+        constexpr double laneWidth=3.6;
+        double frontContact=vehicle.suspensionDynamics&&player.suspensionReady
+            ?std::clamp(player.frontLoad/std::max(1.0,vehicle.mass*9.81*vehicle.frontWeightFraction),0.0,1.0):1;
+        double lateralGrip=vehicle.grip*9.81*.85*frontContact*(player.rearLocked?.55:player.frontLocked?.35:1);
+        double limit=std::min(4.8,player.speed*.22);
+        double desired=std::clamp((targetLane-lane)*laneWidth*1.8,-limit,limit);
+        double ay=std::clamp((desired-lateralSpeed)*4,-lateralGrip,lateralGrip);
+        double old=lateralSpeed;lateralSpeed+=ay*dt;
+        // Steering cannot slide a stopped car sideways. A wheelie also loses
+        // front steering authority rather than granting a full-grip lane snap.
+        if(player.speed<.05){lateralSpeed=0;ay=0;}
+        lane+=.5*(old+lateralSpeed)*dt/laneWidth;
+        if(lane<0||lane>2){lane=std::clamp(lane,0.0,2.0);lateralSpeed=0;}
+        player.lateralAcceleration=ay;
+        player.corneringDrag=vehicle.mass*std::max(0.0,ay*(old+lateralSpeed)*.5)/std::max(2.0,player.speed);
+    }else lane+=std::clamp(targetLane-lane,-dt*3,dt*3);
     stepCar(player,vehicle,input,dt,0);
     if(!trafficEnabled)return;
     for(auto& t:traffic){

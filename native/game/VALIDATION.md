@@ -1,3 +1,13 @@
+# Validation 0.18.0 — conduite, curseur wheelie unique et fonds de menus
+
+- **440 contrôles du cœur**, dont 24 nouveaux contrôles de conduite et du curseur, et les calculs de cadrage des fonds. Les 430 identifiants de véhicules sont testés en accélération, virage et freinage ; le comportement est stable à 30/60/144 FPS avec le pas physique fixe.
+- **141 contrôles graphiques**, huit groupes de vérification des pixels ; captures du patinage, des changements de voie et des fonds en fenêtres haute et large.
+- **39 contrôles par entrées clavier/souris réelles sous Linux** : 13 conduite, 12 curseur wheelie unique et 14 fonds/navigation après redimensionnement. Les pixels des marges des neuf captures de menus concordent avec les décors sources, y compris leurs zones noires intrinsèques.
+- Le bouton wheelie n’agit plus ; le curseur enregistré est prioritaire sur l’ancien indicateur, tout en conservant la lecture des fichiers anciens sans curseur.
+- Les 673 ressources et les 358 fichiers audio simulés sont conservés. Aucun contenu supplémentaire n’est requis pour ces changements.
+- La validation Windows de publication contrôle les nouvelles mesures, le patinage, la direction progressive, le curseur et le cadrage réel des fonds. Les preuves de téléchargement sont ajoutées après publication.
+- Mesures : `driving-physics.csv` / `driving-physics.json`. Ce modèle natif ne prétend pas reproduire intégralement les équations Android ou des fiches constructeur.
+
 # Validation 0.17.1 — menus, provenances et styles de jantes
 
 - **415 contrôles du cœur**, 508 586 combinaisons de pièces ; résolution des anciens identifiants de pièces, équivalence physique des véhicules masqués et couverture des six catégories de jantes.

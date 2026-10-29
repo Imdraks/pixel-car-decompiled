@@ -9,6 +9,7 @@
 #include "rides_menu.hpp"
 #include "effects.hpp"
 #include "road_scene.hpp"
+#include "menu_background.hpp"
 #include "chassis_pose.hpp"
 #include "platform.hpp"
 #include "art.hpp"
@@ -57,6 +58,7 @@ struct App {
     PartSlot customSlot=PartSlot::Engine; int customPreview=0,customPage=0; std::string customSearch;
     FreeDrive drive;DrivingEffects effects;
     Font font{};std::map<int,Texture2D> atlases;RenderTexture2D render{};
+    const art::Frame* menuBackdropFrame=nullptr;Color menuBackdropTint=WHITE;float menuBackdropShade=0;
     ContentRenderer content;
     GarageEngine garageEngine;
     GameAudio audio; bool powerPopup=false,rarityDescending=false; bool audioPopup=false,previewGas=true;double audioPreviewUntil=0;
@@ -110,6 +112,22 @@ struct App {
     }
     void crop(const art::Frame& f,Rectangle destination,Color tint=WHITE){
         DrawTexturePro(atlases.at(f.atlas),{float(f.x),float(f.y),float(f.w),float(f.h)},destination,{0,0},0,tint);
+    }
+    void drawMenuBackdrop(const art::Frame& f,Rectangle destination,Color tint,float shade){
+        auto part=menuBackgroundCrop(f.w,f.h,destination.width,destination.height);
+        DrawTexturePro(atlases.at(f.atlas),{float(f.x+part.x),float(f.y+part.y),float(part.width),float(part.height)},destination,{0,0},0,tint);
+        if(shade>0)DrawRectangleRec(destination,Fade(Ink,shade));
+    }
+    void menuBackdrop(const art::Frame& f,Color tint=WHITE,float shade=0){
+        menuBackdropFrame=&f;menuBackdropTint=tint;menuBackdropShade=shade;
+        float sw=float(GetScreenWidth()),sh=float(GetScreenHeight());
+        float outer=std::min(sw/render.texture.width,sh/render.texture.height);
+        float ui=std::min(render.texture.width/1280.f,render.texture.height/720.f);
+        float width=sw/(outer*ui),height=sh/(outer*ui);
+        // Use physical-window bounds in logical coordinates, including both
+        // render-target padding and window resize bars. Presentation draws the
+        // same crop behind the UI so the image joins without a visible seam.
+        drawMenuBackdrop(f,{(1280-width)*.5f,(720-height)*.5f,width,height},tint,shade);
     }
     void tiled(const art::Frame& f,float y,float height,double offset,Color tint=WHITE){
         float w=height*f.w/f.h;float start=-float(std::fmod(offset,w));
@@ -312,7 +330,7 @@ struct App {
     }
     void background(bool driving){
         ClearBackground(Ink);
-        if(!driving){crop(profile.contentSource==2?content_art::undergroundGarageScenery[0]:art::garages[0],{0,0,1280,720},Color{145,154,172,255});DrawRectangle(0,0,1280,720,Fade(Ink,.74f));return;}
+        if(!driving){menuBackdrop(profile.contentSource==2?content_art::undergroundGarageScenery[0]:art::garages[0],Color{145,154,172,255},.74f);return;}
         double pos=drive.player.position;crop(profile.contentSource==2?content_art::undergroundSceneSky[0]:art::sky[0],{0,0,1280,340});
         tiled(profile.contentSource==2?content_art::undergroundSceneMountains[0]:art::mountains[0],130,160,scene::layerTravel(pos,scene::Mountains),Color{150,167,190,255});
         if(settings.quality!=Quality::Low)tiled(profile.contentSource==2?content_art::undergroundSceneCity[0]:art::cityFar[0],150,160,scene::layerTravel(pos,scene::City),Color{152,171,193,220});
@@ -329,7 +347,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("RACER",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.17.1",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.18.0",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},TextFormat("GARAGE  |  %i / 8",int(ownedVehicles.cars.size()))))openVehicleBrowser();
@@ -651,7 +669,7 @@ struct App {
     }
     void customizationScene(){
         bool originalUi=uiEnabled;uiEnabled=originalUi&&!audioPopup&&!powerPopup;
-        crop(profile.contentSource==2?content_art::undergroundGarageScenery[garageStyle%5]:original_ui::garages[garageStyle%5],{0,0,1280,720},Color{118,122,133,255});DrawRectangle(0,0,1280,720,Fade(Ink,.45f));
+        menuBackdrop(profile.contentSource==2?content_art::undergroundGarageScenery[garageStyle%5]:original_ui::garages[garageStyle%5],Color{118,122,133,255},.45f);
         DrawRectangle(0,0,1280,111,Color{9,13,19,230});DrawRectangle(0,491,1280,229,Color{9,13,19,242});
         std::string heading=cosmeticPicker?"PERSONNALISATION / STYLE":"PERFORMANCE / PIÈCES";
         if(scopedEditor())heading+=std::string(" / ")+(cosmeticPicker?CosmeticLabels[cosmeticSlot]:customGroup==0?"MOTEUR ET ECU":customGroup==1?(editorTiresOnly?"PNEUS":"ROUES ET PNEUS"):customGroup==2?"NOS":customGroup==3?"SURALIMENTATION":customGroup==4?"CHÂSSIS":customGroup==5?"ADMISSION ET ÉCHAPPEMENT":customGroup==7?"MOTORISATION ÉLECTRIQUE":"BOÎTES ET EMBRAYAGES");
@@ -788,7 +806,7 @@ struct App {
         if(IsKeyPressed(KEY_ENTER))activateRidesEntry();
     }
     void ridesBackdrop(const Profile& preview,const std::string& title,bool drawVehicle=true){
-        crop(profile.contentSource==2?content_art::undergroundGarageScenery[0]:art::garages[0],{0,0,1280,720},Color{112,120,132,255});DrawRectangle(0,0,1280,720,Fade(Ink,.35f));
+        menuBackdrop(profile.contentSource==2?content_art::undergroundGarageScenery[0]:art::garages[0],Color{112,120,132,255},.35f);
         text(title,48,125,92,Fade(WHITE,.17f));
         if(!drawVehicle)return;
         auto shown=buildVehicle(preview);content.compose(preview);auto bounds=content.bodyBounds;auto w=bodyWheels(preview.car,preview.contentSource);
@@ -897,7 +915,7 @@ struct App {
         return preview;
     }
     void vehicleBrowserScene(){
-        crop(profile.contentSource==2?content_art::undergroundGarageScenery[0]:art::garages[0],{0,0,1280,720},Color{108,116,129,255});DrawRectangle(0,0,1280,720,Fade(Ink,.47f));
+        menuBackdrop(profile.contentSource==2?content_art::undergroundGarageScenery[0]:art::garages[0],Color{108,116,129,255},.47f);
         DrawRectangle(0,0,1280,112,Color{9,13,19,225});DrawRectangle(0,491,1280,229,Color{9,13,19,242});
         pxText("VOITURES / "+std::string(showroom?"SHOWROOM":"MON GARAGE"),38,30,24);
         bool modal=removeVehiclePending>=0;uiEnabled=uiEnabled&&!modal;
@@ -1058,7 +1076,7 @@ struct App {
         return changed;
     }
     void suspensionScene(){
-        crop(profile.contentSource==2?content_art::undergroundGarageScenery[garageStyle%5]:original_ui::garages[garageStyle%5],{0,0,1280,720});
+        menuBackdrop(profile.contentSource==2?content_art::undergroundGarageScenery[garageStyle%5]:original_ui::garages[garageStyle%5]);
         auto preview=buildVehicle(suspensionDraft);
         car(suspensionDraft.car,suspensionDraft.rim,150,245,2.5,0,true,preview.tireFrame,preview.rideOffset,preview.exhaustFrame,-1,&suspensionDraft);
         card({34,18,1212,81});text("RÉGLAGES SUSPENSION",57,34,28,Accent);
@@ -1081,7 +1099,7 @@ struct App {
         DrawLine(int(balancedX),435,int(balancedX),456,Gold);
         text("ARRIÈRE",802,422,11,Muted);text("AVANT",1138,422,11,Muted);
         if(button({balancedX-71,465,142,22},"50/50",std::abs(preview.vehicle.frontWeightFraction-.5)<.005))suspensionDraft.frontBias=.5-baseFront;
-        if(button({754,493,469,43},suspensionDraft.allowWheelie?"WHEELIE : AUTORISÉ":"WHEELIE : LIMITÉ AU SOL",suspensionDraft.allowWheelie))suspensionDraft.allowWheelie=!suspensionDraft.allowWheelie;
+        text("Cabrage réglé par Wheelie / Balanced",754,508,18,Accent);
         text(preview.vehicle.wheelieBar?"Wheelie bar équipée : appui arrière contre le cabrage.":"Un wheelie exige assez de couple et d'adhérence.",754,553,14,Muted);
         text(TextFormat("Avant %.0f kg / Arrière %.0f kg",preview.vehicle.mass*preview.vehicle.frontWeightFraction,preview.vehicle.mass*(1-preview.vehicle.frontWeightFraction)),754,576,14,Muted);
         card({34,424,674,85});
@@ -1105,7 +1123,7 @@ struct App {
         if(!notice.empty())text(notice,57,619,16,Accent);
     }
     void transmissionScene(){
-        crop(profile.contentSource==2?content_art::undergroundGarageScenery[garageStyle%5]:original_ui::garages[garageStyle%5],{0,0,1280,720});car(profile.car,profile.rim,365,310,2.3,0,true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,-1,&profile);
+        menuBackdrop(profile.contentSource==2?content_art::undergroundGarageScenery[garageStyle%5]:original_ui::garages[garageStyle%5]);car(profile.car,profile.rim,365,310,2.3,0,true,configuration.tireFrame,configuration.rideOffset,configuration.exhaustFrame,-1,&profile);
         DrawRectangle(0,0,1280,720,Fade(Ink,.88f));text("TRANSMISSION / BOÎTE",34,25,29,Accent);
         text(notice.empty()?"Boîtes inspirées du réel • enregistrer pour appliquer":notice,34,69,16,Muted);
         if(button({1030,23,217,48},"RETOUR")){screen=tuningReturn;}
@@ -1360,7 +1378,7 @@ struct App {
         if(args.smoke&&frames>=738&&frames<=740)exhaustWheelSheet();
         if(args.smoke&&frames>=742&&frames<=749)undergroundSheet();
         EndMode2D();EndTextureMode();
-        BeginDrawing();ClearBackground(BLACK);DrawTexturePro(render.texture,{0,0,float(render.texture.width),-float(render.texture.height)},output,{0,0},0,WHITE);EndDrawing();
+        BeginDrawing();ClearBackground(BLACK);if(screen!=Screen::Free&&menuBackdropFrame)drawMenuBackdrop(*menuBackdropFrame,{0,0,sw,sh},menuBackdropTint,menuBackdropShade);DrawTexturePro(render.texture,{0,0,float(render.texture.width),-float(render.texture.height)},output,{0,0},0,WHITE);EndDrawing();
     }
     // Diagnostic-only contact sheets use the same car() renderer as garage/free drive.
     void undergroundSheet(){
@@ -1438,7 +1456,7 @@ struct App {
     void check(bool condition,const std::string& name){smokeChecks.push_back((condition?"PASS ":"FAIL ")+name);smokePassed&=condition;}
     void capture(const std::string& name){if(!args.capture.empty()){
         fs::create_directories(args.capture);TakeScreenshot((args.capture/name).u8string().c_str());
-        std::ofstream out(args.capture/(name+".state"));out<<"rim_style_filter="<<int(rimStyleFilter)<<"\nvisible_choice_count="<<(inventoryOpen?garageChoices().size():0)<<"\n";out<<"preview_origin="<<(inventoryOpen?sourceLabel(choiceSource(customPreview)):"")<<"\npreview_name="<<(inventoryOpen?choiceName(customPreview):"")<<"\ntab_count="<<editorTabs().size()<<"\n";out<<"editor_group="<<editorGroup<<"\neditor_cosmetic="<<editorCosmetic<<"\neditor_tires_only="<<editorTiresOnly<<"\nscoped_editor="<<scopedEditor()<<"\n";out<<"screen="<<int(screen)<<"\nrides_page="<<int(ridesPage)<<"\nrides_selection="<<ridesSelection<<"\nrides_depth="<<ridesTrail.size()<<"\nentry_count="<<ridesEntries(ridesPage).size()<<"\neditor_from_rides="<<editorFromRides<<"\ninventory_open="<<inventoryOpen<<"\ncustom_group="<<customGroup<<"\ncustom_slot="<<int(customSlot)<<"\ncosmetic_slot="<<cosmeticSlot<<"\ncosmetic_picker="<<cosmeticPicker<<"\naudio_popup="<<audioPopup<<"\npower_popup="<<powerPopup<<"\nhide_ui="<<hideRidesUi<<"\nride_height_mm="<<profile.rideHeightMm<<"\ndraft_ride_height_mm="<<suspensionDraft.rideHeightMm<<"\nvehicle_id="<<vehicleKey(profile)<<"\ngarage_count="<<ownedVehicles.cars.size()<<"\ngarage_engine_running="<<garageEngine.running<<"\ngarage_engine_rpm="<<garageEngine.state.rpm<<"\n";
+        std::ofstream out(args.capture/(name+".state"));out<<"vehicle_allows_wheelie="<<configuration.vehicle.allowWheelie<<"\nprofile_wheelie_tune="<<profile.wheelieTune<<"\ndraft_wheelie_tune="<<suspensionDraft.wheelieTune<<"\ndraft_allows_wheelie="<<buildVehicle(suspensionDraft).vehicle.allowWheelie<<"\n";out<<"player_speed_mps="<<drive.player.speed<<"\nplayer_rpm="<<drive.player.rpm<<"\nplayer_gear="<<drive.player.gear<<"\nplayer_wheel_slip="<<drive.player.wheelSlip<<"\nplayer_wheel_omega="<<drive.player.launchWheelOmega<<"\nplayer_wheel_radius="<<drive.vehicle.wheelRadius<<"\nplayer_road_rpm="<<(drive.player.speed/drive.vehicle.wheelRadius*drive.vehicle.ratios[std::clamp(drive.player.gear,1,drive.vehicle.gearCount)-1]*drive.vehicle.finalDrive*60/(2*3.141592653589793))<<"\nplayer_lane="<<drive.lane<<"\nplayer_lateral_speed="<<drive.lateralSpeed<<"\nplayer_tc="<<drive.vehicle.tractionControl<<"\nplayer_abs="<<drive.vehicle.abs<<"\n";out<<"rim_style_filter="<<int(rimStyleFilter)<<"\nvisible_choice_count="<<(inventoryOpen?garageChoices().size():0)<<"\n";out<<"preview_origin="<<(inventoryOpen?sourceLabel(choiceSource(customPreview)):"")<<"\npreview_name="<<(inventoryOpen?choiceName(customPreview):"")<<"\ntab_count="<<editorTabs().size()<<"\n";out<<"editor_group="<<editorGroup<<"\neditor_cosmetic="<<editorCosmetic<<"\neditor_tires_only="<<editorTiresOnly<<"\nscoped_editor="<<scopedEditor()<<"\n";out<<"screen="<<int(screen)<<"\nrides_page="<<int(ridesPage)<<"\nrides_selection="<<ridesSelection<<"\nrides_depth="<<ridesTrail.size()<<"\nentry_count="<<ridesEntries(ridesPage).size()<<"\neditor_from_rides="<<editorFromRides<<"\ninventory_open="<<inventoryOpen<<"\ncustom_group="<<customGroup<<"\ncustom_slot="<<int(customSlot)<<"\ncosmetic_slot="<<cosmeticSlot<<"\ncosmetic_picker="<<cosmeticPicker<<"\naudio_popup="<<audioPopup<<"\npower_popup="<<powerPopup<<"\nhide_ui="<<hideRidesUi<<"\nride_height_mm="<<profile.rideHeightMm<<"\ndraft_ride_height_mm="<<suspensionDraft.rideHeightMm<<"\nvehicle_id="<<vehicleKey(profile)<<"\ngarage_count="<<ownedVehicles.cars.size()<<"\ngarage_engine_running="<<garageEngine.running<<"\ngarage_engine_rpm="<<garageEngine.state.rpm<<"\n";
     }}
     void smoke(){
         if(frames==5)capture("menu.png");
@@ -1589,7 +1607,7 @@ struct App {
             drive.player=best;auto sources=effectSources();effects.update(drive.player,drive.vehicle,{true,false,true,true},sources,0,Step,true);
             check(drive.player.frontLift>.1&&drive.player.frontLoad==0&&sources.frontWheelY<sources.rearWheelY,"rendered wheelie setup uses actual front contact loss and lifted wheel anchors");}
         if(frames==506)capture("wheelie-drag.png");
-        if(frames==507){profile.allowWheelie=false;beginFree();for(int tick=0;tick<720;tick++)drive.update({true,false,true,true},Step);check(drive.player.peakFrontLift==0,"grounded setup keeps both tyres on the contact plane under full preparation");}
+        if(frames==507){profile.wheelieTune=1;profile.allowWheelie=false;beginFree();for(int tick=0;tick<720;tick++)drive.update({true,false,true,true},Step);check(drive.player.peakFrontLift==0,"grounded setup keeps both tyres on the contact plane under full preparation");}
         if(frames==510)capture("chassis-au-sol.png");
         if(frames==511){openOptions();edited.abs=false;edited.tractionControl=false;preview();keep();check(!drive.vehicle.abs&&!drive.vehicle.tractionControl&&!loadSettings(settingFile()).abs&&!loadSettings(settingFile()).tractionControl,"ABS and traction control toggles apply to live driving and persist");}
         if(frames==514)capture("aides-conduite.png");
@@ -1767,10 +1785,19 @@ struct App {
         for(int style=1;style<=6;style++){
             int first=772+(style-1)*3;
             if(frames==first)filterRims(RimStyle(style));
-            if(frames==first+2){check(rimPicker&&int(rimStyleFilter)==style&&!garageChoices().empty(),"wheel style filter exposes its own nonempty catalogue");capture(std::string("jantes-style-")+lower(rimStyleLabel(RimStyle(style)))+".png");if(style==6)quit=true;}
+            if(frames==first+2){check(rimPicker&&int(rimStyleFilter)==style&&!garageChoices().empty(),"wheel style filter exposes its own nonempty catalogue");capture(std::string("jantes-style-")+lower(rimStyleLabel(RimStyle(style)))+".png");}
         }
-
-
+        if(frames==790){profile=Profile{};profile.car=20;profile.parts[0]=1014;profile.parts[2]=3026;profile.parts[4]=4008;profile.parts[10]=10017;profile.automatic=false;settings.tractionControl=false;settings.abs=true;settings.traffic=false;beginFree();drive.player.speed=25;drive.player.gear=3;}
+        if(frames==791){for(int t=0;t<120;t++)drive.update({true,false,false},Step);check(drive.player.launchClutch&&drive.player.launchWheelOmega*drive.vehicle.wheelRadius>drive.player.speed,"rolling excess power produces actual driven-wheel overspeed");}
+        if(frames==792)capture("physique-patinage.png");
+        if(frames==793){settings.tractionControl=true;beginFree();drive.player.speed=25;drive.player.gear=3;drive.changeLane(1);for(int t=0;t<60;t++)drive.update({true,false,false},Step);check(drive.lane>1&&drive.lane<2&&drive.lateralSpeed>0,"lane changes use progressive lateral motion");check(drive.player.tcActive&&!drive.player.launchClutch,"TC regulates torque in a rolling lane change");}
+        if(frames==794)capture("physique-virage.png");
+        if(frames==795){openRidesHome();SetWindowSize(1200,900);}
+        if(frames==796){capture("fond-menu-4x3.png");check(screen==Screen::Rides&&std::abs(double(GetScreenWidth())/GetScreenHeight()-16.0/9)>.03,"menu backdrop renders in a tall window");}
+        if(frames==797){openSuspension();SetWindowSize(1600,700);}
+        if(frames==798){capture("fond-menu-large.png");check(screen==Screen::Suspension&&double(GetScreenWidth())/GetScreenHeight()>1.9,"suspension backdrop renders in a wide window");}
+        if(frames==799)SetWindowSize(960,540);
+        if(frames==800)quit=true;
     }
     int run(){
         init();

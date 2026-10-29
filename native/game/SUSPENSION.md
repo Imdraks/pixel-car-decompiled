@@ -1,6 +1,6 @@
-# Suspension, wheelie et aides à la conduite — 0.13.2
+# Suspension, wheelie et aides à la conduite — 0.18.0
 
-Au garage, appuyer sur **F9**, ou ouvrir **F5 → Réglages suspension**.
+Ouvrir **Customisation → Performance → Tenue de route**.
 Les curseurs et boutons −/+ donnent un aperçu de la hauteur. **Enregistrer**
 conserve la préparation ; **Annuler** conserve les réglages précédents.
 
@@ -10,8 +10,9 @@ conserve la préparation ; **Annuler** conserve les réglages précédents.
 | Rigidité | ×0,40 à ×3,00 | Raideur des ressorts ; modifie le cabrage et le plongeon |
 | Amortissement | 0,25 à 1,50 | Rapport d’amortissement ; contrôle les oscillations |
 | Répartition avant | ±15 points | Déplace la répartition des masses autour de la calibration du châssis, sans ajouter de masse |
-| Wheelie → Balanced | Curseur bleu 0–100 % | Limite progressivement le cabrage sans modifier la répartition des masses |
-| Wheelie | Autorisé / limité au sol | Autorise la perte de contact ou applique une contrainte anti-levée |
+| Wheelie → Balanced | Curseur bleu 0–100 % | Seul contrôle du cabrage : 0 laisse la levée libre, se rapprocher de 100 la limite progressivement ; 100 maintient les roues au sol |
+
+Le bouton d’activation du wheelie est supprimé. La puissance, l’adhérence, le transfert de masse et les wheelie bars déterminent la levée réelle dans la limite du curseur. Les anciennes configurations sans valeur de curseur reprennent leur ancien état ; si un curseur est déjà enregistré, il est prioritaire.
 
 Les préréglages **Route**, **Drag**, **Piste** et **Wheelie** combinent ces valeurs.
 Depuis 0.13.1, Drag est amorti et limité au sol ; Wheelie conserve la préparation

@@ -1,3 +1,7 @@
+# Conduite — 0.18.0
+
+Le patinage entraîne maintenant un véritable surplus de régime et de rotation des roues motrices hors départ, le freinage/ABS traite chaque essieu séparément et les changements de voie consomment une partie de l’adhérence disponible. [Fonctionnement, commandes et limites](PHYSICS-0180.md).
+
 ## Départ à haut régime et patinage (0.13.3)
 
 Avec le **TC désactivé**, prendre des tours avec **Espace + accélérateur** ou

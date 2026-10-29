@@ -1,0 +1,74 @@
+{
+  "checks": {
+    "custom_home_tall_fills_window_margins": true,
+    "engine_tall_fills_window_margins": true,
+    "keyboard_opens_engine_leaf_after_resize": true,
+    "suspension_tall_fills_window_margins": true,
+    "transmission_tall_fills_window_margins": true,
+    "transmission_reached_after_resize": true,
+    "showroom_tall_fills_window_margins": true,
+    "main_tall_fills_window_margins": true,
+    "home_back_returns_main_menu": true,
+    "main_wide_fills_window_margins": true,
+    "custom_home_wide_fills_window_margins": true,
+    "mouse_coordinates_still_open_customization": true,
+    "suspension_wide_fills_window_margins": true,
+    "clean_exit_13": true
+  },
+  "measurements": {
+    "custom_home_tall": {
+      "width": 1200,
+      "height": 900,
+      "source_pixel_matches": 1.0,
+      "screen": "8"
+    },
+    "engine_tall": {
+      "width": 1200,
+      "height": 900,
+      "source_pixel_matches": 1.0,
+      "screen": "3"
+    },
+    "suspension_tall": {
+      "width": 1200,
+      "height": 900,
+      "source_pixel_matches": 1.0,
+      "screen": "5"
+    },
+    "transmission_tall": {
+      "width": 1200,
+      "height": 900,
+      "source_pixel_matches": 1.0,
+      "screen": "4"
+    },
+    "showroom_tall": {
+      "width": 1200,
+      "height": 900,
+      "source_pixel_matches": 1.0,
+      "screen": "7"
+    },
+    "main_tall": {
+      "width": 1200,
+      "height": 900,
+      "source_pixel_matches": 1.0,
+      "screen": "0"
+    },
+    "main_wide": {
+      "width": 1600,
+      "height": 700,
+      "source_pixel_matches": 1.0,
+      "screen": "0"
+    },
+    "custom_home_wide": {
+      "width": 1600,
+      "height": 700,
+      "source_pixel_matches": 1.0,
+      "screen": "8"
+    },
+    "suspension_wide": {
+      "width": 1600,
+      "height": 700,
+      "source_pixel_matches": 1.0,
+      "screen": "5"
+    }
+  }
+}

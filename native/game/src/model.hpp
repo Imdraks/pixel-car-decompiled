@@ -38,7 +38,7 @@ struct Settings {
 struct Profile { bool factoryInitialized=false;int factoryEngineId=0;std::string savedName;int car=0, rim=8,rearRim=-1,contentSource=0,audioSource=0;std::array<int,CosmeticSlotCount> cosmetics{};bool rollCage=false,headlights=false,factoryDrive=true; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1;
     int gearboxPreset=0,gearCount=6;std::array<double,10> gearRatios{3.15,2.10,1.55,1.22,1.0,.82,.68,.56,.46,.38};
     double finalDrive=3.9,shiftSeconds=.15;
-    double rideHeightMm=0,springStiffness=1,dampingRatio=.65,frontBias=0,wheelieTune=1;bool allowWheelie=false;
+    double rideHeightMm=0,springStiffness=1,dampingRatio=.65,frontBias=0,wheelieTune=1;bool allowWheelie=false; // Derived legacy mirror; the slider is authoritative.
 };
 int bodyChoiceIndex(const Profile&);
 inline const StockVehicle& vehicleMechanics(const Profile& p){return VehicleCatalog[bodyChoiceIndex(p)].stock;}
@@ -122,7 +122,9 @@ struct CarState {
     bool neutral=false,burningOut=false,finished=false;
     bool launchClutch=false;double launchWheelOmega=-1,launchSlipSeconds=0,launchSlipDistance=0;
     double pitch=0,pitchRate=0,heave=0,heaveRate=0,frontLoad=0,rearLoad=0,frontLift=0,rearLift=0,peakFrontLift=0;
-    double tractionFactor=1,brakeSlip=0;
+    double tractionFactor=1,brakeSlip=0,frontBrakeSlip=0,rearBrakeSlip=0;
+    // Lateral demand consumes the same tyre adhesion as acceleration/braking.
+    double lateralAcceleration=0,corneringDrag=0;
     bool wheelieBarContact=false,wheelieBarTouched=false;
     bool suspensionReady=false,tcActive=false,absActive=false,frontLocked=false,rearLocked=false;
 
@@ -137,7 +139,7 @@ struct FreeDrive {
     std::array<TrafficCar,8> traffic;
     bool trafficEnabled=true;
     int targetLane=1, overtakes=0;
-    double lane=1, collisionCooldown=0, time=0;
+    double lane=1,lateralSpeed=0, collisionCooldown=0, time=0;
     unsigned int random=0x504352;
     FreeDrive();
     void setTraffic(bool enabled);

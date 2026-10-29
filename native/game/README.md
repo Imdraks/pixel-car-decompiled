@@ -1,4 +1,6 @@
-# Pixel Car Racer — Original / Unbound / Underground Native 0.17.1
+# Pixel Car Racer — Original / Unbound / Underground Native 0.18.0
+
+La **0.18.0** supprime le bouton d’activation du wheelie : **le curseur Wheelie → Balanced est le seul contrôle du cabrage**. Les fonds de menus couvrent toute la fenêtre avec un cadrage centré. Elle renforce aussi la conduite : patinage et régime liés à la rotation réelle des roues motrices dans tous les rapports, freinage et ABS par essieu, changements de voie progressifs liés à la vitesse et aux pneus, et adhérence partagée entre virage, accélération et freinage. Le TC, le burnout, V/Espace, les préparations et les réglages restent disponibles. [Physique et essai comparatif](PHYSICS-0180.md).
 
 La **0.17.1** isole chaque menu de customisation : Moteur / ECU ne donne plus accès aux autres familles, même par raccourci. **Retour / Échap** retrouve le parent. Les jantes ont six filtres de style : **Offroad, Tuner, Muscle, Drag, Luxury, Hyper** (clic ou touches 1–6 ; 0 pour Toutes).
 
