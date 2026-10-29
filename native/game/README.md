@@ -1,6 +1,6 @@
 # Pixel Car Racer — Original / Unbound / Underground Native 0.18.1
 
-La **0.18.1** recadre les quinze décors Original, Unbound et Underground sur leur image utile : les bordures noires intégrées aux images d’origine ne sont plus agrandies avec le fond. Le décor couvre les fenêtres haute, large et 16:9 en conservant ses proportions. Les images sources sont conservées intactes.
+La **0.18.1** intègre le morceau **Underground** fourni dans les menus : effet d’enceinte dans Mon garage, même ambiance environ 8 dB plus basse en customisation, et silence en conduite. Le curseur Musique contrôle le tout. [Détails](MENU-MUSIC.md). Elle recadre les quinze décors Original, Unbound et Underground sur leur image utile : les bordures noires intégrées aux images d’origine ne sont plus agrandies avec le fond. Le décor couvre les fenêtres haute, large et 16:9 en conservant ses proportions. Les images sources sont conservées intactes.
 
 La **0.18.0** supprime le bouton d’activation du wheelie : **le curseur Wheelie → Balanced est le seul contrôle du cabrage**. Les fonds de menus couvrent toute la fenêtre avec un cadrage centré. Elle renforce aussi la conduite : patinage et régime liés à la rotation réelle des roues motrices dans tous les rapports, freinage et ABS par essieu, changements de voie progressifs liés à la vitesse et aux pneus, et adhérence partagée entre virage, accélération et freinage. Le TC, le burnout, V/Espace, les préparations et les réglages restent disponibles. [Physique et essai comparatif](PHYSICS-0180.md).
 

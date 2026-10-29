@@ -140,4 +140,4 @@ PASS lane changes use progressive lateral motion
 PASS TC regulates torque in a rolling lane change
 PASS menu backdrop renders in a tall window
 PASS suspension backdrop renders in a wide window
-cap_30_fps_elapsed_for_30_frames=1.02057
+cap_30_fps_elapsed_for_30_frames=1.02218

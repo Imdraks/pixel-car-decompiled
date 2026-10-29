@@ -1,8 +1,9 @@
 # Validation 0.18.1 — cadrage des images utiles
 
-- **441 contrôles du cœur**, dont la couverture des quinze fonds et l’exclusion des marges intégrées. Physique 0.18.0 conservée.
-- **141 contrôles graphiques**, huit groupes de pixels ; **40 contrôles clavier/souris** : conduite, curseur unique, fonds après redimensionnement et absence de bandes noires intégrées en écran large.
-- Cadrage calculé depuis les pixels visibles des quinze images Original, Unbound et Underground ; les 673 ressources source restent identiques.
+- **447 contrôles du cœur**, dont la couverture des quinze fonds et l’exclusion des marges intégrées. Physique 0.18.0 conservée.
+- **141 contrôles graphiques**, huit groupes de pixels ; **51 contrôles clavier/souris** : conduite, curseur unique, fonds après redimensionnement, absence de bandes noires intégrées en écran large et routage de la musique.
+- Cadrage calculé depuis les pixels visibles des quinze images Original, Unbound et Underground ; les 673 ressources source restent identiques ; deux versions OGG du morceau fourni et leur manifeste portent le total à 676.
+- Musique fournie : deux clips stéréo 44,1 kHz de 170,109388 secondes, crêtes décodées 0,623 / 0,829, jonctions à zéro. Neuf scénarios de lecture PCM sur trois banques : fichier normal et variante résonnante, niveau réduit, volumes indépendants, continuité, coupure générale et absence de musique en conduite ; crête du mélange capturé 0,121. Fichier source préservé. Preuves : `validation/music-0.18.1/`.
 - Publication Windows conditionnée aux tests précédents et à la comparaison des pixels des marges avec les rectangles utiles, plus un contrôle de contenu visible sur les côtés du fond large. Preuves de téléchargement ajoutées après publication.
 
 # Validation 0.18.0 — conduite, curseur wheelie unique et fonds de menus

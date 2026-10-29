@@ -1,0 +1,13 @@
+PASS bank=0 track=46 independent_gain mute preserve_position driving_silence resume global_sound
+PASS bank=0 track=4 independent_gain mute preserve_position driving_silence resume global_sound
+PASS bank=0 track=5 independent_gain mute preserve_position driving_silence resume global_sound
+PASS bank=1 track=46 independent_gain mute preserve_position driving_silence resume global_sound
+PASS bank=1 track=4 independent_gain mute preserve_position driving_silence resume global_sound
+PASS bank=1 track=5 independent_gain mute preserve_position driving_silence resume global_sound
+PASS bank=2 track=46 independent_gain mute preserve_position driving_silence resume global_sound
+PASS bank=2 track=4 independent_gain mute preserve_position driving_silence resume global_sound
+PASS bank=2 track=5 independent_gain mute preserve_position driving_silence resume global_sound
+PASS independent effects with music muted
+peak=0.121378
+finite_pcm=1
+physical_speaker_listening=0

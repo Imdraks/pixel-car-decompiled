@@ -28,11 +28,14 @@ int main(int argc,char** argv){try{
         audio.update(p,vehicle,state,{},0,false,enabled);audio.updateMusic(p,track,enabled);
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
     }};
-    for(int bank=0;bank<2;bank++)for(int track:{46,4}){
-        p.audioSource=bank;levels.music=.5;audio.setVolumes(levels);pump(track,true,45);
+    for(int bank=0;bank<3;bank++)for(int track:{46,4,5}){
+        p.audioSource=bank;levels.music=.5;audio.setVolumes(levels);pump(track,true,140);
         auto before=energy.load();pump(track,true,30);
-        require(energy.load()>before&&audio.musicStatus.gain>0,"Music category produced no PCM");
-        require(audio.musicStatus.track==track&&audio.musicStatus.bank==bank,"Wrong source music");
+        require(energy.load()>before&&audio.musicStatus.gain>0&&audio.musicStatus.loaded,"Supplied song produced no PCM");
+        if(track==5)require(audio.musicStatus.garageGain>.2&&audio.musicStatus.dryGain<.001,"Garage did not select the speaker/reverb recording");
+        if(track==4)require(audio.musicStatus.garageGain<.12&&audio.musicStatus.dryGain<.001,"Customization did not reduce the song level");
+        if(track==46)require(audio.musicStatus.dryGain>.24&&audio.musicStatus.garageGain<.001,"Main menu did not use the dry recording");
+        require(audio.musicStatus.track==track&&audio.musicStatus.bank==bank,"Wrong menu context");
         auto starts=audio.musicStatus.streamStarts;auto pos=audio.musicStatus.seconds;
         levels.music=0;audio.setVolumes(levels);pump(track,true,30);before=energy.load();pump(track,true,20);
         require(energy.load()==before&&audio.musicStatus.gain==0,"Music mute leaked PCM");
@@ -48,7 +51,7 @@ int main(int argc,char** argv){try{
     }
     levels.music=0;levels.effects=1;audio.setVolumes(levels);pump(4,true,30);auto before=energy.load();audio.horn(true);pump(4,true,20);
     require(energy.load()>before,"Music mute also muted effects");
-    require(cases==4&&invalid==0&&peak<1000000&&audio.failures==0,"Invalid, clipped or missing audio");
+    require(cases==9&&invalid==0&&peak<1000000&&audio.failures==0&&audio.musicStatus.streamStarts==2,"Invalid, clipped or missing audio");
     DetachAudioMixedProcessor(capture);report<<"PASS independent effects with music muted\npeak="<<peak.load()/1000000.0<<"\nfinite_pcm=1\nphysical_speaker_listening=0\n";
-    std::cout<<"PASS: four real music/bank cases, no music in driving, peak "<<peak.load()/1000000.0<<'\n';return 0;
+    std::cout<<"PASS: nine real music/context cases, no music in driving, peak "<<peak.load()/1000000.0<<'\n';return 0;
 }catch(const std::exception& e){std::cerr<<"FAIL: "<<e.what()<<'\n';return 1;}}

@@ -188,6 +188,11 @@ jobs:
           Copy-Item "$out/engine-loop-report.json" validation/engine-loop-report.json
           $simulation = Get-Content "$out/simulated-audio-report.txt"
           if (($simulation | Where-Object { $_ -like 'PASS *' -and $_ -notlike 'PASS:*' }).Count -ne 358) { throw 'Simulated audio decode coverage differs' }
+          $menuMusic=Get-Content "$out/menu-music-report.json" -Raw | ConvertFrom-Json
+          if ($menuMusic.clips_checked -ne 2 -or !$menuMusic.no_clipping -or !$menuMusic.same_timeline) { throw 'Supplied menu music decoder check failed' }
+          foreach ($clip in $menuMusic.clips) { if ($clip.channels -ne 2 -or $clip.sample_rate -ne 44100 -or $clip.peak -ge .99) { throw 'Invalid menu song format or clipping' } }
+          Copy-Item "$out/menu-music-report.json" validation/menu-music-report.json
+
           Copy-Item "$out/simulated-audio-report.txt" validation/simulated-audio-report.txt
           Get-Content "$out/audio-report.txt"
       - name: Prepare verified software OpenGL for the CI runner only
@@ -449,6 +454,16 @@ jobs:
           }
           if ($total -ne 530) { throw 'Rim categories omit or duplicate visible choices' }
           @{visible_rims=$total;categories=$results;scoped_engine_tabs=2;single_origin=$true} | ConvertTo-Json -Depth 4 | Out-File validation/catalogue-review-checks.json
+      - name: Verify music context routing and driving silence
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $expected=@{'menu.png'='MENU';'garage-huit-places.png'='GARAGE';'custom-accueil.png'='CUSTOMISATION';'mode-libre-final.png'='SILENCE'}
+          foreach ($name in $expected.Keys) {
+            $state=Get-Content "validation/screens/$name.state" -Raw | ConvertFrom-StringData
+            if ($state.menu_music_context -ne $expected[$name]) { throw "Wrong music context in $name" }
+          }
+          $expected | ConvertTo-Json | Out-File validation/menu-music-routing.json
       - name: Verify rolling wheelspin and progressive steering captures
         shell: pwsh
         run: |

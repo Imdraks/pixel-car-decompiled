@@ -1,0 +1,43 @@
+{
+  "title": "Underground — fichier fourni",
+  "source_filename": "Underground  Need for Speed Heat OST.wav",
+  "source_sha256": "733e512b32663378074f8dd7f67fbae2bdf20a66b5c8749656707a8502ae346c",
+  "source_original_preserved": true,
+  "duration_s": 170.109388,
+  "clips": [
+    {
+      "file": "menu-underground.ogg",
+      "duration_s": 170.109388,
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_frames": 7501824,
+      "decoded_peak": 0.6231357455253601,
+      "decoded_rms": 0.11392279406846283,
+      "loop_endpoint_jump": 0.0,
+      "sha256": "903ee7490a6eed88f550163f1ebb0c89683f5e67207e30f5592d2cbd0bd93b45",
+      "effects": "unfiltered music, loudness normalization only",
+      "normalization_lufs": -18,
+      "normalization_true_peak_db": -2
+    },
+    {
+      "file": "menu-underground-garage.ogg",
+      "duration_s": 170.109388,
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_frames": 7501824,
+      "decoded_peak": 0.8294795155525208,
+      "decoded_rms": 0.10023946509953935,
+      "loop_endpoint_jump": 0.0,
+      "sha256": "4ca6809b66da1136d9c3f5877824e855858cd03bbc4aaf0dbc85bd0cad5e6054",
+      "effects": "highpass=f=60,lowpass=f=6500,equalizer=f=180:t=q:w=1:g=2,extrastereo=m=0.65,aecho=0.8:0.8:17|37|61|89:0.18|0.12|0.09|0.06,",
+      "normalization_lufs": -18,
+      "normalization_true_peak_db": -2
+    }
+  ],
+  "menu_gain": 0.55,
+  "garage_gain": 0.55,
+  "customization_gain": 0.22,
+  "customization_uses_garage_variant": true,
+  "driving_music": false,
+  "passed": true
+}

@@ -11,6 +11,7 @@
 #include "effects.hpp"
 #include "road_scene.hpp"
 #include "menu_background.hpp"
+#include "menu_music.hpp"
 #include "menu_backdrops.hpp"
 #include "chassis_pose.hpp"
 #include "materials.hpp"
@@ -56,6 +57,13 @@ int main(int argc,char**argv){
         motionStable&=std::abs(scene::layerTravel(position)-4000)<1e-7;
     }
     expect(motionStable,"distance-driven scenery is independent of frame rate");
+    auto menuSong=menuMusicMix(46,1,true),garageSong=menuMusicMix(5,1,true),customSong=menuMusicMix(4,1,true);
+    expect(menuSong.dry==.55&&menuSong.garage==0,"main menu uses the supplied song without room processing");
+    expect(garageSong.dry==0&&garageSong.garage==.55,"owned garage selects the resonant speaker variant");
+    expect(customSong.garage<garageSong.garage*.5&&customSong.dry==0,"customization keeps the garage speaker effect with an eight-decibel reduction");
+    expect(menuMusicMix(-1,1,true).dry==0&&menuMusicMix(-1,1,true).garage==0,"driving and paused driving cannot play menu music");
+    expect(menuMusicMix(5,1,false).garage==0&&menuMusicMix(46,0,true).dry==0,"music slider and global sound mute both room and dry variants");
+    expect(std::abs(menuMusicMix(46,.4,true).dry-menuSong.dry*.4)<1e-12,"music volume scales the new track independently of engine channels");
     bool backgroundsCover=true;
     for(auto size:std::array<std::array<double,2>,5>{{{1280,720},{1200,900},{2560,1080},{1920,1200},{900,1200}}}){
         auto c=menuBackgroundCrop(940,480,size[0],size[1]);

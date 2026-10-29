@@ -17,3 +17,6 @@ Le compilateur Zig, les SDK d'analyse, Mesa de test et les APK ne sont pas
 distribués dans le paquet natif.
 
 Optional Audio-Simulation packs: Engine Sim / Engine Sim Exporter by Ange Yaghi and Talhasarac, MIT. Each pack includes ENGINE-SIM-LICENSE.txt and source provenance. Simulated vehicle approximations, not manufacturer recordings.
+
+Menu music added in 0.18.1: user-supplied file "Underground  Need for Speed Heat OST.wav".
+Prepared into dry and garage-speaker OGG streams; original source file preserved.

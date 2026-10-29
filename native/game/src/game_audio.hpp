@@ -1,6 +1,7 @@
 #pragma once
 #include "raylib.h"
 #include "model.hpp"
+#include "menu_music.hpp"
 #include "engine_mix.hpp"
 #include "simulated_engine_mix.hpp"
 #include <filesystem>
@@ -23,6 +24,7 @@ class GameAudio {
     float shotChannel(int id)const;
     std::map<int,Sound> shots;
     Loop on,off,turbo,blower,nos,town,music;
+    Music menuDry{},menuGarage{};bool menuAttempted=false,menuLoaded=false;float menuDryGain=0,menuGarageGain=0;
     EngineMix engineMix;double lastUpdate=0,audioDt=1.0/60;
     int bank=0;
     bool lastGas=false,lastNos=false;int lastGear=1,crashes=0;double lastBoost=0,lastCollision=0,nextLaunchPop=0;
@@ -31,7 +33,7 @@ class GameAudio {
 public:
     struct SimulatedStatus {int engineId=0,streams=0,streamStarts=0,startupEvents=0,shutdownEvents=0;double gainSum=0;bool audible=false;};
     SimulatedStatus simulatedStatus{};
-    struct MusicStatus {int track=-1,bank=0,streamStarts=0;float gain=0,seconds=0;};
+    struct MusicStatus {int track=-1,bank=0,streamStarts=0;float gain=0,seconds=0,dryGain=0,garageGain=0;MenuMusicContext context=MenuMusicContext::Silent;bool loaded=false;};
     MusicStatus musicStatus{};
     double inductionAudioLevel=0;
     bool ready=false;int failures=0;

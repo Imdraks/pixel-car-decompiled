@@ -8,7 +8,7 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
 
-La **0.18.1** retire du cadrage les marges noires intégrées aux quinze décors : les fonds de menus occupent la fenêtre entière, sans étirement. Elle conserve les améliorations de physique et le curseur wheelie unique de la 0.18.0.
+La **0.18.1** ajoute la musique fournie aux menus, avec résonance dans Mon garage et niveau réduit en customisation, sans musique en conduite. Elle retire du cadrage les marges noires intégrées aux quinze décors : les fonds de menus occupent la fenêtre entière, sans étirement. Elle conserve les améliorations de physique et le curseur wheelie unique de la 0.18.0.
 
 La **0.18.0** confie le cabrage au seul curseur **Wheelie → Balanced**, et améliore la physique de conduite : patinage avec régime et rotation des roues cohérents dans tous les rapports, freinage/ABS par essieu, changements de voie progressifs et adhérence partagée en virage. Contenu, préparations et réglages conservés. [Détails et essai](native/game/PHYSICS-0180.md).
 

@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "custom_home_uses_reduced_garage_context": true,
+    "main_menu_uses_normal_song": true,
+    "owned_garage_uses_resonant_song": true,
+    "showroom_uses_normal_song": true,
+    "return_to_owned_garage_restores_resonance": true,
+    "engine_editor_uses_reduced_song": true,
+    "suspension_editor_uses_reduced_song": true,
+    "free_drive_has_no_music": true,
+    "paused_driving_still_has_no_music": true,
+    "driving_settings_still_have_no_music": true,
+    "clean_exit_10": true
+  },
+  "scope": "Actual application menu routing; PCM playback verified separately with music_audio_test.cpp."
+}

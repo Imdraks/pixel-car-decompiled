@@ -66,6 +66,17 @@ void checkOriginalAudio(const std::filesystem::path& assets,const std::filesyste
     }
     if(simulatedCount!=SimulatedAudioFileCount)throw std::runtime_error("Incomplete simulated engine bank");
     simulation<<"PASS: "<<simulatedCount<<" WAV/OGG simulated files decoded, no saturation, finite samples and bounded loop seams.\n";
+    std::ofstream menuReport(output/"menu-music-report.json");menuReport<<"{\n  \"clips\": [";int musicCount=0;unsigned firstFrames=0;
+    for(const char* file:{MenuMusicDryFile,MenuMusicGarageFile}){
+        Wave wave=LoadWave((assets/file).u8string().c_str());bool valid=IsWaveValid(wave)&&wave.sampleRate==44100&&wave.channels==2&&wave.frameCount>44100*30;double peak=0,energy=0;
+        if(valid){float* pcm=LoadWaveSamples(wave);valid=pcm!=nullptr;if(pcm){for(size_t i=0;i<size_t(wave.frameCount)*wave.channels;i++){valid&=std::isfinite(pcm[i]);peak=std::max(peak,double(std::abs(pcm[i])));energy+=double(pcm[i])*pcm[i];}UnloadWaveSamples(pcm);}}
+        valid&=peak<.99&&energy>1;if(firstFrames)valid&=std::abs(double(wave.frameCount)-firstFrames)<=2;else firstFrames=wave.frameCount;
+        if(!valid){if(IsWaveValid(wave))UnloadWave(wave);throw std::runtime_error("Invalid supplied menu music: "+std::string(file));}
+        if(musicCount++){menuReport<<',';}
+        menuReport<<"{\"file\":\""<<file<<"\",\"frames\":"<<wave.frameCount<<",\"sample_rate\":"<<wave.sampleRate<<",\"channels\":"<<wave.channels<<",\"peak\":"<<peak<<'}';UnloadWave(wave);
+    }
+    menuReport<<"],\n  \"no_clipping\": true,\n  \"same_timeline\": true,\n  \"clips_checked\": "<<musicCount<<"\n}\n";
+
 }
 void GameAudio::clearSimulated(){
     for(auto& stream:simulatedLoops)if(IsMusicValid(stream.music))UnloadMusicStream(stream.music);
@@ -191,21 +202,27 @@ void GameAudio::loop(Loop& stream,int id,float volume,float pitch){
     SetMusicVolume(stream.music,stream.gain);SetMusicPitch(stream.music,std::clamp(pitch,.25f,3.f));
 }
 void GameAudio::updateMusic(const Profile& profile,int track,bool enabled){
+    musicStatus.context=menuMusicContext(track);musicStatus.track=track;musicStatus.bank=profile.audioSource;
     if(!ready)return;
-    selectBank(profile.audioSource);
     if(track<0){
-        if(music.id>=0){SetMusicVolume(music.music,0);PauseMusicStream(music.music);}
-        music.gain=0;musicStatus.track=-1;musicStatus.gain=0;return;
+        if(menuLoaded){SetMusicVolume(menuDry,0);SetMusicVolume(menuGarage,0);PauseMusicStream(menuDry);PauseMusicStream(menuGarage);}
+        menuDryGain=menuGarageGain=0;musicStatus.gain=musicStatus.dryGain=musicStatus.garageGain=0;return;
     }
-    // Stable source indices: title, workshop, map. Keep muted streams running so
-    // sliders/global sound do not restart a song or change engine state.
-    if(track!=46&&track!=4&&track!=5)track=46;
-    bool changed=music.id!=track;
-    if(!changed&&!IsMusicStreamPlaying(music.music))ResumeMusicStream(music.music);
-    loop(music,track,enabled?.18f:0.f,1);
-    if(changed&&music.id==track)++musicStatus.streamStarts;
-    musicStatus.track=music.id;musicStatus.bank=bank;musicStatus.gain=music.gain;
-    musicStatus.seconds=music.id>=0?GetMusicTimePlayed(music.music):0;
+    if(!menuAttempted){
+        menuAttempted=true;menuDry=LoadMusicStream((root/MenuMusicDryFile).u8string().c_str());menuGarage=LoadMusicStream((root/MenuMusicGarageFile).u8string().c_str());
+        menuLoaded=IsMusicValid(menuDry)&&IsMusicValid(menuGarage);musicStatus.loaded=menuLoaded;
+        if(!menuLoaded){if(IsMusicValid(menuDry))UnloadMusicStream(menuDry);if(IsMusicValid(menuGarage))UnloadMusicStream(menuGarage);menuDry={};menuGarage={};++failures;return;}
+        menuDry.looping=menuGarage.looping=true;SetMusicVolume(menuDry,0);SetMusicVolume(menuGarage,0);PlayMusicStream(menuDry);PlayMusicStream(menuGarage);musicStatus.streamStarts+=2;
+    }
+    if(!menuLoaded)return;
+    if(!IsMusicStreamPlaying(menuDry))ResumeMusicStream(menuDry);
+    if(!IsMusicStreamPlaying(menuGarage))ResumeMusicStream(menuGarage);
+    UpdateMusicStream(menuDry);UpdateMusicStream(menuGarage);
+    auto target=menuMusicMix(track,volumes.music,enabled);float blend=float(1-std::exp(-audioDt/.18));
+    if(!enabled||volumes.music==0)menuDryGain=menuGarageGain=0;
+    else{menuDryGain+=(float(target.dry)-menuDryGain)*blend;menuGarageGain+=(float(target.garage)-menuGarageGain)*blend;}
+    SetMusicVolume(menuDry,menuDryGain);SetMusicVolume(menuGarage,menuGarageGain);
+    musicStatus.gain=menuDryGain+menuGarageGain;musicStatus.dryGain=menuDryGain;musicStatus.garageGain=menuGarageGain;musicStatus.seconds=GetMusicTimePlayed(menuDry);
 }
 void GameAudio::shot(int id,float volume){
     auto i=shots.find(id);
@@ -266,6 +283,8 @@ void GameAudio::update(const Profile& profile,const Vehicle& vehicle,const CarSt
 GameAudio::~GameAudio(){
     if(!ready)return;
     clearSimulated();
+    if(IsMusicValid(menuDry))UnloadMusicStream(menuDry);
+    if(IsMusicValid(menuGarage))UnloadMusicStream(menuGarage);
     for(auto* stream:{&on,&off,&turbo,&blower,&nos,&town,&music})if(stream->id>=0)UnloadMusicStream(stream->music);
     for(auto& s:shots)UnloadSound(s.second);
     CloseAudioDevice();
