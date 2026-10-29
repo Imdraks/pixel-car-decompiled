@@ -1,0 +1,15 @@
+{
+  "core_checks": 405,
+  "graphics_checks": 123,
+  "input_checks": {
+    "rides-navigation": 40,
+    "custom-carousel": 7,
+    "showroom": 27,
+    "saved-cars": 10,
+    "volumes": 14,
+    "nfs-catalog": 12,
+    "vehicles": 15
+  },
+  "total_actual_input_checks": 125,
+  "byte_identical_resources_from_0_16_3": 650
+}

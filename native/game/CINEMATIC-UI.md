@@ -1,5 +1,8 @@
 # Showroom et customisation — présentation 0.16.3
 
+Depuis la **0.16.4**, la customisation commence par l’accueil et ses sous-menus.
+[Navigation et correspondances](RIDES-NAVIGATION.md).
+
 La présentation reprend la disposition des références fournies : grande scène
 avec la voiture, fiche de caractéristiques à droite et carrousel en bas. Les
 voitures conservent leur rendu pixel art 2D et leurs ressources Original/Unbound.

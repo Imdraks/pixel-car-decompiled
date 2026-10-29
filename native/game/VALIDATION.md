@@ -1,3 +1,21 @@
+# Validation 0.16.4 — accueil et arborescence de customisation
+
+- 405 contrôles du cœur, dont sept sur les destinations, absence de cycles,
+  correspondances, accueil quatre entrées et accès aux seize slots d’apparence.
+  Toutes les mesures et combinaisons mécaniques antérieures restent testées.
+- 123 contrôles graphiques : accueil, Style, Carrosserie, éléments séparés,
+  peinture, Performance, familles de pièces, posture prévisualisée et photo.
+- 125 manipulations réelles : 40 navigation hiérarchique et 85 régressions
+  inventaire, véhicules indépendants, sauvegardes, pièces, souris et volumes.
+  Un seul niveau par Entrée, retours parent conservés, sélection souris,
+  posture annulée/enregistrée, audio, banc, showroom, garage et G/Z vérifiés.
+- Captures et états associés vérifiés : grande voiture à droite, navigation à
+  gauche, aucun carrousel à l’accueil, photo sans menu ; contrôles visuels
+  antérieurs maintenus. Rapports : `validation/rides-0.16.4/`.
+- Formats de sauvegarde et 650 ressources conservés. Posture reliée aux vrais
+  réglages natifs de hauteur/ressorts/amortissement ; carrossage 3D et traitement
+  sonore NFS non ajoutés. Publication conditionnée à la validation Windows.
+
 # Validation 0.16.3 — showroom et customisation avec carrousels
 
 - 398 contrôles du cœur conservés ; aucune modification des formules mécaniques,

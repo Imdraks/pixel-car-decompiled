@@ -1,4 +1,10 @@
-# Pixel Car Racer — Unbound Native 0.16.3
+# Pixel Car Racer — Unbound Native 0.16.4
+
+La version **0.16.4** ouvre la customisation sur un véritable accueil
+**Style / Performance / Acheter et vendre / Toutes mes voitures**, puis ses
+sous-menus : Style → Carrosserie → Kits / Éléments / Posture, peintures, effets,
+accessoires, sons et familles de performance. Entrée ouvre un seul niveau,
+Échap retrouve le parent. [Arborescence, commandes et correspondances](RIDES-NAVIGATION.md).
 
 La version **0.16.3** adopte la présentation inspirée des références pour le
 **showroom et toute la sélection de pièces/apparence** : grande voiture, fiche

@@ -48,7 +48,7 @@ try:
  key('Escape');key('b');search(keys[1]);key('Delete');key('Return');check('remove_non_active_frees_one_slot',len(owned())==7 and keys[1] not in owned() and ini(data/'profile.ini')==original)
  key('Escape');key('F11');click(300,245);click(220,620);check('named_load_acquires_when_space_available',len(owned())==8 and keys[8] in owned() and ini(data/'profile.ini')['vehicle_id']==keys[8])
  key('b');search(keys[0]);key('Return');check('owned_selection_restores_configuration',ini(data/'profile.ini')==original)
- key('Right');check('customization_arrows_only_cycle_owned',ini(data/'profile.ini')['vehicle_id'] in owned() and ini(data/'profile.ini')['vehicle_id']!=keys[0] and len(owned())==8);key('Left');check('customization_cycle_restores_previous_tune',ini(data/'profile.ini')==original)
+ key('Down');check('hub_navigation_preserves_active_vehicle',ini(data/'profile.ini')==original and len(owned())==8);key('Up');check('hub_navigation_preserves_preparation',ini(data/'profile.ini')==original)
  key('b');search(keys[0]);key('Delete');key('Return');check('remove_active_switches_to_remaining_car',len(owned())==7 and keys[0] not in owned() and ini(data/'profile.ini')['vehicle_id'] in owned());check('removed_tune_archived',ini(data/'vehicles'/f'{keys[0]}.ini')==original)
  key('Tab');search(keys[0]);key('Return');key('Return');check('reacquisition_restores_archived_tune',len(owned())==8 and ini(data/'profile.ini')==original)
  key('b');key('F12');close();start();check('owned_inventory_survives_restart',len(owned())==8 and ini(data/'profile.ini')==original)

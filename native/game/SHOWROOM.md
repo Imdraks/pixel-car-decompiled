@@ -1,5 +1,8 @@
 # Showroom et garage de huit voitures — 0.16.3
 
+Depuis la **0.16.4**, la customisation commence par l’accueil et ses sous-menus.
+[Navigation et correspondances](RIDES-NAVIGATION.md).
+
 La voiture est présentée dans une grande scène, avec la fiche à droite et
 un carrousel de six modèles en bas. Les flèches et la molette changent la
 sélection ; Page précédente/suivante avance de six modèles. Recherche,

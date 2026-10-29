@@ -2,6 +2,7 @@
 #include "simulated_engine_mix.hpp"
 #include "saved_cars.hpp"
 #include "vehicle_inventory.hpp"
+#include "rides_menu.hpp"
 #include "model.hpp"
 #include "engine_mix.hpp"
 #include "garage_engine.hpp"
@@ -374,6 +375,23 @@ int main(int argc,char**argv){
         int files=0;for(const auto& entry:std::filesystem::directory_iterator(legacy))if(entry.path().extension()==".ini")++files;
         Profile archived;expect(files==12&&loadVehicleProfile(legacy,11,archived,error)&&archived.parts[0]==1504,"legacy migration preserves every preparation including the ones beyond eight slots");
         auto invalid=migrated;invalid.cars.push_back(99);expect(!storeVehicleInventory(root/"invalid.ini",invalid,error),"oversized inventories cannot be written by alternate loading paths");
+    }
+    {
+        auto& home=ridesEntries(RidesMenu::Home);auto& style=ridesEntries(RidesMenu::Style);auto& body=ridesEntries(RidesMenu::Body);
+        expect(home.size()==4&&home[0].action==RidesAction::Menu&&home[0].target==int(RidesMenu::Style)&&home[1].target==int(RidesMenu::Performance),"customization home starts with Style and Performance before catalogue leaves");
+        expect(home[2].action==RidesAction::Showroom&&home[3].action==RidesAction::Garage,"buy/sell and all rides connect to showroom and owned inventory");
+        expect(style.size()==5&&style[0].target==int(RidesMenu::Body)&&style[4].action==RidesAction::Audio,"Style exposes body, paint, driving effects, vanity and sound");
+        expect(body.size()==3&&body[0].action==RidesAction::Cosmetic&&body[0].target==4&&body[1].target==int(RidesMenu::BodyParts)&&body[2].action==RidesAction::Stance,"body navigation resolves kits, separate panels and real stance tuning");
+        std::set<int> cosmeticSlots;bool valid=true;
+        for(int node=0;node<=int(RidesMenu::Parts);node++)for(const auto& entry:ridesEntries(RidesMenu(node))){
+            valid&=entry.label[0]&&entry.description[0];
+            if(entry.action==RidesAction::Menu)valid&=entry.target>node&&entry.target<=int(RidesMenu::Parts);
+            if(entry.action==RidesAction::Cosmetic){valid&=entry.target>=0&&entry.target<16;cosmeticSlots.insert(entry.target);}
+            if(entry.action==RidesAction::Part)valid&=entry.target>=0&&entry.target<=8&&entry.slot>=-1&&entry.slot<20;
+        }
+        expect(valid,"all navigation entries have descriptions and valid non-cyclic destinations");
+        expect(cosmeticSlots.size()==16,"all sixteen existing appearance slots remain reachable through the menu hierarchy");
+        expect(ridesEntries(RidesMenu::Performance).size()==5&&ridesEntries(RidesMenu::Parts).size()==8,"performance navigation retains engine, parts, suspension, transmission and dyno access");
     }
     bool blendValid=true,continuousBlend=true,overrideBlend=true;int mixCases=0;
     for(const auto& pack:SimulatedPacks){
