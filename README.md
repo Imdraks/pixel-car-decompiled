@@ -11,7 +11,8 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 La **0.17.0** réunit **Original, Unbound et Underground** : 430 variantes de
 voitures, 1 826 choix d’équipement, décors et banque audio Underground. Les
 anciens éléments NFS sont étiquetés Unbound ; le garage conserve huit places et
-les variantes de pièces gardent un équilibre commun. [Contenu et limites](native/game/UNDERGROUND.md).
+les variantes de pièces gardent un équilibre commun. Validation Windows réussie :
+409 contrôles du cœur, 126 graphiques et 134 contrôles clavier/souris sous Linux. [Contenu et limites](native/game/UNDERGROUND.md).
 
 La version **0.16.5** corrige le pot arrière qui recouvrait la roue : dessin
 derrière les roues et la carrosserie, avec ancrages et sorties des particules

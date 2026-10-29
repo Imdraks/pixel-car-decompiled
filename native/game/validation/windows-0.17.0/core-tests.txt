@@ -1,0 +1,5 @@
+0-100 km/h 4.50833 s; telemetry physics-baseline.csv
+Physics baseline (provisional, not original): 100-0 km/h 41.3935 m / 3.00833 s; restart in sixth after 10 s 155.343 km/h
+Native maximum: 14000 HP, 14250 HP with NOS; 508586 combinations checked.
+Catalogue maximum roller: lift=0.0118415 versus 0.419569 m; contact=1
+PASS: 409 checks; quarter mile 12.7266 s; endless distance 4402.27 m

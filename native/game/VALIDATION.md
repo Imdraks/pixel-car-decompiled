@@ -17,6 +17,22 @@
   les 282 associations audio et les quatre nouvelles planches.
 - Les limites d'identification et d'import sont décrites dans [UNDERGROUND.md](UNDERGROUND.md).
 
+## Publication Windows vérifiée — 0.17.0
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40848784828) :
+  409 contrôles du cœur, 126 graphiques, 282 associations audio et 358 fichiers
+  simulés décodés, 191 variantes Underground visibles.
+- Les 1 528 compositions Original/Unbound sont identiques à la version précédente
+  et entre Windows et Linux. Les mesures physiques et les dix tableaux de
+  comparaison sont dans la tolérance de 0,01.
+- ZIP public, CRC, EXE, source, 49 pièces jointes dont 46 aperçus Windows et
+  673 ressources réellement téléchargés et vérifiés. Restauration à froid puis
+  réutilisation des 673 ressources testées.
+- Rapports : `validation/windows-0.17.0/`, `validation/underground-0.17.0/`.
+- Source compilée : `2153ad96d64f291b8189b5af40760e5113ee0353`.
+- ZIP : 142056503 octets, SHA-256 `64d8afee58f6cb2325060ffa82e484b227ab34e4fd1a419612d75a23caa907d6`.
+- EXE : SHA-256 `abe88210ff7550b28cb4fd5b2dcf227d29f91f01f1d109ce3f107cee3527782c`.
+
 # Validation 0.16.5 — pot arrière derrière les roues
 
 - 405 contrôles du cœur et 124 graphiques ; aucune modification des ancrages,
