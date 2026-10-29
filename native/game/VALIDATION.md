@@ -14,7 +14,23 @@
   antérieurs maintenus. Rapports : `validation/rides-0.16.4/`.
 - Formats de sauvegarde et 650 ressources conservés. Posture reliée aux vrais
   réglages natifs de hauteur/ressorts/amortissement ; carrossage 3D et traitement
-  sonore NFS non ajoutés. Publication conditionnée à la validation Windows.
+  sonore NFS non ajoutés. Publication Windows vérifiée ci-dessous.
+
+## Publication Windows vérifiée — 0.16.4
+
+- [Workflow réussi](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/40833787986) :
+  405 contrôles du cœur, 123 graphiques, 188 sons historiques et 358 fichiers
+  simulés décodés. Paramètres et sept volumes persistants conservés.
+- Accueil, Style, Carrosserie, éléments, peinture, Performance, posture non
+  enregistrée et photo vérifiés dans les captures/états Windows. Contrôles
+  pixels Python correspondants sur les captures publiques.
+- Archive publique, CRC, EXE, source compilée, quarante-et-un aperçus et 650
+  ressources vérifiés ; les 1528 compositions et mesures physiques concordent
+  avec Linux à la tolérance documentée.
+- Rapports : `validation/windows-0.16.4/` et `validation/rides-0.16.4/`.
+- Source compilée : `83298faabfe496494408d9b33242ae26061590d8`.
+- ZIP : 107903330 octets, SHA-256 `f5135e01b17f3f84c6a9c8a6640caf070da34747614e363da659a762fbc55892`.
+- EXE : SHA-256 `45d9d238c395a97c111f24960da946ce3acf6898d941e16da715092954627d36`.
 
 # Validation 0.16.3 — showroom et customisation avec carrousels
 
