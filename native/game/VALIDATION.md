@@ -1,3 +1,10 @@
+# Validation 0.18.1 — cadrage des images utiles
+
+- **441 contrôles du cœur**, dont la couverture des quinze fonds et l’exclusion des marges intégrées. Physique 0.18.0 conservée.
+- **141 contrôles graphiques**, huit groupes de pixels ; **40 contrôles clavier/souris** : conduite, curseur unique, fonds après redimensionnement et absence de bandes noires intégrées en écran large.
+- Cadrage calculé depuis les pixels visibles des quinze images Original, Unbound et Underground ; les 673 ressources source restent identiques.
+- Publication Windows conditionnée aux tests précédents et à la comparaison des pixels des marges avec les rectangles utiles, plus un contrôle de contenu visible sur les côtés du fond large. Preuves de téléchargement ajoutées après publication.
+
 # Validation 0.18.0 — conduite, curseur wheelie unique et fonds de menus
 
 - **440 contrôles du cœur**, dont 24 nouveaux contrôles de conduite et du curseur, et les calculs de cadrage des fonds. Les 430 identifiants de véhicules sont testés en accélération, virage et freinage ; le comportement est stable à 30/60/144 FPS avec le pas physique fixe.

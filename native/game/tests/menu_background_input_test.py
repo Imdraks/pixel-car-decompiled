@@ -51,19 +51,22 @@ def filled(name):
  else:
   points=[(x,y) for x in [8,w-9] for y in range(8,h-8,4)]
  screen=int(s['screen']);native=screen in [3,4,5]
- source=Image.open(a.assets/('original-ui-00.png' if native else 'texture-047.png')).convert('RGB');origin=1 if native else 2
+ region=next(r for r in json.loads((Path(__file__).resolve().parents[1]/'menu-backdrops.json').read_text())['frames'] if r['bank']==('original' if native else 'unbound') and r['index']==0)
+ source=Image.open(a.assets/region['asset_file']).convert('RGB');content=region['content_rect'];origin_x=region['atlas_rect']['x']+content['x'];origin_y=region['atlas_rect']['y']+content['y'];source_w=content['width'];source_h=content['height']
  tint,shade={0:((145,154,172),.74),3:((118,122,133),.45),4:((255,255,255),0),5:((255,255,255),0),7:((108,116,129),.47),8:((112,120,132),.35)}[screen]
- scale=max(w/940,h/480);alpha=int(shade*255)/255;ink=(10,15,23);matched=0
+ scale=max(w/source_w,h/source_h);alpha=int(shade*255)/255;ink=(10,15,23);matched=0
  for x,y in points:
-  sx=(940-w/scale)/2+(x+.5)/scale;sy=(480-h/scale)/2+(y+.5)/scale;actual=im.getpixel((x,y));errors=[]
+  sx=(source_w-w/scale)/2+(x+.5)/scale;sy=(source_h-h/scale)/2+(y+.5)/scale;actual=im.getpixel((x,y));errors=[]
   for dy in [-1,0,1]:
    for dx in [-1,0,1]:
-    pixel=source.getpixel((origin+max(0,min(939,int(sx)+dx)),origin+max(0,min(479,int(sy)+dy))))
+    pixel=source.getpixel((origin_x+max(0,min(source_w-1,int(sx)+dx)),origin_y+max(0,min(source_h-1,int(sy)+dy))))
     expected=[pixel[c]*tint[c]/255*(1-alpha)+ink[c]*alpha for c in range(3)]
     errors.append(max(abs(actual[c]-expected[c]) for c in range(3)))
   matched+=min(errors)<=4
  coverage=matched/len(points);measurements[name]={'width':w,'height':h,'source_pixel_matches':coverage,'screen':s['screen']}
- check(name+'_fills_window_margins',coverage>.99);return s
+ check(name+'_fills_window_margins',coverage>.99)
+ if name=='suspension_wide':check('wide_background_has_no_baked_black_side_gutters',sum(max(im.getpixel(p))>2 for p in points)/len(points)>.6)
+ return s
 def resize(w,h):xdo('windowmove',window,0,0);xdo('windowsize','--sync',window,w,h);time.sleep(.35)
 try:
  start();resize(1200,900);filled('custom_home_tall');key('F1');check('keyboard_opens_engine_leaf_after_resize',filled('engine_tall')['screen']=='3');key('Escape');key('F9');filled('suspension_tall');key('Escape')

@@ -1,12 +1,14 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.18.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.18.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.18.0-native-preview)
+**[Télécharger Windows x64 — version 0.18.1](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.18.1-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.18.1-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+La **0.18.1** retire du cadrage les marges noires intégrées aux quinze décors : les fonds de menus occupent la fenêtre entière, sans étirement. Elle conserve les améliorations de physique et le curseur wheelie unique de la 0.18.0.
 
 La **0.18.0** confie le cabrage au seul curseur **Wheelie → Balanced**, et améliore la physique de conduite : patinage avec régime et rotation des roues cohérents dans tous les rapports, freinage/ABS par essieu, changements de voie progressifs et adhérence partagée en virage. Contenu, préparations et réglages conservés. [Détails et essai](native/game/PHYSICS-0180.md).
 

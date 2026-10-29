@@ -35,3 +35,5 @@ Les fichiers `driving-physics.csv` et `driving-physics.json` des preuves de vali
 ## Fonds de menus
 
 Les décors du garage, de la customisation, du showroom et des réglages couvrent la fenêtre entière, y compris après un redimensionnement en 4:3 ou en écran large. Leur cadrage est centré et leur proportion conservée ; l’interface garde ses repères et ses commandes à la souris. Le décor est raccordé au même cadrage dans la zone de l’interface et dans les marges.
+
+La **0.18.1** retire aussi les marges noires intégrées aux quinze images de décors, avant le cadrage. Les rectangles utiles sont mesurés par `tools/prepare_menu_backdrops.py` et décrits dans `menu-backdrops.json` / `cadrage-fonds.json` dans l’archive. Aucune image source n’est réécrite.

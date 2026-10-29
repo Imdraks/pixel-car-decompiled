@@ -10,6 +10,7 @@
 #include "effects.hpp"
 #include "road_scene.hpp"
 #include "menu_background.hpp"
+#include "menu_backdrops.hpp"
 #include "chassis_pose.hpp"
 #include "platform.hpp"
 #include "art.hpp"
@@ -115,8 +116,8 @@ struct App {
         DrawTexturePro(atlases.at(f.atlas),{float(f.x),float(f.y),float(f.w),float(f.h)},destination,{0,0},0,tint);
     }
     void drawMenuBackdrop(const art::Frame& f,Rectangle destination,Color tint,float shade){
-        auto part=menuBackgroundCrop(f.w,f.h,destination.width,destination.height);
-        DrawTexturePro(atlases.at(f.atlas),{float(f.x+part.x),float(f.y+part.y),float(part.width),float(part.height)},destination,{0,0},0,tint);
+        auto contentRect=menuBackdropContent(f);auto part=menuBackgroundCrop(contentRect.width,contentRect.height,destination.width,destination.height);
+        DrawTexturePro(atlases.at(f.atlas),{float(f.x+contentRect.x+part.x),float(f.y+contentRect.y+part.y),float(part.width),float(part.height)},destination,{0,0},0,tint);
         if(shade>0)DrawRectangleRec(destination,Fade(Ink,shade));
     }
     void menuBackdrop(const art::Frame& f,Color tint=WHITE,float shade=0){
@@ -348,7 +349,7 @@ struct App {
     void menu(){
         card({54,63,480,591},Color{14,22,33,240});
         text("PIXEL CAR",88,94,52);text("RACER",88,152,66,Accent);
-        text("NATIF WINDOWS  /  0.18.0",91,231,17,Muted);
+        text("NATIF WINDOWS  /  0.18.1",91,231,17,Muted);
         text("Prenez la route.",91,282,26);
         if(button({89,333,407,62},"MODE LIBRE",true))queued=[this]{beginFree();};
         if(button({89,410,407,53},TextFormat("GARAGE  |  %i / 8",int(ownedVehicles.cars.size()))))openVehicleBrowser();

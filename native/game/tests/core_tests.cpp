@@ -11,6 +11,7 @@
 #include "effects.hpp"
 #include "road_scene.hpp"
 #include "menu_background.hpp"
+#include "menu_backdrops.hpp"
 #include "chassis_pose.hpp"
 #include "materials.hpp"
 #include "cosmetic_geometry.hpp"
@@ -62,6 +63,8 @@ int main(int argc,char**argv){
         backgroundsCover&=std::abs(c.x*2+c.width-940)<1e-9&&std::abs(c.y*2+c.height-480)<1e-9;
     }
     expect(backgroundsCover,"menu backdrops cover wide tall and standard displays with a centred aspect-preserving source crop");
+    auto originalContent=menuBackdropContent(original_ui::garages[0]),unboundContent=menuBackdropContent(art::garages[0]);
+    expect(std::size(MenuBackdropRegions)==15&&originalContent.x==80&&originalContent.width==780&&unboundContent.x==228&&unboundContent.width==641,"all fifteen menu backgrounds exclude the actual baked UI gutters before cover cropping");
     // Manually checked against the supplied alpha cutouts for the reported body.
     const auto& reportedWheels=art::wheelPositions[20];
     expect(reportedWheels.rear==62&&reportedWheels.front==160&&reportedWheels.y==58&&reportedWheels.radius==12.5f,
