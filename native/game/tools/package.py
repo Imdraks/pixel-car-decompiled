@@ -40,7 +40,7 @@ if args.audio_packs_dir:
             if report.get('passed') is not True:raise RuntimeError('Audio pack validation missing')
         shutil.copy2(pack,destination/pack.name)
 shutil.copytree(game/'licenses',stage/'licenses',dirs_exist_ok=True)
-for name in ['README.md','MENU-MUSIC.md','MENU-BACKGROUNDS.md','REVUE-CONTENU.md','CLASSIFICATION-JANTES.md','UNDERGROUND.md','RIDES-NAVIGATION.md','CINEMATIC-UI.md','SHOWROOM.md','VEHICLES-GARAGE.md','NFS-CATALOGUE.md','VOLUMES.md','TURBOS.md','SAVED-CARS.md','PC-ENGINES.md','AUDIO-SIMULATION.md','ENGINE-AUDIO.md','AUDIO-MIX.md','VALIDATION.md','PHYSICS.md','PHYSICS-0180.md','CUSTOMIZATION.md','CUSTOMIZATION-COMPLETE.md','PERFORMANCE.md','TRANSMISSION.md','EXHAUST.md','GARAGE-PC.md','CONTENT.md','ATTACHMENTS.md','VEHICLES.md','SUSPENSION.md','DRAG.md','THIRD-PARTY.txt']:
+for name in ['README.md','LAMBORGHINI-KITS.md','MENU-MUSIC.md','MENU-BACKGROUNDS.md','REVUE-CONTENU.md','CLASSIFICATION-JANTES.md','UNDERGROUND.md','RIDES-NAVIGATION.md','CINEMATIC-UI.md','SHOWROOM.md','VEHICLES-GARAGE.md','NFS-CATALOGUE.md','VOLUMES.md','TURBOS.md','SAVED-CARS.md','PC-ENGINES.md','AUDIO-SIMULATION.md','ENGINE-AUDIO.md','AUDIO-MIX.md','VALIDATION.md','PHYSICS.md','PHYSICS-0180.md','CUSTOMIZATION.md','CUSTOMIZATION-COMPLETE.md','PERFORMANCE.md','TRANSMISSION.md','EXHAUST.md','GARAGE-PC.md','CONTENT.md','ATTACHMENTS.md','VEHICLES.md','SUSPENSION.md','DRAG.md','THIRD-PARTY.txt']:
     shutil.copy2(game/name,stage/('LISEZ-MOI.md' if name=='README.md' else name))
 shutil.copy2(game/'underground-catalog.json',stage/'catalogue-Underground.json')
 shutil.copy2(game/'catalogue-review.json',stage/'revue-catalogue.json')
@@ -48,6 +48,7 @@ shutil.copy2(game/'rim-styles.json',stage/'classification-jantes.json')
 shutil.copy2(game/'menu-music.json',stage/'musique-menu.json')
 shutil.copy2(game/'menu-backdrops.json',stage/'cadrage-fonds.json')
 shutil.copy2(game/'vehicles.json',stage/'catalogue-voitures.json')
+shutil.copy2(game.parent/'evidence/merged/lamborghini-kits-audit.json',stage/'audit-kits-lamborghini.json')
 shutil.copy2(game/'nfs-catalog.json',stage/'catalogue-NFS.json')
 shutil.copy2(game/'nfs-correspondances.csv',stage/'correspondances-NFS.csv')
 shutil.copy2(game/'pc-turbos.json',stage/'turbos-extension-pc.json')

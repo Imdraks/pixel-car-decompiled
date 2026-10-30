@@ -1,4 +1,6 @@
-# Pixel Car Racer — Original / Unbound / Underground Native 0.18.1
+# Pixel Car Racer — Original / Unbound / Underground Native 0.18.2
+
+La **0.18.2** retire l’identification non étayée « Gallardo » de l’emplacement Unbound 188 : il est présenté comme une variante probable de Huracán. Ses kits sont bien ceux du même emplacement dans le mod ; les images, les identifiants enregistrés et les préparations sont conservés. [Audit des kits](LAMBORGHINI-KITS.md).
 
 La **0.18.1** intègre le morceau **Underground** fourni dans les menus : effet d’enceinte dans Mon garage, même ambiance environ 8 dB plus basse en customisation, et silence en conduite. Le curseur Musique contrôle le tout. [Détails](MENU-MUSIC.md). Elle recadre les quinze décors Original, Unbound et Underground sur leur image utile : les bordures noires intégrées aux images d’origine ne sont plus agrandies avec le fond. Le décor couvre les fenêtres haute, large et 16:9 en conservant ses proportions. Les images sources sont conservées intactes.
 

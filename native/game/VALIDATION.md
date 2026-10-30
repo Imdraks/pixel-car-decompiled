@@ -1,3 +1,11 @@
+# Validation 0.18.2 — identification et kits Lamborghini
+
+- 180 images de carrosserie, masques et pièces de kits des emplacements 086/188 comparées aux textures Android Original, Unbound et Underground : mêmes pixels visibles que les images actives du port PC, aucun échange 086/188.
+- Revue visuelle des onze familles de kits et du modèle de base pour chaque emplacement et chaque banque. L’étiquette Gallardo n’est pas étayée par les images du mod ; l’identification Huracán de l’emplacement 188 reste probable, sans année ni finition certifiée.
+- Même identifiant de véhicule `pcr-unbound-187`, même moteur `30187`, même sélection audio de secours, mêmes caractéristiques et fichiers d’images ; seules les étiquettes et leur confiance changent.
+- 447 contrôles du cœur et 141 graphiques réussis ; huit groupes de vérification des pixels. Trois captures supplémentaires dans le jeu natif vérifient les profils 188 de base, 188 Fortune et 086 de base. Les 676 ressources sont identiques octet pour octet à la 0.18.1. Preuves : `validation/lamborghini-0.18.2/`.
+- Script reproductible : `tools/audit_lamborghini_kits.py`. Rapport : `../evidence/merged/lamborghini-kits-audit.json`. La reconstitution des pièces n’équivaut pas à l’exécution du jeu Android.
+
 # Validation 0.18.1 — cadrage des images utiles
 
 - **447 contrôles du cœur**, dont la couverture des quinze fonds et l’exclusion des marges intégrées. Physique 0.18.0 conservée.

@@ -1,0 +1,24 @@
+{
+  "captures": [
+    {
+      "case": "188-base",
+      "vehicle_id": "pcr-unbound-187",
+      "screen": "3",
+      "clean_exit": true
+    },
+    {
+      "case": "188-fortune",
+      "vehicle_id": "pcr-unbound-187",
+      "screen": "3",
+      "clean_exit": true
+    },
+    {
+      "case": "086-base",
+      "vehicle_id": "pcr-unbound-085",
+      "screen": "3",
+      "clean_exit": true
+    }
+  ],
+  "viewed_in_actual_linux_application": true,
+  "note": "Base 188, Fortune 188 and base 086 captured after opening customization; corrected probable name visible in 188 stats."
+}

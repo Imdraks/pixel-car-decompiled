@@ -1,12 +1,14 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.18.1](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.18.1-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.18.1-native-preview)
+**[Télécharger Windows x64 — version 0.18.2](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.18.2-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.18.2-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+La **0.18.2** corrige l’identification de la Lamborghini Unbound 188 : la précédente étiquette Gallardo est retirée au profit d’une variante de Huracán signalée comme probable. Les 180 images de carrosseries et kits 086/188 ont été comparées aux trois sources Android sans permutation trouvée. [Détails](native/game/LAMBORGHINI-KITS.md).
 
 La **0.18.1** ajoute la musique fournie aux menus, avec résonance dans Mon garage et niveau réduit en customisation, sans musique en conduite. Elle retire du cadrage les marges noires intégrées aux quinze décors : les fonds de menus occupent la fenêtre entière, sans étirement. Elle conserve les améliorations de physique et le curseur wheelie unique de la 0.18.0.
 

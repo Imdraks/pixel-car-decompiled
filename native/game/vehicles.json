@@ -1741,7 +1741,7 @@
       "recovered_litres": 3.6,
       "recovered_redline_rpm": 6800,
       "fallback_audio_engine_id": 20008,
-      "identity_uncertain": false
+      "identity_uncertain": true
     },
     {
       "id": "pcr-shared-064",
@@ -5066,7 +5066,7 @@
     },
     {
       "id": "pcr-unbound-187",
-      "name": "Lamborghini Gallardo",
+      "name": "Lamborghini Huracán — variante 188 (probable)",
       "category": "GT / SUPERCARS",
       "body_asset": 187,
       "source": 0,
@@ -5089,7 +5089,7 @@
       "recovered_litres": 5.2,
       "recovered_redline_rpm": 8000.0,
       "fallback_audio_engine_id": 0,
-      "identity_uncertain": false
+      "identity_uncertain": true
     },
     {
       "id": "pcr-shared-188",

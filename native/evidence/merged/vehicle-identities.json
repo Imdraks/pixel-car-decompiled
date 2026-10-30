@@ -3074,9 +3074,10 @@
     },
     {
       "body": 187,
-      "name": "Lamborghini Gallardo",
-      "status": "user_confirmed",
-      "identification_basis": "Model confirmed by the user from the extracted Unbound sprite; year and trim unspecified."
+      "name": "Lamborghini Huracán — variante 188 (probable)",
+      "status": "probable",
+      "identification_basis": "Source sprite and all kit families reviewed together after the user reported Huracán styling on every kit. Slot 188 is visually consistent with the Huracán family; no source model-name literal certifies a Gallardo, year or trim. Previous user-supplied Gallardo label withdrawn; source frames and stable vehicle ID retained.",
+      "previous_name": "Lamborghini Gallardo"
     }
   ],
   "limitations": [

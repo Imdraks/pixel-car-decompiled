@@ -1,0 +1,24 @@
+{
+  "asset_files_byte_identical_to_0181": 676,
+  "vehicle_count_unchanged": 430,
+  "mechanical_audio_ids_and_saved_vehicle_keys_unchanged": true,
+  "catalogue_changes": [
+    {
+      "vehicle": "pcr-unbound-063",
+      "changed_fields": [
+        "identity_uncertain"
+      ],
+      "old_name": "Porsche 911 Unbound (variante)",
+      "new_name": "Porsche 911 Unbound (variante)"
+    },
+    {
+      "vehicle": "pcr-unbound-187",
+      "changed_fields": [
+        "name",
+        "identity_uncertain"
+      ],
+      "old_name": "Lamborghini Gallardo",
+      "new_name": "Lamborghini Huracán — variante 188 (probable)"
+    }
+  ]
+}

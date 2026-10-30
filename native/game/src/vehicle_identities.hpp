@@ -203,7 +203,7 @@ case 75:{static constexpr VehicleIdentity value{"Hypercar Unbound à identifier"
 case 85:{static constexpr VehicleIdentity value{"Lamborghini Huracán",false};return value;}
 case 121:{static constexpr VehicleIdentity value{"Hypercar Unbound à identifier",true};return value;}
 case 186:{static constexpr VehicleIdentity value{"Hypercar Unbound à identifier",true};return value;}
-case 187:{static constexpr VehicleIdentity value{"Lamborghini Gallardo",false};return value;}
+case 187:{static constexpr VehicleIdentity value{"Lamborghini Huracán — variante 188 (probable)",true};return value;}
 default:break;}
 return OriginalVehicleIdentities[body];
 }

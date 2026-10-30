@@ -773,7 +773,7 @@ int main(int argc,char**argv){
         expect(key=="pcr-underground-007"&&vehicleKey(restored)==key&&restored.audioSource==2,"Underground vehicle identity and audio bank persist without resolving to an older bank");
         bool sounds=std::size(UndergroundSounds)==94;for(int id=0;id<94;id++)sounds&=std::string(sourceSound(id,2).name)==OriginalSounds[id].name;
         expect(sounds&&std::string(sourceSound(20,2).file).find("audio-underground/")==0,"all Underground sound IDs preserve the shared compiled dispatch and select their own samples");
-        expect(std::string(vehicleIdentity(85,false).name)=="Lamborghini Huracán"&&std::string(vehicleIdentity(187,false).name)=="Lamborghini Gallardo","confirmed Unbound Lamborghini identities survive the Underground import");
+        expect(std::string(vehicleIdentity(85,false).name)=="Lamborghini Huracán"&&std::string(vehicleIdentity(187,false).name)=="Lamborghini Huracán — variante 188 (probable)"&&vehicleIdentity(187,false).tentative,"reviewed Unbound slot 188 keeps its probable Huracan-family label instead of an unsupported Gallardo identity");
     }
     {
         bool valid=true;int partAliases=0,cosmeticAliases=0,rimAliases=0,vehicleAliases=0,showroom=0;
