@@ -1,0 +1,14 @@
+{
+  "fond-menu-large": {
+    "source_pixel_matches": 1,
+    "height": 450,
+    "width": 960,
+    "nonblack_margin_fraction": 1
+  },
+  "fond-menu-4x3": {
+    "source_pixel_matches": 1,
+    "height": 600,
+    "width": 800,
+    "nonblack_margin_fraction": 1
+  }
+}

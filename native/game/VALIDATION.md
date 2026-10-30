@@ -5,6 +5,11 @@
 - Revue visuelle des onze familles de kits et du modèle de base pour chaque emplacement et chaque banque. L’étiquette Gallardo n’est pas étayée par les images du mod ; l’identification Huracán de l’emplacement 188 reste probable, sans année ni finition certifiée.
 - Même identifiant de véhicule `pcr-unbound-187`, même moteur `30187`, même sélection audio de secours, mêmes caractéristiques et fichiers d’images ; seules les étiquettes et leur confiance changent.
 - 454 contrôles du cœur, 141 graphiques et huit groupes de pixels réussis. 13 essais par entrées réelles vérifient le retrait et le redémarrage ; les essais existants du garage indépendant restent valides. Preuves : `validation/retirement-0.18.2/`.
+- [Validation Windows réussie](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/41025037597) : 454 contrôles du cœur dont la migration de retrait, 141 graphiques, audio et rendu. Dix-huit états de captures concordent entre Linux et Windows ; 1 528 compositions et onze tableaux physiques concordent dans la tolérance de 0,01.
+- ZIP public téléchargé et vérifié : CRC, source/EXE, 676 ressources, 63 pièces jointes dont 60 aperçus identiques aux captures Windows ; retrait déclaré uniquement pour `pcr-unbound-187`, 086 conservée. Preuves : `validation/windows-0.18.2/`. Les ressources peuvent toujours être restaurées depuis l’archive 0.18.1 épinglée, car elles sont identiques.
+- Source compilée : `8ac01c0b388813f1f7fa225adc311bc2c2093d98`.
+- ZIP : 147696763 octets, SHA-256 `3ddaf7f7a4b1933ab3e7f98d06152e29974d586c6348a5e61654791da0eaf312`.
+- EXE : SHA-256 `038726edbe29206b3a3abf617eb814417068a8ef9680784bf0d7521d4deef4f3`.
 - Les mesures de la revue précédant le retrait sont conservées dans `validation/lamborghini-0.18.2/`. La validation du retrait couvre les migrations de garage, copies de sécurité, configurations archivées et réouverture du jeu.
 - Script reproductible : `tools/audit_lamborghini_kits.py`. Rapport : `../evidence/merged/lamborghini-kits-audit.json`. La reconstitution des pièces n’équivaut pas à l’exécution du jeu Android.
 
