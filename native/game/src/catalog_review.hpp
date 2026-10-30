@@ -315,5 +315,6 @@ case 417:return 178;
 case 420:return 234;
 case 425:return 237;
 default:return id;}}
-inline bool reviewedShowroomVehicle(int id){return id>=0&&id<430&&canonicalVehicleIndex(id)==id&&id!=261;}
+inline bool retiredVehicle(int id){return id==187;}
+inline bool reviewedShowroomVehicle(int id){return id>=0&&id<430&&canonicalVehicleIndex(id)==id&&id!=261&&!retiredVehicle(id);}
 }

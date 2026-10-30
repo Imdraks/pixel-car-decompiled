@@ -244,11 +244,12 @@ struct App {
         else notice="Réglages enregistrés.";
     }
     void revert(){apply(previous);confirming=false;edited=settings;notice="Réglages précédents restaurés.";}
-    bool hasActiveVehicle()const{return args.smoke||ownedVehicles.owns(bodyChoiceIndex(profile));}
+    bool hasActiveVehicle()const{return !retiredVehicle(bodyChoiceIndex(profile))&&(args.smoke||ownedVehicles.owns(bodyChoiceIndex(profile)));}
     fs::path inventoryFile()const{return args.data/"garage-inventory.ini";}
     bool saveCar(){configuration=buildVehicle(profile);if(!hasActiveVehicle())return true;std::string error;
         if(!storeVehicleProfile(args.data/"vehicles",profile,error)||!saveProfile(profileFile(),profile,error)){notice="Enregistrement du garage impossible : "+error;return false;}return true;}
     bool activateVehicle(Profile candidate){
+        if(retiredVehicle(bodyChoiceIndex(candidate))){notice="Cette voiture a été retirée du jeu.";return false;}
         if(!args.smoke&&!ownedVehicles.owns(bodyChoiceIndex(candidate))){notice="Ajoutez cette voiture depuis le showroom avant de la charger.";return false;}
         if(!saveCar())return false;
         initializeVehicleFactory(candidate);std::string error;
@@ -263,6 +264,7 @@ struct App {
         selectVehicle(ownedVehicles.cars[(index+direction+int(ownedVehicles.cars.size()))%int(ownedVehicles.cars.size())]);
     }
     bool takeShowroomVehicle(int id){
+        if(retiredVehicle(id)){notice="Cette voiture a été retirée du jeu.";return false;}
         if(ownedVehicles.owns(id)){notice="Cette voiture est déjà dans votre garage.";return false;}
         if(!saveCar())return false;
         Profile candidate;std::string error;if(!loadVehicleProfile(args.data/"vehicles",id,candidate,error)){notice=error;return false;}
@@ -295,12 +297,13 @@ struct App {
             std::string error;
             if(fs::exists(inventoryFile())){
                 if(!loadVehicleInventory(inventoryFile(),ownedVehicles,error))throw std::runtime_error(error+" Copie de sécurité : garage-inventory.ini.bak");
-                if(!ownedVehicles.cars.empty()&&!ownedVehicles.owns(bodyChoiceIndex(profile)))
-                    if(!loadVehicleProfile(args.data/"vehicles",ownedVehicles.cars.front(),profile,error))throw std::runtime_error(error);
             }else{
                 ownedVehicles=migrateVehicleInventory(args.data/"vehicles",profile);
                 if(!storeVehicleInventory(inventoryFile(),ownedVehicles,error))throw std::runtime_error(error);
             }
+            if(!retireGallardo(inventoryFile(),profileFile(),args.data/"vehicles",ownedVehicles,profile,error))throw std::runtime_error(error);
+            if(!ownedVehicles.cars.empty()&&!ownedVehicles.owns(bodyChoiceIndex(profile)))
+                if(!loadVehicleProfile(args.data/"vehicles",ownedVehicles.cars.front(),profile,error))throw std::runtime_error(error);
             if(hasActiveVehicle()){
                 bool changed=initializeVehicleFactory(profile);
                 if(changed&&fs::exists(profileFile())){auto backup=profileFile();backup+=".pre-vehicles-v1.bak";if(!fs::exists(backup)){std::error_code ec;fs::copy_file(profileFile(),backup,ec);if(ec)throw std::runtime_error("Migration protégée impossible : "+ec.message());}}
@@ -871,7 +874,7 @@ struct App {
     std::vector<int> vehicleChoices()const{
         std::vector<int> choices;for(size_t i=0;i<std::size(VehicleCatalog);i++){
             const auto& v=VehicleCatalog[i];std::string searchable=std::string(v.name)+" "+v.id+" "+vehicleOrigin(v);
-            if((!showroom||reviewedShowroomVehicle(int(i)))&&(showroom||ownedVehicles.owns(int(i)))&&(vehicleCategory<0||v.category==vehicleCategory)&&lower(searchable).find(lower(vehicleSearch))!=std::string::npos)choices.push_back(int(i));
+            if(!retiredVehicle(int(i))&&(!showroom||reviewedShowroomVehicle(int(i)))&&(showroom||ownedVehicles.owns(int(i)))&&(vehicleCategory<0||v.category==vehicleCategory)&&lower(searchable).find(lower(vehicleSearch))!=std::string::npos)choices.push_back(int(i));
         }
         std::stable_sort(choices.begin(),choices.end(),[this](int a,int b){const auto& x=VehicleCatalog[a];const auto& y=VehicleCatalog[b];if(vehicleSort==1&&x.category!=y.category)return x.category<y.category;if(vehicleSort==2){double ah=findPart(x.factoryEngineId)->stat,bh=findPart(y.factoryEngineId)->stat;if(ah!=bh)return ah>bh;}return std::string(x.name)<y.name;});return choices;
     }

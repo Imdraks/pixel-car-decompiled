@@ -8,7 +8,7 @@ pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
 
-La **0.18.2** corrige l’identification de la Lamborghini Unbound 188 : la précédente étiquette Gallardo est retirée au profit d’une variante de Huracán signalée comme probable. Les 180 images de carrosseries et kits 086/188 ont été comparées aux trois sources Android sans permutation trouvée. [Détails](native/game/LAMBORGHINI-KITS.md).
+La **0.18.2** retire la voiture Unbound 188, précédemment nommée Gallardo, du showroom et du garage. Sa place est libérée, ses préparations restent archivées et la 086 est conservée. [Détails](native/game/LAMBORGHINI-KITS.md).
 
 La **0.18.1** ajoute la musique fournie aux menus, avec résonance dans Mon garage et niveau réduit en customisation, sans musique en conduite. Elle retire du cadrage les marges noires intégrées aux quinze décors : les fonds de menus occupent la fenêtre entière, sans étirement. Elle conserve les améliorations de physique et le curseur wheelie unique de la 0.18.0.
 

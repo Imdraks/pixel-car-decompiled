@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "active_retired_vehicle_replaced_by_owned_086": true,
+    "removed_car_frees_a_place": true,
+    "retired_tune_preserved": true,
+    "original_active_profile_backed_up_exactly": true,
+    "original_inventory_backed_up_exactly": true,
+    "showroom_cannot_reacquire_removed_model": true,
+    "archived_named_config_cannot_restore_retired_car": true,
+    "clean_exit_7": true,
+    "restart_keeps_086_and_exact_backups": true,
+    "clean_exit_9": true,
+    "only_retired_car_leaves_empty_garage": true,
+    "removed_vehicle_not_active_in_empty_garage": true,
+    "clean_exit_12": true
+  }
+}

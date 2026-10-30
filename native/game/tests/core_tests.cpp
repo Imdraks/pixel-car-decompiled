@@ -372,6 +372,24 @@ int main(int argc,char**argv){
         expect(metadata.factoryInitialized&&metadata.factoryEngineId==a.factoryEngineId&&vehicleKey(metadata)==vehicleKey(a),"factory migration metadata and stable vehicle identity persist across restart");
     }
     {
+        auto folder=root/"retired-car";auto garage=folder/"vehicles";auto inventoryFile=folder/"garage-inventory.ini";auto profileFile=folder/"profile.ini";
+        std::string error;auto old=factoryVehicle(187);equipPart(old,PartSlot::Engine,1504);old.rim=10100;auto remaining=factoryVehicle(85);
+        VehicleInventory owned;owned.cars={187,85};
+        expect(!reviewedShowroomVehicle(187)&&reviewedShowroomVehicle(85)&&!owned.add(187,error),"removed Gallardo is unavailable while the 086 remains in the showroom");
+        storeVehicleProfile(garage,remaining,error);saveProfile(profileFile,old,error);storeVehicleInventory(inventoryFile,owned,error);
+        expect(retireGallardo(inventoryFile,profileFile,garage,owned,old,error)&&owned.cars==std::vector<int>{85}&&bodyChoiceIndex(old)==85,"retiring the active 188 switches to the remaining owned vehicle and frees its place");
+        auto archived=loadProfile(garage/"pcr-unbound-187.ini",191,54);
+        expect(archived.parts[0]==1504&&archived.rim==10100&&std::filesystem::exists(profileFile.string()+".pre-retired-188.bak")&&std::filesystem::exists(inventoryFile.string()+".pre-retired-188.bak"),"retirement preserves the complete old preparation and immutable pre-migration files");
+        auto backupBytes=[](const std::filesystem::path& file){std::ifstream in(file,std::ios::binary);return std::string(std::istreambuf_iterator<char>(in),{});};
+        auto before=backupBytes(profileFile.string()+".pre-retired-188.bak");
+        expect(retireGallardo(inventoryFile,profileFile,garage,owned,old,error)&&backupBytes(profileFile.string()+".pre-retired-188.bak")==before,"repeated startup does not change retirement backups or restore the removed car");
+        auto lone=factoryVehicle(187);owned.cars={187};saveProfile(profileFile,lone,error);storeVehicleInventory(inventoryFile,owned,error);
+        expect(retireGallardo(inventoryFile,profileFile,garage,owned,lone,error)&&owned.cars.empty()&&!retiredVehicle(bodyChoiceIndex(lone)),"removing the only owned 188 leaves an empty garage without a retired active vehicle");
+        VehicleInventory additions;expect(!additions.add(187,error)&&additions.add(85,error),"alternate acquisition paths also reject the removed model without affecting the 086");
+        auto named=folder/"cars";storeSavedCar(named,1,factoryVehicle(187),error);storeSavedCar(named,2,factoryVehicle(85),error);
+        auto visible=savedCars(named);expect(visible.size()==1&&visible[0].id==2&&std::filesystem::exists(savedCarFile(named,1))&&nextSavedCarId(named)==3,"retired named configurations stay archived and cannot reintroduce the car or have their save IDs reused");
+    }
+    {
         auto inventoryFile=root/"owned/garage-inventory.ini";std::string error;VehicleInventory owned;
         bool additions=true;for(int id=0;id<8;id++)additions&=owned.add(id,error);
         expect(additions&&owned.cars.size()==8,"eight showroom acquisitions fill the garage");
@@ -781,7 +799,7 @@ int main(int argc,char**argv){
         for(const auto& c:CosmeticCatalog){auto id=canonicalCosmeticId(c.id);if(id!=c.id){auto target=findCosmetic(id);valid&=target&&target->slot==c.slot&&target->weight==c.weight&&canonicalCosmeticId(id)==id;++cosmeticAliases;}}
         for(const auto& r:RimCatalog){auto id=canonicalRimId(r.id);if(id!=r.id){valid&=findRim(id)&&canonicalRimId(id)==id;++rimAliases;}}
         for(size_t i=0;i<std::size(VehicleCatalog);i++){int id=canonicalVehicleIndex(int(i));valid&=id>=0&&id<int(std::size(VehicleCatalog))&&canonicalVehicleIndex(id)==id;vehicleAliases+=id!=int(i);showroom+=reviewedShowroomVehicle(int(i));}
-        expect(valid&&partAliases==8&&cosmeticAliases==118&&rimAliases==37&&vehicleAliases==142&&showroom==287,"reviewed aliases retain valid stable IDs and hide only duplicate shop entries");
+        expect(valid&&partAliases==8&&cosmeticAliases==118&&rimAliases==37&&vehicleAliases==142&&showroom==286,"reviewed aliases retain valid stable IDs and hide only duplicate shop entries");
         bool samePhysics=true;
         for(size_t i=0;i<std::size(VehicleCatalog);i++){int target=canonicalVehicleIndex(int(i));if(target==int(i))continue;auto a=buildVehicle(factoryVehicle(int(i))),b=buildVehicle(factoryVehicle(target));samePhysics&=a.boostedHp==b.boostedHp&&a.vehicle.mass==b.vehicle.mass&&a.vehicle.redlineRpm==b.vehicle.redlineRpm&&a.vehicle.drive==b.vehicle.drive&&a.vehicle.engineInertia==b.vehicle.engineInertia;}
         expect(samePhysics,"hidden duplicate vehicles retain the same factory power, mass, revs, drive and inertia as their canonical model");

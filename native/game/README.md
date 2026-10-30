@@ -1,6 +1,6 @@
 # Pixel Car Racer — Original / Unbound / Underground Native 0.18.2
 
-La **0.18.2** retire l’identification non étayée « Gallardo » de l’emplacement Unbound 188 : il est présenté comme une variante probable de Huracán. Ses kits sont bien ceux du même emplacement dans le mod ; les images, les identifiants enregistrés et les préparations sont conservés. [Audit des kits](LAMBORGHINI-KITS.md).
+La **0.18.2** retire la voiture Unbound 188, précédemment nommée Gallardo, du showroom, du garage et des configurations chargeables. Les anciennes préparations restent archivées ; si elle était active, une autre voiture possédée est sélectionnée. La 086 reste disponible. [Détails](LAMBORGHINI-KITS.md).
 
 La **0.18.1** intègre le morceau **Underground** fourni dans les menus : effet d’enceinte dans Mon garage, même ambiance environ 8 dB plus basse en customisation, et silence en conduite. Le curseur Musique contrôle le tout. [Détails](MENU-MUSIC.md). Elle recadre les quinze décors Original, Unbound et Underground sur leur image utile : les bordures noires intégrées aux images d’origine ne sont plus agrandies avec le fond. Le décor couvre les fenêtres haute, large et 16:9 en conservant ses proportions. Les images sources sont conservées intactes.
 
@@ -8,7 +8,7 @@ La **0.18.0** supprime le bouton d’activation du wheelie : **le curseur Wheeli
 
 La **0.17.1** isole chaque menu de customisation : Moteur / ECU ne donne plus accès aux autres familles, même par raccourci. **Retour / Échap** retrouve le parent. Les jantes ont six filtres de style : **Offroad, Tuner, Muscle, Drag, Luxury, Hyper** (clic ou touches 1–6 ; 0 pour Toutes).
 
-Les fiches ont une provenance unique et les copies identiques sont masquées, sans supprimer les anciennes préparations : **1 663 équipements**, **530 jantes**, **287 choix au showroom**. Les vraies variantes Underground restent distinctes. [Revue du contenu](REVUE-CONTENU.md) · [Catégories de jantes](CLASSIFICATION-JANTES.md).
+Les fiches ont une provenance unique et les copies identiques sont masquées, sans supprimer les anciennes préparations : **1 663 équipements**, **530 jantes**, **286 choix au showroom**. Les vraies variantes Underground restent distinctes. [Revue du contenu](REVUE-CONTENU.md) · [Catégories de jantes](CLASSIFICATION-JANTES.md).
 
 La version **0.17.0** ajoute Underground : **430 variantes de véhicules** et
 **1 826 choix d’équipement**, avec décors et banque audio propres. Les moteurs
