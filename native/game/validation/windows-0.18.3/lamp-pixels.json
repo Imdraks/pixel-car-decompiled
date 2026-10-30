@@ -1,0 +1,20 @@
+{
+  "checks_passed": 2,
+  "white_paint_globally_removed": false,
+  "cases": [
+    {
+      "model": "lamborghini-aventador",
+      "source_body_id": 86,
+      "orphan_bright_pixels_with_legacy_masks": 1,
+      "orphan_bright_pixels_in_actual_composition": 0,
+      "baked_source_lamps_preserved": true
+    },
+    {
+      "model": "lamborghini-huracan",
+      "source_body_id": 188,
+      "orphan_bright_pixels_with_legacy_masks": 4,
+      "orphan_bright_pixels_in_actual_composition": 0,
+      "baked_source_lamps_preserved": true
+    }
+  ]
+}

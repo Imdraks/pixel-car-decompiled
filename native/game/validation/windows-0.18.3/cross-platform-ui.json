@@ -1,0 +1,32 @@
+{
+  "capture_states_compared": [
+    "moteur-menu-isole",
+    "provenance-original",
+    "provenance-unbound",
+    "provenance-underground",
+    "jantes-style-offroad",
+    "jantes-style-tuner",
+    "jantes-style-muscle",
+    "jantes-style-drag",
+    "jantes-style-luxury",
+    "jantes-style-hyper",
+    "physique-patinage",
+    "physique-virage",
+    "fond-menu-4x3",
+    "fond-menu-large",
+    "menu",
+    "garage-huit-places",
+    "custom-accueil",
+    "mode-libre-final",
+    "ford-gt-2017",
+    "lamborghini-aventador",
+    "lamborghini-huracan"
+  ],
+  "count": 21,
+  "numeric_tolerance": 0.01,
+  "passed": true,
+  "bare_body_rgba_identical": {
+    "lamborghini-aventador-body": "67c6da1a441b77bef897c112b4ccc167c60e6d8249c584c7d4be7877b5ae1692",
+    "lamborghini-huracan-body": "f52ed86ac2011c55f0b707fccfd1359bc2c839bd98ff89b0b14bcc3293e59124"
+  }
+}
