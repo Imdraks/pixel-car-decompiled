@@ -6,6 +6,7 @@
 - Ford GT 2017 : modèle distinct basé sur la conversion Fortune de la 187 Unbound, variante visuelle indépendante enregistrée, moteur V6 3.5L 646 HP du tableau Unbound et son audio V6. Les anciennes préparations du même emplacement restent une autre voiture ; les autres kits de conversion sont incompatibles avec la Ford.
 - Phares : masques repris à l’identique de la voiture Original supprimés uniquement sur les modèles remplacés par les mods ; les nouveaux dessins de phares et les teintes de carrosserie sont conservés. Les deux Lamborghini sont contrôlées sans pixels blancs parasites hors de la silhouette source.
 - **458 contrôles du cœur**, **144 contrôles graphiques**, huit groupes de pixels, deux contrôles de pixels de phares et **15 essais par entrées réelles** réussis. 1 528 compositions auditées ; les changements de pixels restent limités aux six emplacements Unbound dont les modèles ont été remplacés, les autres modèles et la banque Original sont inchangés. Les 676 ressources restent identiques à la 0.18.2. Preuves : `validation/models-0.18.3/`.
+- Le parcours physique couvre bien les **431 voitures**, Ford comprise. Une limite de test à 430 détectée lors du premier passage Windows a été remplacée par la taille du catalogue ; les 458 contrôles passent avec cette couverture complète, sans changement du binaire applicatif.
 - Script : `tools/audit_lamborghini_kits.py --all-bodies`. Rapport : `../evidence/merged/lamborghini-kits-audit.json`.
 
 # Validation 0.18.2 — retrait de la Gallardo / Unbound 188

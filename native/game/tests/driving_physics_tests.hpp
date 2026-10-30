@@ -73,12 +73,12 @@ static void checkDrivingPhysics(const std::filesystem::path& root){
     FreeDrive airborne;airborne.vehicle=native;airborne.setTraffic(false);airborne.player.speed=20;airborne.player.suspensionReady=true;airborne.player.frontLoad=0;airborne.player.rearLoad=native.mass*9.81;airborne.changeLane(-1);airborne.update({false,false,false},Step);
     expect(airborne.lane==1&&airborne.lateralSpeed==0,"front-wheel lift removes steering authority until front contact is restored");
     bool allFinite=true;int cars=0;
-    for(int i=0;i<430;i++){
+    for(int i=0;i<int(std::size(VehicleCatalog));i++){
         auto p=factoryVehicle(i);FreeDrive d;d.vehicle=buildVehicle(p).vehicle;d.vehicle.abs=d.vehicle.tractionControl=true;d.setTraffic(false);d.player.speed=25;d.player.gear=3;d.changeLane(i%2?1:-1);
         for(int t=0;t<360;t++){d.update({t<120,t>=120,true},Step);allFinite&=std::isfinite(d.player.speed)&&std::isfinite(d.player.rpm)&&std::isfinite(d.player.pitch)&&std::isfinite(d.lane)&&d.player.speed>=0&&d.lane>=0&&d.lane<=2&&d.player.frontLoad>=0&&d.player.rearLoad>=0;}
         ++cars;
     }
-    expect(allFinite&&cars==430,"all stored Original Unbound Underground vehicles retain finite steering, acceleration and braking");
+    expect(allFinite&&cars==int(std::size(VehicleCatalog)),"all stored Original Unbound Underground vehicles retain finite steering, acceleration and braking");
     std::array<FreeDrive,3> fpsRuns;
     for(int run=0;run<3;run++){
         auto& d=fpsRuns[run];d.vehicle=controlled;d.player.speed=18;d.player.gear=3;d.setTraffic(false);d.changeLane(1);double accumulator=0;int fps=std::array<int,3>{30,60,144}[run];
