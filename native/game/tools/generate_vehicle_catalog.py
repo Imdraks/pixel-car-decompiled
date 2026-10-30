@@ -5,6 +5,9 @@ import json,re,collections
 G=Path(__file__).resolve().parents[1]
 identities=json.loads((G.parent/'evidence/merged/vehicle-identities.json').read_text())
 choices=[tuple(map(int,r)) for r in re.findall(r'\{(\d+),(\d+),(\d+)\}',(G/'src/body_choices.hpp').read_text())]
+variant_data=json.loads((G/'vehicle-variants.json').read_text());variants=variant_data['variants']
+variant_rows={(v['body'],v['source'],v['visual_variant']):v for v in variants}
+choices += [(v['body'],v['source'],v['source_mask'],v['visual_variant']) for v in variants]
 stocks=[list(map(float,r.split(','))) for r in re.findall(r'^\{([^{}]+)\},', (G/'src/stock_vehicles.hpp').read_text(),re.M)]
 original={r['body']:r['name'] for r in identities['records']};alternate={r['body']:r['name'] for r in identities['unbound_visual_replacements']}
 nfs=json.loads((G/'nfs-catalog.json').read_text());origins={(r['body'],r['source']):r['engine_id'] for r in nfs['body_matches'] if r['origin']}
@@ -26,7 +29,7 @@ def category(body,name):
  return 6 if year and int(year[1])<1980 else 2
 def stock_sound(body,name):
  # Identification alone does not certify a new factory audio assignment.
- if name.startswith('Lamborghini Huracán') or name=='Lamborghini Gallardo':return 0
+ if name.startswith('Lamborghini '):return 0
  if 'Porsche 911' in name:return 20008
  if 'Clio V6' in name:return 20064
  if body==94:return 1502
@@ -47,24 +50,32 @@ def stock_sound(body,name):
  return 1003 if stocks[body][5]<=2.5 else 1008 if stocks[body][5]>=4 else 1002
 underground=json.loads((G/'underground-catalog.json').read_text()) if (G/'underground-catalog.json').exists() else {};under_names={r['body']:r['name'] for r in underground.get('body_variants',[])}
 rows=[];definitions=[];engines=[];q=lambda x:json.dumps(x,ensure_ascii=True)
-for index,(body,source,mask) in enumerate(choices):
- name=under_names[body] if source==2 else alternate.get(body,original[body]) if source==0 else original[body];cat=category(body,name)
+for index,choice in enumerate(choices):
+ body,source,mask=choice[:3];variant=choice[3] if len(choice)>3 else 0;extra=variant_rows.get((body,source,variant),{})
+ name=under_names[body] if source==2 else alternate.get(body,original[body]) if source==0 else original[body];name=extra.get('name',name);cat=category(body,name)
  key='pcr-'+('underground' if source==2 else 'shared' if mask&3==3 else 'original' if source==1 else 'unbound')+f'-{body:03d}'
- reference=origins.get((body,source),0);stock_id=30000+index
+ key=extra.get('id',key)
+ reference=extra.get('factory_engine_id',origins.get((body,source),0));stock_id=30000+index
  mechanical=list(stocks[body]);mechanical[6]=int(mechanical[6]);provisional=body==63 and source==0
  if provisional:
   # Identified 911 family, trim/year uncertain: conservative F6/RWD calibration,
   # not the Golf mechanics underneath the old sprite slot.
   reference=next(e['id'] for e in nfs['engines'] if e['family']=='F6' and e['hp']==281 and e['litres']==3.6)
   mechanical=[1350/.45359237,281,1250,165,6800,3.6,1]
+ if extra:
+  e=next(e for e in nfs['engines'] if e['id']==reference)
+  mechanical[1]=e['hp'];mechanical[4]=7500;mechanical[5]=e['litres'];mechanical[6]=1
+  provisional=True
  factory_id=reference or stock_id
  hp=mechanical[1];litres=mechanical[5];rpm=mechanical[4];sound=stock_sound(body,name)
  if cat==7:sound=0
+ if extra:sound=reference
+ legacy_lamps=body in variant_data['legacy_lamp_masks'].get('unbound' if source==0 else 'underground' if source==2 else 'original',[])
  label=f'Origine {litres:g}L - {name}'
- definitions.append('{'+f'{q(key)},{q(name)},{cat},{body},{source},{mask},{factory_id},{stock_id},{sound},'+ '{'+','.join(map(str,mechanical))+'},'+str(reference>0).lower()+','+str(provisional).lower()+'},')
+ definitions.append('{'+f'{q(key)},{q(name)},{cat},{body},{source},{mask},{factory_id},{stock_id},{sound},'+ '{'+','.join(map(str,mechanical))+'},'+str(reference>0).lower()+','+str(provisional).lower()+','+str(variant)+','+str(extra.get('base_kit',0))+','+str(float(extra.get('wheel_front',0)))+'f,'+str(legacy_lamps).lower()+'},')
  engines.append('{'+f'{stock_id},PartSlot::Engine,{q(label)},{hp},250,0,0,{mask},-1'+'},')
- rows.append({'id':key,'name':name,'category':categories[cat],'body_asset':body,'source':source,'source_mask':mask,'retired':source==0 and body==187,'factory_engine_id':factory_id,'fallback_factory_engine_id':stock_id,'nfs_origin_reference':reference or None,'factory_assignment_kind':'provisional_Porsche_911_family; trim/year unconfirmed' if provisional else 'declared_model_bridge; year/trim may differ' if reference else 'recovered_per_vehicle_stock','mechanics':{'mass_kg':mechanical[0]*.45359237,'hp':hp,'grip_raw':mechanical[2],'speed_mph':mechanical[3],'redline_rpm':rpm,'litres':litres,'drive':int(mechanical[6])},'provisional_physics':provisional,'recovered_hp':hp,'recovered_litres':litres,'recovered_redline_rpm':rpm,'fallback_audio_engine_id':sound,'identity_uncertain':cat==7 or (source==0 and any(r['body']==body and r['status'] not in ('user_confirmed','visually_reviewed') for r in identities['unbound_visual_replacements']))})
-header=['// Generated named vehicle catalogue. Renderer body IDs are implementation details.','#pragma once','namespace pcr {','struct VehicleDefinition {const char* id;const char* name;int category,body,source,sourceMask,factoryEngineId,stockEngineId,audioEngineId;StockVehicle stock;bool nfsReference,provisionalPhysics;};','inline constexpr const char* VehicleCategories[]={'+','.join(q(s) for s in categories)+'};','inline constexpr VehicleDefinition VehicleCatalog[]={',*definitions,'};','inline constexpr Part FactoryEngineCatalog[]={',*engines,'};','inline const VehicleDefinition* vehicleForStockEngine(int id){return id>=30000&&id<'+str(30000+len(rows))+'?&VehicleCatalog[id-30000]:nullptr;}','}']
+ rows.append({'id':key,'name':name,'category':categories[cat],'body_asset':body,'source':source,'source_mask':mask,'retired':False,'visual_variant':variant,'base_kit':extra.get('base_kit',0),'legacy_lamp_masks':legacy_lamps,'factory_engine_id':factory_id,'fallback_factory_engine_id':stock_id,'nfs_origin_reference':reference or None,'factory_assignment_kind':'NFS_Ford_GT_2017_powertrain; source-slot chassis calibration' if extra else 'provisional_Porsche_911_family; trim/year unconfirmed' if provisional else 'declared_model_bridge; year/trim may differ' if reference else 'recovered_per_vehicle_stock','mechanics':{'mass_kg':mechanical[0]*.45359237,'hp':hp,'grip_raw':mechanical[2],'speed_mph':mechanical[3],'redline_rpm':rpm,'litres':litres,'drive':int(mechanical[6])},'provisional_physics':provisional,'recovered_hp':hp,'recovered_litres':litres,'recovered_redline_rpm':rpm,'fallback_audio_engine_id':sound,'identity_uncertain':cat==7 or (source==0 and any(r['body']==body and r['status'] not in ('user_confirmed','visually_reviewed') for r in identities['unbound_visual_replacements']))})
+header=['// Generated named vehicle catalogue. Renderer body IDs are implementation details.','#pragma once','namespace pcr {','struct VehicleDefinition {const char* id;const char* name;int category,body,source,sourceMask,factoryEngineId,stockEngineId,audioEngineId;StockVehicle stock;bool nfsReference,provisionalPhysics;int visualVariant,baseKit;float wheelFront;bool legacyLampMasks;};','inline constexpr const char* VehicleCategories[]={'+','.join(q(s) for s in categories)+'};','inline constexpr VehicleDefinition VehicleCatalog[]={',*definitions,'};','inline constexpr Part FactoryEngineCatalog[]={',*engines,'};','inline const VehicleDefinition* vehicleForStockEngine(int id){return id>=30000&&id<'+str(30000+len(rows))+'?&VehicleCatalog[id-30000]:nullptr;}','}']
 (G/'src/vehicle_catalog.hpp').write_text('\n'.join(header)+'\n')
 (G/'vehicles.json').write_text(json.dumps({'source_meaning':{'0':'Unbound','1':'Original','2':'Underground'},'categories':categories,'vehicles':rows,'limits':['Names derive from reviewed source identities; uncertain models remain labelled.','NFS assignments are model bridges, not exact trim/year certification.','Unmapped vehicles retain their recovered per-vehicle factory engine, power and revs.','No donor compatibility restriction applies to NFS engines.']},ensure_ascii=False,indent=2)+'\n')
 print(json.dumps({'vehicles':len(rows),'categories':dict(collections.Counter(r['category'] for r in rows)),'factory_nfs':sum(r['nfs_origin_reference'] is not None for r in rows),'factory_recovered':sum(r['nfs_origin_reference'] is None for r in rows)},ensure_ascii=False))

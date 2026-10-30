@@ -18,8 +18,7 @@ inline std::vector<SavedCar> savedCars(const std::filesystem::path& root){
         auto digits=name.substr(4,name.size()-8);
         if(digits.empty()||digits.size()>4||!std::all_of(digits.begin(),digits.end(),[](unsigned char c){return std::isdigit(c);}))continue;
         int id=std::stoi(digits);if(id<1||id>9999||digits!=std::to_string(id))continue;
-        auto profile=loadProfile(file.path(),191,54);
-        if(!retiredVehicle(bodyChoiceIndex(profile)))result.push_back({id,profile});
+        result.push_back({id,loadProfile(file.path(),191,54)});
     }
     std::sort(result.begin(),result.end(),[](const SavedCar& a,const SavedCar& b){return a.id<b.id;});return result;
 }

@@ -372,22 +372,31 @@ int main(int argc,char**argv){
         expect(metadata.factoryInitialized&&metadata.factoryEngineId==a.factoryEngineId&&vehicleKey(metadata)==vehicleKey(a),"factory migration metadata and stable vehicle identity persist across restart");
     }
     {
-        auto folder=root/"retired-car";auto garage=folder/"vehicles";auto inventoryFile=folder/"garage-inventory.ini";auto profileFile=folder/"profile.ini";
-        std::string error;auto old=factoryVehicle(187);equipPart(old,PartSlot::Engine,1504);old.rim=10100;auto remaining=factoryVehicle(85);
-        VehicleInventory owned;owned.cars={187,85};
-        expect(!reviewedShowroomVehicle(187)&&reviewedShowroomVehicle(85)&&!owned.add(187,error),"removed Gallardo is unavailable while the 086 remains in the showroom");
-        storeVehicleProfile(garage,remaining,error);saveProfile(profileFile,old,error);storeVehicleInventory(inventoryFile,owned,error);
-        expect(retireGallardo(inventoryFile,profileFile,garage,owned,old,error)&&owned.cars==std::vector<int>{85}&&bodyChoiceIndex(old)==85,"retiring the active 188 switches to the remaining owned vehicle and frees its place");
-        auto archived=loadProfile(garage/"pcr-unbound-187.ini",191,54);
-        expect(archived.parts[0]==1504&&archived.rim==10100&&std::filesystem::exists(profileFile.string()+".pre-retired-188.bak")&&std::filesystem::exists(inventoryFile.string()+".pre-retired-188.bak"),"retirement preserves the complete old preparation and immutable pre-migration files");
-        auto backupBytes=[](const std::filesystem::path& file){std::ifstream in(file,std::ios::binary);return std::string(std::istreambuf_iterator<char>(in),{});};
-        auto before=backupBytes(profileFile.string()+".pre-retired-188.bak");
-        expect(retireGallardo(inventoryFile,profileFile,garage,owned,old,error)&&backupBytes(profileFile.string()+".pre-retired-188.bak")==before,"repeated startup does not change retirement backups or restore the removed car");
-        auto lone=factoryVehicle(187);owned.cars={187};saveProfile(profileFile,lone,error);storeVehicleInventory(inventoryFile,owned,error);
-        expect(retireGallardo(inventoryFile,profileFile,garage,owned,lone,error)&&owned.cars.empty()&&!retiredVehicle(bodyChoiceIndex(lone)),"removing the only owned 188 leaves an empty garage without a retired active vehicle");
-        VehicleInventory additions;expect(!additions.add(187,error)&&additions.add(85,error),"alternate acquisition paths also reject the removed model without affecting the 086");
-        auto named=folder/"cars";storeSavedCar(named,1,factoryVehicle(187),error);storeSavedCar(named,2,factoryVehicle(85),error);
-        auto visible=savedCars(named);expect(visible.size()==1&&visible[0].id==2&&std::filesystem::exists(savedCarFile(named,1))&&nextSavedCarId(named)==3,"retired named configurations stay archived and cannot reintroduce the car or have their save IDs reused");
+        auto index=vehicleIndex("pcr-unbound-186-ford-gt-2017");auto ford=factoryVehicle(index);auto base=factoryVehicle(186);std::string error;
+        expect(index==430&&ford.visualVariant==1&&ford.car==186&&bodyChoiceIndex(ford)==index&&vehicleKey(base)!="pcr-unbound-186-ford-gt-2017","named Ford GT has an independent stable identity despite sharing the source sprite slot");
+        expect(ford.parts[0]==20077&&audioEngineId(ford)==20077&&std::abs(buildVehicle(ford).baseHp-646)<.02,"2017 Ford GT starts with the workbook 3.5L V6 and its V6 audio mapping");
+        expect(!cosmeticFit(ford,104008).supported&&cosmeticFit(ford,104007).supported&&installedKit(ford,0)==7,"Ford GT keeps its source Fortune silhouette and rejects other models' body conversions");
+        auto file=root/"ford-variant.ini";saveProfile(file,ford,error);auto restored=loadProfile(file,191,54);
+        expect(restored.visualVariant==1&&bodyChoiceIndex(restored)==index&&restored.parts==ford.parts&&vehicleKey(restored)==vehicleKey(ford),"named visual variant survives a profile save/restart without reverting to the base source car");
+        auto legacy=root/"old-source-slot.ini";{std::ofstream out(legacy);out<<"version=8\ncar=186\ncontent_source=0\n";}
+        expect(loadProfile(legacy,191,54).visualVariant==0&&bodyChoiceIndex(loadProfile(legacy,191,54))==186,"old slot-187 preparations remain the original base model instead of being silently converted to Ford GT");
+        auto garage=root/"variant-garage";equipPart(ford,PartSlot::Engine,1504);ford.rim=10100;
+        storeVehicleProfile(garage,base,error);storeVehicleProfile(garage,ford,error);Profile a,b;
+        expect(loadVehicleProfile(garage,186,a,error)&&loadVehicleProfile(garage,index,b,error)&&a.visualVariant==0&&b.visualVariant==1&&b.parts[0]==1504&&b.rim==10100,"base-slot and named Ford GT preparations use different automatic files and never overwrite one another");
+        auto originalIndex=bodyChoiceIndex(ford);cycleBody(ford,1);cycleBody(ford,-1);
+        expect(bodyChoiceIndex(ford)==originalIndex&&ford.visualVariant==1,"legacy cycling includes named model variants and restores their identity");
+    }
+    {
+        auto folder=root/"lamborghini-recovery";auto garage=folder/"vehicles";std::string error;
+        auto archived=factoryVehicle(187);equipPart(archived,PartSlot::Engine,1504);archived.rim=10100;
+        expect(reviewedShowroomVehicle(85)&&reviewedShowroomVehicle(187)&&vehicleKey(factoryVehicle(85))!="pcr-unbound-187","Aventador and restored Huracan are separate available showroom vehicles");
+        storeVehicleProfile(garage,archived,error);Profile loaded;
+        expect(loadVehicleProfile(garage,187,loaded,error)&&loaded.parts[0]==1504&&loaded.rim==10100&&vehicleKey(loaded)=="pcr-unbound-187","reacquiring the correctly identified Huracan restores its previously archived preparation using the same key");
+        VehicleInventory old;old.add(85,error);auto inventoryFile=folder/"garage-inventory.ini";storeVehicleInventory(inventoryFile,old,error);
+        VehicleInventory restored;loadVehicleInventory(inventoryFile,restored,error);
+        expect(restored.cars==std::vector<int>{85}&&restored.add(187,error)&&restored.cars==std::vector<int>({85,187}),"post-retirement garage does not gain cars automatically and can reacquire the Huracan alongside the Aventador");
+        auto named=folder/"cars";storeSavedCar(named,1,archived,error);auto entries=savedCars(named);
+        expect(entries.size()==1&&entries[0].id==1&&entries[0].profile.parts[0]==1504&&nextSavedCarId(named)==2,"old named Huracan configurations are loadable again without new IDs or lost equipment");
     }
     {
         auto inventoryFile=root/"owned/garage-inventory.ini";std::string error;VehicleInventory owned;
@@ -791,7 +800,7 @@ int main(int argc,char**argv){
         expect(key=="pcr-underground-007"&&vehicleKey(restored)==key&&restored.audioSource==2,"Underground vehicle identity and audio bank persist without resolving to an older bank");
         bool sounds=std::size(UndergroundSounds)==94;for(int id=0;id<94;id++)sounds&=std::string(sourceSound(id,2).name)==OriginalSounds[id].name;
         expect(sounds&&std::string(sourceSound(20,2).file).find("audio-underground/")==0,"all Underground sound IDs preserve the shared compiled dispatch and select their own samples");
-        expect(std::string(vehicleIdentity(85,false).name)=="Lamborghini Huracán"&&std::string(vehicleIdentity(187,false).name)=="Lamborghini Huracán — variante 188 (probable)"&&vehicleIdentity(187,false).tentative,"reviewed Unbound slot 188 keeps its probable Huracan-family label instead of an unsupported Gallardo identity");
+        expect(std::string(vehicleIdentity(85,false).name)=="Lamborghini Aventador"&&std::string(vehicleIdentity(187,false).name)=="Lamborghini Huracán"&&!vehicleIdentity(187,false).tentative,"source-reviewed Aventador 086 and user-confirmed Huracan 188 retain distinct model identities");
     }
     {
         bool valid=true;int partAliases=0,cosmeticAliases=0,rimAliases=0,vehicleAliases=0,showroom=0;
@@ -799,7 +808,7 @@ int main(int argc,char**argv){
         for(const auto& c:CosmeticCatalog){auto id=canonicalCosmeticId(c.id);if(id!=c.id){auto target=findCosmetic(id);valid&=target&&target->slot==c.slot&&target->weight==c.weight&&canonicalCosmeticId(id)==id;++cosmeticAliases;}}
         for(const auto& r:RimCatalog){auto id=canonicalRimId(r.id);if(id!=r.id){valid&=findRim(id)&&canonicalRimId(id)==id;++rimAliases;}}
         for(size_t i=0;i<std::size(VehicleCatalog);i++){int id=canonicalVehicleIndex(int(i));valid&=id>=0&&id<int(std::size(VehicleCatalog))&&canonicalVehicleIndex(id)==id;vehicleAliases+=id!=int(i);showroom+=reviewedShowroomVehicle(int(i));}
-        expect(valid&&partAliases==8&&cosmeticAliases==118&&rimAliases==37&&vehicleAliases==142&&showroom==286,"reviewed aliases retain valid stable IDs and hide only duplicate shop entries");
+        expect(valid&&partAliases==8&&cosmeticAliases==118&&rimAliases==37&&vehicleAliases==142&&showroom==288,"reviewed aliases retain valid stable IDs and hide only duplicate shop entries");
         bool samePhysics=true;
         for(size_t i=0;i<std::size(VehicleCatalog);i++){int target=canonicalVehicleIndex(int(i));if(target==int(i))continue;auto a=buildVehicle(factoryVehicle(int(i))),b=buildVehicle(factoryVehicle(target));samePhysics&=a.boostedHp==b.boostedHp&&a.vehicle.mass==b.vehicle.mass&&a.vehicle.redlineRpm==b.vehicle.redlineRpm&&a.vehicle.drive==b.vehicle.drive&&a.vehicle.engineInertia==b.vehicle.engineInertia;}
         expect(samePhysics,"hidden duplicate vehicles retain the same factory power, mass, revs, drive and inertia as their canonical model");
@@ -827,7 +836,7 @@ int main(int argc,char**argv){
     expect(allSourceFits&&fittedVariants==243334,"both source banks and all rear/side kit choices retain finite attached pipe mouths");
     {std::ofstream out(root/"attachment-fit.json");out<<"{\n  \"source_body_pipe_configurations\": 18718,\n  \"fitted_variants_checked\": "<<fittedVariants<<",\n  \"recovered_coordinates\": 4584\n}\n";}
     bool choicesValid=true;for(size_t i=0;i<std::size(BodyChoices);i++){Profile p;p.car=BodyChoices[i].body;p.contentSource=BodyChoices[i].source;choicesValid&=bodyChoiceIndex(p)==int(i);cycleBody(p,1);cycleBody(p,-1);choicesValid&=bodyChoiceIndex(p)==int(i);}
-    expect(choicesValid&&std::size(BodyChoices)==std::size(VehicleCatalog),"one body selector preserves every distinct source body and accessory bundle without duplicates");
+    expect(choicesValid&&std::size(BodyChoices)+1==std::size(VehicleCatalog),"one body selector preserves every distinct source body and accessory bundle without duplicates");
     expect(findPart(3027)->sourceMask==1&&findPart(1002)->sourceMask==19&&findCosmetic(109001)->sourceMask==2&&findCosmetic(309001)->sourceMask==17,"source badges distinguish original exclusives, common parts and both seat variants");
     auto sourceSide=placeExhaust(20,44),sourceStack=placeExhaust(20,34),sourceRearStack=placeExhaust(20,33),sourceDownpipe=placeExhaust(20,43);
     expect(sourceSide.x==22&&sourceSide.y==2&&sourceSide.front&&sourceStack.x==22&&sourceStack.y==2&&sourceStack.front,"side outlets and side stacks use the second source anchor instead of the sill estimate");

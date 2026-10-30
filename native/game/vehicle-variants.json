@@ -1,0 +1,39 @@
+{
+  "variants": [
+    {
+      "id": "pcr-unbound-186-ford-gt-2017",
+      "name": "2017 Ford GT",
+      "body": 186,
+      "source": 0,
+      "source_mask": 2,
+      "visual_variant": 1,
+      "base_kit": 7,
+      "wheel_front": 162.5,
+      "factory_engine_id": 20077,
+      "identification": "user_confirmed_from_exact_Unbound_187_Fortune_composite",
+      "source_recipe": "sp_car[186] plus sp_fortune_front[186], sp_fortune_rear[186] and sp_fortune_side[186], with source front/rear masks",
+      "limits": "Only this Ford GT conversion is confirmed; other base-slot kits are not certified Ford GT body parts. Powertrain uses the supplied Unbound workbook V6 3.5L 646 HP; chassis mass/grip remain a source-slot game calibration."
+    }
+  ],
+  "legacy_lamp_masks": {
+    "unbound": [
+      63,
+      75,
+      85,
+      121,
+      186,
+      187
+    ],
+    "underground": [
+      7,
+      22,
+      47,
+      101,
+      120,
+      167,
+      183,
+      187,
+      188
+    ]
+  }
+}

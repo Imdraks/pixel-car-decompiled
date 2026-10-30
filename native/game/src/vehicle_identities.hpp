@@ -200,10 +200,10 @@ body=body>=0&&body<191?body:0;
 if(!original)switch(body){
 case 63:{static constexpr VehicleIdentity value{"Porsche 911 Unbound (variante)",true};return value;}
 case 75:{static constexpr VehicleIdentity value{"Hypercar Unbound à identifier",true};return value;}
-case 85:{static constexpr VehicleIdentity value{"Lamborghini Huracán",false};return value;}
+case 85:{static constexpr VehicleIdentity value{"Lamborghini Aventador",false};return value;}
 case 121:{static constexpr VehicleIdentity value{"Hypercar Unbound à identifier",true};return value;}
 case 186:{static constexpr VehicleIdentity value{"Hypercar Unbound à identifier",true};return value;}
-case 187:{static constexpr VehicleIdentity value{"Lamborghini Huracán — variante 188 (probable)",true};return value;}
+case 187:{static constexpr VehicleIdentity value{"Lamborghini Huracán",false};return value;}
 default:break;}
 return OriginalVehicleIdentities[body];
 }

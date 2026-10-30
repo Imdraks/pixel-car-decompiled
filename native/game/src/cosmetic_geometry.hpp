@@ -22,6 +22,8 @@ inline CosmeticFit cosmeticFit(const Profile& p,int id){
     int original=p.contentSource;int part=c->subimage;
     if(c->slot==2){auto frames=spoilerFrames(original,part);return {frames&&frames[p.car].w*frames[p.car].h>1,false};}
     if(c->slot>=4&&c->slot<=7){
+        int baseKit=VehicleCatalog[bodyChoiceIndex(p)].baseKit;
+        if(baseKit&&part!=baseKit)return {false,false};
         if(part==2)return {};
         int available=0,requested=c->slot==4?3:1;
         for(int side=0;side<3;side++)if(c->slot==4||side==c->slot-5){auto frames=kitFrames(original,part,side);available+=frames&&frames[p.car].w*frames[p.car].h>1;}

@@ -11,9 +11,8 @@ inline int vehicleIndex(const std::string& key){
 struct VehicleInventory {
     std::vector<int> cars;
     bool owns(int index)const{return std::find(cars.begin(),cars.end(),index)!=cars.end();}
-    bool add(int index,std::string& error,bool readingLegacy=false){
+    bool add(int index,std::string& error){
         if(index<0||index>=int(std::size(VehicleCatalog))){error="Voiture inconnue.";return false;}
-        if(retiredVehicle(index)&&!readingLegacy){error="Cette voiture a été retirée du jeu.";return false;}
         if(owns(index)){error="Cette voiture est déjà dans votre garage.";return false;}
         if(cars.size()>=GarageCapacity){error="Garage plein : retirez une voiture pour libérer une place (8 maximum).";return false;}
         cars.push_back(index);return true;
@@ -37,7 +36,7 @@ inline bool loadVehicleInventory(const std::filesystem::path& file,VehicleInvent
     while(std::getline(in,line)){
         if(!line.empty()&&line.back()=='\r')line.pop_back();
         if(line=="version=1")version=true;
-        else if(line.rfind("vehicle=",0)==0){if(!next.add(vehicleIndex(line.substr(8)),error,true))return false;}
+        else if(line.rfind("vehicle=",0)==0){if(!next.add(vehicleIndex(line.substr(8)),error))return false;}
         else if(!line.empty()){error="Format de l'inventaire inconnu ; fichier conservé.";return false;}
     }
     if(!in.eof()||!version){error="Inventaire incomplet ; fichier conservé.";return false;}
@@ -45,36 +44,12 @@ inline bool loadVehicleInventory(const std::filesystem::path& file,VehicleInvent
 }
 // One-time migration. Old preparations beyond eight stay archived, never deleted.
 inline VehicleInventory migrateVehicleInventory(const std::filesystem::path& root,const Profile& active){
-    VehicleInventory result;std::string error;if(!retiredVehicle(bodyChoiceIndex(active)))result.add(bodyChoiceIndex(active),error);
+    VehicleInventory result;std::string error;result.add(bodyChoiceIndex(active),error);
     std::vector<std::filesystem::directory_entry> files;
     if(std::filesystem::exists(root))for(const auto& item:std::filesystem::directory_iterator(root))
         if(item.is_regular_file()&&item.path().extension()==".ini"&&vehicleIndex(item.path().stem().string())>=0)files.push_back(item);
     std::sort(files.begin(),files.end(),[](const auto& a,const auto& b){auto ta=a.last_write_time(),tb=b.last_write_time();return ta==tb?a.path().filename()<b.path().filename():ta>tb;});
     for(const auto& item:files){int id=vehicleIndex(item.path().stem().string());if(result.cars.size()<GarageCapacity&&!result.owns(id))result.add(id,error);}
     return result;
-}
-// Retire the unwanted model without deleting user preparations or reusing its ID.
-inline bool retireGallardo(const std::filesystem::path& inventoryFile,const std::filesystem::path& profileFile,
-                          const std::filesystem::path& garage,VehicleInventory& owned,Profile& active,std::string& error){
-    bool replacing=retiredVehicle(bodyChoiceIndex(active));
-    auto next=owned;next.cars.erase(std::remove_if(next.cars.begin(),next.cars.end(),retiredVehicle),next.cars.end());
-    if(!replacing&&next.cars==owned.cars)return true;
-    auto backup=[&](const std::filesystem::path& file){
-        if(!std::filesystem::exists(file))return true;
-        auto copy=file;copy+=".pre-retired-188.bak";
-        if(std::filesystem::exists(copy))return true;
-        std::error_code ec;std::filesystem::copy_file(file,copy,ec);
-        if(ec){error="Archivage de la voiture retirée impossible : "+ec.message();return false;}return true;
-    };
-    if(!backup(inventoryFile)||(replacing&&!backup(profileFile)))return false;
-    Profile replacement=active;
-    if(replacing){
-        if(!storeVehicleProfile(garage,active,error))return false;
-        if(next.cars.empty())replacement=factoryVehicle(0);
-        else if(!loadVehicleProfile(garage,next.cars.front(),replacement,error))return false;
-    }
-    if(!storeVehicleInventory(inventoryFile,next,error))return false;
-    if(replacing&&!saveProfile(profileFile,replacement,error))return false;
-    owned=next;active=replacement;return true;
 }
 }

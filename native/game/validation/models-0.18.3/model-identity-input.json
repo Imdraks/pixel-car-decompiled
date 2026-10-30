@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "post_retirement_garage_does_not_auto_add_cars": true,
+    "huracan_available_in_showroom_and_selectable": true,
+    "huracan_restores_archived_v12_and_rims": true,
+    "aventador_remains_a_separate_owned_model": true,
+    "backups_preserved_exactly": true,
+    "clean_exit_5": true,
+    "both_models_persist_after_restart": true,
+    "old_named_huracan_config_loads_again": true,
+    "ford_gt_2017_is_a_third_distinct_model": true,
+    "ford_visual_variant_and_stock_v6_are_active": true,
+    "named_ford_save_preserves_independent_variant": true,
+    "clean_exit_11": true,
+    "ford_variant_and_three_car_inventory_survive_restart": true,
+    "clean_exit_13": true,
+    "both_stable_per_vehicle_files_preserved": true
+  }
+}

@@ -13,6 +13,7 @@ parser.add_argument('--original', type=Path, default=Path('/workspace/windows-po
 parser.add_argument('--unbound', type=Path, default=Path('/workspace/windows-port/mod-textures'))
 parser.add_argument('--underground', type=Path, default=Path('/workspace/underground/textures'))
 parser.add_argument('--output', type=Path, required=True)
+parser.add_argument('--all-bodies', action='store_true', help='Verify every body/panel frame in the three banks')
 args = parser.parse_args()
 game = Path(__file__).resolve().parents[1]
 args.output.mkdir(parents=True, exist_ok=True)
@@ -66,7 +67,7 @@ for bank in ('original', 'unbound', 'underground'):
                 names[f'Kit_{kid}_{side}'] = 'sp_'+name+'_'+side
     sheet = Image.new('RGB', (1320, 165*(len(kits)+1)), (32, 35, 42))
     draw = ImageDraw.Draw(sheet)
-    for col, body in enumerate((85, 187)):
+    for body in (range(191) if args.all_bodies else (85, 187)):
         for suffix, sprite in names.items():
             raw = normalized(source(sprite, body))
             aid, x, y, w, h, dx, dy, cw, ch = groups[bank+suffix][body]
@@ -77,6 +78,9 @@ for bank in ('original', 'unbound', 'underground'):
             checks.append({'bank': bank, 'body_index': body, 'display_id': body+1,
                            'sprite': sprite, 'native_group': bank+suffix,
                            'rgba_sha256': hashlib.sha256(raw.tobytes()).hexdigest(), 'matched': True})
+        if body not in (85, 187):
+            continue
+        col = 0 if body == 85 else 1
         for row, (kid, name) in enumerate({0: 'stock', **kits}.items()):
             image = source('sp_car', body)
             if kid:
@@ -99,12 +103,19 @@ for bank in ('original', 'unbound', 'underground'):
 report = {'method': 'Texture-hash-verified Android frames compared to active native atlas frames; transparent RGB ignored.',
           'frame_checks': len(checks), 'all_frames_match_their_own_source_index': True,
           'swapped_086_188_frames_found': False,
-          'name_correction': {'display_id': 188, 'source': 'Unbound', 'previous_label': 'Lamborghini Gallardo',
-                              'reviewed_family': 'Lamborghini Huracán', 'confidence': 'probable',
-                              'basis': 'Base body and every kit family visually reviewed together; source has no certified model-name literal.',
-                              'year_and_trim': 'unconfirmed', 'stable_vehicle_id': 'pcr-unbound-187'},
+          'model_identifications': [
+              {'display_id': 86, 'source': 'Unbound', 'model': 'Lamborghini Aventador',
+               'basis': '573 base frames and candidate kit families visually reviewed; Aventador reference photographs.',
+               'confidence': 'visually_reviewed_family', 'year_and_trim': 'unconfirmed', 'stable_vehicle_id': 'pcr-unbound-085'},
+              {'display_id': 188, 'source': 'Unbound', 'model': 'Lamborghini Huracán',
+               'basis': 'User explicitly confirmed the exact extracted 188 base sprite in the supplied image.',
+               'confidence': 'user_confirmed_family', 'year_and_trim': 'unconfirmed', 'stable_vehicle_id': 'pcr-unbound-187'}],
+          'all_frames_digest': hashlib.sha256(json.dumps(checks, sort_keys=True).encode()).hexdigest(),
+          'frame_details_scope': '086/188; frame_checks and digest cover all checked bodies',
           'limitations': ['Pixel identity proves correct frame import, not a manufacturer-certified model identification.',
                          'Sheets reconstruct source body panels; they are not captures of an Android runtime.'],
-          'frames': checks}
+          'frames': [c for c in checks if c['body_index'] in (85, 187)]}
+if (game/'vehicle-variants.json').exists():
+    report['named_conversions'] = json.loads((game/'vehicle-variants.json').read_text())['variants']
 (args.output/'lamborghini-kits-audit.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
 print(f'{len(checks)} source frames match their native counterpart; no 086/188 interchange.')

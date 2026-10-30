@@ -1,6 +1,6 @@
-# Pixel Car Racer — Original / Unbound / Underground Native 0.18.2
+# Pixel Car Racer — Original / Unbound / Underground Native 0.18.3
 
-La **0.18.2** retire la voiture Unbound 188, précédemment nommée Gallardo, du showroom, du garage et des configurations chargeables. Les anciennes préparations restent archivées ; si elle était active, une autre voiture possédée est sélectionnée. La 086 reste disponible. [Détails](LAMBORGHINI-KITS.md).
+La **0.18.3** corrige les deux Lamborghini Unbound : **086 = Aventador**, **188 = Huracán**, cette dernière confirmée par l’image fournie par l’utilisateur. La Huracán retrouve le showroom et les préparations archivées peuvent être rechargées. Les deux modèles conservent leurs kits, identifiants et configurations distincts. [Vérification des sources](LAMBORGHINI-KITS.md). La **Ford GT 2017** issue de la conversion Fortune Unbound 187 est également proposée comme voiture distincte, avec son V6 3.5L du catalogue Unbound, ses configurations et sa silhouette propres. Cette version corrige également les masques de phares hérités qui produisaient des plaques blanches sur les carrosseries remplacées.
 
 La **0.18.1** intègre le morceau **Underground** fourni dans les menus : effet d’enceinte dans Mon garage, même ambiance environ 8 dB plus basse en customisation, et silence en conduite. Le curseur Musique contrôle le tout. [Détails](MENU-MUSIC.md). Elle recadre les quinze décors Original, Unbound et Underground sur leur image utile : les bordures noires intégrées aux images d’origine ne sont plus agrandies avec le fond. Le décor couvre les fenêtres haute, large et 16:9 en conservant ses proportions. Les images sources sont conservées intactes.
 
@@ -8,7 +8,7 @@ La **0.18.0** supprime le bouton d’activation du wheelie : **le curseur Wheeli
 
 La **0.17.1** isole chaque menu de customisation : Moteur / ECU ne donne plus accès aux autres familles, même par raccourci. **Retour / Échap** retrouve le parent. Les jantes ont six filtres de style : **Offroad, Tuner, Muscle, Drag, Luxury, Hyper** (clic ou touches 1–6 ; 0 pour Toutes).
 
-Les fiches ont une provenance unique et les copies identiques sont masquées, sans supprimer les anciennes préparations : **1 663 équipements**, **530 jantes**, **286 choix au showroom**. Les vraies variantes Underground restent distinctes. [Revue du contenu](REVUE-CONTENU.md) · [Catégories de jantes](CLASSIFICATION-JANTES.md).
+Les fiches ont une provenance unique et les copies identiques sont masquées, sans supprimer les anciennes préparations : **1 663 équipements**, **530 jantes**, **288 choix au showroom**. Les vraies variantes Underground restent distinctes. [Revue du contenu](REVUE-CONTENU.md) · [Catégories de jantes](CLASSIFICATION-JANTES.md).
 
 La version **0.17.0** ajoute Underground : **430 variantes de véhicules** et
 **1 826 choix d’équipement**, avec décors et banque audio propres. Les moteurs

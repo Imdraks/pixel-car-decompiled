@@ -25,8 +25,8 @@ void equipRim(Profile& p,int id,int axle){
     if(axle==1&&p.rearRim<0)p.rearRim=p.rim;
     p.rim=id;if(axle==0)p.rearRim=-1;
 }
-int bodyChoiceIndex(const Profile& p){for(size_t i=0;i<std::size(BodyChoices);i++)if(BodyChoices[i].body==p.car&&(BodyChoices[i].source==p.contentSource))return int(i);for(size_t i=0;i<std::size(BodyChoices);i++)if(BodyChoices[i].body==p.car&&(BodyChoices[i].sourceMask&(p.contentSource==2?16:p.contentSource==1?1:2)))return int(i);for(size_t i=0;i<std::size(BodyChoices);i++)if(BodyChoices[i].body==p.car)return int(i);return 0;}
-void cycleBody(Profile& p,int direction){int index=(bodyChoiceIndex(p)+direction+int(std::size(BodyChoices)))%int(std::size(BodyChoices));p.car=BodyChoices[index].body;p.contentSource=BodyChoices[index].source;}
+int bodyChoiceIndex(const Profile& p){for(size_t i=0;i<std::size(VehicleCatalog);i++)if(VehicleCatalog[i].body==p.car&&VehicleCatalog[i].source==p.contentSource&&VehicleCatalog[i].visualVariant==p.visualVariant)return int(i);for(size_t i=0;i<std::size(VehicleCatalog);i++)if(VehicleCatalog[i].body==p.car&&VehicleCatalog[i].visualVariant==p.visualVariant&&(VehicleCatalog[i].sourceMask&(p.contentSource==2?16:p.contentSource==1?1:2)))return int(i);for(size_t i=0;i<std::size(VehicleCatalog);i++)if(VehicleCatalog[i].body==p.car&&VehicleCatalog[i].visualVariant==0)return int(i);return 0;}
+void cycleBody(Profile& p,int direction){int index=(bodyChoiceIndex(p)+direction+int(std::size(VehicleCatalog)))%int(std::size(VehicleCatalog));p.car=VehicleCatalog[index].body;p.contentSource=VehicleCatalog[index].source;p.visualVariant=VehicleCatalog[index].visualVariant;}
 
 bool operator==(const Settings&a,const Settings&b){return a.mode==b.mode&&a.width==b.width&&a.height==b.height&&a.fps==b.fps&&a.vsync==b.vsync&&a.showFps==b.showFps&&a.sound==b.sound&&a.traffic==b.traffic&&a.abs==b.abs&&a.tractionControl==b.tractionControl&&a.quality==b.quality&&a.volumes==b.volumes;}
 const char* modeKey(WindowMode mode){switch(mode){case WindowMode::Fullscreen:return "fullscreen";case WindowMode::Borderless:return "borderless";default:return "windowed";}}
@@ -86,6 +86,8 @@ Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
     (void)rims;p.rollCage=integer(v,"roll_cage",0)!=0;p.headlights=integer(v,"headlights",0)!=0;p.contentSource=std::clamp(integer(v,"content_source",0),0,2);p.audioSource=std::clamp(integer(v,"audio_source",p.contentSource),0,2);
     for(int slot=0;slot<CosmeticSlotCount;slot++){int id=integer(v,"cosmetic_"+std::to_string(slot),0);auto item=findCosmetic(id);if(item&&item->slot==slot)p.cosmetics[slot]=id;}
     p.car=std::clamp(integer(v,"car",0),0,std::max(0,cars-1));
+    p.visualVariant=integer(v,"visual_variant",0);
+    if(!std::any_of(std::begin(VehicleCatalog),std::end(VehicleCatalog),[&](const auto& entry){return entry.body==p.car&&entry.source==p.contentSource&&entry.visualVariant==p.visualVariant;}))p.visualVariant=0;
     p.rim=validRimFrame(integer(v,"rim",8));p.rearRim=integer(v,"rear_rim",-1);if(p.rearRim!=-1&&!isRimFrame(p.rearRim))p.rearRim=-1;p.automatic=integer(v,"automatic",1)!=0;
     p.factoryDrive=integer(v,"factory_drive",v.count("drive")?0:1)!=0;
     int layout=integer(v,"drive",1);p.drive=layout>=0&&layout<=2?DriveLayout(layout):DriveLayout::Rear;
@@ -128,7 +130,7 @@ bool saveProfile(const std::filesystem::path& file,const Profile& raw,std::strin
     std::string name=p.savedName.substr(0,48);name.erase(std::remove_if(name.begin(),name.end(),[](unsigned char c){return c<32||c==127;}),name.end());
     out<<"saved_name="<<name<<'\n';
     out<<"vehicle_id="<<VehicleCatalog[bodyChoiceIndex(p)].id<<"\nfactory_initialized="<<p.factoryInitialized<<"\nfactory_engine_id="<<p.factoryEngineId<<'\n';
-    out<<"version=8\ncar="<<p.car<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
+    out<<"version=9\ncar="<<p.car<<"\nvisual_variant="<<p.visualVariant<<"\nrim="<<p.rim<<"\nautomatic="<<p.automatic<<"\ndrive="<<int(p.drive)<<"\nbest_time="<<std::setprecision(12)<<p.bestTime<<"\n";
     out<<"ride_height_mm="<<p.rideHeightMm<<"\nspring_stiffness="<<p.springStiffness<<"\ndamping_ratio="<<p.dampingRatio<<"\nfront_bias="<<p.frontBias<<"\nallow_wheelie="<<p.allowWheelie<<'\n';
     out<<"wheelie_tune="<<p.wheelieTune<<'\n';
     out<<"rear_rim="<<p.rearRim<<'\n';

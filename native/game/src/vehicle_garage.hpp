@@ -19,7 +19,7 @@ inline bool initializeVehicleFactory(Profile& p){
 }
 inline Profile factoryVehicle(int index){
     index=std::clamp(index,0,int(std::size(VehicleCatalog))-1);const auto& v=VehicleCatalog[index];
-    Profile p;p.car=v.body;p.contentSource=v.source;p.audioSource=v.source;initializeVehicleFactory(p);return p;
+    Profile p;p.car=v.body;p.contentSource=v.source;p.audioSource=v.source;p.visualVariant=v.visualVariant;initializeVehicleFactory(p);return p;
 }
 inline std::filesystem::path vehicleGarageFile(const std::filesystem::path& root,const Profile& p){return root/(vehicleKey(p)+".ini");}
 inline bool backupVehicleProfile(const std::filesystem::path& file,std::string& error){

@@ -8,8 +8,8 @@
       "parts": 8,
       "vehicles": 142
     },
-    "stored_vehicle_ids": 430,
-    "visible_showroom_vehicles": 286,
+    "stored_vehicle_ids": 431,
+    "visible_showroom_vehicles": 288,
     "retired_novelty_vehicle": {
       "id": "pcr-underground-022",
       "reason": "Kart graphic with inherited Smart physics; kept in existing garage saves but not offered as a newly identified automobile."
@@ -18,11 +18,9 @@
     "underground_exclusive_engine_count": 0,
     "new_v12_claimed": false,
     "method": "Pixel-exact visible RGBA after clearing RGB under alpha=0; manual comparison sheets inspected for all changed portable frames and 64 previously flagged car images.",
-    "retired_vehicles": [
-      {
-        "id": "pcr-unbound-187",
-        "reason": "Removed at user request after review of the misidentified Gallardo and its kit variants; preparations archived."
-      }
+    "retired_vehicles": [],
+    "named_visual_conversions": [
+      "pcr-unbound-186-ford-gt-2017"
     ]
   },
   "aliases": {

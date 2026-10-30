@@ -12,7 +12,7 @@ namespace pcr {
 int audioEngineId(const Profile& profile){
     int selected=profile.parts[int(PartSlot::Engine)];
     if(auto* factory=vehicleForStockEngine(selected))return factory->audioEngineId?factory->audioEngineId:selected;
-    return selected?selected:nfsFactoryEngine(profile.car,profile.contentSource);
+    return selected?selected:profile.visualVariant?VehicleCatalog[bodyChoiceIndex(profile)].factoryEngineId:nfsFactoryEngine(profile.car,profile.contentSource);
 }
 EngineSamples engineSamples(const Profile& profile){
     EngineSamples samples;const Part* engine=findPart(audioEngineId(profile));

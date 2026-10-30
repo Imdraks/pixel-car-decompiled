@@ -35,7 +35,7 @@ struct Settings {
     AudioVolumes volumes{};
     Quality quality=Quality::High;
 };
-struct Profile { bool factoryInitialized=false;int factoryEngineId=0;std::string savedName;int car=0, rim=8,rearRim=-1,contentSource=0,audioSource=0;std::array<int,CosmeticSlotCount> cosmetics{};bool rollCage=false,headlights=false,factoryDrive=true; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1;
+struct Profile { bool factoryInitialized=false;int factoryEngineId=0;std::string savedName;int car=0, rim=8,rearRim=-1,contentSource=0,audioSource=0,visualVariant=0;std::array<int,CosmeticSlotCount> cosmetics{};bool rollCage=false,headlights=false,factoryDrive=true; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1;
     int gearboxPreset=0,gearCount=6;std::array<double,10> gearRatios{3.15,2.10,1.55,1.22,1.0,.82,.68,.56,.46,.38};
     double finalDrive=3.9,shiftSeconds=.15;
     double rideHeightMm=0,springStiffness=1,dampingRatio=.65,frontBias=0,wheelieTune=1;bool allowWheelie=false; // Derived legacy mirror; the slider is authoritative.

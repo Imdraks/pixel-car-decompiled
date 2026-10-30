@@ -1,3 +1,13 @@
+# Validation 0.18.3 — modèles identifiés, Ford GT 2017 et phares
+
+- Revue des 573 carrosseries de base Original/Unbound/Underground ; 17 190 images de carrosserie, masques et pièces de kits comparées aux textures Android vérifiées par SHA-256 : tous les pixels visibles concordent avec les atlas actifs du jeu natif.
+- Unbound 086 identifiée visuellement comme Aventador ; Unbound 188 confirmée comme Huracán par l’utilisateur à partir de son image exacte. Année et finition non certifiées. Les autres variantes Underground ne sont pas renommées par analogie de numéro.
+- Retrait erroné de la 188 annulé : deux modèles disponibles séparément au showroom, anciennes préparations et configurations nommées à nouveau chargeables, anciens identifiants et copies de sécurité conservés. Un garage déjà migré ne reçoit pas de voiture automatiquement ; réacquérir la Huracán retrouve sa préparation archivée.
+- Ford GT 2017 : modèle distinct basé sur la conversion Fortune de la 187 Unbound, variante visuelle indépendante enregistrée, moteur V6 3.5L 646 HP du tableau Unbound et son audio V6. Les anciennes préparations du même emplacement restent une autre voiture ; les autres kits de conversion sont incompatibles avec la Ford.
+- Phares : masques repris à l’identique de la voiture Original supprimés uniquement sur les modèles remplacés par les mods ; les nouveaux dessins de phares et les teintes de carrosserie sont conservés. Les deux Lamborghini sont contrôlées sans pixels blancs parasites hors de la silhouette source.
+- **458 contrôles du cœur**, **144 contrôles graphiques**, huit groupes de pixels, deux contrôles de pixels de phares et **15 essais par entrées réelles** réussis. 1 528 compositions auditées ; les changements de pixels restent limités aux six emplacements Unbound dont les modèles ont été remplacés, les autres modèles et la banque Original sont inchangés. Les 676 ressources restent identiques à la 0.18.2. Preuves : `validation/models-0.18.3/`.
+- Script : `tools/audit_lamborghini_kits.py --all-bodies`. Rapport : `../evidence/merged/lamborghini-kits-audit.json`.
+
 # Validation 0.18.2 — retrait de la Gallardo / Unbound 188
 
 - Voiture Unbound 188 retirée du showroom, du garage et des configurations chargeables ; sauvegardes archivées, place libérée, remplacement par une autre voiture possédée ou garage vide. La 086 reste disponible.

@@ -1,18 +1,30 @@
 {
   "method": "Texture-hash-verified Android frames compared to active native atlas frames; transparent RGB ignored.",
-  "frame_checks": 180,
+  "frame_checks": 17190,
   "all_frames_match_their_own_source_index": true,
   "swapped_086_188_frames_found": false,
-  "name_correction": {
-    "display_id": 188,
-    "source": "Unbound",
-    "previous_label": "Lamborghini Gallardo",
-    "reviewed_family": "Lamborghini Huracán",
-    "confidence": "probable",
-    "basis": "Base body and every kit family visually reviewed together; source has no certified model-name literal.",
-    "year_and_trim": "unconfirmed",
-    "stable_vehicle_id": "pcr-unbound-187"
-  },
+  "model_identifications": [
+    {
+      "display_id": 86,
+      "source": "Unbound",
+      "model": "Lamborghini Aventador",
+      "basis": "573 base frames and candidate kit families visually reviewed; Aventador reference photographs.",
+      "confidence": "visually_reviewed_family",
+      "year_and_trim": "unconfirmed",
+      "stable_vehicle_id": "pcr-unbound-085"
+    },
+    {
+      "display_id": 188,
+      "source": "Unbound",
+      "model": "Lamborghini Huracán",
+      "basis": "User explicitly confirmed the exact extracted 188 base sprite in the supplied image.",
+      "confidence": "user_confirmed_family",
+      "year_and_trim": "unconfirmed",
+      "stable_vehicle_id": "pcr-unbound-187"
+    }
+  ],
+  "all_frames_digest": "40b6c4c82d1eb3ffe79869ce32e981612063f0db2ea68b6998504a97301503c9",
+  "frame_details_scope": "086/188; frame_checks and digest cover all checked bodies",
   "limitations": [
     "Pixel identity proves correct frame import, not a manufacturer-certified model identification.",
     "Sheets reconstruct source body panels; they are not captures of an Android runtime."
@@ -1637,6 +1649,22 @@
       "native_group": "undergroundKit_12_side",
       "rgba_sha256": "ab41f5929c37deebfc65c341ecc6fd715ad8cd45895b49317810153fd8b7628d",
       "matched": true
+    }
+  ],
+  "named_conversions": [
+    {
+      "id": "pcr-unbound-186-ford-gt-2017",
+      "name": "2017 Ford GT",
+      "body": 186,
+      "source": 0,
+      "source_mask": 2,
+      "visual_variant": 1,
+      "base_kit": 7,
+      "wheel_front": 162.5,
+      "factory_engine_id": 20077,
+      "identification": "user_confirmed_from_exact_Unbound_187_Fortune_composite",
+      "source_recipe": "sp_car[186] plus sp_fortune_front[186], sp_fortune_rear[186] and sp_fortune_side[186], with source front/rear masks",
+      "limits": "Only this Ford GT conversion is confirmed; other base-slot kits are not certified Ford GT body parts. Powertrain uses the supplied Unbound workbook V6 3.5L 646 HP; chassis mass/grip remain a source-slot game calibration."
     }
   ]
 }
