@@ -1,0 +1,1467 @@
+{
+  "cross_platform_model_pixels_matched": false,
+  "different_pixel_count_cases": 73,
+  "cause": "Shared HeadlightsDrag contains one frame; indexing by body read outside the array. Fixed in 0.19.1.",
+  "cases": [
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-004",
+        "bank": "2",
+        "body": "4",
+        "kit": "11",
+        "visible_pixels": "6266",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-004",
+        "bank": "2",
+        "body": "4",
+        "kit": "11",
+        "visible_pixels": "6274",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-005",
+        "bank": "2",
+        "body": "5",
+        "kit": "11",
+        "visible_pixels": "4621",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-005",
+        "bank": "2",
+        "body": "5",
+        "kit": "11",
+        "visible_pixels": "4655",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-006",
+        "bank": "2",
+        "body": "6",
+        "kit": "11",
+        "visible_pixels": "4859",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-006",
+        "bank": "2",
+        "body": "6",
+        "kit": "11",
+        "visible_pixels": "4872",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-008",
+        "bank": "2",
+        "body": "8",
+        "kit": "11",
+        "visible_pixels": "4793",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-008",
+        "bank": "2",
+        "body": "8",
+        "kit": "11",
+        "visible_pixels": "4814",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-010",
+        "bank": "2",
+        "body": "10",
+        "kit": "11",
+        "visible_pixels": "4263",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-010",
+        "bank": "2",
+        "body": "10",
+        "kit": "11",
+        "visible_pixels": "4280",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-011",
+        "bank": "2",
+        "body": "11",
+        "kit": "11",
+        "visible_pixels": "4241",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-011",
+        "bank": "2",
+        "body": "11",
+        "kit": "11",
+        "visible_pixels": "4264",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-012",
+        "bank": "2",
+        "body": "12",
+        "kit": "11",
+        "visible_pixels": "4270",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-012",
+        "bank": "2",
+        "body": "12",
+        "kit": "11",
+        "visible_pixels": "4283",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-016",
+        "bank": "2",
+        "body": "16",
+        "kit": "11",
+        "visible_pixels": "4930",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-016",
+        "bank": "2",
+        "body": "16",
+        "kit": "11",
+        "visible_pixels": "4933",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-019",
+        "bank": "2",
+        "body": "19",
+        "kit": "11",
+        "visible_pixels": "4501",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-019",
+        "bank": "2",
+        "body": "19",
+        "kit": "11",
+        "visible_pixels": "4506",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-022",
+        "bank": "2",
+        "body": "22",
+        "kit": "11",
+        "visible_pixels": "1515",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-022",
+        "bank": "2",
+        "body": "22",
+        "kit": "11",
+        "visible_pixels": "1546",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-024",
+        "bank": "2",
+        "body": "24",
+        "kit": "11",
+        "visible_pixels": "4503",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-024",
+        "bank": "2",
+        "body": "24",
+        "kit": "11",
+        "visible_pixels": "4514",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-027",
+        "bank": "2",
+        "body": "27",
+        "kit": "11",
+        "visible_pixels": "3793",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-027",
+        "bank": "2",
+        "body": "27",
+        "kit": "11",
+        "visible_pixels": "3803",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-032",
+        "bank": "2",
+        "body": "32",
+        "kit": "11",
+        "visible_pixels": "4078",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-032",
+        "bank": "2",
+        "body": "32",
+        "kit": "11",
+        "visible_pixels": "4103",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-033",
+        "bank": "2",
+        "body": "33",
+        "kit": "11",
+        "visible_pixels": "4090",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-033",
+        "bank": "2",
+        "body": "33",
+        "kit": "11",
+        "visible_pixels": "4098",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-035",
+        "bank": "2",
+        "body": "35",
+        "kit": "11",
+        "visible_pixels": "4866",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-035",
+        "bank": "2",
+        "body": "35",
+        "kit": "11",
+        "visible_pixels": "4893",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-041",
+        "bank": "2",
+        "body": "41",
+        "kit": "11",
+        "visible_pixels": "3546",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-041",
+        "bank": "2",
+        "body": "41",
+        "kit": "11",
+        "visible_pixels": "3560",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-042",
+        "bank": "2",
+        "body": "42",
+        "kit": "11",
+        "visible_pixels": "4964",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-042",
+        "bank": "2",
+        "body": "42",
+        "kit": "11",
+        "visible_pixels": "4983",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-046",
+        "bank": "2",
+        "body": "46",
+        "kit": "11",
+        "visible_pixels": "4541",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-046",
+        "bank": "2",
+        "body": "46",
+        "kit": "11",
+        "visible_pixels": "4546",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-048",
+        "bank": "2",
+        "body": "48",
+        "kit": "11",
+        "visible_pixels": "4106",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-048",
+        "bank": "2",
+        "body": "48",
+        "kit": "11",
+        "visible_pixels": "4137",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-049",
+        "bank": "2",
+        "body": "49",
+        "kit": "11",
+        "visible_pixels": "4301",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-049",
+        "bank": "2",
+        "body": "49",
+        "kit": "11",
+        "visible_pixels": "4327",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-055",
+        "bank": "2",
+        "body": "55",
+        "kit": "11",
+        "visible_pixels": "4633",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-055",
+        "bank": "2",
+        "body": "55",
+        "kit": "11",
+        "visible_pixels": "4659",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-059",
+        "bank": "2",
+        "body": "59",
+        "kit": "11",
+        "visible_pixels": "4363",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-059",
+        "bank": "2",
+        "body": "59",
+        "kit": "11",
+        "visible_pixels": "4368",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-062",
+        "bank": "2",
+        "body": "62",
+        "kit": "11",
+        "visible_pixels": "4884",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-062",
+        "bank": "2",
+        "body": "62",
+        "kit": "11",
+        "visible_pixels": "4891",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-065",
+        "bank": "2",
+        "body": "65",
+        "kit": "11",
+        "visible_pixels": "3413",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-065",
+        "bank": "2",
+        "body": "65",
+        "kit": "11",
+        "visible_pixels": "3423",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-066",
+        "bank": "2",
+        "body": "66",
+        "kit": "11",
+        "visible_pixels": "3817",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-066",
+        "bank": "2",
+        "body": "66",
+        "kit": "11",
+        "visible_pixels": "3831",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-068",
+        "bank": "2",
+        "body": "68",
+        "kit": "11",
+        "visible_pixels": "4110",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-068",
+        "bank": "2",
+        "body": "68",
+        "kit": "11",
+        "visible_pixels": "4115",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-069",
+        "bank": "2",
+        "body": "69",
+        "kit": "11",
+        "visible_pixels": "6142",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-069",
+        "bank": "2",
+        "body": "69",
+        "kit": "11",
+        "visible_pixels": "6146",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-073",
+        "bank": "2",
+        "body": "73",
+        "kit": "11",
+        "visible_pixels": "4383",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-073",
+        "bank": "2",
+        "body": "73",
+        "kit": "11",
+        "visible_pixels": "4429",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-074",
+        "bank": "2",
+        "body": "74",
+        "kit": "11",
+        "visible_pixels": "4493",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-074",
+        "bank": "2",
+        "body": "74",
+        "kit": "11",
+        "visible_pixels": "4518",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-075",
+        "bank": "2",
+        "body": "75",
+        "kit": "11",
+        "visible_pixels": "5130",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-075",
+        "bank": "2",
+        "body": "75",
+        "kit": "11",
+        "visible_pixels": "5135",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-076",
+        "bank": "2",
+        "body": "76",
+        "kit": "11",
+        "visible_pixels": "4942",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-076",
+        "bank": "2",
+        "body": "76",
+        "kit": "11",
+        "visible_pixels": "4953",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-081",
+        "bank": "2",
+        "body": "81",
+        "kit": "11",
+        "visible_pixels": "5847",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-081",
+        "bank": "2",
+        "body": "81",
+        "kit": "11",
+        "visible_pixels": "5848",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-084",
+        "bank": "2",
+        "body": "84",
+        "kit": "11",
+        "visible_pixels": "4880",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-084",
+        "bank": "2",
+        "body": "84",
+        "kit": "11",
+        "visible_pixels": "4896",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-086",
+        "bank": "2",
+        "body": "86",
+        "kit": "11",
+        "visible_pixels": "4560",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-086",
+        "bank": "2",
+        "body": "86",
+        "kit": "11",
+        "visible_pixels": "4565",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-087",
+        "bank": "2",
+        "body": "87",
+        "kit": "11",
+        "visible_pixels": "4552",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-087",
+        "bank": "2",
+        "body": "87",
+        "kit": "11",
+        "visible_pixels": "4553",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-091",
+        "bank": "2",
+        "body": "91",
+        "kit": "11",
+        "visible_pixels": "3705",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-091",
+        "bank": "2",
+        "body": "91",
+        "kit": "11",
+        "visible_pixels": "3719",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-100",
+        "bank": "2",
+        "body": "100",
+        "kit": "11",
+        "visible_pixels": "4456",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-100",
+        "bank": "2",
+        "body": "100",
+        "kit": "11",
+        "visible_pixels": "4465",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-101",
+        "bank": "2",
+        "body": "101",
+        "kit": "11",
+        "visible_pixels": "3757",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-101",
+        "bank": "2",
+        "body": "101",
+        "kit": "11",
+        "visible_pixels": "3763",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-103",
+        "bank": "2",
+        "body": "103",
+        "kit": "11",
+        "visible_pixels": "4855",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-103",
+        "bank": "2",
+        "body": "103",
+        "kit": "11",
+        "visible_pixels": "4869",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-108",
+        "bank": "2",
+        "body": "108",
+        "kit": "11",
+        "visible_pixels": "5096",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-108",
+        "bank": "2",
+        "body": "108",
+        "kit": "11",
+        "visible_pixels": "5121",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-110",
+        "bank": "2",
+        "body": "110",
+        "kit": "11",
+        "visible_pixels": "5040",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-110",
+        "bank": "2",
+        "body": "110",
+        "kit": "11",
+        "visible_pixels": "5041",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-116",
+        "bank": "2",
+        "body": "116",
+        "kit": "11",
+        "visible_pixels": "4704",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-116",
+        "bank": "2",
+        "body": "116",
+        "kit": "11",
+        "visible_pixels": "4707",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-117",
+        "bank": "2",
+        "body": "117",
+        "kit": "11",
+        "visible_pixels": "4860",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-117",
+        "bank": "2",
+        "body": "117",
+        "kit": "11",
+        "visible_pixels": "4862",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-125",
+        "bank": "2",
+        "body": "125",
+        "kit": "11",
+        "visible_pixels": "5181",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-125",
+        "bank": "2",
+        "body": "125",
+        "kit": "11",
+        "visible_pixels": "5190",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-126",
+        "bank": "2",
+        "body": "126",
+        "kit": "11",
+        "visible_pixels": "4292",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-126",
+        "bank": "2",
+        "body": "126",
+        "kit": "11",
+        "visible_pixels": "4293",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-127",
+        "bank": "2",
+        "body": "127",
+        "kit": "11",
+        "visible_pixels": "4261",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-127",
+        "bank": "2",
+        "body": "127",
+        "kit": "11",
+        "visible_pixels": "4278",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-134",
+        "bank": "2",
+        "body": "134",
+        "kit": "11",
+        "visible_pixels": "3227",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-134",
+        "bank": "2",
+        "body": "134",
+        "kit": "11",
+        "visible_pixels": "3232",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-135",
+        "bank": "2",
+        "body": "135",
+        "kit": "11",
+        "visible_pixels": "4459",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-135",
+        "bank": "2",
+        "body": "135",
+        "kit": "11",
+        "visible_pixels": "4469",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-137",
+        "bank": "2",
+        "body": "137",
+        "kit": "11",
+        "visible_pixels": "3728",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-137",
+        "bank": "2",
+        "body": "137",
+        "kit": "11",
+        "visible_pixels": "3734",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-139",
+        "bank": "2",
+        "body": "139",
+        "kit": "11",
+        "visible_pixels": "3951",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-139",
+        "bank": "2",
+        "body": "139",
+        "kit": "11",
+        "visible_pixels": "3953",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-140",
+        "bank": "2",
+        "body": "140",
+        "kit": "11",
+        "visible_pixels": "3875",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-140",
+        "bank": "2",
+        "body": "140",
+        "kit": "11",
+        "visible_pixels": "3900",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-142",
+        "bank": "2",
+        "body": "142",
+        "kit": "11",
+        "visible_pixels": "3426",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-142",
+        "bank": "2",
+        "body": "142",
+        "kit": "11",
+        "visible_pixels": "3435",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-143",
+        "bank": "2",
+        "body": "143",
+        "kit": "11",
+        "visible_pixels": "3805",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-143",
+        "bank": "2",
+        "body": "143",
+        "kit": "11",
+        "visible_pixels": "3807",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-147",
+        "bank": "2",
+        "body": "147",
+        "kit": "11",
+        "visible_pixels": "4778",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-147",
+        "bank": "2",
+        "body": "147",
+        "kit": "11",
+        "visible_pixels": "4792",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-149",
+        "bank": "2",
+        "body": "149",
+        "kit": "11",
+        "visible_pixels": "5022",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-149",
+        "bank": "2",
+        "body": "149",
+        "kit": "11",
+        "visible_pixels": "5029",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-154",
+        "bank": "2",
+        "body": "154",
+        "kit": "11",
+        "visible_pixels": "4036",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-154",
+        "bank": "2",
+        "body": "154",
+        "kit": "11",
+        "visible_pixels": "4042",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-155",
+        "bank": "2",
+        "body": "155",
+        "kit": "11",
+        "visible_pixels": "4336",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-155",
+        "bank": "2",
+        "body": "155",
+        "kit": "11",
+        "visible_pixels": "4339",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-159",
+        "bank": "2",
+        "body": "159",
+        "kit": "11",
+        "visible_pixels": "4049",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-159",
+        "bank": "2",
+        "body": "159",
+        "kit": "11",
+        "visible_pixels": "4058",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-160",
+        "bank": "2",
+        "body": "160",
+        "kit": "11",
+        "visible_pixels": "4494",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-160",
+        "bank": "2",
+        "body": "160",
+        "kit": "11",
+        "visible_pixels": "4495",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-161",
+        "bank": "2",
+        "body": "161",
+        "kit": "11",
+        "visible_pixels": "3942",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-161",
+        "bank": "2",
+        "body": "161",
+        "kit": "11",
+        "visible_pixels": "4007",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-168",
+        "bank": "2",
+        "body": "168",
+        "kit": "11",
+        "visible_pixels": "3338",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-168",
+        "bank": "2",
+        "body": "168",
+        "kit": "11",
+        "visible_pixels": "3350",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-169",
+        "bank": "2",
+        "body": "169",
+        "kit": "11",
+        "visible_pixels": "2851",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-169",
+        "bank": "2",
+        "body": "169",
+        "kit": "11",
+        "visible_pixels": "2857",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-172",
+        "bank": "2",
+        "body": "172",
+        "kit": "11",
+        "visible_pixels": "5965",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-172",
+        "bank": "2",
+        "body": "172",
+        "kit": "11",
+        "visible_pixels": "5972",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-175",
+        "bank": "2",
+        "body": "175",
+        "kit": "11",
+        "visible_pixels": "5043",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-175",
+        "bank": "2",
+        "body": "175",
+        "kit": "11",
+        "visible_pixels": "5088",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-176",
+        "bank": "2",
+        "body": "176",
+        "kit": "11",
+        "visible_pixels": "5436",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-176",
+        "bank": "2",
+        "body": "176",
+        "kit": "11",
+        "visible_pixels": "5469",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-177",
+        "bank": "2",
+        "body": "177",
+        "kit": "11",
+        "visible_pixels": "4202",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-177",
+        "bank": "2",
+        "body": "177",
+        "kit": "11",
+        "visible_pixels": "4206",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-179",
+        "bank": "2",
+        "body": "179",
+        "kit": "11",
+        "visible_pixels": "5042",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-179",
+        "bank": "2",
+        "body": "179",
+        "kit": "11",
+        "visible_pixels": "5077",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-182",
+        "bank": "2",
+        "body": "182",
+        "kit": "11",
+        "visible_pixels": "3693",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-182",
+        "bank": "2",
+        "body": "182",
+        "kit": "11",
+        "visible_pixels": "3738",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-183",
+        "bank": "2",
+        "body": "183",
+        "kit": "11",
+        "visible_pixels": "4003",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-183",
+        "bank": "2",
+        "body": "183",
+        "kit": "11",
+        "visible_pixels": "4009",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-184",
+        "bank": "2",
+        "body": "184",
+        "kit": "11",
+        "visible_pixels": "5800",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-184",
+        "bank": "2",
+        "body": "184",
+        "kit": "11",
+        "visible_pixels": "5811",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-185",
+        "bank": "2",
+        "body": "185",
+        "kit": "11",
+        "visible_pixels": "4151",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-185",
+        "bank": "2",
+        "body": "185",
+        "kit": "11",
+        "visible_pixels": "4168",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-188",
+        "bank": "2",
+        "body": "188",
+        "kit": "11",
+        "visible_pixels": "4327",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-188",
+        "bank": "2",
+        "body": "188",
+        "kit": "11",
+        "visible_pixels": "4332",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    },
+    {
+      "linux": {
+        "vehicle_id": "pcr-underground-190",
+        "bank": "2",
+        "body": "190",
+        "kit": "11",
+        "visible_pixels": "4533",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      },
+      "windows": {
+        "vehicle_id": "pcr-underground-190",
+        "bank": "2",
+        "body": "190",
+        "kit": "11",
+        "visible_pixels": "4536",
+        "exhaust_cases": "51",
+        "cosmetic_cases": "735"
+      }
+    }
+  ]
+}

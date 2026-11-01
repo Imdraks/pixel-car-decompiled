@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "custom-accueil.png": true,
+    "custom-menu-style.png": true,
+    "custom-menu-carrosserie.png": true,
+    "custom-menu-elements.png": true,
+    "custom-menu-peinture.png": true,
+    "custom-menu-performance.png": true,
+    "stance_is_unsaved_draft": true,
+    "large_vehicle_on_right_of_navigation": true,
+    "left_landing_menu_visible": true,
+    "no_parts_carousel_on_initial_menu": true,
+    "photo_mode_hides_navigation": true
+  },
+  "hero_blue_pixels": 33808,
+  "landing_menu_bright_pixels": 5681,
+  "hidden_menu_bright_pixels": 0
+}

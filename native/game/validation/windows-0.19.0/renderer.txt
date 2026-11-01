@@ -1,0 +1,1 @@
+Test-only Mesa 26.2.4, SHA256 351fc8c8b695878ffb3eaa044b3ead08672a48b1a045e3c3e3975811df0f6695. These DLLs are not distributed in the game.

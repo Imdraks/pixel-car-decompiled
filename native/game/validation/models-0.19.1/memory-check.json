@@ -1,0 +1,11 @@
+{
+  "normal_and_sanitized_kit_hashes_identical": 5588,
+  "address_sanitizer_errors": 0,
+  "undefined_behavior_sanitizer_errors": 0,
+  "leak_detection_enabled": false,
+  "shared_drag_headlight_frames_per_bank": 1,
+  "compiler_flags": "-O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer",
+  "sanitizer_log_sha256": "6d97acab54957cb136b2499940dfe4af8dbfe2c26873f5830d62e6c808df6bef",
+  "source_arrays_checked": "Cars, Front, Rear, all kits, rollcages, all spoilers and all head/tail lamps; only HeadlightsDrag is a single-frame body layer",
+  "windows_comparison_required_before_publication": true
+}

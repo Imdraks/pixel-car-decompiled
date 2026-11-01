@@ -76,6 +76,8 @@ public:
         };
         auto tailFor=[&](int bank){return rearKit==7?content_art::TaillightsFortune(bank):rearKit==12?content_art::TaillightsTuner(bank):content_art::Taillights(bank);};
         const auto* headFrames=headFor(original);const auto* tailFrames=tailFor(original);
+        // sp_headlights_drag has one shared frame in all three source banks.
+        int headIndex=frontKit==11?0:p.car;
         auto lights=[&](const art::Frame& frame,int tint,bool isTail){
             Image layer=image(frame);auto px=static_cast<Color*>(layer.data);
             for(int i=0;i<layer.width*layer.height;i++){
@@ -105,7 +107,7 @@ public:
             return outside>=3&&outside*2>total;
         };
         if(!baseKit){
-            if(!borrowedOutside(headFrames[p.car],headFor(1)[p.car]))lights(headFrames[p.car],head,false);
+            if(!borrowedOutside(headFrames[headIndex],headFor(1)[headIndex]))lights(headFrames[headIndex],head,false);
             if(!borrowedOutside(tailFrames[p.car],tailFor(1)[p.car]))lights(tailFrames[p.car],tail,true);
         }
         int spoiler=cosmeticSubimage(p,2);

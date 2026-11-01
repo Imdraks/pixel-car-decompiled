@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Draft native release tag
         required: true
-        default: v0.19.0-native-preview
+        default: v0.19.1-native-preview
       archive_sha256:
         description: SHA-256 of the exact Windows ZIP
         required: true
@@ -543,6 +543,10 @@ jobs:
           if ($report.body_banks_checked -ne 382 -or $report.cosmetic_cases_checked -ne 280770 -or $report.full_body_renders -ne 1528 -or $report.generic_mounts_checked -ne 27122 -or $report.hood_cases_checked -ne 14898 -or $report.android_full_render_equivalence) { throw 'Customization rendering coverage differs' }
           $models = Get-Content "$out/model-fit.json" -Raw | ConvertFrom-Json
           if ($models.models_checked -ne 431 -or $models.rendered_kit_combinations -ne 5588 -or $models.exhaust_placements_checked -ne 284988 -or $models.cosmetic_compatibilities_checked -ne 316785 -or !$models.includes_underground_and_named_variants) { throw 'Full model customization coverage differs' }
+          $linuxRows = Get-Content "$env:RUNNER_TEMP\pcr-native-app\validation-linux-model-fit.csv"
+          $windowsRows = Get-Content "$out/model-fit.csv"
+          if ($linuxRows.Count -ne 5589 -or $windowsRows.Count -ne 5589 -or [string]::Join("`n",$linuxRows) -cne [string]::Join("`n",$windowsRows)) { throw 'Body kit pixels differ from the Linux candidate reference' }
+
       - name: Collect Windows validation
         if: always()
         shell: pwsh

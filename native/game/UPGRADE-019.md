@@ -1,4 +1,4 @@
-# Version 0.19.0 : moteurs, pneus et commandes PC
+# Versions 0.19.0 / 0.19.1 : moteurs, pneus et commandes PC
 
 Les dix fiches calibrées sont déclarées dans `vehicle-variants.json`. Les noms,
 identifiants de voiture et recettes visuelles restent stables.
@@ -95,3 +95,13 @@ encore incertaines restent à identifier, sans leur inventer un nom.
 La comparaison avant équipement affiche désormais puissance, poids, adhérence et
 variation du temps de passage des rapports. Elle reste limitée à la catégorie
 ouverte dans l'arborescence de customisation.
+
+## Correctif 0.19.1 : phare DRAG PRO universel
+
+Les trois sprites `HeadlightsDrag` contiennent **une seule image**, commune aux
+carrosseries. Le rendu doit choisir l'image zéro, pas l'indice de la carrosserie.
+La revue supplémentaire de la 0.19.0 a détecté 73 différences de nombre de pixels
+entre Linux et Windows sur les kits DRAG PRO Underground : l'ancien accès lisait
+hors du tableau. La 0.19.1 corrige cet accès et l'audit enregistre désormais une
+empreinte RGBA sur chacune des 5588 compositions pour contrôler leur identité.
+Les images d'origine ne sont pas retouchées.

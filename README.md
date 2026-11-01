@@ -1,12 +1,14 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.19.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.19.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.19.0-native-preview)
+**[Télécharger Windows x64 — version 0.19.1](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.19.1-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.19.1-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+La **0.19.1** corrige la sélection du phare universel DRAG PRO et ajoute une empreinte des pixels pour chacune des 5588 compositions de kits, afin de comparer leur rendu entre Linux et Windows.
 
 La **0.19.0** corrige les moteurs des modèles confirmés (dont V10/V12 Lamborghini), protège les préparations existantes, ajoute la température des pneus à l’adhérence et les commandes clavier réassignables avec prise en charge manette. La comparaison des pièces inclut poids, grip et passages de rapports ; l’audit couvre les trois banques et les variantes nommées. [Détails et limites](native/game/UPGRADE-019.md).
 

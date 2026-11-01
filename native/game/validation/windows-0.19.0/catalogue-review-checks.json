@@ -1,0 +1,13 @@
+{
+  "categories": {
+    "luxury": 51,
+    "tuner": 329,
+    "drag": 30,
+    "muscle": 42,
+    "hyper": 70,
+    "offroad": 8
+  },
+  "scoped_engine_tabs": 2,
+  "visible_rims": 530,
+  "single_origin": true
+}

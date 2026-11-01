@@ -72,7 +72,7 @@ inline void checkCustomization(const std::filesystem::path& assets,const std::fi
         }
         if(cases!=int(std::size(CosmeticCatalog))*382||renders!=1528||mounts!=27122||hoodCases!=14898)throw std::runtime_error("Couverture de personnalisation incomplète.");
         std::ofstream report(output/"customization-audit.json");report<<"{\n  \"body_banks_checked\": 382,\n  \"cosmetic_cases_checked\": "<<cases<<",\n  \"unsupported_choices\": "<<unsupported<<",\n  \"partial_choices\": "<<partial<<",\n  \"generic_mounts_checked\": "<<mounts<<",\n  \"full_body_renders\": "<<renders<<",\n  \"hood_cases_checked\": "<<hoodCases<<",\n  \"hood_fallback_cases\": "<<hoodFallbacks<<",\n  \"android_full_render_equivalence\": false\n}\n";
-        std::ofstream models(output/"model-fit.csv");models<<"vehicle_id,bank,body,kit,visible_pixels,exhaust_cases,cosmetic_cases\n";
+        std::ofstream models(output/"model-fit.csv");models<<"vehicle_id,bank,body,kit,visible_pixels,rgba_fnv64,exhaust_cases,cosmetic_cases\n";
         int modelRenders=0,modelPipes=0,modelCosmetics=0,modelCount=0;
         Image modelSheet{};
         for(int vi=0;vi<int(std::size(VehicleCatalog));vi++){
@@ -100,6 +100,9 @@ inline void checkCustomization(const std::filesystem::path& assets,const std::fi
                 }
                 for(int y=0;y<composed.height;y++)for(int x=0;x<composed.width;x++)visible+=GetImageColor(composed,x,y).a>128;
                 if(visible<100){UnloadImage(composed);throw std::runtime_error("Variante de modèle vide.");}
+                std::uint64_t modelHash=1469598103934665603ull;
+                const auto* bytes=static_cast<const unsigned char*>(composed.data);
+                for(int i=0;i<composed.width*composed.height*4;i++){modelHash^=bytes[i];modelHash*=1099511628211ull;}
                 UnloadImage(composed);++modelRenders;
                 for(int pipe=0;pipe<int(std::size(art::pipeLayouts));pipe++){
                     auto fit=installedExhaust(p,pipe,0);
@@ -107,7 +110,7 @@ inline void checkCustomization(const std::filesystem::path& assets,const std::fi
                     for(int i=0;i<fit.count;i++)if(!std::isfinite(fit.outlets[i].x)||!std::isfinite(fit.outlets[i].y))throw std::runtime_error("Bouche de pot invalide.");
                     ++modelPipes;
                 }
-                models<<def.id<<','<<def.source<<','<<def.body<<','<<kit<<','<<visible<<','<<std::size(art::pipeLayouts)<<','<<std::size(CosmeticCatalog)<<'\n';
+                models<<def.id<<','<<def.source<<','<<def.body<<','<<kit<<','<<visible<<','<<modelHash<<','<<std::size(art::pipeLayouts)<<','<<std::size(CosmeticCatalog)<<'\n';
             }
             if(vi%24==23||vi==int(std::size(VehicleCatalog))-1){
                 if(!ExportImage(modelSheet,(output/("models-"+std::to_string(vi/24)+".png")).u8string().c_str()))throw std::runtime_error("Export des modèles impossible.");

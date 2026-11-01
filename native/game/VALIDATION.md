@@ -1,5 +1,14 @@
 # Validation 0.18.3 — modèles identifiés, Ford GT 2017 et phares
 
+## 0.19.1 — phare DRAG PRO universel et contrôle mémoire
+
+Les tableaux `HeadlightsDrag` contiennent une image par banque. Le correctif choisit l’image zéro : l’indice de carrosserie provoquait une lecture hors tableau. La comparaison supplémentaire de la 0.19.0 avait révélé 73 différences de nombre de pixels sur Underground ; elles sont archivées dans `validation/windows-0.19.0/model-fit-discrepancies.json`.
+
+La 0.19.1 repasse les **471 tests du cœur**, **145 graphiques**, huit suites de pixels et **37 essais clavier/souris**. Les **5588 compositions** ont des empreintes RGBA identiques entre le rendu Linux normal et le rendu sous **AddressSanitizer / UndefinedBehaviorSanitizer**, sans erreur détectée. Les vérifications mémoire et le repérage des images uniques couvrent les trois banques. Preuves : `validation/models-0.19.1/` ; référence complète : `validation/render-reference/`.
+
+La publication exige désormais aussi l’identité de ces 5588 empreintes entre le candidat Linux et Windows. Les moteurs, pneus thermiques, commandes et sauvegardes de la 0.19.0 sont conservés.
+
+
 ## 0.19.0 — moteurs, pneus, commandes et revue des trois banques
 
 - **471 contrôles du cœur**, **145 contrôles graphiques**, huit suites de pixels et **37 essais clavier/souris réels** sous Linux. Les affectations V10/V12, les anciennes valeurs des moteurs préparés, les migrations des voitures d’origine, les touches réassignées et leur persistance sont contrôlées.
