@@ -1,4 +1,6 @@
-# Pixel Car Racer — Original / Unbound / Underground Native 0.18.3
+# Pixel Car Racer — Original / Unbound / Underground Native 0.19.0
+
+La **0.19.0** corrige les moteurs des modèles confirmés (dont V10/V12 Lamborghini), protège les préparations existantes, ajoute la température des pneus à l’adhérence et les commandes clavier réassignables avec prise en charge manette. La comparaison des pièces inclut poids, grip et passages de rapports ; l’audit couvre les trois banques et les variantes nommées. [Détails et limites](UPGRADE-019.md).
 
 La **0.18.3** corrige les deux Lamborghini Unbound : **086 = Aventador**, **188 = Huracán**, cette dernière confirmée par l’image fournie par l’utilisateur. La Huracán retrouve le showroom et les préparations archivées peuvent être rechargées. Les deux modèles conservent leurs kits, identifiants et configurations distincts. [Vérification des sources](LAMBORGHINI-KITS.md). La **Ford GT 2017** issue de la conversion Fortune Unbound 187 est également proposée comme voiture distincte, avec son V6 3.5L du catalogue Unbound, ses configurations et sa silhouette propres. Cette version corrige également les masques de phares hérités qui produisaient des plaques blanches sur les carrosseries remplacées.
 

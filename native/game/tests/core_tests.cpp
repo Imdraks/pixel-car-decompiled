@@ -872,13 +872,13 @@ int main(int argc,char**argv){
     bool everyStockValid=true;std::array<int,3> stockLayouts{};int stockCount=0;
     std::ofstream stockTelemetry(root/"stock-vehicle-physics.csv");stockTelemetry<<"body,mass_kg,stock_hp,redline_rpm,layout,grip_native,speed_after_10s_kmh,seconds_100_0,metres_100_0\n";
     for(int body=0;body<191;body++){
-        Profile p;p.car=body;p.contentSource=1;auto b=buildVehicle(p);const auto& raw=stockVehicle(body);CarState launch,stop;stop.speed=100/3.6;double brakeTime=0,brakeStart=stop.position;
+        Profile p;p.car=body;p.contentSource=1;auto b=buildVehicle(p);CarState launch,stop;stop.speed=100/3.6;double brakeTime=0,brakeStart=stop.position;
         for(int tick=0;tick<1200;tick++){stepCar(launch,b.vehicle,{true,false,true},Step,0);if(stop.speed>0){stepCar(stop,b.vehicle,{false,true,true},Step,0);brakeTime+=Step;}}
-        everyStockValid&=std::isfinite(launch.speed)&&launch.speed>0&&stop.speed==0&&std::abs(b.baseHp-raw.hp)<1e-7&&std::abs(b.vehicle.mass-raw.weightLb*.45359237)<1e-7;
+        everyStockValid&=std::isfinite(launch.speed)&&launch.speed>0&&stop.speed==0&&std::abs(b.baseHp-vehicleMechanics(p).hp)<1e-7&&std::abs(b.vehicle.mass-vehicleMechanics(p).weightLb*.45359237)<1e-7;
         ++stockLayouts[int(b.vehicle.drive)];++stockCount;
         stockTelemetry<<body<<','<<b.vehicle.mass<<','<<b.baseHp<<','<<b.vehicle.redlineRpm<<','<<int(b.vehicle.drive)<<','<<b.vehicle.grip<<','<<launch.speed*3.6<<','<<brakeTime<<','<<stop.position-brakeStart<<'\n';
     }
-    expect(everyStockValid&&stockCount==191&&stockLayouts==std::array<int,3>{33,126,32},"all 191 source chassis accelerate, brake to rest and preserve their own power/mass and 33 FWD/126 RWD/32 AWD layouts");
+    expect(everyStockValid&&stockCount==191&&stockLayouts==std::array<int,3>{33,126,32},"all 191 source chassis accelerate, brake to rest and preserve reviewed per-model power/mass and 33 FWD/126 RWD/32 AWD layouts");
     CarState littleRun,bigRun;littleRun.speed=bigRun.speed=50/3.6;littleRun.gear=bigRun.gear=3;
     for(int tick=0;tick<600;tick++){stepCar(littleRun,small.vehicle,{true,false,true},Step,0);stepCar(bigRun,awdStock.vehicle,{true,false,true},Step,0);}
     expect(bigRun.speed>littleRun.speed+5,"different recovered stock cars produce meaningfully different rolling acceleration");
@@ -1195,6 +1195,33 @@ int main(int argc,char**argv){
     expect(loadedFlags.rollCage&&loadedFlags.headlights&&loadedFlags.audioSource==1&&loadedFlags.contentSource==0,"cage, headlights and independent audio source survive reload");
     {std::ofstream out(root/"legacy-seat.ini");out<<"version=1\ncontent_source=1\ncosmetic_9=109001\npart_engine=1002\n";}
     auto legacySeat=loadProfile(root/"legacy-seat.ini",191,54);expect(legacySeat.cosmetics[9]==309001&&legacySeat.audioSource==1&&legacySeat.parts[0]==1002,"legacy original bank seats and sound migrate without changing the installed engine");
+    {
+        auto av=factoryVehicle(85),hu=factoryVehicle(187),ford=factoryVehicle(430);
+        expect(av.parts[0]==1503&&hu.parts[0]==1502&&audioEngineId(av)==1503&&audioEngineId(hu)==1502,"identified Lamborghinis receive existing V12/V10 physical audio packs and factory engines");
+        expect(buildVehicle(av).vehicle.drive==DriveLayout::All&&buildVehicle(hu).vehicle.drive==DriveLayout::All&&buildVehicle(ford).vehicle.drive==DriveLayout::Rear,"confirmed supercar chassis use AWD Lamborghini and RWD Ford layouts");
+        expect(std::abs(buildVehicle(hu).vehicle.wheelbase-2.62)<1e-8&&std::abs(buildVehicle(av).vehicle.frontWeightFraction-.43)<1e-8,"reviewed supercars use their own wheelbase and rearward static mass balance");
+        Profile old;old.car=85;old.factoryInitialized=true;old.factoryEngineId=30085;old.parts[0]=30085;
+        expect(initializeVehicleFactory(old)&&old.parts[0]==1503,"untouched old source-slot factory engine migrates to the corrected V12");
+        old.car=187;old.factoryEngineId=30187;old.parts[0]=30187;old.parts[2]=3026;old.gearCount=8;auto savedParts=old.parts;
+        initializeVehicleFactory(old);expect(old.parts==savedParts&&old.gearCount==8,"existing tuned powertrains and gearbox settings are never silently replaced");
+        expect(buildVehicle(old).engineHp==stockVehicle(187).hp&&engineRedline(old)==stockVehicle(187).redlineRpm&&audioEngineId(old)==30187,"legacy installed source-slot engine retains its previous power, rev limit and fallback sound after calibration");
+        Settings keys;keys.keys[0]=88;keys.gamepadDeadzone=.27;keys.gamepad=false;saveSettings(root/"controls.ini",keys,error);
+        auto loaded=loadSettings(root/"controls.ini");expect(loaded.keys==keys.keys&&loaded.gamepadDeadzone==.27&&!loaded.gamepad,"custom keyboard binding, controller switch and deadzone survive restart");
+        keys.keys[1]=keys.keys[0];expect(validate(keys).keys==DefaultKeys,"corrupt duplicate bindings restore an operable default scheme");
+        expect(tyreTemperatureGrip(75)>tyreTemperatureGrip(25)&&tyreTemperatureGrip(170)<tyreTemperatureGrip(75),"tyres gain adhesion near operating temperature and lose it when overheated");
+        Profile p;p.factoryDrive=false;p.drive=DriveLayout::Rear;equipPart(p,PartSlot::Engine,1514);auto v=buildVehicle(p).vehicle;v.tractionControl=false;
+        CarState burn,neutral;for(int tick=0;tick<1200;tick++){stepCar(burn,v,{true,true,false},Step,0);stepCar(neutral,v,{true,false,false,false,false,false,true},Step,0);}
+        expect(burn.rearTyreC>burn.frontTyreC+10&&burn.rearTyreC<=180&&neutral.rearTyreC==25,"RWD burnout heats the spinning rear tyres while revving in neutral does not heat tyres");
+        double hot=burn.rearTyreC;for(int tick=0;tick<1200;tick++)stepCar(burn,v,{},Step,0);
+        expect(burn.rearTyreC<hot&&burn.rearTyreC>=25,"tyres cool progressively after the burnout without falling below ambient");
+        v.tractionControl=true;CarState half,full;DriverInput partial{true,false,false};partial.throttleAmount=.10;
+        for(int tick=0;tick<120;tick++){stepCar(half,v,partial,Step,0);stepCar(full,v,{true,false,false},Step,0);}
+        expect(full.speed>half.speed&&half.speed>0,"analogue throttle changes delivered wheel force without binary full-throttle jumps");
+        CarState light,hard;light.speed=hard.speed=30;DriverInput braking{false,true,false};braking.brakeAmount=.25;v.abs=true;
+        for(int tick=0;tick<60;tick++){stepCar(light,v,braking,Step,0);stepCar(hard,v,{false,true,false},Step,0);}
+        expect(hard.speed<light.speed,"analogue braking preserves independent ABS regulation");
+        std::ofstream out(root/"upgrade-019.json");out<<"{\"passed\":true,\"factory_v10_v12_checked\":true,\"customized_saves_preserved\":true,\"burnout_rear_temperature_c\":"<<hot<<",\"neutral_temperature_c\":"<<neutral.rearTyreC<<",\"analogue_controls_checked\":true}\n";
+    }
     checkDrivingPhysics(root);
     expect(easeLinear(0,5,10,2)==5&&easeLinear(2,5,10,2)==15,"reconstructed numeric easing endpoints");
     std::cout<<"PASS: "<<checks<<" checks; quarter mile "<<reference.finishTime<<" s; endless distance "<<simulated(60,true).position<<" m\n";

@@ -29,6 +29,8 @@
       "factory_engine_id": 30000,
       "fallback_factory_engine_id": 30000,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 949.82242278,
@@ -60,6 +62,8 @@
       "factory_engine_id": 30001,
       "fallback_factory_engine_id": 30001,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1006.9750614000001,
@@ -91,6 +95,8 @@
       "factory_engine_id": 20005,
       "fallback_factory_engine_id": 30002,
       "nfs_origin_reference": 20005,
+      "factory_reference_engine_id": 20005,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1480.0719033100002,
@@ -122,6 +128,8 @@
       "factory_engine_id": 20064,
       "fallback_factory_engine_id": 30003,
       "nfs_origin_reference": 20064,
+      "factory_reference_engine_id": 20064,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -153,6 +161,8 @@
       "factory_engine_id": 30004,
       "fallback_factory_engine_id": 30004,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1086.35372615,
@@ -184,6 +194,8 @@
       "factory_engine_id": 30005,
       "fallback_factory_engine_id": 30005,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1320.8609814400002,
@@ -215,6 +227,8 @@
       "factory_engine_id": 20049,
       "fallback_factory_engine_id": 30006,
       "nfs_origin_reference": 20049,
+      "factory_reference_engine_id": 20049,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1476.89675672,
@@ -246,6 +260,8 @@
       "factory_engine_id": 30007,
       "fallback_factory_engine_id": 30007,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1662.41603605,
@@ -277,6 +293,8 @@
       "factory_engine_id": 30008,
       "fallback_factory_engine_id": 30008,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1587.5732950000001,
@@ -308,6 +326,8 @@
       "factory_engine_id": 30009,
       "fallback_factory_engine_id": 30009,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1134.8881097400001,
@@ -339,6 +359,8 @@
       "factory_engine_id": 30010,
       "fallback_factory_engine_id": 30010,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1280.94485288,
@@ -370,6 +392,8 @@
       "factory_engine_id": 20062,
       "fallback_factory_engine_id": 30011,
       "nfs_origin_reference": 20062,
+      "factory_reference_engine_id": 20062,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1230.1425074400001,
@@ -401,6 +425,8 @@
       "factory_engine_id": 30012,
       "fallback_factory_engine_id": 30012,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 952.543977,
@@ -432,6 +458,8 @@
       "factory_engine_id": 30013,
       "fallback_factory_engine_id": 30013,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 979.7595192,
@@ -463,6 +491,8 @@
       "factory_engine_id": 20053,
       "fallback_factory_engine_id": 30014,
       "nfs_origin_reference": 20053,
+      "factory_reference_engine_id": 20053,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1569.8831925700001,
@@ -494,6 +524,8 @@
       "factory_engine_id": 20029,
       "fallback_factory_engine_id": 30015,
       "nfs_origin_reference": 20029,
+      "factory_reference_engine_id": 20029,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1315.8714653700001,
@@ -525,6 +557,8 @@
       "factory_engine_id": 20027,
       "fallback_factory_engine_id": 30016,
       "nfs_origin_reference": 20027,
+      "factory_reference_engine_id": 20027,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1134.8881097400001,
@@ -556,6 +590,8 @@
       "factory_engine_id": 30017,
       "fallback_factory_engine_id": 30017,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1451.495584,
@@ -587,6 +623,8 @@
       "factory_engine_id": 30018,
       "fallback_factory_engine_id": 30018,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1632.932532,
@@ -618,6 +656,8 @@
       "factory_engine_id": 20059,
       "fallback_factory_engine_id": 30019,
       "nfs_origin_reference": 20059,
+      "factory_reference_engine_id": 20059,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1315.417873,
@@ -649,6 +689,8 @@
       "factory_engine_id": 20050,
       "fallback_factory_engine_id": 30020,
       "nfs_origin_reference": 20050,
+      "factory_reference_engine_id": 20050,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1427.00159602,
@@ -680,6 +722,8 @@
       "factory_engine_id": 30021,
       "fallback_factory_engine_id": 30021,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1177.52579252,
@@ -711,6 +755,8 @@
       "factory_engine_id": 30022,
       "fallback_factory_engine_id": 30022,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 684.9244787,
@@ -742,6 +788,8 @@
       "factory_engine_id": 30023,
       "fallback_factory_engine_id": 30023,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1907.3559158500002,
@@ -773,6 +821,8 @@
       "factory_engine_id": 20066,
       "fallback_factory_engine_id": 30024,
       "nfs_origin_reference": 20066,
+      "factory_reference_engine_id": 20066,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -804,6 +854,8 @@
       "factory_engine_id": 20037,
       "fallback_factory_engine_id": 30025,
       "nfs_origin_reference": 20037,
+      "factory_reference_engine_id": 20037,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -835,6 +887,8 @@
       "factory_engine_id": 20003,
       "fallback_factory_engine_id": 30026,
       "nfs_origin_reference": 20003,
+      "factory_reference_engine_id": 20003,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1177.52579252,
@@ -866,6 +920,8 @@
       "factory_engine_id": 20036,
       "fallback_factory_engine_id": 30027,
       "nfs_origin_reference": 20036,
+      "factory_reference_engine_id": 20036,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -897,6 +953,8 @@
       "factory_engine_id": 20032,
       "fallback_factory_engine_id": 30028,
       "nfs_origin_reference": 20032,
+      "factory_reference_engine_id": 20032,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -928,6 +986,8 @@
       "factory_engine_id": 20032,
       "fallback_factory_engine_id": 30029,
       "nfs_origin_reference": 20032,
+      "factory_reference_engine_id": 20032,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -959,6 +1019,8 @@
       "factory_engine_id": 30030,
       "fallback_factory_engine_id": 30030,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -990,6 +1052,8 @@
       "factory_engine_id": 30031,
       "fallback_factory_engine_id": 30031,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -1021,6 +1085,8 @@
       "factory_engine_id": 20023,
       "fallback_factory_engine_id": 30032,
       "nfs_origin_reference": 20023,
+      "factory_reference_engine_id": 20023,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 952.543977,
@@ -1052,6 +1118,8 @@
       "factory_engine_id": 30033,
       "fallback_factory_engine_id": 30033,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -1083,6 +1151,8 @@
       "factory_engine_id": 30034,
       "fallback_factory_engine_id": 30034,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -1114,6 +1184,8 @@
       "factory_engine_id": 30035,
       "fallback_factory_engine_id": 30035,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -1145,6 +1217,8 @@
       "factory_engine_id": 20060,
       "fallback_factory_engine_id": 30036,
       "nfs_origin_reference": 20060,
+      "factory_reference_engine_id": 20060,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1088.621688,
@@ -1176,6 +1250,8 @@
       "factory_engine_id": 30037,
       "fallback_factory_engine_id": 30037,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -1207,6 +1283,8 @@
       "factory_engine_id": 20039,
       "fallback_factory_engine_id": 30038,
       "nfs_origin_reference": 20039,
+      "factory_reference_engine_id": 20039,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1420.1977104700002,
@@ -1238,6 +1316,8 @@
       "factory_engine_id": 30039,
       "fallback_factory_engine_id": 30039,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1084.0857643000002,
@@ -1269,6 +1349,8 @@
       "factory_engine_id": 30040,
       "fallback_factory_engine_id": 30040,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1546.29638933,
@@ -1300,6 +1382,8 @@
       "factory_engine_id": 30041,
       "fallback_factory_engine_id": 30041,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1133.980925,
@@ -1331,6 +1415,8 @@
       "factory_engine_id": 20033,
       "fallback_factory_engine_id": 30042,
       "nfs_origin_reference": 20033,
+      "factory_reference_engine_id": 20033,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1164.82520616,
@@ -1362,6 +1448,8 @@
       "factory_engine_id": 30043,
       "fallback_factory_engine_id": 30043,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1524.97754794,
@@ -1393,6 +1481,8 @@
       "factory_engine_id": 30044,
       "fallback_factory_engine_id": 30044,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1599.82028899,
@@ -1424,6 +1514,8 @@
       "factory_engine_id": 20006,
       "fallback_factory_engine_id": 30045,
       "nfs_origin_reference": 20006,
+      "factory_reference_engine_id": 20006,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1539.9460961500001,
@@ -1455,6 +1547,8 @@
       "factory_engine_id": 30046,
       "fallback_factory_engine_id": 30046,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 884.5051215000001,
@@ -1486,6 +1580,8 @@
       "factory_engine_id": 30047,
       "fallback_factory_engine_id": 30047,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1133.980925,
@@ -1517,6 +1613,8 @@
       "factory_engine_id": 30048,
       "fallback_factory_engine_id": 30048,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 696.26428795,
@@ -1548,6 +1646,8 @@
       "factory_engine_id": 30049,
       "fallback_factory_engine_id": 30049,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1211.0916279,
@@ -1579,6 +1679,8 @@
       "factory_engine_id": 30050,
       "fallback_factory_engine_id": 30050,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1460.11383903,
@@ -1610,6 +1712,8 @@
       "factory_engine_id": 30051,
       "fallback_factory_engine_id": 30051,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1476.44316435,
@@ -1641,6 +1745,8 @@
       "factory_engine_id": 30052,
       "fallback_factory_engine_id": 30052,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1569.8831925700001,
@@ -1672,6 +1778,8 @@
       "factory_engine_id": 20074,
       "fallback_factory_engine_id": 30053,
       "nfs_origin_reference": 20074,
+      "factory_reference_engine_id": 20074,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1741.7947008,
@@ -1703,6 +1811,8 @@
       "factory_engine_id": 30054,
       "fallback_factory_engine_id": 30054,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1505.9266684000002,
@@ -1734,6 +1844,8 @@
       "factory_engine_id": 30055,
       "fallback_factory_engine_id": 30055,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1002.8927300700001,
@@ -1765,6 +1877,8 @@
       "factory_engine_id": 30056,
       "fallback_factory_engine_id": 30056,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 997.903214,
@@ -1796,6 +1910,8 @@
       "factory_engine_id": 30057,
       "fallback_factory_engine_id": 30057,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1539.9460961500001,
@@ -1827,6 +1943,8 @@
       "factory_engine_id": 30058,
       "fallback_factory_engine_id": 30058,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1334.0151601700002,
@@ -1858,6 +1976,8 @@
       "factory_engine_id": 30059,
       "fallback_factory_engine_id": 30059,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1480.0719033100002,
@@ -1889,6 +2009,8 @@
       "factory_engine_id": 20117,
       "fallback_factory_engine_id": 30060,
       "nfs_origin_reference": 20117,
+      "factory_reference_engine_id": 20117,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1859.7287170000002,
@@ -1920,6 +2042,8 @@
       "factory_engine_id": 20094,
       "fallback_factory_engine_id": 30061,
       "nfs_origin_reference": 20094,
+      "factory_reference_engine_id": 20094,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1739.0731465800002,
@@ -1951,6 +2075,8 @@
       "factory_engine_id": 20083,
       "fallback_factory_engine_id": 30062,
       "nfs_origin_reference": 20083,
+      "factory_reference_engine_id": 20083,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1408.85790122,
@@ -1982,6 +2108,8 @@
       "factory_engine_id": 20008,
       "fallback_factory_engine_id": 30063,
       "nfs_origin_reference": 20008,
+      "factory_reference_engine_id": 20008,
+      "factory_calibration": null,
       "factory_assignment_kind": "provisional_Porsche_911_family; trim/year unconfirmed",
       "mechanics": {
         "mass_kg": 1350.0,
@@ -1993,9 +2121,9 @@
         "drive": 1
       },
       "provisional_physics": true,
-      "recovered_hp": 281,
-      "recovered_litres": 3.6,
-      "recovered_redline_rpm": 6800,
+      "recovered_hp": 207.0,
+      "recovered_litres": 2.0,
+      "recovered_redline_rpm": 7500.0,
       "fallback_audio_engine_id": 20008,
       "identity_uncertain": true
     },
@@ -2013,6 +2141,8 @@
       "factory_engine_id": 30064,
       "fallback_factory_engine_id": 30064,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1619.3247609,
@@ -2044,6 +2174,8 @@
       "factory_engine_id": 30065,
       "fallback_factory_engine_id": 30065,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 996.99602926,
@@ -2075,6 +2207,8 @@
       "factory_engine_id": 20024,
       "fallback_factory_engine_id": 30066,
       "nfs_origin_reference": 20024,
+      "factory_reference_engine_id": 20024,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1057.7774068400001,
@@ -2106,6 +2240,8 @@
       "factory_engine_id": 20075,
       "fallback_factory_engine_id": 30067,
       "nfs_origin_reference": 20075,
+      "factory_reference_engine_id": 20075,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1678.2917690000002,
@@ -2137,6 +2273,8 @@
       "factory_engine_id": 30068,
       "fallback_factory_engine_id": 30068,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1416.11537914,
@@ -2168,6 +2306,8 @@
       "factory_engine_id": 30069,
       "fallback_factory_engine_id": 30069,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1379.82798954,
@@ -2199,6 +2339,8 @@
       "factory_engine_id": 30070,
       "fallback_factory_engine_id": 30070,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1518.1736623900001,
@@ -2230,6 +2372,8 @@
       "factory_engine_id": 30071,
       "fallback_factory_engine_id": 30071,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1705.5073112,
@@ -2261,6 +2405,8 @@
       "factory_engine_id": 30072,
       "fallback_factory_engine_id": 30072,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1350.7980778600001,
@@ -2292,6 +2438,8 @@
       "factory_engine_id": 30073,
       "fallback_factory_engine_id": 30073,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1269.60504363,
@@ -2323,6 +2471,8 @@
       "factory_engine_id": 20002,
       "fallback_factory_engine_id": 30074,
       "nfs_origin_reference": 20002,
+      "factory_reference_engine_id": 20002,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1043.262451,
@@ -2354,6 +2504,8 @@
       "factory_engine_id": 30075,
       "fallback_factory_engine_id": 30075,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1778.0820904000002,
@@ -2385,6 +2537,8 @@
       "factory_engine_id": 30076,
       "fallback_factory_engine_id": 30076,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1215.17395923,
@@ -2416,6 +2570,8 @@
       "factory_engine_id": 30077,
       "fallback_factory_engine_id": 30077,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1359.8699252600002,
@@ -2447,6 +2603,8 @@
       "factory_engine_id": 20089,
       "fallback_factory_engine_id": 30078,
       "nfs_origin_reference": 20089,
+      "factory_reference_engine_id": 20089,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1778.0820904000002,
@@ -2478,6 +2636,8 @@
       "factory_engine_id": 20055,
       "fallback_factory_engine_id": 30079,
       "nfs_origin_reference": 20055,
+      "factory_reference_engine_id": 20055,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1572.15115442,
@@ -2509,6 +2669,8 @@
       "factory_engine_id": 30080,
       "fallback_factory_engine_id": 30080,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1840.22424509,
@@ -2540,6 +2702,8 @@
       "factory_engine_id": 30081,
       "fallback_factory_engine_id": 30081,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1992.6312814100002,
@@ -2571,6 +2735,8 @@
       "factory_engine_id": 30082,
       "fallback_factory_engine_id": 30082,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1010.15020799,
@@ -2602,6 +2768,8 @@
       "factory_engine_id": 30083,
       "fallback_factory_engine_id": 30083,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1270.058636,
@@ -2633,6 +2801,8 @@
       "factory_engine_id": 30084,
       "fallback_factory_engine_id": 30084,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1169.8147222300001,
@@ -2661,24 +2831,36 @@
       "visual_variant": 0,
       "base_kit": 0,
       "legacy_lamp_masks": true,
-      "factory_engine_id": 30085,
+      "factory_engine_id": 1503,
       "fallback_factory_engine_id": 30085,
       "nfs_origin_reference": null,
-      "factory_assignment_kind": "recovered_per_vehicle_stock",
+      "factory_reference_engine_id": 1503,
+      "factory_calibration": {
+        "engine_id": 1503,
+        "mass_kg": 1700,
+        "wheelbase": 2.7,
+        "front_weight": 0.43,
+        "drag_area": 0.7,
+        "reason": "Aventador family; existing Aventador S 730 HP V12 calibration, trim/year unconfirmed",
+        "reference": "https://www.lamborghini.com/en-en/history/aventador-s",
+        "published_dry_mass_kg": 1575,
+        "mass_basis": "Native running-mass estimate including fluids, not a certified curb measurement"
+      },
+      "factory_assignment_kind": "Aventador family; existing Aventador S 730 HP V12 calibration, trim/year unconfirmed",
       "mechanics": {
-        "mass_kg": 2041.165665,
-        "hp": 560.0,
+        "mass_kg": 1700.0,
+        "hp": 730.0,
         "grip_raw": 1250.0,
         "speed_mph": 190.0,
-        "redline_rpm": 7700.0,
-        "litres": 4.0,
+        "redline_rpm": 8500.0,
+        "litres": 6.5,
         "drive": 2
       },
-      "provisional_physics": false,
+      "provisional_physics": true,
       "recovered_hp": 560.0,
       "recovered_litres": 4.0,
       "recovered_redline_rpm": 7700.0,
-      "fallback_audio_engine_id": 0,
+      "fallback_audio_engine_id": 1503,
       "identity_uncertain": false
     },
     {
@@ -2695,6 +2877,8 @@
       "factory_engine_id": 30086,
       "fallback_factory_engine_id": 30086,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1394.79653775,
@@ -2726,6 +2910,8 @@
       "factory_engine_id": 20031,
       "fallback_factory_engine_id": 30087,
       "nfs_origin_reference": 20031,
+      "factory_reference_engine_id": 20031,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1394.79653775,
@@ -2757,6 +2943,8 @@
       "factory_engine_id": 30088,
       "fallback_factory_engine_id": 30088,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1460.5674314,
@@ -2788,6 +2976,8 @@
       "factory_engine_id": 30089,
       "fallback_factory_engine_id": 30089,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1609.7993211300002,
@@ -2819,6 +3009,8 @@
       "factory_engine_id": 20045,
       "fallback_factory_engine_id": 30090,
       "nfs_origin_reference": 20045,
+      "factory_reference_engine_id": 20045,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1360.77711,
@@ -2850,6 +3042,8 @@
       "factory_engine_id": 30091,
       "fallback_factory_engine_id": 30091,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 923.96765769,
@@ -2881,6 +3075,8 @@
       "factory_engine_id": 30092,
       "fallback_factory_engine_id": 30092,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1629.75738541,
@@ -2912,6 +3108,8 @@
       "factory_engine_id": 30093,
       "fallback_factory_engine_id": 30093,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 816.466266,
@@ -2940,24 +3138,30 @@
       "visual_variant": 0,
       "base_kit": 0,
       "legacy_lamp_masks": false,
-      "factory_engine_id": 30094,
+      "factory_engine_id": 1506,
       "fallback_factory_engine_id": 30094,
       "nfs_origin_reference": null,
-      "factory_assignment_kind": "recovered_per_vehicle_stock",
+      "factory_reference_engine_id": 1506,
+      "factory_calibration": {
+        "engine_id": 1506,
+        "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+        "reference": "native/game/pc-engines.json"
+      },
+      "factory_assignment_kind": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
       "mechanics": {
         "mass_kg": 1954.9831147,
         "hp": 500.0,
         "grip_raw": 1250.0,
         "speed_mph": 165.0,
-        "redline_rpm": 7200.0,
+        "redline_rpm": 8250.0,
         "litres": 5.0,
         "drive": 1
       },
-      "provisional_physics": false,
+      "provisional_physics": true,
       "recovered_hp": 500.0,
       "recovered_litres": 5.0,
       "recovered_redline_rpm": 7200.0,
-      "fallback_audio_engine_id": 1502,
+      "fallback_audio_engine_id": 1506,
       "identity_uncertain": false
     },
     {
@@ -2974,6 +3178,8 @@
       "factory_engine_id": 20076,
       "fallback_factory_engine_id": 30095,
       "nfs_origin_reference": 20076,
+      "factory_reference_engine_id": 20076,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1741.7947008,
@@ -3005,6 +3211,8 @@
       "factory_engine_id": 30096,
       "fallback_factory_engine_id": 30096,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1548.11075881,
@@ -3036,6 +3244,8 @@
       "factory_engine_id": 30097,
       "fallback_factory_engine_id": 30097,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1764.4743193000002,
@@ -3067,6 +3277,8 @@
       "factory_engine_id": 30098,
       "fallback_factory_engine_id": 30098,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1519.5344395,
@@ -3098,6 +3310,8 @@
       "factory_engine_id": 30099,
       "fallback_factory_engine_id": 30099,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1406.1363470000001,
@@ -3129,6 +3343,8 @@
       "factory_engine_id": 30100,
       "fallback_factory_engine_id": 30100,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 941.20416775,
@@ -3157,20 +3373,26 @@
       "visual_variant": 0,
       "base_kit": 0,
       "legacy_lamp_masks": false,
-      "factory_engine_id": 30101,
+      "factory_engine_id": 1507,
       "fallback_factory_engine_id": 30101,
       "nfs_origin_reference": null,
-      "factory_assignment_kind": "recovered_per_vehicle_stock",
+      "factory_reference_engine_id": 1507,
+      "factory_calibration": {
+        "engine_id": 1507,
+        "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+        "reference": "native/game/pc-engines.json"
+      },
+      "factory_assignment_kind": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
       "mechanics": {
         "mass_kg": 1616.14961431,
-        "hp": 560.0,
+        "hp": 553.0,
         "grip_raw": 1200.0,
         "speed_mph": 165.0,
-        "redline_rpm": 8000.0,
+        "redline_rpm": 9000.0,
         "litres": 4.8,
         "drive": 1
       },
-      "provisional_physics": false,
+      "provisional_physics": true,
       "recovered_hp": 560.0,
       "recovered_litres": 4.8,
       "recovered_redline_rpm": 8000.0,
@@ -3191,6 +3413,8 @@
       "factory_engine_id": 20042,
       "fallback_factory_engine_id": 30102,
       "nfs_origin_reference": 20042,
+      "factory_reference_engine_id": 20042,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1674.2094376700002,
@@ -3222,6 +3446,8 @@
       "factory_engine_id": 30103,
       "fallback_factory_engine_id": 30103,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1401.6004233,
@@ -3253,6 +3479,8 @@
       "factory_engine_id": 20112,
       "fallback_factory_engine_id": 30104,
       "nfs_origin_reference": 20112,
+      "factory_reference_engine_id": 20112,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1949.9935986300002,
@@ -3281,24 +3509,30 @@
       "visual_variant": 0,
       "base_kit": 0,
       "legacy_lamp_masks": false,
-      "factory_engine_id": 20040,
+      "factory_engine_id": 1512,
       "fallback_factory_engine_id": 30105,
-      "nfs_origin_reference": 20040,
-      "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
+      "nfs_origin_reference": null,
+      "factory_reference_engine_id": 1512,
+      "factory_calibration": {
+        "engine_id": 1512,
+        "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+        "reference": "native/game/pc-engines.json"
+      },
+      "factory_assignment_kind": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
       "mechanics": {
         "mass_kg": 1383.4567285,
-        "hp": 300.0,
+        "hp": 306.0,
         "grip_raw": 1250.0,
         "speed_mph": 150.0,
-        "redline_rpm": 8000.0,
+        "redline_rpm": 7000.0,
         "litres": 2.0,
         "drive": 0
       },
-      "provisional_physics": false,
+      "provisional_physics": true,
       "recovered_hp": 300.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 1003,
+      "fallback_audio_engine_id": 1512,
       "identity_uncertain": false
     },
     {
@@ -3315,6 +3549,8 @@
       "factory_engine_id": 30106,
       "fallback_factory_engine_id": 30106,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1569.8831925700001,
@@ -3346,6 +3582,8 @@
       "factory_engine_id": 30107,
       "fallback_factory_engine_id": 30107,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1199.7518186500001,
@@ -3377,6 +3615,8 @@
       "factory_engine_id": 30108,
       "fallback_factory_engine_id": 30108,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1087.7145032600001,
@@ -3408,6 +3648,8 @@
       "factory_engine_id": 30109,
       "fallback_factory_engine_id": 30109,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1546.29638933,
@@ -3439,6 +3681,8 @@
       "factory_engine_id": 30110,
       "fallback_factory_engine_id": 30110,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1430.17674261,
@@ -3470,6 +3714,8 @@
       "factory_engine_id": 30111,
       "fallback_factory_engine_id": 30111,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1299.99573242,
@@ -3501,6 +3747,8 @@
       "factory_engine_id": 20041,
       "fallback_factory_engine_id": 30112,
       "nfs_origin_reference": 20041,
+      "factory_reference_engine_id": 20041,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1568.97600783,
@@ -3532,6 +3780,8 @@
       "factory_engine_id": 30113,
       "fallback_factory_engine_id": 30113,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1488.2365659700001,
@@ -3560,24 +3810,30 @@
       "visual_variant": 0,
       "base_kit": 0,
       "legacy_lamp_masks": false,
-      "factory_engine_id": 20117,
+      "factory_engine_id": 1514,
       "fallback_factory_engine_id": 30114,
-      "nfs_origin_reference": 20117,
-      "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
+      "nfs_origin_reference": null,
+      "factory_reference_engine_id": 1514,
+      "factory_calibration": {
+        "engine_id": 1514,
+        "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+        "reference": "native/game/pc-engines.json"
+      },
+      "factory_assignment_kind": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
       "mechanics": {
         "mass_kg": 2075.18509275,
         "hp": 707.0,
         "grip_raw": 1200.0,
         "speed_mph": 160.0,
-        "redline_rpm": 7700.0,
+        "redline_rpm": 6200.0,
         "litres": 6.2,
         "drive": 1
       },
-      "provisional_physics": false,
+      "provisional_physics": true,
       "recovered_hp": 707.0,
       "recovered_litres": 6.2,
       "recovered_redline_rpm": 7700.0,
-      "fallback_audio_engine_id": 1008,
+      "fallback_audio_engine_id": 1514,
       "identity_uncertain": false
     },
     {
@@ -3594,6 +3850,8 @@
       "factory_engine_id": 20111,
       "fallback_factory_engine_id": 30115,
       "nfs_origin_reference": 20111,
+      "factory_reference_engine_id": 20111,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1854.2856085600001,
@@ -3625,6 +3883,8 @@
       "factory_engine_id": 30116,
       "fallback_factory_engine_id": 30116,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1149.85665795,
@@ -3656,6 +3916,8 @@
       "factory_engine_id": 30117,
       "fallback_factory_engine_id": 30117,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1224.699399,
@@ -3687,6 +3949,8 @@
       "factory_engine_id": 30118,
       "fallback_factory_engine_id": 30118,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1725.0117831100001,
@@ -3718,6 +3982,8 @@
       "factory_engine_id": 30119,
       "fallback_factory_engine_id": 30119,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1599.82028899,
@@ -3749,6 +4015,8 @@
       "factory_engine_id": 20073,
       "fallback_factory_engine_id": 30120,
       "nfs_origin_reference": 20073,
+      "factory_reference_engine_id": 20073,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1524.0703632,
@@ -3780,6 +4048,8 @@
       "factory_engine_id": 30121,
       "fallback_factory_engine_id": 30121,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1614.7888372,
@@ -3811,6 +4081,8 @@
       "factory_engine_id": 30122,
       "fallback_factory_engine_id": 30122,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1850.2032772300001,
@@ -3842,6 +4114,8 @@
       "factory_engine_id": 30123,
       "fallback_factory_engine_id": 30123,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1721.3830441500002,
@@ -3873,6 +4147,8 @@
       "factory_engine_id": 30124,
       "fallback_factory_engine_id": 30124,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1587.5732950000001,
@@ -3904,6 +4180,8 @@
       "factory_engine_id": 30125,
       "fallback_factory_engine_id": 30125,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1849.7496848600001,
@@ -3935,6 +4213,8 @@
       "factory_engine_id": 30126,
       "fallback_factory_engine_id": 30126,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1394.3429453800002,
@@ -3966,6 +4246,8 @@
       "factory_engine_id": 30127,
       "fallback_factory_engine_id": 30127,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 985.2026276400001,
@@ -3997,6 +4279,8 @@
       "factory_engine_id": 30128,
       "fallback_factory_engine_id": 30128,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1254.63649542,
@@ -4028,6 +4312,8 @@
       "factory_engine_id": 30129,
       "fallback_factory_engine_id": 30129,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1165.7323909000002,
@@ -4059,6 +4345,8 @@
       "factory_engine_id": 30130,
       "fallback_factory_engine_id": 30130,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 979.7595192,
@@ -4090,6 +4378,8 @@
       "factory_engine_id": 30131,
       "fallback_factory_engine_id": 30131,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1120.3731539,
@@ -4121,6 +4411,8 @@
       "factory_engine_id": 30132,
       "fallback_factory_engine_id": 30132,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1154.84617402,
@@ -4152,6 +4444,8 @@
       "factory_engine_id": 30133,
       "fallback_factory_engine_id": 30133,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1147.5886961,
@@ -4183,6 +4477,8 @@
       "factory_engine_id": 30134,
       "fallback_factory_engine_id": 30134,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 521.6312255,
@@ -4214,6 +4510,8 @@
       "factory_engine_id": 30135,
       "fallback_factory_engine_id": 30135,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1025.1187562,
@@ -4245,6 +4543,8 @@
       "factory_engine_id": 30136,
       "fallback_factory_engine_id": 30136,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1399.78605382,
@@ -4276,6 +4576,8 @@
       "factory_engine_id": 30137,
       "fallback_factory_engine_id": 30137,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 969.78048706,
@@ -4307,6 +4609,8 @@
       "factory_engine_id": 30138,
       "fallback_factory_engine_id": 30138,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1290.0167002800001,
@@ -4338,6 +4642,8 @@
       "factory_engine_id": 30139,
       "fallback_factory_engine_id": 30139,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1339.91186098,
@@ -4369,6 +4675,8 @@
       "factory_engine_id": 30140,
       "fallback_factory_engine_id": 30140,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 874.97968173,
@@ -4400,6 +4708,8 @@
       "factory_engine_id": 30141,
       "fallback_factory_engine_id": 30141,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1080.00343297,
@@ -4431,6 +4741,8 @@
       "factory_engine_id": 30142,
       "fallback_factory_engine_id": 30142,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 980.21311157,
@@ -4462,6 +4774,8 @@
       "factory_engine_id": 30143,
       "fallback_factory_engine_id": 30143,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 705.7897277200001,
@@ -4493,6 +4807,8 @@
       "factory_engine_id": 30144,
       "fallback_factory_engine_id": 30144,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1223.79221426,
@@ -4524,6 +4840,8 @@
       "factory_engine_id": 30145,
       "fallback_factory_engine_id": 30145,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1725.0117831100001,
@@ -4555,6 +4873,8 @@
       "factory_engine_id": 30146,
       "fallback_factory_engine_id": 30146,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1331.29360595,
@@ -4586,6 +4906,8 @@
       "factory_engine_id": 30147,
       "fallback_factory_engine_id": 30147,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 766.5711053,
@@ -4617,6 +4939,8 @@
       "factory_engine_id": 20063,
       "fallback_factory_engine_id": 30148,
       "nfs_origin_reference": 20063,
+      "factory_reference_engine_id": 20063,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1575.77989338,
@@ -4648,6 +4972,8 @@
       "factory_engine_id": 30149,
       "fallback_factory_engine_id": 30149,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1689.63157825,
@@ -4679,6 +5005,8 @@
       "factory_engine_id": 30150,
       "fallback_factory_engine_id": 30150,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1612.9744677200001,
@@ -4710,6 +5038,8 @@
       "factory_engine_id": 30151,
       "fallback_factory_engine_id": 30151,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1480.0719033100002,
@@ -4741,6 +5071,8 @@
       "factory_engine_id": 30152,
       "fallback_factory_engine_id": 30152,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1524.97754794,
@@ -4772,6 +5104,8 @@
       "factory_engine_id": 30153,
       "fallback_factory_engine_id": 30153,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1315.417873,
@@ -4803,6 +5137,8 @@
       "factory_engine_id": 30154,
       "fallback_factory_engine_id": 30154,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1099.96149725,
@@ -4834,6 +5170,8 @@
       "factory_engine_id": 30155,
       "fallback_factory_engine_id": 30155,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1578.04785523,
@@ -4865,6 +5203,8 @@
       "factory_engine_id": 20120,
       "fallback_factory_engine_id": 30156,
       "nfs_origin_reference": 20120,
+      "factory_reference_engine_id": 20120,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1614.7888372,
@@ -4896,6 +5236,8 @@
       "factory_engine_id": 30157,
       "fallback_factory_engine_id": 30157,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1641.55078703,
@@ -4927,6 +5269,8 @@
       "factory_engine_id": 30158,
       "fallback_factory_engine_id": 30158,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1103.13664384,
@@ -4958,6 +5302,8 @@
       "factory_engine_id": 30159,
       "fallback_factory_engine_id": 30159,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 894.9377460100001,
@@ -4989,6 +5335,8 @@
       "factory_engine_id": 30160,
       "fallback_factory_engine_id": 30160,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1389.8070216800002,
@@ -5020,6 +5368,8 @@
       "factory_engine_id": 30161,
       "fallback_factory_engine_id": 30161,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1265.5227123,
@@ -5051,6 +5401,8 @@
       "factory_engine_id": 30162,
       "fallback_factory_engine_id": 30162,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1542.214058,
@@ -5082,6 +5434,8 @@
       "factory_engine_id": 30163,
       "fallback_factory_engine_id": 30163,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1149.85665795,
@@ -5113,6 +5467,8 @@
       "factory_engine_id": 20026,
       "fallback_factory_engine_id": 30164,
       "nfs_origin_reference": 20026,
+      "factory_reference_engine_id": 20026,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1339.91186098,
@@ -5144,6 +5500,8 @@
       "factory_engine_id": 30165,
       "fallback_factory_engine_id": 30165,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1422.01207995,
@@ -5175,6 +5533,8 @@
       "factory_engine_id": 30166,
       "fallback_factory_engine_id": 30166,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1542.214058,
@@ -5206,6 +5566,8 @@
       "factory_engine_id": 20048,
       "fallback_factory_engine_id": 30167,
       "nfs_origin_reference": 20048,
+      "factory_reference_engine_id": 20048,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1422.01207995,
@@ -5237,6 +5599,8 @@
       "factory_engine_id": 30168,
       "fallback_factory_engine_id": 30168,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 719.85109119,
@@ -5268,6 +5632,8 @@
       "factory_engine_id": 30169,
       "fallback_factory_engine_id": 30169,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 689.91399477,
@@ -5299,6 +5665,8 @@
       "factory_engine_id": 30170,
       "fallback_factory_engine_id": 30170,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1597.0987347700002,
@@ -5330,6 +5698,8 @@
       "factory_engine_id": 30171,
       "fallback_factory_engine_id": 30171,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1496.8548210000001,
@@ -5361,6 +5731,8 @@
       "factory_engine_id": 30172,
       "fallback_factory_engine_id": 30172,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1814.36948,
@@ -5392,6 +5764,8 @@
       "factory_engine_id": 30173,
       "fallback_factory_engine_id": 30173,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1814.36948,
@@ -5423,6 +5797,8 @@
       "factory_engine_id": 30174,
       "fallback_factory_engine_id": 30174,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1143.5063647700001,
@@ -5454,6 +5830,8 @@
       "factory_engine_id": 30175,
       "fallback_factory_engine_id": 30175,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1587.5732950000001,
@@ -5485,6 +5863,8 @@
       "factory_engine_id": 30176,
       "fallback_factory_engine_id": 30176,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1655.15855813,
@@ -5516,6 +5896,8 @@
       "factory_engine_id": 30177,
       "fallback_factory_engine_id": 30177,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1941.3753436000002,
@@ -5547,6 +5929,8 @@
       "factory_engine_id": 30178,
       "fallback_factory_engine_id": 30178,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1441.97014423,
@@ -5578,6 +5962,8 @@
       "factory_engine_id": 30179,
       "fallback_factory_engine_id": 30179,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 820.0950049600001,
@@ -5609,6 +5995,8 @@
       "factory_engine_id": 30180,
       "fallback_factory_engine_id": 30180,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 2316.04264122,
@@ -5640,6 +6028,8 @@
       "factory_engine_id": 30181,
       "fallback_factory_engine_id": 30181,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1824.8021045100002,
@@ -5671,6 +6061,8 @@
       "factory_engine_id": 30182,
       "fallback_factory_engine_id": 30182,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1078.64265586,
@@ -5702,6 +6094,8 @@
       "factory_engine_id": 20061,
       "fallback_factory_engine_id": 30183,
       "nfs_origin_reference": 20061,
+      "factory_reference_engine_id": 20061,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1230.1425074400001,
@@ -5733,6 +6127,8 @@
       "factory_engine_id": 20047,
       "fallback_factory_engine_id": 30184,
       "nfs_origin_reference": 20047,
+      "factory_reference_engine_id": 20047,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1537.6781343,
@@ -5764,6 +6160,8 @@
       "factory_engine_id": 20080,
       "fallback_factory_engine_id": 30185,
       "nfs_origin_reference": 20080,
+      "factory_reference_engine_id": 20080,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1640.1900099200002,
@@ -5795,6 +6193,8 @@
       "factory_engine_id": 30186,
       "fallback_factory_engine_id": 30186,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1580.76940945,
@@ -5823,24 +6223,36 @@
       "visual_variant": 0,
       "base_kit": 0,
       "legacy_lamp_masks": true,
-      "factory_engine_id": 30187,
+      "factory_engine_id": 1502,
       "fallback_factory_engine_id": 30187,
       "nfs_origin_reference": null,
-      "factory_assignment_kind": "recovered_per_vehicle_stock",
+      "factory_reference_engine_id": 1502,
+      "factory_calibration": {
+        "engine_id": 1502,
+        "mass_kg": 1540,
+        "wheelbase": 2.62,
+        "front_weight": 0.43,
+        "drag_area": 0.66,
+        "reason": "Huracan family; existing EVO 631 HP V10 calibration, trim/year unconfirmed",
+        "reference": "https://www.lamborghini.com/en-en/models/huracan/huracan-evo",
+        "published_dry_mass_kg": 1422,
+        "mass_basis": "Native running-mass estimate including fluids, not a certified curb measurement"
+      },
+      "factory_assignment_kind": "Huracan family; existing EVO 631 HP V10 calibration, trim/year unconfirmed",
       "mechanics": {
-        "mass_kg": 1594.83077292,
-        "hp": 562.0,
+        "mass_kg": 1540.0,
+        "hp": 631.0,
         "grip_raw": 1200.0,
         "speed_mph": 190.0,
-        "redline_rpm": 8000.0,
+        "redline_rpm": 8500.0,
         "litres": 5.2,
         "drive": 2
       },
-      "provisional_physics": false,
+      "provisional_physics": true,
       "recovered_hp": 562.0,
       "recovered_litres": 5.2,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 0,
+      "fallback_audio_engine_id": 1502,
       "identity_uncertain": false
     },
     {
@@ -5857,6 +6269,8 @@
       "factory_engine_id": 30188,
       "fallback_factory_engine_id": 30188,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1529.96706401,
@@ -5888,6 +6302,8 @@
       "factory_engine_id": 20102,
       "fallback_factory_engine_id": 30189,
       "nfs_origin_reference": 20102,
+      "factory_reference_engine_id": 20102,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1614.7888372,
@@ -5919,6 +6335,8 @@
       "factory_engine_id": 30190,
       "fallback_factory_engine_id": 30190,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1360.77711,
@@ -5950,6 +6368,8 @@
       "factory_engine_id": 20064,
       "fallback_factory_engine_id": 30191,
       "nfs_origin_reference": 20064,
+      "factory_reference_engine_id": 20064,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -5981,6 +6401,8 @@
       "factory_engine_id": 20049,
       "fallback_factory_engine_id": 30192,
       "nfs_origin_reference": 20049,
+      "factory_reference_engine_id": 20049,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1476.89675672,
@@ -6012,6 +6434,8 @@
       "factory_engine_id": 30193,
       "fallback_factory_engine_id": 30193,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1280.94485288,
@@ -6043,6 +6467,8 @@
       "factory_engine_id": 20062,
       "fallback_factory_engine_id": 30194,
       "nfs_origin_reference": 20062,
+      "factory_reference_engine_id": 20062,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1230.1425074400001,
@@ -6074,6 +6500,8 @@
       "factory_engine_id": 30195,
       "fallback_factory_engine_id": 30195,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 684.9244787,
@@ -6105,6 +6533,8 @@
       "factory_engine_id": 30196,
       "fallback_factory_engine_id": 30196,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1133.980925,
@@ -6136,6 +6566,8 @@
       "factory_engine_id": 30197,
       "fallback_factory_engine_id": 30197,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 696.26428795,
@@ -6167,6 +6599,8 @@
       "factory_engine_id": 30198,
       "fallback_factory_engine_id": 30198,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1569.8831925700001,
@@ -6198,6 +6632,8 @@
       "factory_engine_id": 30199,
       "fallback_factory_engine_id": 30199,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1505.9266684000002,
@@ -6229,6 +6665,8 @@
       "factory_engine_id": 30200,
       "fallback_factory_engine_id": 30200,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 997.903214,
@@ -6260,6 +6698,8 @@
       "factory_engine_id": 30201,
       "fallback_factory_engine_id": 30201,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1480.0719033100002,
@@ -6291,6 +6731,8 @@
       "factory_engine_id": 20021,
       "fallback_factory_engine_id": 30202,
       "nfs_origin_reference": 20021,
+      "factory_reference_engine_id": 20021,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 909.9062942200001,
@@ -6322,6 +6764,8 @@
       "factory_engine_id": 30203,
       "fallback_factory_engine_id": 30203,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1416.11537914,
@@ -6353,6 +6797,8 @@
       "factory_engine_id": 20002,
       "fallback_factory_engine_id": 30204,
       "nfs_origin_reference": 20002,
+      "factory_reference_engine_id": 20002,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1043.262451,
@@ -6384,6 +6830,8 @@
       "factory_engine_id": 30205,
       "fallback_factory_engine_id": 30205,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1778.0820904000002,
@@ -6415,6 +6863,8 @@
       "factory_engine_id": 30206,
       "fallback_factory_engine_id": 30206,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1215.17395923,
@@ -6446,6 +6896,8 @@
       "factory_engine_id": 20089,
       "fallback_factory_engine_id": 30207,
       "nfs_origin_reference": 20089,
+      "factory_reference_engine_id": 20089,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1778.0820904000002,
@@ -6477,6 +6929,8 @@
       "factory_engine_id": 30208,
       "fallback_factory_engine_id": 30208,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 2041.165665,
@@ -6508,6 +6962,8 @@
       "factory_engine_id": 30209,
       "fallback_factory_engine_id": 30209,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1460.5674314,
@@ -6539,6 +6995,8 @@
       "factory_engine_id": 30210,
       "fallback_factory_engine_id": 30210,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1609.7993211300002,
@@ -6570,6 +7028,8 @@
       "factory_engine_id": 20045,
       "fallback_factory_engine_id": 30211,
       "nfs_origin_reference": 20045,
+      "factory_reference_engine_id": 20045,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1360.77711,
@@ -6601,6 +7061,8 @@
       "factory_engine_id": 30212,
       "fallback_factory_engine_id": 30212,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 816.466266,
@@ -6632,6 +7094,8 @@
       "factory_engine_id": 30213,
       "fallback_factory_engine_id": 30213,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1406.1363470000001,
@@ -6663,6 +7127,8 @@
       "factory_engine_id": 30214,
       "fallback_factory_engine_id": 30214,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1199.7518186500001,
@@ -6694,6 +7160,8 @@
       "factory_engine_id": 30215,
       "fallback_factory_engine_id": 30215,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1224.699399,
@@ -6725,6 +7193,8 @@
       "factory_engine_id": 20114,
       "fallback_factory_engine_id": 30216,
       "nfs_origin_reference": 20114,
+      "factory_reference_engine_id": 20114,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1614.7888372,
@@ -6756,6 +7226,8 @@
       "factory_engine_id": 30217,
       "fallback_factory_engine_id": 30217,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1587.5732950000001,
@@ -6787,6 +7259,8 @@
       "factory_engine_id": 30218,
       "fallback_factory_engine_id": 30218,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1394.3429453800002,
@@ -6818,6 +7292,8 @@
       "factory_engine_id": 30219,
       "fallback_factory_engine_id": 30219,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1254.63649542,
@@ -6849,6 +7325,8 @@
       "factory_engine_id": 30220,
       "fallback_factory_engine_id": 30220,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1165.7323909000002,
@@ -6880,6 +7358,8 @@
       "factory_engine_id": 30221,
       "fallback_factory_engine_id": 30221,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 979.7595192,
@@ -6911,6 +7391,8 @@
       "factory_engine_id": 30222,
       "fallback_factory_engine_id": 30222,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1154.84617402,
@@ -6942,6 +7424,8 @@
       "factory_engine_id": 30223,
       "fallback_factory_engine_id": 30223,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1147.5886961,
@@ -6973,6 +7457,8 @@
       "factory_engine_id": 30224,
       "fallback_factory_engine_id": 30224,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 521.6312255,
@@ -7004,6 +7490,8 @@
       "factory_engine_id": 30225,
       "fallback_factory_engine_id": 30225,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1080.00343297,
@@ -7035,6 +7523,8 @@
       "factory_engine_id": 30226,
       "fallback_factory_engine_id": 30226,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 980.21311157,
@@ -7066,6 +7556,8 @@
       "factory_engine_id": 30227,
       "fallback_factory_engine_id": 30227,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1725.0117831100001,
@@ -7097,6 +7589,8 @@
       "factory_engine_id": 30228,
       "fallback_factory_engine_id": 30228,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1612.9744677200001,
@@ -7128,6 +7622,8 @@
       "factory_engine_id": 30229,
       "fallback_factory_engine_id": 30229,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1524.97754794,
@@ -7159,6 +7655,8 @@
       "factory_engine_id": 30230,
       "fallback_factory_engine_id": 30230,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1099.96149725,
@@ -7190,6 +7688,8 @@
       "factory_engine_id": 20120,
       "fallback_factory_engine_id": 30231,
       "nfs_origin_reference": 20120,
+      "factory_reference_engine_id": 20120,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1614.7888372,
@@ -7221,6 +7721,8 @@
       "factory_engine_id": 30232,
       "fallback_factory_engine_id": 30232,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1265.5227123,
@@ -7252,6 +7754,8 @@
       "factory_engine_id": 30233,
       "fallback_factory_engine_id": 30233,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1587.5732950000001,
@@ -7283,6 +7787,8 @@
       "factory_engine_id": 30234,
       "fallback_factory_engine_id": 30234,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1824.8021045100002,
@@ -7314,6 +7820,8 @@
       "factory_engine_id": 30235,
       "fallback_factory_engine_id": 30235,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1078.64265586,
@@ -7345,6 +7853,8 @@
       "factory_engine_id": 20047,
       "fallback_factory_engine_id": 30236,
       "nfs_origin_reference": 20047,
+      "factory_reference_engine_id": 20047,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1537.6781343,
@@ -7376,6 +7886,8 @@
       "factory_engine_id": 30237,
       "fallback_factory_engine_id": 30237,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1580.76940945,
@@ -7407,6 +7919,8 @@
       "factory_engine_id": 20127,
       "fallback_factory_engine_id": 30238,
       "nfs_origin_reference": 20127,
+      "factory_reference_engine_id": 20127,
+      "factory_calibration": null,
       "factory_assignment_kind": "declared_model_bridge; year/trim may differ",
       "mechanics": {
         "mass_kg": 1594.83077292,
@@ -7438,6 +7952,8 @@
       "factory_engine_id": 30239,
       "fallback_factory_engine_id": 30239,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 949.82242278,
@@ -7469,6 +7985,8 @@
       "factory_engine_id": 30240,
       "fallback_factory_engine_id": 30240,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1006.9750614000001,
@@ -7500,6 +8018,8 @@
       "factory_engine_id": 30241,
       "fallback_factory_engine_id": 30241,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1480.0719033100002,
@@ -7531,6 +8051,8 @@
       "factory_engine_id": 30242,
       "fallback_factory_engine_id": 30242,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -7562,6 +8084,8 @@
       "factory_engine_id": 30243,
       "fallback_factory_engine_id": 30243,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1086.35372615,
@@ -7593,6 +8117,8 @@
       "factory_engine_id": 30244,
       "fallback_factory_engine_id": 30244,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1320.8609814400002,
@@ -7624,6 +8150,8 @@
       "factory_engine_id": 30245,
       "fallback_factory_engine_id": 30245,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1476.89675672,
@@ -7655,6 +8183,8 @@
       "factory_engine_id": 30246,
       "fallback_factory_engine_id": 30246,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1662.41603605,
@@ -7686,6 +8216,8 @@
       "factory_engine_id": 30247,
       "fallback_factory_engine_id": 30247,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1587.5732950000001,
@@ -7717,6 +8249,8 @@
       "factory_engine_id": 30248,
       "fallback_factory_engine_id": 30248,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1134.8881097400001,
@@ -7748,6 +8282,8 @@
       "factory_engine_id": 30249,
       "fallback_factory_engine_id": 30249,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1280.94485288,
@@ -7779,6 +8315,8 @@
       "factory_engine_id": 30250,
       "fallback_factory_engine_id": 30250,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1230.1425074400001,
@@ -7810,6 +8348,8 @@
       "factory_engine_id": 30251,
       "fallback_factory_engine_id": 30251,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 952.543977,
@@ -7841,6 +8381,8 @@
       "factory_engine_id": 30252,
       "fallback_factory_engine_id": 30252,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 979.7595192,
@@ -7872,6 +8414,8 @@
       "factory_engine_id": 30253,
       "fallback_factory_engine_id": 30253,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1569.8831925700001,
@@ -7903,6 +8447,8 @@
       "factory_engine_id": 30254,
       "fallback_factory_engine_id": 30254,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1315.8714653700001,
@@ -7934,6 +8480,8 @@
       "factory_engine_id": 30255,
       "fallback_factory_engine_id": 30255,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1134.8881097400001,
@@ -7965,6 +8513,8 @@
       "factory_engine_id": 30256,
       "fallback_factory_engine_id": 30256,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1451.495584,
@@ -7996,6 +8546,8 @@
       "factory_engine_id": 30257,
       "fallback_factory_engine_id": 30257,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1632.932532,
@@ -8027,6 +8579,8 @@
       "factory_engine_id": 30258,
       "fallback_factory_engine_id": 30258,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1315.417873,
@@ -8058,6 +8612,8 @@
       "factory_engine_id": 30259,
       "fallback_factory_engine_id": 30259,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1427.00159602,
@@ -8089,6 +8645,8 @@
       "factory_engine_id": 30260,
       "fallback_factory_engine_id": 30260,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1177.52579252,
@@ -8120,6 +8678,8 @@
       "factory_engine_id": 30261,
       "fallback_factory_engine_id": 30261,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 684.9244787,
@@ -8151,6 +8711,8 @@
       "factory_engine_id": 30262,
       "fallback_factory_engine_id": 30262,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1907.3559158500002,
@@ -8182,6 +8744,8 @@
       "factory_engine_id": 30263,
       "fallback_factory_engine_id": 30263,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -8213,6 +8777,8 @@
       "factory_engine_id": 30264,
       "fallback_factory_engine_id": 30264,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -8244,6 +8810,8 @@
       "factory_engine_id": 30265,
       "fallback_factory_engine_id": 30265,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1177.52579252,
@@ -8275,6 +8843,8 @@
       "factory_engine_id": 30266,
       "fallback_factory_engine_id": 30266,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -8306,6 +8876,8 @@
       "factory_engine_id": 30267,
       "fallback_factory_engine_id": 30267,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -8337,6 +8909,8 @@
       "factory_engine_id": 30268,
       "fallback_factory_engine_id": 30268,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -8368,6 +8942,8 @@
       "factory_engine_id": 30269,
       "fallback_factory_engine_id": 30269,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -8399,6 +8975,8 @@
       "factory_engine_id": 30270,
       "fallback_factory_engine_id": 30270,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -8430,6 +9008,8 @@
       "factory_engine_id": 30271,
       "fallback_factory_engine_id": 30271,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 952.543977,
@@ -8461,6 +9041,8 @@
       "factory_engine_id": 30272,
       "fallback_factory_engine_id": 30272,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -8492,6 +9074,8 @@
       "factory_engine_id": 30273,
       "fallback_factory_engine_id": 30273,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -8523,6 +9107,8 @@
       "factory_engine_id": 30274,
       "fallback_factory_engine_id": 30274,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -8554,6 +9140,8 @@
       "factory_engine_id": 30275,
       "fallback_factory_engine_id": 30275,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1088.621688,
@@ -8585,6 +9173,8 @@
       "factory_engine_id": 30276,
       "fallback_factory_engine_id": 30276,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1446.0524755600002,
@@ -8616,6 +9206,8 @@
       "factory_engine_id": 30277,
       "fallback_factory_engine_id": 30277,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1420.1977104700002,
@@ -8647,6 +9239,8 @@
       "factory_engine_id": 30278,
       "fallback_factory_engine_id": 30278,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1084.0857643000002,
@@ -8678,6 +9272,8 @@
       "factory_engine_id": 30279,
       "fallback_factory_engine_id": 30279,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1546.29638933,
@@ -8709,6 +9305,8 @@
       "factory_engine_id": 30280,
       "fallback_factory_engine_id": 30280,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1133.980925,
@@ -8740,6 +9338,8 @@
       "factory_engine_id": 30281,
       "fallback_factory_engine_id": 30281,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1164.82520616,
@@ -8771,6 +9371,8 @@
       "factory_engine_id": 30282,
       "fallback_factory_engine_id": 30282,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1524.97754794,
@@ -8802,6 +9404,8 @@
       "factory_engine_id": 30283,
       "fallback_factory_engine_id": 30283,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1599.82028899,
@@ -8833,6 +9437,8 @@
       "factory_engine_id": 30284,
       "fallback_factory_engine_id": 30284,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1539.9460961500001,
@@ -8864,6 +9470,8 @@
       "factory_engine_id": 30285,
       "fallback_factory_engine_id": 30285,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 884.5051215000001,
@@ -8895,6 +9503,8 @@
       "factory_engine_id": 30286,
       "fallback_factory_engine_id": 30286,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1133.980925,
@@ -8926,6 +9536,8 @@
       "factory_engine_id": 30287,
       "fallback_factory_engine_id": 30287,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 696.26428795,
@@ -8957,6 +9569,8 @@
       "factory_engine_id": 30288,
       "fallback_factory_engine_id": 30288,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1211.0916279,
@@ -8988,6 +9602,8 @@
       "factory_engine_id": 30289,
       "fallback_factory_engine_id": 30289,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1460.11383903,
@@ -9019,6 +9635,8 @@
       "factory_engine_id": 30290,
       "fallback_factory_engine_id": 30290,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1476.44316435,
@@ -9050,6 +9668,8 @@
       "factory_engine_id": 30291,
       "fallback_factory_engine_id": 30291,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1569.8831925700001,
@@ -9081,6 +9701,8 @@
       "factory_engine_id": 30292,
       "fallback_factory_engine_id": 30292,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1741.7947008,
@@ -9112,6 +9734,8 @@
       "factory_engine_id": 30293,
       "fallback_factory_engine_id": 30293,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1505.9266684000002,
@@ -9143,6 +9767,8 @@
       "factory_engine_id": 30294,
       "fallback_factory_engine_id": 30294,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1002.8927300700001,
@@ -9174,6 +9800,8 @@
       "factory_engine_id": 30295,
       "fallback_factory_engine_id": 30295,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 997.903214,
@@ -9205,6 +9833,8 @@
       "factory_engine_id": 30296,
       "fallback_factory_engine_id": 30296,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1539.9460961500001,
@@ -9236,6 +9866,8 @@
       "factory_engine_id": 30297,
       "fallback_factory_engine_id": 30297,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1334.0151601700002,
@@ -9267,6 +9899,8 @@
       "factory_engine_id": 30298,
       "fallback_factory_engine_id": 30298,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1480.0719033100002,
@@ -9298,6 +9932,8 @@
       "factory_engine_id": 30299,
       "fallback_factory_engine_id": 30299,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1859.7287170000002,
@@ -9329,6 +9965,8 @@
       "factory_engine_id": 30300,
       "fallback_factory_engine_id": 30300,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1739.0731465800002,
@@ -9360,6 +9998,8 @@
       "factory_engine_id": 30301,
       "fallback_factory_engine_id": 30301,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1408.85790122,
@@ -9391,6 +10031,8 @@
       "factory_engine_id": 30302,
       "fallback_factory_engine_id": 30302,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 909.9062942200001,
@@ -9422,6 +10064,8 @@
       "factory_engine_id": 30303,
       "fallback_factory_engine_id": 30303,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1619.3247609,
@@ -9453,6 +10097,8 @@
       "factory_engine_id": 30304,
       "fallback_factory_engine_id": 30304,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 996.99602926,
@@ -9484,6 +10130,8 @@
       "factory_engine_id": 30305,
       "fallback_factory_engine_id": 30305,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1057.7774068400001,
@@ -9515,6 +10163,8 @@
       "factory_engine_id": 30306,
       "fallback_factory_engine_id": 30306,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1678.2917690000002,
@@ -9546,6 +10196,8 @@
       "factory_engine_id": 30307,
       "fallback_factory_engine_id": 30307,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1416.11537914,
@@ -9577,6 +10229,8 @@
       "factory_engine_id": 30308,
       "fallback_factory_engine_id": 30308,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1379.82798954,
@@ -9608,6 +10262,8 @@
       "factory_engine_id": 30309,
       "fallback_factory_engine_id": 30309,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1518.1736623900001,
@@ -9639,6 +10295,8 @@
       "factory_engine_id": 30310,
       "fallback_factory_engine_id": 30310,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1705.5073112,
@@ -9670,6 +10328,8 @@
       "factory_engine_id": 30311,
       "fallback_factory_engine_id": 30311,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1350.7980778600001,
@@ -9701,6 +10361,8 @@
       "factory_engine_id": 30312,
       "fallback_factory_engine_id": 30312,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1269.60504363,
@@ -9732,6 +10394,8 @@
       "factory_engine_id": 30313,
       "fallback_factory_engine_id": 30313,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1043.262451,
@@ -9763,6 +10427,8 @@
       "factory_engine_id": 30314,
       "fallback_factory_engine_id": 30314,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1778.0820904000002,
@@ -9794,6 +10460,8 @@
       "factory_engine_id": 30315,
       "fallback_factory_engine_id": 30315,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1215.17395923,
@@ -9825,6 +10493,8 @@
       "factory_engine_id": 30316,
       "fallback_factory_engine_id": 30316,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1359.8699252600002,
@@ -9856,6 +10526,8 @@
       "factory_engine_id": 30317,
       "fallback_factory_engine_id": 30317,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1778.0820904000002,
@@ -9887,6 +10559,8 @@
       "factory_engine_id": 30318,
       "fallback_factory_engine_id": 30318,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1572.15115442,
@@ -9918,6 +10592,8 @@
       "factory_engine_id": 30319,
       "fallback_factory_engine_id": 30319,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1840.22424509,
@@ -9949,6 +10625,8 @@
       "factory_engine_id": 30320,
       "fallback_factory_engine_id": 30320,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1992.6312814100002,
@@ -9980,6 +10658,8 @@
       "factory_engine_id": 30321,
       "fallback_factory_engine_id": 30321,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1010.15020799,
@@ -10011,6 +10691,8 @@
       "factory_engine_id": 30322,
       "fallback_factory_engine_id": 30322,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1270.058636,
@@ -10042,6 +10724,8 @@
       "factory_engine_id": 30323,
       "fallback_factory_engine_id": 30323,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1169.8147222300001,
@@ -10073,6 +10757,8 @@
       "factory_engine_id": 30324,
       "fallback_factory_engine_id": 30324,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 2041.165665,
@@ -10104,6 +10790,8 @@
       "factory_engine_id": 30325,
       "fallback_factory_engine_id": 30325,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1394.79653775,
@@ -10135,6 +10823,8 @@
       "factory_engine_id": 30326,
       "fallback_factory_engine_id": 30326,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1394.79653775,
@@ -10166,6 +10856,8 @@
       "factory_engine_id": 30327,
       "fallback_factory_engine_id": 30327,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1460.5674314,
@@ -10197,6 +10889,8 @@
       "factory_engine_id": 30328,
       "fallback_factory_engine_id": 30328,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1609.7993211300002,
@@ -10228,6 +10922,8 @@
       "factory_engine_id": 30329,
       "fallback_factory_engine_id": 30329,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1360.77711,
@@ -10259,6 +10955,8 @@
       "factory_engine_id": 30330,
       "fallback_factory_engine_id": 30330,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 923.96765769,
@@ -10290,6 +10988,8 @@
       "factory_engine_id": 30331,
       "fallback_factory_engine_id": 30331,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1629.75738541,
@@ -10321,6 +11021,8 @@
       "factory_engine_id": 30332,
       "fallback_factory_engine_id": 30332,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 816.466266,
@@ -10349,24 +11051,30 @@
       "visual_variant": 0,
       "base_kit": 0,
       "legacy_lamp_masks": false,
-      "factory_engine_id": 30333,
+      "factory_engine_id": 1506,
       "fallback_factory_engine_id": 30333,
       "nfs_origin_reference": null,
-      "factory_assignment_kind": "recovered_per_vehicle_stock",
+      "factory_reference_engine_id": 1506,
+      "factory_calibration": {
+        "engine_id": 1506,
+        "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+        "reference": "native/game/pc-engines.json"
+      },
+      "factory_assignment_kind": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
       "mechanics": {
         "mass_kg": 1954.9831147,
         "hp": 500.0,
         "grip_raw": 1250.0,
         "speed_mph": 165.0,
-        "redline_rpm": 7200.0,
+        "redline_rpm": 8250.0,
         "litres": 5.0,
         "drive": 1
       },
-      "provisional_physics": false,
+      "provisional_physics": true,
       "recovered_hp": 500.0,
       "recovered_litres": 5.0,
       "recovered_redline_rpm": 7200.0,
-      "fallback_audio_engine_id": 1502,
+      "fallback_audio_engine_id": 1506,
       "identity_uncertain": false
     },
     {
@@ -10383,6 +11091,8 @@
       "factory_engine_id": 30334,
       "fallback_factory_engine_id": 30334,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1741.7947008,
@@ -10414,6 +11124,8 @@
       "factory_engine_id": 30335,
       "fallback_factory_engine_id": 30335,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1548.11075881,
@@ -10445,6 +11157,8 @@
       "factory_engine_id": 30336,
       "fallback_factory_engine_id": 30336,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1764.4743193000002,
@@ -10476,6 +11190,8 @@
       "factory_engine_id": 30337,
       "fallback_factory_engine_id": 30337,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1519.5344395,
@@ -10507,6 +11223,8 @@
       "factory_engine_id": 30338,
       "fallback_factory_engine_id": 30338,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1406.1363470000001,
@@ -10538,6 +11256,8 @@
       "factory_engine_id": 30339,
       "fallback_factory_engine_id": 30339,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 941.20416775,
@@ -10569,6 +11289,8 @@
       "factory_engine_id": 30340,
       "fallback_factory_engine_id": 30340,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1616.14961431,
@@ -10600,6 +11322,8 @@
       "factory_engine_id": 30341,
       "fallback_factory_engine_id": 30341,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1674.2094376700002,
@@ -10631,6 +11355,8 @@
       "factory_engine_id": 30342,
       "fallback_factory_engine_id": 30342,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1401.6004233,
@@ -10662,6 +11388,8 @@
       "factory_engine_id": 30343,
       "fallback_factory_engine_id": 30343,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1949.9935986300002,
@@ -10690,24 +11418,30 @@
       "visual_variant": 0,
       "base_kit": 0,
       "legacy_lamp_masks": false,
-      "factory_engine_id": 30344,
+      "factory_engine_id": 1512,
       "fallback_factory_engine_id": 30344,
       "nfs_origin_reference": null,
-      "factory_assignment_kind": "recovered_per_vehicle_stock",
+      "factory_reference_engine_id": 1512,
+      "factory_calibration": {
+        "engine_id": 1512,
+        "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+        "reference": "native/game/pc-engines.json"
+      },
+      "factory_assignment_kind": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
       "mechanics": {
         "mass_kg": 1383.4567285,
-        "hp": 300.0,
+        "hp": 306.0,
         "grip_raw": 1250.0,
         "speed_mph": 150.0,
-        "redline_rpm": 8000.0,
+        "redline_rpm": 7000.0,
         "litres": 2.0,
         "drive": 0
       },
-      "provisional_physics": false,
+      "provisional_physics": true,
       "recovered_hp": 300.0,
       "recovered_litres": 2.0,
       "recovered_redline_rpm": 8000.0,
-      "fallback_audio_engine_id": 1003,
+      "fallback_audio_engine_id": 1512,
       "identity_uncertain": false
     },
     {
@@ -10724,6 +11458,8 @@
       "factory_engine_id": 30345,
       "fallback_factory_engine_id": 30345,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1569.8831925700001,
@@ -10755,6 +11491,8 @@
       "factory_engine_id": 30346,
       "fallback_factory_engine_id": 30346,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1199.7518186500001,
@@ -10786,6 +11524,8 @@
       "factory_engine_id": 30347,
       "fallback_factory_engine_id": 30347,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1087.7145032600001,
@@ -10817,6 +11557,8 @@
       "factory_engine_id": 30348,
       "fallback_factory_engine_id": 30348,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1546.29638933,
@@ -10848,6 +11590,8 @@
       "factory_engine_id": 30349,
       "fallback_factory_engine_id": 30349,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1430.17674261,
@@ -10879,6 +11623,8 @@
       "factory_engine_id": 30350,
       "fallback_factory_engine_id": 30350,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1299.99573242,
@@ -10910,6 +11656,8 @@
       "factory_engine_id": 30351,
       "fallback_factory_engine_id": 30351,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1568.97600783,
@@ -10941,6 +11689,8 @@
       "factory_engine_id": 30352,
       "fallback_factory_engine_id": 30352,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1488.2365659700001,
@@ -10969,24 +11719,30 @@
       "visual_variant": 0,
       "base_kit": 0,
       "legacy_lamp_masks": false,
-      "factory_engine_id": 30353,
+      "factory_engine_id": 1514,
       "fallback_factory_engine_id": 30353,
       "nfs_origin_reference": null,
-      "factory_assignment_kind": "recovered_per_vehicle_stock",
+      "factory_reference_engine_id": 1514,
+      "factory_calibration": {
+        "engine_id": 1514,
+        "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+        "reference": "native/game/pc-engines.json"
+      },
+      "factory_assignment_kind": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
       "mechanics": {
         "mass_kg": 2075.18509275,
         "hp": 707.0,
         "grip_raw": 1200.0,
         "speed_mph": 160.0,
-        "redline_rpm": 7700.0,
+        "redline_rpm": 6200.0,
         "litres": 6.2,
         "drive": 1
       },
-      "provisional_physics": false,
+      "provisional_physics": true,
       "recovered_hp": 707.0,
       "recovered_litres": 6.2,
       "recovered_redline_rpm": 7700.0,
-      "fallback_audio_engine_id": 1008,
+      "fallback_audio_engine_id": 1514,
       "identity_uncertain": false
     },
     {
@@ -11003,6 +11759,8 @@
       "factory_engine_id": 30354,
       "fallback_factory_engine_id": 30354,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1854.2856085600001,
@@ -11034,6 +11792,8 @@
       "factory_engine_id": 30355,
       "fallback_factory_engine_id": 30355,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1149.85665795,
@@ -11065,6 +11825,8 @@
       "factory_engine_id": 30356,
       "fallback_factory_engine_id": 30356,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1224.699399,
@@ -11096,6 +11858,8 @@
       "factory_engine_id": 30357,
       "fallback_factory_engine_id": 30357,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1725.0117831100001,
@@ -11127,6 +11891,8 @@
       "factory_engine_id": 30358,
       "fallback_factory_engine_id": 30358,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1599.82028899,
@@ -11158,6 +11924,8 @@
       "factory_engine_id": 30359,
       "fallback_factory_engine_id": 30359,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1524.0703632,
@@ -11189,6 +11957,8 @@
       "factory_engine_id": 30360,
       "fallback_factory_engine_id": 30360,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1614.7888372,
@@ -11220,6 +11990,8 @@
       "factory_engine_id": 30361,
       "fallback_factory_engine_id": 30361,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1850.2032772300001,
@@ -11251,6 +12023,8 @@
       "factory_engine_id": 30362,
       "fallback_factory_engine_id": 30362,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1721.3830441500002,
@@ -11282,6 +12056,8 @@
       "factory_engine_id": 30363,
       "fallback_factory_engine_id": 30363,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1587.5732950000001,
@@ -11313,6 +12089,8 @@
       "factory_engine_id": 30364,
       "fallback_factory_engine_id": 30364,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1849.7496848600001,
@@ -11344,6 +12122,8 @@
       "factory_engine_id": 30365,
       "fallback_factory_engine_id": 30365,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1394.3429453800002,
@@ -11375,6 +12155,8 @@
       "factory_engine_id": 30366,
       "fallback_factory_engine_id": 30366,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 985.2026276400001,
@@ -11406,6 +12188,8 @@
       "factory_engine_id": 30367,
       "fallback_factory_engine_id": 30367,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1254.63649542,
@@ -11437,6 +12221,8 @@
       "factory_engine_id": 30368,
       "fallback_factory_engine_id": 30368,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1165.7323909000002,
@@ -11468,6 +12254,8 @@
       "factory_engine_id": 30369,
       "fallback_factory_engine_id": 30369,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 979.7595192,
@@ -11499,6 +12287,8 @@
       "factory_engine_id": 30370,
       "fallback_factory_engine_id": 30370,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1120.3731539,
@@ -11530,6 +12320,8 @@
       "factory_engine_id": 30371,
       "fallback_factory_engine_id": 30371,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1154.84617402,
@@ -11561,6 +12353,8 @@
       "factory_engine_id": 30372,
       "fallback_factory_engine_id": 30372,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1147.5886961,
@@ -11592,6 +12386,8 @@
       "factory_engine_id": 30373,
       "fallback_factory_engine_id": 30373,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 521.6312255,
@@ -11623,6 +12419,8 @@
       "factory_engine_id": 30374,
       "fallback_factory_engine_id": 30374,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1025.1187562,
@@ -11654,6 +12452,8 @@
       "factory_engine_id": 30375,
       "fallback_factory_engine_id": 30375,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1399.78605382,
@@ -11685,6 +12485,8 @@
       "factory_engine_id": 30376,
       "fallback_factory_engine_id": 30376,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 969.78048706,
@@ -11716,6 +12518,8 @@
       "factory_engine_id": 30377,
       "fallback_factory_engine_id": 30377,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1290.0167002800001,
@@ -11747,6 +12551,8 @@
       "factory_engine_id": 30378,
       "fallback_factory_engine_id": 30378,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1339.91186098,
@@ -11778,6 +12584,8 @@
       "factory_engine_id": 30379,
       "fallback_factory_engine_id": 30379,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 874.97968173,
@@ -11809,6 +12617,8 @@
       "factory_engine_id": 30380,
       "fallback_factory_engine_id": 30380,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1080.00343297,
@@ -11840,6 +12650,8 @@
       "factory_engine_id": 30381,
       "fallback_factory_engine_id": 30381,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 980.21311157,
@@ -11871,6 +12683,8 @@
       "factory_engine_id": 30382,
       "fallback_factory_engine_id": 30382,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 705.7897277200001,
@@ -11902,6 +12716,8 @@
       "factory_engine_id": 30383,
       "fallback_factory_engine_id": 30383,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1223.79221426,
@@ -11933,6 +12749,8 @@
       "factory_engine_id": 30384,
       "fallback_factory_engine_id": 30384,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1725.0117831100001,
@@ -11964,6 +12782,8 @@
       "factory_engine_id": 30385,
       "fallback_factory_engine_id": 30385,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1331.29360595,
@@ -11995,6 +12815,8 @@
       "factory_engine_id": 30386,
       "fallback_factory_engine_id": 30386,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 766.5711053,
@@ -12026,6 +12848,8 @@
       "factory_engine_id": 30387,
       "fallback_factory_engine_id": 30387,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1575.77989338,
@@ -12057,6 +12881,8 @@
       "factory_engine_id": 30388,
       "fallback_factory_engine_id": 30388,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1689.63157825,
@@ -12088,6 +12914,8 @@
       "factory_engine_id": 30389,
       "fallback_factory_engine_id": 30389,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1612.9744677200001,
@@ -12119,6 +12947,8 @@
       "factory_engine_id": 30390,
       "fallback_factory_engine_id": 30390,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1480.0719033100002,
@@ -12150,6 +12980,8 @@
       "factory_engine_id": 30391,
       "fallback_factory_engine_id": 30391,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1524.97754794,
@@ -12181,6 +13013,8 @@
       "factory_engine_id": 30392,
       "fallback_factory_engine_id": 30392,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1315.417873,
@@ -12212,6 +13046,8 @@
       "factory_engine_id": 30393,
       "fallback_factory_engine_id": 30393,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1099.96149725,
@@ -12243,6 +13079,8 @@
       "factory_engine_id": 30394,
       "fallback_factory_engine_id": 30394,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1578.04785523,
@@ -12274,6 +13112,8 @@
       "factory_engine_id": 30395,
       "fallback_factory_engine_id": 30395,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1614.7888372,
@@ -12305,6 +13145,8 @@
       "factory_engine_id": 30396,
       "fallback_factory_engine_id": 30396,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1641.55078703,
@@ -12336,6 +13178,8 @@
       "factory_engine_id": 30397,
       "fallback_factory_engine_id": 30397,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1103.13664384,
@@ -12367,6 +13211,8 @@
       "factory_engine_id": 30398,
       "fallback_factory_engine_id": 30398,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 894.9377460100001,
@@ -12398,6 +13244,8 @@
       "factory_engine_id": 30399,
       "fallback_factory_engine_id": 30399,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1389.8070216800002,
@@ -12429,6 +13277,8 @@
       "factory_engine_id": 30400,
       "fallback_factory_engine_id": 30400,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1265.5227123,
@@ -12460,6 +13310,8 @@
       "factory_engine_id": 30401,
       "fallback_factory_engine_id": 30401,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1542.214058,
@@ -12491,6 +13343,8 @@
       "factory_engine_id": 30402,
       "fallback_factory_engine_id": 30402,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1149.85665795,
@@ -12522,6 +13376,8 @@
       "factory_engine_id": 30403,
       "fallback_factory_engine_id": 30403,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1339.91186098,
@@ -12553,6 +13409,8 @@
       "factory_engine_id": 30404,
       "fallback_factory_engine_id": 30404,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1422.01207995,
@@ -12584,6 +13442,8 @@
       "factory_engine_id": 30405,
       "fallback_factory_engine_id": 30405,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1542.214058,
@@ -12615,6 +13475,8 @@
       "factory_engine_id": 30406,
       "fallback_factory_engine_id": 30406,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1422.01207995,
@@ -12646,6 +13508,8 @@
       "factory_engine_id": 30407,
       "fallback_factory_engine_id": 30407,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 719.85109119,
@@ -12677,6 +13541,8 @@
       "factory_engine_id": 30408,
       "fallback_factory_engine_id": 30408,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 689.91399477,
@@ -12708,6 +13574,8 @@
       "factory_engine_id": 30409,
       "fallback_factory_engine_id": 30409,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1597.0987347700002,
@@ -12739,6 +13607,8 @@
       "factory_engine_id": 30410,
       "fallback_factory_engine_id": 30410,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1496.8548210000001,
@@ -12770,6 +13640,8 @@
       "factory_engine_id": 30411,
       "fallback_factory_engine_id": 30411,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1814.36948,
@@ -12801,6 +13673,8 @@
       "factory_engine_id": 30412,
       "fallback_factory_engine_id": 30412,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1814.36948,
@@ -12832,6 +13706,8 @@
       "factory_engine_id": 30413,
       "fallback_factory_engine_id": 30413,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1143.5063647700001,
@@ -12863,6 +13739,8 @@
       "factory_engine_id": 30414,
       "fallback_factory_engine_id": 30414,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1587.5732950000001,
@@ -12894,6 +13772,8 @@
       "factory_engine_id": 30415,
       "fallback_factory_engine_id": 30415,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1655.15855813,
@@ -12925,6 +13805,8 @@
       "factory_engine_id": 30416,
       "fallback_factory_engine_id": 30416,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1941.3753436000002,
@@ -12956,6 +13838,8 @@
       "factory_engine_id": 30417,
       "fallback_factory_engine_id": 30417,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1441.97014423,
@@ -12987,6 +13871,8 @@
       "factory_engine_id": 30418,
       "fallback_factory_engine_id": 30418,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 820.0950049600001,
@@ -13018,6 +13904,8 @@
       "factory_engine_id": 30419,
       "fallback_factory_engine_id": 30419,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 2316.04264122,
@@ -13049,6 +13937,8 @@
       "factory_engine_id": 30420,
       "fallback_factory_engine_id": 30420,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1824.8021045100002,
@@ -13080,6 +13970,8 @@
       "factory_engine_id": 30421,
       "fallback_factory_engine_id": 30421,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1078.64265586,
@@ -13111,6 +14003,8 @@
       "factory_engine_id": 30422,
       "fallback_factory_engine_id": 30422,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1230.1425074400001,
@@ -13142,6 +14036,8 @@
       "factory_engine_id": 30423,
       "fallback_factory_engine_id": 30423,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1537.6781343,
@@ -13173,6 +14069,8 @@
       "factory_engine_id": 30424,
       "fallback_factory_engine_id": 30424,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1640.1900099200002,
@@ -13204,6 +14102,8 @@
       "factory_engine_id": 30425,
       "fallback_factory_engine_id": 30425,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1580.76940945,
@@ -13235,6 +14135,8 @@
       "factory_engine_id": 30426,
       "fallback_factory_engine_id": 30426,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1594.83077292,
@@ -13266,6 +14168,8 @@
       "factory_engine_id": 30427,
       "fallback_factory_engine_id": 30427,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1529.96706401,
@@ -13297,6 +14201,8 @@
       "factory_engine_id": 30428,
       "fallback_factory_engine_id": 30428,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1614.7888372,
@@ -13328,6 +14234,8 @@
       "factory_engine_id": 30429,
       "fallback_factory_engine_id": 30429,
       "nfs_origin_reference": null,
+      "factory_reference_engine_id": null,
+      "factory_calibration": null,
       "factory_assignment_kind": "recovered_per_vehicle_stock",
       "mechanics": {
         "mass_kg": 1360.77711,
@@ -13359,9 +14267,21 @@
       "factory_engine_id": 20077,
       "fallback_factory_engine_id": 30430,
       "nfs_origin_reference": 20077,
-      "factory_assignment_kind": "NFS_Ford_GT_2017_powertrain; source-slot chassis calibration",
+      "factory_reference_engine_id": 20077,
+      "factory_calibration": {
+        "engine_id": 20077,
+        "mass_kg": 1520,
+        "wheelbase": 2.71,
+        "front_weight": 0.43,
+        "drag_area": 0.64,
+        "reason": "2017 Ford GT V6 3.5L 646 HP; published dry mass, playable mass calibration",
+        "reference": "https://media.ford.com/content/fordmedia/fna/us/en/news/2017/01/25/all-new-ford-gt-top-speed.html",
+        "published_dry_mass_kg": 1385,
+        "mass_basis": "Native running-mass estimate including fluids, not a certified curb measurement"
+      },
+      "factory_assignment_kind": "2017 Ford GT V6 3.5L 646 HP; published dry mass, playable mass calibration",
       "mechanics": {
-        "mass_kg": 1580.76940945,
+        "mass_kg": 1520.0,
         "hp": 646,
         "grip_raw": 1050.0,
         "speed_mph": 180.0,
@@ -13370,9 +14290,9 @@
         "drive": 1
       },
       "provisional_physics": true,
-      "recovered_hp": 646,
-      "recovered_litres": 3.5,
-      "recovered_redline_rpm": 7500,
+      "recovered_hp": 550.0,
+      "recovered_litres": 5.4,
+      "recovered_redline_rpm": 7500.0,
       "fallback_audio_engine_id": 20077,
       "identity_uncertain": true
     }

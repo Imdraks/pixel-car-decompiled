@@ -12,7 +12,7 @@
       "factory_engine_id": 20077,
       "identification": "user_confirmed_from_exact_Unbound_187_Fortune_composite",
       "source_recipe": "sp_car[186] plus sp_fortune_front[186], sp_fortune_rear[186] and sp_fortune_side[186], with source front/rear masks",
-      "limits": "Only this Ford GT conversion is confirmed; other base-slot kits are not certified Ford GT body parts. Powertrain uses the supplied Unbound workbook V6 3.5L 646 HP; chassis mass/grip remain a source-slot game calibration."
+      "limits": "Only this Ford GT conversion is confirmed. Existing Unbound V6 3.5L 646 HP and V6 audio profile; factory body kits of unrelated base-slot cars are blocked. Chassis and thermal dynamics are native calibrations; running mass is estimated."
     }
   ],
   "legacy_lamp_masks": {
@@ -35,5 +35,75 @@
       187,
       188
     ]
+  },
+  "factory_calibrations": {
+    "pcr-unbound-085": {
+      "engine_id": 1503,
+      "mass_kg": 1700,
+      "wheelbase": 2.7,
+      "front_weight": 0.43,
+      "drag_area": 0.7,
+      "reason": "Aventador family; existing Aventador S 730 HP V12 calibration, trim/year unconfirmed",
+      "reference": "https://www.lamborghini.com/en-en/history/aventador-s",
+      "published_dry_mass_kg": 1575,
+      "mass_basis": "Native running-mass estimate including fluids, not a certified curb measurement"
+    },
+    "pcr-unbound-187": {
+      "engine_id": 1502,
+      "mass_kg": 1540,
+      "wheelbase": 2.62,
+      "front_weight": 0.43,
+      "drag_area": 0.66,
+      "reason": "Huracan family; existing EVO 631 HP V10 calibration, trim/year unconfirmed",
+      "reference": "https://www.lamborghini.com/en-en/models/huracan/huracan-evo",
+      "published_dry_mass_kg": 1422,
+      "mass_basis": "Native running-mass estimate including fluids, not a certified curb measurement"
+    },
+    "pcr-unbound-186-ford-gt-2017": {
+      "engine_id": 20077,
+      "mass_kg": 1520,
+      "wheelbase": 2.71,
+      "front_weight": 0.43,
+      "drag_area": 0.64,
+      "reason": "2017 Ford GT V6 3.5L 646 HP; published dry mass, playable mass calibration",
+      "reference": "https://media.ford.com/content/fordmedia/fna/us/en/news/2017/01/25/all-new-ford-gt-top-speed.html",
+      "published_dry_mass_kg": 1385,
+      "mass_basis": "Native running-mass estimate including fluids, not a certified curb measurement"
+    },
+    "pcr-shared-094": {
+      "engine_id": 1506,
+      "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+      "reference": "native/game/pc-engines.json"
+    },
+    "pcr-shared-101": {
+      "engine_id": 1507,
+      "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+      "reference": "native/game/pc-engines.json"
+    },
+    "pcr-shared-105": {
+      "engine_id": 1512,
+      "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+      "reference": "native/game/pc-engines.json"
+    },
+    "pcr-shared-114": {
+      "engine_id": 1514,
+      "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+      "reference": "native/game/pc-engines.json"
+    },
+    "pcr-underground-094": {
+      "engine_id": 1506,
+      "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+      "reference": "native/game/pc-engines.json"
+    },
+    "pcr-underground-105": {
+      "engine_id": 1512,
+      "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+      "reference": "native/game/pc-engines.json"
+    },
+    "pcr-underground-114": {
+      "engine_id": 1514,
+      "reason": "Reviewed model / existing physical engine family calibration; chassis source stats retained",
+      "reference": "native/game/pc-engines.json"
+    }
   }
 }

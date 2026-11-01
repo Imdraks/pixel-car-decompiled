@@ -6,6 +6,9 @@ G=Path(__file__).resolve().parents[1]
 identities=json.loads((G.parent/'evidence/merged/vehicle-identities.json').read_text())
 choices=[tuple(map(int,r)) for r in re.findall(r'\{(\d+),(\d+),(\d+)\}',(G/'src/body_choices.hpp').read_text())]
 variant_data=json.loads((G/'vehicle-variants.json').read_text());variants=variant_data['variants']
+calibrations=variant_data.get('factory_calibrations',{})
+pc_parts={int(i):float(hp) for i,hp in re.findall(r'\{(\d+),PartSlot::Engine,"[^"]+",([\d.]+),',(G/'src/pc_engine_parts.inc').read_text())}
+pc_specs={int(r[0]):list(map(float,r[1:4])) for r in re.findall(r'^\{([^{}]+)\},', (G/'src/pc_engines.hpp').read_text(),re.M) for r in [r.split(',')]}
 variant_rows={(v['body'],v['source'],v['visual_variant']):v for v in variants}
 choices += [(v['body'],v['source'],v['source_mask'],v['visual_variant']) for v in variants]
 stocks=[list(map(float,r.split(','))) for r in re.findall(r'^\{([^{}]+)\},', (G/'src/stock_vehicles.hpp').read_text(),re.M)]
@@ -66,16 +69,26 @@ for index,choice in enumerate(choices):
   e=next(e for e in nfs['engines'] if e['id']==reference)
   mechanical[1]=e['hp'];mechanical[4]=7500;mechanical[5]=e['litres'];mechanical[6]=1
   provisional=True
+ legacy_mechanical=mechanical.copy();legacy_sound=reference if extra else stock_sound(body,name)
+ if cat==7:legacy_sound=0
+ calibration=calibrations.get(key,{})
+ if calibration:
+  reference=calibration["engine_id"]
+  if reference in pc_specs:
+   mechanical[1]=pc_parts[reference];mechanical[4],mechanical[5]=pc_specs[reference][:2]
+  if "mass_kg" in calibration:mechanical[0]=calibration["mass_kg"]/.45359237
+  if "front_weight" in calibration:mechanical[6]=2 if "Lamborghini" in name else 1
+  provisional=True
  factory_id=reference or stock_id
  hp=mechanical[1];litres=mechanical[5];rpm=mechanical[4];sound=stock_sound(body,name)
  if cat==7:sound=0
- if extra:sound=reference
+ if extra or calibration:sound=reference
  legacy_lamps=body in variant_data['legacy_lamp_masks'].get('unbound' if source==0 else 'underground' if source==2 else 'original',[])
- label=f'Origine {litres:g}L - {name}'
- definitions.append('{'+f'{q(key)},{q(name)},{cat},{body},{source},{mask},{factory_id},{stock_id},{sound},'+ '{'+','.join(map(str,mechanical))+'},'+str(reference>0).lower()+','+str(provisional).lower()+','+str(variant)+','+str(extra.get('base_kit',0))+','+str(float(extra.get('wheel_front',0)))+'f,'+str(legacy_lamps).lower()+'},')
- engines.append('{'+f'{stock_id},PartSlot::Engine,{q(label)},{hp},250,0,0,{mask},-1'+'},')
- rows.append({'id':key,'name':name,'category':categories[cat],'body_asset':body,'source':source,'source_mask':mask,'retired':False,'visual_variant':variant,'base_kit':extra.get('base_kit',0),'legacy_lamp_masks':legacy_lamps,'factory_engine_id':factory_id,'fallback_factory_engine_id':stock_id,'nfs_origin_reference':reference or None,'factory_assignment_kind':'NFS_Ford_GT_2017_powertrain; source-slot chassis calibration' if extra else 'provisional_Porsche_911_family; trim/year unconfirmed' if provisional else 'declared_model_bridge; year/trim may differ' if reference else 'recovered_per_vehicle_stock','mechanics':{'mass_kg':mechanical[0]*.45359237,'hp':hp,'grip_raw':mechanical[2],'speed_mph':mechanical[3],'redline_rpm':rpm,'litres':litres,'drive':int(mechanical[6])},'provisional_physics':provisional,'recovered_hp':hp,'recovered_litres':litres,'recovered_redline_rpm':rpm,'fallback_audio_engine_id':sound,'identity_uncertain':cat==7 or (source==0 and any(r['body']==body and r['status'] not in ('user_confirmed','visually_reviewed') for r in identities['unbound_visual_replacements']))})
-header=['// Generated named vehicle catalogue. Renderer body IDs are implementation details.','#pragma once','namespace pcr {','struct VehicleDefinition {const char* id;const char* name;int category,body,source,sourceMask,factoryEngineId,stockEngineId,audioEngineId;StockVehicle stock;bool nfsReference,provisionalPhysics;int visualVariant,baseKit;float wheelFront;bool legacyLampMasks;};','inline constexpr const char* VehicleCategories[]={'+','.join(q(s) for s in categories)+'};','inline constexpr VehicleDefinition VehicleCatalog[]={',*definitions,'};','inline constexpr Part FactoryEngineCatalog[]={',*engines,'};','inline const VehicleDefinition* vehicleForStockEngine(int id){return id>=30000&&id<'+str(30000+len(rows))+'?&VehicleCatalog[id-30000]:nullptr;}','}']
+ label=f'Origine {legacy_mechanical[5]:g}L - {name}'
+ definitions.append('{'+f'{q(key)},{q(name)},{cat},{body},{source},{mask},{factory_id},{stock_id},{sound},'+ '{'+','.join(map(str,mechanical))+'},'+str(20000<=reference<20145).lower()+','+str(provisional).lower()+','+str(variant)+','+str(extra.get('base_kit',0))+','+str(float(extra.get('wheel_front',0)))+'f,'+str(legacy_lamps).lower()+','+str(calibration.get('wheelbase',2.6))+','+str(calibration.get('front_weight',0))+','+str(calibration.get('drag_area',.67))+','+'{'+','.join(map(str,legacy_mechanical))+'},'+str(legacy_sound)+','+str(bool(calibration)).lower()+'},')
+ engines.append('{'+f'{stock_id},PartSlot::Engine,{q(label)},{legacy_mechanical[1]},250,0,0,{mask},-1'+'},')
+ rows.append({'id':key,'name':name,'category':categories[cat],'body_asset':body,'source':source,'source_mask':mask,'retired':False,'visual_variant':variant,'base_kit':extra.get('base_kit',0),'legacy_lamp_masks':legacy_lamps,'factory_engine_id':factory_id,'fallback_factory_engine_id':stock_id,'nfs_origin_reference':reference if 20000<=reference<20145 else None,'factory_reference_engine_id':reference or None,'factory_calibration':calibration or None,'factory_assignment_kind':calibration['reason'] if calibration else 'NFS_Ford_GT_2017_powertrain; source-slot chassis calibration' if extra else 'provisional_Porsche_911_family; trim/year unconfirmed' if provisional else 'declared_model_bridge; year/trim may differ' if reference else 'recovered_per_vehicle_stock','mechanics':{'mass_kg':mechanical[0]*.45359237,'hp':hp,'grip_raw':mechanical[2],'speed_mph':mechanical[3],'redline_rpm':rpm,'litres':litres,'drive':int(mechanical[6])},'provisional_physics':provisional,'recovered_hp':stocks[body][1],'recovered_litres':stocks[body][5],'recovered_redline_rpm':stocks[body][4],'fallback_audio_engine_id':sound,'identity_uncertain':cat==7 or (source==0 and any(r['body']==body and r['status'] not in ('user_confirmed','visually_reviewed') for r in identities['unbound_visual_replacements']))})
+header=['// Generated named vehicle catalogue. Renderer body IDs are implementation details.','#pragma once','namespace pcr {','struct VehicleDefinition {const char* id;const char* name;int category,body,source,sourceMask,factoryEngineId,stockEngineId,audioEngineId;StockVehicle stock;bool nfsReference,provisionalPhysics;int visualVariant,baseKit;float wheelFront;bool legacyLampMasks;double wheelbase,frontWeight,dragArea;StockVehicle legacyStock;int legacyAudioEngineId;bool factoryCalibrated;};','inline constexpr const char* VehicleCategories[]={'+','.join(q(s) for s in categories)+'};','inline constexpr VehicleDefinition VehicleCatalog[]={',*definitions,'};','inline constexpr Part FactoryEngineCatalog[]={',*engines,'};','inline const VehicleDefinition* vehicleForStockEngine(int id){return id>=30000&&id<'+str(30000+len(rows))+'?&VehicleCatalog[id-30000]:nullptr;}','}']
 (G/'src/vehicle_catalog.hpp').write_text('\n'.join(header)+'\n')
 (G/'vehicles.json').write_text(json.dumps({'source_meaning':{'0':'Unbound','1':'Original','2':'Underground'},'categories':categories,'vehicles':rows,'limits':['Names derive from reviewed source identities; uncertain models remain labelled.','NFS assignments are model bridges, not exact trim/year certification.','Unmapped vehicles retain their recovered per-vehicle factory engine, power and revs.','No donor compatibility restriction applies to NFS engines.']},ensure_ascii=False,indent=2)+'\n')
-print(json.dumps({'vehicles':len(rows),'categories':dict(collections.Counter(r['category'] for r in rows)),'factory_nfs':sum(r['nfs_origin_reference'] is not None for r in rows),'factory_recovered':sum(r['nfs_origin_reference'] is None for r in rows)},ensure_ascii=False))
+print(json.dumps({'vehicles':len(rows),'categories':dict(collections.Counter(r['category'] for r in rows)),'factory_nfs':sum(r['nfs_origin_reference'] is not None for r in rows),'factory_calibrated':sum(r['factory_calibration'] is not None for r in rows)},ensure_ascii=False))

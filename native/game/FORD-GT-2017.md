@@ -25,7 +25,7 @@ de profil 9). Les anciennes sauvegardes sans ce champ restent des variantes zér
 ne sont pas transformées automatiquement en Ford GT. `vehicle-variants.json` décrit
 la recette ; Windows la livre sous `variantes-vehicules.json`.
 
-La puissance et le moteur sont ceux du tableau de jeu fourni. Masse, grip et autres
-paramètres de châssis restent une calibration issue de l’emplacement source, pas
-une validation constructeur de la physique de la GT 2017. La boîte reste réglable
-avec le système natif existant.
+La puissance et le moteur sont ceux du tableau de jeu fourni. Depuis la 0.19.0,
+l'empattement et la répartition de masse sont propres au modèle. Masse en roulage
+et aérodynamique restent des calibrations natives, pas une validation constructeur.
+La boîte reste réglable avec le système natif existant. Voir [0.19.0](UPGRADE-019.md).

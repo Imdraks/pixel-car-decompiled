@@ -28,13 +28,16 @@ void equipRim(Profile& p,int id,int axle){
 int bodyChoiceIndex(const Profile& p){for(size_t i=0;i<std::size(VehicleCatalog);i++)if(VehicleCatalog[i].body==p.car&&VehicleCatalog[i].source==p.contentSource&&VehicleCatalog[i].visualVariant==p.visualVariant)return int(i);for(size_t i=0;i<std::size(VehicleCatalog);i++)if(VehicleCatalog[i].body==p.car&&VehicleCatalog[i].visualVariant==p.visualVariant&&(VehicleCatalog[i].sourceMask&(p.contentSource==2?16:p.contentSource==1?1:2)))return int(i);for(size_t i=0;i<std::size(VehicleCatalog);i++)if(VehicleCatalog[i].body==p.car&&VehicleCatalog[i].visualVariant==0)return int(i);return 0;}
 void cycleBody(Profile& p,int direction){int index=(bodyChoiceIndex(p)+direction+int(std::size(VehicleCatalog)))%int(std::size(VehicleCatalog));p.car=VehicleCatalog[index].body;p.contentSource=VehicleCatalog[index].source;p.visualVariant=VehicleCatalog[index].visualVariant;}
 
-bool operator==(const Settings&a,const Settings&b){return a.mode==b.mode&&a.width==b.width&&a.height==b.height&&a.fps==b.fps&&a.vsync==b.vsync&&a.showFps==b.showFps&&a.sound==b.sound&&a.traffic==b.traffic&&a.abs==b.abs&&a.tractionControl==b.tractionControl&&a.quality==b.quality&&a.volumes==b.volumes;}
+bool operator==(const Settings&a,const Settings&b){return a.mode==b.mode&&a.width==b.width&&a.height==b.height&&a.fps==b.fps&&a.vsync==b.vsync&&a.showFps==b.showFps&&a.sound==b.sound&&a.traffic==b.traffic&&a.abs==b.abs&&a.tractionControl==b.tractionControl&&a.quality==b.quality&&a.volumes==b.volumes&&a.keys==b.keys&&a.gamepad==b.gamepad&&a.gamepadDeadzone==b.gamepadDeadzone;}
 const char* modeKey(WindowMode mode){switch(mode){case WindowMode::Fullscreen:return "fullscreen";case WindowMode::Borderless:return "borderless";default:return "windowed";}}
 Settings validate(Settings s){
     if(s.mode!=WindowMode::Windowed&&s.mode!=WindowMode::Borderless&&s.mode!=WindowMode::Fullscreen)s.mode=WindowMode::Windowed;
     if(s.width<800||s.width>7680||s.height<450||s.height>4320){s.width=1280;s.height=720;}
     if(s.fps!=0&&s.fps!=30&&s.fps!=60&&s.fps!=120&&s.fps!=144&&s.fps!=165&&s.fps!=240)s.fps=120;
     if(s.quality!=Quality::Low&&s.quality!=Quality::Medium&&s.quality!=Quality::High)s.quality=Quality::High;
+    bool keysValid=true;for(int i=0;i<ControlCount;i++){keysValid&=validControlKey(s.keys[i]);for(int j=0;j<i;j++)keysValid&=s.keys[i]!=s.keys[j];}
+    if(!keysValid)s.keys=DefaultKeys;
+    s.gamepadDeadzone=std::isfinite(s.gamepadDeadzone)?std::clamp(s.gamepadDeadzone,.05,.4):.18;
     s.volumes=validateVolumes(s.volumes);return s;
 }
 static std::map<std::string,std::string> readIni(const std::filesystem::path& file){
@@ -79,6 +82,8 @@ Settings loadSettings(const std::filesystem::path& file){
     s.traffic=integer(v,"traffic",1)!=0;s.abs=integer(v,"abs",1)!=0;s.tractionControl=integer(v,"traction_control",1)!=0;
     s.volumes.master=real(v,"volume_master",1);s.volumes.engine=real(v,"volume_engine",1);s.volumes.turbo=real(v,"volume_turbo",1);
     s.volumes.effects=real(v,"volume_effects",1);s.volumes.ambience=real(v,"volume_ambience",1);s.volumes.interface=real(v,"volume_interface",1);s.volumes.music=real(v,"volume_music",1);
+    for(int i=0;i<ControlCount;i++)s.keys[i]=integer(v,"key_"+std::to_string(i),DefaultKeys[i]);
+    s.gamepad=integer(v,"gamepad",1)!=0;s.gamepadDeadzone=real(v,"gamepad_deadzone",.18);
     return validate(s);
 }
 Profile loadProfile(const std::filesystem::path& file,int cars,int rims){
@@ -122,6 +127,8 @@ bool saveSettings(const std::filesystem::path& file,const Settings& settings,std
     out<<"version=1\nmode="<<modeKey(s.mode)<<"\nwidth="<<s.width<<"\nheight="<<s.height<<"\nfps="<<s.fps<<"\nvsync="<<s.vsync<<"\nquality="<<int(s.quality)<<"\nshow_fps="<<s.showFps<<"\nsound="<<s.sound<<"\ntraffic="<<s.traffic<<"\n";
     out<<"abs="<<s.abs<<"\ntraction_control="<<s.tractionControl<<'\n';
     out<<std::setprecision(17)<<"volume_master="<<s.volumes.master<<"\nvolume_engine="<<s.volumes.engine<<"\nvolume_turbo="<<s.volumes.turbo<<"\nvolume_effects="<<s.volumes.effects<<"\nvolume_ambience="<<s.volumes.ambience<<"\nvolume_interface="<<s.volumes.interface<<"\nvolume_music="<<s.volumes.music<<'\n';
+    for(int i=0;i<ControlCount;i++)out<<"key_"<<i<<"="<<s.keys[i]<<"\n";
+    out<<"gamepad="<<s.gamepad<<"\ngamepad_deadzone="<<s.gamepadDeadzone<<"\n";
     return writeAtomic(file,out.str(),error);
 }
 bool saveProfile(const std::filesystem::path& file,const Profile& raw,std::string& error){
@@ -263,9 +270,16 @@ bool shift(CarState& car,int direction,const Vehicle& vehicle){
     car.gear=next;car.shiftLock=vehicle.shiftSeconds;
     return true;
 }
+double tyreTemperatureGrip(double temperature,double optimum){
+    if(!std::isfinite(temperature)||!std::isfinite(optimum))return 1;
+    optimum=std::clamp(optimum,45.0,110.0);
+    return temperature<=optimum?1+.10*std::clamp((temperature-25)/(optimum-25),0.0,1.0):std::max(.78,1.10-(temperature-optimum)*.004);
+}
 void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,double finishDistance){
     if(s.finished||dt<=0||!std::isfinite(dt))return;
     if(v.suspensionDynamics&&!s.suspensionReady){s.suspensionReady=true;suspensionLoads(s,v);}
+    const double throttle=input.throttle?std::clamp(input.throttleAmount,0.0,1.0):0;
+    const double brake=input.brake?std::clamp(input.brakeAmount,0.0,1.0):0;
     s.tcActive=false;s.absActive=false;s.frontLocked=false;s.rearLocked=input.handbrake;s.brakeSlip=0;s.frontBrakeSlip=0;s.rearBrakeSlip=0;
     s.gear=std::clamp(s.gear,1,v.gearCount);
     s.shiftLock=std::max(0.0,s.shiftLock-dt);
@@ -301,7 +315,7 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     // Simplified slipping clutch below launch RPM. Above it, RPM follows wheel speed.
     double target=s.launching?4200:std::max(input.throttle&&!braking?v.launchRpm:v.idleRpm,coupled);
     if(freeRev||s.burningOut){
-        target=input.throttle?v.redlineRpm*(s.burningOut?.90:.96):v.idleRpm;
+        target=input.throttle?v.idleRpm+(v.redlineRpm*(s.burningOut?.90:.96)-v.idleRpm)*std::sqrt(throttle):v.idleRpm;
         s.rpm+=std::clamp(target-s.rpm,-6500*dt,9000*dt);
     }else if(launchStep)s.rpm=std::clamp(s.launchWheelOmega*ratio*60/(2*3.141592653589793),v.idleRpm,v.redlineRpm);
     else if(s.launchClutch&&s.shiftLock>0)s.rpm=std::min(s.rpm,v.redlineRpm*.96);
@@ -311,16 +325,19 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
         ?targetBoost(v,s.rpm):0;
     double boostRate=v.boostPsi*(boostTarget>s.boostPsi?(v.supercharged?10:1/v.turboRiseSeconds):8);
     s.boostPsi+=std::clamp(boostTarget-s.boostPsi,-boostRate*dt,boostRate*dt);
-    double torque=engineTorque(v,s.rpm,s.boostPsi);
+    double torque=engineTorque(v,s.rpm,s.boostPsi)*throttle;
     s.nitroActive=!s.neutral&&!s.burningOut&&input.nitro&&input.throttle&&!braking&&s.shiftLock==0&&!s.launching&&s.speed>2&&coupled<v.redlineRpm&&(!launchStep||s.rpm<v.redlineRpm*.995)&&v.nitroHp>0&&s.nitroRemaining>0;
     double nitroFraction=s.nitroActive?std::min(1.0,s.nitroRemaining/dt):0;
     if(s.nitroActive)s.nitroRemaining=std::max(0.0,s.nitroRemaining-dt);
     bool delivering=!s.neutral&&input.throttle&&!braking&&!s.launching&&s.shiftLock==0&&coupled<v.redlineRpm;
-    s.powerHp=(delivering||s.burningOut)?enginePowerHp(v,s.rpm,s.boostPsi,false)+nitroFraction*v.nitroHp:0;
+    s.powerHp=(delivering||s.burningOut)?enginePowerHp(v,s.rpm,s.boostPsi,false)*throttle+nitroFraction*v.nitroHp:0;
     double tractionLimit=v.suspensionDynamics?v.grip*(v.drive==DriveLayout::Front?s.frontLoad:v.drive==DriveLayout::Rear?s.rearLoad:s.frontLoad+s.rearLoad):drivenGrip(v,true);
-    double lateralUse=v.tyreDynamics?std::clamp(std::abs(s.lateralAcceleration)/std::max(.1,v.grip*9.81),0.0,1.0):0;
+    s.frontTyreGrip=v.tyreDynamics?tyreTemperatureGrip(s.frontTyreC,v.tyreOptimumC):1;
+    s.rearTyreGrip=v.tyreDynamics?tyreTemperatureGrip(s.rearTyreC,v.tyreOptimumC):1;
+    double drivenThermal=v.drive==DriveLayout::Front?s.frontTyreGrip:v.drive==DriveLayout::Rear?s.rearTyreGrip:(s.frontTyreGrip+s.rearTyreGrip)*.5;
+    double lateralUse=v.tyreDynamics?std::clamp(std::abs(s.lateralAcceleration)/std::max(.1,v.grip*9.81*drivenThermal),0.0,1.0):0;
     double longitudinalGrip=std::sqrt(std::max(0.0,1-lateralUse*lateralUse));
-    tractionLimit*=longitudinalGrip;
+    tractionLimit*=longitudinalGrip*drivenThermal;
     double wheelForce=!s.neutral&&input.throttle&&!braking&&!s.launching&&s.shiftLock==0&&coupled<v.redlineRpm
         ?torque*ratio*v.efficiency/v.wheelRadius:0;
     wheelForce+=nitroFraction*v.nitroHp*745.699872*v.efficiency/std::max(10.0,launchStep?s.launchWheelOmega*v.wheelRadius:s.speed);
@@ -346,23 +363,24 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
         // Engine and service braking share the same tyre contact patch.
         wheelForce-=v.engineBrakeTorque*ratio/v.wheelRadius*std::clamp(coupled/v.idleRpm,0.0,1.0);
     }
-    if(input.brake)wheelForce-=v.mass*v.brakeDeceleration;
+    if(input.brake)wheelForce-=v.mass*v.brakeDeceleration*brake;
     double rearFraction=v.drive==DriveLayout::Front?1-v.drivenWeightFraction:v.drivenWeightFraction;
     double handbrakeLimit=v.suspensionDynamics?v.grip*s.rearLoad:v.mass*9.81*v.grip*rearFraction/(1+v.grip*v.centreOfGravityHeight/v.wheelbase);
-    handbrakeLimit*=longitudinalGrip;
+    handbrakeLimit*=longitudinalGrip*s.rearTyreGrip;
     if(input.handbrake&&!input.brake)wheelForce-=handbrakeLimit;
-    double totalGrip=(v.suspensionDynamics?v.grip*(s.frontLoad+s.rearLoad):v.mass*9.81*v.grip)*longitudinalGrip;
+    double totalGrip=(v.suspensionDynamics?v.grip*(s.frontLoad*s.frontTyreGrip+s.rearLoad*s.rearTyreGrip):v.mass*9.81*v.grip)*longitudinalGrip;
     double overrunGrip=v.tyreDynamics&&v.suspensionDynamics
         ?v.grip*(v.drive==DriveLayout::Front?s.frontLoad:v.drive==DriveLayout::Rear?s.rearLoad:s.frontLoad+s.rearLoad)*longitudinalGrip
         :drivenGrip(v,false)*longitudinalGrip;
+    overrunGrip*=drivenThermal;
     double brakingLimit=input.brake?totalGrip:input.handbrake?handbrakeLimit:overrunGrip;
     s.wheelSlip=std::clamp((driveDemand-tractionLimit)/std::max(1.0,tractionLimit),0.0,2.0);
     if(launchStep)s.wheelSlip=std::clamp((s.launchWheelOmega*v.wheelRadius-s.speed)/std::max(2.0,s.speed),0.0,2.0);
     if(v.tyreDynamics){
         if(input.brake&&!s.burningOut){
-            double frontGrip=(v.suspensionDynamics?s.frontLoad:v.mass*9.81*v.frontWeightFraction)*v.grip*longitudinalGrip;
-            double rearGrip=(v.suspensionDynamics?s.rearLoad:v.mass*9.81*(1-v.frontWeightFraction))*v.grip*longitudinalGrip;
-            double service=v.mass*v.brakeDeceleration,engine=std::max(0.0,-wheelForce-service);
+            double frontGrip=(v.suspensionDynamics?s.frontLoad:v.mass*9.81*v.frontWeightFraction)*v.grip*longitudinalGrip*s.frontTyreGrip;
+            double rearGrip=(v.suspensionDynamics?s.rearLoad:v.mass*9.81*(1-v.frontWeightFraction))*v.grip*longitudinalGrip*s.rearTyreGrip;
+            double service=v.mass*v.brakeDeceleration*brake,engine=std::max(0.0,-wheelForce-service);
             double engineFront=v.drive==DriveLayout::Front?1:v.drive==DriveLayout::Rear?0:v.frontWeightFraction;
             auto axleBrake=[&](double demand,double grip,bool rear){
                 bool locked=rear&&input.handbrake;
@@ -418,6 +436,18 @@ void stepCar(CarState& s,const Vehicle& v,const DriverInput& input,double dt,dou
     double frontRolling=traveled*(1-s.frontBrakeSlip),rearRolling=traveled*(1-s.rearBrakeSlip);
     if(!s.frontLocked)s.frontRollDistance+=v.drive!=DriveLayout::Rear&&!s.neutral?std::max(frontRolling,spun):frontRolling;
     if(!s.rearLocked)s.rearRollDistance+=v.drive!=DriveLayout::Front&&!s.neutral?std::max(rearRolling,spun):rearRolling;
+    if(v.tyreDynamics){
+        // Only dissipated contact energy heats tyres; neutral/free revs cannot.
+        double slipSpeed=std::max(0.0,(spun-traveled)/dt);
+        double slipWatts=std::min(std::max(0.0,s.powerHp)*745.699872,tractionLimit*slipSpeed);
+        auto heat=[&](double& temp,bool driven,double lockedSlip,double load){
+            double watts=(driven?slipWatts*(v.drive==DriveLayout::All?.5:1):0)+lockedSlip*load*v.grip*s.speed*.12;
+            double cooling=(temp-25)*(80+5*s.speed);
+            temp=std::clamp(temp+(watts-cooling)/std::max(1000.0,v.tyreHeatCapacity)*dt,25.0,180.0);
+        };
+        heat(s.frontTyreC,v.drive!=DriveLayout::Rear,s.frontBrakeSlip,s.frontLoad);
+        heat(s.rearTyreC,v.drive!=DriveLayout::Front,s.rearBrakeSlip,s.rearLoad);
+    }
     updateSuspension(s,v,oldSpeed==0&&s.speed==0?0:force,dt);
     s.elapsed+=dt;
     if(finishDistance>0&&s.position>=finishDistance){double fraction=(finishDistance-previous)/(s.position-previous);s.finishTime=s.elapsed-dt+fraction*dt;s.position=finishDistance;s.finished=true;}
@@ -440,7 +470,8 @@ void FreeDrive::update(const DriverInput& input,double dt){
         constexpr double laneWidth=3.6;
         double frontContact=vehicle.suspensionDynamics&&player.suspensionReady
             ?std::clamp(player.frontLoad/std::max(1.0,vehicle.mass*9.81*vehicle.frontWeightFraction),0.0,1.0):1;
-        double lateralGrip=vehicle.grip*9.81*.85*frontContact*(player.rearLocked?.55:player.frontLocked?.35:1);
+        double thermal=tyreTemperatureGrip(player.frontTyreC,vehicle.tyreOptimumC);
+        double lateralGrip=vehicle.grip*9.81*.85*thermal*frontContact*(player.rearLocked?.55:player.frontLocked?.35:1);
         double limit=std::min(4.8,player.speed*.22);
         double desired=std::clamp((targetLane-lane)*laneWidth*1.8,-limit,limit);
         double ay=std::clamp((desired-lateralSpeed)*4,-lateralGrip,lateralGrip);

@@ -1,12 +1,14 @@
 # Pixel Car Racer — reconstruction native Windows
 
-**[Télécharger Windows x64 — version 0.18.3](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.18.3-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.18.3-native-preview)
+**[Télécharger Windows x64 — version 0.19.0](https://github.com/Imdraks/pixel-car-decompiled/releases/download/v0.19.0-native-preview/PixelCarRacerNative-Windows-x64.zip)** · [Release et preuves Windows](https://github.com/Imdraks/pixel-car-decompiled/releases/tag/v0.19.0-native-preview)
 
 Extraire toute l’archive, garder `assets` à côté de **PixelCarRacerNative.exe**,
 puis lancer cet exécutable et choisir **MODE LIBRE**. Windows 10/11 x64 avec un
 pilote OpenGL 3.3. Le jeu fonctionne hors ligne, sans Android ni émulateur.
 
 ## Disponible
+
+La **0.19.0** corrige les moteurs des modèles confirmés (dont V10/V12 Lamborghini), protège les préparations existantes, ajoute la température des pneus à l’adhérence et les commandes clavier réassignables avec prise en charge manette. La comparaison des pièces inclut poids, grip et passages de rapports ; l’audit couvre les trois banques et les variantes nommées. [Détails et limites](native/game/UPGRADE-019.md).
 
 La **0.18.3** corrige les deux Lamborghini Unbound : **086 = Aventador**, **188 = Huracán**, cette dernière confirmée par l’image fournie par l’utilisateur. La Huracán retrouve le showroom et les préparations archivées peuvent être rechargées. Les deux modèles conservent leurs kits, identifiants et configurations distincts. [Vérification des sources](native/game/LAMBORGHINI-KITS.md). La **Ford GT 2017** issue de la conversion Fortune Unbound 187 est également proposée comme voiture distincte, avec son V6 3.5L du catalogue Unbound, ses configurations et sa silhouette propres. Cette version corrige également les masques de phares hérités qui produisaient des plaques blanches sur les carrosseries remplacées.
 

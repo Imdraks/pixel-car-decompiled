@@ -11,7 +11,7 @@
 namespace pcr {
 int audioEngineId(const Profile& profile){
     int selected=profile.parts[int(PartSlot::Engine)];
-    if(auto* factory=vehicleForStockEngine(selected))return factory->audioEngineId?factory->audioEngineId:selected;
+    if(auto* factory=vehicleForStockEngine(selected))return factory->legacyAudioEngineId?factory->legacyAudioEngineId:selected;
     return selected?selected:profile.visualVariant?VehicleCatalog[bodyChoiceIndex(profile)].factoryEngineId:nfsFactoryEngine(profile.car,profile.contentSource);
 }
 EngineSamples engineSamples(const Profile& profile){
@@ -124,12 +124,14 @@ void applyGearboxPreset(Profile& p,int preset){
 }
 double engineRedline(const Profile& profile){
     const auto* engine=findPart(profile.parts[int(PartSlot::Engine)]);
-    if(engine)if(auto* factory=vehicleForStockEngine(engine->id))return factory->stock.redlineRpm;
+    if(engine)if(auto* factory=vehicleForStockEngine(engine->id))return factory->legacyStock.redlineRpm;
     if(engine)if(const auto* e=pcEngine(engine->id))return e->redlineRpm;
     return engine&&engine->slot==PartSlot::Engine?replacementEngine(engine->subimage).redlineRpm:vehicleMechanics(profile).redlineRpm;
 }
 Build buildVehicle(const Profile& profile){
     Build build;auto& v=build.vehicle;const auto& stock=vehicleMechanics(profile);
+    const auto& definition=VehicleCatalog[bodyChoiceIndex(profile)];
+    v.wheelbase=definition.wheelbase;v.dragArea=definition.dragArea;
     v.drive=effectiveDrive(profile);v.mass=stock.weightLb*.45359237;
     v.redlineRpm=engineRedline(profile);v.upshiftRpm=v.redlineRpm-1000;
     v.launchRpm=std::min(2800.0,v.redlineRpm*.4);
@@ -154,7 +156,7 @@ Build buildVehicle(const Profile& profile){
         stockPowerPerTorque=powerPerTorque(v);
     }
     double targetHp=stock.hp,addedHp=0,massDelta=0;
-    if(auto* p=chosen(PartSlot::Engine)){targetHp=p->stat;massDelta+=p->weight-250;}
+    if(auto* p=chosen(PartSlot::Engine)){targetHp=p->stat;const auto* factoryEngine=definition.factoryCalibrated?findPart(definition.factoryEngineId):nullptr;massDelta+=p->weight-(factoryEngine?factoryEngine->weight:250);}
     double nfsProgress=0;
     for(PartSlot slot:{PartSlot::Intake,PartSlot::Pistons,PartSlot::Exhaust,PartSlot::Fuel}){
         if(auto* p=chosen(slot)){
@@ -213,6 +215,7 @@ Build buildVehicle(const Profile& profile){
     }
     if(auto* p=chosen(PartSlot::Tires)){
         v.grip=(.8+p->stat*.002)*chassisGrip;
+        v.tyreOptimumC=85;v.tyreHeatCapacity=22000;
         build.tireFrame=std::clamp(p->subimage,0,int(std::size(art::tires))-1);
         v.wheelRadius*=art::tires[build.tireFrame].w/50.0;
         if(auto* u=nfsUpgrade(p->id)){
@@ -232,7 +235,7 @@ Build buildVehicle(const Profile& profile){
         v.springStiffness*=u->variant==2?1-.2*u->strength:1+.3*u->strength;
         v.dampingRatio+=.1*u->strength;
     }
-    v.frontWeightFraction=std::clamp((v.drive==DriveLayout::Front?.60:.48)+chassis.frontBias,.28,.75);
+    v.frontWeightFraction=std::clamp((definition.frontWeight>0?definition.frontWeight:v.drive==DriveLayout::Front?.60:.48)+chassis.frontBias,.28,.75);
     v.drivenWeightFraction=v.drive==DriveLayout::Front?v.frontWeightFraction:1-v.frontWeightFraction;
     v.wheelieTune=chassis.wheelieTune;v.allowWheelie=chassis.allowWheelie;v.suspensionDynamics=true;v.tyreDynamics=true;v.brakeDeceleration=13;
     if(auto* p=chosen(PartSlot::Brakes))v.brakeDeceleration=p->stat;

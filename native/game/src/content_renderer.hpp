@@ -91,9 +91,22 @@ public:
         // base slot's separate masks belong to a different car silhouette.
         auto sameFrame=[](const art::Frame& a,const art::Frame& b){return a.atlas==b.atlas&&a.x==b.x&&a.y==b.y&&a.w==b.w&&a.h==b.h&&a.dx==b.dx&&a.dy==b.dy&&a.canvasW==b.canvasW&&a.canvasH==b.canvasH;};
         bool legacy=VehicleCatalog[bodyChoiceIndex(p)].legacyLampMasks;
+        auto borrowedOutside=[&](const art::Frame& f,const art::Frame& reference){
+            if(original==1||!sameFrame(f,reference))return false;
+            if(legacy)return true;
+            Image mask=image(f);int total=0,outside=0;
+            for(int y=0;y<mask.height;y++)for(int x=0;x<mask.width;x++){
+                if(GetImageColor(mask,x,y).a<128)continue;
+                ++total;if(x>=im.width||y>=im.height||GetImageColor(im,x,y).a<128)++outside;
+            }
+            UnloadImage(mask);
+            // Only reject inherited masks mostly detached from the assembled
+            // silhouette; independently authored mod lamps remain untouched.
+            return outside>=3&&outside*2>total;
+        };
         if(!baseKit){
-            if(!legacy||!sameFrame(headFrames[p.car],headFor(1)[p.car]))lights(headFrames[p.car],head,false);
-            if(!legacy||!sameFrame(tailFrames[p.car],tailFor(1)[p.car]))lights(tailFrames[p.car],tail,true);
+            if(!borrowedOutside(headFrames[p.car],headFor(1)[p.car]))lights(headFrames[p.car],head,false);
+            if(!borrowedOutside(tailFrames[p.car],tailFor(1)[p.car]))lights(tailFrames[p.car],tail,true);
         }
         int spoiler=cosmeticSubimage(p,2);
         if(auto frames=spoilerFrames(original,spoiler)){Image layer=image(frames[p.car]);materialize(layer,p,true,false);overlay(im,layer);UnloadImage(layer);}

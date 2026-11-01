@@ -1664,7 +1664,7 @@
       "factory_engine_id": 20077,
       "identification": "user_confirmed_from_exact_Unbound_187_Fortune_composite",
       "source_recipe": "sp_car[186] plus sp_fortune_front[186], sp_fortune_rear[186] and sp_fortune_side[186], with source front/rear masks",
-      "limits": "Only this Ford GT conversion is confirmed; other base-slot kits are not certified Ford GT body parts. Powertrain uses the supplied Unbound workbook V6 3.5L 646 HP; chassis mass/grip remain a source-slot game calibration."
+      "limits": "Only this Ford GT conversion is confirmed. Existing Unbound V6 3.5L 646 HP and V6 audio profile; factory body kits of unrelated base-slot cars are blocked. Chassis and thermal dynamics are native calibrations; running mass is estimated."
     }
   ]
 }

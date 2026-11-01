@@ -1,0 +1,12 @@
+{
+  "linux_core_checks": 471,
+  "graphical_checks": 145,
+  "real_keyboard_mouse_checks": 37,
+  "stored_models": 431,
+  "source_frames_verified": 17190,
+  "preserved_asset_files": 676,
+  "factory_calibrations": 10,
+  "physical_gamepad_tested": false,
+  "native_physics_not_certified_real_vehicle_dynamics": true,
+  "unresolved_model_identities": 12
+}

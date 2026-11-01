@@ -1,0 +1,26 @@
+{
+  "references": [
+    {
+      "url": "https://www.lamborghini.com/en-en/history/aventador-s",
+      "retrieved_utc": "2026-11-01",
+      "sha256": "76408b318421c9d1d699e218af6d8cf22518483e9579a7db4eab23d8a584da15",
+      "bytes": 499405
+    },
+    {
+      "url": "https://www.lamborghini.com/en-en/models/huracan/huracan-evo",
+      "retrieved_utc": "2026-11-01",
+      "sha256": "c244bb76c504af5e00eab73c6d5442ad7dd482413bb63077ee24166b7ce904a7",
+      "bytes": 557992
+    },
+    {
+      "url": "https://media.ford.com/content/fordmedia/fna/us/en/news/2017/01/25/all-new-ford-gt-top-speed.html",
+      "retrieved_utc": "2026-11-01",
+      "sha256": "2d4a6780b81219ad108094256c2ae8fc4a86568ddd993a7a4f150b441a3e5251",
+      "bytes": 1180234
+    }
+  ],
+  "calibration_file": "vehicle-variants.json",
+  "factory_calibrations": 10,
+  "mass_and_drag_are_native_estimates": true,
+  "lamborghini_trim_year_confirmed": false
+}

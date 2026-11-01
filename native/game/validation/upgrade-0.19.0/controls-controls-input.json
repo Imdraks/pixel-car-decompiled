@@ -1,0 +1,15 @@
+{
+  "checks_passed": 9,
+  "checks": {
+    "commands_page_accessible": true,
+    "binding_saved_to_disk": true,
+    "new_throttle_accelerates": true,
+    "clean_exit_3": true,
+    "binding_survives_restart": true,
+    "duplicate_assignment_swaps_actions": true,
+    "cancel_preserves_previous_binding": true,
+    "defaults_restore": true,
+    "clean_exit_8": true
+  },
+  "physical_gamepad_tested": false
+}

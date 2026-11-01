@@ -28,11 +28,17 @@ inline AudioVolumes validateVolumes(AudioVolumes v){
     v.master=clamp(v.master);v.engine=clamp(v.engine);v.turbo=clamp(v.turbo);v.effects=clamp(v.effects);v.ambience=clamp(v.ambience);v.interface=clamp(v.interface);v.music=clamp(v.music);return v;
 }
 inline bool operator==(const AudioVolumes& a,const AudioVolumes& b){return a.master==b.master&&a.engine==b.engine&&a.turbo==b.turbo&&a.effects==b.effects&&a.ambience==b.ambience&&a.interface==b.interface&&a.music==b.music;}
+enum class Control { Throttle,Brake,Left,Right,ShiftUp,ShiftDown,Nitro,Launch,Handbrake,Neutral,Horn,Automatic,Engine,Count };
+constexpr int ControlCount=int(Control::Count);
+inline constexpr std::array<int,ControlCount> DefaultKeys{90,83,81,68,69,67,78,76,32,86,72,84,71};
+inline constexpr const char* ControlLabels[]={"ACCÉLÉRER","FREINER","GAUCHE","DROITE","RAPPORT +","RAPPORT -","NOS","LAUNCH CONTROL","FREIN À MAIN","NEUTRE (MAINTENIR)","KLAXON","BOÎTE AUTO / MANUELLE","DÉMARRER / COUPER"};
+inline bool validControlKey(int key){return (key>=32&&key<=96)||(key>=320&&key<=348);}
 struct Settings {
     WindowMode mode=WindowMode::Windowed;
     int width=1280, height=720, fps=120;
     bool vsync=true, showFps=false, sound=true, traffic=true,abs=true,tractionControl=true;
     AudioVolumes volumes{};
+    std::array<int,ControlCount> keys=DefaultKeys;bool gamepad=true;double gamepadDeadzone=.18;
     Quality quality=Quality::High;
 };
 struct Profile { bool factoryInitialized=false;int factoryEngineId=0;std::string savedName;int car=0, rim=8,rearRim=-1,contentSource=0,audioSource=0,visualVariant=0;std::array<int,CosmeticSlotCount> cosmetics{};bool rollCage=false,headlights=false,factoryDrive=true; double bestTime=0; bool automatic=true; DriveLayout drive=DriveLayout::Rear; std::array<int,PartSlotCount> parts{}; int soundOn=-1,soundOff=-1,bov=-1;
@@ -84,6 +90,7 @@ struct Vehicle {
     double superchargerExponent=1;double boostPsi=0,nitroHp=0; bool supercharged=false,twoStep=false;
     bool suspensionDynamics=false,tyreDynamics=false,allowWheelie=false,abs=false,tractionControl=false;
     bool wheelieBar=false;double wheelieBarArm=0,wheelieBarClearance=0;
+    double tyreOptimumC=75,tyreHeatCapacity=18000; // Per axle, J/K; native thermal calibration.
     double springStiffness=1,dampingRatio=.65,frontWeightFraction=.48,wheelieTune=1;
     double suspensionDroop=.12,suspensionBump=.08;
 
@@ -102,6 +109,7 @@ const char* rarityLabel(Rarity);
 double partPerformance(const Part&);
 bool weakerPart(const Part&,const Part&);
 void equipBestParts(Profile&);
+double tyreTemperatureGrip(double temperature,double optimum=75);
 double torqueCurve(const Vehicle&,double rpm);
 double targetBoost(const Vehicle&,double rpm);
 double engineTorque(const Vehicle&,double rpm,double boostPsi);
@@ -114,7 +122,7 @@ struct Build {
 };
 double engineRedline(const Profile&);
 Build buildVehicle(const Profile&);
-struct DriverInput { bool throttle=false, brake=false, automatic=true,nitro=false,launch=false,handbrake=false,neutral=false; };
+struct DriverInput { bool throttle=false, brake=false, automatic=true,nitro=false,launch=false,handbrake=false,neutral=false; double throttleAmount=1,brakeAmount=1; };
 struct CarState {
     double position=0, speed=0, rpm=1000, elapsed=0, finishTime=0, shiftLock=0;
     int gear=1;
@@ -125,6 +133,7 @@ struct CarState {
     double tractionFactor=1,brakeSlip=0,frontBrakeSlip=0,rearBrakeSlip=0;
     // Lateral demand consumes the same tyre adhesion as acceleration/braking.
     double lateralAcceleration=0,corneringDrag=0;
+    double frontTyreC=25,rearTyreC=25,frontTyreGrip=1,rearTyreGrip=1;
     bool wheelieBarContact=false,wheelieBarTouched=false;
     bool suspensionReady=false,tcActive=false,absActive=false,frontLocked=false,rearLocked=false;
 

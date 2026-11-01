@@ -1,0 +1,91 @@
+{
+  "models_reviewed": 431,
+  "raw_body_frames_checked": 17190,
+  "unresolved_identities": [
+    {
+      "vehicle_id": "pcr-unbound-075",
+      "label": "Hypercar Unbound à identifier",
+      "bank": 0,
+      "body_index": 75,
+      "decision": "Keep explicitly unidentified: extracted silhouette and existing source review do not establish an exact manufacturer/model."
+    },
+    {
+      "vehicle_id": "pcr-shared-100",
+      "label": "Modèle 101 à identifier",
+      "bank": 0,
+      "body_index": 100,
+      "decision": "Keep explicitly unidentified: extracted silhouette and existing source review do not establish an exact manufacturer/model."
+    },
+    {
+      "vehicle_id": "pcr-unbound-121",
+      "label": "Hypercar Unbound à identifier",
+      "bank": 0,
+      "body_index": 121,
+      "decision": "Keep explicitly unidentified: extracted silhouette and existing source review do not establish an exact manufacturer/model."
+    },
+    {
+      "vehicle_id": "pcr-shared-153",
+      "label": "Modèle 154 à identifier",
+      "bank": 0,
+      "body_index": 153,
+      "decision": "Keep explicitly unidentified: extracted silhouette and existing source review do not establish an exact manufacturer/model."
+    },
+    {
+      "vehicle_id": "pcr-unbound-186",
+      "label": "Hypercar Unbound à identifier",
+      "bank": 0,
+      "body_index": 186,
+      "decision": "Keep explicitly unidentified: extracted silhouette and existing source review do not establish an exact manufacturer/model."
+    },
+    {
+      "vehicle_id": "pcr-underground-047",
+      "label": "Fourgon Underground 048 à identifier",
+      "bank": 2,
+      "body_index": 47,
+      "decision": "Keep explicitly unidentified: extracted silhouette and existing source review do not establish an exact manufacturer/model."
+    },
+    {
+      "vehicle_id": "pcr-underground-100",
+      "label": "Modèle 101 à identifier (Underground)",
+      "bank": 2,
+      "body_index": 100,
+      "decision": "Keep explicitly unidentified: extracted silhouette and existing source review do not establish an exact manufacturer/model."
+    },
+    {
+      "vehicle_id": "pcr-underground-101",
+      "label": "Prototype Underground 102 à identifier",
+      "bank": 2,
+      "body_index": 101,
+      "decision": "Keep explicitly unidentified: extracted silhouette and existing source review do not establish an exact manufacturer/model."
+    },
+    {
+      "vehicle_id": "pcr-underground-120",
+      "label": "Compacte Underground 121 à identifier",
+      "bank": 2,
+      "body_index": 120,
+      "decision": "Keep explicitly unidentified: extracted silhouette and existing source review do not establish an exact manufacturer/model."
+    },
+    {
+      "vehicle_id": "pcr-underground-153",
+      "label": "Modèle 154 à identifier",
+      "bank": 2,
+      "body_index": 153,
+      "decision": "Keep explicitly unidentified: extracted silhouette and existing source review do not establish an exact manufacturer/model."
+    },
+    {
+      "vehicle_id": "pcr-underground-187",
+      "label": "Supercar Underground 188 à identifier",
+      "bank": 2,
+      "body_index": 187,
+      "decision": "Keep explicitly unidentified: extracted silhouette and existing source review do not establish an exact manufacturer/model."
+    },
+    {
+      "vehicle_id": "pcr-underground-188",
+      "label": "Supercar Underground 189 à identifier",
+      "bank": 2,
+      "body_index": 188,
+      "decision": "Keep explicitly unidentified: extracted silhouette and existing source review do not establish an exact manufacturer/model."
+    }
+  ],
+  "policy": "No source files overwritten. Lamp-layer fitting expanded; existing source layer order retained."
+}

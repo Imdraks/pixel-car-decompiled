@@ -72,6 +72,49 @@ inline void checkCustomization(const std::filesystem::path& assets,const std::fi
         }
         if(cases!=int(std::size(CosmeticCatalog))*382||renders!=1528||mounts!=27122||hoodCases!=14898)throw std::runtime_error("Couverture de personnalisation incomplète.");
         std::ofstream report(output/"customization-audit.json");report<<"{\n  \"body_banks_checked\": 382,\n  \"cosmetic_cases_checked\": "<<cases<<",\n  \"unsupported_choices\": "<<unsupported<<",\n  \"partial_choices\": "<<partial<<",\n  \"generic_mounts_checked\": "<<mounts<<",\n  \"full_body_renders\": "<<renders<<",\n  \"hood_cases_checked\": "<<hoodCases<<",\n  \"hood_fallback_cases\": "<<hoodFallbacks<<",\n  \"android_full_render_equivalence\": false\n}\n";
+        std::ofstream models(output/"model-fit.csv");models<<"vehicle_id,bank,body,kit,visible_pixels,exhaust_cases,cosmetic_cases\n";
+        int modelRenders=0,modelPipes=0,modelCosmetics=0,modelCount=0;
+        Image modelSheet{};
+        for(int vi=0;vi<int(std::size(VehicleCatalog));vi++){
+            if(vi%24==0)modelSheet=GenImageColor(1320,1140,Color{22,27,33,255});
+            const auto& def=VehicleCatalog[vi];Profile base;base.car=def.body;base.contentSource=def.source;base.visualVariant=def.visualVariant;
+            ++modelCount;
+            for(const auto& cosmetic:CosmeticCatalog){(void)cosmeticFit(base,cosmetic.id);++modelCosmetics;}
+            for(int kit=0;kit<=12;kit++){
+                Profile p=base;
+                if(kit){
+                    const Cosmetic* found=nullptr;
+                    for(const auto& c:CosmeticCatalog)if(c.slot==4&&c.subimage==kit&&cosmeticFit(p,c.id).supported){found=&c;break;}
+                    if(!found)continue;
+                    p.cosmetics[4]=found->id;
+                }
+                if(kit==0){
+                    p.rollCage=true;p.headlights=true;
+                    for(int slot:{3,9,10,12,13,14,15})for(const auto& c:CosmeticCatalog)
+                        if(c.slot==slot&&c.subimage>0&&(c.imageSource<0||c.imageSource==def.source)&&cosmeticFit(p,c.id).supported){p.cosmetics[slot]=c.id;break;}
+                }
+                Image composed=renderer.composeImage(p);int visible=0;
+                if(kit==0){
+                    int cell=vi%24;ContentRenderer::overlay(modelSheet,composed,float((cell%4)*330+15),float((cell/4)*190+8),1.3f);
+                    ImageDrawRectangle(&modelSheet,(cell%4)*330+15,(cell/4)*190+175,12+def.source*10,3,def.source==2?ORANGE:def.source==1?WHITE:GREEN);
+                }
+                for(int y=0;y<composed.height;y++)for(int x=0;x<composed.width;x++)visible+=GetImageColor(composed,x,y).a>128;
+                if(visible<100){UnloadImage(composed);throw std::runtime_error("Variante de modèle vide.");}
+                UnloadImage(composed);++modelRenders;
+                for(int pipe=0;pipe<int(std::size(art::pipeLayouts));pipe++){
+                    auto fit=installedExhaust(p,pipe,0);
+                    if(!std::isfinite(fit.x)||!std::isfinite(fit.y)||fit.count<0||fit.count>3)throw std::runtime_error("Placement de pot invalide.");
+                    for(int i=0;i<fit.count;i++)if(!std::isfinite(fit.outlets[i].x)||!std::isfinite(fit.outlets[i].y))throw std::runtime_error("Bouche de pot invalide.");
+                    ++modelPipes;
+                }
+                models<<def.id<<','<<def.source<<','<<def.body<<','<<kit<<','<<visible<<','<<std::size(art::pipeLayouts)<<','<<std::size(CosmeticCatalog)<<'\n';
+            }
+            if(vi%24==23||vi==int(std::size(VehicleCatalog))-1){
+                if(!ExportImage(modelSheet,(output/("models-"+std::to_string(vi/24)+".png")).u8string().c_str()))throw std::runtime_error("Export des modèles impossible.");
+                UnloadImage(modelSheet);
+            }
+        }
+        std::ofstream modelReport(output/"model-fit.json");modelReport<<"{\"models_checked\":"<<modelCount<<",\"rendered_kit_combinations\":"<<modelRenders<<",\"exhaust_placements_checked\":"<<modelPipes<<",\"cosmetic_compatibilities_checked\":"<<modelCosmetics<<",\"includes_underground_and_named_variants\":true,\"automatic_geometry_checks_only\":true,\"all_models_visually_certified\":false}\n";
         renderer.clear();
     }catch(...){renderer.clear();throw;}
 }

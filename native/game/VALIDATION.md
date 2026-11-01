@@ -1,5 +1,13 @@
 # Validation 0.18.3 — modèles identifiés, Ford GT 2017 et phares
 
+## 0.19.0 — moteurs, pneus, commandes et revue des trois banques
+
+- **471 contrôles du cœur**, **145 contrôles graphiques**, huit suites de pixels et **37 essais clavier/souris réels** sous Linux. Les affectations V10/V12, les anciennes valeurs des moteurs préparés, les migrations des voitures d’origine, les touches réassignées et leur persistance sont contrôlées.
+- **431 modèles**, **5588 compositions de kits**, **284988 placements d’échappement**, **316785 compatibilités cosmétiques** ; 18 planches incluant Underground et les conversions nommées. Les contrôles de géométrie ne constituent pas une certification visuelle de toutes les combinaisons.
+- **17190 cadres sources** comparés, **676 ressources préservées à l’octet** depuis la 0.18.3. Les anciens contrôles de suspensions, barres anti-wheelie, ABS, TC et patinage passent. La température des pneus agit sur l’adhérence : burnout arrière à environ 75,7 °C contre 25 °C au neutre dans l’essai de référence.
+- La manette physique n’est pas disponible dans le cloud ; pédales progressives testées dans le modèle, intégration compilée Linux/Windows, pilotes matériels à vérifier sur le PC du joueur. Douze identités restent explicitement incertaines. [Détails et limites](UPGRADE-019.md). Preuves Linux : `validation/upgrade-0.19.0/`.
+
+
 - Revue des 573 carrosseries de base Original/Unbound/Underground ; 17 190 images de carrosserie, masques et pièces de kits comparées aux textures Android vérifiées par SHA-256 : tous les pixels visibles concordent avec les atlas actifs du jeu natif.
 - Unbound 086 identifiée visuellement comme Aventador ; Unbound 188 confirmée comme Huracán par l’utilisateur à partir de son image exacte. Année et finition non certifiées. Les autres variantes Underground ne sont pas renommées par analogie de numéro.
 - Retrait erroné de la 188 annulé : deux modèles disponibles séparément au showroom, anciennes préparations et configurations nommées à nouveau chargeables, anciens identifiants et copies de sécurité conservés. Un garage déjà migré ne reçoit pas de voiture automatiquement ; réacquérir la Huracán retrouve sa préparation archivée.

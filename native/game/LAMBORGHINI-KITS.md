@@ -52,3 +52,5 @@ Les anciens masques de phares et de feux, restés identiques à ceux de la voitu
 Original, ne sont plus superposés aux modèles remplacés dans les mods. Les calques
 qui ont réellement été adaptés sont conservés. La couleur blanche des carrosseries
 et les optiques intégrées aux nouveaux dessins ne sont pas supprimées.
+
+Depuis la **0.19.0**, les exemplaires d’origine reçoivent les moteurs et sons V12/V10 de référence S/EVO ; les préparations existantes sont conservées. [Calibrations et limites](UPGRADE-019.md).
