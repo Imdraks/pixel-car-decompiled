@@ -8,6 +8,8 @@ La 0.19.1 repasse les **471 tests du cœur**, **145 graphiques**, huit suites de
 
 La publication exige désormais aussi l’identité de ces 5588 empreintes entre le candidat Linux et Windows. Les moteurs, pneus thermiques, commandes et sauvegardes de la 0.19.0 sont conservés.
 
+**Validation Windows réussie** : [exécution 41292012550](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/41292012550), 471 contrôles du cœur, 145 graphiques, audio et audit complet. Les 5588 empreintes RGBA concordent exactement avec Linux ; les onze tableaux physiques et les températures concordent dans la tolérance de 0,01. ZIP public téléchargé et vérifié : CRC/SHA, source `44dfcfeec6850dea4e030e262765815eca105ca6`, EXE, 676 ressources, 67 pièces jointes dont 64 aperçus identiques aux captures Windows. SHA-256 ZIP : `f4fae650067f9bfcfd28509e2fa30f45347bcaa7c144872e20f1d3cc57feed3e`. Preuves : `validation/windows-0.19.1/`. La release 0.19.0 est signalée comme remplacée, sans modification de ses fichiers publiés.
+
 
 ## 0.19.0 — moteurs, pneus, commandes et revue des trois banques
 

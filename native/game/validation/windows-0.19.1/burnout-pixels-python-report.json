@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "green_smoke_visible": true,
+    "teal_smoke_visible": true,
+    "purple_smoke_visible": true,
+    "pink_smoke_visible": true,
+    "red_smoke_visible": true,
+    "orange_smoke_visible": true,
+    "yellow_smoke_visible": true,
+    "blue_smoke_visible": true
+  },
+  "matching_pixels": {
+    "green": 3191,
+    "teal": 3560,
+    "purple": 3364,
+    "pink": 2932,
+    "red": 3057,
+    "orange": 3076,
+    "yellow": 3068,
+    "blue": 4242
+  }
+}

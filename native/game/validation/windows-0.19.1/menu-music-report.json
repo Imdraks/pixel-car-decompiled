@@ -1,0 +1,6 @@
+{
+  "clips": [{"file":"music/menu-underground.ogg","frames":7501824,"sample_rate":44100,"channels":2,"peak":0.623138},{"file":"music/menu-underground-garage.ogg","frames":7501824,"sample_rate":44100,"channels":2,"peak":0.829468}],
+  "no_clipping": true,
+  "same_timeline": true,
+  "clips_checked": 2
+}

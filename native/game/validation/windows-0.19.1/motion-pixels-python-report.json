@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "stationary_scene_and_wheels_are_frozen": true,
+    "paused_at_speed_scene_and_wheels_are_frozen": true,
+    "road_100_kmh_matches_distance": true,
+    "road_200_kmh_matches_distance": true,
+    "doubling_speed_doubles_ground_travel": true
+  },
+  "measurements": {
+    "100": {
+      "pixels_in_0.1_seconds": 101,
+      "expected_pixels": 100.00000000000001,
+      "match": 1.0
+    },
+    "200": {
+      "pixels_in_0.1_seconds": 200,
+      "expected_pixels": 200.00000000000003,
+      "match": 1.0
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "hub_cases_checked": 9168,
+  "suspension_axes_respected": true,
+  "mechanical_travel_respected": true,
+  "wheelie_endpoint_lift_m": 0.28003,
+  "balanced_endpoint_lift_m": 0,
+  "full_android_dynamics_equivalence": false
+}

@@ -1,0 +1,1284 @@
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_bov2.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crash1.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crash2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crash3.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_shop.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/bgm_map.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_tournament_ava.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_tournament_vs.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_swoosh2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crowd_soft.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crowd_loud.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crowd_roar1.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crowd_roar2.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_airhorn.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_airhorn_long.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_swoosh_loud.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_tournament_win.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_bov4.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_badge.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_box3.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_engine.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_engine2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_engine2e.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_engine3.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_engine4.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_horn.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_lose.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_starter.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_supercharger.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_turbo.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_win.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_sell.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_alert.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_back.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_buy.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_banner.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_begin.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_button.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_count.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_go.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_install.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_install2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_lift.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_pop.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_shift.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_start.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/bgm_title.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_engine5.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_logo.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_tick.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_beep.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_swoosh.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_ambient.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_bov5.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_button_light.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_toggle.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_swipe.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_key.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_town.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_counter.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crate.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_levelup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_stat.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_money.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_moneybig.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_buycar.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_predrag.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_moneylose.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_racemenu_go.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_racemenu_back.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_ok.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_engine_6.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crate_open.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_engine_7.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_tech.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_spray.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_nos.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_bov1.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_engine8.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/engine_test1.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/engine_test2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/engine_test3.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_police_siren.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_police_warn.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_scrape.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_bags.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_roll.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_stop.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_lever.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_money_win.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_dailyReceive.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_dailyWin.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_rewardStop.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_rewardWin.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_bov2.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_crash1.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_crash2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_crash3.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_shop.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/bgm_map.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_tournament_ava.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_tournament_vs.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_swoosh2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_crowd_soft.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_crowd_loud.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_crowd_roar1.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_crowd_roar2.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_airhorn.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_airhorn_long.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_swoosh_loud.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_tournament_win.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_bov4.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_badge.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_box3.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_engine.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_engine2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_engine2e.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_engine3.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_engine4.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_horn.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_lose.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_starter.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_supercharger.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_turbo.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_win.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_sell.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_alert.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_back.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_buy.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_banner.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_begin.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_button.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_count.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_go.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_install.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_install2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_lift.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_pop.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_shift.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_start.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/bgm_title.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_engine5.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_logo.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_tick.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_beep.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_swoosh.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_ambient.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (22050 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_bov5.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_button_light.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_toggle.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_swipe.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_key.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_town.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_counter.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_crate.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_levelup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_stat.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_money.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_moneybig.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_buycar.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_predrag.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_moneylose.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_racemenu_go.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_racemenu_back.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_ok.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_engine_6.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_crate_open.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_engine_7.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_tech.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_spray.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_nos.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_bov1.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/sfx_engine8.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/engine_test1.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/engine_test2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/engine_test3.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_police_siren.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_police_warn.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_scrape.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_bags.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_roll.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_stop.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_lever.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_money_win.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_dailyReceive.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_dailyWin.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_rewardStop.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-original/snd_rewardWin.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_bov2.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crash1.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crash2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crash3.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/snd_shop.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/bgm_map.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_tournament_ava.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_tournament_vs.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_swoosh2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crowd_soft.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crowd_loud.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crowd_roar1.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crowd_roar2.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_airhorn.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_airhorn_long.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_swoosh_loud.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_tournament_win.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_bov4.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_badge.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_box3.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/sfx_engine.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (48000 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/sfx_engine2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (48000 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/sfx_engine2e.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (48000 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/sfx_engine3.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (48000 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/sfx_engine4.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (48000 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_horn.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/sfx_lose.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_starter.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_supercharger.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_turbo.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/sfx_win.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_sell.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_alert.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_back.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/snd_buy.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_banner.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_begin.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_button.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_count.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_go.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_install.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_install2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_lift.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/snd_pop.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (24003 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_shift.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_start.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/bgm_title.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/sfx_engine5.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (48000 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/snd_logo.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (48000 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_tick.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_beep.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_swoosh.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_ambient.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/sfx_bov5.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_button_light.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_toggle.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_swipe.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_key.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/snd_town.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (48000 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_counter.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crate.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_levelup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_stat.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_money.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_moneybig.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_buycar.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_predrag.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_moneylose.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_racemenu_go.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_racemenu_back.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_ok.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_engine_6.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_crate_open.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/sfx_engine_7.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (48000 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_tech.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_spray.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/snd_nos.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/sfx_bov1.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/sfx_engine8.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (48000 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/engine_test1.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/engine_test2.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/engine_test3.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio-underground/snd_police_siren.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_police_warn.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_scrape.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_bags.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_roll.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_stop.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_lever.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_money_win.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_dailyReceive.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_dailyWin.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_rewardStop.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\audio/snd_rewardWin.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_acceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_acceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_deceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_deceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_ignition_off.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_ignition_off.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_1000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_1000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_1000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_1000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_1000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_1000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_2500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_2500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_2500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_2500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_2500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_2500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_4500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_4500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_4500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_4500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_4500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_4500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_7000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_7000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_7000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_7000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_7000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_rpm_loop_rpm_7000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_startup.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/gm_ls_v8\gm_ls_v8_startup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_acceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_acceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_deceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_deceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_ignition_off.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_ignition_off.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_1000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_1000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_1000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_1000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_1000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_1000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_2500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_2500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_2500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_2500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_2500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_2500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_4500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_4500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_4500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_4500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_4500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_4500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_6500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_6500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_6500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_6500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_6500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_rpm_loop_rpm_6500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_startup.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/amg_gt63s_2021\amg_gt63s_2021_startup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_acceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_acceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_deceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_deceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_ignition_off.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_ignition_off.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_1000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_1000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_1000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_1000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_1000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_1000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_3000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_3000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_3000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_3000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_3000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_3000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_5000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_5000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_5000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_5000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_5000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_5000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_8000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_8000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_8000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_8000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_8000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_rpm_loop_rpm_8000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_startup.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/huracan_v10\huracan_v10_startup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_acceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_acceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_deceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_deceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_ignition_off.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_ignition_off.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_1000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_1000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_1000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_1000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_1000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_1000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_2500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_2500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_2500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_2500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_2500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_2500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_4000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_4000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_4000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_4000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_4000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_4000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_6000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_6000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_6000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_6000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_6000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_6000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_8200_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_8200_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_8200_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_8200_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_8200_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_rpm_loop_rpm_8200_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_startup.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/aventador_svj_v12\aventador_svj_v12_startup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_acceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_acceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_deceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_deceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_ignition_off.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_ignition_off.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_14000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_14000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_14000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_14000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_14000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_14000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_2000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_2000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_2000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_2000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_2000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_2000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_5000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_5000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_5000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_5000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_5000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_5000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_9000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_9000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_9000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_9000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_9000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_rpm_loop_rpm_9000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_startup.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/f1_v6\f1_v6_startup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_acceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_acceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_deceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_deceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_ignition_off.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_ignition_off.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_1000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_1000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_1000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_1000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_1000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_1000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_2500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_2500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_2500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_2500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_2500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_2500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_4500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_4500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_4500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_4500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_4500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_4500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_7000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_7000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_7000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_7000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_7000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_rpm_loop_rpm_7000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_startup.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/ford_coyote_v8\ford_coyote_v8_startup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_acceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_acceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_deceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_deceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_ignition_off.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_ignition_off.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_1000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_1000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_1000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_1000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_1000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_1000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_2500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_2500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_2500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_2500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_2500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_2500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_4500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_4500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_4500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_4500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_4500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_4500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_7500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_7500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_7500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_7500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_7500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_rpm_loop_rpm_7500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_startup.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i4\nfs_i4_startup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_acceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_acceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_deceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_deceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_ignition_off.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_ignition_off.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_1000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_1000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_1000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_1000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_1000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_1000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_2500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_2500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_2500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_2500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_2500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_2500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_4500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_4500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_4500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_4500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_4500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_4500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_7500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_7500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_7500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_7500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_7500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_rpm_loop_rpm_7500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_startup.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_i6\nfs_i6_startup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_acceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_acceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_deceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_deceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_ignition_off.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_ignition_off.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_1000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_1000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_1000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_1000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_1000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_1000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_2500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_2500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_2500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_2500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_2500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_2500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_4500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_4500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_4500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_4500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_4500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_4500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_7000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_7000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_7000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_7000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_7000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_rpm_loop_rpm_7000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_startup.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_h4\nfs_h4_startup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_acceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_acceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_deceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_deceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_ignition_off.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_ignition_off.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_1000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_1000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_1000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_1000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_1000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_1000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_2500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_2500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_2500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_2500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_2500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_2500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_4500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_4500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_4500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_4500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_4500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_4500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_7000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_7000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_7000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_7000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_7000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_rpm_loop_rpm_7000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_startup.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v6\nfs_v6_startup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_acceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_acceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_deceleration.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_deceleration.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_ignition_off.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_ignition_off.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_1000_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_1000_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_1000_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_1000_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_1000_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_1000_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_2500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_2500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_2500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_2500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_2500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_2500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_4500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_4500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_4500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_4500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_4500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_4500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_8500_load_0.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_8500_load_0.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_8500_load_100.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_8500_load_100.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_8500_load_30.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_rpm_loop_rpm_8500_load_30.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_startup.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\engine-packs/nfs_v8_flat\nfs_v8_flat_startup.wav] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 1 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\music/menu-underground.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)
+INFO: FILEIO: [D:\a\_temp\pcr-native-app\assets\music/menu-underground-garage.ogg] File loaded successfully
+INFO: WAVE: Data loaded successfully (44100 Hz, 16 bit, 2 channels)

@@ -1,0 +1,7 @@
+{
+  "power_levels_checked": 3,
+  "handbrake_neutral_parity": true,
+  "stronger_power_more_spin": true,
+  "controlled_initial_slip_m": 0,
+  "native_calibration": true
+}

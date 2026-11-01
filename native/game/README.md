@@ -1,6 +1,6 @@
 # Pixel Car Racer — Original / Unbound / Underground Native 0.19.1
 
-La **0.19.1** corrige la sélection du phare universel DRAG PRO et ajoute une empreinte des pixels pour chacune des 5588 compositions de kits, afin de comparer leur rendu entre Linux et Windows.
+La **0.19.1** corrige la sélection du phare universel DRAG PRO et ajoute une empreinte des pixels pour chacune des 5588 compositions de kits, afin de comparer leur rendu entre Linux et Windows. [Validée sous Windows](https://github.com/Imdraks/pixel-car-decompiled/actions/runs/41292012550) : 471 contrôles du cœur, 145 graphiques et 5588 empreintes identiques à Linux.
 
 La **0.19.0** corrige les moteurs des modèles confirmés (dont V10/V12 Lamborghini), protège les préparations existantes, ajoute la température des pneus à l’adhérence et les commandes clavier réassignables avec prise en charge manette. La comparaison des pièces inclut poids, grip et passages de rapports ; l’audit couvre les trois banques et les variantes nommées. [Détails et limites](UPGRADE-019.md).
 
